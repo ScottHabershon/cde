@@ -1,0 +1,56 @@
+ # Intialization                                                                                     
+ dimension      3                                                                                    
+ units          real                                                                                 
+ boundary       f f f                                                                                
+ atom_style     charge                                                                               
+ atom_modify    map array sort 0 0.0                                                                 
+                                                                                                     
+ # XXX replaced by mass labels and atom creation                                                     
+ region thebox block    -810.81212002    810.81212002   -810.81212002    810.81212002   -810.81212002    810.81212002
+ create_box 3 thebox
+ mass  1   196.61054418
+ mass  2    15.99491539
+ mass  3    12.01070040
+ create_atoms  1 single    -0.28193000    0.21606000   -0.05269000
+ create_atoms  1 single    -1.62826000    1.98962000   -1.69653000
+ create_atoms  1 single    -0.32195000   -0.75880000   -2.64227000
+ create_atoms  1 single     1.87713000   -1.12378000   -1.18455000
+ create_atoms  1 single    -0.38388000   -2.74089000   -0.81344000
+ create_atoms  1 single    -2.86757000   -0.08041000   -2.88894000
+ create_atoms  1 single    -2.68032000   -0.80663000   -0.33346000
+ create_atoms  2 single     6.04360001    1.21430000   -0.00067000
+ create_atoms  2 single     7.19319001    1.16031000    0.00184000
+ create_atoms  3 single    -2.93737000   10.81212002    3.34127001
+ create_atoms  3 single    10.63841002   -5.39545001    3.77230001
+ create_atoms  2 single    -1.83561000   10.69125002    3.84978001
+ create_atoms  2 single    10.59545002   -4.09311001    4.26717001
+                                                                                                     
+ pair_style     reax/c lmp_control                                                                   
+ # Force file to be used, atom types are added automatically for reax/c                              
+ pair_coeff     * * CHOPtNiX.ff Pt O C                                                                                             
+ group 11 id 5 6 7 8 9 10 11 12
+ fix 11 11 setforce 0.0 0.0 0.0 
+ group 12 id 2
+ fix 13 13 setforce 0.0 NULL 0.0 
+ fix            1 all qeq/reax 1 0.0 10.0 1.0e-8 reax/c                                              
+                                                                                                     
+ neighbor       2.5 bin                                                                              
+ neigh_modify   every 1 delay 0 check no                                                             
+                                                                                                     
+ compute        reax all pair reax/c                                                                 
+                                                                                                     
+ thermo         1                                                                                    
+ thermo_style   custom pe                                                                            
+                                                                                                     
+ min_style quickmin # new addition                                                                   
+ minimize 1.00e-10 1.00e-8 50000 50000                                                               
+                                                                                                     
+ timestep 1                                                                                          
+                                                                                                     
+ # output forces                                                                                     
+ dump           2 all custom 1 temp.force fx fy fz                                                   
+ dump_modify    2 format float "%14.8f"                                                              
+ dump 1 all xyz 1 temp.xyz 
+ dump_modify 1 format line "%s %14.8f %14.8f %14.8f"
+ dump_modify 1 element Pt O C 
+ run 0 

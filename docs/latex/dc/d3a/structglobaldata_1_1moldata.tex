@@ -1,0 +1,55 @@
+\hypertarget{structglobaldata_1_1moldata}{}\section{globaldata\+:\+:moldata Type Reference}
+\label{structglobaldata_1_1moldata}\index{globaldata\+::moldata@{globaldata\+::moldata}}
+
+
+by \char`\"{}unique reaction\char`\"{} I mean that each reaction in rxl has different (distinct) molecules in reactants/products to  
+
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structglobaldata_1_1moldata_a60ad45ff355fdfc0ad74cca79fd9eef1}\label{structglobaldata_1_1moldata_a60ad45ff355fdfc0ad74cca79fd9eef1}} 
+integer \mbox{\hyperlink{structglobaldata_1_1moldata_a60ad45ff355fdfc0ad74cca79fd9eef1}{nmol}}
+\begin{DoxyCompactList}\small\item\em total number of Molecules in Database \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1moldata_af433d1f7b70b8fc56acd571383779027}\label{structglobaldata_1_1moldata_af433d1f7b70b8fc56acd571383779027}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1moldata_af433d1f7b70b8fc56acd571383779027}{mid}}
+\begin{DoxyCompactList}\small\item\em since molecules will be ordered by mass/size mid(rank) = molid \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1moldata_a28c892740ad281747bf015cacaf11ca8}\label{structglobaldata_1_1moldata_a28c892740ad281747bf015cacaf11ca8}} 
+type(\mbox{\hyperlink{structglobaldata_1_1molecule}{molecule}}), dimension(\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1moldata_a28c892740ad281747bf015cacaf11ca8}{mol}}
+\begin{DoxyCompactList}\small\item\em molecular type for each molecule, ordered by the number of actoms \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1moldata_a05519eb77473e7481f2c032f653b35f1}\label{structglobaldata_1_1moldata_a05519eb77473e7481f2c032f653b35f1}} 
+integer, dimension(\+:,\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1moldata_a05519eb77473e7481f2c032f653b35f1}{mrx}}
+\begin{DoxyCompactList}\small\item\em for each molecule the unique reaction indeces for rxlist and nrxlist, on which this molecule appears \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1moldata_a99279f0c673f74130cad6faf2801fbab}\label{structglobaldata_1_1moldata_a99279f0c673f74130cad6faf2801fbab}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1moldata_a99279f0c673f74130cad6faf2801fbab}{nmrx}}
+\begin{DoxyCompactList}\small\item\em the number of unique reactions where the molecule appears \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1moldata_a1f250a471c75094e1eb7e1bfa9ce99e8}\label{structglobaldata_1_1moldata_a1f250a471c75094e1eb7e1bfa9ce99e8}} 
+integer \mbox{\hyperlink{structglobaldata_1_1moldata_a1f250a471c75094e1eb7e1bfa9ce99e8}{nrx}}
+\begin{DoxyCompactList}\small\item\em the number of unique reactions, should be the same as the number of fingerprints... \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1moldata_a5773e6fcfb5153c31316d8cd099fa1e8}\label{structglobaldata_1_1moldata_a5773e6fcfb5153c31316d8cd099fa1e8}} 
+integer, dimension(\+:,\+:,\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1moldata_a5773e6fcfb5153c31316d8cd099fa1e8}{rxl}}
+\begin{DoxyCompactList}\small\item\em reaction list with the index of each molecule for both reactants and products (third index 1\+:2) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1moldata_aec9e760ee30c2784a46999df97a0bab2}\label{structglobaldata_1_1moldata_aec9e760ee30c2784a46999df97a0bab2}} 
+integer, dimension(\+:,\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1moldata_aec9e760ee30c2784a46999df97a0bab2}{nrxl}}
+\begin{DoxyCompactList}\small\item\em number of molecules in either reactant or producti (last index 1\+:2) for reaction list rxlis \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1moldata_a270e18949ddf76d06d87ccff551b8e52}\label{structglobaldata_1_1moldata_a270e18949ddf76d06d87ccff551b8e52}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1moldata_a270e18949ddf76d06d87ccff551b8e52}{ndrxl}}
+\begin{DoxyCompactList}\small\item\em number of fingerprint reaction (the \char`\"{}degeneracy\char`\"{}) that coincide with this unique reaction \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1moldata_a5474497ab7b3c38aae4e3c2ca755b302}\label{structglobaldata_1_1moldata_a5474497ab7b3c38aae4e3c2ca755b302}} 
+integer, dimension(\+:,\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1moldata_a5474497ab7b3c38aae4e3c2ca755b302}{drxl}}
+\begin{DoxyCompactList}\small\item\em the id of the reactions in the Fingerprints that have this unique reaction \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1moldata_a6f91b48fec5a81129b9fdcc060ec93ad}\label{structglobaldata_1_1moldata_a6f91b48fec5a81129b9fdcc060ec93ad}} 
+logical, dimension(\+:,\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1moldata_a6f91b48fec5a81129b9fdcc060ec93ad}{orxl}}
+\begin{DoxyCompactList}\small\item\em direction of the fingerprint reax, w.\+r.\+t the unique reaction used here ( direction = which are reactants and which products) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+by \char`\"{}unique reaction\char`\"{} I mean that each reaction in rxl has different (distinct) molecules in reactants/products to 
+
+Definition at line 228 of file globaldata.\+f90.
+
+
+
+The documentation for this type was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/scott/code/cde/src/globaldata.\+f90\end{DoxyCompactItemize}

@@ -1,0 +1,46 @@
+\hypertarget{namespacefitness}{}\doxysection{fitness Module Reference}
+\label{namespacefitness}\index{fitness@{fitness}}
+
+
+Contains a user-\/editable routine to calculate the fitness of each molecular structure during a molecular property optimization calculation.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacefitness_ad455f723b8ddd349ac76eaa74449080f}\label{namespacefitness_ad455f723b8ddd349ac76eaa74449080f}} 
+subroutine {\bfseries evaluatefitness} (cx, success)
+\item 
+subroutine \mbox{\hyperlink{namespacefitness_a0ff71fd8701e300b22d6210ff5701c17}{isacceptable}} (cx, flag)
+\begin{DoxyCompactList}\small\item\em Is\+Acceptable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains a user-\/editable routine to calculate the fitness of each molecular structure during a molecular property optimization calculation. 
+
+In the subroutine Evaluate\+Fitness(cx), the user must provide a function which provides the fitness value for the chemical structure cx.
+
+{\itshape I\+M\+P\+O\+R\+T\+A\+NT\+:} Larger fitness is better! 
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacefitness_a0ff71fd8701e300b22d6210ff5701c17}\label{namespacefitness_a0ff71fd8701e300b22d6210ff5701c17}} 
+\index{fitness@{fitness}!isacceptable@{isacceptable}}
+\index{isacceptable@{isacceptable}!fitness@{fitness}}
+\doxysubsubsection{\texorpdfstring{isacceptable()}{isacceptable()}}
+{\footnotesize\ttfamily subroutine fitness\+::isacceptable (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{logical}]{flag }\end{DoxyParamCaption})}
+
+
+
+Is\+Acceptable. 
+
+Determines whether or not a molecule for optimization is an acceptable chemical structure. To be acceptable, the molecular graph must\+:
+\begin{DoxyItemize}
+\item Represent a single contiguous molecule,
+\item Have no 3-\/rings,
+\item Have no 4-\/rings.
+\item cx\+: Chemical structure object.
+\item flag\+: Logical flag indicating whether or not structure is acceptable. 
+\end{DoxyItemize}
+
+Definition at line 182 of file Fitness.\+f90.
+

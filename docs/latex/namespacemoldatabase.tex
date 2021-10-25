@@ -1,0 +1,238 @@
+\hypertarget{namespacemoldatabase}{}\doxysection{moldatabase Module Reference}
+\label{namespacemoldatabase}\index{moldatabase@{moldatabase}}
+
+
+Molecular Database Generation.  
+
+
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structmoldatabase_1_1moldata}{moldata}}
+\begin{DoxyCompactList}\small\item\em by \char`\"{}unique reaction\char`\"{} I mean that each reaction in rxl has different (distinct) molecules in reactants/products to \end{DoxyCompactList}\item 
+type \mbox{\hyperlink{structmoldatabase_1_1molecule}{molecule}}
+\item 
+type \mbox{\hyperlink{structmoldatabase_1_1reaction}{reaction}}
+\item 
+type \mbox{\hyperlink{structmoldatabase_1_1sreaction}{sreaction}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacemoldatabase_a7e086870b0efcbfb5dfd75d3c7b7da6a}\label{namespacemoldatabase_a7e086870b0efcbfb5dfd75d3c7b7da6a}} 
+subroutine {\bfseries runmoldatagen} (temperature)
+\item 
+subroutine \mbox{\hyperlink{namespacemoldatabase_abfe84337f904e7d51c50695f0e29273d}{init\+\_\+moldata}} (MolD)
+\begin{DoxyCompactList}\small\item\em init\+\_\+moldata \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacemoldatabase_ac4bcc3233235935071859b5ea7df061d}{addfptomoleculardatabase}} (rp, fngr, Md, itot, getprofile, temp)
+\begin{DoxyCompactList}\small\item\em Add\+F\+P\+To\+Molecular\+Database. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacemoldatabase_a8cea9321306a639adc6c248da7cc06cd}\label{namespacemoldatabase_a8cea9321306a639adc6c248da7cc06cd}} 
+subroutine {\bfseries getisomerlist} (Md)
+\item 
+subroutine \mbox{\hyperlink{namespacemoldatabase_acccac7d45efa785ed1d26711e42b5929}{addcxstomoleculardatabase}} (cx, Md, optaftermove, molen)
+\begin{DoxyCompactList}\small\item\em Add\+C\+X\+S\+To\+Molecular\+Database. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacemoldatabase_af0aec446462fc0ad8ac92563570fc0a7}\label{namespacemoldatabase_af0aec446462fc0ad8ac92563570fc0a7}} 
+subroutine {\bfseries getsingleprofiledata} (rx, rp, dir, fgrid, temp, ebarr, sbarr)
+\item 
+subroutine \mbox{\hyperlink{namespacemoldatabase_a217ee2a941096b9115748d3c64b6e1b7}{savemoleculardatabase}} (Md, filename, profile)
+\begin{DoxyCompactList}\small\item\em Save\+Molecular\+Database. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacemoldatabase_aaec1c10f3c45e1da4e9224a22c8c3f15}{readmoleculardatabase}} (Md, filename)
+\begin{DoxyCompactList}\small\item\em Read\+Molecular\+Database. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacemoldatabase_a0a3e9e591f632c0fe688940bd2ddec02}{deletemoleculardatabase}} (Md)
+\begin{DoxyCompactList}\small\item\em Delete\+Molecular\+Database. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacemoldatabase_ae96b5df73181e9ee370a53e2339cf4eb}{printmoleculardatabase}} (Md, filename)
+\begin{DoxyCompactList}\small\item\em Print\+Molecular\+Database. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacemoldatabase_a7a1d7fd24ac0e19720d026d9671eca8c}{printmoleculardatabase2}} (Md, filename)
+\begin{DoxyCompactList}\small\item\em Print\+Molecular\+Database2. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacemoldatabase_a8878e29dc620d9a763daebfc1d86209a}\label{namespacemoldatabase_a8878e29dc620d9a763daebfc1d86209a}} 
+double precision function, dimension(mol\%na, mol\%na) {\bfseries getmgraphfromv} (mol)
+\item 
+logical function \mbox{\hyperlink{namespacemoldatabase_a7488776f7549a0d032bbde1374f9dd8a}{mdmoleculesarenearbyisomers}} (Md, ci, bi)
+\begin{DoxyCompactList}\small\item\em Molecules\+Are\+Nearby\+Isomers. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacemoldatabase_a8398986f6d8f338109ff0f15ffea33eb}{deletefingerprint}} (fngr)
+\begin{DoxyCompactList}\small\item\em Delete\+Fingerprint. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacemoldatabase_a309a99fab915cacec7838dcf37829507}\label{namespacemoldatabase_a309a99fab915cacec7838dcf37829507}} 
+integer, parameter {\bfseries fillen} = 250
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Molecular Database Generation. 
+
+Produces the Mol.\+bin and Mol.\+dat files with the pertinent information 
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacemoldatabase_abfe84337f904e7d51c50695f0e29273d}\label{namespacemoldatabase_abfe84337f904e7d51c50695f0e29273d}} 
+\index{moldatabase@{moldatabase}!init\_moldata@{init\_moldata}}
+\index{init\_moldata@{init\_moldata}!moldatabase@{moldatabase}}
+\doxysubsubsection{\texorpdfstring{init\_moldata()}{init\_moldata()}}
+{\footnotesize\ttfamily subroutine moldatabase\+::init\+\_\+moldata (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structmoldatabase_1_1moldata}{moldata}})}]{MolD }\end{DoxyParamCaption})}
+
+
+
+init\+\_\+moldata 
+
+initializes molecular database variable type
+
+
+\begin{DoxyItemize}
+\item MD\+: molecular database 
+\end{DoxyItemize}
+
+Definition at line 216 of file moldat.\+f90.
+
+\mbox{\Hypertarget{namespacemoldatabase_ac4bcc3233235935071859b5ea7df061d}\label{namespacemoldatabase_ac4bcc3233235935071859b5ea7df061d}} 
+\index{moldatabase@{moldatabase}!addfptomoleculardatabase@{addfptomoleculardatabase}}
+\index{addfptomoleculardatabase@{addfptomoleculardatabase}!moldatabase@{moldatabase}}
+\doxysubsubsection{\texorpdfstring{addfptomoleculardatabase()}{addfptomoleculardatabase()}}
+{\footnotesize\ttfamily subroutine moldatabase\+::addfptomoleculardatabase (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp,  }\item[{type(\mbox{\hyperlink{structglobaldata_1_1fingerprint}{fingerprint}}), pointer}]{fngr,  }\item[{type(\mbox{\hyperlink{structmoldatabase_1_1moldata}{moldata}})}]{Md,  }\item[{integer}]{itot,  }\item[{logical}]{getprofile,  }\item[{double precision, optional}]{temp }\end{DoxyParamCaption})}
+
+
+
+Add\+F\+P\+To\+Molecular\+Database. 
+
+adds molecular structure mol, and reaction to the Mol\+Data dtatype of the new molecules and reaction generated
+
+rp -\/ reaction path fngr -\/ fingerprint of the current MolD -\/ molecular database itot -\/ the id of the reactions in the Fingerprints that have this unique reaction getprofile -\/ flag determining weather we want to add the energy profile data to the database temp -\/ temperature (K) 
+
+Definition at line 252 of file moldat.\+f90.
+
+\mbox{\Hypertarget{namespacemoldatabase_acccac7d45efa785ed1d26711e42b5929}\label{namespacemoldatabase_acccac7d45efa785ed1d26711e42b5929}} 
+\index{moldatabase@{moldatabase}!addcxstomoleculardatabase@{addcxstomoleculardatabase}}
+\index{addcxstomoleculardatabase@{addcxstomoleculardatabase}!moldatabase@{moldatabase}}
+\doxysubsubsection{\texorpdfstring{addcxstomoleculardatabase()}{addcxstomoleculardatabase()}}
+{\footnotesize\ttfamily subroutine moldatabase\+::addcxstomoleculardatabase (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{type(\mbox{\hyperlink{structmoldatabase_1_1moldata}{moldata}})}]{Md,  }\item[{logical}]{optaftermove,  }\item[{double precision, dimension(cx\%nmol), optional}]{molen }\end{DoxyParamCaption})}
+
+
+
+Add\+C\+X\+S\+To\+Molecular\+Database. 
+
+adds molecular structure mol, and reaction to the Mol\+Data dtatype of the new molecules and reaction generated
+
+cx -\/ Chemical Structure MolD -\/ molecular database temp -\/ temperature (K) 
+
+Definition at line 566 of file moldat.\+f90.
+
+\mbox{\Hypertarget{namespacemoldatabase_a217ee2a941096b9115748d3c64b6e1b7}\label{namespacemoldatabase_a217ee2a941096b9115748d3c64b6e1b7}} 
+\index{moldatabase@{moldatabase}!savemoleculardatabase@{savemoleculardatabase}}
+\index{savemoleculardatabase@{savemoleculardatabase}!moldatabase@{moldatabase}}
+\doxysubsubsection{\texorpdfstring{savemoleculardatabase()}{savemoleculardatabase()}}
+{\footnotesize\ttfamily subroutine moldatabase\+::savemoleculardatabase (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structmoldatabase_1_1moldata}{moldata}})}]{Md,  }\item[{character, dimension($\ast$)}]{filename,  }\item[{logical}]{profile }\end{DoxyParamCaption})}
+
+
+
+Save\+Molecular\+Database. 
+
+Saves the molecular database in a binary file \char`\"{}filename\char`\"{}\+\_\+\+Mol.\+bin
+
+MolD -\/ molecular database filename -\/ filename 
+
+Definition at line 930 of file moldat.\+f90.
+
+\mbox{\Hypertarget{namespacemoldatabase_aaec1c10f3c45e1da4e9224a22c8c3f15}\label{namespacemoldatabase_aaec1c10f3c45e1da4e9224a22c8c3f15}} 
+\index{moldatabase@{moldatabase}!readmoleculardatabase@{readmoleculardatabase}}
+\index{readmoleculardatabase@{readmoleculardatabase}!moldatabase@{moldatabase}}
+\doxysubsubsection{\texorpdfstring{readmoleculardatabase()}{readmoleculardatabase()}}
+{\footnotesize\ttfamily subroutine moldatabase\+::readmoleculardatabase (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structmoldatabase_1_1moldata}{moldata}})}]{Md,  }\item[{character, dimension($\ast$)}]{filename }\end{DoxyParamCaption})}
+
+
+
+Read\+Molecular\+Database. 
+
+Reads in the molecular database from a binary file \char`\"{}filename\char`\"{}\+\_\+\+Mol.\+bin
+
+MolD -\/ molecular database filename -\/ filename 
+
+Definition at line 1004 of file moldat.\+f90.
+
+\mbox{\Hypertarget{namespacemoldatabase_a0a3e9e591f632c0fe688940bd2ddec02}\label{namespacemoldatabase_a0a3e9e591f632c0fe688940bd2ddec02}} 
+\index{moldatabase@{moldatabase}!deletemoleculardatabase@{deletemoleculardatabase}}
+\index{deletemoleculardatabase@{deletemoleculardatabase}!moldatabase@{moldatabase}}
+\doxysubsubsection{\texorpdfstring{deletemoleculardatabase()}{deletemoleculardatabase()}}
+{\footnotesize\ttfamily subroutine moldatabase\+::deletemoleculardatabase (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structmoldatabase_1_1moldata}{moldata}})}]{Md }\end{DoxyParamCaption})}
+
+
+
+Delete\+Molecular\+Database. 
+
+Deleates the Molecular Database....
+
+MolD -\/ molecular database filename -\/ filename 
+
+Definition at line 1100 of file moldat.\+f90.
+
+\mbox{\Hypertarget{namespacemoldatabase_ae96b5df73181e9ee370a53e2339cf4eb}\label{namespacemoldatabase_ae96b5df73181e9ee370a53e2339cf4eb}} 
+\index{moldatabase@{moldatabase}!printmoleculardatabase@{printmoleculardatabase}}
+\index{printmoleculardatabase@{printmoleculardatabase}!moldatabase@{moldatabase}}
+\doxysubsubsection{\texorpdfstring{printmoleculardatabase()}{printmoleculardatabase()}}
+{\footnotesize\ttfamily subroutine moldatabase\+::printmoleculardatabase (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structmoldatabase_1_1moldata}{moldata}})}]{Md,  }\item[{character, dimension($\ast$)}]{filename }\end{DoxyParamCaption})}
+
+
+
+Print\+Molecular\+Database. 
+
+Prints the molecular database in a human readable format file \char`\"{}filename\char`\"{}\+\_\+\+Mol.\+bin
+
+MolD -\/ molecular database filename -\/ filename 
+
+Definition at line 1147 of file moldat.\+f90.
+
+\mbox{\Hypertarget{namespacemoldatabase_a7a1d7fd24ac0e19720d026d9671eca8c}\label{namespacemoldatabase_a7a1d7fd24ac0e19720d026d9671eca8c}} 
+\index{moldatabase@{moldatabase}!printmoleculardatabase2@{printmoleculardatabase2}}
+\index{printmoleculardatabase2@{printmoleculardatabase2}!moldatabase@{moldatabase}}
+\doxysubsubsection{\texorpdfstring{printmoleculardatabase2()}{printmoleculardatabase2()}}
+{\footnotesize\ttfamily subroutine moldatabase\+::printmoleculardatabase2 (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structmoldatabase_1_1moldata}{moldata}})}]{Md,  }\item[{character, dimension($\ast$)}]{filename }\end{DoxyParamCaption})}
+
+
+
+Print\+Molecular\+Database2. 
+
+Prints the molecular database in a human readable format file \char`\"{}filename\char`\"{}\+\_\+\+Mol.\+bin used if N\+EB has been run of these and moldatgen is done, then it also prints the \char`\"{}best fingerprint bestbf\char`\"{} as well as listing the energy barriers going along both directions
+
+MolD -\/ molecular database filename -\/ filename 
+
+Definition at line 1229 of file moldat.\+f90.
+
+\mbox{\Hypertarget{namespacemoldatabase_a7488776f7549a0d032bbde1374f9dd8a}\label{namespacemoldatabase_a7488776f7549a0d032bbde1374f9dd8a}} 
+\index{moldatabase@{moldatabase}!mdmoleculesarenearbyisomers@{mdmoleculesarenearbyisomers}}
+\index{mdmoleculesarenearbyisomers@{mdmoleculesarenearbyisomers}!moldatabase@{moldatabase}}
+\doxysubsubsection{\texorpdfstring{mdmoleculesarenearbyisomers()}{mdmoleculesarenearbyisomers()}}
+{\footnotesize\ttfamily logical function moldatabase\+::mdmoleculesarenearbyisomers (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structmoldatabase_1_1moldata}{moldata}})}]{Md,  }\item[{integer}]{ci,  }\item[{integer}]{bi }\end{DoxyParamCaption})}
+
+
+
+Molecules\+Are\+Nearby\+Isomers. 
+
+Checks to see if two molecules in two molecules are geometric isomers or not, this is an identical copy to the Molecules\+Are\+Nearby\+Isomers in \mbox{\hyperlink{structure_8f90_source}{Structure.\+f90}} but for chemical structures cx
+
+
+\begin{DoxyItemize}
+\item Md\+: Molecular Database 
+\end{DoxyItemize}
+
+Definition at line 1362 of file moldat.\+f90.
+
+\mbox{\Hypertarget{namespacemoldatabase_a8398986f6d8f338109ff0f15ffea33eb}\label{namespacemoldatabase_a8398986f6d8f338109ff0f15ffea33eb}} 
+\index{moldatabase@{moldatabase}!deletefingerprint@{deletefingerprint}}
+\index{deletefingerprint@{deletefingerprint}!moldatabase@{moldatabase}}
+\doxysubsubsection{\texorpdfstring{deletefingerprint()}{deletefingerprint()}}
+{\footnotesize\ttfamily subroutine moldatabase\+::deletefingerprint (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structglobaldata_1_1fingerprint}{fingerprint}}), pointer}]{fngr }\end{DoxyParamCaption})}
+
+
+
+Delete\+Fingerprint. 
+
+dealocates and initalizes fingerprint
+
+
+\begin{DoxyItemize}
+\item rp\+: The reaction path object.
+\item imove\+: the graph move performed by this rp
+\item ic\+: which end of the path underwent this move 
+\end{DoxyItemize}
+
+Definition at line 1397 of file moldat.\+f90.
+

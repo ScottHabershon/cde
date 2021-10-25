@@ -1,0 +1,6 @@
+[file orca_gstep/orca_gstep.cpp, line 732]: Error (ORCA_GSTEP): The lambda equations have not converged
+
+[file orca_tools/qcmsg.cpp, line 458]: 
+  .... aborting the run
+
+grep: temp.engrad: No such file or directory

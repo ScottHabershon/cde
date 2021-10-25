@@ -1,0 +1,137 @@
+\hypertarget{namespacepathopt}{}\section{pathopt Module Reference}
+\label{namespacepathopt}\index{pathopt@{pathopt}}
+
+
+Contains routines for path optimization, including C\+I\+N\+EB.  
+
+
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacepathopt_a41a744efc5bab783a88663d6af98a777}{optimizepath}} (rp)
+\begin{DoxyCompactList}\small\item\em Optimize\+Path. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacepathopt_af8fbe251f61b7f4e756605041e19e1a0}{cineb}} (rp)
+\begin{DoxyCompactList}\small\item\em C\+I\+N\+EB. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacepathopt_af71f2239ddd07da673b810e0abe893d3}{autoneb}} (rp, anebb)
+\begin{DoxyCompactList}\small\item\em Auto\+N\+EB. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacepathopt_ae8d2e965e25545bf3c0e215694716108}{getforcenorm}} (rp, forcenorm, fmax, n1, n2)
+\begin{DoxyCompactList}\small\item\em Get\+Force\+Norm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains routines for path optimization, including C\+I\+N\+EB. 
+
+\subsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacepathopt_a41a744efc5bab783a88663d6af98a777}\label{namespacepathopt_a41a744efc5bab783a88663d6af98a777}} 
+\index{pathopt@{pathopt}!optimizepath@{optimizepath}}
+\index{optimizepath@{optimizepath}!pathopt@{pathopt}}
+\subsubsection{\texorpdfstring{optimizepath()}{optimizepath()}}
+{\footnotesize\ttfamily subroutine pathopt\+::optimizepath (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp }\end{DoxyParamCaption})}
+
+
+
+Optimize\+Path. 
+
+Initiates a path optimization calculation.
+
+
+\begin{DoxyItemize}
+\item rp\+: Initial reaction path.
+\item nebiter\+: number of N\+EB iterations
+\item neboutfreq\+: number of N\+EB iterations between outputs
+\item nebspring\+: N\+EB spring parameter in atomic units
+\item pathoptmethod\+: Method used to optimize reaction path. Allowed values are \textquotesingle{}N\+EB\textquotesingle{}....
+\item N\+E\+Bconv -\/ Convergence threshold on average force for N\+EB calculations.
+\item C\+Ithresh -\/ Average force modulus when climbing-\/image should be activated.
+\item inputfile\+: The input filename, used to generate further output files.
+\item logfile\+: Log file unit nunmber for output 
+\end{DoxyItemize}
+
+Definition at line 43 of file pathopt.\+f90.
+
+\mbox{\Hypertarget{namespacepathopt_af8fbe251f61b7f4e756605041e19e1a0}\label{namespacepathopt_af8fbe251f61b7f4e756605041e19e1a0}} 
+\index{pathopt@{pathopt}!cineb@{cineb}}
+\index{cineb@{cineb}!pathopt@{pathopt}}
+\subsubsection{\texorpdfstring{cineb()}{cineb()}}
+{\footnotesize\ttfamily subroutine pathopt\+::cineb (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp }\end{DoxyParamCaption})}
+
+
+
+C\+I\+N\+EB. 
+
+Runs a climbing-\/image nudged elastic band calculation starting from an initial reaction-\/path defined in rp.
+
+
+\begin{DoxyItemize}
+\item rp\+: The reaction-\/path object to be refined. 
+\end{DoxyItemize}\begin{quote}
+\begin{quote}
+\begin{quote}
+\begin{quote}
+\begin{quote}
+\begin{quote}
+b20bd881eeb850ede4bfda5dca475c5c15093fc8 \end{quote}
+\end{quote}
+\end{quote}
+\end{quote}
+\end{quote}
+\end{quote}
+
+
+\begin{quote}
+\begin{quote}
+\begin{quote}
+\begin{quote}
+\begin{quote}
+\begin{quote}
+b20bd881eeb850ede4bfda5dca475c5c15093fc8 \end{quote}
+\end{quote}
+\end{quote}
+\end{quote}
+\end{quote}
+\end{quote}
+
+
+Definition at line 83 of file pathopt.\+f90.
+
+\mbox{\Hypertarget{namespacepathopt_af71f2239ddd07da673b810e0abe893d3}\label{namespacepathopt_af71f2239ddd07da673b810e0abe893d3}} 
+\index{pathopt@{pathopt}!autoneb@{autoneb}}
+\index{autoneb@{autoneb}!pathopt@{pathopt}}
+\subsubsection{\texorpdfstring{autoneb()}{autoneb()}}
+{\footnotesize\ttfamily subroutine pathopt\+::autoneb (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp,  }\item[{integer}]{anebb }\end{DoxyParamCaption})}
+
+
+
+Auto\+N\+EB. 
+
+Performs the Auto\+N\+EB procedure, very close to the one described in kolsbjerg and Hammer 2016 beads are added one at a time, while optimising it and the adjacent ones at the end C\+I-\/\+N\+EB is performed on the top image and the a smoothing procedure described in the SI of Hammer 2016 is done the new set of images is written into arp. it starts from a N\+EB path, previously calculated, which could be an old calclated path this can systematically increase te number of images on and old path.
+
+
+\begin{DoxyItemize}
+\item rp\+: Initial reaction path.
+\item anebb\+: extra number of beads in the Auto\+N\+EB 
+\end{DoxyItemize}
+
+Definition at line 594 of file pathopt.\+f90.
+
+\mbox{\Hypertarget{namespacepathopt_ae8d2e965e25545bf3c0e215694716108}\label{namespacepathopt_ae8d2e965e25545bf3c0e215694716108}} 
+\index{pathopt@{pathopt}!getforcenorm@{getforcenorm}}
+\index{getforcenorm@{getforcenorm}!pathopt@{pathopt}}
+\subsubsection{\texorpdfstring{getforcenorm()}{getforcenorm()}}
+{\footnotesize\ttfamily subroutine pathopt\+::getforcenorm (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp,  }\item[{real(8)}]{forcenorm,  }\item[{real(8)}]{fmax,  }\item[{integer}]{n1,  }\item[{integer}]{n2 }\end{DoxyParamCaption})}
+
+
+
+Get\+Force\+Norm. 
+
+Calculate the norm of the projected forces for the internal beads.
+
+
+\begin{DoxyItemize}
+\item rp\+: The reaction-\/path object to be refined.
+\item forcenorm\+: Returned force norm
+\item n1, n2\+: Integer range of images to include in calculation. 
+\end{DoxyItemize}
+
+Definition at line 628 of file pathopt\+\_\+\+B\+A\+C\+K\+U\+P\+\_\+45704.\+f90.
+

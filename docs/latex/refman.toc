@@ -1,0 +1,226 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}DE\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}: Chemical discovery engine}{1}{chapter.1}% 
+\contentsline {chapter}{\numberline {2}Setting up C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}DE}{3}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Organization of C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}DE}{3}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}Compiling C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}DE}{3}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}Running C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}DE}{4}{section.2.3}% 
+\contentsline {section}{\numberline {2.4}Adding an alias to your environment}{4}{section.2.4}% 
+\contentsline {chapter}{\numberline {3}Example input file for C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}DE}{5}{chapter.3}% 
+\contentsline {chapter}{\numberline {4}Annotated input file description}{7}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Main input parameters}{7}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}Path optimization control}{8}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}Constraints control}{8}{section.4.3}% 
+\contentsline {section}{\numberline {4.4}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}S control}{9}{section.4.4}% 
+\contentsline {section}{\numberline {4.5}Graph-\/restraint potential control}{9}{section.4.5}% 
+\contentsline {section}{\numberline {4.6}Path-\/finding controls}{11}{section.4.6}% 
+\contentsline {chapter}{\numberline {5}I/O structure formats}{13}{chapter.5}% 
+\contentsline {chapter}{\numberline {6}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}ES evaluations}{15}{chapter.6}% 
+\contentsline {section}{\numberline {6.1}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}S types}{15}{section.6.1}% 
+\contentsline {section}{\numberline {6.2}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}S and geometry optimization executables}{16}{section.6.2}% 
+\contentsline {section}{\numberline {6.3}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}S template files}{17}{section.6.3}% 
+\contentsline {chapter}{\numberline {7}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}ES templates}{19}{chapter.7}% 
+\contentsline {section}{\numberline {7.1}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}A examples}{19}{section.7.1}% 
+\contentsline {section}{\numberline {7.2}D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}B+ example}{20}{section.7.2}% 
+\contentsline {section}{\numberline {7.3}Psi-\/4 example}{21}{section.7.3}% 
+\contentsline {section}{\numberline {7.4}L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}M\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}M\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}S/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Reax\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}F example}{21}{section.7.4}% 
+\contentsline {chapter}{\numberline {8}Forbid-\/file example}{23}{chapter.8}% 
+\contentsline {chapter}{\numberline {9}Movefile example}{25}{chapter.9}% 
+\contentsline {chapter}{\numberline {10}Hints and tips}{27}{chapter.10}% 
+\contentsline {subsection}{\numberline {10.0.1}Hints on input files.}{27}{subsection.10.0.1}% 
+\contentsline {subsection}{\numberline {10.0.2}Hints on bonding definitions.}{27}{subsection.10.0.2}% 
+\contentsline {subsection}{\numberline {10.0.3}Hints on external executables}{27}{subsection.10.0.3}% 
+\contentsline {subsection}{\numberline {10.0.4}Common problems}{28}{subsection.10.0.4}% 
+\contentsline {chapter}{\numberline {11}Things to do}{29}{chapter.11}% 
+\contentsline {chapter}{\numberline {12}References}{31}{chapter.12}% 
+\contentsline {section}{\numberline {12.1}Graph-\/driven sampling methodology}{31}{section.12.1}% 
+\contentsline {section}{\numberline {12.2}Minimum energy path refinement.}{31}{section.12.2}% 
+\contentsline {section}{\numberline {12.3}Reax\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}F\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}F and L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}M\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}M\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}PS}{31}{section.12.3}% 
+\contentsline {chapter}{\numberline {13}Useful scripts}{33}{chapter.13}% 
+\contentsline {chapter}{\numberline {14}Tutorial 1\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}: C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}EB}{35}{chapter.14}% 
+\contentsline {subsection}{\numberline {14.0.1}input}{35}{subsection.14.0.1}% 
+\contentsline {subsection}{\numberline {14.0.2}start.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}xyz and end.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}xyz}{38}{subsection.14.0.2}% 
+\contentsline {subsection}{\numberline {14.0.3}orca.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}head}{38}{subsection.14.0.3}% 
+\contentsline {subsection}{\numberline {14.0.4}orca.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}min}{38}{subsection.14.0.4}% 
+\contentsline {subsection}{\numberline {14.0.5}A note on executables for external programs}{39}{subsection.14.0.5}% 
+\contentsline {subsection}{\numberline {14.0.6}Running the calculation}{39}{subsection.14.0.6}% 
+\contentsline {subsection}{\numberline {14.0.7}Next steps}{40}{subsection.14.0.7}% 
+\contentsline {chapter}{\numberline {15}Tutorial 2\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}: C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}N\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}EB using L\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}A\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}M\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}M\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}PS}{41}{chapter.15}% 
+\contentsline {chapter}{\numberline {16}Tutorial 3\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}: Reaction path-\/finding}{43}{chapter.16}% 
+\contentsline {subsection}{\numberline {16.0.1}input}{44}{subsection.16.0.1}% 
+\contentsline {subsection}{\numberline {16.0.2}start.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}xyz and end.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}xyz}{46}{subsection.16.0.2}% 
+\contentsline {subsection}{\numberline {16.0.3}moves.\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}in}{46}{subsection.16.0.3}% 
+\contentsline {subsection}{\numberline {16.0.4}Running the calculation}{46}{subsection.16.0.4}% 
+\contentsline {subsection}{\numberline {16.0.5}Optimizing structures}{46}{subsection.16.0.5}% 
+\contentsline {subsection}{\numberline {16.0.6}Final output and next steps.}{47}{subsection.16.0.6}% 
+\contentsline {chapter}{\numberline {17}Tutorial 4\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}: Another reaction path-\/finding example}{49}{chapter.17}% 
+\contentsline {chapter}{\numberline {18}Modules Index}{51}{chapter.18}% 
+\contentsline {section}{\numberline {18.1}Modules List}{51}{section.18.1}% 
+\contentsline {chapter}{\numberline {19}Data Type Index}{53}{chapter.19}% 
+\contentsline {section}{\numberline {19.1}Data Types List}{53}{section.19.1}% 
+\contentsline {chapter}{\numberline {20}Module Documentation}{55}{chapter.20}% 
+\contentsline {section}{\numberline {20.1}chemstr Module Reference}{55}{section.20.1}% 
+\contentsline {subsection}{\numberline {20.1.1}Detailed Description}{57}{subsection.20.1.1}% 
+\contentsline {subsection}{\numberline {20.1.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{57}{subsection.20.1.2}% 
+\contentsline {subsubsection}{\numberline {20.1.2.1}createcxs()}{58}{subsubsection.20.1.2.1}% 
+\contentsline {subsubsection}{\numberline {20.1.2.2}deletecxs()}{58}{subsubsection.20.1.2.2}% 
+\contentsline {subsubsection}{\numberline {20.1.2.3}copytonewcxs()}{58}{subsubsection.20.1.2.3}% 
+\contentsline {subsubsection}{\numberline {20.1.2.4}copycxs()}{59}{subsubsection.20.1.2.4}% 
+\contentsline {subsubsection}{\numberline {20.1.2.5}setmass()}{59}{subsubsection.20.1.2.5}% 
+\contentsline {subsubsection}{\numberline {20.1.2.6}createcxsfromxyz()}{59}{subsubsection.20.1.2.6}% 
+\contentsline {subsubsection}{\numberline {20.1.2.7}readxyztocxs()}{60}{subsubsection.20.1.2.7}% 
+\contentsline {subsubsection}{\numberline {20.1.2.8}readcxs()}{60}{subsubsection.20.1.2.8}% 
+\contentsline {subsubsection}{\numberline {20.1.2.9}setcxsconstraints()}{60}{subsubsection.20.1.2.9}% 
+\contentsline {subsubsection}{\numberline {20.1.2.10}getprojectedmomenta()}{61}{subsubsection.20.1.2.10}% 
+\contentsline {subsubsection}{\numberline {20.1.2.11}getgraph()}{61}{subsubsection.20.1.2.11}% 
+\contentsline {subsubsection}{\numberline {20.1.2.12}getmols()}{61}{subsubsection.20.1.2.12}% 
+\contentsline {subsubsection}{\numberline {20.1.2.13}getshortestpaths()}{62}{subsubsection.20.1.2.13}% 
+\contentsline {subsubsection}{\numberline {20.1.2.14}graphconstraints()}{62}{subsubsection.20.1.2.14}% 
+\contentsline {subsubsection}{\numberline {20.1.2.15}graphconstraints\_doubleended()}{63}{subsubsection.20.1.2.15}% 
+\contentsline {subsubsection}{\numberline {20.1.2.16}projactmolrottransdvdr2()}{63}{subsubsection.20.1.2.16}% 
+\contentsline {subsubsection}{\numberline {20.1.2.17}projoutactmolrottransdvdr()}{64}{subsubsection.20.1.2.17}% 
+\contentsline {subsubsection}{\numberline {20.1.2.18}projoutactmolrottransdvdrpair()}{64}{subsubsection.20.1.2.18}% 
+\contentsline {subsubsection}{\numberline {20.1.2.19}projoutactmolrottransdvdr2()}{65}{subsubsection.20.1.2.19}% 
+\contentsline {subsubsection}{\numberline {20.1.2.20}projmolrottransdvdr2()}{65}{subsubsection.20.1.2.20}% 
+\contentsline {subsubsection}{\numberline {20.1.2.21}projmolrottransdvdr()}{66}{subsubsection.20.1.2.21}% 
+\contentsline {subsubsection}{\numberline {20.1.2.22}molidofatom()}{66}{subsubsection.20.1.2.22}% 
+\contentsline {subsubsection}{\numberline {20.1.2.23}molmomentofinertiatensor()}{66}{subsubsection.20.1.2.23}% 
+\contentsline {subsubsection}{\numberline {20.1.2.24}molecularcom()}{67}{subsubsection.20.1.2.24}% 
+\contentsline {subsubsection}{\numberline {20.1.2.25}accumulatederivatives()}{67}{subsubsection.20.1.2.25}% 
+\contentsline {subsubsection}{\numberline {20.1.2.26}get3rings()}{67}{subsubsection.20.1.2.26}% 
+\contentsline {subsubsection}{\numberline {20.1.2.27}get4rings()}{68}{subsubsection.20.1.2.27}% 
+\contentsline {subsubsection}{\numberline {20.1.2.28}printcxstofile()}{68}{subsubsection.20.1.2.28}% 
+\contentsline {subsubsection}{\numberline {20.1.2.29}createmolecularcx()}{68}{subsubsection.20.1.2.29}% 
+\contentsline {subsubsection}{\numberline {20.1.2.30}moleculargraph()}{69}{subsubsection.20.1.2.30}% 
+\contentsline {subsubsection}{\numberline {20.1.2.31}molecularalabel()}{69}{subsubsection.20.1.2.31}% 
+\contentsline {subsubsection}{\numberline {20.1.2.32}removehydrogens()}{69}{subsubsection.20.1.2.32}% 
+\contentsline {subsubsection}{\numberline {20.1.2.33}setcxslattice()}{70}{subsubsection.20.1.2.33}% 
+\contentsline {subsubsection}{\numberline {20.1.2.34}optcxsagainstgraph()}{70}{subsubsection.20.1.2.34}% 
+\contentsline {subsubsection}{\numberline {20.1.2.35}optimizegrp()}{71}{subsubsection.20.1.2.35}% 
+\contentsline {subsubsection}{\numberline {20.1.2.36}optimizegrp2()}{71}{subsubsection.20.1.2.36}% 
+\contentsline {subsubsection}{\numberline {20.1.2.37}optimizegrp\_doubleended()}{72}{subsubsection.20.1.2.37}% 
+\contentsline {subsubsection}{\numberline {20.1.2.38}molecularformula()}{72}{subsubsection.20.1.2.38}% 
+\contentsline {subsubsection}{\numberline {20.1.2.39}getatomvalency()}{73}{subsubsection.20.1.2.39}% 
+\contentsline {subsubsection}{\numberline {20.1.2.40}getelementpairvalency()}{73}{subsubsection.20.1.2.40}% 
+\contentsline {subsubsection}{\numberline {20.1.2.41}allowedcxsvalencerange()}{73}{subsubsection.20.1.2.41}% 
+\contentsline {subsubsection}{\numberline {20.1.2.42}allowedcxsreactivevalence()}{74}{subsubsection.20.1.2.42}% 
+\contentsline {subsubsection}{\numberline {20.1.2.43}allowedcxsbondsmax()}{74}{subsubsection.20.1.2.43}% 
+\contentsline {subsubsection}{\numberline {20.1.2.44}setreactiveindices()}{74}{subsubsection.20.1.2.44}% 
+\contentsline {subsubsection}{\numberline {20.1.2.45}checkforbidden()}{75}{subsubsection.20.1.2.45}% 
+\contentsline {subsubsection}{\numberline {20.1.2.46}printcxsgraphinfo()}{75}{subsubsection.20.1.2.46}% 
+\contentsline {subsubsection}{\numberline {20.1.2.47}setvalencecoords()}{76}{subsubsection.20.1.2.47}% 
+\contentsline {subsubsection}{\numberline {20.1.2.48}getbonds()}{76}{subsubsection.20.1.2.48}% 
+\contentsline {subsubsection}{\numberline {20.1.2.49}getangles()}{77}{subsubsection.20.1.2.49}% 
+\contentsline {subsubsection}{\numberline {20.1.2.50}getmoleculargraphvector()}{77}{subsubsection.20.1.2.50}% 
+\contentsline {subsubsection}{\numberline {20.1.2.51}getmolecularsmiles()}{77}{subsubsection.20.1.2.51}% 
+\contentsline {subsubsection}{\numberline {20.1.2.52}molecularmass()}{78}{subsubsection.20.1.2.52}% 
+\contentsline {section}{\numberline {20.2}constants Module Reference}{78}{section.20.2}% 
+\contentsline {subsection}{\numberline {20.2.1}Detailed Description}{80}{subsection.20.2.1}% 
+\contentsline {section}{\numberline {20.3}functions Module Reference}{80}{section.20.3}% 
+\contentsline {subsection}{\numberline {20.3.1}Detailed Description}{81}{subsection.20.3.1}% 
+\contentsline {subsection}{\numberline {20.3.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{81}{subsection.20.3.2}% 
+\contentsline {subsubsection}{\numberline {20.3.2.1}is\_numeric()}{81}{subsubsection.20.3.2.1}% 
+\contentsline {subsubsection}{\numberline {20.3.2.2}oprod()}{81}{subsubsection.20.3.2.2}% 
+\contentsline {subsubsection}{\numberline {20.3.2.3}sigmoid()}{82}{subsubsection.20.3.2.3}% 
+\contentsline {subsubsection}{\numberline {20.3.2.4}xproduct()}{82}{subsubsection.20.3.2.4}% 
+\contentsline {subsubsection}{\numberline {20.3.2.5}factorial()}{82}{subsubsection.20.3.2.5}% 
+\contentsline {subsubsection}{\numberline {20.3.2.6}choose()}{82}{subsubsection.20.3.2.6}% 
+\contentsline {subsubsection}{\numberline {20.3.2.7}findidx()}{83}{subsubsection.20.3.2.7}% 
+\contentsline {subsubsection}{\numberline {20.3.2.8}labeltonumber()}{83}{subsubsection.20.3.2.8}% 
+\contentsline {subsubsection}{\numberline {20.3.2.9}numbertolabel()}{83}{subsubsection.20.3.2.9}% 
+\contentsline {subsubsection}{\numberline {20.3.2.10}massfromlabels()}{84}{subsubsection.20.3.2.10}% 
+\contentsline {section}{\numberline {20.4}globaldata Module Reference}{84}{section.20.4}% 
+\contentsline {subsection}{\numberline {20.4.1}Detailed Description}{90}{subsection.20.4.1}% 
+\contentsline {subsection}{\numberline {20.4.2}Variable Documentation}{90}{subsection.20.4.2}% 
+\contentsline {subsubsection}{\numberline {20.4.2.1}alphavbe}{91}{subsubsection.20.4.2.1}% 
+\contentsline {section}{\numberline {20.5}io Module Reference}{91}{section.20.5}% 
+\contentsline {subsection}{\numberline {20.5.1}Detailed Description}{91}{subsection.20.5.1}% 
+\contentsline {subsection}{\numberline {20.5.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{91}{subsection.20.5.2}% 
+\contentsline {subsubsection}{\numberline {20.5.2.1}readinput()}{91}{subsubsection.20.5.2.1}% 
+\contentsline {subsubsection}{\numberline {20.5.2.2}readgraphmoves()}{92}{subsubsection.20.5.2.2}% 
+\contentsline {subsubsection}{\numberline {20.5.2.3}readforbiddengraphs()}{92}{subsubsection.20.5.2.3}% 
+\contentsline {subsubsection}{\numberline {20.5.2.4}setiodefaults()}{92}{subsubsection.20.5.2.4}% 
+\contentsline {section}{\numberline {20.6}pathfinder Module Reference}{92}{section.20.6}% 
+\contentsline {subsection}{\numberline {20.6.1}Detailed Description}{93}{subsection.20.6.1}% 
+\contentsline {subsubsection}{\numberline {20.6.1.1}D\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}E\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}S\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}C\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}R\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}I\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}ON}{94}{subsubsection.20.6.1.1}% 
+\contentsline {subsubsection}{\numberline {20.6.1.2}O\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}U\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}T\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}P\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}U\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}TS}{94}{subsubsection.20.6.1.2}% 
+\contentsline {subsection}{\numberline {20.6.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{94}{subsection.20.6.2}% 
+\contentsline {subsubsection}{\numberline {20.6.2.1}runpathfinder()}{94}{subsubsection.20.6.2.1}% 
+\contentsline {subsubsection}{\numberline {20.6.2.2}adjustpaths()}{95}{subsubsection.20.6.2.2}% 
+\contentsline {subsubsection}{\numberline {20.6.2.3}containstargetatom()}{95}{subsubsection.20.6.2.3}% 
+\contentsline {subsubsection}{\numberline {20.6.2.4}evaluategrapherror()}{95}{subsubsection.20.6.2.4}% 
+\contentsline {subsubsection}{\numberline {20.6.2.5}comparegraphs()}{96}{subsubsection.20.6.2.5}% 
+\contentsline {subsubsection}{\numberline {20.6.2.6}propagategraphs()}{96}{subsubsection.20.6.2.6}% 
+\contentsline {subsubsection}{\numberline {20.6.2.7}selectmoveatoms()}{96}{subsubsection.20.6.2.7}% 
+\contentsline {subsubsection}{\numberline {20.6.2.8}pathbondenergy()}{97}{subsubsection.20.6.2.8}% 
+\contentsline {subsubsection}{\numberline {20.6.2.9}getpathfitness()}{97}{subsubsection.20.6.2.9}% 
+\contentsline {subsubsection}{\numberline {20.6.2.10}trimpath()}{97}{subsubsection.20.6.2.10}% 
+\contentsline {subsubsection}{\numberline {20.6.2.11}printmolsalongpath()}{98}{subsubsection.20.6.2.11}% 
+\contentsline {subsubsection}{\numberline {20.6.2.12}graphstocoords()}{98}{subsubsection.20.6.2.12}% 
+\contentsline {subsubsection}{\numberline {20.6.2.13}printmechanismpaths()}{98}{subsubsection.20.6.2.13}% 
+\contentsline {subsubsection}{\numberline {20.6.2.14}updatemechanism()}{99}{subsubsection.20.6.2.14}% 
+\contentsline {subsubsection}{\numberline {20.6.2.15}reactionerrorcorrection()}{99}{subsubsection.20.6.2.15}% 
+\contentsline {subsubsection}{\numberline {20.6.2.16}updatecharges()}{99}{subsubsection.20.6.2.16}% 
+\contentsline {section}{\numberline {20.7}pathopt Module Reference}{100}{section.20.7}% 
+\contentsline {subsection}{\numberline {20.7.1}Detailed Description}{100}{subsection.20.7.1}% 
+\contentsline {subsection}{\numberline {20.7.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{100}{subsection.20.7.2}% 
+\contentsline {subsubsection}{\numberline {20.7.2.1}optimizepath()}{100}{subsubsection.20.7.2.1}% 
+\contentsline {subsubsection}{\numberline {20.7.2.2}cineb()}{100}{subsubsection.20.7.2.2}% 
+\contentsline {section}{\numberline {20.8}pes Module Reference}{101}{section.20.8}% 
+\contentsline {subsection}{\numberline {20.8.1}Detailed Description}{102}{subsection.20.8.1}% 
+\contentsline {subsection}{\numberline {20.8.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{102}{subsection.20.8.2}% 
+\contentsline {subsubsection}{\numberline {20.8.2.1}setupenergycalc()}{102}{subsubsection.20.8.2.1}% 
+\contentsline {subsubsection}{\numberline {20.8.2.2}setupgeomopt()}{102}{subsubsection.20.8.2.2}% 
+\contentsline {subsubsection}{\numberline {20.8.2.3}abinitio()}{102}{subsubsection.20.8.2.3}% 
+\contentsline {subsubsection}{\numberline {20.8.2.4}molprocalc()}{103}{subsubsection.20.8.2.4}% 
+\contentsline {subsubsection}{\numberline {20.8.2.5}orcacalc()}{103}{subsubsection.20.8.2.5}% 
+\contentsline {subsubsection}{\numberline {20.8.2.6}dftbcalc()}{103}{subsubsection.20.8.2.6}% 
+\contentsline {subsubsection}{\numberline {20.8.2.7}uffcalc()}{104}{subsubsection.20.8.2.7}% 
+\contentsline {subsubsection}{\numberline {20.8.2.8}lammpscalc()}{104}{subsubsection.20.8.2.8}% 
+\contentsline {subsubsection}{\numberline {20.8.2.9}psi4calc()}{104}{subsubsection.20.8.2.9}% 
+\contentsline {subsubsection}{\numberline {20.8.2.10}fireminimise()}{104}{subsubsection.20.8.2.10}% 
+\contentsline {subsubsection}{\numberline {20.8.2.11}matchcxconstraint()}{105}{subsubsection.20.8.2.11}% 
+\contentsline {subsubsection}{\numberline {20.8.2.12}getactmolecenergies()}{105}{subsubsection.20.8.2.12}% 
+\contentsline {subsubsection}{\numberline {20.8.2.13}getmolecularenergies()}{105}{subsubsection.20.8.2.13}% 
+\contentsline {section}{\numberline {20.9}rpath Module Reference}{106}{section.20.9}% 
+\contentsline {subsection}{\numberline {20.9.1}Detailed Description}{107}{subsection.20.9.1}% 
+\contentsline {subsection}{\numberline {20.9.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{107}{subsection.20.9.2}% 
+\contentsline {subsubsection}{\numberline {20.9.2.1}newpath()}{107}{subsubsection.20.9.2.1}% 
+\contentsline {subsubsection}{\numberline {20.9.2.2}copypath()}{108}{subsubsection.20.9.2.2}% 
+\contentsline {subsubsection}{\numberline {20.9.2.3}deletepath()}{108}{subsubsection.20.9.2.3}% 
+\contentsline {subsubsection}{\numberline {20.9.2.4}setinternalcoords()}{108}{subsubsection.20.9.2.4}% 
+\contentsline {subsubsection}{\numberline {20.9.2.5}printpathtofile()}{108}{subsubsection.20.9.2.5}% 
+\contentsline {subsubsection}{\numberline {20.9.2.6}findidpppath()}{109}{subsubsection.20.9.2.6}% 
+\contentsline {subsubsection}{\numberline {20.9.2.7}getforcenorm()}{109}{subsubsection.20.9.2.7}% 
+\contentsline {subsubsection}{\numberline {20.9.2.8}readxyzframe()}{109}{subsubsection.20.9.2.8}% 
+\contentsline {subsubsection}{\numberline {20.9.2.9}startfromendpoints()}{110}{subsubsection.20.9.2.9}% 
+\contentsline {subsubsection}{\numberline {20.9.2.10}readpathfromfile()}{110}{subsubsection.20.9.2.10}% 
+\contentsline {subsubsection}{\numberline {20.9.2.11}setpathconstraints()}{110}{subsubsection.20.9.2.11}% 
+\contentsline {subsubsection}{\numberline {20.9.2.12}getpathenergy()}{111}{subsubsection.20.9.2.12}% 
+\contentsline {subsubsection}{\numberline {20.9.2.13}getpathgradients()}{111}{subsubsection.20.9.2.13}% 
+\contentsline {subsubsection}{\numberline {20.9.2.14}getprojforces1()}{111}{subsubsection.20.9.2.14}% 
+\contentsline {subsubsection}{\numberline {20.9.2.15}getprojforces2()}{111}{subsubsection.20.9.2.15}% 
+\contentsline {subsubsection}{\numberline {20.9.2.16}getprojforces3()}{112}{subsubsection.20.9.2.16}% 
+\contentsline {subsubsection}{\numberline {20.9.2.17}shimmyendbeads()}{112}{subsubsection.20.9.2.17}% 
+\contentsline {subsubsection}{\numberline {20.9.2.18}getfourierforces()}{112}{subsubsection.20.9.2.18}% 
+\contentsline {subsubsection}{\numberline {20.9.2.19}fouriertopath()}{113}{subsubsection.20.9.2.19}% 
+\contentsline {subsubsection}{\numberline {20.9.2.20}pathtofourier()}{113}{subsubsection.20.9.2.20}% 
+\contentsline {subsubsection}{\numberline {20.9.2.21}firstvvupdate()}{113}{subsubsection.20.9.2.21}% 
+\contentsline {subsubsection}{\numberline {20.9.2.22}secondvvupdate()}{113}{subsubsection.20.9.2.22}% 
+\contentsline {subsubsection}{\numberline {20.9.2.23}getspringforces()}{114}{subsubsection.20.9.2.23}% 
+\contentsline {subsubsection}{\numberline {20.9.2.24}stripinactivefrompath()}{114}{subsubsection.20.9.2.24}% 
+\contentsline {subsubsection}{\numberline {20.9.2.25}errorr()}{114}{subsubsection.20.9.2.25}% 
+\contentsline {chapter}{\numberline {21}Data Type Documentation}{115}{chapter.21}% 
+\contentsline {section}{\numberline {21.1}chemstr\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}::cxs Type Reference}{115}{section.21.1}% 
+\contentsline {subsection}{\numberline {21.1.1}Detailed Description}{116}{subsection.21.1.1}% 
+\contentsline {section}{\numberline {21.2}globaldata\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}::fingerprint Type Reference}{116}{section.21.2}% 
+\contentsline {subsection}{\numberline {21.2.1}Detailed Description}{117}{subsection.21.2.1}% 
+\contentsline {section}{\numberline {21.3}globaldata\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}::graphpar Type Reference}{117}{section.21.3}% 
+\contentsline {subsection}{\numberline {21.3.1}Detailed Description}{118}{subsection.21.3.1}% 
+\contentsline {section}{\numberline {21.4}globaldata\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}::molgm Type Reference}{118}{section.21.4}% 
+\contentsline {subsection}{\numberline {21.4.1}Detailed Description}{119}{subsection.21.4.1}% 
+\contentsline {section}{\numberline {21.5}globaldata\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}::refresh\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}template Type Reference}{119}{section.21.5}% 
+\contentsline {subsection}{\numberline {21.5.1}Detailed Description}{119}{subsection.21.5.1}% 
+\contentsline {section}{\numberline {21.6}rpath\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}::rxp Type Reference}{119}{section.21.6}% 
+\contentsline {subsection}{\numberline {21.6.1}Detailed Description}{120}{subsection.21.6.1}% 
+\contentsline {section}{\numberline {21.7}globaldata\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}::vtbashop Type Reference}{120}{section.21.7}% 
+\contentsline {subsection}{\numberline {21.7.1}Detailed Description}{120}{subsection.21.7.1}% 

@@ -1,0 +1,213 @@
+This section gives example input files and instructions for a typical graph-\/driven sampling (G\+DS) calculation run through C\+DE.
+
+In this case, we are going to run a G\+DS simulation for the 4-\/atom formaldehyde system.
+
+{\bfseries The actual files to run this example can be found in the $\ast$$\sim$/cde/examples/gds/$\ast$ directory.}
+
+In this directory, you will find several input files\+: \begin{DoxyVerb}input
+start.xyz
+end.xyz
+moves.in
+\end{DoxyVerb}
+
+
+All of these input filenames are arbitrary; we could have called them alice, bob, clive and ralph and the program would still read them in correctly. Note that the extensions have no effect for input files read in by C\+DE, but they can be used to remind you what the different input files are.
+
+Let\textquotesingle{}s have a look at each input file individually\+:
+
+\subsubsection*{input}
+
+The {\itshape input} file for this G\+DS run looks like this\+: \begin{DoxyVerb}# Control parameters
+
+nimage 8
+temperature 10
+calctype gds
+startfile start.xyz
+endfile end.xyz
+ranseed  1
+startfrompath   .FALSE.
+pathinit  linear
+
+# constraints
+
+dofconstraints 3
+1 2 3
+
+# PES input
+
+pestype  null
+pesopttype  null
+
+# GDS control
+
+movefile moves.in
+gdsthresh 0.1
+gdsspring 0.05
+gdsrestspring 0.05
+nbstrength 0.05
+nbrange 2.3
+kradius 0.1
+gdstemperature 100
+gdscoefftemp 100
+gdscoeffmass 50000
+timestep 0.5
+ngdsiter 200
+ngdsrelax 2000
+gdsdtrelax 0.1
+
+valencerange{
+C 1 4
+O 1 2
+H 0 1
+}
+
+reactiveatomtypes{  
+C
+O
+H
+}
+
+reactiveatoms{  
+range 1 4
+}
+\end{DoxyVerb}
+
+
+The input file in this case only contains those options which are relevant to the C\+I\+N\+EB simulation; other input directives have been removed and will be ignored internally in C\+DE.
+
+The first input block (beginning with the comment line \char`\"{}\# control parameters\char`\"{}) identifies the following input parameters\+:
+\begin{DoxyItemize}
+\item {\bfseries nimage}\+: Number of images (in total) in the reaction-\/path which is going to be used to sample reaction-\/space. In this case, we have 8; note that the number of images indicated here must be the same as in the input pathfile if {\itshape startfrompath = .T\+R\+UE.} (see below).
+\item {\bfseries temperature}\+: The reaction-\/string in G\+DS is dynamic; as well as sampling paths between different reaction end-\/points, it samples different conformations along the path using molecular dynamics. The {\itshape temperature} parameter is used to control the velocities of each atom in the string; these velocities are drawn from a Boltzmann distribution at the input {\itshape temperature} (in Kelvin).
+\item {\bfseries calctype}\+: Here, we\textquotesingle{}re using {\itshape gds} to indicate that we want to do a G\+DS calculation.
+\item {\bfseries startfile}\+: This is an X\+YZ format file (with Cartesian coordinates in Angstroms) which contains the coordinates of the start-\/point of the initial reaction-\/string.
+\item {\bfseries endfile}\+: Like the {\itshape startfile}, the {\itshape endfile} is an X\+YZ file which contains the coordinates of the end-\/point of the initial reaction-\/string. This file must contain the same number of atoms, as well as the same atomic label order, as the {\itshape startfile}. Note that the {\itshape startfile} and the {\itshape endfile} can be identical; after starting with this \char`\"{}zero-\/string\char`\"{}, the natural evolution of G\+DS will quickly start generating new reaction-\/paths.
+\item {\bfseries ranseed}\+: This is an integer random number seed, used to generate random initial velocities drawn from the Boltzmann distribution for G\+DS sampling (see above).
+\item {\bfseries startfrompath}\+: Here, by inputting \char`\"{}.\+F\+A\+L\+S\+E.\char`\"{}, we\textquotesingle{}re indicating that C\+DE should generate the initial reaction-\/path by interpolating between the {\itshape startfile} adn the {\itshape endfile}.
+\item {\bfseries pathinit}\+: This defines the interpolation type which is used to generate the initial reaction-\/path between the {\itshape startfile} and {\itshape endfile}. The current option indicates that a simple linear interpolation of coordinates will be used.
+\end{DoxyItemize}
+
+The next input block (starting with \char`\"{}\# constraints\char`\"{}) indicate any constraints we\textquotesingle{}d like to impose on each image in the reaction-\/path during N\+EB optimization.
+
+
+\begin{DoxyItemize}
+\item {\bfseries dofconstraints}\+: In this example, we\textquotesingle{}ve indicated that there are 3 D\+OF constraints, namely on the (x,y,z) corodinates of atom 1. This particular constraint prevents overall translation of the chemical system. Note that the constraints are applied to all images along the reaction-\/path.
+\end{DoxyItemize}
+
+The next block (starting with \char`\"{}\# P\+E\+S input\char`\"{}) defines options to enable potential energy evaluations and geometry optimization during the N\+EB calculation. These input parameters are discussed elsewhere, such as in \mbox{\hyperlink{_p_e_s}{P\+ES evaluations}}.
+
+However, it is worth noting the particular example given here; specifically, we indicate\+: \begin{DoxyVerb}pestype  null
+pesopttype  null
+\end{DoxyVerb}
+
+
+The {\itshape null} entries indicate that NO potential energy function is used during path sampling. Instead, reaction-\/paths are generated using an algorithm based on the following steps\+:
+
+(1) Optimization of newly-\/generated reaction end-\/points under the graph-\/enforcing potential.
+
+(2) \mbox{[}O\+P\+T\+I\+O\+N\+AL\mbox{]} Further optimization of end-\/points under a potential (see below).
+
+(3) Simple linear interpolation of the reaction-\/path between the end-\/points.
+
+(4) Optimization of the reaction-\/path under a repulsive potential function to avoid close-\/contacts.
+
+This $\ast$\char`\"{}zero-\/potential\char`\"{}$\ast$ graph-\/sampling method is very fast, but can generate reaction-\/paths which are somewhat further away from the minimum-\/ewnergy paths than if an actual potential energy function is used.
+
+The next input block (\char`\"{}\# G\+D\+S control\char`\"{}) contains parameters relating to the G\+DS sampling. The input variables are as follows\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries movefile}\+: This defines the file containing the list of allowed graph-\/moves. See the section \mbox{\hyperlink{moves}{Movefile example}} for further details on the format of this file.
+\item {\bfseries gdsthresh}\+: During each iteration of the G\+DS run, {\itshape gdsthresh} is the probability that a new graph-\/move will be attempted (not necessarily accepted).
+\item {\bfseries gdsspring}\+: This is the G\+DS spring constant for the potential energy term acting between adjacent beads (in atomic units, Eh/\+Bohr$^\wedge$2).
+\item {\bfseries gdsrestspring}\+:\+: This is the force constant for the G\+DS graph-\/enforcing potential (in atomic units, Eh/bohr$^\wedge$2).
+\item {\bfseries nbstrength}\+: The pre-\/factor (or strength) for the repulsive term in the G\+DS graph-\/enforcing potential (in atomic units, Eh).
+\item {\bfseries nbrange}\+: The range parameter for the repulsive term in the G\+DS graph-\/enforcing potential. Typical values are between 2 and 3 Bohr (input is in atomic units, Bohr).
+\item {\bfseries kradius}\+: This defines the strength of the interaction potential term which ensures that distinct molecules remain a minimum distance apart (in atomic units, Eh).
+\item {\bfseries gdstemperature}\+: In the original G\+DS scheme, the reaction-\/string itself is dynamic. The input parameter {\itshape gdstemperature} defines the temperature (in K) for the Boltzmann distribution which is sampled to generate initial momenta for reaction-\/string end-\/points.
+\item {\bfseries gdscoefftemp}\+: This parameter defines the temperature (in K) of the Boltzmann distribution which is sampled to generate artificial momenta for the Fourier coefficients which define the dynamic reaction-\/string in G\+DS.
+\item {\bfseries gdscoeffmass}\+: This is the effective mass of the Fourier coefficients which define the reaction-\/string (in atomic units, typical value\+: 50000)
+\item {\bfseries timestep}\+: This is the time-\/step (in fs) for MD propagation of the reaction-\/string during G\+DS.
+\item {\bfseries ngdsiter}\+: Number of iterations (or time-\/steps) in G\+DS simulation.
+\item {\bfseries ngdsrelax}\+: After each graph-\/move, we re-\/optimize the atomic coordinates of the moved end-\/point under the action of the graph-\/enforcing potential. This is achieved using a simple steepest descent algorithm running for {\itshape ngdsrelax} steps.
+\item {\bfseries gdsdtrelax}\+: In the steepest descent calculation mentioned above, $\ast$gdsdtrelax$\ast$$\ast$ is the effective time-\/step which is taken during optimization (in au, typical valu 0.\+1).
+\end{DoxyItemize}
+
+The remaining section of the input file, contains the following entries\+: \begin{DoxyVerb}valencerange{
+C 1 4
+O 1 2
+H 0 1
+}
+
+reactiveatomtypes{  
+C
+O
+H
+}
+
+reactiveatoms{  
+range 1 4
+}
+\end{DoxyVerb}
+
+
+These directives are described in more detail in \mbox{\hyperlink{_annotated}{Annotated input file description}}. In general, they define which atoms are allowed to react ({\itshape reactiveatomtypes}), the allowed valence ranges of the atoms ({\itshape valencerange}), and the indices of the reactive atoms ({\itshape reactiveatoms}).
+
+In the example given above\+:
+
+
+\begin{DoxyItemize}
+\item Carbon can bond to between 1 and 4 other atoms, oxygen can bond to 1 or 2 other atoms and hydrogen can bond to 0 or 1 other atoms.
+\item All atom types in this system (Co,O and H) can participate in reactions.
+\item All 4 atoms in the system can participate in reactions, as identified by the {\itshape range 1 4} entry under {\itshape reactiveatoms}.
+\end{DoxyItemize}
+
+Note that there is some redundancy here, but the ability to define reactivity in different ways allows flexibility in applications.
+
+\subsubsection*{start.\+xyz and end.\+xyz}
+
+The {\itshape start.\+xyz} and {\itshape end.\+xyz} files are standard X\+YZ format files (Cartesian coordinates in Angstroms). For example, in the current example, the {\itshape start.\+xyz} file looks like this\+:
+
+4 starting point C 0.\+0 0.\+0 0.\+0 O -\/1.\+30 0.\+0 0.\+0 H 0.\+5 0.\+866 0.\+0 H 0.\+5 -\/0.\+866 0.\+0
+
+The {\itshape start.\+xyz} and {\itshape end.\+xyz} files are used to generate the initial reaction-\/string for G\+DS sampling.
+
+During G\+DS, new reactions and reaction-\/strings are quickly generated. So, even if you start with the {\itshape start.\+xyz} and {\itshape end.\+xyz} files being the same, your G\+DS run will very quickly generate new reaction-\/paths.
+
+If {\itshape start.\+xyz} and {\itshape end.\+xyz} are different, the code will try to generate an initial reaction-\/string by linear interpolation between the two end-\/points if the variable {\itshape pathinit} is set to {\itshape linear}. (Note that, in the current version of the code, the only option to {\itshape pathinit} is {\itshape linear}).
+
+\subsubsection*{moves.\+in}
+
+The moves.\+in file describes the allowed chemical reaction classes which are allowed to take place; these allowed moves are applied to configurations during a G\+DS calculation in order to generate new reaction end-\/points.
+
+The format of the move-\/file is discussed in \mbox{\hyperlink{moves}{Movefile example}}.
+
+\subsubsection*{Running the calculation}
+
+With these input files, we are now able to run the G\+DS calculation. To do so, go into the $\ast$$\sim$/cde/examples/gds/$\ast$ directory and type\+: \begin{DoxyVerb}cde.x input
+\end{DoxyVerb}
+
+
+As in the C\+I\+N\+EB tutorial, the above assumes that you have already made sure that C\+DE can be run by simply typing {\itshape cde.\+x}. See the setup section for more details.
+
+As the calculation runs, you will find lots of output files generated in the run directory.
+
+The interesting output files are as follows\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries initial\+\_\+path.\+xyz}\+: This file contains the initial reaction-\/string generated by C\+DE using the {\itshape start.\+xyz} and {\itshape end.\+xyz} files.
+\item {\bfseries input.\+nebprofile}\+: This file contains the energy profile along the reaction-\/string at the different iterations of the N\+EB calculation; both absolute energy and relative energy are given. This file is output every $\ast$$\ast$neboutfreq$\ast$ steps of the N\+EB optimization.
+\item {\bfseries input\+\_\+\+Y\+Y\+Y\+Y.\+xyz}\+: These files contain the reaction paths generated after new graph-\/moves have been performed. The files are labelled with numbers {\itshape Y\+Y\+YY}, indicating the structure sequence number. These files are in standard X\+YZ format. They can be visualized in {\itshape V\+MD} or {\itshape Avogadro}. {\bfseries Important\+: Each of these X\+YZ files can be used as an input {\itshape pathfile} to a further C\+I\+N\+EB calculation.}
+\item {\bfseries input.\+Chem\+Reac\+List.\+info}\+: This file is a database which contains useful information about all of the reaction-\/paths generated during the G\+DS run. It contains information such as the chemical identities of molecules involved in the reaction, the type of the reaction performed, and the S\+P\+R\+I\+NT coordinate for the reactant and product molecules.
+\end{DoxyItemize}
+
+In addition to the above ouptut files, the $\ast$.log file produced by all C\+DE calculations will also contain some useful information about the N\+EB run.
+
+\subsubsection*{Next steps}
+
+
+\begin{DoxyItemize}
+\item Each of the X\+YZ files generated by G\+DS could, in principle, be used as the starting-\/point of a C\+I\+N\+EB refinement calculation. Ultimately, this would enable reaction rate calculation for each G\+D\+S-\/sampled reaction-\/path, leading to creating of a \char`\"{}rate library\char`\"{} for input into a kinetic model. This kinetic model could then be simulated using Kinetic Monte Carlo to predict experimental observables such as rate laws.
+\item Kinetic Monte Carlo code is available in the group but is not yet explicitly linked to G\+DS. 
+\end{DoxyItemize}

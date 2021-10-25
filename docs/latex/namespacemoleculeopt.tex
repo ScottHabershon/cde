@@ -1,0 +1,312 @@
+\hypertarget{namespacemoleculeopt}{}\doxysection{moleculeopt Module Reference}
+\label{namespacemoleculeopt}\index{moleculeopt@{moleculeopt}}
+
+
+Contains routines for optimization of molecular properties.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacemoleculeopt_a456ab3eee90f480fc542c9869a06acc6}{runmolecularopt}} ()
+\begin{DoxyCompactList}\small\item\em Run\+Molecular\+Opt. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacemoleculeopt_ab418bbd775aed900cd65977242b325b3}{getnewstructure}} (cx, success)
+\begin{DoxyCompactList}\small\item\em Get\+New\+Structure. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacemoleculeopt_a294fbc3509e3679a23a37b4a2fc827b4}{getvalenceerror}} (cx, verr)
+\begin{DoxyCompactList}\small\item\em Get\+Valence\+Error. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacemoleculeopt_a5b7e096d3dacf408967cfa4ab8326d11}{getgrapherror}} (cx, verr)
+\begin{DoxyCompactList}\small\item\em Get\+Graph\+Error. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacemoleculeopt_a8cddb40ff4bcb60b423971d0f7547a0a}{sortstructures}} (cx, n)
+\begin{DoxyCompactList}\small\item\em Sort\+Structures. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacemoleculeopt_a8212379663e0215a8c9300ce1674e51f}{rescalefitness}} (cx, n, fmin, fmax, fave)
+\begin{DoxyCompactList}\small\item\em Sort\+Structures. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacemoleculeopt_a5d8b857653669446c74c9cf8ed5c967c}{crossover}} (cxp1, cxp2, cxc1, cxc2, success)
+\begin{DoxyCompactList}\small\item\em Crossover. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacemoleculeopt_a67034fd87b4f496aa1bde12b85dcce96}{annealgraph}} (cx, verr, nmc, beta)
+\begin{DoxyCompactList}\small\item\em Anneal\+Graph. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacemoleculeopt_a112aaf632abf4b6e00b4a17247145342}{mutate}} (cxp, cxc, success)
+\begin{DoxyCompactList}\small\item\em Mutate. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacemoleculeopt_a280e267a5ce24d0ef0f1d90cafeef35a}{getvalenceerror}} (grf, verr, n, hlabel)
+\begin{DoxyCompactList}\small\item\em Get\+Valence\+Error. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacemoleculeopt_ab9da6f6b497ab4befdca8b3ee35b4730}{getgrapherror}} (cx, verr, n, hlabel)
+\begin{DoxyCompactList}\small\item\em Get\+Graph\+Error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacemoleculeopt_af963dfb027ae1c99874430315dbd6aa4}\label{namespacemoleculeopt_af963dfb027ae1c99874430315dbd6aa4}} 
+integer {\bfseries ncoreanchor}
+\item 
+\mbox{\Hypertarget{namespacemoleculeopt_a0eaf6ae6fdad2df15571ca32dd853cef}\label{namespacemoleculeopt_a0eaf6ae6fdad2df15571ca32dd853cef}} 
+integer, dimension(\+:), allocatable {\bfseries ianchor}
+\item 
+\mbox{\Hypertarget{namespacemoleculeopt_a48ff3240018d4f2cb06c614d226dd04c}\label{namespacemoleculeopt_a48ff3240018d4f2cb06c614d226dd04c}} 
+type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}}) {\bfseries cxcore}
+\item 
+\mbox{\Hypertarget{namespacemoleculeopt_abc7ebaf0132d242eaf339a0d228985cc}\label{namespacemoleculeopt_abc7ebaf0132d242eaf339a0d228985cc}} 
+character(len=2), dimension(\+:), allocatable {\bfseries labelt}
+\item 
+\mbox{\Hypertarget{namespacemoleculeopt_a2bc094d122ad292be2b394774f71fed4}\label{namespacemoleculeopt_a2bc094d122ad292be2b394774f71fed4}} 
+real(8), dimension(\+:), allocatable {\bfseries xt1}
+\item 
+\mbox{\Hypertarget{namespacemoleculeopt_a84c2d49c8b2d8e4a99678d40bfc11f78}\label{namespacemoleculeopt_a84c2d49c8b2d8e4a99678d40bfc11f78}} 
+real(8), dimension(\+:), allocatable {\bfseries yt1}
+\item 
+\mbox{\Hypertarget{namespacemoleculeopt_ae8a73dcad6192b0fc092cb134450c429}\label{namespacemoleculeopt_ae8a73dcad6192b0fc092cb134450c429}} 
+real(8), dimension(\+:), allocatable {\bfseries zt1}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains routines for optimization of molecular properties. 
+
+@\+Brief Contains routines for optimization of molecular properties. 
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacemoleculeopt_a456ab3eee90f480fc542c9869a06acc6}\label{namespacemoleculeopt_a456ab3eee90f480fc542c9869a06acc6}} 
+\index{moleculeopt@{moleculeopt}!runmolecularopt@{runmolecularopt}}
+\index{runmolecularopt@{runmolecularopt}!moleculeopt@{moleculeopt}}
+\doxysubsubsection{\texorpdfstring{runmolecularopt()}{runmolecularopt()}}
+{\footnotesize\ttfamily subroutine moleculeopt\+::runmolecularopt}
+
+
+
+Run\+Molecular\+Opt. 
+
+Runs optimization of molecular properties using a GA. 
+
+Definition at line 36 of file moleculeopt.\+f90.
+
+\mbox{\Hypertarget{namespacemoleculeopt_ab418bbd775aed900cd65977242b325b3}\label{namespacemoleculeopt_ab418bbd775aed900cd65977242b325b3}} 
+\index{moleculeopt@{moleculeopt}!getnewstructure@{getnewstructure}}
+\index{getnewstructure@{getnewstructure}!moleculeopt@{moleculeopt}}
+\doxysubsubsection{\texorpdfstring{getnewstructure()}{getnewstructure()}}
+{\footnotesize\ttfamily subroutine moleculeopt\+::getnewstructure (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{logical}]{success }\end{DoxyParamCaption})}
+
+
+
+Get\+New\+Structure. 
+
+Samples the atomic momenta in the structure from the Boltzmann distribution at the input temperature.
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item nheteromin\+: Minimum number of heteroatoms.
+\item nheteromax\+: Maximum number of heteroatoms.
+\item nelprob\+: Number of elements with input appearance probabilities.
+\item elprob\+\_\+label(\+:)\+: Labels of elements with input appearance probabilities.
+\item elprob(\+:)\+: Appearance probabilities for elements. 
+\end{DoxyItemize}
+
+Definition at line 342 of file moleculeopt.\+f90.
+
+\mbox{\Hypertarget{namespacemoleculeopt_a294fbc3509e3679a23a37b4a2fc827b4}\label{namespacemoleculeopt_a294fbc3509e3679a23a37b4a2fc827b4}} 
+\index{moleculeopt@{moleculeopt}!getvalenceerror@{getvalenceerror}}
+\index{getvalenceerror@{getvalenceerror}!moleculeopt@{moleculeopt}}
+\doxysubsubsection{\texorpdfstring{getvalenceerror()}{getvalenceerror()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily subroutine moleculeopt\+::getvalenceerror (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{real(8)}]{verr }\end{DoxyParamCaption})}
+
+
+
+Get\+Valence\+Error. 
+
+Calculates the total number of errors in the expected valences of the atoms, and returns this as an effective potential energy which is minimized in Get\+New\+Structure.
+
+We use the \textquotesingle{}valencerange\{\textquotesingle{} input variables to judge expected valence.
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item verr\+: Valence error 
+\end{DoxyItemize}
+
+Definition at line 617 of file moleculeopt.\+f90.
+
+\mbox{\Hypertarget{namespacemoleculeopt_a5b7e096d3dacf408967cfa4ab8326d11}\label{namespacemoleculeopt_a5b7e096d3dacf408967cfa4ab8326d11}} 
+\index{moleculeopt@{moleculeopt}!getgrapherror@{getgrapherror}}
+\index{getgrapherror@{getgrapherror}!moleculeopt@{moleculeopt}}
+\doxysubsubsection{\texorpdfstring{getgrapherror()}{getgrapherror()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily subroutine moleculeopt\+::getgrapherror (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{real(8)}]{verr }\end{DoxyParamCaption})}
+
+
+
+Get\+Graph\+Error. 
+
+Calculates the total error function associated with the graph for the structure cx.
+
+N\+O\+TE\+: This is intended for graphs with heteroatoms O\+N\+LY, with hydrogen to be added after construction fo a suitable graph.
+
+The error is calculated as\+: Verr = Valence\+Error + nmolpenalty $\ast$ abs(nmol-\/1)
+\begin{DoxyItemize}
+\item ringpenalty3 $\ast$ (number of 3-\/rings) +
+\item ringpenalty4 $\ast$ (number of 4-\/rings)
+\end{DoxyItemize}
+
+cx\+: The input chemical structure
+\begin{DoxyItemize}
+\item verr\+: Calculated graph error
+\item n\+: Number of atoms in graph
+\item hlabel\+: Current (heteroatom) labels of graph. 
+\end{DoxyItemize}
+
+Definition at line 686 of file moleculeopt.\+f90.
+
+\mbox{\Hypertarget{namespacemoleculeopt_a8cddb40ff4bcb60b423971d0f7547a0a}\label{namespacemoleculeopt_a8cddb40ff4bcb60b423971d0f7547a0a}} 
+\index{moleculeopt@{moleculeopt}!sortstructures@{sortstructures}}
+\index{sortstructures@{sortstructures}!moleculeopt@{moleculeopt}}
+\doxysubsubsection{\texorpdfstring{sortstructures()}{sortstructures()}}
+{\footnotesize\ttfamily subroutine moleculeopt\+::sortstructures (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(n)}]{cx,  }\item[{integer}]{n }\end{DoxyParamCaption})}
+
+
+
+Sort\+Structures. 
+
+Sorts the population in order of fitness using bubble sort
+
+
+\begin{DoxyItemize}
+\item cx(\+:)\+: The population of chemical structure objects.
+\item n\+: The first n structures to sort 
+\end{DoxyItemize}
+
+Definition at line 730 of file moleculeopt.\+f90.
+
+\mbox{\Hypertarget{namespacemoleculeopt_a8212379663e0215a8c9300ce1674e51f}\label{namespacemoleculeopt_a8212379663e0215a8c9300ce1674e51f}} 
+\index{moleculeopt@{moleculeopt}!rescalefitness@{rescalefitness}}
+\index{rescalefitness@{rescalefitness}!moleculeopt@{moleculeopt}}
+\doxysubsubsection{\texorpdfstring{rescalefitness()}{rescalefitness()}}
+{\footnotesize\ttfamily subroutine moleculeopt\+::rescalefitness (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(n)}]{cx,  }\item[{integer}]{n,  }\item[{real(8)}]{fmin,  }\item[{real(8)}]{fmax,  }\item[{real(8)}]{fave }\end{DoxyParamCaption})}
+
+
+
+Sort\+Structures. 
+
+Sorts the population in order of fitness using bubble sort
+
+
+\begin{DoxyItemize}
+\item cx(\+:)\+: The population of chemical structure objects.
+\item n\+: The first n structures to sort
+\item fmin\+: Worst fitness before rescaling
+\item fmax\+: Best fitness before rescaling
+\item fave\+: Average fitness before rescaling. 
+\end{DoxyItemize}
+
+Definition at line 768 of file moleculeopt.\+f90.
+
+\mbox{\Hypertarget{namespacemoleculeopt_a5d8b857653669446c74c9cf8ed5c967c}\label{namespacemoleculeopt_a5d8b857653669446c74c9cf8ed5c967c}} 
+\index{moleculeopt@{moleculeopt}!crossover@{crossover}}
+\index{crossover@{crossover}!moleculeopt@{moleculeopt}}
+\doxysubsubsection{\texorpdfstring{crossover()}{crossover()}}
+{\footnotesize\ttfamily subroutine moleculeopt\+::crossover (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cxp1,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cxp2,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cxc1,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cxc2,  }\item[{logical}]{success }\end{DoxyParamCaption})}
+
+
+
+Crossover. 
+
+Performs crossover of parent structures cxp1 and cxp2 to generate two new structures cxc1 and cxc2.
+
+
+\begin{DoxyItemize}
+\item cxp1\+: Parent structure 1
+\item cxp2\+: Parent structure 2
+\item cxc1\+: Child structure 1
+\item cxc2\+: Child structure 2 
+\end{DoxyItemize}
+
+Definition at line 809 of file moleculeopt.\+f90.
+
+\mbox{\Hypertarget{namespacemoleculeopt_a67034fd87b4f496aa1bde12b85dcce96}\label{namespacemoleculeopt_a67034fd87b4f496aa1bde12b85dcce96}} 
+\index{moleculeopt@{moleculeopt}!annealgraph@{annealgraph}}
+\index{annealgraph@{annealgraph}!moleculeopt@{moleculeopt}}
+\doxysubsubsection{\texorpdfstring{annealgraph()}{annealgraph()}}
+{\footnotesize\ttfamily subroutine moleculeopt\+::annealgraph (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{real(8)}]{verr,  }\item[{integer}]{nmc,  }\item[{real(8)}]{beta }\end{DoxyParamCaption})}
+
+
+
+Anneal\+Graph. 
+
+Uses a MC procedure to update the C\+XS graph in order to reduce the number of graph errors (as calculated by Graph\+Error).
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item verr\+: Graph error value.
+\item nmc\+: Number of MC moves to attempt.
+\item beta\+: Inverse temperature (au$^\wedge$-\/1) 
+\end{DoxyItemize}
+
+Definition at line 1719 of file moleculeopt.\+f90.
+
+\mbox{\Hypertarget{namespacemoleculeopt_a112aaf632abf4b6e00b4a17247145342}\label{namespacemoleculeopt_a112aaf632abf4b6e00b4a17247145342}} 
+\index{moleculeopt@{moleculeopt}!mutate@{mutate}}
+\index{mutate@{mutate}!moleculeopt@{moleculeopt}}
+\doxysubsubsection{\texorpdfstring{mutate()}{mutate()}}
+{\footnotesize\ttfamily subroutine moleculeopt\+::mutate (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cxp,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cxc,  }\item[{logical}]{success }\end{DoxyParamCaption})}
+
+
+
+Mutate. 
+
+Mutates the structure cxp to create a new structure cxc.
+
+
+\begin{DoxyItemize}
+\item cxp\+: Parent chemical structure object.
+\item cxc\+: Mutant chemical structure object.
+\item success\+: Logical flag indicating successful mutant creation. 
+\end{DoxyItemize}
+
+Definition at line 1819 of file moleculeopt.\+f90.
+
+\mbox{\Hypertarget{namespacemoleculeopt_a280e267a5ce24d0ef0f1d90cafeef35a}\label{namespacemoleculeopt_a280e267a5ce24d0ef0f1d90cafeef35a}} 
+\index{moleculeopt@{moleculeopt}!getvalenceerror@{getvalenceerror}}
+\index{getvalenceerror@{getvalenceerror}!moleculeopt@{moleculeopt}}
+\doxysubsubsection{\texorpdfstring{getvalenceerror()}{getvalenceerror()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily subroutine moleculeopt\+::getvalenceerror (\begin{DoxyParamCaption}\item[{integer, dimension(n,n)}]{grf,  }\item[{real(8)}]{verr,  }\item[{integer}]{n,  }\item[{character(len=2), dimension(n)}]{hlabel }\end{DoxyParamCaption})}
+
+
+
+Get\+Valence\+Error. 
+
+Calculates the total number of errors in the expected valences of the atoms, and returns this as an effective potential energy which is minimized in Get\+New\+Structure.
+
+We use the \textquotesingle{}valencerange\{\textquotesingle{} input variables to judge expected valence.
+
+
+\begin{DoxyItemize}
+\item grf\+: The input bonding graph
+\item nhet\+: Number of atoms in bonding graph. 
+\end{DoxyItemize}
+
+Definition at line 409 of file moleculeopt\+\_\+backup.\+f90.
+
+\mbox{\Hypertarget{namespacemoleculeopt_ab9da6f6b497ab4befdca8b3ee35b4730}\label{namespacemoleculeopt_ab9da6f6b497ab4befdca8b3ee35b4730}} 
+\index{moleculeopt@{moleculeopt}!getgrapherror@{getgrapherror}}
+\index{getgrapherror@{getgrapherror}!moleculeopt@{moleculeopt}}
+\doxysubsubsection{\texorpdfstring{getgrapherror()}{getgrapherror()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily subroutine moleculeopt\+::getgrapherror (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{real(8)}]{verr,  }\item[{integer}]{n,  }\item[{character(len=2), dimension(n)}]{hlabel }\end{DoxyParamCaption})}
+
+
+
+Get\+Graph\+Error. 
+
+Calculates the total error function associated with the graph for the structure cx.
+
+N\+O\+TE\+: This is intended for graphs with heteroatoms O\+N\+LY, with hydrogen to be added after construction fo a suitable graph.
+
+The error is calculated as\+: Verr = Valence\+Error + nmolpenalty $\ast$ abs(nmol-\/1)
+\begin{DoxyItemize}
+\item ringpenalty3 $\ast$ (number of 3-\/rings) +
+\item ringpenalty4 $\ast$ (number of 4-\/rings)
+\end{DoxyItemize}
+
+cx\+: The input chemical structure
+\begin{DoxyItemize}
+\item verr\+: Calculated graph error
+\item n\+: Number of atoms in graph
+\item hlabel\+: Current (heteroatom) labels of graph. 
+\end{DoxyItemize}
+
+Definition at line 471 of file moleculeopt\+\_\+backup.\+f90.
+

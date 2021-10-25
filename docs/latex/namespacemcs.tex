@@ -1,0 +1,81 @@
+\hypertarget{namespacemcs}{}\doxysection{mcs Module Reference}
+\label{namespacemcs}\index{mcs@{mcs}}
+
+
+Maximum Common Induced Subgraph between two Graphs Algorithm.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine, public \mbox{\hyperlink{namespacemcs_a31acee50c123fd6604195c6dfc4f8afa}{getmcs}} (graph1, graph2, label1, label2, na1, na2, similarity, layers, fmap, fna, weight1, weight2)
+\begin{DoxyCompactList}\small\item\em Get\+M\+CS. \end{DoxyCompactList}\item 
+subroutine, public \mbox{\hyperlink{namespacemcs_abb955c085800bcc2c7123a65817828d2}{getsubgraphs}} (graph, label, na, subg, subnv, nsub)
+\begin{DoxyCompactList}\small\item\em Get\+Sub\+Graphs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Maximum Common Induced Subgraph between two Graphs Algorithm. 
+
+Calculates the Maximum Common Induced Subgraph between two Graphs, and returns these M\+CS fragments and gives an estimate of their similarity. 
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacemcs_a31acee50c123fd6604195c6dfc4f8afa}\label{namespacemcs_a31acee50c123fd6604195c6dfc4f8afa}} 
+\index{mcs@{mcs}!getmcs@{getmcs}}
+\index{getmcs@{getmcs}!mcs@{mcs}}
+\doxysubsubsection{\texorpdfstring{getmcs()}{getmcs()}}
+{\footnotesize\ttfamily subroutine, public mcs\+::getmcs (\begin{DoxyParamCaption}\item[{integer, dimension(na1,na1), intent(in)}]{graph1,  }\item[{integer, dimension(na2,na2), intent(in)}]{graph2,  }\item[{character(len=2), dimension(na1), intent(in)}]{label1,  }\item[{character(len=2), dimension(na2), intent(in)}]{label2,  }\item[{integer, intent(in)}]{na1,  }\item[{integer, intent(in)}]{na2,  }\item[{double precision, dimension(2), intent(out)}]{similarity,  }\item[{integer, intent(inout)}]{layers,  }\item[{integer, dimension(\+:,\+:,\+:), intent(out), optional, allocatable}]{fmap,  }\item[{integer, dimension(\+:), intent(out), optional, allocatable}]{fna,  }\item[{double precision, dimension(na1), intent(out), optional}]{weight1,  }\item[{double precision, dimension(na2), intent(out), optional}]{weight2 }\end{DoxyParamCaption})}
+
+
+
+Get\+M\+CS. 
+
+Calculates the similarity of two graphs (graph1 and graph2, label1, label2, na1, na2) by using the Johnson measure (1985 wiley) which involves calculating every possible Maximum common subgraphs (M\+CS) between these graphs. The M\+CS algorithm used here is the M\+C\+Split algorithm by Mc\+Creesh Prosser and Trimble (I\+J\+C\+AI 2017) the similarity is ( $\vert$V(G12)$\vert$+$\vert$E(G12)$\vert$ )$^\wedge$2 / \{( $\vert$V(G1)$\vert$+$\vert$E(G1)$\vert$ ) ( $\vert$V(G2)$\vert$+$\vert$E(G2)$\vert$ ) \}. W\+A\+R\+N\+I\+NG\+: this algorithm seems to work perfectly when given single-\/molecules. If we give a soup of molecules, and these molecules match perfectly, then sometimes the output \char`\"{}fragments\char`\"{} are one or two molecules together. Nevertheless the similarity measures are the same and the M\+CS fragments are correct... If we want the similarity between only atoms that are the maximum intersection of atoms between the graphs then it is given by similarity(1) ( V(\+G1) intersection V(\+G2) ), if we wish to include all vertices (atoms), such that the denominator includes all, then its given by similarity(2). So if G1 fits exactly on G2 but G2 is a much greater graph (G1 subset of G2) then similarity(1) will be 1 but not similarity(2) Optional arguments\+: if fmap,fna are provided, the programs returns arrays fna(layers) fmap(layers,2,max(fna)), the latter being a list of atomic indecies for each fragment (first index 1\+:layers) of each graph (1\+:2 first graph1, second graph2), with fna the array specifiying how many atoms in each fragment. if weight1 or weight2 are provided, a double precision weighting on each atom are specified. The arrays must be of length na1/na2
+
+
+\begin{DoxyItemize}
+\item layers (I\+N\+O\+UT)\+: when coming in it tells the program a maximum of how many fragments its supposed to calculate the similarity for (if layer = 1 then it returns a similarity for only the single M\+CS in common). If layers = 0 all fragments are returned, regardles off their size (can be lone atoms) if layers =-\/i all fragments greater than abs(i) are used to calculate similarity. On return, if layers was $<$= 0 on the way out it returns how many fragments it actually found.
+\item na1/na2 (IN)\+: number of atoms in each graph
+\item graph1/graph2 (IN)\+: graphs compared
+\item label1/label2 (IN)\+: labels of graphs (eg \textquotesingle{}C\textquotesingle{} \textquotesingle{}H\textquotesingle{} etc...)
+\item weight1/weight2 (IN)\+: weighting for each atoms contriobuition to the similarity measure
+\item similarity(2)\+: (O\+UT)\+: similarity measure of M\+CS fragments using (1) intersection of atoms in G1/\+G2 or (2) union of atoms in G1/\+G2
+\item fna (O\+UT)\+: arrays containing the number of atoms in each fragment found.
+\item fmap (O\+UT)\+: fmap(layers,2,max(fna)) for each fragment (1\+:layers) of each graph (1\+:2) the list of atomic indecies
+\item G/H\+: graph types with the graphs from 1 and 2 respectively
+\item M\+: mapping type, used to keep track of the current search tree history during the Search Routine
+\item inc\+: incumbent mapping, keeps track of the current M\+CS found during Search
+\item f/fl\+: labels types that store the availabel vertices to pick at different recursive stages during Search
+\item mcsfrag\+: list of fragments between graphs 
+\end{DoxyItemize}
+
+Definition at line 133 of file mcs.\+f90.
+
+\mbox{\Hypertarget{namespacemcs_abb955c085800bcc2c7123a65817828d2}\label{namespacemcs_abb955c085800bcc2c7123a65817828d2}} 
+\index{mcs@{mcs}!getsubgraphs@{getsubgraphs}}
+\index{getsubgraphs@{getsubgraphs}!mcs@{mcs}}
+\doxysubsubsection{\texorpdfstring{getsubgraphs()}{getsubgraphs()}}
+{\footnotesize\ttfamily subroutine, public mcs\+::getsubgraphs (\begin{DoxyParamCaption}\item[{integer, dimension(na,na), intent(in)}]{graph,  }\item[{character(len=2), dimension(na), intent(in)}]{label,  }\item[{integer, intent(in)}]{na,  }\item[{integer, dimension(\+:,\+:), intent(out), allocatable}]{subg,  }\item[{integer, dimension(\+:), intent(out), allocatable}]{subnv,  }\item[{integer, intent(out)}]{nsub }\end{DoxyParamCaption})}
+
+
+
+Get\+Sub\+Graphs. 
+
+Calculates all the disconected subgraphs from the graph provided. Returns nsub (nmol) subnv (namol) and subg(molid)
+
+
+\begin{DoxyItemize}
+\item na (IN)\+: number of atoms in graph
+\item graph (IN)\+: graph for whihc we calculate subgraphs
+\item label (IN)\+: labels of graphs (eg \textquotesingle{}C\textquotesingle{} \textquotesingle{}H\textquotesingle{} etc...)
+\item nsub (O\+UT\+: number of disconnected graphs
+\item subnv (O\+UT)\+: arrays containing the number of atoms in each fragment(subgraph) found.
+\item fmap (O\+UT)\+: fmap(layers,2,max(fna)) for each fragment (1\+:layers) of each graph (1\+:2) the list of atomic indecies
+\item G\+: graph types for graph
+\item M\+: list of vertices ~\newline
+
+\item frags\+: list of fragments (subgrpahs) found 
+\end{DoxyItemize}
+
+Definition at line 290 of file mcs.\+f90.
+

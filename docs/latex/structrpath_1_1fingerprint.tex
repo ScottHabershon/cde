@@ -1,0 +1,49 @@
+\hypertarget{structrpath_1_1fingerprint}{}\doxysection{rpath\+::fingerprint Type Reference}
+\label{structrpath_1_1fingerprint}\index{rpath::fingerprint@{rpath::fingerprint}}
+
+
+Type definition for the fingerprint of a reaction-\/path.  
+
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structrpath_1_1fingerprint_acd8c9a88a3fdfab1d8487e614d486724}\label{structrpath_1_1fingerprint_acd8c9a88a3fdfab1d8487e614d486724}} 
+double precision, dimension(\+:,\+:,\+:), allocatable \mbox{\hyperlink{structrpath_1_1fingerprint_acd8c9a88a3fdfab1d8487e614d486724}{sprint}}
+\begin{DoxyCompactList}\small\item\em sprint vector for beggining and end chemical structures (N elements) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structrpath_1_1fingerprint_a857712f7c0990423c520c4f928d158ee}\label{structrpath_1_1fingerprint_a857712f7c0990423c520c4f928d158ee}} 
+double precision, dimension(\+:,\+:,\+:), allocatable \mbox{\hyperlink{structrpath_1_1fingerprint_a857712f7c0990423c520c4f928d158ee}{piv}}
+\begin{DoxyCompactList}\small\item\em as above, but piv (N$\ast$(N-\/1)/2 elements) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structrpath_1_1fingerprint_a57a154087205a98dcddecdb5982bf0ad}\label{structrpath_1_1fingerprint_a57a154087205a98dcddecdb5982bf0ad}} 
+integer \mbox{\hyperlink{structrpath_1_1fingerprint_a57a154087205a98dcddecdb5982bf0ad}{graphmoveid}}
+\begin{DoxyCompactList}\small\item\em graph ID that was used on chemical structure IC \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structrpath_1_1fingerprint_a92b066de96ca0fd0f07ea48443dd7f29}\label{structrpath_1_1fingerprint_a92b066de96ca0fd0f07ea48443dd7f29}} 
+integer \mbox{\hyperlink{structrpath_1_1fingerprint_a92b066de96ca0fd0f07ea48443dd7f29}{ic}}
+\begin{DoxyCompactList}\small\item\em the start or end of the Path that was subject to the graph move \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structrpath_1_1fingerprint_a9347f0684eabf847f9941699ebd9428a}\label{structrpath_1_1fingerprint_a9347f0684eabf847f9941699ebd9428a}} 
+integer, dimension(2) \mbox{\hyperlink{structrpath_1_1fingerprint_a9347f0684eabf847f9941699ebd9428a}{nactmol}}
+\begin{DoxyCompactList}\small\item\em number of active molecules in the start and end images \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structrpath_1_1fingerprint_a31f00c45aa6316473747a88be20b4f80}\label{structrpath_1_1fingerprint_a31f00c45aa6316473747a88be20b4f80}} 
+character(100) \mbox{\hyperlink{structrpath_1_1fingerprint_a31f00c45aa6316473747a88be20b4f80}{makebreaklab}}
+\begin{DoxyCompactList}\small\item\em label showing which elements are breaking/forming (symmetric) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structrpath_1_1fingerprint_af163203d1c299891384f2c90224ceb25}\label{structrpath_1_1fingerprint_af163203d1c299891384f2c90224ceb25}} 
+character(250), dimension(\+:,\+:), allocatable \mbox{\hyperlink{structrpath_1_1fingerprint_af163203d1c299891384f2c90224ceb25}{smiles}}
+\begin{DoxyCompactList}\small\item\em an array of nactmol Smile strings in a unique order \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structrpath_1_1fingerprint_a713ef191be6d2b4b42c9e512bdb31a2d}\label{structrpath_1_1fingerprint_a713ef191be6d2b4b42c9e512bdb31a2d}} 
+integer, dimension(\+:,\+:), allocatable \mbox{\hyperlink{structrpath_1_1fingerprint_a713ef191be6d2b4b42c9e512bdb31a2d}{actnamol}}
+\begin{DoxyCompactList}\small\item\em number of atoms per active molecules \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Type definition for the fingerprint of a reaction-\/path. 
+
+Definition at line 35 of file rpath\+\_\+\+B\+A\+C\+K\+U\+P\+\_\+68612.\+f90.
+
+
+
+The documentation for this type was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/scott/code/cde/src/rpath\+\_\+\+B\+A\+C\+K\+U\+P\+\_\+68612.\+f90\item 
+/\+Users/scott/code/cde/src/rpath\+\_\+\+B\+A\+S\+E\+\_\+68612.\+f90\item 
+/\+Users/scott/code/cde/src/rpath\+\_\+\+L\+O\+C\+A\+L\+\_\+68612.\+f90\item 
+/\+Users/scott/code/cde/src/rpath\+\_\+\+R\+E\+M\+O\+T\+E\+\_\+68612.\+f90\end{DoxyCompactItemize}

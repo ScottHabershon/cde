@@ -1,0 +1,271 @@
+This page describes the allowed input parameters, and a description of what they do. Please note the following\+:
+
+
+\begin{DoxyItemize}
+\item Note that input-\/file keywords are case-\/sensitive -\/ everything should be lower-\/case!
+\item In the input file, lines beginning with \textquotesingle{}\#\textquotesingle{} are comments.
+\item Blank lines are ignored.
+\item Keywords can appear in any order.
+\end{DoxyItemize}\hypertarget{_annotated_autotoc_md2}{}\doxysection{Main input parameters}\label{_annotated_autotoc_md2}
+These parameters are used to control input, number of images, and other general aspects of the calculation.
+
+{\itshape nimage 10} \+:: Number of images.
+
+{\itshape temperature 10} \+:: Temperature / K
+
+{\itshape calctype optpath} \+:: Calculation type ({\itshape optpath} for path optimization, {\itshape gds} for sampling, {\itshape molopt} for molecular property optimization using GA (E\+X\+P\+E\+R\+I\+M\+E\+N\+T\+AL), {\itshape graphgen} for generating graphs from G\+DS results, and {\itshape pathfind} for double-\/ended reaction-\/path finding calculations.)
+
+{\itshape startfile start.\+xyz} \+:: Start-\/point coordinate file (used when startfrompath = .F\+A\+L\+SE.)
+
+{\itshape endfile end.\+xyz} \+:: End-\/point coordinate file (used when startfrompath = .F\+A\+L\+SE.)
+
+{\itshape pathfile path.\+xyz} \+:: Initial path file (used when startfrompath = .T\+R\+UE.)
+
+{\itshape ranseed 13} \+:: Random number seed (positive integer)
+
+{\itshape startfrompath .F\+A\+L\+SE.} \+:: Flag indicating start from end-\/point files only (.F\+A\+L\+SE.) or full path (.T\+R\+UE.)
+
+{\itshape pathinit linear} \+:: If startfrompath = .F\+A\+L\+SE., pathinit indicates initial interpolation ( must be {\itshape linear} for now ...)\hypertarget{_annotated_autotoc_md3}{}\doxysection{Path optimization control}\label{_annotated_autotoc_md3}
+The following parameters are used to control the calculation when performing a path-\/optimization simulation ( {\bfseries{calctype optpath}}), for example using climbing-\/image nudged elastic band.
+
+{\itshape pathoptmethod cineb} \+:: Path-\/optimization method (currently cineb only)
+
+{\itshape nebmethod quickmin} \+:: (CI)N\+EB optimization method ({\itshape fire} for fire algorithm (Bitzek {\itshape et al} Phys. Rev. Lett. 97, 170201 (2006)), {\itshape quickmin} for velocity verlet method (competitive), {\itshape steepest} for steepest-\/descents (S\+L\+OW))
+
+{\itshape nebiter 500} \+:: Number of (CI)N\+EB optimization iterations.
+
+{\itshape autoneb 10} \+:: Number of extra Auto-\/\+N\+EB beads added after the N\+EB (Kolsbjerg {\itshape et al} J. Chem. Phys. 145, 94107 (2016))
+
+{\itshape cithresh 5d-\/4} \+:: R\+MS force threshold at which climbing-\/image is activated.
+
+{\itshape nebspring 0.\+05} \+:: (CI)N\+EB spring constant in au (Eh/bohr$\ast$$\ast$2)
+
+{\itshape nebstep 10.\+1} \+:: Step-\/size for steepest descent or quickmin (au)
+
+{\itshape neboutfreq 10} \+:: Output frequency during (CI)N\+EB optimization.
+
+{\itshape gdsspring 0.\+05} \+:: Spring constant for graph-\/driven sampling in au (Eh/bohr$\ast$$\ast$2)
+
+{\itshape optendsbefore .F\+A\+L\+SE.} \+:: Flag indicating whether to optimize end-\/points B\+E\+F\+O\+RE N\+EB refinement.
+
+{\itshape optendsduring .T\+R\+UE.} \+:: Flag indicating whether to optimize end-\/point S\+I\+M\+U\+L\+T\+A\+N\+E\+O\+U\+S\+LY with path.
+
+{\itshape nebrestrend .F\+A\+L\+SE.} \+:: Flag indicating whether to apply graph-\/restrain potential during N\+EB (also used in G\+DS).
+
+{\itshape removecollisions .F\+A\+L\+SE.} \+:: Flag indicating whether to optimize path under repulsive part of graph restraint after graph moves.
+
+{\itshape vsthresh 1d-\/3} \+:: R\+MS force threshold at which the variable spring strength is switched on (see Henkelman 00).
+
+{\itshape shimmybeads .true.} \+:: if path has too many flat beads on either side, it repositions them so that they are mostly distribuited around the barrier, this happends after a number of iterations and increases the cost of convergence, but it results in a much better description of the M\+EP.
+
+{\itshape reconnect .true.} \+:: For 2-\/$>$N-\/1 images, linearly interpolates the coordinates of beads 1 and N, A\+F\+T\+ER a minimization has been performed
+
+{\itshape idppguess .true.} \+:: performs N\+EB under a Image-\/\+Dependent Pair Potential (I\+D\+PP) starting from a linear interpolation to generate a better initial guess for N\+EB. See Article Smidstrup {\itshape et al} J. Chem. Phys. 140, 214106 (2016)
+
+{\itshape projforcetype 2} \+:: Selects which type of N\+EB projected force to use (1\+: original, 2\+: Henkelman {\itshape et al}, J. Chem. Phys. 113, 9901 (2000), 3\+: Kolsbjerg {\itshape et al} J. Chem. Phys. 145, 94107 (2016) )
+
+{\itshape reactivegather .true.} \+:: Gathers together all reactive molecules around a common point before performing the N\+EB interpolation (works in G\+DS also).
+
+{\itshape fraginterpol .true.} \+:: For reaction paths where molecules exchange fragments, fraginterpol provides a better guess, where the molecules are first brought close, then exchange fragments and finally move apart. Recommend setting to .true. for most cases.
+
+{\itshape stripinactive .T\+R\+UE.} \+:: This is a logical flag which controls whether or not \char`\"{}inactive\char`\"{} molecules are removed from the initial path of a N\+EB calculation before N\+EB refinement.
+
+{\itshape nebconv 1d-\/3} \+::
+
+{\itshape nebmaxconv 5d-\/3} \+::\hypertarget{_annotated_autotoc_md4}{}\doxysection{Constraints control}\label{_annotated_autotoc_md4}
+This block controls the constrained atoms and degrees-\/of-\/freedom in G\+DS calculations and geometry-\/optimization calculations.
+
+The {\itshape dofconstraints} input gives the number of fixed D\+O\+Fs (in this case, 6), with following line in the input file listing the integer-\/values of the fixed D\+O\+FS. Here, counting starts at 1 for the {\itshape x}-\/coordinate of atom 1. The {\itshape z}-\/coordinate of atom 2 has the integer value of 6, and so on... \begin{DoxyVerb} dofconstraints 6
+ 1 2 3 5 6 9
+\end{DoxyVerb}
+
+
+The {\itshape atomconstraints} has the same format as {\itshape dofconstraints}, but the integers now refer to the number of fixed atoms, and the indices of the fixed atoms. In the following, 1 atom is fixed -\/ atom number 13. \begin{DoxyVerb} atomconstraints 1
+ 13
+\end{DoxyVerb}
+
+
+Finally, the {\itshape alignedatoms} input allows one to define three atoms which will be used to position and orient any input molecular structure in space. This is very useful when performing N\+EB calculations as it helps remove overall translations and orientations of the molecules in the optimized string. Note that the N\+EB routines will automatically select 3 atoms to position and orient if you don\textquotesingle{}t input anything as {\itshape alignedatoms}. In the following example, atoms 1, 2 and 3 are chosen to define the relative position and orientation. \begin{DoxyVerb} alignedatoms
+ 1 2 3
+\end{DoxyVerb}
+\hypertarget{_annotated_autotoc_md5}{}\doxysection{P\+E\+S control}\label{_annotated_autotoc_md5}
+This block controls potential energy evaluations during G\+DS and N\+EB, and also controls geometry-\/optimization.
+
+{\itshape pesfull .T\+R\+UE.} \+:: If .T\+R\+UE., we perform P\+ES evaluations and geometry optimizations for the full system in one go. If .F\+A\+L\+SE., we separately calculate the energy for each independent molecule.
+
+{\itshape pestype orca} \+:: Defines single-\/point P\+ES evaluation code to use ({\itshape orca}, {\itshape dftb}, {\itshape null} or {\itshape lammps})
+
+{\itshape pesfile orca.\+head} \+:: Defines the inputfile containing the header for pes single-\/point calculation.
+
+{\itshape pesopttype orca} \+:: Defines geometry optimization P\+ES code being used ({\itshape orca}, {\itshape dftb}, {\itshape null}, {\itshape uff})
+
+{\itshape pesoptfile orca.\+min} \+:: Defines the inputfile containing the header for geometry-\/optimization calculation.
+
+{\itshape pesexecutable orca} \+:: Defines the executable to use to for single-\/point P\+ES evaluation (full path or alias)
+
+{\itshape pesoptexecutable orca} \+:: Defines the executable to use to for geometry optimization (full path or alias)\hypertarget{_annotated_autotoc_md6}{}\doxysection{Graph-\/driven sampling (\+G\+D\+S) control -\/ by default, everything inactive!}\label{_annotated_autotoc_md6}
+Controls G\+DS simulations.
+
+{\bfseries{movefile moves.\+in}} \+:: Identifies the movefile used to input allowed graph moves.
+
+{\bfseries{gdsthresh 0.\+2}} \+:: Probability that a graphmove will be attempted for 1 end-\/point each time-\/step
+
+{\bfseries{gdsspring 0.\+025}} \+:: Inter-\/bead spring constant for G\+DS simulation (Eh/\+Bohr$\ast$$\ast$2)
+
+{\bfseries{gdsrestspring 0.\+1}} \+:: Spring constant for harmonic graph enforcement terms (Eh/\+Bohr$\ast$$\ast$2)
+
+{\bfseries{nbstrength 0.\+02}} \+:: Repulsion strength for non-\/bonded atoms \mbox{[}V = nbstrength $\ast$ exp(-\/r\+\_\+\{ij\}$\ast$$\ast$2 / (2 $\ast$ nbrange$\ast$$\ast$2))\mbox{]}
+
+{\bfseries{nbrange 2.\+0}} \+:: Range parameter for non-\/bonded atoms (see above).
+
+{\bfseries{kradius 0.\+1}} \+:: Spring constant for non-\/interacting molecules in G\+DS simulations.
+
+{\bfseries{gdstemperature 100}} \+:: Temperature (K) for G\+DS momenta when using dynamic sampling.
+
+{\bfseries{gdscoefftemp 100}} \+:: Temperature (K) for G\+DS Fourier coeffients when using dynamics sampling.
+
+{\bfseries{gdscoeffmass 50000}} \+:: Effective mass (atomic units) for G\+DS Fourier coefficients when using dynamics sampling.
+
+{\bfseries{timestep 0.\+5}} \+:: Timestep (in fs) for G\+DS evolution when using dynamic sampling.
+
+{\bfseries{ngdsiter 500}} \+:: Number of G\+DS iterations to run for.
+
+{\bfseries{ngdsrelax 2000}} \+:: Number of steepest-\/descent optimization steps to minimize graph restraint after graph move.
+
+{\bfseries{gdsdtrelax 0.\+05}} \+:: Step-\/size (au) for steepest-\/descent relaxation above.
+
+{\bfseries{gdsoutfreq 10}} \+:: Information output frequency during G\+DS simulation.
+
+{\bfseries{nebrestrend .F\+A\+L\+SE.}} \+:: Flag indicating weather to apply to it duing the optimization of molecules during G\+DS, if optaftermove is .true. (also used in C\+I\+N\+EB).
+
+{\bfseries{optaftermove .T\+R\+UE.}} \+:: Optimizes every molecule involved in the path formation -\/ if the resulting optimised molecule does not conform to the graph, the proposed path is rejected. If nebrestrend .T\+R\+UE., the graph constraining potential are also included during the optimization, and then switched off during a second, in the hope to find a minima in agreement with the graphs (would recommend to set nebrestrend .T\+R\+UE. for this).
+
+{\bfseries{removecollisions .true.}} \+:: Optimize initially-\/linear reaction path under an inter-\/atomic repulsive potential after each graph move, in order to remove possible collisions between atoms.
+
+{\bfseries{moldata .true.}} \+:: if optaftermove and skiprepeats are true, this flag set to true will save information used to generate the reaction network post-\/prossesing after G\+DS, as well as print information on the unique molecules thus found and in which reactions they are found.
+
+{\bfseries{skiprepeats .true.}} \+:: Checks after every path formed whether or not it has already been encountered before (saved into the \textquotesingle{}database\textquotesingle{}). if so G\+DS, does not save the found path and carries on. It uses the S\+P\+R\+I\+NT coordinates to determine similarities betweeen structures.
+
+{\bfseries{valencerange}} \+:: Defines the allowed valence ranges of each element as follows\+: \begin{DoxyVerb}valencerange{
+C 1 4
+O 1 2
+H 0 1
+Pt 0 3 fz
+}
+\end{DoxyVerb}
+ The fz keyword applies only to frozen atoms, either by being defined in the fixedbonds\{\} input (see below), or by atomcontraints keyword. In the example, only Pt-\/X bonds (X= whatever) which can be formed or broken during the G\+DS calculation are counted into the \textquotesingle{}valence\textquotesingle{}. If a cluster of Pt atoms are not moving during a G\+DS calculation, and they are bonded to each other (to varying degrees), the above keyword will allow for up to 3 more bonds, not counting the Pt-\/\+Pt bonds, to be formed on the Pt atoms.
+
+{\bfseries{reactiveatomtypes}} \+:: Defines which types of elements are allowed to react, as follows\+: \begin{DoxyVerb}reactiveatomtypes{
+C
+O
+H
+}
+\end{DoxyVerb}
+
+
+{\bfseries{reactiveatoms}} \+:: Defines which atom numbers are allowed to react. These can be given as an inclusive range ({\itshape range XX YY}), or by individual id number ({\itshape id XX}). \begin{DoxyVerb}reactiveatoms{
+range 1 4
+id 7
+}
+\end{DoxyVerb}
+
+
+{\bfseries{reactivevalence}} \+:: Defines the valence range one element can have with another \begin{DoxyVerb}reactivevalence{
+Fe Fe 6 8
+    H C 0 1
+    H O 0 1
+}
+\end{DoxyVerb}
+
+
+In the above, {\itshape Fe} must be bonded between 6 to 8 other Fe atoms to be an acceptable molecule. Similarly, the second line indicates that Hydrogen can only be bonded up to 1 carbon atom.
+
+{\bfseries{fixedbonds}} \+:: Defines fixed bonds, which are not allowed to change during a chemical reaction (although they can vibrate, translate, etc.) \begin{DoxyVerb}fixedbonds{
+C O
+3 4
+}
+\end{DoxyVerb}
+
+
+In the above example, {\itshape all} C-\/O bond orders are fixed at whatever they are in the starting structure. So, if a C-\/O bond is present in the starting structure, it cannot change during the G\+DS simulation. Similarly, the bond between atoms {\itshape 3} and {\itshape 4} is also fixed at the starting structure value.
+
+{\bfseries{essentialmoveatoms}} \+:: Defines a list of atoms of which AT L\+E\+A\+ST O\+NE OF T\+H\+EM M\+U\+ST be included in any possible graph moves. The formatting options are the same as the {\itshape reactiveatoms} block described above, for example\+: \begin{DoxyVerb}essentialmoveatoms{
+range 1 2
+}
+\end{DoxyVerb}
+
+
+In the above example, the atoms in the range 1-\/2 must be included amogst the moves chosen.
+
+{\bfseries{essentialatoms}} \+:: Defines atoms of which AT L\+E\+A\+ST O\+NE OF T\+H\+EM M\+U\+ST be included in molecules that are involved in the reactions. The formatting options are the same as the {\itshape reactiveatoms} block described above, for example\+: \begin{DoxyVerb}essentialatoms{
+id 5
+id 7
+}
+\end{DoxyVerb}
+
+
+In the above example, the atoms 5 and 7 must be in any of the molecules that are involved in the reaction (from chemical species image 1 changing to nimage)
+
+{\bfseries{molecvalcons}} \+:: Defines the valency that the atoms must have in molecules with all or a subset of the elements defined in each line, with + or minus some possible offset \begin{DoxyVerb}molecvalcons{
+C 0 ; 0
+C 4 O 2 ; 2
+C 4 O 2 H 1 ; 1
+C 4 N 3 O 2 H 1 ; 2
+Pt-x C 4 N 3 O 2 H 1 ; 4
+}
+\end{DoxyVerb}
+
+
+If a candidate molecule involved in the reaction in question, might for example contain a Boron atom, none of the contraints apply to such a molecule (none have B in the list) In the above examples; The first line only applies to molecules that are comprised of pure carbon, and setting the valency to 0, with no offset, means that any pure carbon molecules will fail this test. The second line will only apply to atoms with Carbon and/or Oxygens, Carbon can have up to 4 bonds, oxygen 2. Because of the offset 2, carbonate ions might be allowed ( meaning +/-\/ 2 ions or two electron radicals etc... are allowed). The third line would apply to molecules containing C, H and O, so it might allow for the formation of carboxylate anions or its protonated (neutral) counterparts, protonated epoxides, etc... only having one + charge/radical (offset = 1) The fourth line Carbon can have up to 4 bonds, nitrogen 3, oxygen 2 and hydrogen 1. Because of the offset 2 (after the semicolon), the it can allow for the formation of Zwitterions, typical of aminoacids, with a N\+H4+ and O-\/ terms. The last line applies for scenarios where oragnic molecules are attached to some element with very flexible bon-\/order/valency -\/ e.\+g. a platinum cluster can bond flexibly to a varied number of atoms. Consecuently, the suffix \char`\"{}-\/x\char`\"{} instructs the program not to count the valency of Pt. The variable element (ie Pt) will be discounted (\char`\"{}erased\char`\"{}) and each of the submolecules will be judged by the contraints of that line. In other words, if there are two organic moieties attached to the platinum cluster, those moieties will be {\itshape individually} screened by the constraints. The bonds to Pt by those other non-\/\+Pt atoms attached to Pt will therefore not be counted as bonds, and one should therefore account for this uncertainty by setting a generous offset. In this example, one could envisage a carbon atom could be bonded to three Pt atoms in a cluster, that would still leave an charge offset of 4-\/3 = 1 on the rest of the organic molecule that carbon is bonded to.
+
+In general, for every molecule that is made/broken in a reaction, if a contraint applies to it, then whichever contraint appears first (top to bottom) in the list will determine wheather the molecule is accepted or not (priority is given to the top ones). So placing the first line at the end (in the example) will mean that pure carbon structures would be accepted since line 2 (now being the first) would allow such structures (and the rule would apply to them). All molecules involved in the reaction must be accepted for the reaction to be allowed.
+
+{\bfseries{allowedbonds}} \+:: Allows definition of bond-\/number constraints in the structures generated by graph moves. The format is as given in the following example\+: \begin{DoxyVerb}allowedbonds{
+O O 1
+}
+\end{DoxyVerb}
+
+
+Here, the constraint indicates that an oxygen atom cannot be bonded to more than 1 other oxygen atom.
+
+{\bfseries{forbidgraphs}} \+:: This is a logical flag which indicates whether or not to use the forbidden graph pattern file. If .T\+R\+UE., then a G\+DS simulation will not allow any graph-\/patterns to form which are input into the forbidfile defined below. By adding entries to the forbid file, users can force G\+DS to stop generating user-\/defined bonding patterns.
+
+{\bfseries{forbidfile forbid.\+in}} \+:: Identifies the file (here, forbid.\+in) which contains the library of forbidden bonding patterns which are used if forbidgraphs = .T\+R\+UE.
+
+Controls Graph\+Gen calculations.
+
+{\bfseries{mxndexplore 6.\+5}} \+:: The order of magnitude of the maximum total number of nodes explored during the tree graph search prodedure. a small number (will take seconds or minutes to finish) is 5 or 6. If 9 is chosen, with large treegencutoff, expect to wait many hours (and would recomment using treediskstore $\sim$ 0.\+15 if using large maxtreepergen).
+
+{\bfseries{treesolutions 100}} \+:: For each of the user-\/given-\/products (Id of product from the \+\_\+\+Mol.\+dat file) given, it provides (in directory input-\/filename\+\_\+pX the top 100 graphs (their fitness derived by integrating the absolute energy changes of each reaction present) found during a graphgen calculation on a G\+DS Molecular database \+\_\+\+Mol.\+dat.
+
+{\bfseries{treereactants 3}} \+:: the starting reactants (Id from the \+\_\+\+Mol.\+dat file) that the user wishes to investigate for the best pathways (and obtain graphs) to the products provided in the treeproducts key (graphgen).
+
+{\bfseries{1 2 5}}
+
+{\bfseries{treeproducts 2}} \+:: the end products (Id from the \+\_\+\+Mol.\+dat file) that the user wishes to investigate for the best pathways (and obtain graphs) from the reactants provided in the treereactants key (graphgen).
+
+{\bfseries{12 54}}
+
+{\bfseries{ignorereac 3}} \+:: The Id of those reactions (Id from the \+\_\+\+Mol.\+dat file) that one wishes to discount from the reaction graph construction (graphgen)
+
+{\bfseries{12 103 45}}
+
+{\bfseries{ignoremol 2}} \+:: The Id of those molecules (Id from the \+\_\+\+Mol.\+dat file) that one wishes to discount from the reaction graph construction (graphgen)
+
+{\bfseries{11 105}}
+
+{\bfseries{maxtreepergen 1000}} \+:: The possibilities of pathways grows combinatorially on every generation of the reaction trees, maxtreepergen dictates how many of the best trees (by their fitness defined by integrating the absolute energy changes of each reaction present) should be sent to the branch generation above it in the tree to be further combinatorially mixed.
+
+{\bfseries{treegencutoff 15}} \+:: the maximum number of branch generations (branch=molecule with more than one reaction available) we are reaching during the exploration of reaction pathways. For simple systems 10 should be sufficient, for complicated, many multistep procceses 20 is probably the maximum limit. With 20 Generations of the trees for large networks the possibilities become very large, so expect waiting a while..
+
+{\bfseries{treediskstore 0.\+15}} \+:: if a set of child branches has produced more than treediskstore$\ast$maxtreepergen trees, then store them on disk. For large networks with large maxtreepergen, we would suggest 0.\+1. For small systems that can store everything in memory, 1.\+0. Setting it to 0.\+0 will make the calculations extremely slow.
+
+{\bfseries{evtreeprint 50}} \+:: As well as producting treesolutions best trees, it also clusters the final maxtreepergen trees (that it found at the end of the selective proccess) into different families and prints the top 50 for each (in this example) into a directory input-\/filename\+\_\+p\+X/evdir\+\_\+X
+
+{\bfseries{enforcefullrx .true.}} \+:: Enforces to print only trees with full set of reactants as leafs
+
+{\bfseries{treefaven 1}} \+:: Enforces to print only those trees whose sum of all reactant leaves relative energies are positive (the reaction path is favourable) by setting 1, negative (unfavourable) -\/1, or neutral 0
+
+{\bfseries{readnds}} \+:: Wheather or not this is a restart calculation for which we wish to use the \char`\"{}\+\_\+nds.\+bin\char`\"{} file to skip stages A1-\/\+A3). Note that if the nignore, rignore, prod, react parameters are changed in a restart, it gets ignored.
+
+{\bfseries{absenthresh0}} \+:: provide a maximum sum of the absolute energy of every reaction in the branch history H, used to cutoff the D\+FS algorithms to a managable size, used for restart calculations and estimated based on the information provided in the log file of the previous run. 

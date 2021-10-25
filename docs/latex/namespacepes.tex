@@ -1,0 +1,388 @@
+\hypertarget{namespacepes}{}\doxysection{pes Module Reference}
+\label{namespacepes}\index{pes@{pes}}
+
+
+Potential energy surface calculations.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacepes_a836bf4b305457df700a5520d6d505ee7}{setupenergycalc}} (P\+E\+Stype, P\+E\+Sfile, P\+E\+S\+Executable)
+\begin{DoxyCompactList}\small\item\em Setup\+Energy\+Calc. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacepes_a4a1ef51f594097f9dfce8ebcdf864782}{setupgeomopt}} (P\+E\+S\+Opttype, P\+E\+S\+Optfile, P\+E\+S\+Opt\+Executable)
+\begin{DoxyCompactList}\small\item\em Setup\+Geom\+Opt. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacepes_a9a8620a84a12feb416e02e9c9e64f8be}{abinitio}} (cx, abtypein, success)
+\begin{DoxyCompactList}\small\item\em Ab\+Initio. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacepes_a6cfa4ec2e58a645b8a8e280d98d32f47}{molprocalc}} (cx, abtype, success)
+\begin{DoxyCompactList}\small\item\em M\+O\+L\+P\+R\+Ocalc. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacepes_a7529728e0cd0b123b99f0541d4c24690}{orcacalc}} (cx, abtype, success)
+\begin{DoxyCompactList}\small\item\em O\+R\+C\+Acalc. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacepes_a6b9874a523e27244b65c34e696f2a67d}{dftbcalc}} (cx, minimize, success)
+\begin{DoxyCompactList}\small\item\em D\+F\+T\+Bcalc. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacepes_a3c31f7c822b9f71d668245f72cc453b0}{uffcalc}} (cx, minimize, success)
+\begin{DoxyCompactList}\small\item\em U\+F\+Fcalc. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacepes_aca3a505d6265f24ebc0e4451872259f8}{lammpscalc}} (cx, abtype, success)
+\begin{DoxyCompactList}\small\item\em L\+A\+M\+M\+P\+Scalc. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacepes_af090baa63d75251c8a0d59fa6a0e5ab7}{psi4calc}} (cx, minimize, success)
+\begin{DoxyCompactList}\small\item\em P\+S\+I4calc. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacepes_a3496810618e93c982ad8323a9c065ea8}\label{namespacepes_a3496810618e93c982ad8323a9c065ea8}} 
+subroutine {\bfseries readforcesindividually} (cx, dummy\+Lines)
+\item 
+\mbox{\Hypertarget{namespacepes_a975ac201244ea09f52437de130b111e2}\label{namespacepes_a975ac201244ea09f52437de130b111e2}} 
+subroutine {\bfseries readforcestogether} (cx, dummy\+Lines)
+\item 
+\mbox{\Hypertarget{namespacepes_adc61696110e289b0a4855b7de2eee923}\label{namespacepes_adc61696110e289b0a4855b7de2eee923}} 
+subroutine {\bfseries readenergy} (cx, dummy\+Lines)
+\item 
+\mbox{\Hypertarget{namespacepes_adda0b2681bff3816654c0b18a9a1550f}\label{namespacepes_adda0b2681bff3816654c0b18a9a1550f}} 
+subroutine {\bfseries readhessian} (cx, file\+Name)
+\item 
+\mbox{\Hypertarget{namespacepes_ac7e8fcaa416028b21afaa5a102657105}\label{namespacepes_ac7e8fcaa416028b21afaa5a102657105}} 
+subroutine {\bfseries readoptimizedcoordinates} (cx, file\+Name)
+\item 
+\mbox{\Hypertarget{namespacepes_a3c28a0b18ef26d0a41522e0c0ab88b42}\label{namespacepes_a3c28a0b18ef26d0a41522e0c0ab88b42}} 
+subroutine {\bfseries createfiletemplate} (minimize, exec, n, buffer, iline)
+\item 
+\mbox{\Hypertarget{namespacepes_a7518f38a27ed0fe7d940eb9832d4143f}\label{namespacepes_a7518f38a27ed0fe7d940eb9832d4143f}} 
+subroutine {\bfseries executecalculation} (str, success)
+\item 
+\mbox{\Hypertarget{namespacepes_a3e3f3e53db69ad2009b7c91795f32bf5}\label{namespacepes_a3e3f3e53db69ad2009b7c91795f32bf5}} 
+subroutine {\bfseries extractdata} (str)
+\item 
+subroutine \mbox{\hyperlink{namespacepes_ad09cee72e0fef4317231efc6b7cf35fd}{fireminimise}} (cx, iterin, gdsrestspring\+\_\+in, nbstrength\+\_\+in, nbrange, kradius, nebrestrend)
+\begin{DoxyCompactList}\small\item\em Fire\+Minimise. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacepes_a1d90d628767602b96f7d3fdba9789918}\label{namespacepes_a1d90d628767602b96f7d3fdba9789918}} 
+subroutine {\bfseries mincxsenergynebrest} (cx, success)
+\item 
+\mbox{\Hypertarget{namespacepes_a8bc8971902e40c913ba0bd5b50fb5a7f}\label{namespacepes_a8bc8971902e40c913ba0bd5b50fb5a7f}} 
+subroutine {\bfseries mincxsenergy} (cx, success)
+\item 
+subroutine \mbox{\hyperlink{namespacepes_aacd7a0dc07c19006c3f5e8cfaede7313}{matchcxconstraint}} (cx, mcx, kspring)
+\begin{DoxyCompactList}\small\item\em Match\+C\+X\+Contraints. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacepes_ab87e7fd6e1ee71ec8dd58b2557d1f29e}{getactmolecenergies}} (cx, Molec\+Act, nactmol, molen)
+\begin{DoxyCompactList}\small\item\em Get\+Act\+Molecular\+Energies. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacepes_a93dedbea29f40a00bff8c13569737be1}{getmolecularenergies}} (cx)
+\begin{DoxyCompactList}\small\item\em Get\+Molecular\+Energies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacepes_ab1edb0ccbc2eb292e13a56f8490d53fd}\label{namespacepes_ab1edb0ccbc2eb292e13a56f8490d53fd}} 
+integer, parameter {\bfseries nlinemax} = 200
+\item 
+\mbox{\Hypertarget{namespacepes_a23a59fcac6a8142f8487d45cfeffe13c}\label{namespacepes_a23a59fcac6a8142f8487d45cfeffe13c}} 
+character(len=6) {\bfseries vtype}
+\item 
+\mbox{\Hypertarget{namespacepes_a643f44e7ca705ba0662ef672cebff6e6}\label{namespacepes_a643f44e7ca705ba0662ef672cebff6e6}} 
+character(len=25) {\bfseries vfile}
+\item 
+\mbox{\Hypertarget{namespacepes_aba41be36b42b1eb05bffcb6871ac6ed8}\label{namespacepes_aba41be36b42b1eb05bffcb6871ac6ed8}} 
+character(len=6) {\bfseries vopttype}
+\item 
+\mbox{\Hypertarget{namespacepes_a72029e7281dce1ebc94575b13602eeab}\label{namespacepes_a72029e7281dce1ebc94575b13602eeab}} 
+character(len=25) {\bfseries voptfile}
+\item 
+\mbox{\Hypertarget{namespacepes_ae49ab5998f0aed64f710ab11951c213c}\label{namespacepes_ae49ab5998f0aed64f710ab11951c213c}} 
+integer {\bfseries nline}
+\item 
+\mbox{\Hypertarget{namespacepes_ae313c93e32635bc18dce3687e1f27eba}\label{namespacepes_ae313c93e32635bc18dce3687e1f27eba}} 
+integer {\bfseries nlineopt}
+\item 
+\mbox{\Hypertarget{namespacepes_a356c2c5f579447fc6cfec92bf4bcab4f}\label{namespacepes_a356c2c5f579447fc6cfec92bf4bcab4f}} 
+character(len=100), dimension(nlinemax) {\bfseries peslines}
+\item 
+\mbox{\Hypertarget{namespacepes_af916a63154659413614f19bba60f5350}\label{namespacepes_af916a63154659413614f19bba60f5350}} 
+character(len=100) {\bfseries pesexec}
+\item 
+\mbox{\Hypertarget{namespacepes_a3130c949413ee53f32a3a93fa84859d7}\label{namespacepes_a3130c949413ee53f32a3a93fa84859d7}} 
+character(len=100) {\bfseries pesoptexec}
+\item 
+\mbox{\Hypertarget{namespacepes_aaab517e0695444b997ba8545228504a3}\label{namespacepes_aaab517e0695444b997ba8545228504a3}} 
+character(len=100), dimension(nlinemax) {\bfseries pesoptlines}
+\item 
+\mbox{\Hypertarget{namespacepes_a0169d7fd9e9ff2db13217335d745195e}\label{namespacepes_a0169d7fd9e9ff2db13217335d745195e}} 
+integer {\bfseries coordsline}
+\item 
+\mbox{\Hypertarget{namespacepes_a71cc0573350a31abe52ccf496ded3513}\label{namespacepes_a71cc0573350a31abe52ccf496ded3513}} 
+integer {\bfseries optcoordsline}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Potential energy surface calculations. 
+
+Defines subroutines for evaluating energies and forces using various external codes. 
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacepes_a836bf4b305457df700a5520d6d505ee7}\label{namespacepes_a836bf4b305457df700a5520d6d505ee7}} 
+\index{pes@{pes}!setupenergycalc@{setupenergycalc}}
+\index{setupenergycalc@{setupenergycalc}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{setupenergycalc()}{setupenergycalc()}}
+{\footnotesize\ttfamily subroutine pes\+::setupenergycalc (\begin{DoxyParamCaption}\item[{character}]{P\+E\+Stype,  }\item[{character}]{P\+E\+Sfile,  }\item[{character}]{P\+E\+S\+Executable }\end{DoxyParamCaption})}
+
+
+
+Setup\+Energy\+Calc. 
+
+Initializes the P\+ES calculation.
+
+
+\begin{DoxyItemize}
+\item P\+E\+Stype\+: Identifies the type of P\+ES calculation, \textquotesingle{}O\+R\+CA\textquotesingle{}...
+\item P\+E\+Sfile\+: Identifies the file containing the template input file for P\+ES evaluation. This should have the characters \textquotesingle{}X\+XX\textquotesingle{} in the line where the coordinates will be input. 
+\end{DoxyItemize}
+
+Definition at line 47 of file pes.\+f90.
+
+\mbox{\Hypertarget{namespacepes_a4a1ef51f594097f9dfce8ebcdf864782}\label{namespacepes_a4a1ef51f594097f9dfce8ebcdf864782}} 
+\index{pes@{pes}!setupgeomopt@{setupgeomopt}}
+\index{setupgeomopt@{setupgeomopt}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{setupgeomopt()}{setupgeomopt()}}
+{\footnotesize\ttfamily subroutine pes\+::setupgeomopt (\begin{DoxyParamCaption}\item[{character}]{P\+E\+S\+Opttype,  }\item[{character}]{P\+E\+S\+Optfile,  }\item[{character}]{P\+E\+S\+Opt\+Executable }\end{DoxyParamCaption})}
+
+
+
+Setup\+Geom\+Opt. 
+
+Initializes the geometry optimisation calculation.
+
+
+\begin{DoxyItemize}
+\item P\+E\+Sopttype\+: Identifies the P\+ES for geometry optimisation, \textquotesingle{}O\+R\+CA\textquotesingle{}...
+\item P\+E\+Soptfile\+: Identifies the file containing the template input file for P\+ES evaluation. This should have the characters \textquotesingle{}X\+XX\textquotesingle{} in the line where the coordinates will be input. 
+\end{DoxyItemize}
+
+Definition at line 104 of file pes.\+f90.
+
+\mbox{\Hypertarget{namespacepes_a9a8620a84a12feb416e02e9c9e64f8be}\label{namespacepes_a9a8620a84a12feb416e02e9c9e64f8be}} 
+\index{pes@{pes}!abinitio@{abinitio}}
+\index{abinitio@{abinitio}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{abinitio()}{abinitio()}}
+{\footnotesize\ttfamily subroutine pes\+::abinitio (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{character(len=4), intent(in)}]{abtypein,  }\item[{logical}]{success }\end{DoxyParamCaption})}
+
+
+
+Ab\+Initio. 
+
+Calculates Ab-\/initio properties for the chemical structure in cx.
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item abtype\+: \textquotesingle{}ener\textquotesingle{} = energy calculation ; \textquotesingle{}grad\textquotesingle{} = energy+gradient \textquotesingle{}hess\textquotesingle{} = energy+gradient+hessian ; \textquotesingle{}optg\textquotesingle{} = optimization
+\item success\+: A logical flag indicating whether or not the P\+ES evaluation was successful. For example, might not have converged the S\+CF cycles in D\+F\+T/\+HF, etc. 
+\end{DoxyItemize}
+
+Definition at line 171 of file pes.\+f90.
+
+\mbox{\Hypertarget{namespacepes_a6cfa4ec2e58a645b8a8e280d98d32f47}\label{namespacepes_a6cfa4ec2e58a645b8a8e280d98d32f47}} 
+\index{pes@{pes}!molprocalc@{molprocalc}}
+\index{molprocalc@{molprocalc}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{molprocalc()}{molprocalc()}}
+{\footnotesize\ttfamily subroutine pes\+::molprocalc (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{character (len=4)}]{abtype,  }\item[{logical}]{success }\end{DoxyParamCaption})}
+
+
+
+M\+O\+L\+P\+R\+Ocalc. 
+
+Performs a single-\/point energy and force calculation using M\+O\+L\+P\+RO.
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item abtype\+: indicates what time of calculation we shold perform 
+\end{DoxyItemize}
+
+Definition at line 349 of file pes.\+f90.
+
+\mbox{\Hypertarget{namespacepes_a7529728e0cd0b123b99f0541d4c24690}\label{namespacepes_a7529728e0cd0b123b99f0541d4c24690}} 
+\index{pes@{pes}!orcacalc@{orcacalc}}
+\index{orcacalc@{orcacalc}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{orcacalc()}{orcacalc()}}
+{\footnotesize\ttfamily subroutine pes\+::orcacalc (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{character(len=4)}]{abtype,  }\item[{logical}]{success }\end{DoxyParamCaption})}
+
+
+
+O\+R\+C\+Acalc. 
+
+Performs a single-\/point energy and force calculation using O\+R\+CA.
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item abtype\+: indicates what type of calculation we shold perform
+\item success\+: return flag indicating non-\/convergence of calculation if success = .F\+A\+L\+SE. 
+\end{DoxyItemize}
+
+Definition at line 521 of file pes.\+f90.
+
+\mbox{\Hypertarget{namespacepes_a6b9874a523e27244b65c34e696f2a67d}\label{namespacepes_a6b9874a523e27244b65c34e696f2a67d}} 
+\index{pes@{pes}!dftbcalc@{dftbcalc}}
+\index{dftbcalc@{dftbcalc}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{dftbcalc()}{dftbcalc()}}
+{\footnotesize\ttfamily subroutine pes\+::dftbcalc (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{logical}]{minimize,  }\item[{logical}]{success }\end{DoxyParamCaption})}
+
+
+
+D\+F\+T\+Bcalc. 
+
+Performs a single-\/point energy and force calculation using D\+F\+TB. Note that the appropriate Slater-\/\+Koster files should be present in the run directory.
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item minimize\+: logical flag indicating whether or not to run a geometry optimization calculation.
+\item success\+: Flag indicating success of calculation. 
+\end{DoxyItemize}
+
+Definition at line 816 of file pes.\+f90.
+
+\mbox{\Hypertarget{namespacepes_a3c31f7c822b9f71d668245f72cc453b0}\label{namespacepes_a3c31f7c822b9f71d668245f72cc453b0}} 
+\index{pes@{pes}!uffcalc@{uffcalc}}
+\index{uffcalc@{uffcalc}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{uffcalc()}{uffcalc()}}
+{\footnotesize\ttfamily subroutine pes\+::uffcalc (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{logical}]{minimize,  }\item[{logical}]{success }\end{DoxyParamCaption})}
+
+
+
+U\+F\+Fcalc. 
+
+Performs a single-\/point energy and force calculation using U\+FF, as implemented in openbabel (obabel).
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item minimize\+: logical flag indicating whether or not to run a geometry optimization calculation.
+
+For openbabel, we must have minimize = .T\+R\+UE.
+\item success\+: Flag indicating success of calculation.
+\end{DoxyItemize}
+
+D\+E\+P\+E\+N\+D\+E\+N\+C\+I\+ES\+: Requires babel and obminimize. 
+
+Definition at line 974 of file pes.\+f90.
+
+\mbox{\Hypertarget{namespacepes_aca3a505d6265f24ebc0e4451872259f8}\label{namespacepes_aca3a505d6265f24ebc0e4451872259f8}} 
+\index{pes@{pes}!lammpscalc@{lammpscalc}}
+\index{lammpscalc@{lammpscalc}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{lammpscalc()}{lammpscalc()}}
+{\footnotesize\ttfamily subroutine pes\+::lammpscalc (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{character (len=4)}]{abtype,  }\item[{logical}]{success }\end{DoxyParamCaption})}
+
+
+
+L\+A\+M\+M\+P\+Scalc. 
+
+Performs a single-\/point energy and force calculation using L\+A\+M\+M\+PS.
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item abtype\+: indicates what time of calculation we shold perform 
+\end{DoxyItemize}
+
+Definition at line 1065 of file pes.\+f90.
+
+\mbox{\Hypertarget{namespacepes_af090baa63d75251c8a0d59fa6a0e5ab7}\label{namespacepes_af090baa63d75251c8a0d59fa6a0e5ab7}} 
+\index{pes@{pes}!psi4calc@{psi4calc}}
+\index{psi4calc@{psi4calc}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{psi4calc()}{psi4calc()}}
+{\footnotesize\ttfamily subroutine pes\+::psi4calc (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{logical}]{minimize,  }\item[{logical}]{success }\end{DoxyParamCaption})}
+
+
+
+P\+S\+I4calc. 
+
+Performs a single-\/point energy and force calculation using psi4.
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item minimize\+: logical flag indicating whether or not to run a geometry optimization calculation. 
+\end{DoxyItemize}
+
+Definition at line 1308 of file pes.\+f90.
+
+\mbox{\Hypertarget{namespacepes_ad09cee72e0fef4317231efc6b7cf35fd}\label{namespacepes_ad09cee72e0fef4317231efc6b7cf35fd}} 
+\index{pes@{pes}!fireminimise@{fireminimise}}
+\index{fireminimise@{fireminimise}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{fireminimise()}{fireminimise()}}
+{\footnotesize\ttfamily subroutine pes\+::fireminimise (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{iterin,  }\item[{real(8)}]{gdsrestspring\+\_\+in,  }\item[{real(8)}]{nbstrength\+\_\+in,  }\item[{real(8)}]{nbrange,  }\item[{real(8)}]{kradius,  }\item[{logical}]{nebrestrend }\end{DoxyParamCaption})}
+
+
+
+Fire\+Minimise. 
+
+minimises the energy using the F\+I\+RE algorithm, incorporating the graph constraining ppotentials if nebrestend = .true. the last bit of the minimization, we switch to quickmin, optional
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object to be optimized
+\item iter\+: returns the number of iterations it took to optimize
+\item all other\+: parameteres for the graph restraining potential. 
+\end{DoxyItemize}
+
+Definition at line 1651 of file pes.\+f90.
+
+\mbox{\Hypertarget{namespacepes_aacd7a0dc07c19006c3f5e8cfaede7313}\label{namespacepes_aacd7a0dc07c19006c3f5e8cfaede7313}} 
+\index{pes@{pes}!matchcxconstraint@{matchcxconstraint}}
+\index{matchcxconstraint@{matchcxconstraint}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{matchcxconstraint()}{matchcxconstraint()}}
+{\footnotesize\ttfamily subroutine pes\+::matchcxconstraint (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{mcx,  }\item[{real(8)}]{kspring }\end{DoxyParamCaption})}
+
+
+
+Match\+C\+X\+Contraints. 
+
+provides a force proportional to the difference btween the coordinates of the two structures cx and mcx
+
+
+\begin{DoxyItemize}
+\item cx\+: A chemical structure object.
+\item kspring\+: Spring constant for the bonding restraint term. 
+\end{DoxyItemize}
+
+Definition at line 1791 of file pes.\+f90.
+
+\mbox{\Hypertarget{namespacepes_ab87e7fd6e1ee71ec8dd58b2557d1f29e}\label{namespacepes_ab87e7fd6e1ee71ec8dd58b2557d1f29e}} 
+\index{pes@{pes}!getactmolecenergies@{getactmolecenergies}}
+\index{getactmolecenergies@{getactmolecenergies}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{getactmolecenergies()}{getactmolecenergies()}}
+{\footnotesize\ttfamily subroutine pes\+::getactmolecenergies (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer, dimension(nactmol)}]{Molec\+Act,  }\item[{integer}]{nactmol,  }\item[{double precision, dimension(nactmol), optional}]{molen }\end{DoxyParamCaption})}
+
+
+
+Get\+Act\+Molecular\+Energies. 
+
+Get the energies of each molecule in the reactants and produts of rp for molecules that are \char`\"{}active\char`\"{}
+
+
+\begin{DoxyItemize}
+\item cx\+: chemical structure.
+\item Molec\+Act\+: array with the molecue indecies
+\item nactmol\+: number of molecules in Molec\+Act array
+\item molen\+: array with energies
+\item filenam\+: The filename to be outputed 
+\end{DoxyItemize}
+
+Definition at line 1821 of file pes.\+f90.
+
+\mbox{\Hypertarget{namespacepes_a93dedbea29f40a00bff8c13569737be1}\label{namespacepes_a93dedbea29f40a00bff8c13569737be1}} 
+\index{pes@{pes}!getmolecularenergies@{getmolecularenergies}}
+\index{getmolecularenergies@{getmolecularenergies}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{getmolecularenergies()}{getmolecularenergies()}}
+{\footnotesize\ttfamily subroutine pes\+::getmolecularenergies (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx }\end{DoxyParamCaption})}
+
+
+
+Get\+Molecular\+Energies. 
+
+Get the energies of each molecule in the reactants and produts of rp
+
+
+\begin{DoxyItemize}
+\item cx\+: chemical structure.
+\item filenam\+: The filename to be outputed 
+\end{DoxyItemize}
+
+Definition at line 1851 of file pes.\+f90.
+

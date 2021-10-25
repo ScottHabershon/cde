@@ -1,0 +1,426 @@
+
+************************ CDE simulation ************************
+
+- Start date:    02/08/2021
+- Start time:    21:33:49
+
+- The input filename is: input                                             
+
+================================================================
+                INPUT FILE INTERPRETATION FOLLOWS               
+================================================================
+
+- The input filename is: input                                             
+
+# COMMENT: comment line                                                                                        
+- Calculation type:  NETWORK GENERATION
+- Minimum allowed molecular charge:     0
+- Maximum allowed molecular charge:     0
+- Maximum number of charged molecules allowed at any step:     0
+- Maximum allowed molecular charge:     0
+- Maximum total system charge:     0
+- PES geometry optimization after graph move?:  F
+- PES evaluations for INDEPENDENT MOLECULES being used...
+- Number of images per path:     8
+- Start-point structure file:  start_1.xyz                                       
+- End-point structure file:  end.xyz                                           
+- IDPP interpolation :  T
+
+- Path refinement method:  CLIMBING-IMAGE NUDGED ELASTIC BAND
+- (CI)NEB optimization method:  QUICKMIN
+- Maximum number of NEB iteractions:     500
+- Climbing-image start criterion (au):      0.00050000
+- NEB spring constant:        0.050000
+- NEB optimization step-size:       10.000000
+- NEB output frequency:       5
+- Strip inactive moleculaes before path optimization?:  T
+- Optimize end-points before NEB run:  T
+- Optimize end-points during NEB run:  F
+- Use graph-restrain potential during NEB:  F
+
+- Number of fixed DOFs:     0
+- Number of fixed atoms:     0
+
+- PES type:  orca
+- PES calculation template file:  orca.head
+- PES type for geometry optimization:  orca
+- Geometry optimisation template file:  orca.min
+- PES calculation executable:  '/Users/scott/programs/orca/orca'
+- PES geometry optimization executable:  '/Users/scott/programs/orca/orca'
+
+- Graph-moves file:  moves.in                                          
+- GDS attempt probability:      0.50000000
+- Spring constant for inter-bead springs:      0.05000000
+- Spring constant for bonded-graph restraints:      0.05000000
+- Strength of non-bonded exponential graph restraints:      0.04000000
+- Range of non-bonded exponential graph restraints:      2.50000000
+- Spring constant for intermolecular repulsion restraints:      0.05000000
+- Number of SD steps after GDS graph move:    10000
+- GDS SD relaxation step-size:      0.10000000
+- GDS output frequency:       10
+
+- Number of valence range constraints:     2
+- Valence range constraint:    1 C     1    4
+- Valence range constraint:    2 H     0    1
+
+- Number of reactive atom types:     2
+- Reactive atom labels:  C 
+- Reactive atom labels:  H 
+
+
+- Number of reactive valence constraints:     0
+
+- Fixed bonds for GDS:
+
+- Number of allowed bonding constraints:     0
+
+- Number of reactions in sampled strings for pathfinder:     8
+- Number of MC steps in pathfinder calculation::        5
+- Pathfinding function type: Eigenvalue comparison for single molecule
+- Random number seed:    44
+
+================================================================
+                 END OF INPUT FILE INTERPRETATION                   
+================================================================
+
+*************** Finished reading input parameters **************
+
+* Starting single-ended network generation calculation...
+
+* Running network-generation calculation....
+
+
+* Reading reactant structure...
+
+================================================================
+# Graph Info for CXS:  Reactant structure
+
+* Bonded atoms *
+ C 1   - C 2  
+ C 1   - H 3  
+ C 2   - H 4  
+ C 5   - C 6  
+ C 6   - H 7  
+ C 8   - C 9  
+ C 8   - H 10 
+ C 8   - H 11 
+ C 9   - C 12 
+ C 12  - C 13 
+ C 13  - H 14 
+ C 15  - C 16 
+ C 15  - H 17 
+ C 15  - H 18 
+ C 16  - C 19 
+ C 16  - H 20 
+ C 19  - C 21 
+ C 19  - H 22 
+ C 21  - H 23 
+ C 21  - H 24 
+ H 25  - H 26 
+ C 27  - C 28 
+ C 27  - H 29 
+ C 28  - C 30 
+ C 30  - H 31 
+ C 30  - H 32 
+ C 30  - H 33 
+ H 34  - C 36 
+ C 35  - C 36 
+ C 35  - C 37 
+ C 36  - H 39 
+ C 37  - H 38 
+ C 40  - C 41 
+ C 40  - H 47 
+ C 40  - H 48 
+ C 41  - C 42 
+ C 42  - C 44 
+ C 42  - H 46 
+ H 43  - C 44 
+ C 44  - H 45 
+
+* Atomic valencies *
+ C 1    :    2
+ C 2    :    2
+ H 3    :    1
+ H 4    :    1
+ C 5    :    1
+ C 6    :    2
+ H 7    :    1
+ C 8    :    3
+ C 9    :    2
+ H 10   :    1
+ H 11   :    1
+ C 12   :    2
+ C 13   :    2
+ H 14   :    1
+ C 15   :    3
+ C 16   :    3
+ H 17   :    1
+ H 18   :    1
+ C 19   :    3
+ H 20   :    1
+ C 21   :    3
+ H 22   :    1
+ H 23   :    1
+ H 24   :    1
+ H 25   :    1
+ H 26   :    1
+ C 27   :    2
+ C 28   :    2
+ H 29   :    1
+ C 30   :    4
+ H 31   :    1
+ H 32   :    1
+ H 33   :    1
+ H 34   :    1
+ C 35   :    2
+ C 36   :    3
+ C 37   :    2
+ H 38   :    1
+ H 39   :    1
+ C 40   :    3
+ C 41   :    2
+ C 42   :    3
+ H 43   :    1
+ C 44   :    3
+ H 45   :    1
+ H 46   :    1
+ H 47   :    1
+ H 48   :    1
+
+================================================================
+
+* Reading graph moves file...
+* Graph moves input file: moves.in
+
+================================================================
+              MOVE FILE INTERPRETATION FOLLOWS...               
+================================================================
+
+ # Contains the graph-moves library...
+                                                                                                                                                                                                         
+*** Graph move number:    1 ***
+
+- Number of atoms:    2
+- Bond-changing move detected 
+- Start graph: 
+           0           1
+           1           0
+- End graph: 
+           0           0
+           0           0
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+                                                                                                                                                                                                         
+*** Graph move number:    2 ***
+
+- Number of atoms:    2
+- Bond-changing move detected 
+- Start graph: 
+           0           0
+           0           0
+- End graph: 
+           0           1
+           1           0
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+                                                                                                                                                                                                         
+*** Graph move number:    3 ***
+
+- Number of atoms:    3
+- Bond-changing move detected 
+- Start graph: 
+           0           0           1
+           0           0           1
+           1           1           0
+- End graph: 
+           0           1           0
+           1           0           0
+           0           0           0
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+                                                                                                                                                                                                         
+*** Graph move number:    4 ***
+
+- Number of atoms:    3
+- Bond-changing move detected 
+- Start graph: 
+           0           1           0
+           1           0           0
+           0           0           0
+- End graph: 
+           0           0           1
+           0           0           1
+           1           1           0
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+                                                                                                                                                                                                         
+*** Graph move number:    5 ***
+
+- Number of atoms:    3
+- Bond-changing move detected 
+- Start graph: 
+           0           0           1
+           0           0           0
+           1           0           0
+- End graph: 
+           0           1           0
+           1           0           0
+           0           0           0
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+                                                                                                                                                                                                         
+*** Graph move number:    6 ***
+
+- Number of atoms:    3
+- Bond-changing move detected 
+- Start graph: 
+           0           1           0
+           1           0           0
+           0           0           0
+- End graph: 
+           0           0           1
+           0           0           0
+           1           0           0
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+                                                                                                                                                                                                         
+*** Graph move number:    7 ***
+
+- Number of atoms:    3
+- Bond-changing move detected 
+- Start graph: 
+           0           1           0
+           1           0           1
+           0           1           0
+- End graph: 
+           0           1           1
+           1           0           0
+           1           0           0
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+                                                                                                                                                                                                         
+*** Graph move number:    8 ***
+
+- Number of atoms:    4
+- Bond-changing move detected 
+- Start graph: 
+           0           1           0           0
+           1           0           1           0
+           0           1           0           1
+           0           0           1           0
+- End graph: 
+           0           1           0           1
+           1           0           1           0
+           0           1           0           0
+           1           0           0           0
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+                                                                                                                                                                                                         
+*** Graph move number:    9 ***
+
+- Number of atoms:    4
+- Bond-changing move detected 
+- Start graph: 
+           0           1           0           0
+           1           0           0           0
+           0           0           0           1
+           0           0           1           0
+- End graph: 
+           0           0           1           0
+           0           0           0           1
+           1           0           0           1
+           0           1           1           0
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+*** Graph move number:   10 ***
+
+- Number of atoms:    4
+- Bond-changing move detected 
+- Start graph: 
+           0           0           1           0
+           0           0           0           1
+           1           0           0           1
+           0           1           1           0
+- End graph: 
+           0           1           0           0
+           1           0           0           0
+           0           0           0           1
+           0           0           1           0
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+*** Graph move number:   11 ***
+
+- Number of atoms:    4
+- Bond-changing move detected 
+- Start graph: 
+           0           1           0           0
+           1           0           0           0
+           0           0           0           0
+           0           0           0           0
+- End graph: 
+           0           0           1           0
+           0           0           0           1
+           1           0           0           0
+           0           1           0           0
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+*** Graph move number:   12 ***
+
+- Number of atoms:    4
+- Bond-changing move detected 
+- Start graph: 
+           0           0           1           0
+           0           0           0           1
+           1           0           0           0
+           0           1           0           0
+- End graph: 
+           0           1           0           0
+           1           0           0           0
+           0           0           0           0
+           0           0           0           0
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+- Allowed atom labels: *   
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+                                                                                                                                                                                                         
+================================================================
+                MOVE FILE INTERPRETATION COMPLETE               
+================================================================
+
+* Finished reading graph moves file...
+
+* Setting all initial moves to null...
+
+* Initial Graph Error =      0.00000
+
+* Initial Total Error =      0.00000
+
+*** Starting reaction-path search ***
+

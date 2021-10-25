@@ -1,0 +1,80 @@
+# Test input file
+
+optaftermove .false.
+calctype pathfind 
+nimage 10 
+startfile start.xyz
+endfile end.xyz
+ranseed 1 
+
+# path optimization
+projforcetype 3
+nebmethod quickmin 
+nebiter 1000
+cithresh 1d-4
+nebspring 0.1
+nebstep  10.0 
+neboutfreq 5
+nebconv 1d-4
+
+# constraints
+dofconstraints 0
+atomconstraints 7
+1 2 3 4 5 6 7
+
+essentialmoveatoms{
+range 1 7
+}
+
+# PES input
+pestype  lammps 
+pesfile   lmp.head
+pesopttype  lammps
+pesoptfile lmp.min
+pesexecutable '/Users/scott/code/lammps-22Aug18/src/lmp_serial' 
+pesoptexecutable '/Users/scott/code/lammps-22Aug18/src/lmp_serial' 
+
+# Graph-driven sampling (GDS) control - by default, everything inactive!    
+movefile moves.in
+gdsthresh 0.5 
+gdsspring 0.02
+gdsrestspring 0.05
+nbstrength 0.03
+nbrange 2.2
+kradius 0.05
+ngdsrelax 7000
+gdsdtrelax 0.10
+
+# Chemical constraints.
+valencerange{
+Pt 2 12
+O 1 2
+C 1 4
+}
+
+reactiveatomtypes{  
+Co
+C 
+O  
+}
+
+reactiveatoms{  
+all
+}
+
+reactivevalence{
+}
+
+fixedbonds{
+Pt Pt
+}
+
+allowedbonds{
+} 
+
+# Pathfinder calculation setup parameters.
+nrxn 10 
+nmcrxn 1000000
+mcrxntemp 800000.0
+nmechmove 1
+graphfunctype 2

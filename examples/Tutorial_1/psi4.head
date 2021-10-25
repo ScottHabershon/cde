@@ -1,0 +1,31 @@
+################
+# INPUT SETUP #
+################
+
+molecule x {
+0 1
+XXX
+}
+
+set {
+    basis def2-SVP
+    fail_on_maxiter false
+}
+
+
+################
+# OUTPUT SETUP #
+################
+
+energy = energy('scf')
+grad = np.array(gradient('scf'))
+
+e = open('e.out','w')
+e.write(str(energy))
+e.close()
+
+f = open('f.out','w')
+for i in grad:
+    for j in i:
+        f.write(str(j)+'\n')
+f.close

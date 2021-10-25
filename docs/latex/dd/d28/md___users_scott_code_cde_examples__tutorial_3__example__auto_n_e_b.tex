@@ -1,0 +1,66 @@
+\subsection*{$\ast$$\ast$\+Introduction$\ast$$\ast$}
+
+Auto\+N\+EB is an alternative to the typical N\+EB algorithm. You can find useful references to the Auto\+Neb method in the {\itshape References} (\#\+References) section of the documentation.
+
+This example is similar to {\itshape Tutorial 2}, with the main distinction being the fact that Auto\+N\+EB is used instead of standard C\+I\+N\+EB. In Auto\+Neb, after an initial N\+EB refinement, one then adds a series of beads into the current reaction-\/string, followed by further localized refinement. This approach iteratively improves the description of the M\+EP, and often leads to smoother reaction profiles.
+
+Because this tutorial is very similar to {\itshape Tutorial 1}, we refer to that page for further details about L\+A\+M\+M\+PS and Reax\+FF. Here, we simply highlight differences in the input file, which is as follows\+: \begin{DoxyVerb}# This input file demonstrates a AUTONEB refinement.
+# We use the Quickmin optimization method here, and lammps plus Reaxff for PES calculations.
+calctype optpath
+# We start with 7 images with which to perform regular NEB
+nimage 7
+# We shall add a futher 23 images using AUTONEB, making a total of 30 at the end of the procedure
+autoneb 23
+
+# provide initial and final images in files called start and end:
+startfrompath  .false.
+startfile start.xyz
+endfile end.xyz
+
+# typical path optimization parameters
+pathoptmethod cineb
+nebmethod     quickmin
+nebiter       500
+nebspring     0.025
+nebstep       20.0
+neboutfreq    10
+ngdsrelax     10000
+
+# threashold paramters when using LAMPPS/REAXFF:
+cithresh      1d-2
+nebconv       8d-3
+vsthresh      5d-2
+# The use of these forces are recommended by the AUTONEB article
+projforcetype 3
+
+# reconnect linearly interpolates - idppguess then improves that interpolation
+reconnect      .true.
+idppguess      .true.
+# almost always the case:
+stripinactive  .true.
+# For most problems, optimise before starting:
+optendsbefore  .true.
+optendsduring  .false.
+
+# no restraining
+nebrestrend    .false.
+shimmybeads    .true.
+fraginterpol   .true.
+reactivegather .true.
+
+# constraints
+dofconstraints 0
+
+# the platinum is frozen
+atomconstraints 1
+1
+
+# use lammps, using lmp.min for minimizations and lmp.head for gradients and energies
+pestype  lammps
+pesfile   lmp.head
+pesopttype  lammps
+pesoptfile lmp.min
+# name of the executables
+pesexecutable '/Users/scott/code/lammps-22Aug18/src/lmp_serial'
+pesoptexecutable '/Users/scott/code/lammps-22Aug18/src/lmp_serial'\end{DoxyVerb}
+ 

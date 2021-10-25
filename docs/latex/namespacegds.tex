@@ -1,0 +1,242 @@
+\hypertarget{namespacegds}{}\doxysection{gds Module Reference}
+\label{namespacegds}\index{gds@{gds}}
+
+
+Contains Routines For Graph-\/\+Driven Sampling.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacegds_a505bda8be8e12ca409e712dbe5b808fe}{rungds}} (rp)
+\begin{DoxyCompactList}\small\item\em Run\+G\+DS. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacegds_a3627a05f4a2a627ffe858a325b19039a}{graphmoves}} (rp, change, ic, imove)
+\begin{DoxyCompactList}\small\item\em Graph\+Moves. \end{DoxyCompactList}\item 
+logical function \mbox{\hyperlink{namespacegds_afea183ed9201a11f448f24b3d2e6bcaf}{pathalreadyindatabase}} (fngrprints, optaftermove)
+\begin{DoxyCompactList}\small\item\em Path\+Already\+In\+Database. \end{DoxyCompactList}\item 
+logical function \mbox{\hyperlink{namespacegds_aae15af5058102dda0da2ef57f771b5c9}{intmatrixareequal}} (A, B, di)
+\begin{DoxyCompactList}\small\item\em Int\+Matrix\+Are\+Equal. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacegds_a71ef00f71016df14a86f488bcaf25ef0}{getrestartdata}} (inputfile, rp, fngrprints, itot, MolD)
+\begin{DoxyCompactList}\small\item\em getrestartdata \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegds_a568c43ed90a132644ddaefa4e3d9a695}\label{namespacegds_a568c43ed90a132644ddaefa4e3d9a695}} 
+subroutine {\bfseries runisopathgen} ()
+\item 
+\mbox{\Hypertarget{namespacegds_ae6093ac204fbe0f18dd2309988b979d1}\label{namespacegds_ae6093ac204fbe0f18dd2309988b979d1}} 
+integer function {\bfseries calcsteps} (R, gprob)
+\item 
+\mbox{\Hypertarget{namespacegds_afddc9a101ef6288c943c00325ad3fac4}\label{namespacegds_afddc9a101ef6288c943c00325ad3fac4}} 
+subroutine {\bfseries testingd} ()
+\item 
+logical function \mbox{\hyperlink{namespacegds_a8f5bba1f0d5b4a0677d42ee10e0dd6d0}{pathalreadyindatabase}} (tmpfngr, fngrprints, itot)
+\begin{DoxyCompactList}\small\item\em Path\+Already\+In\+Database. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacegds_a0303bed58c58943730fddcabfe42aaa3}{setreactiveindices}} (bondchange, atomchange, na, cxstore, rxindex, nrx)
+\begin{DoxyCompactList}\small\item\em Set\+Reactive\+Indices. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacegds_ad2b8d4cdd489645b501e20ea68ac1601}{graphmoves}} (rp, change, ic)
+\begin{DoxyCompactList}\small\item\em Graph\+Moves. \end{DoxyCompactList}\item 
+real(8) function \mbox{\hyperlink{namespacegds_a5188bea0bc64cb9e00ab22d7a0e861b5}{calculatedistance}} (piv1, piv2, length)
+\begin{DoxyCompactList}\small\item\em Calculate\+Distance. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacegds_a37303571738e9c68948bad724cdbcddf}{checkforbidden}} (cx, iflag)
+\begin{DoxyCompactList}\small\item\em Check\+Forbidden. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains Routines For Graph-\/\+Driven Sampling. 
+
+@\+Brief Contains Routines For Graph-\/\+Driven Sampling. 
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacegds_a505bda8be8e12ca409e712dbe5b808fe}\label{namespacegds_a505bda8be8e12ca409e712dbe5b808fe}} 
+\index{gds@{gds}!rungds@{rungds}}
+\index{rungds@{rungds}!gds@{gds}}
+\doxysubsubsection{\texorpdfstring{rungds()}{rungds()}}
+{\footnotesize\ttfamily subroutine gds\+::rungds (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp }\end{DoxyParamCaption})}
+
+
+
+Run\+G\+DS. 
+
+Initiates a path-\/sampling calculation. 
+
+Definition at line 34 of file gds.\+f90.
+
+\mbox{\Hypertarget{namespacegds_a3627a05f4a2a627ffe858a325b19039a}\label{namespacegds_a3627a05f4a2a627ffe858a325b19039a}} 
+\index{gds@{gds}!graphmoves@{graphmoves}}
+\index{graphmoves@{graphmoves}!gds@{gds}}
+\doxysubsubsection{\texorpdfstring{graphmoves()}{graphmoves()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily subroutine gds\+::graphmoves (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp,  }\item[{logical}]{change,  }\item[{integer}]{ic,  }\item[{integer}]{imove }\end{DoxyParamCaption})}
+
+
+
+Graph\+Moves. 
+
+Performs updates of one of the end-\/point graphs based on moves and valences defined in the input file.
+
+
+\begin{DoxyItemize}
+\item rp\+: Reaction path object.
+\item change\+: Logical flag indicating whether or not a graph move occurred.
+\item ic\+: index of structure changed to opposite end of path + some move change
+\end{DoxyItemize}
+
+Performs updates of one of the end-\/point graphs based on moves and valences defined in the input file.
+
+
+\begin{DoxyItemize}
+\item rp\+: Reaction path object.
+\item change\+: Logical flag indicating whether or not a graph move occurred. 
+\end{DoxyItemize}
+
+Definition at line 566 of file gds.\+f90.
+
+\mbox{\Hypertarget{namespacegds_afea183ed9201a11f448f24b3d2e6bcaf}\label{namespacegds_afea183ed9201a11f448f24b3d2e6bcaf}} 
+\index{gds@{gds}!pathalreadyindatabase@{pathalreadyindatabase}}
+\index{pathalreadyindatabase@{pathalreadyindatabase}!gds@{gds}}
+\doxysubsubsection{\texorpdfstring{pathalreadyindatabase()}{pathalreadyindatabase()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily logical function gds\+::pathalreadyindatabase (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structglobaldata_1_1fingerprint}{fingerprint}}), pointer}]{fngrprints,  }\item[{logical}]{optaftermove }\end{DoxyParamCaption})}
+
+
+
+Path\+Already\+In\+Database. 
+
+determines wheather or not the particular path has already been encountered before based on the \char`\"{}fingerprints\char`\"{} data type. the last item in the fingerprint linked list is the one that we wish to judge weather or not is in the fingerprint \char`\"{}database\char`\"{}
+
+
+\begin{DoxyItemize}
+\item tmpfngr\+: the fingerprint of the current path
+\item fngrprints\+: the arrays of fingerprints that have been thus far found
+\item itot\+: the total number of finerprints
+\item returns Already\+In\+Database = .true. if its already in the database
+\item optsaftermove\+: flag inquiring if we should take into acccount molecular energies as a fingerprint 
+\end{DoxyItemize}
+
+Definition at line 848 of file gds.\+f90.
+
+\mbox{\Hypertarget{namespacegds_aae15af5058102dda0da2ef57f771b5c9}\label{namespacegds_aae15af5058102dda0da2ef57f771b5c9}} 
+\index{gds@{gds}!intmatrixareequal@{intmatrixareequal}}
+\index{intmatrixareequal@{intmatrixareequal}!gds@{gds}}
+\doxysubsubsection{\texorpdfstring{intmatrixareequal()}{intmatrixareequal()}}
+{\footnotesize\ttfamily logical function gds\+::intmatrixareequal (\begin{DoxyParamCaption}\item[{integer, dimension(di,di)}]{A,  }\item[{integer, dimension(di,di)}]{B,  }\item[{integer}]{di }\end{DoxyParamCaption})}
+
+
+
+Int\+Matrix\+Are\+Equal. 
+
+Checks whether or not two integer matrices are equal or not.
+
+A(\+:,\+:) -\/ An integer matrix (di x di). B(\+:,\+:) -\/ An integer matrix (di x di). di -\/ Dimension of integer matrix. 
+
+Definition at line 950 of file gds.\+f90.
+
+\mbox{\Hypertarget{namespacegds_a71ef00f71016df14a86f488bcaf25ef0}\label{namespacegds_a71ef00f71016df14a86f488bcaf25ef0}} 
+\index{gds@{gds}!getrestartdata@{getrestartdata}}
+\index{getrestartdata@{getrestartdata}!gds@{gds}}
+\doxysubsubsection{\texorpdfstring{getrestartdata()}{getrestartdata()}}
+{\footnotesize\ttfamily subroutine gds\+::getrestartdata (\begin{DoxyParamCaption}\item[{character(50)}]{inputfile,  }\item[{type(\mbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp,  }\item[{type(\mbox{\hyperlink{structglobaldata_1_1fingerprint}{fingerprint}}), pointer}]{fngrprints,  }\item[{integer}]{itot,  }\item[{type(\mbox{\hyperlink{structmoldatabase_1_1moldata}{moldata}})}]{MolD }\end{DoxyParamCaption})}
+
+
+
+getrestartdata 
+
+Reads the total number of found geometries and fills in the fingerprints 
+
+Definition at line 975 of file gds.\+f90.
+
+\mbox{\Hypertarget{namespacegds_a8f5bba1f0d5b4a0677d42ee10e0dd6d0}\label{namespacegds_a8f5bba1f0d5b4a0677d42ee10e0dd6d0}} 
+\index{gds@{gds}!pathalreadyindatabase@{pathalreadyindatabase}}
+\index{pathalreadyindatabase@{pathalreadyindatabase}!gds@{gds}}
+\doxysubsubsection{\texorpdfstring{pathalreadyindatabase()}{pathalreadyindatabase()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily logical function gds\+::pathalreadyindatabase (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structglobaldata_1_1fingerprint}{fingerprint}})}]{tmpfngr,  }\item[{type(\mbox{\hyperlink{structglobaldata_1_1fingerprint}{fingerprint}}), dimension(maxfngrprntlist)}]{fngrprints,  }\item[{integer}]{itot }\end{DoxyParamCaption})}
+
+
+
+Path\+Already\+In\+Database. 
+
+determines wheather or not the particular path has already been encountered before based on the \char`\"{}fingerprints\char`\"{} data type.
+
+
+\begin{DoxyItemize}
+\item tmpfngr\+: the fingerprint of the current path
+\item fngrprints\+: the arrays of fingerprints that have been thus far found
+\item itot\+: the total number of finerprints
+\item returns Already\+In\+Database = .true. if its already in the database 
+\end{DoxyItemize}
+
+Definition at line 839 of file gds\+\_\+\+B\+A\+C\+K\+U\+P\+\_\+19117.\+f90.
+
+\mbox{\Hypertarget{namespacegds_a0303bed58c58943730fddcabfe42aaa3}\label{namespacegds_a0303bed58c58943730fddcabfe42aaa3}} 
+\index{gds@{gds}!setreactiveindices@{setreactiveindices}}
+\index{setreactiveindices@{setreactiveindices}!gds@{gds}}
+\doxysubsubsection{\texorpdfstring{setreactiveindices()}{setreactiveindices()}}
+{\footnotesize\ttfamily subroutine gds\+::setreactiveindices (\begin{DoxyParamCaption}\item[{logical, dimension(na,na)}]{bondchange,  }\item[{logical, dimension(na)}]{atomchange,  }\item[{integer}]{na,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cxstore,  }\item[{integer, dimension(namax)}]{rxindex,  }\item[{integer}]{nrx }\end{DoxyParamCaption})}
+
+
+
+Set\+Reactive\+Indices. 
+
+Sets the bondchange(\+:,\+:) and atomchange(\+:) indices, which indicate whether the specified bonds or atoms are allowed to change as a result of a proposed graph move.
+
+Returns the bondchange(\+:,\+:) and atomchange(\+:) variables, as well as the number of reactive atoms (nrx) and a list of the reactive atoms (in rxindex(1\+:nrx)).
+
+bondchange(\+:,\+:) -\/ Logical array indicating whether bond (i,j) is allowed to change or not. atomchange(\+:) -\/ Logical array indicating whether or not atom i is allowed to change its bonding pattern. na -\/ Number of atoms cxstore -\/ A cxs object, primarily used to provide atom labels. rxindex -\/ List of reactive atoms. nrx -\/ Number of reactive atoms. 
+
+Definition at line 957 of file gds\+\_\+\+B\+A\+C\+K\+U\+P\+\_\+19117.\+f90.
+
+\mbox{\Hypertarget{namespacegds_ad2b8d4cdd489645b501e20ea68ac1601}\label{namespacegds_ad2b8d4cdd489645b501e20ea68ac1601}} 
+\index{gds@{gds}!graphmoves@{graphmoves}}
+\index{graphmoves@{graphmoves}!gds@{gds}}
+\doxysubsubsection{\texorpdfstring{graphmoves()}{graphmoves()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily subroutine gds\+::graphmoves (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp,  }\item[{logical}]{change,  }\item[{integer}]{ic }\end{DoxyParamCaption})}
+
+
+
+Graph\+Moves. 
+
+Performs updates of one of the end-\/point graphs based on moves and valences defined in the input file.
+
+
+\begin{DoxyItemize}
+\item rp\+: Reaction path object.
+\item change\+: Logical flag indicating whether or not a graph move occurred. 
+\end{DoxyItemize}
+
+Definition at line 480 of file gds\+\_\+\+B\+A\+C\+K\+U\+P\+\_\+19135.\+f90.
+
+\mbox{\Hypertarget{namespacegds_a5188bea0bc64cb9e00ab22d7a0e861b5}\label{namespacegds_a5188bea0bc64cb9e00ab22d7a0e861b5}} 
+\index{gds@{gds}!calculatedistance@{calculatedistance}}
+\index{calculatedistance@{calculatedistance}!gds@{gds}}
+\doxysubsubsection{\texorpdfstring{calculatedistance()}{calculatedistance()}}
+{\footnotesize\ttfamily real(8) function gds\+::calculatedistance (\begin{DoxyParamCaption}\item[{real(8), dimension(length)}]{piv1,  }\item[{real(8), dimension(length)}]{piv2,  }\item[{integer}]{length }\end{DoxyParamCaption})}
+
+
+
+Calculate\+Distance. 
+
+Calculates the distance between the two pivs.
+
+
+\begin{DoxyItemize}
+\item piv1\+: First piv vector.
+\item piv2\+: Second piv vector.
+\item length\+: Length of pivs. 
+\end{DoxyItemize}
+
+Definition at line 799 of file gds\+\_\+\+B\+A\+C\+K\+U\+P\+\_\+19135.\+f90.
+
+\mbox{\Hypertarget{namespacegds_a37303571738e9c68948bad724cdbcddf}\label{namespacegds_a37303571738e9c68948bad724cdbcddf}} 
+\index{gds@{gds}!checkforbidden@{checkforbidden}}
+\index{checkforbidden@{checkforbidden}!gds@{gds}}
+\doxysubsubsection{\texorpdfstring{checkforbidden()}{checkforbidden()}}
+{\footnotesize\ttfamily subroutine gds\+::checkforbidden (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{iflag }\end{DoxyParamCaption})}
+
+
+
+Check\+Forbidden. 
+
+Checks whether the current graph, generated during the Graph\+Moves, routine, matches one of the forbidden patterns given in the fobidfile.
+
+This subroutine is a nightmare-\/ish hellscape of enddo and endif... nobody should have to deal with this...
+
+Returns iflag = 0 if the graph is forbidden. 
+
+Definition at line 913 of file gds\+\_\+\+B\+A\+C\+K\+U\+P\+\_\+45127.\+f90.
+

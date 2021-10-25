@@ -1,0 +1,20 @@
+html *
+{
+   font-size: 14px;
+   font-family: Verdana;
+}
+
+#projectname:
+{
+    font-size: 12px !important
+    font-family: Helvetica
+}
+body {
+  line-height: 1.4;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: white;
+  padding: 0px;
+  margin: 0 auto;
+  background: white
+}

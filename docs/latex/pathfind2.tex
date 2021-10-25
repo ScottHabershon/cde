@@ -1,0 +1,18 @@
+This section gives a second example input file set for a typical double-\/ended reaction path-\/finding calculation run through C\+DE.
+
+The calculation set-\/up is similar to Tutorial 3, but uses a different optimization function (type 4) instead. So, in this example, the target product is a single molecule, whereas the reactants contain a set of different molecular species.
+
+This example can be run in the same way as tutorial 3, and similar input files are output.
+
+The interesting output files are as follows\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{mcopt.\+dat}}\+: This file contains a running value of the total graph-\/error function as a function of the number of simulated annealing iterations.
+\item {\bfseries{input.\+log}}\+: Once the simulated annealing calculation is complete, the {\itshape log} file will contain lots of useful information about the final reaction mechanism (if successful).
+\item {\bfseries{final\+\_\+path.\+xyz}}\+: Contains an {\itshape xyz} file with molecular snapshots of the intermediates generated along the final reaction-\/path.
+\item {\bfseries{final\+\_\+path\+\_\+rx\+\_\+\+Z\+Z\+Z.\+xyz}}\+: Contains an approximation to the reaction-\/path for reaction-\/step {\itshape Z\+ZZ} in the final mechanism.
+\item {\bfseries{adjusted\+\_\+path\+\_\+\+Z\+Z\+Z.\+xyz}}\+: These adjusted xyz files contain only those molecules which are relevant to the formation of the product of interest.
+\end{DoxyItemize}
+
+The {\itshape xyz} files can obviously be plotted in V\+MD in order to visualize the reaction. 

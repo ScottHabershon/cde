@@ -1,0 +1,124 @@
+\hypertarget{structchemstr_1_1cxs}{}\section{chemstr\+:\+:cxs Type Reference}
+\label{structchemstr_1_1cxs}\index{chemstr\+::cxs@{chemstr\+::cxs}}
+
+
+Chemical structure object definition.  
+
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a05ebdcf9b7c9f153a1bd51f516d7552b}\label{structchemstr_1_1cxs_a05ebdcf9b7c9f153a1bd51f516d7552b}} 
+integer {\bfseries na}
+\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a6813e5fe80447941e745841d45c66890}\label{structchemstr_1_1cxs_a6813e5fe80447941e745841d45c66890}} 
+real(8), dimension(\+:,\+:), allocatable \mbox{\hyperlink{structchemstr_1_1cxs_a6813e5fe80447941e745841d45c66890}{r}}
+\begin{DoxyCompactList}\small\item\em Coordinates in atomic units (bohr) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_acc5a3222a1e76386bbe5ac9a1e48eb70}\label{structchemstr_1_1cxs_acc5a3222a1e76386bbe5ac9a1e48eb70}} 
+real(8), dimension(\+:,\+:), allocatable \mbox{\hyperlink{structchemstr_1_1cxs_acc5a3222a1e76386bbe5ac9a1e48eb70}{p}}
+\begin{DoxyCompactList}\small\item\em Momenta in atomic units (bohr / au) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a67880ffd7287ab6906d09f9e6e0f5f63}\label{structchemstr_1_1cxs_a67880ffd7287ab6906d09f9e6e0f5f63}} 
+real(8), dimension(\+:,\+:), allocatable \mbox{\hyperlink{structchemstr_1_1cxs_a67880ffd7287ab6906d09f9e6e0f5f63}{dvdr}}
+\begin{DoxyCompactList}\small\item\em P\+ES derivatives wrt coordinates in atomic units (Eh/bohr) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a05728bee6f7eb6e96b055e20ed6e6269}\label{structchemstr_1_1cxs_a05728bee6f7eb6e96b055e20ed6e6269}} 
+real(8), dimension(\+:,\+:), allocatable \mbox{\hyperlink{structchemstr_1_1cxs_a05728bee6f7eb6e96b055e20ed6e6269}{force}}
+\begin{DoxyCompactList}\small\item\em Forces wrt coordinates in atomic units (Eh/bohr) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a095011444234c28cf8331d986766af91}\label{structchemstr_1_1cxs_a095011444234c28cf8331d986766af91}} 
+character $\ast$2, dimension(\+:), allocatable \mbox{\hyperlink{structchemstr_1_1cxs_a095011444234c28cf8331d986766af91}{atomlabel}}
+\begin{DoxyCompactList}\small\item\em Atom labels. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_aa039bad319d194ec552f20d907b39127}\label{structchemstr_1_1cxs_aa039bad319d194ec552f20d907b39127}} 
+real(8), dimension(\+:), allocatable \mbox{\hyperlink{structchemstr_1_1cxs_aa039bad319d194ec552f20d907b39127}{mass}}
+\begin{DoxyCompactList}\small\item\em Atomic masses in au. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a9f17c74f4ba3a0c7e92773b971c64852}\label{structchemstr_1_1cxs_a9f17c74f4ba3a0c7e92773b971c64852}} 
+integer \mbox{\hyperlink{structchemstr_1_1cxs_a9f17c74f4ba3a0c7e92773b971c64852}{ndofconstr}}
+\begin{DoxyCompactList}\small\item\em Number of D\+OF constraints. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a69b9cc3edf936c7544e131baa3a7f0f4}\label{structchemstr_1_1cxs_a69b9cc3edf936c7544e131baa3a7f0f4}} 
+integer \mbox{\hyperlink{structchemstr_1_1cxs_a69b9cc3edf936c7544e131baa3a7f0f4}{natomconstr}}
+\begin{DoxyCompactList}\small\item\em Number of atom constraints. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_abcda91614d230698c1e3c3707b2771a7}\label{structchemstr_1_1cxs_abcda91614d230698c1e3c3707b2771a7}} 
+logical, dimension(\+:), allocatable \mbox{\hyperlink{structchemstr_1_1cxs_abcda91614d230698c1e3c3707b2771a7}{fixeddof}}
+\begin{DoxyCompactList}\small\item\em Fixed D\+OF ids. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a38b8cccf3115fb847a43874d1244fc59}\label{structchemstr_1_1cxs_a38b8cccf3115fb847a43874d1244fc59}} 
+logical, dimension(\+:), allocatable \mbox{\hyperlink{structchemstr_1_1cxs_a38b8cccf3115fb847a43874d1244fc59}{fixedatom}}
+\begin{DoxyCompactList}\small\item\em Fixed atom ids. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_ae5a37234bb7581279a4e20c3c0cd7a91}\label{structchemstr_1_1cxs_ae5a37234bb7581279a4e20c3c0cd7a91}} 
+real(8) \mbox{\hyperlink{structchemstr_1_1cxs_ae5a37234bb7581279a4e20c3c0cd7a91}{vcalc}}
+\begin{DoxyCompactList}\small\item\em Calculate potential energy of structure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_af060de22157392ae373bb38eec3e0042}\label{structchemstr_1_1cxs_af060de22157392ae373bb38eec3e0042}} 
+integer, dimension(\+:,\+:), allocatable \mbox{\hyperlink{structchemstr_1_1cxs_af060de22157392ae373bb38eec3e0042}{graph}}
+\begin{DoxyCompactList}\small\item\em Bonding graph for structure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_aeaa654119810cc8f260e6a94d337108c}\label{structchemstr_1_1cxs_aeaa654119810cc8f260e6a94d337108c}} 
+real(8), dimension(\+:,\+:), allocatable \mbox{\hyperlink{structchemstr_1_1cxs_aeaa654119810cc8f260e6a94d337108c}{sprintgraph}}
+\begin{DoxyCompactList}\small\item\em S\+P\+R\+I\+NT bonding graph for structure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_af061b63d55169aec15bee1023b6f8ad4}\label{structchemstr_1_1cxs_af061b63d55169aec15bee1023b6f8ad4}} 
+real(8), dimension(\+:), allocatable \mbox{\hyperlink{structchemstr_1_1cxs_af061b63d55169aec15bee1023b6f8ad4}{sprintcoords}}
+\begin{DoxyCompactList}\small\item\em S\+P\+R\+I\+NT coordinates of the structure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a8611c496d080feeb747cf70d247e91be}\label{structchemstr_1_1cxs_a8611c496d080feeb747cf70d247e91be}} 
+integer, dimension(\+:,\+:), allocatable {\bfseries molid}
+\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a431d5ccacf2294a4d0e28911d74a0c01}\label{structchemstr_1_1cxs_a431d5ccacf2294a4d0e28911d74a0c01}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{structchemstr_1_1cxs_a431d5ccacf2294a4d0e28911d74a0c01}{namol}}
+\begin{DoxyCompactList}\small\item\em Atom indices and numbers for each molecule in graph. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a8c33378afa3c426787c0a6df0026dd77}\label{structchemstr_1_1cxs_a8c33378afa3c426787c0a6df0026dd77}} 
+integer \mbox{\hyperlink{structchemstr_1_1cxs_a8c33378afa3c426787c0a6df0026dd77}{nmol}}
+\begin{DoxyCompactList}\small\item\em Number of molecules defined by structure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a0cc00b5504ff1b7121b384fd6e38f819}\label{structchemstr_1_1cxs_a0cc00b5504ff1b7121b384fd6e38f819}} 
+real(8) \mbox{\hyperlink{structchemstr_1_1cxs_a0cc00b5504ff1b7121b384fd6e38f819}{vcon}}
+\begin{DoxyCompactList}\small\item\em Constraint potential energy. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a53efe991273d0cbdf6e7f7db4c84d9ac}\label{structchemstr_1_1cxs_a53efe991273d0cbdf6e7f7db4c84d9ac}} 
+real(8) \mbox{\hyperlink{structchemstr_1_1cxs_a53efe991273d0cbdf6e7f7db4c84d9ac}{fitness}}
+\begin{DoxyCompactList}\small\item\em Fitness for molecular optimization. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a6c3b969eb52f0b81eed9df8d6887b969}\label{structchemstr_1_1cxs_a6c3b969eb52f0b81eed9df8d6887b969}} 
+real(8) \mbox{\hyperlink{structchemstr_1_1cxs_a6c3b969eb52f0b81eed9df8d6887b969}{fitness\+\_\+scaled}}
+\begin{DoxyCompactList}\small\item\em Scaled fitness for molecular optimization. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a2165bea2105e1c9b3a08e1ff15406cb7}\label{structchemstr_1_1cxs_a2165bea2105e1c9b3a08e1ff15406cb7}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{structchemstr_1_1cxs_a2165bea2105e1c9b3a08e1ff15406cb7}{molcharge}}
+\begin{DoxyCompactList}\small\item\em Total charge on C\+XS. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a8282facd1672858dd1b986d229c6f2c2}\label{structchemstr_1_1cxs_a8282facd1672858dd1b986d229c6f2c2}} 
+integer \mbox{\hyperlink{structchemstr_1_1cxs_a8282facd1672858dd1b986d229c6f2c2}{nbonds}}
+\begin{DoxyCompactList}\small\item\em Number of bonds. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a9acbf74d770156b3aefcc03afba49e8c}\label{structchemstr_1_1cxs_a9acbf74d770156b3aefcc03afba49e8c}} 
+integer \mbox{\hyperlink{structchemstr_1_1cxs_a9acbf74d770156b3aefcc03afba49e8c}{nangles}}
+\begin{DoxyCompactList}\small\item\em Number of angles. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a455cf0359cfba3c52a7c5c270073fddf}\label{structchemstr_1_1cxs_a455cf0359cfba3c52a7c5c270073fddf}} 
+integer \mbox{\hyperlink{structchemstr_1_1cxs_a455cf0359cfba3c52a7c5c270073fddf}{ntors}}
+\begin{DoxyCompactList}\small\item\em Number of torsions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_ad735b854a18b6b9c8dbc32f8cd1ffda1}\label{structchemstr_1_1cxs_ad735b854a18b6b9c8dbc32f8cd1ffda1}} 
+real(8), dimension(nbondmax) \mbox{\hyperlink{structchemstr_1_1cxs_ad735b854a18b6b9c8dbc32f8cd1ffda1}{bondl}}
+\begin{DoxyCompactList}\small\item\em Calculated bond lengths. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_ab452c2bc96adc4f71b9dada40a1f2573}\label{structchemstr_1_1cxs_ab452c2bc96adc4f71b9dada40a1f2573}} 
+real(8), dimension(nanglemax) \mbox{\hyperlink{structchemstr_1_1cxs_ab452c2bc96adc4f71b9dada40a1f2573}{angle}}
+\begin{DoxyCompactList}\small\item\em Calculated angles. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_aba4f0e6140285d4cb94c8d8c8b33ca0f}\label{structchemstr_1_1cxs_aba4f0e6140285d4cb94c8d8c8b33ca0f}} 
+real(8), dimension(ntorsmax) \mbox{\hyperlink{structchemstr_1_1cxs_aba4f0e6140285d4cb94c8d8c8b33ca0f}{torsion}}
+\begin{DoxyCompactList}\small\item\em Calculated torsion angles. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a286848a0567b25036fff68f6d3e21539}\label{structchemstr_1_1cxs_a286848a0567b25036fff68f6d3e21539}} 
+integer, dimension(nbondmax, 2) \mbox{\hyperlink{structchemstr_1_1cxs_a286848a0567b25036fff68f6d3e21539}{bondid}}
+\begin{DoxyCompactList}\small\item\em I\+Ds of atoms in bonds. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a8636a73dec884f53d15bf57f09fd8df1}\label{structchemstr_1_1cxs_a8636a73dec884f53d15bf57f09fd8df1}} 
+integer, dimension(nanglemax, 3) \mbox{\hyperlink{structchemstr_1_1cxs_a8636a73dec884f53d15bf57f09fd8df1}{angleid}}
+\begin{DoxyCompactList}\small\item\em I\+Ds of atoms in angles. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_abee0ddcd6430f88aa24f54860893b7ca}\label{structchemstr_1_1cxs_abee0ddcd6430f88aa24f54860893b7ca}} 
+integer, dimension(ntorsmax, 4) \mbox{\hyperlink{structchemstr_1_1cxs_abee0ddcd6430f88aa24f54860893b7ca}{torsid}}
+\begin{DoxyCompactList}\small\item\em I\+Ds of atoms in torsions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a0577665bbd708dfa7ac5d18464a2d2fb}\label{structchemstr_1_1cxs_a0577665bbd708dfa7ac5d18464a2d2fb}} 
+real(8), dimension(nbondmax, 2, 3) \mbox{\hyperlink{structchemstr_1_1cxs_a0577665bbd708dfa7ac5d18464a2d2fb}{dbonddr}}
+\begin{DoxyCompactList}\small\item\em Derivatives of bond-\/lengths wrt xyz of atoms. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_a09576e755557f8a6196897d1da5e2e9b}\label{structchemstr_1_1cxs_a09576e755557f8a6196897d1da5e2e9b}} 
+real(8), dimension(nanglemax, 3, 3) \mbox{\hyperlink{structchemstr_1_1cxs_a09576e755557f8a6196897d1da5e2e9b}{dangdr}}
+\begin{DoxyCompactList}\small\item\em Derivatives of angles wrt xyz of atoms. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structchemstr_1_1cxs_ab5ab71029fac772aa9a7e6ce98a2e92a}\label{structchemstr_1_1cxs_ab5ab71029fac772aa9a7e6ce98a2e92a}} 
+real(8), dimension(ntorsmax, 4, 3) \mbox{\hyperlink{structchemstr_1_1cxs_ab5ab71029fac772aa9a7e6ce98a2e92a}{dtorsdr}}
+\begin{DoxyCompactList}\small\item\em Derivatives of torsions wrt xyz of atoms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Chemical structure object definition. 
+
+Definition at line 19 of file structure.\+f90.
+
+
+
+The documentation for this type was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/scott/code/cde/src/structure.\+f90\end{DoxyCompactItemize}

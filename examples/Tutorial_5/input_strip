@@ -1,0 +1,90 @@
+# Input file for reaction of 2 propargyls to form benzene - radical reactions allowed.
+calctype optpath 
+optaftermove .false.
+pesfull .false.      ! Required for radicals and charges...
+startfrompath .true.
+
+nimage 8 
+temperature 10.d0 
+pathfile final_path_rx_5.xyz
+startfrompath   .true.
+pathinit  linear 
+idppguess .true.
+
+pathoptmethod cineb
+nebmethod quickmin 
+nebiter 0
+cithresh 5d-4
+nebspring 0.05
+nebstep  10.0 
+neboutfreq 5
+stripinactive .true.
+optendsbefore .FALSE.
+optendsduring .false.
+nebrestrend .false.
+
+# constraints
+
+dofconstraints 0
+
+atomconstraints 0
+
+# PES input
+pestype orca 
+pesfile   orca.head
+pesopttype orca 
+pesoptfile orca.min
+pesexecutable '/storage/chem/msslap/orca_4_2_1/orca' 
+pesoptexecutable '/storage/chem/msslap/orca_4_2_1/orca' 
+
+# Graph-driven sampling (GDS) control - by default, everything inactive!
+
+movefile moves.in
+gdsthresh 0.5 
+gdsspring 0.05
+gdsrestspring 0.05
+nbstrength 0.04
+nbrange 2.5
+kradius 0.05
+gdstemperature 100
+gdscoefftemp 100
+gdscoeffmass 50000
+timestep 0.5
+removecollisions .TRUE.
+ngdsiter 0 
+
+ngdsrelax 10000
+gdsdtrelax 0.1
+gdsoutfreq 10
+
+
+valencerange{
+C 1 4
+H 0 1
+}
+
+reactiveatomtypes{  
+C 
+H 
+}
+
+reactiveatoms{  
+all
+}
+
+reactivevalence{
+}
+
+fixedbonds{
+}
+
+allowedbonds{
+} 
+
+# Pathfinder calculation
+
+nrxn 6 
+nmcrxn 2000000 
+mcrxntemp 2000000.0
+graphfunctype 4 
+ranseed 144

@@ -1,0 +1,58 @@
+#
+# Makefile for CDE 
+#
+
+# 
+# COW compilation
+# 
+# FC = ifort
+# LIBS = -L/warwick/intel/mkl/10.0.5.025/lib/em64t/ -lmkl_intel_lp64 -lmkl_lapack -lmkl_sequential -lmkl_core -lpthread -lguide -static /warwick/mathlib/intel/x86_64/lib/libfftw3.a
+
+#
+# MAC compilation
+#
+FC = gfortran-mp-6 
+LIBS = -framework Accelerate  
+FFLAGS= -Ofast
+LFLAGS=	$(FFLAGS)
+
+EXE = cde.x
+
+SRC= \
+	constants.f90 \
+	globaldata.f90 \
+	io.f90 \
+	NRrand.f90 \
+	structure.f90 \
+	pes.f90 \
+	rpath.f90 \
+	pathopt.f90 \
+	gds.f90 \
+	fitness.f90 \
+	pathfinder.f90 \
+	moleculeopt.f90 \
+	main.f90 
+
+
+#############################################################
+# CHANGE THINGS BELOW HERE AT YOUR PERIL
+#############################################################
+
+.SUFFIXES:
+.SUFFIXES: .F90 .o
+
+OBJ=	$(SRC:.F90=.o)
+
+.F90.o:
+	$(FC) $(FFLAGS) -c $<
+
+all:	$(EXE)
+
+$(EXE):	$(OBJ)
+	$(FC) $(LFLAGS) -o $@ $(OBJ) $(LIBS)
+
+$(OBJ):	$(MF)
+
+clean:
+	rm $(EXE) *.o *.mod 
+

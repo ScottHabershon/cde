@@ -1,0 +1,35 @@
+This tutorial gives a set of example input files and instructions for a C\+I\+N\+EB calculation which uses the Reax\+FF forcefield through L\+A\+M\+M\+PS.
+
+In this case, we are going to run a C\+I\+N\+EB optimization of a reaction path representing association of water H2O onto a Pt atom which also has a pre-\/bound CO molecule. We will use the Reax\+FF reactive force-\/field to model the potential energy surface, accessed through the L\+A\+M\+M\+PS molecular dynamics code.
+
+{\bfseries{The actual files to run this example can be found in the $\ast$$\sim$/cde/examples/\+Tutorial\+\_\+2 directory.}}
+
+In this directory, you will find several input files\+: \begin{DoxyVerb}  input
+  path.xyz
+  CHOPtNiX.ff
+  lmp.head
+  lmp.min
+  lmp_control
+\end{DoxyVerb}
+
+
+These files are all required in order to the run the C\+I\+N\+E\+B/\+L\+A\+M\+M\+PS calculation defined in the input file.
+
+In general, the {\itshape input} is similar to that given in {\itshape Tutorial 1} (\mbox{\hyperlink{_tutorial1}{Tutorial 1\+: C\+I\+N\+EB}}). The key difference is that the setup of the P\+ES evaluations is different -\/ in {\itshape Tutorial 1} we used {\itshape O\+R\+CA}, but here we use Reax\+FF via L\+A\+M\+M\+PS. As a result, the {\itshape P\+ES} input block of the input file looks like the following in this case\+: \begin{DoxyVerb}pestype  lammps
+pesfile   lmp.head
+pesopttype  lammps
+pesoptfile lmp.min
+pesexecutable '/Users/scott/code/lammps-22Aug18/src/lmp_serial'
+pesoptexecutable '/Users/scott/code/lammps-22Aug18/src/lmp_serial'
+\end{DoxyVerb}
+
+
+There are a few important things to note about running calculations with Reax\+F\+F/\+L\+A\+M\+M\+PS\+:
+
+
+\begin{DoxyItemize}
+\item Here, the {\itshape pestype} and {\itshape pestoptype} have both been set to {\itshape lammps}, and the paths to the relevant L\+A\+M\+M\+PS executable have also been specified.
+\item {\bfseries{To get this example running, you M\+U\+ST modify the executables to point to the L\+A\+M\+M\+PS executable on your own system.}}
+\item Another difference with {\itshape Tutorial 1} is that the P\+ES template files are different. In this case, the template files {\itshape lmp.\+head} and {\itshape lmp.\+min} are L\+A\+M\+M\+PS template files. More information can be found in the {\itshape P\+ES templates} (\mbox{\hyperlink{_templates}{P\+ES templates}}) section of the documentation.
+\item Finally, as also noted in the {\itshape P\+ES templates} (\mbox{\hyperlink{_templates}{P\+ES templates}}) section, the L\+A\+M\+M\+PS code requires two additional files to be present in the run directory. These are\+: (1) A $\ast$.ff file, containing the Reax\+FF parameters which should be used. In our case, this is called {\itshape C\+H\+O\+Pt\+Ni\+X.\+ff}. (2) A {\itshape lmp\+\_\+control} file, which contains additional control parameters used by L\+A\+M\+M\+P\+S! 
+\end{DoxyItemize}

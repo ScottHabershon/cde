@@ -1,0 +1,116 @@
+
+************************ CDE simulation ************************
+
+- Start date:    02/09/2020
+- Start time:    13:42:29
+
+- The input filename is: input_strip                                       
+
+================================================================
+                INPUT FILE INTERPRETATION FOLLOWS               
+================================================================
+
+- The input filename is: input_strip                                       
+
+# COMMENT: Input file for reaction of 2 propargyls to form benzene - radical reactions allowed.                
+- Calculation type:  PATH REFINEMENT
+- PES geometry optimization after graph move?:  F
+- PES evaluations for INDEPENDENT MOLECULES being used...
+- Start from path?:  T
+
+- Number of images per path:     8
+- Temperature (K):        10.000
+- Starting path file:  final_path_rx_5.xyz                               
+- Start from path?:  T
+- Initial path initialization type:  LINEAR
+- IDPP interpolation :  T
+
+- Path refinement method:  CLIMBING-IMAGE NUDGED ELASTIC BAND
+- (CI)NEB optimization method:  QUICKMIN
+- Maximum number of NEB iteractions:       0
+- Climbing-image start criterion (au):      0.00050000
+- NEB spring constant:        0.050000
+- NEB optimization step-size:       10.000000
+- NEB output frequency:       5
+- Strip inactive moleculaes before path optimization?:  T
+- Optimize end-points before NEB run:  F
+- Optimize end-points during NEB run:  F
+- Use graph-restrain potential during NEB:  F
+
+# COMMENT: constraints                                                                                         
+
+- Number of fixed DOFs:     0
+
+- Number of fixed atoms:     0
+
+# COMMENT: PES input                                                                                           
+- PES type:  orca
+- PES calculation template file:  orca.head
+- PES type for geometry optimization:  orca
+- Geometry optimisation template file:  orca.min
+- PES calculation executable:  '/storage/chem/msslap/orca_4_2_1/orca'
+- PES geometry optimization executable:  '/storage/chem/msslap/orca_4_2_1/orca'
+
+# COMMENT: Graph-driven sampling (GDS) control - by default, everything inactive!                              
+
+- Graph-moves file:  moves.in                                          
+- GDS attempt probability:      0.50000000
+- Spring constant for inter-bead springs:      0.05000000
+- Spring constant for bonded-graph restraints:      0.05000000
+- Strength of non-bonded exponential graph restraints:      0.04000000
+- Range of non-bonded exponential graph restraints:      2.50000000
+- Spring constant for intermolecular repulsion restraints:      0.05000000
+- Temperature for GDS sampling:    100.00000000
+- Temperature for GDS coefficients:    100.00000000
+- Mass for GDS coefficients:  50000.00000000
+- Time-step for GDS calculation:     20.67068650
+- Remove collisions after graph-moves:  T
+- Number of GDS iterations:        0
+
+- Number of SD steps after GDS graph move:    10000
+- GDS SD relaxation step-size:      0.10000000
+- GDS output frequency:       10
+
+
+- Number of valence range constraints:     2
+- Valence range constraint:    1 C     1    4
+- Valence range constraint:    2 H     0    1
+
+- Number of reactive atom types:     2
+- Reactive atom labels:  C 
+- Reactive atom labels:  H 
+
+
+- Number of reactive valence constraints:     0
+
+- Fixed bonds for GDS:
+
+- Number of allowed bonding constraints:     0
+
+# COMMENT: Pathfinder calculation                                                                              
+
+- Number of reactions in sampled strings for pathfinder:     6
+- Number of MC steps in pathfinder calculation::  2000000
+- Initial temperature for pathfinder (in K):      0.2000E+07
+- Pathfinding function type: Eigenvalue comparison for single molecule
+- Random number seed:   144
+
+================================================================
+                 END OF INPUT FILE INTERPRETATION                   
+================================================================
+
+*************** Finished reading input parameters **************
+
+* Starting path optimization...
+
+- Initial path written to initial_path.xyz
+*** Stripping inactive molecules from path...
+- Stripped initial path written to strip_path.xyz
+* Starting Image-Dependent Pair Potential
+* Running QUICKMIN optimization...
+
+ENERGIES =         0.0000000000          0.8144029706          1.0539490708          1.3686148870          1.7415617762          1.2282886157          2.6128419665          3.1203861213          3.6429822890          4.1643736938          3.6542507707          5.1450121997          5.6045858000          6.0027058003          6.3210376939          5.4202727710          6.6660613068          6.7653476473          6.7429823842          6.5919573209          5.0982775614          5.9353368964          5.6031830821          5.1985838688          4.7355608400          3.0592947105          3.7028002576          3.2512192619          2.8030805703          2.3687633670          0.9255898587          1.5851215380          1.3099144725          1.0874238985          0.9253146223          0.0000000000  * Starting CINEB calculation...
+
+- NEB force-convergence monitor:  input_strip.nebconv
+- NEB energy profile outputs:  input_strip.nebprofile
+

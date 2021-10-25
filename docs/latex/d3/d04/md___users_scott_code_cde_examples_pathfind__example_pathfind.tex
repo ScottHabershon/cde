@@ -1,0 +1,169 @@
+This section gives example input files and instructions for a typical reaction path-\/finding calculation run through C\+DE. This calculation will perform a simulated annealing optimization of the mechanism error-\/function, seeking out a reaction mechanism which connects the reactant graph (as calculated from the input reactant xyz file) to the product graph (as determined from the input product xyz file).
+
+The allowed moves (i.\+e. chemical reactions) whihc are used in the search for a mechanism connecting the reactant and product are provided in the move file.
+
+In this example, we\textquotesingle{}re going to look at the oxidation of carbon monoxide to carbon dioxide, occuring on a platinum cluster.
+
+{\bfseries The actual files to run this example can be found in the $\ast$$\sim$/cde/examples/pathfind/$\ast$ directory.}
+
+In this directory, you will find several input files\+: \begin{DoxyVerb}input
+start.xyz
+end.xyz
+moves.in
+\end{DoxyVerb}
+
+
+All of these input filenames are arbitrary; we could have called them alice, bob, clive and ralph and the program would still read them in correctly. Note that the extensions have no effect for input files read in by C\+DE, but they can be used to remind you what the different input files are.
+
+Let\textquotesingle{}s have a look at each input file individually\+:
+
+\subsubsection*{input}
+
+The {\itshape input} file for this G\+DS run looks like this\+:
+
+\begin{DoxyVerb}# Test input file
+
+optaftermove .true.
+calctype pathfind 
+nimage 10 
+startfile start.xyz
+endfile end_new.xyz
+ranseed 23 
+
+# path optimization
+projforcetype 3
+nebmethod quickmin 
+nebiter 1000
+cithresh 1d-4
+nebspring 0.1
+nebstep  10.0 
+neboutfreq 5
+nebconv 1d-4
+
+# constraints
+dofconstraints 0
+atomconstraints 7
+1 2 3 4 5 6 7
+
+# PES input
+pestype  lammps 
+pesfile   lmp.head
+pesopttype  lammps
+pesoptfile lmp.min
+pesexecutable '/Users/scott/code/lammps-22Aug18/src/lmp_serial' 
+pesoptexecutable '/Users/scott/code/lammps-22Aug18/src/lmp_serial' 
+
+# Graph-driven sampling (GDS) control - by default, everything inactive!    
+movefile moves.in
+gdsthresh 0.5 
+gdsspring 0.02
+gdsrestspring 0.05
+nbstrength 0.03
+nbrange 2.2
+kradius 0.05
+ngdsiter 500 
+ngdsrelax 10000
+gdsdtrelax 0.15
+
+# Chemical constraints.
+valencerange{
+Co 4 6 
+O 1 2
+C 1 4
+}
+
+reactiveatomtypes{  
+Co
+C 
+O  
+}
+
+reactiveatoms{  
+all
+}
+
+reactivevalence{
+}
+
+fixedbonds{
+}
+
+allowedbonds{
+} 
+
+# Pathfinder calculation setup parameters.
+nrxn 10 
+nmcrxn 1000000
+mcrxntemp 200000.0
+nmechmove 1
+\end{DoxyVerb}
+
+
+The input file in this case only contains (mostly) those options which are relevant to the pathfinder simulation; other input directives have been removed and will be ignored internally in C\+DE.
+
+The parameter input blocks in the input file have already been covered in other tutorials for G\+DS and for C\+I\+N\+EB (see, for example, \mbox{\hyperlink{_annotated}{Annotated input file description}}). In the case of a pathfinding calculation, the following are the new parameters which have an impact on the algorithm\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries calctype}\+: Note that the {\itshape calctype} parameter must be set to {\itshape pathfind}.
+\item {\bfseries nrxn}\+: This is the total number of reactions used in the reaction mechanisms being searched and generated. Note that a \char`\"{}null\char`\"{} reaction is automatically included as a possible graph-\/move (reaction) during the simulated-\/annealing search, so {\itshape nrxn} is the maximum number of active chemical reactions used in each proposed reaction mechanism.
+\item {\bfseries nmcrxn}\+: This is the total number of simulated annealing iterations to search for; if a reaction is not found within this number of steps, the simulation simply stops without producing final structures.
+\item {\bfseries mcrxntemp}\+: This is the {\itshape initial} temperature for the simulated-\/annealing search; note that this temperature is linearly-\/scaled to zero over the course of the {\itshape nmcrxn} iterations to drive the system to local minima with lower error functions.
+\item {\bfseries nmechmove}\+: This integer identifies how many of the reactions the simulated-\/annealing algorithm should attempt to change in {\itshape each} iteration. We haven\textquotesingle{}t yet systematically investigated the impact of this number; 1 or 2 seems like sensible values.
+\end{DoxyItemize}
+
+In the calculation setup for this example, we\textquotesingle{}re allowing a maximum of 10 active reactions in the proposed reaction mechanisms, we\textquotesingle{}re running for a maximum of 1000000 iterations, and we\textquotesingle{}re starting at a temperature of 200000 K.
+
+\subsubsection*{start.\+xyz and end.\+xyz}
+
+The {\itshape start.\+xyz} and {\itshape end.\+xyz} files are standard X\+YZ format files (Cartesian coordinates in Angstroms).
+
+In a reaction pathfinding simulation, {\itshape start.\+xyz} contains the coordinates of the {\bfseries reactant} structure and {\itshape end.\+xyz} contains the coordinates of the {\bfseries product} structure. These initial stuctures are used to calculate the reactant connectivity matrix and the target (product) connectivity matrix.
+
+{\bfseries I\+M\+P\+O\+R\+T\+A\+NT}\+: In the current version of C\+DE, the atomic ordering in the {\itshape start.\+xyz} and {\itshape end.\+xyz} files M\+U\+ST be the same.
+
+\subsubsection*{moves.\+in}
+
+The moves.\+in file describes the allowed chemical reaction classes which are allowed to take place; these allowed moves are applied to configurations during a pathfinding calculation in order to generate new reaction end-\/points.
+
+The format of the move-\/file is discussed in \mbox{\hyperlink{moves}{Movefile example}}.
+
+\subsubsection*{Running the calculation}
+
+With these input files, we are now able to run the pathfinding calculation. To do so, go into the $\ast$$\sim$/cde/examples/pathfind/$\ast$ directory and type\+: \begin{DoxyVerb}cde.x input
+\end{DoxyVerb}
+
+
+As in the other tutorials, the above assumes that you have already made sure that C\+DE can be run by simply typing {\itshape cde.\+x}. See the setup section for more details.
+
+As the calculation runs, you will find lots of output files generated in the run directory.
+
+The interesting output files are as follows\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries mcopt.\+dat}\+: This file contains a running value of the total graph-\/error function as a function of the number of simulated annealing iterations.
+\item {\bfseries input.\+log}\+: Once the simulated annealing calculation is complete, the {\itshape log} file will contain lots of useful information about the final reaction mechanism (if successful).
+\item {\bfseries final\+\_\+path.\+xyz}\+: Contains an {\itshape xyz} file with molecular snapshots of the intermediates generated along the final reaction-\/path.
+\item {\bfseries final\+\_\+path\+\_\+rx\+\_\+\+Z\+Z\+Z.\+xyz}\+: Contains an approximation to the reaction-\/path for reaction-\/step {\itshape Z\+ZZ} in the final mechanism.
+\end{DoxyItemize}
+
+The {\itshape xyz} files can obviously be plotted in V\+MD in order to visualize the reaction.
+
+\subsubsection*{Optimizing structures}
+
+If one sets the input parameter \begin{DoxyVerb}    optaftermove .true.
+\end{DoxyVerb}
+
+
+then this means that each of the intemediate structures generated in the {\itshape final} reaction mechanism will be optimized, using the {\itshape pesopttype} and defined in the input file. In addition, the energy of each intermediate, as calculated according to {\itshape pestype}, will also be output to the {\itshape log} file.
+
+Using {\itshape optaftermove .true.} is advised if one is intending to perform further calculations on the final reaction mechanism, such as N\+EB calculations for each reaction-\/path file ({\itshape final\+\_\+path\+\_\+rx\+\_\+\+Z\+Z\+Z.\+xyz}). In this case, the initial reaction-\/paths created for each reaction are generated such that they connect the optimized geomtries.
+
+\subsubsection*{Final output and next steps.}
+
+
+\begin{DoxyItemize}
+\item Each of the reaction-\/path files (({\itshape final\+\_\+path\+\_\+rx\+\_\+\+Z\+Z\+Z.\+xyz}) generated by a pathfinding could, in principle, be used as the starting-\/point of a C\+I\+N\+EB refinement calculation.
+\item By comparing C\+I\+N\+EB calculations for a number of different pathfinding simulation outputs, it should also be possible to identify the \char`\"{}most likely\char`\"{} reaction mechanism (for example, with most favourable thermodynamic and kinetic properties). 
+\end{DoxyItemize}

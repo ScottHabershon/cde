@@ -1,0 +1,201 @@
+\hypertarget{namespacefunctions}{}\doxysection{functions Module Reference}
+\label{namespacefunctions}\index{functions@{functions}}
+
+
+Functions.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+logical function \mbox{\hyperlink{namespacefunctions_a0e32578cc457e3a8f16e4025a5145d64}{is\+\_\+numeric}} (string)
+\begin{DoxyCompactList}\small\item\em is\+\_\+numeric \end{DoxyCompactList}\item 
+double precision function, dimension(n, n) \mbox{\hyperlink{namespacefunctions_a8df0cc3cbc0ba8846e98a2f6574de435}{oprod}} (v1, v2, n)
+\begin{DoxyCompactList}\small\item\em O\+Prod. \end{DoxyCompactList}\item 
+double precision function \mbox{\hyperlink{namespacefunctions_a413e38ea9d5c48dbeaa0384dd71c70a4}{sigmoid}} (x, alp, xsh, dir)
+\begin{DoxyCompactList}\small\item\em Sigmoid. \end{DoxyCompactList}\item 
+double precision function, dimension(3) \mbox{\hyperlink{namespacefunctions_a859f48a232af1659d10d07fdede86a19}{xproduct}} (a, b)
+\begin{DoxyCompactList}\small\item\em xproduct \end{DoxyCompactList}\item 
+integer(8) function \mbox{\hyperlink{namespacefunctions_adc2cfa2d98d2f4e7547de2162b47f581}{factorial}} (n)
+\begin{DoxyCompactList}\small\item\em factorial \end{DoxyCompactList}\item 
+integer(8) function \mbox{\hyperlink{namespacefunctions_af413ddecbcbd9633f4025f0ad38065e3}{choose}} (n, k)
+\begin{DoxyCompactList}\small\item\em choose \end{DoxyCompactList}\item 
+logical function \mbox{\hyperlink{namespacefunctions_af19c27d9495891fd03e33bb6e9f98f76}{findidx}} (array, num, siz)
+\begin{DoxyCompactList}\small\item\em findidx \end{DoxyCompactList}\item 
+integer function \mbox{\hyperlink{namespacefunctions_a5683d91b1158e1c9099e502303c62b3b}{labeltonumber}} (label)
+\begin{DoxyCompactList}\small\item\em Label\+To\+Number. \end{DoxyCompactList}\item 
+character(len=2) function \mbox{\hyperlink{namespacefunctions_a517d640a5a9e5ec8751238095c1ceb35}{numbertolabel}} (num)
+\begin{DoxyCompactList}\small\item\em Number\+To\+Label. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacefunctions_ade663a7dc12ca47f505eedcebc6a9c2a}\label{namespacefunctions_ade663a7dc12ca47f505eedcebc6a9c2a}} 
+integer function {\bfseries setranseed} (irun)
+\item 
+double precision function, dimension(\+:), allocatable \mbox{\hyperlink{namespacefunctions_a2fcc4f2a6c7ecc3b7b2cb8efee83dc1d}{massfromlabels}} (labels)
+\begin{DoxyCompactList}\small\item\em Mass\+From\+Labels. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions. 
+
+Library of Generic Function 
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacefunctions_a0e32578cc457e3a8f16e4025a5145d64}\label{namespacefunctions_a0e32578cc457e3a8f16e4025a5145d64}} 
+\index{functions@{functions}!is\_numeric@{is\_numeric}}
+\index{is\_numeric@{is\_numeric}!functions@{functions}}
+\doxysubsubsection{\texorpdfstring{is\_numeric()}{is\_numeric()}}
+{\footnotesize\ttfamily logical function functions\+::is\+\_\+numeric (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{string }\end{DoxyParamCaption})}
+
+
+
+is\+\_\+numeric 
+
+checkst to see if its number 
+
+Definition at line 25 of file functions.\+f90.
+
+\mbox{\Hypertarget{namespacefunctions_a8df0cc3cbc0ba8846e98a2f6574de435}\label{namespacefunctions_a8df0cc3cbc0ba8846e98a2f6574de435}} 
+\index{functions@{functions}!oprod@{oprod}}
+\index{oprod@{oprod}!functions@{functions}}
+\doxysubsubsection{\texorpdfstring{oprod()}{oprod()}}
+{\footnotesize\ttfamily double precision function, dimension(n,n) functions\+::oprod (\begin{DoxyParamCaption}\item[{double precision, dimension(n)}]{v1,  }\item[{double precision, dimension(n)}]{v2,  }\item[{integer}]{n }\end{DoxyParamCaption})}
+
+
+
+O\+Prod. 
+
+Calculats the outer product of two vectors with dimensions n 
+
+Definition at line 41 of file functions.\+f90.
+
+\mbox{\Hypertarget{namespacefunctions_a413e38ea9d5c48dbeaa0384dd71c70a4}\label{namespacefunctions_a413e38ea9d5c48dbeaa0384dd71c70a4}} 
+\index{functions@{functions}!sigmoid@{sigmoid}}
+\index{sigmoid@{sigmoid}!functions@{functions}}
+\doxysubsubsection{\texorpdfstring{sigmoid()}{sigmoid()}}
+{\footnotesize\ttfamily double precision function functions\+::sigmoid (\begin{DoxyParamCaption}\item[{double precision, intent(in)}]{x,  }\item[{double precision, intent(in)}]{alp,  }\item[{double precision, intent(in)}]{xsh,  }\item[{integer, intent(in)}]{dir }\end{DoxyParamCaption})}
+
+
+
+Sigmoid. 
+
+returns sigmoid function with exponential parameter alp, shift xsh and (in) direction +1/-\/1 
+
+Definition at line 54 of file functions.\+f90.
+
+\mbox{\Hypertarget{namespacefunctions_a859f48a232af1659d10d07fdede86a19}\label{namespacefunctions_a859f48a232af1659d10d07fdede86a19}} 
+\index{functions@{functions}!xproduct@{xproduct}}
+\index{xproduct@{xproduct}!functions@{functions}}
+\doxysubsubsection{\texorpdfstring{xproduct()}{xproduct()}}
+{\footnotesize\ttfamily double precision function, dimension(3) functions\+::xproduct (\begin{DoxyParamCaption}\item[{double precision, dimension(3)}]{a,  }\item[{double precision, dimension(3)}]{b }\end{DoxyParamCaption})}
+
+
+
+xproduct 
+
+cross product between 3d vectors, not for general space. returns vector
+
+
+\begin{DoxyItemize}
+\item a,b\+: vectors 
+\end{DoxyItemize}
+
+Definition at line 78 of file functions.\+f90.
+
+\mbox{\Hypertarget{namespacefunctions_adc2cfa2d98d2f4e7547de2162b47f581}\label{namespacefunctions_adc2cfa2d98d2f4e7547de2162b47f581}} 
+\index{functions@{functions}!factorial@{factorial}}
+\index{factorial@{factorial}!functions@{functions}}
+\doxysubsubsection{\texorpdfstring{factorial()}{factorial()}}
+{\footnotesize\ttfamily integer(8) function functions\+::factorial (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n }\end{DoxyParamCaption})}
+
+
+
+factorial 
+
+Factorial calculator 
+
+Definition at line 94 of file functions.\+f90.
+
+\mbox{\Hypertarget{namespacefunctions_af413ddecbcbd9633f4025f0ad38065e3}\label{namespacefunctions_af413ddecbcbd9633f4025f0ad38065e3}} 
+\index{functions@{functions}!choose@{choose}}
+\index{choose@{choose}!functions@{functions}}
+\doxysubsubsection{\texorpdfstring{choose()}{choose()}}
+{\footnotesize\ttfamily integer(8) function functions\+::choose (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{n,  }\item[{integer, intent(in)}]{k }\end{DoxyParamCaption})}
+
+
+
+choose 
+
+Statistical choose function 
+
+Definition at line 110 of file functions.\+f90.
+
+\mbox{\Hypertarget{namespacefunctions_af19c27d9495891fd03e33bb6e9f98f76}\label{namespacefunctions_af19c27d9495891fd03e33bb6e9f98f76}} 
+\index{functions@{functions}!findidx@{findidx}}
+\index{findidx@{findidx}!functions@{functions}}
+\doxysubsubsection{\texorpdfstring{findidx()}{findidx()}}
+{\footnotesize\ttfamily logical function functions\+::findidx (\begin{DoxyParamCaption}\item[{integer, dimension(siz)}]{array,  }\item[{integer}]{num,  }\item[{integer}]{siz }\end{DoxyParamCaption})}
+
+
+
+findidx 
+
+flags if we found integer num in array \char`\"{}array\char`\"{} of size siz 
+
+Definition at line 129 of file functions.\+f90.
+
+\mbox{\Hypertarget{namespacefunctions_a5683d91b1158e1c9099e502303c62b3b}\label{namespacefunctions_a5683d91b1158e1c9099e502303c62b3b}} 
+\index{functions@{functions}!labeltonumber@{labeltonumber}}
+\index{labeltonumber@{labeltonumber}!functions@{functions}}
+\doxysubsubsection{\texorpdfstring{labeltonumber()}{labeltonumber()}}
+{\footnotesize\ttfamily integer function functions\+::labeltonumber (\begin{DoxyParamCaption}\item[{character (len = 2)}]{label }\end{DoxyParamCaption})}
+
+
+
+Label\+To\+Number. 
+
+Converts an input atomic label into a number.
+
+
+\begin{DoxyItemize}
+\item label\+: the input atomic label. 
+\end{DoxyItemize}
+
+Definition at line 154 of file functions.\+f90.
+
+\mbox{\Hypertarget{namespacefunctions_a517d640a5a9e5ec8751238095c1ceb35}\label{namespacefunctions_a517d640a5a9e5ec8751238095c1ceb35}} 
+\index{functions@{functions}!numbertolabel@{numbertolabel}}
+\index{numbertolabel@{numbertolabel}!functions@{functions}}
+\doxysubsubsection{\texorpdfstring{numbertolabel()}{numbertolabel()}}
+{\footnotesize\ttfamily character (len = 2) function functions\+::numbertolabel (\begin{DoxyParamCaption}\item[{integer}]{num }\end{DoxyParamCaption})}
+
+
+
+Number\+To\+Label. 
+
+Converts an input atomic number into label.
+
+
+\begin{DoxyItemize}
+\item num\+: the input atomic number. 
+\end{DoxyItemize}
+
+Definition at line 440 of file functions.\+f90.
+
+\mbox{\Hypertarget{namespacefunctions_a2fcc4f2a6c7ecc3b7b2cb8efee83dc1d}\label{namespacefunctions_a2fcc4f2a6c7ecc3b7b2cb8efee83dc1d}} 
+\index{functions@{functions}!massfromlabels@{massfromlabels}}
+\index{massfromlabels@{massfromlabels}!functions@{functions}}
+\doxysubsubsection{\texorpdfstring{massfromlabels()}{massfromlabels()}}
+{\footnotesize\ttfamily double precision function, dimension(\+:), allocatable functions\+::massfromlabels (\begin{DoxyParamCaption}\item[{character(2), dimension(\+:)}]{labels }\end{DoxyParamCaption})}
+
+
+
+Mass\+From\+Labels. 
+
+gets the mass array from labels
+
+
+\begin{DoxyItemize}
+\item labels \+: label array 
+\end{DoxyItemize}
+
+Definition at line 752 of file functions.\+f90.
+

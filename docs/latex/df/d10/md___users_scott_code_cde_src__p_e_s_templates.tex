@@ -1,0 +1,160 @@
+This page gives several examples of template files for P\+ES evaluation or geometry evaluation.
+
+In these examples, the only part of the file which is written by C\+DE is in replacing the {\itshape X\+XX} with the coordinates at which the energy evaluation is being performed. All other aspects, such as the calculation type (e.\+g. D\+FT, Hartree-\/\+Fock, semi-\/empirical, D\+F\+T\+B+), basis sets, accuracy, and so on, are controlled by editing the {\itshape pesfile} and {\itshape pesoptfile} B\+E\+F\+O\+RE the C\+DE calculation starts.
+
+Note that a single P\+ES template file is used for all energy evaluations in C\+DE. There is no option to change the P\+ES evaluation-\/type \char`\"{}on the fly\char`\"{}.
+
+\section*{O\+R\+CA examples}
+
+
+\begin{DoxyItemize}
+\item Example header file for a P\+ES evaluation by O\+R\+CA using P\+M3 semi-\/empirical method\+:
+\end{DoxyItemize}
+
+\begin{DoxyVerb}    ! PM3
+    * xyz 0 1
+    XXX
+    *
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item Example header file for a P\+ES evaluation by O\+R\+CA using D\+FT (B3\+L\+YP)\+:
+\end{DoxyItemize}
+
+\begin{DoxyVerb}! DFT B3LYP aug-cc-pvtz 
+    * xyz 0 1
+    XXX
+    *
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item Example header file for geometry optimization using P\+M3\+:
+\end{DoxyItemize}
+
+\begin{DoxyVerb}    ! PM3 OPT  
+    * xyz 0 1
+    XXX
+    *
+\end{DoxyVerb}
+
+
+\section*{D\+F\+T\+B+ example}
+
+In the case of D\+F\+T\+B+, note that the input file must correctly specify the location of any Slater-\/\+Koster files required by the D\+F\+T\+B+ code.
+
+
+\begin{DoxyItemize}
+\item Example header file for P\+ES evaluation by D\+F\+T\+B+\+:
+\end{DoxyItemize}
+
+\begin{DoxyVerb}     Geometry = GenFormat {
+    XXX
+    }
+    Driver = {}
+     Hamiltonian = DFTB {
+     SCC = Yes
+     SCCTolerance = 1e-3
+     Mixer = Broyden{}
+     Eigensolver = RelativelyRobust {}
+    MaxAngularMomentum {
+     C = "p"
+    O = "p"
+    H = "s"
+     }
+    SlaterKosterFiles = Type2FileNames {
+    Prefix = "./SKfiles/"
+     Separator = "-"
+     Suffix = ".skf"
+     }
+    }
+    Analysis = {
+    CalculateForces = Yes
+     }
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item D\+F\+T\+B+ geometry optimization example (with constraints)\+:
+\end{DoxyItemize}
+
+\begin{DoxyVerb}Geometry = GenFormat {
+XXX
+}
+ Driver = ConjugateGradient{
+ MaxForceComponent = 1d-5
+ MaxSteps = 1000
+ Constraints = {
+ 1 1.0 0.0 0.0
+ 1 0.0 1.0 0.0
+ 1 0.0 0.0 1.0
+ 2 0.0 1.0 0.0
+ 2 0.0 0.0 1.0
+ 3 0.0 0.0 1.0
+ }
+ }
+ Hamiltonian = DFTB {
+SCC = Yes
+ SCCTolerance = 1e-3
+ Mixer = Broyden{}
+ Eigensolver = RelativelyRobust {}
+MaxAngularMomentum {
+ C = "p"
+O = "p"
+ H = "s"
+ }
+ SlaterKosterFiles = Type2FileNames {
+ Prefix = "./SKfiles/"
+ Separator = "-"
+ Suffix = ".skf"
+ }
+ }
+ Analysis = {
+ CalculateForces = Yes
+ }
+\end{DoxyVerb}
+
+
+\section*{Psi-\/4 example}
+
+
+\begin{DoxyItemize}
+\item Hartree-\/\+Fock example using Psi-\/4
+\end{DoxyItemize}
+
+\begin{DoxyVerb}################
+# INPUT SETUP #
+################
+
+molecule x {
+0 1
+XXX
+}
+
+set {
+    basis def2-SVP
+    fail_on_maxiter false
+}
+
+
+################
+# OUTPUT SETUP #
+################
+
+energy = energy('scf')
+grad = np.array(gradient('scf'))
+
+e = open('e.out','w')
+e.write(str(energy))
+e.close()
+
+f = open('f.out','w')
+for i in grad:
+    for j in i:
+        f.write(str(j)+'\n')
+f.close\end{DoxyVerb}
+ 

@@ -1,0 +1,57 @@
+LAMMPS (22 Aug 2018)
+ # Intialization
+ dimension      3
+ units          real
+ boundary       f f f
+ atom_style     charge
+ atom_modify    map array sort 0 0.0
+
+ # XXX replaced by mass labels and atom creation
+ region thebox block    -810.81212002    810.81212002   -810.81212002    810.81212002   -810.81212002    810.81212002
+ create_box 3 thebox
+Created orthogonal box = (-810.812 -810.812 -810.812) to (810.812 810.812 810.812)
+  1 by 1 by 1 MPI processor grid
+ mass  1   196.61054418
+ mass  2    15.99491539
+ mass  3    12.01070040
+ create_atoms  1 single    -0.28193000    0.21606000   -0.05269000
+Created 1 atoms
+  Time spent = 9.05991e-06 secs
+ create_atoms  1 single    -1.62826000    1.98962000   -1.69653000
+Created 1 atoms
+  Time spent = 0.000342131 secs
+ create_atoms  1 single    -0.32195000   -0.75880000   -2.64227000
+Created 1 atoms
+  Time spent = 9.53674e-07 secs
+ create_atoms  1 single     1.87713000   -1.12378000   -1.18455000
+Created 1 atoms
+  Time spent = 9.53674e-07 secs
+ create_atoms  1 single    -0.38388000   -2.74089000   -0.81344000
+Created 1 atoms
+  Time spent = 0 secs
+ create_atoms  1 single    -2.86757000   -0.08041000   -2.88894000
+Created 1 atoms
+  Time spent = 0 secs
+ create_atoms  1 single    -2.68032000   -0.80663000   -0.33346000
+Created 1 atoms
+  Time spent = 9.53674e-07 secs
+ create_atoms  2 single     6.04360001    1.21430000   -0.00067000
+Created 1 atoms
+  Time spent = 0 secs
+ create_atoms  2 single     7.19319001    1.16031000    0.00184000
+Created 1 atoms
+  Time spent = 0 secs
+ create_atoms  3 single    -2.93737000   10.81212002    3.34127001
+Created 1 atoms
+  Time spent = 0 secs
+ create_atoms  3 single    10.63841002   -5.39545001    3.77230001
+Created 1 atoms
+  Time spent = 0 secs
+ create_atoms  2 single    -1.83561000   10.69125002    3.84978001
+Created 1 atoms
+  Time spent = 9.53674e-07 secs
+ create_atoms  2 single    10.59545002   -4.09311001    4.26717001
+Created 1 atoms
+  Time spent = 9.53674e-07 secs
+
+ pair_style     reax/c lmp_control

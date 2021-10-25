@@ -1,0 +1,183 @@
+\hypertarget{namespaceio}{}\section{io Module Reference}
+\label{namespaceio}\index{io@{io}}
+
+
+Main input/output functions for C\+DE.  
+
+
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespaceio_aee45b0da5539969779855687cc9efd6d}{readinput}} ()
+\begin{DoxyCompactList}\small\item\em Read\+Input. \end{DoxyCompactList}\item 
+logical function \mbox{\hyperlink{namespaceio_a386a5703d972e990643b637ef0bd8d58}{is\+\_\+numeric}} (string)
+\begin{DoxyCompactList}\small\item\em is\+\_\+numeric \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceio_a19211eac027eb30d7c602fb5583351e0}{readgraphmoves}} (movefile)
+\begin{DoxyCompactList}\small\item\em Read\+Graph\+Moves. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceio_a0de73eea344ac9978f7cbb7d80c6ab2c}{sortmolecularvalences}}
+\begin{DoxyCompactList}\small\item\em Sort\+Molecular\+Valences. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceio_a2f1df2054a4fbfd76d2351f26f6b4b02}{readforbiddengraphs}} (forbidfile)
+\begin{DoxyCompactList}\small\item\em Read\+Forbidden\+Graphs. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceio_aea679911d5618f57aaa7a3daa238ec13}{setiodefaults}} ()
+\begin{DoxyCompactList}\small\item\em Set\+I\+O\+Defaults. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main input/output functions for C\+DE. 
+
+Main input/output drivers for C\+DE. 
+
+\subsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespaceio_aee45b0da5539969779855687cc9efd6d}\label{namespaceio_aee45b0da5539969779855687cc9efd6d}} 
+\index{io@{io}!readinput@{readinput}}
+\index{readinput@{readinput}!io@{io}}
+\subsubsection{\texorpdfstring{readinput()}{readinput()}}
+{\footnotesize\ttfamily subroutine io\+::readinput (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read\+Input. 
+
+Reads the main C\+DE input file, and fills in the data in \mbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+The input filename is read from the command-\/line. Number of images along paths.
+
+Temperature for Quick\+Min or G\+DS with MD.
+
+Calctype = \textquotesingle{}G\+DS\textquotesingle{} for reaction-\/sampling or \textquotesingle{}O\+P\+T\+P\+A\+TH\textquotesingle{} for path optimization.
+
+Number of images along paths.
+
+Temperature for Quick\+Min or G\+DS with MD.
+
+Calctype = \textquotesingle{}G\+DS\textquotesingle{} for reaction-\/sampling or \textquotesingle{}O\+P\+T\+P\+A\+TH\textquotesingle{} for path optimization.
+
+Number of images along paths.
+
+Temperature for Quick\+Min or G\+DS with MD.
+
+Calctype = \textquotesingle{}G\+DS\textquotesingle{} for reaction-\/sampling or \textquotesingle{}O\+P\+T\+P\+A\+TH\textquotesingle{} for path optimization.
+
+Number of images along paths.
+
+Temperature for Quick\+Min or G\+DS with MD.
+
+Calctype = \textquotesingle{}G\+DS\textquotesingle{} for reaction-\/sampling or \textquotesingle{}O\+P\+T\+P\+A\+TH\textquotesingle{} for path optimization.
+
+Number of images along paths.
+
+Temperature for Quick\+Min or G\+DS with MD.
+
+Calctype = \textquotesingle{}G\+DS\textquotesingle{} for reaction-\/sampling or \textquotesingle{}O\+P\+T\+P\+A\+TH\textquotesingle{} for path optimization.
+
+Number of images along paths.
+
+Temperature for Quick\+Min or G\+DS with MD.
+
+Calctype = \textquotesingle{}G\+DS\textquotesingle{} for reaction-\/sampling or \textquotesingle{}O\+P\+T\+P\+A\+TH\textquotesingle{} for path optimization.
+
+Number of images along paths.
+
+Temperature for Quick\+Min or G\+DS with MD.
+
+Calctype = \textquotesingle{}G\+DS\textquotesingle{} for reaction-\/sampling or \textquotesingle{}O\+P\+T\+P\+A\+TH\textquotesingle{} for path optimization.
+
+Number of images along paths.
+
+Temperature for Quick\+Min or G\+DS with MD.
+
+Calctype = \textquotesingle{}G\+DS\textquotesingle{} for reaction-\/sampling or \textquotesingle{}O\+P\+T\+P\+A\+TH\textquotesingle{} for path optimization.
+
+Number of images along paths.
+
+Temperature for Quick\+Min or G\+DS with MD.
+
+Calctype = \textquotesingle{}G\+DS\textquotesingle{} for reaction-\/sampling or \textquotesingle{}O\+P\+T\+P\+A\+TH\textquotesingle{} for path optimization. 
+
+Definition at line 34 of file io.\+f90.
+
+\mbox{\Hypertarget{namespaceio_a386a5703d972e990643b637ef0bd8d58}\label{namespaceio_a386a5703d972e990643b637ef0bd8d58}} 
+\index{io@{io}!is\+\_\+numeric@{is\+\_\+numeric}}
+\index{is\+\_\+numeric@{is\+\_\+numeric}!io@{io}}
+\subsubsection{\texorpdfstring{is\+\_\+numeric()}{is\_numeric()}}
+{\footnotesize\ttfamily logical function io\+::is\+\_\+numeric (\begin{DoxyParamCaption}\item[{character(len=$\ast$), intent(in)}]{string }\end{DoxyParamCaption})}
+
+
+
+is\+\_\+numeric 
+
+Checks whether the input string contains a number or not.
+
+
+\begin{DoxyItemize}
+\item string\+: Input string to analyse. 
+\end{DoxyItemize}
+
+Definition at line 966 of file io.\+f90.
+
+\mbox{\Hypertarget{namespaceio_a19211eac027eb30d7c602fb5583351e0}\label{namespaceio_a19211eac027eb30d7c602fb5583351e0}} 
+\index{io@{io}!readgraphmoves@{readgraphmoves}}
+\index{readgraphmoves@{readgraphmoves}!io@{io}}
+\subsubsection{\texorpdfstring{readgraphmoves()}{readgraphmoves()}}
+{\footnotesize\ttfamily subroutine io\+::readgraphmoves (\begin{DoxyParamCaption}\item[{character(len=50)}]{movefile }\end{DoxyParamCaption})}
+
+
+
+Read\+Graph\+Moves. 
+
+Reads the set of graph moves used during G\+DS simulation from the specified file \textquotesingle{}movefile\textquotesingle{}.
+
+
+\begin{DoxyItemize}
+\item movefile\+: The file containing the graph-\/move information. 
+\end{DoxyItemize}
+
+Definition at line 989 of file io.\+f90.
+
+\mbox{\Hypertarget{namespaceio_a0de73eea344ac9978f7cbb7d80c6ab2c}\label{namespaceio_a0de73eea344ac9978f7cbb7d80c6ab2c}} 
+\index{io@{io}!sortmolecularvalences@{sortmolecularvalences}}
+\index{sortmolecularvalences@{sortmolecularvalences}!io@{io}}
+\subsubsection{\texorpdfstring{sortmolecularvalences()}{sortmolecularvalences()}}
+{\footnotesize\ttfamily subroutine io\+::sortmolecularvalences (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sort\+Molecular\+Valences. 
+
+bubble sorts the molecular valence contraint arrays from lowest to thighest valency, for each set 
+
+Definition at line 1157 of file io.\+f90.
+
+\mbox{\Hypertarget{namespaceio_a2f1df2054a4fbfd76d2351f26f6b4b02}\label{namespaceio_a2f1df2054a4fbfd76d2351f26f6b4b02}} 
+\index{io@{io}!readforbiddengraphs@{readforbiddengraphs}}
+\index{readforbiddengraphs@{readforbiddengraphs}!io@{io}}
+\subsubsection{\texorpdfstring{readforbiddengraphs()}{readforbiddengraphs()}}
+{\footnotesize\ttfamily subroutine io\+::readforbiddengraphs (\begin{DoxyParamCaption}\item[{character(len=50)}]{forbidfile }\end{DoxyParamCaption})}
+
+
+
+Read\+Forbidden\+Graphs. 
+
+Reads the set of graphs which are not allowed to exist.
+
+
+\begin{DoxyItemize}
+\item forbidfile\+: The file containing the forbidden graph information. 
+\end{DoxyItemize}
+
+Definition at line 1217 of file io.\+f90.
+
+\mbox{\Hypertarget{namespaceio_aea679911d5618f57aaa7a3daa238ec13}\label{namespaceio_aea679911d5618f57aaa7a3daa238ec13}} 
+\index{io@{io}!setiodefaults@{setiodefaults}}
+\index{setiodefaults@{setiodefaults}!io@{io}}
+\subsubsection{\texorpdfstring{setiodefaults()}{setiodefaults()}}
+{\footnotesize\ttfamily subroutine io\+::setiodefaults (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Set\+I\+O\+Defaults. 
+
+Sets default input parameters. 
+
+Definition at line 1330 of file io.\+f90.
+

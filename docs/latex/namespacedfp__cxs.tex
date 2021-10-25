@@ -1,0 +1,166 @@
+\hypertarget{namespacedfp__cxs}{}\doxysection{dfp\+\_\+cxs Module Reference}
+\label{namespacedfp__cxs}\index{dfp\_cxs@{dfp\_cxs}}
+
+
+D\+F\+P\+\_\+\+C\+XS.  
+
+
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structdfp__cxs_1_1vtbmk}{vtbmk}}
+\item 
+type \mbox{\hyperlink{structdfp__cxs_1_1vtdfp}{vtdfp}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacedfp__cxs_a7dd4854898d913b6be15a8e9ce670faa}{dfp\+\_\+lnsrch}} (n, xold, fold, g, p, x, f, stpmax, lcheck, calcf, cx, success)
+\begin{DoxyCompactList}\small\item\em dfp\+\_\+lnsrch \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacedfp__cxs_a2bed570ed497f730ff3747a8da4e6f11}{init\+\_\+dfp}} (dfp, cxin, calcf)
+\begin{DoxyCompactList}\small\item\em init\+\_\+dfp2 \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacedfp__cxs_a3f985b3a1df686bbe87dffce20431e26}{dfp\+\_\+stp1}} (dfp)
+\begin{DoxyCompactList}\small\item\em dfp\+\_\+stp1 \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacedfp__cxs_aaa7b1002d9a421c43b72cfb3c9214b22}{dfp\+\_\+stp2}} (dfp)
+\begin{DoxyCompactList}\small\item\em dfp\+\_\+stp2 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacedfp__cxs_a4ae84fb8424ccc0e1c25790aa10494a6}\label{namespacedfp__cxs_a4ae84fb8424ccc0e1c25790aa10494a6}} 
+subroutine {\bfseries nullify\+\_\+dfp} (dfp)
+\item 
+subroutine \mbox{\hyperlink{namespacedfp__cxs_ac1363feca2ab44863d6a22d5b5819c0c}{init\+\_\+bmk}} (bmk, cxin, nimage, kspringin)
+\begin{DoxyCompactList}\small\item\em init\+\_\+bmk \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacedfp__cxs_a553cea8db632c9ea7a35d76e7bd8a83b}{bmk\+\_\+stp1}} (b)
+\begin{DoxyCompactList}\small\item\em bmk\+\_\+stp1 \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacedfp__cxs_acb4163ea32bd88caa77731a9a337d1b7}{bmk\+\_\+stp2}} (b)
+\begin{DoxyCompactList}\small\item\em bmk\+\_\+stp2 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+D\+F\+P\+\_\+\+C\+XS. 
+
+module containing the parameters for D\+FP optimization from a user provided C\+XS structure 
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacedfp__cxs_a7dd4854898d913b6be15a8e9ce670faa}\label{namespacedfp__cxs_a7dd4854898d913b6be15a8e9ce670faa}} 
+\index{dfp\_cxs@{dfp\_cxs}!dfp\_lnsrch@{dfp\_lnsrch}}
+\index{dfp\_lnsrch@{dfp\_lnsrch}!dfp\_cxs@{dfp\_cxs}}
+\doxysubsubsection{\texorpdfstring{dfp\_lnsrch()}{dfp\_lnsrch()}}
+{\footnotesize\ttfamily subroutine dfp\+\_\+cxs\+::dfp\+\_\+lnsrch (\begin{DoxyParamCaption}\item[{integer(4), intent(in)}]{n,  }\item[{double precision, dimension(n), intent(in)}]{xold,  }\item[{double precision, intent(in)}]{fold,  }\item[{double precision, dimension(n), intent(in)}]{g,  }\item[{double precision, dimension(n), intent(inout)}]{p,  }\item[{double precision, dimension(n), intent(out)}]{x,  }\item[{double precision, intent(out)}]{f,  }\item[{double precision, intent(in)}]{stpmax,  }\item[{logical, intent(inout)}]{lcheck,  }\item[{procedure()}]{calcf,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{logical, intent(inout)}]{success }\end{DoxyParamCaption})}
+
+
+
+dfp\+\_\+lnsrch 
+
+performs a line search optimisation of the energy along the direction of the p (the inverse hesssian-\/rotated force) vector calcf needs to be a subroutine that takes the following arguments\+: calcf(cxs,sucess)
+
+n \+: number of D\+OF xold \+: old position (coming in) fold \+: old energy (coming in) g \+: gradient vector (coming in) used to estimate the initial slope p \+: the inverse hesssian-\/rotated force vector (typically xi in dfpsteps) x \+: the new position (out) f \+: the new energy (out stpmax \+: maximum step size lcheck \+: is all went dandy calcf \+: routine to evaluate energy from cx cx \+: the chemical structure with the system,s information sucess \+: if the abinitio worked (calling calcf) 
+
+Definition at line 124 of file dfp\+\_\+cxs.\+f90.
+
+\mbox{\Hypertarget{namespacedfp__cxs_a2bed570ed497f730ff3747a8da4e6f11}\label{namespacedfp__cxs_a2bed570ed497f730ff3747a8da4e6f11}} 
+\index{dfp\_cxs@{dfp\_cxs}!init\_dfp@{init\_dfp}}
+\index{init\_dfp@{init\_dfp}!dfp\_cxs@{dfp\_cxs}}
+\doxysubsubsection{\texorpdfstring{init\_dfp()}{init\_dfp()}}
+{\footnotesize\ttfamily subroutine dfp\+\_\+cxs\+::init\+\_\+dfp (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdfp__cxs_1_1vtdfp}{vtdfp}})}]{dfp,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), target}]{cxin,  }\item[{procedure()}]{calcf }\end{DoxyParamCaption})}
+
+
+
+init\+\_\+dfp2 
+
+initializes the dfp object for use in N\+EB. some parameters (see the beginning of code) will not be initialized if they have done so by the coder. This assumes the energy gradient and projected forces are already in the cx object passed in (cxin). this routine requires the force to be evaluated outside of this and dfp\+\_\+stp1/dfp\+\_\+stp2 or dfp\+\_\+step2, since the forces might require other cx information (ie the rp object). N\+O\+TE\+: variable p in this routine differs in meaning to lnsrch one ... calcf needs to be a subroutine that takes the following arguments\+: calcf(cxs,sucess)
+
+
+\begin{DoxyItemize}
+\item dfp\+: Davidon-\/\+Fletcher-\/\+Powell object
+\item cxin\+: the chemical structure with the system information
+\item calcf\+: the name of the routine which calculates the energy (used during lnsrch) 
+\end{DoxyItemize}
+
+Definition at line 252 of file dfp\+\_\+cxs.\+f90.
+
+\mbox{\Hypertarget{namespacedfp__cxs_a3f985b3a1df686bbe87dffce20431e26}\label{namespacedfp__cxs_a3f985b3a1df686bbe87dffce20431e26}} 
+\index{dfp\_cxs@{dfp\_cxs}!dfp\_stp1@{dfp\_stp1}}
+\index{dfp\_stp1@{dfp\_stp1}!dfp\_cxs@{dfp\_cxs}}
+\doxysubsubsection{\texorpdfstring{dfp\_stp1()}{dfp\_stp1()}}
+{\footnotesize\ttfamily subroutine dfp\+\_\+cxs\+::dfp\+\_\+stp1 (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdfp__cxs_1_1vtdfp}{vtdfp}})}]{dfp }\end{DoxyParamCaption})}
+
+
+
+dfp\+\_\+stp1 
+
+performs the line-\/search algorithm (numerical recepies) xi has the inverse-\/hessian rotated N\+E\+B-\/projected force vector xi gets destroyed during this step (recycled...) gg has the negative of the unrotated N\+E\+B-\/force, since this is used in line-\/search to estimate the slope with xi
+
+
+\begin{DoxyItemize}
+\item dfp\+: Davidon-\/\+Fletcher-\/\+Powell object 
+\end{DoxyItemize}
+
+Definition at line 318 of file dfp\+\_\+cxs.\+f90.
+
+\mbox{\Hypertarget{namespacedfp__cxs_aaa7b1002d9a421c43b72cfb3c9214b22}\label{namespacedfp__cxs_aaa7b1002d9a421c43b72cfb3c9214b22}} 
+\index{dfp\_cxs@{dfp\_cxs}!dfp\_stp2@{dfp\_stp2}}
+\index{dfp\_stp2@{dfp\_stp2}!dfp\_cxs@{dfp\_cxs}}
+\doxysubsubsection{\texorpdfstring{dfp\_stp2()}{dfp\_stp2()}}
+{\footnotesize\ttfamily subroutine dfp\+\_\+cxs\+::dfp\+\_\+stp2 (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdfp__cxs_1_1vtdfp}{vtdfp}})}]{dfp }\end{DoxyParamCaption})}
+
+
+
+dfp\+\_\+stp2 
+
+this bit updates the hessian from a new dvdr the user must provide a new dvdr (copied to vector g) that, together with the old positions (vector dg) it updates the hessin
+
+
+\begin{DoxyItemize}
+\item dfp\+: Davidon-\/\+Fletcher-\/\+Powell object
+\item gtolin\+: tolenance of maximum gradient in single D\+OF.
+\item cxin\+: the chemical structure with the system information
+\item calcf\+: the name of the routine which calculates the energy (used during lnsrch) 
+\end{DoxyItemize}
+
+Definition at line 371 of file dfp\+\_\+cxs.\+f90.
+
+\mbox{\Hypertarget{namespacedfp__cxs_ac1363feca2ab44863d6a22d5b5819c0c}\label{namespacedfp__cxs_ac1363feca2ab44863d6a22d5b5819c0c}} 
+\index{dfp\_cxs@{dfp\_cxs}!init\_bmk@{init\_bmk}}
+\index{init\_bmk@{init\_bmk}!dfp\_cxs@{dfp\_cxs}}
+\doxysubsubsection{\texorpdfstring{init\_bmk()}{init\_bmk()}}
+{\footnotesize\ttfamily subroutine dfp\+\_\+cxs\+::init\+\_\+bmk (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdfp__cxs_1_1vtbmk}{vtbmk}})}]{bmk,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(nimage), target}]{cxin,  }\item[{integer}]{nimage,  }\item[{double precision, dimension(nimage-\/1)}]{kspringin }\end{DoxyParamCaption})}
+
+
+
+init\+\_\+bmk 
+
+
+\begin{DoxyItemize}
+\item bmk\+: Bohner Meisner Kastner object
+\item rpi\+: reaction path structure with the system information 
+\end{DoxyItemize}
+
+Definition at line 462 of file dfp\+\_\+cxs.\+f90.
+
+\mbox{\Hypertarget{namespacedfp__cxs_a553cea8db632c9ea7a35d76e7bd8a83b}\label{namespacedfp__cxs_a553cea8db632c9ea7a35d76e7bd8a83b}} 
+\index{dfp\_cxs@{dfp\_cxs}!bmk\_stp1@{bmk\_stp1}}
+\index{bmk\_stp1@{bmk\_stp1}!dfp\_cxs@{dfp\_cxs}}
+\doxysubsubsection{\texorpdfstring{bmk\_stp1()}{bmk\_stp1()}}
+{\footnotesize\ttfamily subroutine dfp\+\_\+cxs\+::bmk\+\_\+stp1 (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdfp__cxs_1_1vtbmk}{vtbmk}})}]{b }\end{DoxyParamCaption})}
+
+
+
+bmk\+\_\+stp1 
+
+
+
+Definition at line 528 of file dfp\+\_\+cxs.\+f90.
+
+\mbox{\Hypertarget{namespacedfp__cxs_acb4163ea32bd88caa77731a9a337d1b7}\label{namespacedfp__cxs_acb4163ea32bd88caa77731a9a337d1b7}} 
+\index{dfp\_cxs@{dfp\_cxs}!bmk\_stp2@{bmk\_stp2}}
+\index{bmk\_stp2@{bmk\_stp2}!dfp\_cxs@{dfp\_cxs}}
+\doxysubsubsection{\texorpdfstring{bmk\_stp2()}{bmk\_stp2()}}
+{\footnotesize\ttfamily subroutine dfp\+\_\+cxs\+::bmk\+\_\+stp2 (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structdfp__cxs_1_1vtbmk}{vtbmk}})}]{b }\end{DoxyParamCaption})}
+
+
+
+bmk\+\_\+stp2 
+
+Next step in the bmk algorithm, after the gradients have been recalculated for the new geometry we symmetric rank-\/1 Updates the hessian, and update the og and g vectors 
+
+Definition at line 778 of file dfp\+\_\+cxs.\+f90.
+

@@ -1,0 +1,47 @@
+# This input file demonstrates a CINEB refinement.
+# We use the quickmin method here, and orca
+# for PES calculations.
+
+nimage 10 
+temperature 10 
+calctype optpath 
+startfile start.xyz
+endfile end.xyz
+pathfile restart.xyz
+ranseed  5
+pathinit  linear 
+startfrompath .true.
+idppguess .true.
+
+# path optimization
+
+pathoptmethod cineb
+nebmethod quickmin 
+nebiter 50 
+vsthresh 1d-2
+cithresh 1d-3
+nebspring 0.05
+nebconv 2d-3
+nebstep  10.0 
+neboutfreq 1
+stripinactive .FALSE.
+optendsbefore .false.
+optendsduring .false.
+nebrestrend .FALSE.
+reconnect .false.
+
+# constraints
+dofconstraints 0
+atomconstraints 0 
+
+# PES input
+pesfull .true.
+pestype  orca 
+pesfile   orca.head
+pesopttype  orca 
+pesoptfile orca.min
+pesexecutable /Users/scott/programs/orca/orca 
+pesoptexecutable /Users/scott/programs/orca/orca 
+
+
+ 

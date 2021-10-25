@@ -1,0 +1,48 @@
+\hypertarget{setup_autotoc_md0}{}\doxysection{Compiling C\+DE}\label{setup_autotoc_md0}
+Before running, C\+DE must first be compiled.
+
+To compile\+:
+
+
+\begin{DoxyItemize}
+\item Go to the {\itshape src} directory.
+\item Edit the {\itshape Makefile} so that your Fortran compiler and any required libraries are picked up.
+\item Type {\itshape make}.
+\item After compilation, you should now have an executable labelled {\itshape cde.\+x}
+\end{DoxyItemize}\hypertarget{setup_autotoc_md1}{}\doxysection{Running C\+DE}\label{setup_autotoc_md1}
+To run the code, simply type\+: \begin{DoxyVerb}    cde.x input
+\end{DoxyVerb}
+
+
+where {\itshape input} is the name of your input file.
+
+See the sections \mbox{\hyperlink{_annotated}{Annotated input file description}} and \mbox{\hyperlink{_example}{Example input file for C\+DE}} for descriptions of input files.
+
+To make things easier, you should add an alias to your $\ast$.bashrc$\ast$ file in your home directory. To do so (assuming a linux/unix system using B\+A\+SH shell)\+:
+
+
+\begin{DoxyItemize}
+\item Type {\itshape cd} to change to your home directory;
+\item Type {\itshape vi .bashrc}
+\item Add the line
+\end{DoxyItemize}
+
+\begin{DoxyVerb}*alias cde='YYY/cde.x'*
+\end{DoxyVerb}
+
+
+where {\itshape Y\+YY} is the full directory path to the {\itshape cde.\+x} executable.
+
+
+\begin{DoxyItemize}
+\item Save the $\ast$.bashrc$\ast$ file, then type
+\end{DoxyItemize}
+
+\begin{DoxyVerb}source .bashrc
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item If successful, you should then be able to type {\itshape cde.\+x} to run the C\+DE code. 
+\end{DoxyItemize}

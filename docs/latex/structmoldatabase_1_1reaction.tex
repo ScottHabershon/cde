@@ -1,0 +1,65 @@
+\hypertarget{structmoldatabase_1_1reaction}{}\doxysection{moldatabase\+::reaction Type Reference}
+\label{structmoldatabase_1_1reaction}\index{moldatabase::reaction@{moldatabase::reaction}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structmoldatabase_1_1reaction_a0e89194611adaeb61becd8bf50981dbc}\label{structmoldatabase_1_1reaction_a0e89194611adaeb61becd8bf50981dbc}} 
+integer, dimension(\+:,\+:), allocatable \mbox{\hyperlink{structmoldatabase_1_1reaction_a0e89194611adaeb61becd8bf50981dbc}{moli}}
+\begin{DoxyCompactList}\small\item\em reaction list with the index of each molecule for both reactants and products (second index 1\+:2) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1reaction_af61aa15f1ddfdb59ae62e654e10edb83}\label{structmoldatabase_1_1reaction_af61aa15f1ddfdb59ae62e654e10edb83}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{structmoldatabase_1_1reaction_af61aa15f1ddfdb59ae62e654e10edb83}{nrp}}
+\begin{DoxyCompactList}\small\item\em number of molecules in either reactant or producti (last index 1\+:2) for reaction list rxlis \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1reaction_a621a8cb2a3565db22680bdf533bd0bca}\label{structmoldatabase_1_1reaction_a621a8cb2a3565db22680bdf533bd0bca}} 
+integer \mbox{\hyperlink{structmoldatabase_1_1reaction_a621a8cb2a3565db22680bdf533bd0bca}{nfrx}}
+\begin{DoxyCompactList}\small\item\em number of fingerprint reaction (the \char`\"{}degeneracy\char`\"{}) that coincide with this unique reaction \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1reaction_aec23ef73e711ba35d8d8c98d1c7926d0}\label{structmoldatabase_1_1reaction_aec23ef73e711ba35d8d8c98d1c7926d0}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{structmoldatabase_1_1reaction_aec23ef73e711ba35d8d8c98d1c7926d0}{frx}}
+\begin{DoxyCompactList}\small\item\em the id of the reactions in the Fingerprints that have this unique reaction \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1reaction_aa43359313df9d34d7f152509d8ba1d1a}\label{structmoldatabase_1_1reaction_aa43359313df9d34d7f152509d8ba1d1a}} 
+logical, dimension(\+:), allocatable \mbox{\hyperlink{structmoldatabase_1_1reaction_aa43359313df9d34d7f152509d8ba1d1a}{fdir}}
+\begin{DoxyCompactList}\small\item\em direction of the fingerprint reaction ( w.\+r.\+t the unique reaction used here ( direction = which are reactants and which products) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1reaction_a0934fa16104dd166cbaf255aa3b074f6}\label{structmoldatabase_1_1reaction_a0934fa16104dd166cbaf255aa3b074f6}} 
+double precision, dimension(\+:), allocatable \mbox{\hyperlink{structmoldatabase_1_1reaction_a0934fa16104dd166cbaf255aa3b074f6}{nbb}}
+\begin{DoxyCompactList}\small\item\em number of bonds broken for this fingerprint reax (the median of these is used to penalise reactions fitness in graphgen). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1reaction_abd85869f4c412379a4734542965a525a}\label{structmoldatabase_1_1reaction_abd85869f4c412379a4734542965a525a}} 
+double precision, dimension(\+:,\+:), allocatable \mbox{\hyperlink{structmoldatabase_1_1reaction_abd85869f4c412379a4734542965a525a}{sbarr}}
+\begin{DoxyCompactList}\small\item\em sum of all barriers along both directions of this fingerprint reaction \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1reaction_a8e43417aa3f49f88ebd79d2f58b78539}\label{structmoldatabase_1_1reaction_a8e43417aa3f49f88ebd79d2f58b78539}} 
+double precision, dimension(\+:,\+:), allocatable \mbox{\hyperlink{structmoldatabase_1_1reaction_a8e43417aa3f49f88ebd79d2f58b78539}{ebarr}}
+\begin{DoxyCompactList}\small\item\em effective sum of rate constants for a given temperature \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1reaction_abbc42386f95eebc95471417782d2b369}\label{structmoldatabase_1_1reaction_abbc42386f95eebc95471417782d2b369}} 
+type(\mbox{\hyperlink{structmoldatabase_1_1sreaction}{sreaction}}), dimension(2) \mbox{\hyperlink{structmoldatabase_1_1reaction_abbc42386f95eebc95471417782d2b369}{sbst}}
+\begin{DoxyCompactList}\small\item\em the information for the best forward and backward direction paths for the energy barriers \end{DoxyCompactList}\item 
+type(\mbox{\hyperlink{structmoldatabase_1_1sreaction}{sreaction}}), dimension(2) \mbox{\hyperlink{structmoldatabase_1_1reaction_a7c93f6dc4f7daccff6f8f73831d9d494}{ebst}}
+\begin{DoxyCompactList}\small\item\em the information for the best forward and backward direction paths for the lifetime ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 44 of file moldat.\+f90.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structmoldatabase_1_1reaction_a7c93f6dc4f7daccff6f8f73831d9d494}\label{structmoldatabase_1_1reaction_a7c93f6dc4f7daccff6f8f73831d9d494}} 
+\index{moldatabase::reaction@{moldatabase::reaction}!ebst@{ebst}}
+\index{ebst@{ebst}!moldatabase::reaction@{moldatabase::reaction}}
+\doxysubsubsection{\texorpdfstring{ebst}{ebst}}
+{\footnotesize\ttfamily type(\mbox{\hyperlink{structmoldatabase_1_1sreaction}{sreaction}}), dimension(2) moldatabase\+::reaction\+::ebst}
+
+
+
+the information for the best forward and backward direction paths for the lifetime ~\newline
+ 
+
+Type definition for the Molecular Database 
+
+Definition at line 55 of file moldat.\+f90.
+
+
+
+The documentation for this type was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/scott/code/cde/src/moldat.\+f90\end{DoxyCompactItemize}
