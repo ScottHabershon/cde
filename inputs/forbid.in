@@ -1,0 +1,12 @@
+# Contains the forbidden graphs library...
+
+forbid 
+natom 3
+-
+0 1 0
+1 0 1
+0 1 0
+-
+labels O O O
+ 
+
