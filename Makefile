@@ -1,69 +1,35 @@
-#
 # Makefile for CDE
-#
-
-#
-# COW compilation
-#
-# FC = ifort
-# LIBS = -L/warwick/intel/mkl/10.0.5.025/lib/em64t/ -lmkl_intel_lp64 -lmkl_lapack -lmkl_sequential -lmkl_core -lpthread -lguide -static /warwick/mathlib/intel/x86_64/lib/libfftw3.a
-
-#
-# MAC compilation
-#
-mac: FC = gfortran-mp-9
-mac: LIBS =  -framework Accelerate
-mac: FFLAGS= -funroll-loops -Ofast   
-mac: LFLAGS=	$(FFLAGS)
-
-######
-
-EXE = ../bin/cde.x
-#FC = gfortran
-#FFLAGS= -llapack
-#FFLAGS= -O0 -g -fbacktrace -ffpe-trap=invalid,zero,overflow  -fbounds-check -llapack
-FFLAGS= -g -O3 -funroll-loops -llapack
-LFLAGS=	$(FFLAGS)
-
-#EXE = cde.x
-
-SRC= \
-	constants.f90 \
-	globaldata.f90 \
-	functions.f90 \
-	io.f90 \
-	structure.f90 \
-	pes.f90 \
-	rpath.f90 \
-	pathopt.f90 \
-	pathfinder.f90 \
-	main.f90
-
-
-#############################################################
-# CHANGE THINGS BELOW HERE AT YOUR PERIL
-#############################################################
-
-MF=	Makefile
 
 .SUFFIXES:
-.SUFFIXES: .f90 .o
+EXE = cde.x
+FC = ifort
+LIBS = -lmkl_intel_lp64 -lmkl_lapack -lmkl_sequential -lmkl_core -lpthread -static
+FFLAGS = -O3 -fopenmp
 
-OBJ=	$(SRC:.f90=.o)
+MF = Makefile
+SRC = \
+	src/constants.f90 \
+	src/globaldata.f90 \
+	src/functions.f90 \
+	src/io.f90 \
+	src/structure.f90 \
+	src/pes.f90 \
+	src/rpath.f90 \
+	src/pathopt.f90 \
+	src/pathfinder.f90 \
+	src/main.f90
 
-.f90.o:
-	$(FC) $(FFLAGS) -c $<
-
-all:  $(EXE)
-mac:	$(EXE)
+OBJ = $(SRC:%.f90=%.o)
 
 $(EXE):	$(OBJ)
-	$(FC) $(LFLAGS) -o $@ $(OBJ) $(LIBS)
+	$(FC) $(FFLAGS) -o $@ $(OBJ) $(LIBS)
 
-$(OBJ):	$(MF)
+%.o: %.f90
+	$(FC) $(FFLAGS) -c $< -o $@ -module src
 
 tar:
 	tar cvf $(EXE).tar $(MF) $(SRC)
 
+.PHONY: clean
 clean:
-	rm -f $(OBJ) $(EXE) core
+	rm src/*.o src/*.mod
