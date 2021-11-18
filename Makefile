@@ -1,10 +1,16 @@
 # Makefile for CDE
 
 .SUFFIXES:
-EXE = cde.x
+EXE = ./bin/cde.x
 FC = ifort
-LIBS = -lmkl_intel_lp64 -lmkl_lapack -lmkl_sequential -lmkl_core -lpthread -static
-FFLAGS = -O3 -fopenmp
+LIBS =  -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_ilp64.a ${MKLROOT}/lib/intel64/libmkl_intel_thread.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -liomp5 -lpthread -lm -ldl
+FFLAGS = -O3 -i8 -I"${MKLROOT}/include"
+
+ifeq "$(FC)" "gfortran"
+MODCMD = -J
+else ifeq "$(FC)" "ifort"
+MODCMD = -module
+endif
 
 MF = Makefile
 SRC = \
@@ -22,10 +28,11 @@ SRC = \
 OBJ = $(SRC:%.f90=%.o)
 
 $(EXE):	$(OBJ)
+	mkdir -p bin
 	$(FC) $(FFLAGS) -o $@ $(OBJ) $(LIBS)
 
 %.o: %.f90
-	$(FC) $(FFLAGS) -c $< -o $@ -module src
+	$(FC) $(FFLAGS) -c $< -o $@ $(MODCMD) src
 
 tar:
 	tar cvf $(EXE).tar $(MF) $(SRC)
