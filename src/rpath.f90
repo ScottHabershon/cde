@@ -21,15 +21,15 @@ Module rpath
   !> Type definition for the reaction-path object.
   !
   type rxp
-     sequence
-     integer :: nimage                             !< Number of images
-     integer :: na                                 !< Number of atoms per image
-     type(cxs), allocatable :: cx(:)               !< Allocated chemical structure objects in the path.
-     real(8), allocatable :: coeff(:,:,:)          !< Fourier coefficients of path (3,na,nb)
-     real(8), allocatable :: pcoeff(:,:,:)         !< Momentum of Fourier coefficients of path (3,na,nb)
-     real(8), allocatable :: dcoeff(:,:,:)         !< Derivatives of Fourier coefficients of path (3,na,nb)
-     real(8), allocatable :: ks(:)                 !< intra bead force constants
-     real(8) :: vspring                            !< Spring potential term.
+    sequence
+    integer :: nimage                                   !< Number of images
+    integer :: na                                       !< Number of atoms per image
+    type(cxs), dimension(:), allocatable :: cx          !< Allocated chemical structure objects in the path.
+    real(8), dimension(:,:,:), allocatable :: coeff     !< Fourier coefficients of path (3,na,nb)
+    real(8), dimension(:,:,:), allocatable :: pcoeff    !< Momentum of Fourier coefficients of path (3,na,nb)
+    real(8), dimension(:,:,:), allocatable :: dcoeff    !< Derivatives of Fourier coefficients of path (3,na,nb)
+    real(8), dimension(:), allocatable :: ks            !< intra bead force constants
+    real(8) :: vspring                                  !< Spring potential term.
   end type rxp
 
 contains
@@ -57,56 +57,50 @@ contains
   Subroutine NewPath(rp, startfrompath, startfile, endfile, pathfile, nimage, pathinit, &
        emptypath, natom)
     implicit none
-    real(8), allocatable :: x(:), y(:), z(:)
+    real(8), dimension(:), allocatable :: x, y, z
     type(rxp) :: rp
     integer :: nimage, natom, i
-    character, intent(in) :: startfile*(*), endfile*(*), pathfile*(*), pathinit*(*)
+    character (len=*), intent(in) :: startfile, endfile, pathfile, pathinit
     logical, intent(in) :: startfrompath, emptypath
-    character (len=2), allocatable :: label(:)
+    character (len=2), dimension(:), allocatable :: label
 
     ! if emptypath = .TRUE., then we just initialize an 'empty' path object with enough
     ! space for nimage images and natom atoms.
     !
 
     if (emptypath) then
-       rp%nimage = nimage
-       allocate( rp%cx( rp%nimage ) )
-       rp%na = natom
-       allocate( label(natom), x(natom), y(natom), z(natom) )
-       label(:) = 'C'
-       x(:) = 0.0
-       y(:) = 0.0
-       z(:) = 0.0
-       do i = 1, nimage
-          Call CreateCXS( rp%cx(i), rp%na, label, x, y, z)
-       enddo
-       deallocate( label , x, y, z )
+      rp%nimage = nimage
+      allocate(rp%cx( rp%nimage ))
+      rp%na = natom
+      allocate(label(natom), x(natom), y(natom), z(natom))
+      label(:) = 'C'
+      x(:) = 0.0
+      y(:) = 0.0
+      z(:) = 0.0
+      do i = 1, nimage
+        call CreateCXS(rp%cx(i), rp%na, label, x, y, z)
+      enddo
+      deallocate(label, x, y, z)
 
     else
+      ! Initialize path by either reading entire path from file....
+      !
+      if (startfrompath) then
+        call ReadPathFromFile(rp, pathfile)
 
-       ! Initialize path by either reading entire path from file....
-       !
-       If (startfrompath) then
-
-          Call ReadPathFromFile(rp, pathfile)
-
-          ! ..or by reading end-points then using pathinit method to fill in internals..
-          !
-       else
-          Call StartFromEndPoints(rp,startfile,endfile,pathinit,nimage)
-       endif
-
+        ! ..or by reading end-points then using pathinit method to fill in internals..
+        !
+      else
+        call StartFromEndPoints(rp, startfile, endfile, pathinit, nimage)
+      endif
     endif
-
 
     ! Allocate space for Fourier coefficients.
     !
-    if(.not. allocated(rp%coeff)) allocate( rp%coeff(3, rp%na, rp%nimage) )
-    if(.not. allocated(rp%pcoeff)) allocate( rp%pcoeff(3, rp%na, rp%nimage) )
-    if(.not. allocated(rp%dcoeff)) allocate( rp%dcoeff(3, rp%na, rp%nimage) )
-    if(.not. allocated(rp%ks)) allocate( rp%ks(nimage-1) )
-
-
+    if(.not. allocated(rp%coeff)) allocate(rp%coeff(3, rp%na, rp%nimage))
+    if(.not. allocated(rp%pcoeff)) allocate(rp%pcoeff(3, rp%na, rp%nimage))
+    if(.not. allocated(rp%dcoeff)) allocate(rp%dcoeff(3, rp%na, rp%nimage))
+    if(.not. allocated(rp%ks)) allocate(rp%ks(nimage-1))
 
     return
   end Subroutine NewPath
@@ -129,11 +123,11 @@ contains
     character (len=5) :: cdum
     integer :: i
 
-    Call NewPath(rpout, .FALSE. , cdum, cdum, cdum, rpin%nimage, &
-         cdum, .TRUE., rpin%na)
+    call NewPath(rpout, .FALSE. , cdum, cdum, cdum, rpin%nimage, &
+        cdum, .TRUE., rpin%na)
 
     do i = 1, rpin%nimage
-       rpout%cx(i) = rpin%cx(i)
+      rpout%cx(i) = rpin%cx(i)
     enddo
 
     return
@@ -156,18 +150,18 @@ contains
     integer :: i
 
     do i = 1, rp%nimage
-       if (allocated(rp%cx(i)%r )         ) deallocate( rp%cx(i)%r )
-       if (allocated(rp%cx(i)%p )         ) deallocate( rp%cx(i)%p )
-       if (allocated(rp%cx(i)%dvdr )      ) deallocate( rp%cx(i)%dvdr )
-       if (allocated(rp%cx(i)%force )     ) deallocate( rp%cx(i)%force )
-       if (allocated(rp%cx(i)%atomlabel ) ) deallocate( rp%cx(i)%atomlabel )
-       if (allocated(rp%cx(i)%mass )      ) deallocate( rp%cx(i)%mass )
-       if (allocated(rp%cx(i)%fixeddof )  ) deallocate( rp%cx(i)%fixeddof )
-       if (allocated(rp%cx(i)%fixedatom ) ) deallocate( rp%cx(i)%fixedatom )
-       if (allocated(rp%cx(i)%graph)      ) deallocate( rp%cx(i)%graph)
-       if (allocated(rp%cx(i)%molid )     ) deallocate( rp%cx(i)%molid )
-       if (allocated(rp%cx(i)%namol )     ) deallocate( rp%cx(i)%namol )
-       if (allocated(rp%cx(i)%molen )     ) deallocate( rp%cx(i)%molen )
+      if (allocated(rp%cx(i)%r )         ) deallocate( rp%cx(i)%r )
+      if (allocated(rp%cx(i)%p )         ) deallocate( rp%cx(i)%p )
+      if (allocated(rp%cx(i)%dvdr )      ) deallocate( rp%cx(i)%dvdr )
+      if (allocated(rp%cx(i)%force )     ) deallocate( rp%cx(i)%force )
+      if (allocated(rp%cx(i)%atomlabel ) ) deallocate( rp%cx(i)%atomlabel )
+      if (allocated(rp%cx(i)%mass )      ) deallocate( rp%cx(i)%mass )
+      if (allocated(rp%cx(i)%fixeddof )  ) deallocate( rp%cx(i)%fixeddof )
+      if (allocated(rp%cx(i)%fixedatom ) ) deallocate( rp%cx(i)%fixedatom )
+      if (allocated(rp%cx(i)%graph)      ) deallocate( rp%cx(i)%graph)
+      if (allocated(rp%cx(i)%molid )     ) deallocate( rp%cx(i)%molid )
+      if (allocated(rp%cx(i)%namol )     ) deallocate( rp%cx(i)%namol )
+      if (allocated(rp%cx(i)%molen )     ) deallocate( rp%cx(i)%molen )
     enddo
     deallocate( rp%cx )
     deallocate( rp%coeff )
@@ -176,6 +170,7 @@ contains
 
     return
   end Subroutine DeletePath
+
 
   !
   !************************************************************************
@@ -194,32 +189,32 @@ contains
   Subroutine SetInternalCoords(rp, pathinit)
     Integer :: i, j, na
     type(rxp) :: rp
-    character :: pathinit*(*)
-    character*2 :: label(NAMAX)
-    real*8 :: lambda, x(NAMAX), y(NAMAX), z(NAMAX)
+    character (len=*) :: pathinit
+    character (len=2), dimension(NAMAX) :: label
+    real(8) :: lambda
+    real(8), dimension(NAMAX) :: x, y, z
 
     ! Linear interpolation of the path.
     !
     if (pathinit == 'linear') then
 
-       do i = 2, rp%nimage-1
-          lambda = dble(i-1)/dble(rp%nimage-1)
-          do j = 1, rp%na
-             x(j) = (1.0-lambda) * rp%cx(1)%r(1,j) + lambda * rp%cx(rp%nimage)%r(1,j)
-             y(j) = (1.0-lambda) * rp%cx(1)%r(2,j) + lambda * rp%cx(rp%nimage)%r(2,j)
-             z(j) = (1.0-lambda) * rp%cx(1)%r(3,j) + lambda * rp%cx(rp%nimage)%r(3,j)
-             label(j) = rp%cx(1)%atomlabel(j)
-          enddo
-          Call CreateCXS( rp%cx(i), rp%na, label, x, y, z)
-       enddo
+      do i = 2, rp%nimage-1
+        lambda = dble(i-1)/dble(rp%nimage-1)
+        do j = 1, rp%na
+          x(j) = (1.0-lambda) * rp%cx(1)%r(1, j) + lambda * rp%cx(rp%nimage)%r(1, j)
+          y(j) = (1.0-lambda) * rp%cx(1)%r(2, j) + lambda * rp%cx(rp%nimage)%r(2, j)
+          z(j) = (1.0-lambda) * rp%cx(1)%r(3, j) + lambda * rp%cx(rp%nimage)%r(3, j)
+          label(j) = rp%cx(1)%atomlabel(j)
+        enddo
+        call CreateCXS(rp%cx(i), rp%na, label, x, y, z)
+      enddo
 
     else
-       stop '* ERROR in SetInternalCoords in rpath.f90: unknown pathinit type'
+      stop '* ERROR in SetInternalCoords in rpath.f90: unknown pathinit type'
     endif
 
     return
   end Subroutine SetInternalCoords
-
 
 
   !
@@ -233,30 +228,27 @@ contains
   !!
   !************************************************************************
   !
-  Subroutine PrintPathToFile(rp,filename)
+  Subroutine PrintPathToFile(rp, filename)
     type(rxp) :: rp
-    character :: filename*(*)
-    real*8 :: x,y,z
-    integer :: i,j
+    character (len=*) :: filename
+    real*8 :: x, y, z
+    integer :: i, j
 
     open(13, file=filename, status='unknown')
     do i = 1, rp%nimage
-       write(13,'(i5)')rp%na
-       write(13,*)
-       do j = 1, rp%na
-          x = rp%cx(i)%r(1,j) * bohr_to_ang
-          y = rp%cx(i)%r(2,j) * bohr_to_ang
-          z = rp%cx(i)%r(3,j) * bohr_to_ang
-          write(13,'(a2,2x,3(f14.8,2x))')rp%cx(i)%atomlabel(j),x,y,z
-       enddo
+      write(13, '(i5)') rp%na
+      write(13, *)
+      do j = 1, rp%na
+        x = rp%cx(i)%r(1, j) * bohr_to_ang
+        y = rp%cx(i)%r(2, j) * bohr_to_ang
+        z = rp%cx(i)%r(3, j) * bohr_to_ang
+        write(13, '(a2,2x,3(f14.8,2x))') rp%cx(i)%atomlabel(j), x, y, z
+      enddo
     enddo
     close(13)
 
     return
   end Subroutine PrintPathToFile
-
- 
-
 
  
   !
@@ -270,11 +262,11 @@ contains
   !!
   !************************************************************************
   !
-  subroutine FindIDPPPath( rp, IDPPIter, IDPPConv, IDPPStep, IDPPspring )
+  subroutine FindIDPPPath(rp, IDPPIter, IDPPConv, IDPPStep, IDPPspring)
     type(rxp) :: rp
-    integer :: i, iter, j, k, idof, IDPPIter, Iterout, nactmol, MolecAct(rp%cx(1)%nmol)
-    integer :: n
-    real(8) :: fnorm1, fnorm2, fmax, ks(rp%nimage-1), IDPPConv, IDPPStep, IDPPspring, rnd,ir
+    integer :: n, i, iter, j, k, idof, IDPPIter, Iterout, nactmol
+    integer, dimension(rp%cx(1)%nmol) :: MolecAct
+    real(8) :: fnorm1, fnorm2, fmax, ks(rp%nimage-1), IDPPConv, IDPPStep, IDPPspring, rnd, ir
     real(8), allocatable :: rtarg(:,:,:), rend(:,:), rst(:,:), dx(:)
     real(8) :: lambda    
 
@@ -282,92 +274,87 @@ contains
     !
     rp%ks = IDPPspring
 
-
     ! Generate IDPP target distances by linear interpolation.
     !
-	allocate( rtarg(rp%nimage,rp%na, rp%na), rst(rp%na,rp%na), rend(rp%na, rp%na),dx(3) )
+    allocate(rtarg(rp%nimage, rp%na, rp%na), rst(rp%na,rp%na), rend(rp%na, rp%na), dx(3))
+    
+    n = rp%nimage
+    do i = 1, rp%na
+      do j = 1, rp%na
+        dx(1:3) = rp%cx(1)%r(1:3, i) - rp%cx(1)%r(1:3, j)
+        rst(i, j) = sqrt(dx(1)*dx(1) + dx(2) * dx(2) + dx(3)*dx(3))
+        dx(1:3) = rp%cx(n)%r(1:3, i) - rp%cx(n)%r(1:3, j)
+        rend(i, j) = sqrt(dx(1)*dx(1) + dx(2) * dx(2) + dx(3)*dx(3))
+      enddo
+    enddo
+    do i = 2, rp%nimage-1
+      do j = 1, rp%na
+        do k = 1, rp%na
+          lambda = dble(i-1) / dble(rp%nimage)
+          rtarg(i, j, k) = rst(j, k) + lambda * (rend(j ,k) - rst(j, k))
+        enddo
+      enddo
+    enddo
 	
-	n = rp%nimage
-	do i = 1, rp%na
-		do j = 1, rp%na
-			dx(1:3) = rp%cx(1)%r(1:3,i) - rp%cx(1)%r(1:3,j)
-			rst(i,j) = sqrt( dx(1)*dx(1) + dx(2) * dx(2) + dx(3)*dx(3) )
-			dx(1:3) = rp%cx(n)%r(1:3,i) - rp%cx(n)%r(1:3,j)
-			rend(i,j) = sqrt( dx(1)*dx(1) + dx(2) * dx(2) + dx(3)*dx(3) )
-		enddo
-	enddo
-	do i = 2, rp%nimage-1
-		do j = 1, rp%na
-			do k = 1, rp%na
-			    lambda = dble(i-1) / dble(rp%nimage)
-				rtarg(i,j,k) = rst(j,k) + lambda * (rend(j,k) - rst(j,k))
-			enddo
-		enddo
-	enddo
-	
-
     ! Calculate IDPP forces on all internal images.
     !
-    Call GetIDPPForces(rp,rtarg)
+    call GetIDPPForces(rp, rtarg)
        
-
-
     ! Calculate projected forces.
     !
     select case (projforcetype)
       case(1)
-       Call GetProjForces1(rp,.true.,.FALSE.,.FALSE.)
+       call GetProjForces1(rp, .true., .FALSE., .FALSE.)
       case(2)
-       Call GetProjForces2(rp,.true.,.FALSE.,.FALSE.)
+       call GetProjForces2(rp, .true., .FALSE., .FALSE.)
       case(3)
-       Call GetProjForces3(rp,.true.,.FALSE.,.FALSE.)
+       call GetProjForces3(rp, .true., .FALSE., .FALSE.)
     end select
-
 
     ! Loop over SD iterations.
     !
     do iter = 1, IDPPIter
-
-       ! Update positions.
-       !
-       do i = 2, rp%nimage-1
-          idof = 0
-          do j = 1, rp%na
-             if (.not.rp%cx(i)%fixedatom(j)) then
-                do k = 1, 3
-                   idof = idof + 1
-                   if (.not.rp%cx(i)%FixedDOF(idof)) then
-                      rp%cx(i)%r(k,j) = rp%cx(i)%r(k,j) + IDPPstep * rp%cx(i)%force(k,j)
-                   endif
-                enddo
-             else
-                idof = idof + 3
-             endif
-          enddo
-       enddo
+      ! Update positions.
+      !
+      do i = 2, rp%nimage-1
+        idof = 0
+        do j = 1, rp%na
+          if (.not. rp%cx(i)%fixedatom(j)) then
+            do k = 1, 3
+              idof = idof + 1
+              if (.not. rp%cx(i)%FixedDOF(idof)) then
+                rp%cx(i)%r(k, j) = rp%cx(i)%r(k, j) + IDPPstep * rp%cx(i)%force(k, j)
+              endif
+            enddo
+          else
+            idof = idof + 3
+          endif
+        enddo
+      enddo
        
-       ! Calculate new forces.
-       !
-       Call GetIDPPForces(rp,rtarg)
+      ! Calculate new forces.
+      !
+      call GetIDPPForces(rp, rtarg)
        
-		! Project forces.
-		!
-		select case (projforcetype)
-         case(1)
-          Call GetProjForces1(rp,.false.,.FALSE.,optendsduring)
-         case(2)
-          Call GetProjForces2(rp,.false.,.FALSE.,optendsduring)
-         case(3)
-          Call GetProjForces3(rp,.false.,.FALSE.,optendsduring)
-       end select
-       Call GetForceNorm(rp,fnorm1,fmax,2,rp%nimage-1)
+      ! Project forces.
+      !
+      select case (projforcetype)
+        case(1)
+          call GetProjForces1(rp, .false., .FALSE., optendsduring)
+        case(2)
+          call GetProjForces2(rp, .false., .FALSE., optendsduring)
+        case(3)
+          call GetProjForces3(rp, .false., .FALSE., optendsduring)
+        case default
+      end select
 
+      call GetForceNorm(rp, fnorm1, fmax, 2, rp%nimage-1)
 
-		! Check convergence.
-       if (fnorm1 <= IDPPConv) then
-          write(logfile,'("* |Forces| < NEBconv :: IDPP NEB CONVERGED, Iter = ",I5)') iter
-          exit
-       endif
+		  ! Check convergence.
+      if (fnorm1 <= IDPPConv) then
+        write(logfile, '("* |Forces| < NEBconv :: IDPP NEB CONVERGED, Iter = ",I5)') iter
+        exit
+      endif
     enddo
     
     return
@@ -383,34 +370,35 @@ contains
   !
   !************************************************************************
   !
-  Subroutine GetIDPPForces(rp,rtarg)
-	implicit none
-	integer :: i,j,k
-	type(rxp) :: rp
-	real(8) :: rtarg(rp%nimage,rp%na,rp%na),dr
-	real(8) :: d(3), onr, onr4, dxr(3),dEdr,IDPPenergy,t1
-  
-	IDPPenergy = 0.d0
-	do k = 2, rp%nimage - 1
-		rp%cx(k)%force = 0.d0
-		do i = 1, rp%na-1
-			do j = i+1, rp%na
-				d(1:3) = rp%cx(k)%r(1:3,i) - rp%cx(k)%r(1:3,j)
-				dr = sqrt( d(1)*d(1) + d(2) * d(2) + d(3) * d(3) )
-				onr = 1.0 / dr
-				onr4 = onr**4
-				dxr(1:3) = d(1:3) * onr
-				t1 = dr - rtarg(k,i,j)
-				IDPPenergy = IDPPenergy + onr4 * t1 * t1
-				dEdr = 2.0 * t1 * onr4 - 4.0 * t1 * t1 * (onr4*onr)
-				rp%cx(k)%force(1:3,i) = rp%cx(k)%force(1:3,j) - dEdr * dxr(1:3)
-				rp%cx(k)%force(1:3,i) = rp%cx(k)%force(1:3,j) + dEdr * dxr(1:3)
-			enddo
-		enddo
-	enddo
+  Subroutine GetIDPPForces(rp, rtarg)
+    implicit none
+    integer :: i, j, k
+    type(rxp) :: rp
+    real(8), dimension(rp%nimage, rp%na, rp%na) :: rtarg
+    real(8), dimension(3) :: d, dxr
+    real(8) :: dr, onr, onr4, dEdr, IDPPenergy, t1
+    
+    IDPPenergy = 0.d0
+    do k = 2, rp%nimage - 1
+      rp%cx(k)%force = 0.d0
+      do i = 1, rp%na-1
+        do j = i+1, rp%na
+          d(1:3) = rp%cx(k)%r(1:3, i) - rp%cx(k)%r(1:3, j)
+          dr = sqrt(d(1)*d(1) + d(2)*d(2) + d(3)*d(3))
+          onr = 1.0 / dr
+          onr4 = onr**4
+          dxr(1:3) = d(1:3) * onr
+          t1 = dr - rtarg(k, i, j)
+          IDPPenergy = IDPPenergy + onr4 * t1 * t1
+          dEdr = 2.0 * t1 * onr4 - 4.0 * t1 * t1 * (onr4*onr)
+          rp%cx(k)%force(1:3, i) = rp%cx(k)%force(1:3, j) - dEdr * dxr(1:3)
+          rp%cx(k)%force(1:3, i) = rp%cx(k)%force(1:3, j) + dEdr * dxr(1:3)
+        enddo
+      enddo
+    enddo
 
-	return
-	end Subroutine GetIDPPForces
+    return
+  end Subroutine GetIDPPForces
   
 
   !
@@ -426,43 +414,43 @@ contains
   !!
   !************************************************************************
   !
-  Subroutine GetForceNorm(rp,forcenorm,fmax,n1,n2)
+  Subroutine GetForceNorm(rp, forcenorm, fmax, n1, n2)
     implicit none
     type(rxp) :: rp
     real(8) :: forcenorm,fmax
-    integer :: i,j,k, isum, idof, n1, n2
+    integer :: i, j, k, isum, idof, n1, n2
 
     forcenorm = 0.0
     fmax = -1d0
     isum = 0
     do i = n1, n2
-       idof = 0
-       do j = 1, rp%na
-          if (.not.rp%cx(i)%Fixedatom(j)) then
-             do k = 1, 3
-                idof = idof + 1
-                if (.not.rp%cx(i)%FixedDof(idof)) then
-                   isum = isum + 1
-                   forcenorm = forcenorm + rp%cx(i)%force(k,j)**2
-                   if (abs( rp%cx(i)%force(k,j) ) > fmax ) then
-                      fmax = abs( rp%cx(i)%force(k,j) )
-                   endif
-                endif
-             enddo
-          else
-             idof = idof + 3
-          endif
-       enddo
+      idof = 0
+      do j = 1, rp%na
+        if (.not. rp%cx(i)%Fixedatom(j)) then
+          do k = 1, 3
+            idof = idof + 1
+            if (.not. rp%cx(i)%FixedDof(idof)) then
+              isum = isum + 1
+              forcenorm = forcenorm + rp%cx(i)%force(k, j)**2
+              if (abs(rp%cx(i)%force(k, j) ) > fmax) then
+                fmax = abs(rp%cx(i)%force(k, j))
+              endif
+            endif
+          enddo
+        else
+          idof = idof + 3
+        endif
+      enddo
     enddo
+
     if (dble(isum) .gt. 0.0d0) then
-     forcenorm = sqrt(forcenorm / dble(isum))
+      forcenorm = sqrt(forcenorm / dble(isum))
     else
-     forcenorm = 0.0d0
+      forcenorm = 0.0d0
     endif
 
     return
   end Subroutine GetForceNorm
-
 
 
   !
@@ -478,26 +466,23 @@ contains
   !!
   !************************************************************************
   !
-  Subroutine ReadXYZFrame(fileid,na,label,x,y,z)
-    integer :: na, fileid,i
-    character*2 :: label(*)
-    character*100 :: comment
-    real(8) :: x(*), y(*), z(*)
+  Subroutine ReadXYZFrame(fileid, na, label, x, y, z)
+    integer :: na, fileid, i
+    character (len=2), dimension(:) :: label
+    character (len=100) :: comment
+    real(8), dimension(:) :: x, y, z
 
-    read(fileid,*)na
-    read(fileid,'(A100)') comment
+    read(fileid, *) na
+    read(fileid, '(A100)') comment
 
     do i = 1, na
-       read(fileid,*)label(i),x(i),y(i),z(i)
-       x(i) = x(i) * ang_to_bohr
-       y(i) = y(i) * ang_to_bohr
-       z(i) = z(i) * ang_to_bohr
+      read(fileid, *) label(i), x(i), y(i), z(i)
+      x(i) = x(i) * ang_to_bohr
+      y(i) = y(i) * ang_to_bohr
+      z(i) = z(i) * ang_to_bohr
     enddo
     return
   end Subroutine ReadXYZFrame
-
-
-
 
 
   !
@@ -515,28 +500,28 @@ contains
   !!
   !************************************************************************
   !
-  Subroutine StartFromEndPoints(rp,startfile,endfile,pathinit,nimage)
+  Subroutine StartFromEndPoints(rp, startfile, endfile, pathinit, nimage)
     type(rxp) :: rp
     integer :: ios, na, nastart, i ,j, nimage
-    character :: pathinit*(*), startfile*(*), endfile*(*)
+    character (len=*) :: pathinit, startfile, endfile
     logical :: there
-    real(8) :: x(NAMAX), y(NAMAX), z(NAMAX)
+    real(8), dimension(NAMAX) :: x, y, z
     real(8) :: lambda
-    character*2 :: label(NAMAX)
-    character*100 :: comment
+    character (len=2), dimension(NAMAX) :: label
+    character (len=100) :: comment
 
     ! Allocate workspace for chemical structures.
     !
     rp%nimage = nimage
-    allocate( rp%cx( rp%nimage ) )
+    allocate(rp%cx(rp%nimage))
 
     ! Initialize startpoint from file.
     !
-    inquire( file = startfile, exist = there )
-    if (.not.there)stop '* ERROR in StartFromEndPoints in rpath.f90: specified startfile does not exist'
-    Open(12, file = startfile, status = 'unknown')
-    Call ReadXYZFrame(12,na,label,x,y,z)
-    Call CreateCXS( rp%cx(1), na, label, x, y, z)
+    inquire(file = startfile, exist = there)
+    if (.not. there) stop '* ERROR in StartFromEndPoints in rpath.f90: specified startfile does not exist'
+    open(12, file = startfile, status = 'unknown')
+    call ReadXYZFrame(12, na, label, x, y, z)
+    call CreateCXS(rp%cx(1), na, label, x, y, z)
     close(12)
 
     ! Store number of atoms to check end-point compatibility....
@@ -547,22 +532,21 @@ contains
     ! Initialize endpoint from file.
     !
     inquire( file = endfile, exist = there )
-    if (.not.there)stop '* ERROR in StartFromEndPoints in rpath.f90: specified endfile does not exist'
-    Open(12, file = endfile, status = 'unknown')
-    Call ReadXYZFrame(12,na,label,x,y,z)
-    Call CreateCXS( rp%cx(nimage), na, label, x, y, z)
+    if (.not. there) stop '* ERROR in StartFromEndPoints in rpath.f90: specified endfile does not exist'
+    open(12, file = endfile, status = 'unknown')
+    call ReadXYZFrame(12, na, label, x, y, z)
+    call CreateCXS(rp%cx(nimage), na, label, x, y, z)
     close(12)
 
     ! Check that numbers of atoms make sense.
     !
     if (na /= nastart) then
-       stop '* ERROR in StartFromEndPoints in rpath.f90: Incompatible atom numbers in start- and end-points'
+      stop '* ERROR in StartFromEndPoints in rpath.f90: Incompatible atom numbers in start- and end-points'
     endif
-
 
     ! Initialize nimage-2 internal beads using method defined in pathinit.
     !
-    Call SetInternalCoords(rp, pathinit)
+    call SetInternalCoords(rp, pathinit)
 
     return
   end subroutine StartFromEndPoints
@@ -583,33 +567,33 @@ contains
   Subroutine ReadPathFromFile(rp, pathfile)
     type(rxp) :: rp
     integer :: i, na, ios, nimage
-    character :: pathfile*(*)
+    character (len=*) :: pathfile
     logical :: there
-    real(8) :: x(NAMAX), y(NAMAX), z(NAMAX)
-    character*2 :: label(NAMAX)
+    real(8), dimension(NAMAX) :: x, y, z
+    character (len=2), dimension(NAMAX) :: label
 
     ! Check pathfile existence.
     !
     inquire( file = pathfile, exist = there )
-    if (.not.there)stop '* ERROR in ReadPathFromFile in rpath.f90: specified input file does not exist'
+    if (.not. there) stop '* ERROR in ReadPathFromFile in rpath.f90: specified input file does not exist'
 
     ! Open file.
-    Open(12, file = pathfile, status = 'unknown')
+    open(12, file = pathfile, status = 'unknown')
 
     ! First pass through...read number of atoms.
     !
     ios = 0
     nimage = 0
     do while (ios == 0)
-       read(12,*,iostat=ios)na
+      read(12, *, iostat=ios) na
 
-       if (ios /= 0)exit
+      if (ios /= 0)exit
 
-       read(12,*,iostat=ios)
-       do i = 1, na
-          read(12,*,iostat=ios)label(i),x(i),y(i),z(i)
-       enddo
-       nimage = nimage + 1
+      read(12,*,iostat=ios)
+      do i = 1, na
+        read(12, *, iostat=ios) label(i), x(i), y(i), z(i)
+      enddo
+      nimage = nimage + 1
     enddo
 
     ! Close file.
@@ -623,46 +607,43 @@ contains
 
     ! Allocate chemical structures.
     !
-    allocate( rp%cx( rp%nimage ) )
+    allocate(rp%cx(rp%nimage))
 
     ! Open pathfile again.
     !
-    Open(12, file = pathfile, status = 'unknown')
+    open(12, file = pathfile, status = 'unknown')
 
     ! First pass through...read number of atoms.
     !
     ios = 0
     nimage = 0
     do while (ios == 0)
+      read(12, *, iostat=ios) na
 
-       read(12,*,iostat=ios)na
+      if (ios /= 0) exit
 
-       if (ios /= 0)exit
+      read(12, *, iostat=ios)
+      if (ios /= 0) exit
+      do i = 1, na
+        read(12, *, iostat=ios) label(i), x(i), y(i), z(i)
+        x(i) = x(i) * ang_to_bohr
+        y(i) = y(i) * ang_to_bohr
+        z(i) = z(i) * ang_to_bohr
+      enddo
+      nimage = nimage + 1
 
-       read(12,*,iostat=ios)
-       if (ios /= 0)exit
-       do i = 1, na
-          read(12,*,iostat=ios)label(i),x(i),y(i),z(i)
-          x(i) = x(i) * ang_to_bohr
-          y(i) = y(i) * ang_to_bohr
-          z(i) = z(i) * ang_to_bohr
-       enddo
-       nimage = nimage + 1
-
-       ! Create chemical structure.
-       !
-       Call CreateCXS( rp%cx(nimage), na, label, x, y, z )
+      ! Create chemical structure.
+      !
+      call CreateCXS(rp%cx(nimage), na, label, x, y, z)
     enddo
     close(12)
     ! Allocate space for Fourier coefficients.
     !
-    allocate( rp%coeff(3, rp%na, rp%nimage) )
-    allocate( rp%pcoeff(3, rp%na, rp%nimage) )
-    allocate( rp%dcoeff(3, rp%na, rp%nimage) )
-
+    allocate(rp%coeff(3, rp%na, rp%nimage))
+    allocate(rp%pcoeff(3, rp%na, rp%nimage))
+    allocate(rp%dcoeff(3, rp%na, rp%nimage))
 
   end Subroutine ReadPathFromFile
-
 
 
   !
@@ -683,16 +664,15 @@ contains
     implicit none
     type(rxp) :: rp
     integer, intent(in) :: NDOFconstr, Natomconstr
-    integer, intent(in) :: FixedDOF(*), FixedAtom(*)
+    integer, intent(in), dimension(:) :: FixedDOF, FixedAtom
     integer :: i
 
     do i = 1, rp%nimage
-       Call SetCXSconstraints(rp%cx(i),NDOFconstr, FixedDOF, Natomconstr, FixedAtom)
+      call SetCXSconstraints(rp%cx(i), NDOFconstr, FixedDOF, Natomconstr, FixedAtom)
     enddo
 
     return
   end Subroutine SetPathConstraints
-
 
 
   !
@@ -706,7 +686,7 @@ contains
   !!
   !************************************************************************
   !
-  Subroutine GetPathEnergy(rp,success)
+  Subroutine GetPathEnergy(rp, success)
     implicit none
     type(rxp) :: rp
     integer :: i
@@ -716,14 +696,15 @@ contains
     !
     minimize = .false.
     do i = 1, rp%nimage
-      if (.not.pesfull) then
-        Call GetMols(rp%cx(i))
+      if (.not. pesfull) then
+        call GetMols(rp%cx(i))
       endif
-      Call AbInitio(rp%cx(i), 'ener', success)
+      call AbInitio(rp%cx(i), 'ener', success)
     enddo
 
     return
   end Subroutine GetPathEnergy
+
 
   !
   !************************************************************************
@@ -736,7 +717,7 @@ contains
   !!
   !************************************************************************
   !
-  Subroutine GetPathGradients(rp,success)
+  Subroutine GetPathGradients(rp, success)
     implicit none
     type(rxp) :: rp
     integer :: i
@@ -746,10 +727,10 @@ contains
     !
     minimize = .false.
     do i = 1, rp%nimage
-      if (.not.pesfull) then
-        Call GetMols(rp%cx(i))
+      if (.not. pesfull) then
+        call GetMols(rp%cx(i))
       endif
-      Call AbInitio(rp%cx(i), 'grad', success)
+      call AbInitio(rp%cx(i), 'grad', success)
     enddo
 
     return
@@ -779,364 +760,360 @@ contains
   !
   !*************************************************************************
   !
-  Subroutine GetProjForces1(rp,kon,ci_flag,endflag)
+  Subroutine GetProjForces1(rp, kon, ci_flag, endflag)
     implicit none
     type (rxp) :: rp
-    integer :: f,i,j,k,imax,natom,idof
-    real(8) :: sum, kspring, dot, beta,betan,omega,delk,Ei,Emax,Eref,kmax
+    integer :: f, i, j, k, imax, natom, idof
+    real(8) :: sum, kspring, dot, beta, betan, omega, delk, Ei, Emax, Eref, kmax
     real(8) :: x0, xm1, xp1, vmax, kvariability, kk(rp%nimage-1)
-    double precision :: tp(rp%na*3), tm(rp%na*3), tt(rp%na*3), vp,vm,vv,vmx,vmn
+    double precision :: tp(rp%na*3), tm(rp%na*3), tt(rp%na*3), vp, vm, vv, vmx, vmn
     real(8), allocatable :: tangent(:,:,:), vec1(:,:), vec2(:,:)
-    logical :: flag,ci_flag, endflag, kon
+    logical :: flag, ci_flag, endflag, kon
 
     Emax = -1d6
     do i = 1, rp%nimage
-       if (rp%cx(i)%vcalc > Emax ) then
-          Emax = rp%cx(i)%vcalc
-          imax = i
-       endif
+      if (rp%cx(i)%vcalc > Emax ) then
+        Emax = rp%cx(i)%vcalc
+        imax = i
+      endif
     enddo
-    if (kon) kk(1:rp%nimage-1) = rp%ks(1:rp%nimage-1)
-    if (.not.kon) kk = 0.0
-
+    if (kon) then
+      kk(1:rp%nimage-1) = rp%ks(1:rp%nimage-1)
+    else
+      kk = 0.0
+    endif
 
     ! Allocate space for tangents and vectors.
     !
     natom = rp%cx(1)%na
-    allocate( tangent(3,natom,rp%nimage), vec1(3,natom), vec2(3,natom) )
-    tangent(:,:,:) = 0.d0
-    vec1(:,:) = 0.d0
-    vec2(:,:) = 0.d0
-
+    allocate(tangent(3, natom, rp%nimage), vec1(3,natom), vec2(3,natom))
+    tangent(:, :, :) = 0.d0
+    vec1(:, :) = 0.d0
+    vec2(:, :) = 0.d0
 
     ! Identify the intermediate image with the largest energy if we're running CI-NEB.
     !
     if (ci_flag) then
-       vmax = -1d6
-       do i = 2, rp%nimage-1
-          if (rp%cx(i)%vcalc > vmax) then
-             imax = i
-             vmax = rp%cx(i)%vcalc
-          endif
-       enddo
+      vmax = -1d6
+      do i = 2, rp%nimage-1
+        if (rp%cx(i)%vcalc > vmax) then
+          imax = i
+          vmax = rp%cx(i)%vcalc
+        endif
+      enddo
     endif
-
 
     ! Calculate tangents.
     !
     do i = 1, rp%nimage
 
-       if (i == 1) then
+      if (i == 1) then
+        sum = 0.0
+        idof = 0
+        do j = 1, natom
+          if (.not. rp%cx(i)%fixedatom(j)) then
+            do k = 1, 3
+              idof = idof + 1
+              if (.not. rp%cx(i)%fixeddof(idof)) then
+                tangent(k, j, i) = rp%cx(2)%r(k, j) - rp%cx(1)%r(k, j)
+                sum = sum + tangent(k, j, i) * tangent(k, j, i)
+              endif
+            enddo
+          else
+            idof = idof + 3
+          endif
+        enddo
+        tangent(:, :, i) = tangent(:, :, i) / sqrt(sum)
 
-          sum = 0.0
-          idof = 0
-          do j = 1, natom
-             if (.not. rp%cx(i)%fixedatom(j)) then
-                do k = 1, 3
-                   idof = idof + 1
-                   if (.not. rp%cx(i)%fixeddof(idof)) then
-                      tangent(k,j,i) = rp%cx(2)%r(k,j) - rp%cx(1)%r(k,j)
-                      sum = sum + tangent(k,j,i) * tangent(k,j,i)
-                   endif
-                enddo
-             else
-                idof = idof + 3
-             endif
-          enddo
-          tangent(:,:,i) = tangent(:,:,i) / sqrt(sum)
+      else if (i == rp%nimage) then
 
-       else if (i == rp%nimage) then
+        sum = 0.0
+        idof = 0
+        do j = 1, natom
+          if (.not. rp%cx(i)%fixedatom(j)) then
+            do k = 1, 3
+              idof = idof + 1
+              if (.not. rp%cx(i)%fixeddof(idof)) then
+                tangent(k, j, i) = rp%cx(rp%nimage)%r(k, j) - rp%cx(rp%nimage-1)%r(k, j)
+                sum = sum + tangent(k, j, i) * tangent(k, j, i)
+              endif
+            enddo
+          else
+            idof = idof + 3
+          endif
+        enddo
+        tangent(:, :, i) = tangent(:, :, i) / sqrt(sum)
 
-          sum = 0.0
-          idof = 0
-          do j = 1, natom
-             if (.not.rp%cx(i)%fixedatom(j)) then
-                do k = 1, 3
-                   idof = idof + 1
-                   if (.not.rp%cx(i)%fixeddof(idof)) then
-                      tangent(k,j,i) = rp%cx(rp%nimage)%r(k,j) - rp%cx(rp%nimage-1)%r(k,j)
-                      sum = sum + tangent(k,j,i) * tangent(k,j,i)
-                   endif
-                enddo
-             else
-                idof = idof + 3
-             endif
-          enddo
-          tangent(:,:,i) = tangent(:,:,i) / sqrt(sum)
+      else  ! More accurate bisector vector !
+        sum = 0.0
+        idof = 0
+        do j = 1, natom
+          if (.not. rp%cx(i)%fixedatom(j)) then
+            do k = 1, 3
+              idof = idof + 1
+              if (.not. rp%cx(i)%fixeddof(idof)) then
+                vec1(k, j) = rp%cx(i+1)%r(k, j) - rp%cx(i)%r(k, j)
+                sum = sum + vec1(k, j)*vec1(k, j)
+              endif
+            enddo
+          else
+            idof = idof + 3
+          endif
+        enddo
+        vec1(:, :) = vec1(:, :) / sqrt(sum)
 
-       else  ! More accurate bisector vector !
-          sum = 0.0
-          idof = 0
-          do j = 1, natom
-             if (.not.rp%cx(i)%fixedatom(j)) then
-                do k = 1, 3
-                   idof = idof + 1
-                   if (.not.rp%cx(i)%fixeddof(idof)) then
-                      vec1(k,j) = rp%cx(i+1)%r(k,j) - rp%cx(i)%r(k,j)
-                      sum = sum + vec1(k,j)*vec1(k,j)
-                   endif
-                enddo
-             else
-                idof = idof + 3
-             endif
-          enddo
-          vec1(:,:) = vec1(:,:) / sqrt(sum)
+        sum = 0.0
+        idof = 0
+        do j = 1, natom
+          if (.not. rp%cx(i)%fixedatom(j)) then
+            do k = 1, 3
+              idof = idof + 1
+              if (.not.rp%cx(i)%fixeddof(idof)) then
+                vec2(k, j) = rp%cx(i)%r(k, j) - rp%cx(i-1)%r(k, j)
+                sum = sum + vec2(k, j)*vec2(k, j)
+              endif
+            enddo
+          else
+            idof = idof + 3
+          endif
+        enddo
+        vec2(:, :) = vec2(:, :) / sqrt(sum)
 
-          sum = 0.0
-          idof = 0
-          do j = 1, natom
-             if (.not.rp%cx(i)%fixedatom(j)) then
-                do k = 1, 3
-                   idof = idof + 1
-                   if (.not.rp%cx(i)%fixeddof(idof)) then
-                      vec2(k,j) = rp%cx(i)%r(k,j) - rp%cx(i-1)%r(k,j)
-                      sum = sum + vec2(k,j)*vec2(k,j)
-                   endif
-                enddo
-             else
-                idof = idof + 3
-             endif
-          enddo
-          vec2(:,:) = vec2(:,:) / sqrt(sum)
+        tangent(:, :, i) = vec1(:, :) + vec2(:, :)
 
-          tangent(:,:,i) = vec1(:,:) + vec2(:,:)
+        sum = 0.0
+        idof = 0
+        do j = 1, natom
+          if (.not. rp%cx(i)%fixedatom(j)) then
+            do k = 1, 3
+              idof = idof + 1
+              if (.not. rp%cx(i)%fixeddof(idof)) then
+                sum = sum + tangent(k, j, i) * tangent(k, j, i)
+              endif
+            enddo
+          else
+            idof = idof + 3
+          endif
+        enddo
+        tangent(:, :, i) = tangent(:, :, i) / sqrt(sum)
 
-          sum = 0.0
-          idof = 0
-          do j = 1, natom
-             if (.not.rp%cx(i)%fixedatom(j)) then
-                do k = 1, 3
-                   idof = idof + 1
-                   if (.not.rp%cx(i)%fixeddof(idof)) then
-                      sum = sum + tangent(k,j,i) * tangent(k,j,i)
-                   endif
-                enddo
-             else
-                idof = idof + 3
-             endif
-          enddo
-          tangent(:,:,i) = tangent(:,:,i) / sqrt(sum)
-
-       endif
+      endif
 
     enddo
-
 
     ! Loop over chain-states and calculate projected forces.
     !
     do i = 1, rp%nimage
-       rp%cx(i)%force(:,:) = 0.0
+      rp%cx(i)%force(:, :) = 0.0
     enddo
-
 
     do i = 1, rp%nimage
 
-       ! Now calculate the spring forces on image i.
-       !
-       if (i > 1 .and. i < rp%nimage) then
+      ! Now calculate the spring forces on image i.
+      !
+      if (i > 1 .and. i < rp%nimage) then
 
-          dot = 0.d0
-          idof = 0
-          do j = 1, natom
-             if (.not.rp%cx(i)%fixedatom(j)) then
-                do k = 1, 3
-                   idof = idof + 1
-                   if (.not.rp%cx(i)%fixeddof(idof)) then
-                      xp1 = rp%cx(i+1)%r(k,j)
-                      x0 = rp%cx(i)%r(k,j)
-                      xm1 = rp%cx(i-1)%r(k,j)
+        dot = 0.d0
+        idof = 0
+        do j = 1, natom
+          if (.not. rp%cx(i)%fixedatom(j)) then
+            do k = 1, 3
+              idof = idof + 1
+              if (.not. rp%cx(i)%fixeddof(idof)) then
+                xp1 = rp%cx(i+1)%r(k, j)
+                x0 = rp%cx(i)%r(k, j)
+                xm1 = rp%cx(i-1)%r(k, j)
 
-!                      dot = dot + kspring * ( ( xp1 - x0 ) - (x0 - xm1) ) * tangent(k,j,i)
-                      dot = dot + kk(i-1) * ( ( xp1 - x0 ) - (x0 - xm1) ) * tangent(k,j,i)
-                    !    rp%cx(i)%force(k,j) =   rp%cx(i)%force(k,j) + kk(i-1) * ( ( xp1 - x0 ) - (x0 - xm1) ) * tangent(k,j,i)
+                ! dot = dot + kspring * ( ( xp1 - x0 ) - (x0 - xm1) ) * tangent(k,j,i)
+                dot = dot + kk(i-1) * ( ( xp1 - x0 ) - (x0 - xm1) ) * tangent(k, j, i)
+                ! rp%cx(i)%force(k,j) =   rp%cx(i)%force(k,j) + kk(i-1) * ( ( xp1 - x0 ) - (x0 - xm1) ) * tangent(k,j,i)
 
-                   endif
-                enddo
-             else
-                idof = idof + 3
-             endif
-          enddo
+              endif
+            enddo
+          else
+            idof = idof + 3
+          endif
+        enddo
 
 
-       else if (i == 1) then
+      else if (i == 1) then
 
-          dot = 0.d0
-          idof = 0
-          do j = 1, natom
-             if (.not.rp%cx(i)%fixedatom(j)) then
-                do k = 1, 3
-                   idof = idof + 1
-                   if (.not.rp%cx(i)%fixeddof(idof)) then
-                      xp1 = rp%cx(i+1)%r(k,j)
-                      x0 = rp%cx(i)%r(k,j)
-!                      dot = dot + kspring* (  xp1 - x0 )* tangent(k,j,i)
-                      dot = dot + kk(i) * (  xp1 - x0 )* tangent(k,j,i)
-                    !  rp%cx(i)%force(k,j) = rp%cx(i)%force(k,j) + kk(i) * (  xp1 - x0 )* tangent(k,j,i)
-                   endif
-                enddo
-             else
-                idof = idof + 3
-             endif
-          enddo
+        dot = 0.d0
+        idof = 0
+        do j = 1, natom
+          if (.not. rp%cx(i)%fixedatom(j)) then
+            do k = 1, 3
+              idof = idof + 1
+              if (.not. rp%cx(i)%fixeddof(idof)) then
+                xp1 = rp%cx(i+1)%r(k, j)
+                x0 = rp%cx(i)%r(k, j)
+                ! dot = dot + kspring* (  xp1 - x0 )* tangent(k,j,i)
+                dot = dot + kk(i) * (xp1 - x0 )* tangent(k, j, i)
+                ! rp%cx(i)%force(k,j) = rp%cx(i)%force(k,j) + kk(i) * (  xp1 - x0 )* tangent(k,j,i)
+              endif
+            enddo
+          else
+            idof = idof + 3
+          endif
+        enddo
 
-       else if (i == rp%nimage) then
+      else if (i == rp%nimage) then
 
-          dot = 0.d0
-          idof = 0
-          do j = 1, natom
-             if (.not.rp%cx(i)%fixedatom(j)) then
-                do k = 1, 3
-                   idof = idof + 1
-                   if (.not.rp%cx(i)%fixeddof(idof)) then
-                      x0 = rp%cx(i)%r(k,j)
-                      xm1 = rp%cx(i-1)%r(k,j)
-!                      dot = dot - kspring*( x0-xm1 )* tangent(k,j,i)
-                      dot = dot - kk(i-1)*( x0-xm1 )* tangent(k,j,i)
-                    !  rp%cx(i)%force(k,j)=rp%cx(i)%force(k,j) - kk(i-1)*( x0-xm1 )* tangent(k,j,i)
-                   endif
-                enddo
-             else
-                idof = idof + 3
-             endif
-          enddo
+        dot = 0.d0
+        idof = 0
+        do j = 1, natom
+          if (.not. rp%cx(i)%fixedatom(j)) then
+            do k = 1, 3
+              idof = idof + 1
+              if (.not. rp%cx(i)%fixeddof(idof)) then
+                x0 = rp%cx(i)%r(k, j)
+                xm1 = rp%cx(i-1)%r(k, j)
+                ! dot = dot - kspring*( x0-xm1 )* tangent(k,j,i)
+                dot = dot - kk(i-1)*( x0-xm1 )* tangent(k, j, i)
+                ! rp%cx(i)%force(k,j)=rp%cx(i)%force(k,j) - kk(i-1)*( x0-xm1 )* tangent(k,j,i)
+              endif
+            enddo
+          else
+            idof = idof + 3
+          endif
+        enddo
 
-       endif
+      endif
 
       ! Add the parallel spring contribution to the total forces.
       !
       idof = 0
       do j = 1, natom
-         if (.not.rp%cx(i)%fixedatom(j)) then
-            do k = 1, 3
-               idof = idof + 1
-               if (.not.rp%cx(i)%fixeddof(idof)) then
-                  rp%cx(i)%force(k,j) = dot * tangent(k,j,i)
-               endif
-            enddo
-         else
-            idof = idof + 3
-         endif
+        if (.not. rp%cx(i)%fixedatom(j)) then
+          do k = 1, 3
+            idof = idof + 1
+            if (.not. rp%cx(i)%fixeddof(idof)) then
+              rp%cx(i)%force(k, j) = dot * tangent(k, j, i)
+            endif
+          enddo
+        else
+          idof = idof + 3
+        endif
       enddo
 
-       ! Add the contribution of the perpendicular forces.
-       !
-       idof = 0
-       dot = 0.d0
-       do j = 1, natom
-          if (.not.rp%cx(i)%fixedatom(j)) then
-             do k = 1, 3
-                idof = idof + 1
-                if (.not.rp%cx(i)%fixeddof(idof)) then
-                   dot = dot + rp%cx(i)%dvdr(k,j) * tangent(k,j,i)
-                endif
-             enddo
+      ! Add the contribution of the perpendicular forces.
+      !
+      idof = 0
+      dot = 0.d0
+      do j = 1, natom
+        if (.not. rp%cx(i)%fixedatom(j)) then
+          do k = 1, 3
+            idof = idof + 1
+            if (.not. rp%cx(i)%fixeddof(idof)) then
+              dot = dot + rp%cx(i)%dvdr(k, j) * tangent(k, j, i)
+            endif
+          enddo
+        else
+          idof = idof + 3
+        endif
+      enddo
+
+      idof = 0
+      do j = 1, natom
+        if (.not. rp%cx(i)%fixedatom(j)) then
+          do k = 1, 3
+            idof = idof + 1
+            if (.not. rp%cx(i)%fixeddof(idof)) then
+              rp%cx(i)%force(k, j) = rp%cx(i)%force(k, j)-rp%cx(i)%dvdr(k, j) + dot * tangent(k, j, i)
+            endif
+          enddo
+        else
+          idof = idof + 3
+        endif
+      enddo
+
+      ! Sort out CI-NEB force for imax (highest energy image).
+      !
+      if (ci_flag .and. i == imax) then
+
+        idof = 0
+        do j = 1, natom
+          if (.not. rp%cx(i)%fixedatom(j)) then
+            do k = 1, 3
+              idof = idof + 1
+              if (.not. rp%cx(i)%fixeddof(idof)) then
+                rp%cx(i)%force(k, j) = -rp%cx(i)%dvdr(k, j)
+              endif
+            enddo
           else
-             idof = idof + 3
+            idof = idof + 3
           endif
-       enddo
+        enddo
 
-       idof = 0
-       do j = 1, natom
-          if (.not.rp%cx(i)%fixedatom(j)) then
-             do k = 1, 3
-                idof = idof + 1
-                if (.not.rp%cx(i)%fixeddof(idof)) then
-                  rp%cx(i)%force(k,j) = rp%cx(i)%force(k,j)-rp%cx(i)%dvdr(k,j) + dot * tangent(k,j,i)
-                endif
-             enddo
+        dot = 0.d0
+        idof = 0
+        do j = 1, natom
+          if (.not. rp%cx(i)%fixedatom(j)) then
+            do k = 1, 3
+              idof = idof + 1
+              if (.not. rp%cx(i)%fixeddof(idof)) then
+                dot = dot + rp%cx(i)%dvdr(k, j) * tangent(k, j, i)
+              endif
+            enddo
           else
-             idof = idof + 3
+            idof = idof + 3
           endif
-       enddo
+        enddo
 
-       ! Sort out CI-NEB force for imax (highest energy image).
-       !
-       if (ci_flag .and. i == imax) then
-
-          idof = 0
-          do j = 1, natom
-             if (.not.rp%cx(i)%fixedatom(j)) then
-                do k = 1, 3
-                   idof = idof + 1
-                   if (.not.rp%cx(i)%fixeddof(idof)) then
-                      rp%cx(i)%force(k,j) = -rp%cx(i)%dvdr(k,j)
-                   endif
-                enddo
-             else
-                idof = idof + 3
-             endif
-          enddo
-
-          dot = 0.d0
-          idof = 0
-          do j = 1, natom
-             if (.not.rp%cx(i)%fixedatom(j)) then
-                do k = 1, 3
-                   idof = idof + 1
-                   if (.not.rp%cx(i)%fixeddof(idof)) then
-                      dot = dot + rp%cx(i)%dvdr(k,j) * tangent(k,j,i)
-                   endif
-                enddo
-             else
-                idof = idof + 3
-             endif
-          enddo
-
-          idof = 0
-          do j = 1, natom
-             if (.not.rp%cx(i)%fixedatom(j)) then
-                do k = 1, 3
-                   idof = idof + 1
-                   if (.not.rp%cx(i)%fixeddof(idof)) then
-                      rp%cx(i)%force(k,j) = rp%cx(i)%force(k,j)+ 2.d0 * dot * tangent(k,j,i)
-                   endif
-                enddo
-             else
-                idof = idof + 3
-             endif
-          enddo
-       endif
+        idof = 0
+        do j = 1, natom
+          if (.not. rp%cx(i)%fixedatom(j)) then
+            do k = 1, 3
+              idof = idof + 1
+              if (.not. rp%cx(i)%fixeddof(idof)) then
+                rp%cx(i)%force(k, j) = rp%cx(i)%force(k, j)+ 2.d0 * dot * tangent(k, j, i)
+              endif
+            enddo
+          else
+            idof = idof + 3
+          endif
+        enddo
+      endif
     enddo
-    deallocate( tangent, vec1, vec2 )
-
+    deallocate(tangent, vec1, vec2)
 
     ! If endflag is .TRUE., we just need to return the "bare" forces on the end-points.
     !
     if (endflag) then
 
-       idof = 0
-       do j = 1, natom
-          if (.not.rp%cx(1)%fixedatom(j)) then
-             do k = 1, 3
-                idof = idof + 1
-                if (.not.rp%cx(1)%fixeddof(idof)) then
-                   rp%cx(1)%force(k,j) = -rp%cx(1)%dvdr(k,j)
-                endif
-             enddo
-          else
-             idof = idof + 3
-          endif
-       enddo
+      idof = 0
+      do j = 1, natom
+        if (.not. rp%cx(1)%fixedatom(j)) then
+          do k = 1, 3
+            idof = idof + 1
+            if (.not. rp%cx(1)%fixeddof(idof)) then
+              rp%cx(1)%force(k, j) = -rp%cx(1)%dvdr(k, j)
+            endif
+          enddo
+        else
+          idof = idof + 3
+        endif
+      enddo
 
-       idof = 0
-       do j = 1, natom
-          if (.not.rp%cx(rp%nimage)%fixedatom(j)) then
-             do k = 1, 3
-                idof = idof + 1
-                if (.not.rp%cx(rp%nimage)%fixeddof(idof)) then
-                   rp%cx(rp%nimage)%force(k,j) = -rp%cx(rp%nimage)%dvdr(k,j)
-                endif
-             enddo
-          else
-             idof = idof + 3
-          endif
-       enddo
+      idof = 0
+      do j = 1, natom
+        if (.not. rp%cx(rp%nimage)%fixedatom(j)) then
+          do k = 1, 3
+            idof = idof + 1
+            if (.not. rp%cx(rp%nimage)%fixeddof(idof)) then
+              rp%cx(rp%nimage)%force(k, j) = -rp%cx(rp%nimage)%dvdr(k, j)
+            endif
+          enddo
+        else
+          idof = idof + 3
+        endif
+      enddo
 
     endif
 
-
     return
   end Subroutine GetProjForces1
+
 
   !
   !*************************************************************************
@@ -1155,53 +1132,54 @@ contains
   !!   size is made.
   !! - ci_flag: Logical flag indicating whether to return climbing-image
   !!            forces.
-  !! - endflag: Logical flag indicatin whether or not the forces on
+  !! - endflag: Logical flag indicating whether or not the forces on
   !!            the end-point beads should be returned as the
   !!            "bare" (non-NEB) forces.
   !!
   !
   !*************************************************************************
   !
-  Subroutine GetProjForces2(rp,kon,ci_flag,endflag)
+  Subroutine GetProjForces2(rp, kon, ci_flag, endflag)
     implicit none
     integer :: i, j, k, l, imax, idof, na, nd
     type (rxp) :: rp
     double precision :: kspring, Ei, kmax, delk, Emax, Eref, kvariability, kk(rp%nimage-1)
-    double precision :: tp(rp%na*3), tm(rp%na*3), tt(rp%na*3), vp,vm,vv,vmx,vmn
+    double precision :: tp(rp%na*3), tm(rp%na*3), tt(rp%na*3), vp, vm, vv, vmx, vmn
     logical :: ci_flag, endflag, kon
 
     na = rp%na ; nd = rp%na*3
     Emax = -1d6
     do i = 1, rp%nimage
-       if (rp%cx(i)%vcalc > Emax ) then
-          Emax = rp%cx(i)%vcalc
-          imax = i
-       endif
+      if (rp%cx(i)%vcalc > Emax) then
+        Emax = rp%cx(i)%vcalc
+        imax = i
+      endif
     enddo
-    if (kon) kk(1:rp%nimage-1) = rp%ks(1:rp%nimage-1)
-    if (.not.kon) kk = 0.0
-
+    if (kon) then
+      kk(1:rp%nimage-1) = rp%ks(1:rp%nimage-1)
+    else
+      kk = 0.0
+    endif
 
     ! Calculate tangents and forces.
     !
     do i = 2, rp%nimage-1
       vv = rp%cx(i)%vcalc
-      tp = reshape(rp%cx(i+1)%r - rp%cx(i  )%r,(/nd/)) + epsil
+      tp = reshape(rp%cx(i+1)%r - rp%cx(i)%r, (/nd/)) + epsil
       vp = rp%cx(i+1)%vcalc
-      tm = reshape(rp%cx(i  )%r - rp%cx(i-1)%r,(/nd/)) + epsil
+      tm = reshape(rp%cx(i)%r - rp%cx(i-1)%r, (/nd/)) + epsil
       vm = rp%cx(i-1)%vcalc
-      If    ( vp > vv .and. vv > vm  )  then
+      if(vp > vv .and. vv > vm) then
         tt = tp
-      elseif( vp < vv .and. vv < vm  )  then
+      elseif(vp < vv .and. vv < vm)  then
         tt = tm
-      elseif( (vp > vv .and. vv < vm) .or. &
-              (vp < vv .and. vv > vm)) then
-        vmx = max(abs(vp-vv),abs(vm-vv))
-        vmn = min(abs(vp-vv),abs(vm-vv))
-        if    ( vp > vm ) then
-           tt = tp*vmx+tm*vmn + epsil
+      elseif((vp > vv .and. vv < vm) .or. (vp < vv .and. vv > vm)) then
+        vmx = max(abs(vp-vv), abs(vm-vv))
+        vmn = min(abs(vp-vv), abs(vm-vv))
+        if(vp > vm) then
+          tt = tp*vmx+tm*vmn + epsil
         else
-           tt = tp*vmn+tm*vmx + epsil
+          tt = tp*vmn+tm*vmx + epsil
         endif
       else
         tt = tp/norm2(tp) + tm/norm2(tm) + epsil
@@ -1209,75 +1187,75 @@ contains
                          ! if kk = 0 then make tt = 0
       tt = tt/norm2(tt) * (kk(i))/(kk(i)+epsil)
       if (ci_flag) then
-        if( i /= imax ) then
+        if(i /= imax) then
           ! Parallel forces to the band
           !
-          rp%cx(i)%force(:,:) = reshape( (kk(i)*norm2(tp)-kk(i-1)*norm2(tm))*tt,(/3,na/))
+          rp%cx(i)%force(:, :) = reshape((kk(i)*norm2(tp)-kk(i-1)*norm2(tm))*tt, (/3, na/))
           ! Perpendicular forces of the system
           !
-          rp%cx(i)%force(:,:) = rp%cx(i)%force(:,:) - rp%cx(i)%dvdr + &
-                                reshape(dot_product(reshape(rp%cx(i)%dvdr,(/nd/)),tt)*tt,(/3,na/))
-         else
+          rp%cx(i)%force(:, :) = rp%cx(i)%force(:, :) - rp%cx(i)%dvdr + &
+              reshape(dot_product(reshape(rp%cx(i)%dvdr, (/nd/)), tt)*tt, (/3, na/))
+        else
           ! climbing image force
-          rp%cx(i)%force(:,:) = -rp%cx(i)%dvdr + 2.0d0 * &
-                                reshape(dot_product(reshape(rp%cx(i)%dvdr,(/nd/)),tt)*tt,(/3,na/))
-         endif
-       else
-         ! Parallel forces to the band
-         !
-         rp%cx(i)%force(:,:) = reshape( (kk(i)*norm2(tp)-kk(i-1)*norm2(tm))*tt,(/3,na/))
-         ! Perpendicular forces of the system
-         !
-         rp%cx(i)%force(:,:) = rp%cx(i)%force(:,:) - rp%cx(i)%dvdr + &
-                               reshape(dot_product(reshape(rp%cx(i)%dvdr,(/nd/)),tt)*tt,(/3,na/))
-       endif
+          rp%cx(i)%force(:, :) = -rp%cx(i)%dvdr + 2.0d0 * &
+              reshape(dot_product(reshape(rp%cx(i)%dvdr, (/nd/)), tt)*tt, (/3, na/))
+        endif
+      else
+        ! Parallel forces to the band
+        !
+        rp%cx(i)%force(:, :) = reshape((kk(i)*norm2(tp)-kk(i-1)*norm2(tm))*tt, (/3, na/))
+        ! Perpendicular forces of the system
+        !
+        rp%cx(i)%force(:, :) = rp%cx(i)%force(:, :) - rp%cx(i)%dvdr + &
+            reshape(dot_product(reshape(rp%cx(i)%dvdr, (/nd/)), tt)*tt, (/3, na/))
+      endif
 
     enddo
 
     ! first and last bead
     !
-    if (endflag ) then
-     rp%cx(1)%force(:,:) = -rp%cx(1)%dvdr(:,:)
-     rp%cx(rp%nimage)%force(:,:) = -rp%cx(rp%nimage)%dvdr(:,:)
+    if (endflag) then
+      rp%cx(1)%force(:, :) = -rp%cx(1)%dvdr(:, :)
+      rp%cx(rp%nimage)%force(:, :) = -rp%cx(rp%nimage)%dvdr(:, :)
     elseif(ci_flag) then
-     if( 1 == imax) then
-       tp = reshape(rp%cx(2)%r - rp%cx(1  )%r,(/nd/))
-       tp = tp/norm2(tp)
-       rp%cx(1)%force(:,:) = -rp%cx(1)%dvdr + 2.0d0 * &
-                             reshape(dot_product(reshape(rp%cx(1)%dvdr,(/nd/)),tp)*tp,(/3,na/))
-     elseif ( rp%nimage == imax) then
-       tm = reshape(rp%cx(rp%nimage)%r - rp%cx(rp%nimage-1)%r,(/nd/))
-       tm = tm/norm2(tm)
-       rp%cx(rp%nimage)%force(:,:) = -rp%cx(rp%nimage)%dvdr + 2.0d0 * &
-                             reshape(dot_product(reshape(rp%cx(rp%nimage)%dvdr,(/nd/)),tm)*tm,(/3,na/))
-     endif
+      if( 1 == imax) then
+        tp = reshape(rp%cx(2)%r - rp%cx(1)%r, (/nd/))
+        tp = tp/norm2(tp)
+        rp%cx(1)%force(:, :) = -rp%cx(1)%dvdr + 2.0d0 * &
+            reshape(dot_product(reshape(rp%cx(1)%dvdr, (/nd/)), tp)*tp, (/3, na/))
+      elseif (rp%nimage == imax) then
+        tm = reshape(rp%cx(rp%nimage)%r - rp%cx(rp%nimage-1)%r, (/nd/))
+        tm = tm/norm2(tm)
+        rp%cx(rp%nimage)%force(:, :) = -rp%cx(rp%nimage)%dvdr + 2.0d0 * &
+            reshape(dot_product(reshape(rp%cx(rp%nimage)%dvdr, (/nd/)), tm)*tm, (/3, na/))
+      endif
     endif
 
     ! set constraints...
     !
     do i = 1, rp%nimage
-     idof = 0
-     do j = 1, rp%na
+      idof = 0
+      do j = 1, rp%na
         if (rp%cx(i)%fixedatom(j)) then
-          rp%cx(i)%force(1:3,j) = 0.0d0
+          rp%cx(i)%force(1:3, j) = 0.0d0
           idof = idof + 3
         else
           do k = 1, 3
-              idof = idof + 1
-              if (rp%cx(i)%fixeddof(idof)) then
-                 rp%cx(i)%force(k,j) = 0.0d0
-              endif
+            idof = idof + 1
+            if (rp%cx(i)%fixeddof(idof)) then
+                rp%cx(i)%force(k, j) = 0.0d0
+            endif
           enddo
         endif
-     enddo
+      enddo
     enddo
-
 
     !    print*,'WTF K: ',kk(1:rp%nimage-1)
     !    print*,'FORCES = ',rp%cx(5)%force
 
     return
   end Subroutine GetProjForces2
+
 
   Subroutine VariableSprings(rp)
     implicit none
@@ -1288,29 +1266,31 @@ contains
     na = rp%na ; nd = rp%na*3
     Emax = -1d6
     do i = 1, rp%nimage
-       if (rp%cx(i)%vcalc > Emax ) then
-          Emax = rp%cx(i)%vcalc
-          imax = i
-       endif
-    enddo
-   ! this is the extra strength or looseness wrt kspring that is made
-   ! variable...:
-   kvariability = 0.150d0
-   ! determine spring strength
-   !
-   kmax = kspring + kspring * kvariability
-   delk = 2.0d0 * kspring * kvariability
-   Eref = max(rp%cx(1)%vcalc,rp%cx(rp%nimage)%vcalc)
-   do i = 1, rp%nimage-1
-      Ei = max(rp%cx(i)%vcalc,rp%cx(i+1)%vcalc)
-      if ( Ei > Eref ) then
-         rp%ks(i) = kmax - delk * ( Emax - Ei)/(Emax - Eref)
-      else
-         rp%ks(i) = kmax - delk
+      if (rp%cx(i)%vcalc > Emax) then
+        Emax = rp%cx(i)%vcalc
+        imax = i
       endif
-   enddo
-   return
+    enddo
+    ! this is the extra strength or looseness wrt kspring that is made
+    ! variable...:
+    kvariability = 0.150d0
+    ! determine spring strength
+    !
+    kmax = kspring + kspring * kvariability
+    delk = 2.0d0 * kspring * kvariability
+    Eref = max(rp%cx(1)%vcalc, rp%cx(rp%nimage)%vcalc)
+    do i = 1, rp%nimage-1
+      Ei = max(rp%cx(i)%vcalc, rp%cx(i+1)%vcalc)
+      if (Ei > Eref) then
+        rp%ks(i) = kmax - delk * (Emax - Ei)/(Emax - Eref)
+      else
+        rp%ks(i) = kmax - delk
+      endif
+    enddo
+
+    return
   end Subroutine VariableSprings
+
 
   !
   !*************************************************************************
@@ -1341,102 +1321,107 @@ contains
     integer :: i, j, k, l, imax, idof, na, nd
     type (rxp) :: rp
     double precision :: kspring, Ei, kmax, delk, Emax, Eref, kvariability, kk(rp%nimage-1)
-    double precision :: tp(rp%na*3), tm(rp%na*3), tt(rp%na*3), vp,vm,vv,vmx,vmn, Leq, tpn, tmn
+    double precision :: tp(rp%na*3), tm(rp%na*3), tt(rp%na*3), vp, vm, vv, vmx, vmn, Leq, tpn, tmn
     logical :: ci_flag, endflag, variablespring, kon
 
     na = rp%na ; nd = rp%na*3
     Emax = -1d6
     do i = 1, rp%nimage
-       if (rp%cx(i)%vcalc > Emax ) then
-          Emax = rp%cx(i)%vcalc
-          imax = i
-       endif
+      if (rp%cx(i)%vcalc > Emax ) then
+        Emax = rp%cx(i)%vcalc
+        imax = i
+      endif
     enddo
-    if (kon) kk(1:rp%nimage-1) = rp%ks(1:rp%nimage-1)
-    if (.not.kon) kk = 0.0
+    if (kon) then
+      kk(1:rp%nimage-1) = rp%ks(1:rp%nimage-1)
+    else
+      kk = 0.0
+    endif
     !do i = 2, rp%nimage
     ! Leq = Leq +norm2(reshape(rp%cx(i  )%r - rp%cx(i-1)%r,(/nd/)))
     !enddo
     !Leq = Leq/dble(rp%nimage-1)
-    Leq = norm2(reshape(rp%cx(rp%nimage)%r,(/nd/))-reshape(rp%cx(1)%r,(/nd/)))/dble(rp%nimage-1)
+    Leq = norm2(reshape(rp%cx(rp%nimage)%r, (/nd/)) - reshape(rp%cx(1)%r, (/nd/))) / dble(rp%nimage-1)
     ! Calculate tangents and forces.
     !
     do i = 2, rp%nimage-1
-      rp%cx(i)%force(:,:) = 0.0d0
+      rp%cx(i)%force(:, :) = 0.0d0
       vv = rp%cx(i)%vcalc
-      tp = reshape(rp%cx(i+1)%r - rp%cx(i  )%r,(/nd/))
+      tp = reshape(rp%cx(i+1)%r - rp%cx(i)%r, (/nd/))
       vp = rp%cx(i+1)%vcalc
-      tm = reshape(rp%cx(i  )%r - rp%cx(i-1)%r,(/nd/))
+      tm = reshape(rp%cx(i)%r - rp%cx(i-1)%r, (/nd/))
       vm = rp%cx(i-1)%vcalc
       tpn = norm2(tp) + epsil
       tmn = norm2(tm) + epsil
       if (ci_flag .and. i /= imax .or. .not. ci_flag) then
        ! Parallel forces to the band
 
-       if (ci_flag .and. abs(i-imax) == 1 ) then
-         vmx = max(abs(vp-vv),abs(vm-vv))
-         vmn = min(abs(vp-vv),abs(vm-vv))
-         rp%cx(i)%force(:,:) = reshape( ((kk(i)*(tpn-Leq)*tp/tpn-kk(i-1)*(tmn-Leq)*tm/tmn))*(vmn/vmx),(/3,na/))
-       else
-         rp%cx(i)%force(:,:) = reshape( (kk(i)*(tpn-Leq)*tp/tpn-kk(i-1)*(tmn-Leq)*tm/tmn),(/3,na/))
-       endif
-       !print*, 'FORCE NOW? = ', norm2(rp%cx(i)%force(:,:))
+        if (ci_flag .and. abs(i-imax) == 1) then
+          vmx = max(abs(vp-vv), abs(vm-vv))
+          vmn = min(abs(vp-vv), abs(vm-vv))
+          rp%cx(i)%force(:, :) = reshape(((kk(i)*(tpn-Leq)*tp/tpn-kk(i-1)*(tmn-Leq)*tm/tmn))*(vmn/vmx), (/3, na/))
+        else
+          rp%cx(i)%force(:, :) = reshape((kk(i)*(tpn-Leq)*tp/tpn-kk(i-1)*(tmn-Leq)*tm/tmn), (/3, na/))
+        endif
+        !print*, 'FORCE NOW? = ', norm2(rp%cx(i)%force(:,:))
 
-       tt = tp/tpn + tm/tmn + epsil
-                             ! if kk = 0 then make tt = 0
-       tt = (tt/norm2(tt)    )*(kk(i))/(kk(i)+epsil)
-       ! Perpendicular forces of the system
-       !
-       !rp%cx(i)%force(:,:) = rp%cx(i)%force(:,:) - rp%cx(i)%dvdr
-       rp%cx(i)%force(:,:) = rp%cx(i)%force(:,:) - rp%cx(i)%dvdr + &
-                             reshape(dot_product(reshape(rp%cx(i)%dvdr,(/nd/)),tt)*tt,(/3,na/))
-       !print*, 'THIS BIT = ',norm2(reshape(dot_product(reshape(rp%cx(i)%dvdr,(/nd/)),tt)*tt,(/3,na/)))
+        tt = tp/tpn + tm/tmn + epsil
+                              ! if kk = 0 then make tt = 0
+        tt = (tt/norm2(tt))*(kk(i))/(kk(i)+epsil)
+        ! Perpendicular forces of the system
+        !
+        !rp%cx(i)%force(:,:) = rp%cx(i)%force(:,:) - rp%cx(i)%dvdr
+        rp%cx(i)%force(:, :) = rp%cx(i)%force(:, :) - rp%cx(i)%dvdr + &
+            reshape(dot_product(reshape(rp%cx(i)%dvdr, (/nd/)), tt)*tt, (/3, na/))
+        !print*, 'THIS BIT = ',norm2(reshape(dot_product(reshape(rp%cx(i)%dvdr,(/nd/)),tt)*tt,(/3,na/)))
       else
-       ! climbing image force
-       rp%cx(i)%force(:,:) = - rp%cx(i)%dvdr + 2.0d0 * &
-                             reshape(dot_product(reshape(rp%cx(i)%dvdr,(/nd/)),tt)*tt,(/3,na/))
+        ! climbing image force
+        rp%cx(i)%force(:, :) = - rp%cx(i)%dvdr + 2.0d0 * &
+            reshape(dot_product(reshape(rp%cx(i)%dvdr, (/nd/)), tt)*tt, (/3, na/))
       endif
     enddo
 
     ! first and last bead
     !
     if (endflag ) then
-     rp%cx(1)%force(:,:) = -rp%cx(1)%dvdr(:,:)
-     rp%cx(rp%nimage)%force(:,:) = -rp%cx(rp%nimage)%dvdr(:,:)
+      rp%cx(1)%force(:, :) = -rp%cx(1)%dvdr(:, :)
+      rp%cx(rp%nimage)%force(:, :) = -rp%cx(rp%nimage)%dvdr(:, :)
     elseif(ci_flag) then
-     if( 1 == imax) then
-       tp = reshape(rp%cx(2)%r - rp%cx(1  )%r,(/nd/))
-       tp = tp/norm2(tp)
-       rp%cx(1)%force(:,:) = -rp%cx(1)%dvdr + 2.0d0 * &
-                             reshape(dot_product(reshape(rp%cx(1)%dvdr,(/nd/)),tp)*tp,(/3,na/))
-     elseif ( rp%nimage == imax) then
-       tm = reshape(rp%cx(rp%nimage)%r - rp%cx(rp%nimage-1)%r,(/nd/))
-       tm = tm/norm2(tm)
-       rp%cx(rp%nimage)%force(:,:) = -rp%cx(rp%nimage)%dvdr + 2.0d0 * &
-                             reshape(dot_product(reshape(rp%cx(rp%nimage)%dvdr,(/nd/)),tm)*tm,(/3,na/))
-     endif
+      if(1 == imax) then
+        tp = reshape(rp%cx(2)%r - rp%cx(1)%r, (/nd/))
+        tp = tp/norm2(tp)
+        rp%cx(1)%force(:, :) = -rp%cx(1)%dvdr + 2.0d0 * &
+            reshape(dot_product(reshape(rp%cx(1)%dvdr, (/nd/)), tp)*tp, (/3, na/))
+      elseif (rp%nimage == imax) then
+        tm = reshape(rp%cx(rp%nimage)%r - rp%cx(rp%nimage-1)%r, (/nd/))
+        tm = tm/norm2(tm)
+        rp%cx(rp%nimage)%force(:, :) = -rp%cx(rp%nimage)%dvdr + 2.0d0 * &
+            reshape(dot_product(reshape(rp%cx(rp%nimage)%dvdr, (/nd/)), tm)*tm, (/3, na/))
+      endif
     endif
 
     ! set constraints...
     !
     do i = 1, rp%nimage
-     idof = 0
-     do j = 1, rp%na
+      idof = 0
+      do j = 1, rp%na
         if (rp%cx(i)%fixedatom(j)) then
-          rp%cx(i)%force(1:3,j) = 0.0d0
+          rp%cx(i)%force(1:3, j) = 0.0d0
           idof = idof + 3
         else
           do k = 1, 3
-              idof = idof + 1
-              if (rp%cx(i)%fixeddof(idof)) then
-                 rp%cx(i)%force(k,j) = 0.0d0
-              endif
+            idof = idof + 1
+            if (rp%cx(i)%fixeddof(idof)) then
+              rp%cx(i)%force(k, j) = 0.0d0
+            endif
           enddo
         endif
-     enddo
+      enddo
     enddo
+
     return
   end Subroutine GetProjForces3
+
 
   !
   !*************************************************************************
@@ -1451,7 +1436,7 @@ contains
   !
   !*************************************************************************
   !
-  Subroutine ShimmyEndBeads(rp,shimmied,beadcount,pend)
+  Subroutine ShimmyEndBeads(rp, shimmied, beadcount, pend)
     implicit none
     integer :: i, j, k, l, imax, beadcount, pend, ne, ni
     type (rxp) :: rp
@@ -1464,25 +1449,26 @@ contains
     thresh = 0.8E-004
     ! if gradients and derivatives are flat...
     !
-    leng(1)         = abs(norm2(reshape(rp%cx(1        )%r,shape(dir))-reshape(rp%cx(2          )%r,shape(dir))))
+    leng(1) = abs(norm2(reshape(rp%cx(1)%r, shape(dir)) - reshape(rp%cx(2)%r, shape(dir))))
     totlen = leng(1)
     do i = 2, rp%nimage-1
-       !Call AbInitio(rp%cx(i), 'grad', success)
-       leng(i)      = abs(norm2(reshape(rp%cx(i        )%r,shape(dir))-reshape(rp%cx(i+1        )%r,shape(dir))))
-       if ( abs((norm2(reshape(rp%cx(i-1)%dvdr,shape(dir)))- norm2(reshape(rp%cx(i)%dvdr,shape(dir)))*2.0d0+ &
-             norm2(reshape(rp%cx(i+1)%dvdr,shape(dir))))/(leng(i-1) + leng(i))**2) <= thresh) then
-       if ( abs((rp%cx(i-1)%vcalc- rp%cx(i)%vcalc*2.0d0+ rp%cx(i+1)%vcalc)/(leng(i-1) + leng(i))**2) <= thresh*0.1) then
-           flatbeads(i) = .true.
-       endif
-       endif
-       totlen = totlen+leng(i)
-       ! for debugging purposes..
-       !print*, 'I = ', i, 'FLATBEADS = ', flatbeads(i)
-       !print*, 'D = ', abs((norm2(reshape(rp%cx(i-1)%dvdr,shape(dir)))- norm2(reshape(rp%cx(i)%dvdr,shape(dir)))*2.0d0+ &
-       !         norm2(reshape(rp%cx(i+1)%dvdr,shape(dir))))/(leng(i-1) + leng(i))**2), thresh
-       !print*, 'V = ' ,abs((rp%cx(i-1)%vcalc- rp%cx(i)%vcalc*2.0d0+ rp%cx(i+1)%vcalc)/(leng(i-1)+ leng(i))**2), thresh*0.10
-       !print*, rp%cx(i-1)%vcalc, rp%cx(i)%vcalc, rp%cx(i+1)%vcalc
+      !Call AbInitio(rp%cx(i), 'grad', success)
+      leng(i) = abs(norm2(reshape(rp%cx(i)%r, shape(dir)) - reshape(rp%cx(i+1)%r, shape(dir))))
+      if (abs((norm2(reshape(rp%cx(i-1)%dvdr, shape(dir))) - norm2(reshape(rp%cx(i)%dvdr, shape(dir)))*2.0d0 + &
+            norm2(reshape(rp%cx(i+1)%dvdr, shape(dir))))/(leng(i-1) + leng(i))**2) <= thresh) then
+        if (abs((rp%cx(i-1)%vcalc - rp%cx(i)%vcalc*2.0d0 + rp%cx(i+1)%vcalc)/(leng(i-1) + leng(i))**2) <= thresh*0.1) then
+          flatbeads(i) = .true.
+        endif
+      endif
+      totlen = totlen+leng(i)
+      ! for debugging purposes..
+      !print*, 'I = ', i, 'FLATBEADS = ', flatbeads(i)
+      !print*, 'D = ', abs((norm2(reshape(rp%cx(i-1)%dvdr,shape(dir)))- norm2(reshape(rp%cx(i)%dvdr,shape(dir)))*2.0d0+ &
+      !         norm2(reshape(rp%cx(i+1)%dvdr,shape(dir))))/(leng(i-1) + leng(i))**2), thresh
+      !print*, 'V = ' ,abs((rp%cx(i-1)%vcalc- rp%cx(i)%vcalc*2.0d0+ rp%cx(i+1)%vcalc)/(leng(i-1)+ leng(i))**2), thresh*0.10
+      !print*, rp%cx(i-1)%vcalc, rp%cx(i)%vcalc, rp%cx(i+1)%vcalc
     enddo
+
     pend = 0
     if (flatbeads(2)) pend = 1
     if (flatbeads(rp%nimage-1)) pend = pend + rp%nimage
@@ -1492,20 +1478,20 @@ contains
     ! only shimmy up to half from the left...
     do i = 2, rp%nimage/2
       if (flatbeads(i)) then
-         beadcount = beadcount + 1
-         ni = i ! + 1
+        beadcount = beadcount + 1
+        ni = i ! + 1
       else
-         exit
+        exit
       endif
     enddo
     ne = rp%nimage
     ! only shimmy up to  half from the right
     do i = rp%nimage-1, rp%nimage/2, -1
       if (flatbeads(i)) then
-         beadcount = beadcount + 1
-         ne = i !- 1
+        beadcount = beadcount + 1
+        ne = i !- 1
       else
-         exit
+        exit
       endif
     enddo
 
@@ -1514,11 +1500,11 @@ contains
     if (beadcount >= 2) then
       if (pend > 0) shimmied = .true.
       do i = 1, rp%nimage
-       rr(i,1:3,1:rp%na) = rp%cx(i)%r(1:3,1:rp%na)
+        rr(i, 1:3, 1:rp%na) = rp%cx(i)%r(1:3, 1:rp%na)
       enddo
       newlen = +0.00010d0
       do j = ni+1, ne
-       newlen = newlen + leng(j-1)
+        newlen = newlen + leng(j-1)
       enddo
       dell = newlen/(rp%nimage-1)
       clen = 0.0d0
@@ -1532,8 +1518,7 @@ contains
           olen = olen + leng(j-1)
           if ( olen > clen ) then
             c = (clen-(olen-leng(j-1)))/leng(j-1)
-            rp%cx(i)%r = rr(j-1,:,:) + (rr(j,:,:) - rr(j-1,:,:))*&
-            0.50d0*(1.0d0+tanh((c-1.0d0)*5.0d0))
+            rp%cx(i)%r = rr(j-1, :, :) + (rr(j, :, :) - rr(j-1, :, :))*0.50d0*(1.0d0+tanh((c-1.0d0)*5.0d0))
             !rp%cx(i)%r = rr(j-1,:,:) + (rr(j,:,:) - rr(j-1,:,:))*(clen-(olen-leng(j-1)))/leng(j-1)
             ! for debugging purposes..
             !print*, 'FOUND AT OLEN = ', olen, 'J = ', j
@@ -1545,17 +1530,15 @@ contains
           endif
           !if (j .eq. ne .and. i .eq. rp%nimage) print*, 'LAST ADDEED', ne,rp%nimage
           if (j .eq. ne .and. i .eq. rp%nimage) &
-           rp%cx(i)%r = rr(ne,:,:)
+            rp%cx(i)%r = rr(ne, :, :)
         enddo
-        Call AbInitio(rp%cx(i), 'grad', success)
+        call AbInitio(rp%cx(i), 'grad', success)
         rp%cx(i)%p = 0.0d0
       enddo
       !print*, 'FINAL DIFFERENCE = ',rp%nimage, norm2(reshape(rp%cx(rp%nimage)%r-rr(ne,:,:),(/3*rp%na/)))
     endif
     return
   end subroutine ShimmyEndBeads
-
-  
 
 
   !
@@ -1577,50 +1560,46 @@ contains
     nb = rp%nimage
     na = rp%na
 
-
     ! First, calculate the force on the end-points, including the contribution
     ! from the string correlation along the reaction-path.
     ! Note that the calculated derivatives on each image are passed in...
     !
     do i = 2, nb           ! Start at 2 to avoid overcounting i = 1 contribution.
-       lambda = dble(i-1) / dble(nb-1)
-       do j = 1, na
-          do k = 1, 3
-             rp%cx(1)%dvdr(k,j) = rp%cx(1)%dvdr(k,j) + (1.d0 - lambda) * rp%cx(i)%dvdr(k,j)
-             rp%cx(nb)%dvdr(k,j) = rp%cx(nb)%dvdr(k,j) + lambda * rp%cx(i)%dvdr(k,j)
-          enddo
-       enddo
+      lambda = dble(i-1) / dble(nb-1)
+      do j = 1, na
+        do k = 1, 3
+          rp%cx(1)%dvdr(k, j) = rp%cx(1)%dvdr(k, j) + (1.d0 - lambda) * rp%cx(i)%dvdr(k, j)
+          rp%cx(nb)%dvdr(k, j) = rp%cx(nb)%dvdr(k, j) + lambda * rp%cx(i)%dvdr(k, j)
+        enddo
+      enddo
     enddo
-
 
     ! Divide through by total number of beads.
     !
     do i = 1, nb
-       do j = 1, na
-          do k = 1, 3
-             rp%cx(i)%dvdr(k,j) = rp%cx(i)%dvdr(k,j) / dble(nb)
-          enddo
-       enddo
+      do j = 1, na
+        do k = 1, 3
+          rp%cx(i)%dvdr(k, j) = rp%cx(i)%dvdr(k, j) / dble(nb)
+        enddo
+      enddo
     enddo
-
 
     ! Now calculate the forces on the Fourier coefficients.
     !
     do m = 1, nb
-       do j = 1, na
-          do k = 1, 3
-             rp%dcoeff(k,j,m) = 0.d0
-             do i = 1, nb
-                lambda = dble(i-1) / dble(nb-1)
-                rp%dcoeff(k,j,m) = rp%dcoeff(k,j,m) + rp%cx(i)%dvdr(k,j) * sin(dble(m) * pivalue * lambda)
-             enddo
+      do j = 1, na
+        do k = 1, 3
+          rp%dcoeff(k, j, m) = 0.d0
+          do i = 1, nb
+            lambda = dble(i-1) / dble(nb-1)
+            rp%dcoeff(k, j, m) = rp%dcoeff(k, j, m) + rp%cx(i)%dvdr(k, j) * sin(dble(m) * pivalue * lambda)
           enddo
-       enddo
+        enddo
+      enddo
     enddo
 
     return
   end Subroutine GetFourierForces
-
 
 
   !
@@ -1634,41 +1613,43 @@ contains
   !!
   !*************************************************************************
   !
-  Subroutine FourierToPath( rp )
+  Subroutine FourierToPath(rp)
     type(rxp) :: rp
-    integer :: i,j,idof,nb,natom,k,m
+    integer :: i, j, idof, nb, natom, k, m
     real(8) :: lambda, re, rs
 
     nb = rp%nimage
     natom = rp%na
 
     do i = 2, nb-1
-       lambda = dble(i-1) / dble(nb-1)
+      lambda = dble(i-1) / dble(nb-1)
 
-       idof = 0
-       do j = 1, natom
-          if ( .not. rp%cx(i)%fixedatom(j) ) then
-             do k = 1, 3
-                idof = idof + 1
-                if ( .not. rp%cx(i)%fixeddof(idof) ) then
+      idof = 0
+      do j = 1, natom
+        if (.not. rp%cx(i)%fixedatom(j)) then
+          do k = 1, 3
+            idof = idof + 1
+            if (.not. rp%cx(i)%fixeddof(idof)) then
 
-                   re = rp%cx(nb)%r(k,j)
-                   rs = rp%cx(1)%r(k,j)
-                   rp%cx(i)%r(k,j) = rp%cx(1)%r(k,j) + lambda * (re - rs)
+              re = rp%cx(nb)%r(k, j)
+              rs = rp%cx(1)%r(k, j)
+              rp%cx(i)%r(k, j) = rp%cx(1)%r(k, j) + lambda * (re - rs)
 
-                   do m = 1, nb
-                      rp%cx(i)%r(k,j) = rp%cx(i)%r(k,j) + rp%coeff(k,j,m) * sin( dble(m) * pivalue * lambda )
-                   enddo
+              do m = 1, nb
+                rp%cx(i)%r(k, j) = rp%cx(i)%r(k, j) + rp%coeff(k, j, m) * sin(dble(m) * pivalue * lambda )
+              enddo
 
-                endif
-             enddo
-          else
-             idof = idof + 3
-          endif
-       enddo
+            endif
+          enddo
+        else
+          idof = idof + 3
+        endif
+      enddo
     enddo
+
     return
   end Subroutine FourierToPath
+
 
   !
   !*************************************************************************
@@ -1681,9 +1662,9 @@ contains
   !!
   !*************************************************************************
   !
-  Subroutine PathToFourier( rp )
+  Subroutine PathToFourier(rp)
     type(rxp) :: rp
-    integer :: i,j,idof,nb,natom,k,m
+    integer :: i, j, idof, nb, natom, k, m
     real(8) :: lambda, re, rs, sum, dlambda, fac
 
     nb = rp%nimage
@@ -1692,22 +1673,23 @@ contains
     dlambda = 1.d0 / dble(nb-1)
 
     do j = 1, natom
-       do k = 1, 3
-          do m = 1, nb
-             rp%coeff(k,j,m) = 0.d0
+      do k = 1, 3
+        do m = 1, nb
+          rp%coeff(k, j, m) = 0.d0
 
-             sum = 0.d0
+          sum = 0.d0
 
-             do i = 1, nb
-                lambda = dble(i-1) / dble(nb-1)
-                fac = sin(m * pivalue * lambda)
-                sum = sum + (rp%cx(i)%r(k,j) - rp%cx(1)%r(k,j) - lambda*(rp%cx(nb)%r(k,j)-rp%cx(1)%r(k,j)))*fac
-             enddo
-             sum = sum * 2.0 * dlambda
-             rp%coeff(k,j,m) = sum
+          do i = 1, nb
+            lambda = dble(i-1) / dble(nb-1)
+            fac = sin(m * pivalue * lambda)
+            sum = sum + (rp%cx(i)%r(k, j) - rp%cx(1)%r(k, j) - lambda*(rp%cx(nb)%r(k, j) - rp%cx(1)%r(k, j)))*fac
           enddo
-       enddo
+          sum = sum * 2.0 * dlambda
+          rp%coeff(k, j, m) = sum
+        enddo
+      enddo
     enddo
+
     return
   end Subroutine PathToFourier
 
@@ -1727,56 +1709,54 @@ contains
   !*************************************************************************
   !
   !
-  Subroutine FirstVVUpdate( rp, timestep, mass )
+  Subroutine FirstVVUpdate(rp, timestep, mass)
     implicit none
     type(rxp) :: rp
     real(8) :: timestep, mass
-    integer :: i,j,k,nb,idof
-
+    integer :: i, j, k, nb, idof
 
     ! Update the end-points
     !
     nb = rp%nimage
     idof = 0
     do j = 1, rp%na
-       if (.not.rp%cx(1)%fixedatom(j)) then
-          do k = 1, 3
-             idof = idof + 1
-             if (.not. rp%cx(1)%fixeddof(idof)) then
-                rp%cx(1)%p(k,j) = rp%cx(1)%p(k,j) - 0.5d0 * timestep * rp%cx(1)%dvdr(k,j)
-                rp%cx(nb)%p(k,j) = rp%cx(nb)%p(k,j) - 0.5d0 * timestep * rp%cx(nb)%dvdr(k,j)
-                rp%cx(1)%r(k,j) = rp%cx(1)%r(k,j) + timestep * rp%cx(1)%p(k,j)/rp%cx(1)%mass(j)
-                rp%cx(nb)%r(k,j) = rp%cx(nb)%r(k,j) + timestep * rp%cx(nb)%p(k,j)/rp%cx(nb)%mass(j)
-             endif
-          enddo
-       else
-          idof = idof + 3
-       endif
+      if (.not. rp%cx(1)%fixedatom(j)) then
+        do k = 1, 3
+          idof = idof + 1
+          if (.not. rp%cx(1)%fixeddof(idof)) then
+            rp%cx(1)%p(k, j) = rp%cx(1)%p(k, j) - 0.5d0 * timestep * rp%cx(1)%dvdr(k, j)
+            rp%cx(nb)%p(k, j) = rp%cx(nb)%p(k, j) - 0.5d0 * timestep * rp%cx(nb)%dvdr(k, j)
+            rp%cx(1)%r(k, j) = rp%cx(1)%r(k, j) + timestep * rp%cx(1)%p(k, j)/rp%cx(1)%mass(j)
+            rp%cx(nb)%r(k, j) = rp%cx(nb)%r(k, j) + timestep * rp%cx(nb)%p(k, j)/rp%cx(nb)%mass(j)
+          endif
+        enddo
+      else
+        idof = idof + 3
+      endif
     enddo
-
 
     ! Update coefficients.
     !
     do i = 1, rp%nimage
-       idof = 0
-       do j = 1, rp%na
-          if (.not.rp%cx(i)%fixedatom(j)) then
-             do k = 1, 3
-                idof = idof + 1
-                if (.not.rp%cx(i)%fixeddof(idof)) then
-                   rp%pcoeff(k,j,i) = rp%pcoeff(k,j,i) - 0.5 * timestep * rp%cx(i)%dvdr(k,j)
-                   rp%coeff(k,j,i) = rp%coeff(k,j,i) + rp%pcoeff(k,j,i) * timestep / mass
-                endif
-             enddo
-          else
-             idof = idof + 3
-          endif
-       enddo
+      idof = 0
+      do j = 1, rp%na
+        if (.not. rp%cx(i)%fixedatom(j)) then
+          do k = 1, 3
+            idof = idof + 1
+            if (.not. rp%cx(i)%fixeddof(idof)) then
+              rp%pcoeff(k, j, i) = rp%pcoeff(k, j, i) - 0.5 * timestep * rp%cx(i)%dvdr(k, j)
+              rp%coeff(k, j, i) = rp%coeff(k, j, i) + rp%pcoeff(k, j, i) * timestep / mass
+            endif
+          enddo
+        else
+          idof = idof + 3
+        endif
+      enddo
     enddo
-
 
     return
   end Subroutine FirstVVUpdate
+
 
   !
   !*************************************************************************
@@ -1792,49 +1772,46 @@ contains
   !!
   !*************************************************************************
   !
-  !
-  Subroutine SecondVVUpdate( rp, timestep, mass )
+  Subroutine SecondVVUpdate(rp, timestep, mass)
     implicit none
     type(rxp) :: rp
     real(8) :: timestep, mass
     integer :: i,j,k,nb,idof
-
 
     ! Update the end-points
     !
     nb = rp%nimage
     idof = 0
     do j = 1, rp%na
-       if (.not.rp%cx(1)%fixedatom(j)) then
-          do k = 1, 3
-             idof = idof + 1
-             if (.not. rp%cx(1)%fixeddof(idof)) then
-                rp%cx(1)%p(k,j) = rp%cx(1)%p(k,j) - 0.5d0 * timestep * rp%cx(1)%dvdr(k,j)
-                rp%cx(nb)%p(k,j) = rp%cx(nb)%p(k,j) - 0.5d0 * timestep * rp%cx(nb)%dvdr(k,j)
-             endif
-          enddo
-       else
-          idof = idof + 3
-       endif
+      if (.not. rp%cx(1)%fixedatom(j)) then
+        do k = 1, 3
+          idof = idof + 1
+          if (.not. rp%cx(1)%fixeddof(idof)) then
+            rp%cx(1)%p(k, j) = rp%cx(1)%p(k, j) - 0.5d0 * timestep * rp%cx(1)%dvdr(k, j)
+            rp%cx(nb)%p(k, j) = rp%cx(nb)%p(k, j) - 0.5d0 * timestep * rp%cx(nb)%dvdr(k, j)
+          endif
+        enddo
+      else
+        idof = idof + 3
+      endif
     enddo
-
 
     ! Update coefficients.
     !
     do i = 1, rp%nimage
-       idof = 0
-       do j = 1, rp%na
-          if (.not.rp%cx(i)%fixedatom(j)) then
-             do k = 1, 3
-                idof = idof + 1
-                if (.not.rp%cx(i)%fixeddof(idof)) then
-                   rp%pcoeff(k,j,i) = rp%pcoeff(k,j,i) - 0.5 * timestep * rp%cx(i)%dvdr(k,j)
-                endif
-             enddo
-          else
-             idof = idof + 3
-          endif
-       enddo
+      idof = 0
+      do j = 1, rp%na
+        if (.not. rp%cx(i)%fixedatom(j)) then
+          do k = 1, 3
+            idof = idof + 1
+            if (.not. rp%cx(i)%fixeddof(idof)) then
+              rp%pcoeff(k, j, i) = rp%pcoeff(k, j, i) - 0.5 * timestep * rp%cx(i)%dvdr(k, j)
+            endif
+          enddo
+        else
+          idof = idof + 3
+        endif
+      enddo
     enddo
 
     return
@@ -1853,7 +1830,7 @@ contains
   !!
   !*************************************************************************
   !
-  Subroutine GetSpringForces( rp, kspring )
+  Subroutine GetSpringForces(rp, kspring)
     implicit none
     type(rxp) :: rp
     integer :: i, j, k, nb, na
@@ -1864,23 +1841,21 @@ contains
     rp%vspring = 0.d0
 
     do i = 2, nb
-       do j = 1, na
-          do k = 1, 3
+      do j = 1, na
+        do k = 1, 3
 
-             dr = rp%cx(i)%r(k,j) - rp%cx(i-1)%r(k,j)
-             rp%vspring = rp%vspring + kspring * dr * dr
+          dr = rp%cx(i)%r(k, j) - rp%cx(i-1)%r(k, j)
+          rp%vspring = rp%vspring + kspring * dr * dr
 
-             rp%cx(i)%dvdr(k,j) = rp%cx(i)%dvdr(k,j) + 2.d0 * kspring * dr
-             rp%cx(i-1)%dvdr(k,j) = rp%cx(i-1)%dvdr(k,j) - 2.d0 * kspring * dr
+          rp%cx(i)%dvdr(k, j) = rp%cx(i)%dvdr(k, j) + 2.d0 * kspring * dr
+          rp%cx(i-1)%dvdr(k, j) = rp%cx(i-1)%dvdr(k, j) - 2.d0 * kspring * dr
 
-          enddo
-       enddo
+        enddo
+      enddo
     enddo
 
     return
   end Subroutine GetSpringForces
-
-
 
 
   !
@@ -1897,70 +1872,67 @@ contains
   !!
   !*************************************************************************
   !
-  Subroutine StripInactiveFromPath( rp, stripfile, FixedDOF, FixedAtom, NDOFconstr, Natomconstr, UpdateCons)
+  Subroutine StripInactiveFromPath(rp, stripfile, FixedDOF, FixedAtom, NDOFconstr, Natomconstr, UpdateCons)
     implicit none
     type(rxp) :: rp
-    integer :: i, j, k, nb, na, isum,l,icount
+    integer :: i, j, k, nb, na, isum, l, icount
     integer :: tmpFixedDOF(3*NAMAX), tmpNDOFconstr, tmpFixedAtom(NAMAX), tmpNatomconstr
     integer :: FixedDOF(3*NAMAX), NDOFconstr, FixedAtom(NAMAX), Natomconstr, tmpatomidx(3)
     logical :: UpdateCons, isochk
-    logical, allocatable :: keep_atom(:), keep_start(:), keep_end(:), found(:)
-    character*(*) :: stripfile
+    logical, dimension(:), allocatable :: keep_atom, keep_start, keep_end, found
+    character (len=*) :: stripfile
 
     na = rp%na
     nb = rp%nimage
-    allocate( keep_atom(na), keep_start(NMOLMAX), keep_end(NMOLMAX), found(na) )
-
+    allocate(keep_atom(na), keep_start(NMOLMAX), keep_end(NMOLMAX), found(na))
 
     ! First, get graphs and molecules for end-points.
     !
-    Call GetGraph( rp%cx(1) )
-    Call GetGraph( rp%cx(nb) )
+    call GetGraph(rp%cx(1))
+    call GetGraph(rp%cx(nb))
 
-    Call GetMols( rp%cx(1) )
-    Call GetMols( rp%cx(nb) )
-
+    call GetMols(rp%cx(1))
+    call GetMols(rp%cx(nb))
 
     ! Identify which atoms have changed bonding.
     !
     keep_atom(:) = .true.
     do k = 1, na
-       isum = 0
-       do i = 1, na
-          isum = isum + abs(rp%cx(1)%graph(k,i) - rp%cx(nb)%graph(k,i))
-       enddo
-       if (isum == 0)keep_atom(k) = .false.
+      isum = 0
+      do i = 1, na
+        isum = isum + abs(rp%cx(1)%graph(k, i) - rp%cx(nb)%graph(k, i))
+      enddo
+      if (isum == 0) keep_atom(k) = .false.
     enddo
-
 
     ! Identify which molecules need to be kept...
     !
     keep_start(:) = .false.
     keep_end(:) = .false.
     do k = 1, na
-       if (keep_atom(k)) then
-          do i = 1, rp%cx(1)%nmol
-             do j = 1, rp%cx(1)%namol(i)
-                if (rp%cx(1)%molid(i,j) == k)keep_start(i) = .true.
-             enddo
+      if (keep_atom(k)) then
+        do i = 1, rp%cx(1)%nmol
+          do j = 1, rp%cx(1)%namol(i)
+            if (rp%cx(1)%molid(i, j) == k) keep_start(i) = .true.
           enddo
-          do i = 1, rp%cx(nb)%nmol
-             do j = 1, rp%cx(nb)%namol(i)
-                if (rp%cx(nb)%molid(i,j) == k)keep_end(i) = .true.
-             enddo
+        enddo
+        do i = 1, rp%cx(nb)%nmol
+          do j = 1, rp%cx(nb)%namol(i)
+            if (rp%cx(nb)%molid(i, j) == k) keep_end(i) = .true.
           enddo
-       endif
+        enddo
+      endif
     enddo
 
     ! Check pairs of molecules and see if they are the same on both sides, if
     ! they
     do i = 1, rp%cx(1)%nmol ; if (keep_start(i)) cycle
       do j = 1, rp%cx(nb)%nmol ; if (keep_end(j)) cycle
-        if ( rp%cx(1)%namol(i) .eq. rp%cx(nb)%namol(j) ) then
-          if ( sum(abs(rp%cx(1)%molid(i,:rp%cx(1)%namol(i))-rp%cx(nb)%molid(j,:rp%cx(nb)%namol(j)))) .eq. 0) then
+        if (rp%cx(1)%namol(i) .eq. rp%cx(nb)%namol(j)) then
+          if (sum(abs(rp%cx(1)%molid(i, :rp%cx(1)%namol(i)) - rp%cx(nb)%molid(j, :rp%cx(nb)%namol(j)))) .eq. 0) then
 !           if (.not.MoleculesAreSame(rp%cx(1),i,rp%cx(nb),j)) then
-             keep_start(i) = .true.
-             keep_end(j) = .true.
+            keep_start(i) = .true.
+            keep_end(j) = .true.
 !           endif
           endif
         endif
@@ -1971,33 +1943,30 @@ contains
     !
     found(1:na) = .false.
     do i = 1, rp%cx(1)%nmol
-       if (keep_start(i)) then
-          do j = 1, rp%cx(1)%namol(i)
-             l = rp%cx(1)%molid(i,j)
-             found(l) = .true.
-          enddo
-       endif
+      if (keep_start(i)) then
+        do j = 1, rp%cx(1)%namol(i)
+          l = rp%cx(1)%molid(i, j)
+          found(l) = .true.
+        enddo
+      endif
     enddo
     do i = 1, rp%cx(nb)%nmol
-       if (keep_end(i)) then
-          do j = 1, rp%cx(nb)%namol(i)
-             l = rp%cx(nb)%molid(i,j)
-             if (.not.found(l)) then
-                found(l) = .true.
-             endif
-          enddo
-       endif
+      if (keep_end(i)) then
+        do j = 1, rp%cx(nb)%namol(i)
+          l = rp%cx(nb)%molid(i, j)
+          if (.not.found(l)) then
+            found(l) = .true.
+          endif
+        enddo
+      endif
     enddo
-
-
 
     ! Count the number of atoms remaining.
     !
     icount = 0
     do i = 1, na
-       if (found(i)) icount = icount + 1
+      if (found(i)) icount = icount + 1
     enddo
-
 
     if (UpdateCons) then
       !  Update the contraints matrix:
@@ -2010,7 +1979,7 @@ contains
           do k = 3*(i-1)+1, 3*(i-1)+3
             l = l + 1
             do j = 1, NDOFconstr
-              if ( FixedDOF(j) .eq. k ) then
+              if (FixedDOF(j) .eq. k) then
                 tmpNDOFconstr = tmpNDOFconstr +1
                 tmpFixedDOF(tmpNDOFconstr) = l
               endif
@@ -2027,9 +1996,9 @@ contains
         if (found(i)) then
           k = k + 1
           do j = 1, Natomconstr
-            if (FixedAtom(j) .eq. i ) then
-             tmpNatomconstr = tmpNatomconstr + 1
-             tmpFixedAtom(tmpNatomconstr) = k
+            if (FixedAtom(j) .eq. i) then
+              tmpNatomconstr = tmpNatomconstr + 1
+              tmpFixedAtom(tmpNatomconstr) = k
             endif
           enddo
         endif
@@ -2045,20 +2014,20 @@ contains
       do i = 1, na
         if (found(i)) then
           k = k + 1
-          if (i .eq. atomidx(1) ) then
+          if (i .eq. atomidx(1)) then
             tmpatomidx(1) = k
           endif
-          if (i .eq. atomidx(2) ) then
+          if (i .eq. atomidx(2)) then
             tmpatomidx(2) = k
           endif
-          if (i .eq. atomidx(3) ) then
+          if (i .eq. atomidx(3)) then
             tmpatomidx(3) = k
           endif
         endif
       enddo
-      if ( tmpatomidx(1) .eq. 0 .or. tmpatomidx(2) .eq. 0 .or. tmpatomidx(3) .eq. 0 ) then
-        write(logfile,'("Warning: could not find one of the aligned atoms indecies, switching to automatic")')
-        atomidx = (/0,0,0/)
+      if (tmpatomidx(1) .eq. 0 .or. tmpatomidx(2) .eq. 0 .or. tmpatomidx(3) .eq. 0) then
+        write(logfile, '("Warning: could not find one of the aligned atoms indecies, switching to automatic")')
+        atomidx = (/0, 0, 0/)
       else
         atomidx = tmpatomidx
       endif
@@ -2069,23 +2038,24 @@ contains
     open(31, file=stripfile, status='unknown')
     do i = 1, nb
 
-       ! Write number of atoms and header
-       !
-       write(31,*)icount
-       write(31,*)
+      ! Write number of atoms and header
+      !
+      write(31, *) icount
+      write(31, *)
 
-       do j = 1, na
-          if (found(j)) then
-             write(31,*)rp%cx(i)%atomlabel(j),rp%cx(i)%r(1,j)*bohr_to_ang, &
-                  rp%cx(i)%r(2,j)*bohr_to_ang, &
-                  rp%cx(i)%r(3,j)*bohr_to_ang
-          endif
-       enddo
+      do j = 1, na
+        if (found(j)) then
+          write(31, *) rp%cx(i)%atomlabel(j), rp%cx(i)%r(1, j)*bohr_to_ang, &
+              rp%cx(i)%r(2, j)*bohr_to_ang, &
+              rp%cx(i)%r(3, j)*bohr_to_ang
+        endif
+      enddo
     enddo
     close(31)
 
     return
   end Subroutine StripInactiveFromPath
+
 
   !
   !*************************************************************************
@@ -2100,13 +2070,15 @@ contains
   !
   function errorr(one,two,na)
     integer :: i, j, k, l, m, n, nd, nb, na
-    real(8) :: one(3,na), two(3,na), errorr
+    real(8) :: errorr
+    real(8), dimension(3, na) :: one, two
     errorr = 0.0d0
     do i = 1, na
-     do j = 1, 3
-      errorr = errorr + abs(one(j,i)-two(j,i))
-     enddo
+      do j = 1, 3
+        errorr = errorr + abs(one(j, i)-two(j, i))
+      enddo
     enddo
+
   end function
 
 
