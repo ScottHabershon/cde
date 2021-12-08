@@ -83,6 +83,8 @@ contains
       enddo
       close(18)
 
+    elseif (trim(pestype) == 'xtb') then
+      ! xTB doesn't need an input file, so ignore.
     endif
 
     return
@@ -146,6 +148,8 @@ contains
     else if (trim(pesopttype) == 'uff') then
       ! If pesopttype is UFF, there isn't actually anything to do!.
       !
+    elseif (trim(pesopttype) == 'xtb') then
+      ! xTB doesn't need an input file, so ignore.
     endif
 
     return
@@ -233,6 +237,9 @@ contains
         case('uff')
           call UFFcalc(cx, minimize, success)
 
+        case('xtb')
+          call xTBcalc(cx, minimize, success)
+
         case('null')
           cx%vcalc = 0.d0
           cx%dvdr(:, :) = 0.d0
@@ -294,6 +301,9 @@ contains
 
           case('uff')
             call UFFcalc(cxtemp(i), minimize, success)
+
+          case('xtb')
+            call xTBcalc(cx, minimize, success)
 
           case('null')
             cxtemp(i)%vcalc = 0.d0
@@ -942,6 +952,103 @@ contains
 
     return
   end Subroutine DFTBcalc
+
+  !
+  !************************************************************************
+  !> xTBcalc
+  !!
+  !! Performs a single-point energy and force calculation using xTB.
+  !!
+  !! - cx: Chemical structure object.
+  !! - minimize: logical flag indicating whether or not to run a
+  !!             geometry optimization calculation.
+  !! - success: Flag indicating success of calculation.
+  !!
+  !************************************************************************
+  !
+  subroutine xTBcalc(cx, minimize, success)
+    implicit none
+    type(cxs), intent(inout) :: cx
+    logical, intent(in) :: minimize
+    logical, intent(out) :: success
+    logical :: there
+    character(len=20) :: cdum
+    character(len=100) :: cmsg, str
+    integer :: i, estat, cstat, ios
+
+    success = .true.
+
+    ! Clear out current xTB output files.
+    call execute_command_line(&
+        'rm -f charges xtbin.engrad xtbin.xyz xtbopt.xyz xtbopt.log xtb.out &
+        &energy gradient wbo xtbrestart xtbtopo.mol .xtboptok', &
+        wait=.true., exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
+
+    ! xTB input file is a simple xyz, so export this.
+    call PrintCXSToFile(cx, 'xtbin.xyz', 0.d0)
+
+    ! Run calculation.
+    if (minimize) then
+      str = trim(PESOPTEXEC) // 'xtbin.xyz > xtb.out' ! done with xtb --opt normal --grad
+    else
+      str = trim(PESExec) // 'xtbin.xyz > xtb.out' !done with xtb --grad
+    endif
+    call ExecuteCalculation(str, success)
+
+    ! Read forces.
+    ! Read this directly from the 'gradient' file, with an offset of cnum+2.
+    inquire(file='gradient', exist=there)
+    if (.not. there) then
+      stop '"gradient" file missing from xTB calculation.'
+    endif
+    open(21, file='gradient', status='unknown')
+    do i = 1, cx%na+2
+      read(21, *, iostat=ios) cdum
+      if (ios /= 0) then
+        stop 'Error 1 reading xTB "gradient" file.'
+      endif
+    enddo
+    do i = 1, cx%na
+      read(21, *, iostat=ios) cx%dvdr(1, i), cx%dvdr(2, i), cx%dvdr(3, i)
+      if (ios /= 0) then
+        stop 'Error 2 reading xTB "gradient" file.'
+      endif
+    enddo
+    close(unit=21)
+
+    ! Change forces to derivatives
+    cx%dvdr(:, :) = -cx%dvdr(:, :)
+
+    ! Read energy.
+    ! Read this directly from either 'energy' or 'xtbin.engrad', whichever is easiest.
+    inquire(file='xtbin.engrad', exist=there)
+    if (.not. there) then
+      stop '"xtbin.engrad" file missing from xTB calculation.'
+    endif
+    open(21, file='xtbin.engrad', status='unknown')
+    do i = 1, 7
+      read(21, *, iostat=ios) cdum
+      if (ios /= 0) then
+        stop 'Error 1 reading xTB "xtbin.engrad" file.'
+      endif
+    enddo
+    read(21, *, iostat=ios) cx%vcalc
+    if (ios /= 0) then
+      stop 'Error 2 reading xTB "xtbin.engrad" file.'
+    endif
+    close(unit=21)
+
+    ! Read in optimised coordinates if necessary.
+    if (minimize) then
+      inquire(file='.xtboptok', exist=there)
+      if (there) then
+        stop 'xTB optimisation failed. Consider increasing the number of SCF iterations.'
+      endif
+      call ReadOptimizedCoordinates(cx, 'xtbopt.xyz')
+    endif
+
+    return
+  end subroutine xTBcalc
 
 
   !
