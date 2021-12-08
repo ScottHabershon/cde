@@ -972,11 +972,13 @@ contains
     logical, intent(in) :: minimize
     logical, intent(out) :: success
     logical :: there
+    character(len=1) :: smrk
     character(len=20) :: cdum
     character(len=100) :: cmsg, str
     integer :: i, estat, cstat, ios
 
     success = .true.
+    smrk = '"'
 
     ! Clear out current xTB output files.
     call execute_command_line(&
@@ -989,11 +991,17 @@ contains
 
     ! Run calculation.
     if (minimize) then
-      str = trim(PESOPTEXEC) // 'xtbin.xyz > xtb.out' ! done with xtb --opt normal --grad
+      write(str, '(A, 1X, A)') trim(PESOPTEXEC), 'xtbin.xyz > xtb.out' ! done with xtb --opt normal --grad
     else
-      str = trim(PESExec) // 'xtbin.xyz > xtb.out' !done with xtb --grad
+      write(str, '(A, 1X, A)') trim(PESExec), ' xtbin.xyz > xtb.out' ! done with xtb --grad
     endif
-    call ExecuteCalculation(str, success)
+    call execute_command_line(str, wait=.true., exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
+
+    ! Check calculation ran correctly.
+    if (cstat .gt. 0) then
+      print *, 'xTB failed with error message: ', cmsg
+      stop
+    endif
 
     ! Read forces.
     ! Read this directly from the 'gradient' file, with an offset of cnum+2.
@@ -1041,11 +1049,17 @@ contains
     ! Read in optimised coordinates if necessary.
     if (minimize) then
       inquire(file='.xtboptok', exist=there)
-      if (there) then
+      if (.not. there) then
         stop 'xTB optimisation failed. Consider increasing the number of SCF iterations.'
       endif
       call ReadOptimizedCoordinates(cx, 'xtbopt.xyz')
     endif
+
+    ! Clear out current xTB output files.
+    call execute_command_line(&
+        'rm -f charges xtbin.engrad xtbin.xyz xtbopt.xyz xtbopt.log xtb.out &
+        &energy gradient wbo xtbrestart xtbtopo.mol .xtboptok', &
+        wait=.true., exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
 
     return
   end subroutine xTBcalc
@@ -1703,7 +1717,7 @@ contains
 
     estat = 1 ; cstat = 0 ; cmsg = ''
 
-    call execute_command_line(str, EXITSTAT=estat, CMDSTAT=cstat, CMDMSG=cmsg)
+    call execute_command_line(str, EXITSTAT=estat, CMDSTAT=cstat, CMDMSG=cmsg, wait=.true.)
 
     ! print*
 
