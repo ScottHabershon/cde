@@ -27,6 +27,8 @@ SRC = \
 
 OBJ = $(SRC:%.f90=%.o)
 
+prog: $(EXE) clean
+
 $(EXE):	$(OBJ)
 	mkdir -p bin
 	$(FC) $(FFLAGS) -o $@ $(OBJ) $(LIBS)
