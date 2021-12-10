@@ -129,7 +129,7 @@ contains
             write(logfile,'("- Calculation type:  MOLECULE PROPERTY OPTIMIZATION")')
           else if (calctype == 'pathfind') then
             write(logfile,'("- Calculation type:  REACTION-PATH FINDER")')
-          else if (calctype == 'netgrow') then
+          else if (calctype == 'netgrow' .or. calctype == 'netgrow2') then
             write(logfile,'("- Calculation type:  NETWORK GENERATION")')
           else
             stop 'ERROR: Unknown calctype in input file (options: optpath, molopt, pathfind, &

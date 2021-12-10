@@ -112,7 +112,9 @@ Program CDE
      write(logfile,'("* Starting single-ended network generation calculation..."/)')
      Call RunNetGrow()
 
-
+  case ('netgrow2')
+    write(logfile,'("* Starting single-ended network generation calculation..."/)')
+    Call RunNetGrow2()
 
 
   case default

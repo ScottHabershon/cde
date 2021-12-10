@@ -1503,6 +1503,10 @@ contains
   !      print*,'atomcheck:',i,ix(i),atomchange(ix(i))
         if (.not.atomchange(ix(i))) then
           errflag = .TRUE.
+          ! write(6, *) 'err 1'
+          ! write(6, *) imove, i, namove(imove)
+          ! write(6, *) moveatoms(irxn, :) ! The indices of the atoms
+          ! write(6, *) atomchange(ix(:))
           exit outer
         endif
       enddo
@@ -3311,6 +3315,362 @@ contains
 
     return
   end Subroutine RunNetGrow
+
+
+  !************************************************************************
+  !> RunNetGrow2
+  !!
+  !! Runs automatic growth of a reaction network, based on allowed
+  !! graph-moves. Generates nmcrxn random reaction pathways step-by-step,
+  !! with stepwise optimisation (if enabled).
+  !!
+  !************************************************************************
+  !
+  subroutine RunNetGrow2()
+    implicit none
+    integer :: i, irx, istep, cyccount
+    integer, dimension(NAMAX) :: rxindex
+    integer, dimension(:), allocatable :: movenum, movenum_store
+    integer, dimension(:, :), allocatable :: moveatoms, moveatoms_store
+    integer, dimension(:, :), allocatable :: chargemove, chargemove_store
+    type(cxs) :: cx_start
+    type(cxs), dimension(:), allocatable :: cx, wcx
+    logical :: errflag, cyc, ChangeCharges
+    logical, dimension(:), allocatable :: atomchange
+    logical, dimension(:, :), allocatable :: bondchange
+    real(8) :: err_real_blank
+    character (len=4) :: x1
+    character (len=12) :: fout
+    
+    ! Whatever is in the input file, set igfunc to zero here...it's irrelevant for the
+    ! purposes of single-ended network generation:
+    igfunc = 0
+
+    ! Open output file mcopt.dat to print graph-error function.
+    write(logfile, '("* Running network-generation calculation...."/)')
+    call flush(logfile)
+    
+    ! Assign the start-point structure from the input files, startfile. 
+    ! Note that startfile is read from the main input file.
+    write(logfile, '("* Reading reactant structure...")')
+    call flush(logfile)
+    call ReadCXS(cx_start, startfile)
+    call SetMass(cx_start)
+    call GetGraph(cx_start)
+    call Getmols(cx_start)
+    call PrintCXSGraphInfo(cx_start, logfile, "Reactant structure")
+
+    ! Allocate space for atomchange and bondchange arrays - these will indicate at each MC search
+    ! step which atoms and bonds are allowed to change.
+    na = cx_start%na
+    allocate(atomchange(na))
+    allocate(bondchange(na, na))
+
+    ! Read the graphmoves.
+    call ReadGraphMoves(movefile)
+
+    ! Based on the movefile, decide whether or not we're also going to have to
+    ! consider changes in charge states too.
+    ChangeCharges = .FALSE.
+    checkChg: do i = 1, ngmove
+      if (namove(i) == 0) then
+        write(logfile, '("* ChangeCharges ENABLED.")')
+        ChangeCharges = .TRUE.
+        exit checkChg
+      endif
+    enddo checkChg
+    if (.not. ChangeCharges) then
+      write(logfile, '("* ChangeCharges DISABLED")')
+    endif
+
+    ! Create space for the TOTAL reaction-string. This is defined by
+    ! nrxn in the input file. Here, nrxn defines the (maximum) number of reactions
+    ! which can occur. Here, cx(1) is the structure formed after application of reaction
+    ! 1 to the cx_start, cx(2) is the structure formed after application of reaction 2 to
+    ! cx(1), and so on....
+    !
+    allocate(cx(nrxn))
+  
+    ! Copy all aspects of the start-point structure to the intermediates for consistency:
+    do i = 1, nrxn
+      call CopytoNewCXS(cx_start, cx(i))
+      call SetMass(cx(i))
+    enddo
+
+    ! Allocate space for the moves:
+    allocate(movenum(nrxn))
+    allocate(moveatoms(nrxn,NAMOVEMAX))
+    allocate(movenum_store(nrxn))
+    allocate(moveatoms_store(nrxn,NAMOVEMAX))
+    if (ChangeCharges) then
+      allocate(chargemove(nrxn,NMOLMAX))
+      allocate(chargemove_store(nrxn,NMOLMAX))
+    endif
+
+    ! Set all the initial moves to be null moves.
+    write(logfile,'("* Setting all initial moves to null...")')
+    call flush(logfile)
+    do i = 1, nrxn
+      movenum(i) = 0
+      moveatoms(i,1:NAMOVEMAX) = 0
+    enddo
+
+    ! Zero the charges for all molecules along the starting path...
+    cx_start%molcharge(:) = 0
+    do i = 1, nrxn
+      cx(i)%molcharge(:) = 0
+      chargemove(i,:) = 0
+    enddo
+
+    ! Check valences of zeroed reaction path (ie. just the starting structure) are valid.
+    call PropagateGraphs(cx_start, cx, nrxn, movenum, moveatoms, errflag, err_real_blank)
+    if (errflag) then
+      write(logfile, '("** ERROR: invalid valences in starting structure. **")')
+      stop
+    else
+      write(logfile, '("* Valence check complete, all starting valences are valid.")')
+    endif
+
+    write(logfile,'("*** Starting reaction-path search ***"/)')
+    call flush(logfile)
+
+    ! Loop over nmcrxn mechanisms, generating a new full mechanism each time.
+    mcloop: do irx = 1, nmcrxn
+      write(logfile, '("--------------------------------------------------------------")')
+      write(logfile, '("Reaction mechanism: ", I7)') irx
+      write(logfile, '("--------------------------------------------------------------")')
+
+      ! Copy blank reaction path to the working reaction path.
+      allocate(wcx(nrxn))
+      do i = 1, nrxn
+        call CopytoNewCXS(cx_start, wcx(i))
+        call SetMass(wcx(i))
+      enddo
+
+      ! Reset all the initial moves to be null moves.
+      write(logfile,'("* Setting all initial moves to null...")')
+      call flush(logfile)
+      do i = 1, nrxn
+        movenum(i) = 0
+        moveatoms(i, 1:NAMOVEMAX) = 0
+        movenum_store(i) = 0
+        moveatoms_store(i, 1:NAMOVEMAX) = 0
+      enddo
+
+      ! Loop over steps in reaction
+      rxloop: do istep = 1, nrxn
+        write(logfile, '("* Generating a move for reaction step ", I3, "/", I3)') istep, nrxn
+
+        cyc = .true.
+        cyccount = 0
+        stepgen: do while (cyc)
+          cyccount = cyccount + 1
+          ! Check the loop isn't spiralling out of control.
+          if (cyccount .ge. 100) then
+            write(logfile, '("ERROR: failed to find a valid move within 100 attempts. Stopping here.")')
+            stop
+          endif
+
+          ! Create a move at this mechanism step.
+          call UpdateMechanismStep(nrxn, movenum, moveatoms, bondchange, atomchange, &
+              & na, cx_start, wcx, istep, rxindex, cyc, movenum_store, moveatoms_store)
+
+          if (cyc) then
+            write(logfile, '("- Trial move ", I3, " failed, cycling.")') cyccount
+            ! UpdateMechanismStep already restores moves from stores upon failure, so no need
+            ! to do that here.
+            cycle stepgen
+          endif
+
+          write(logfile, '("- Trial move ", I3, " successful.")') cyccount
+          write(logfile, '("- Checking validity of valences under new move...")')
+
+          ! Now check if valences are still valid. Would like to nly check up to generated step limit,
+          ! but this breaks PropagateGraphs for some reason. Needs further investigation.
+          call PropagateGraphs(cx_start, wcx, nrxn, movenum, moveatoms, errflag, err_real_blank)
+
+          if (errflag) then
+            write(logfile, '("- Invalid valences detected from trial move ", I3, ", cycling.")') cyccount
+            movenum(:) = movenum_store(:)
+            moveatoms(:,:) = moveatoms_store(:,:)
+            cyc = .true.
+            cycle stepgen
+          endif
+
+          write(logfile, '("- Valence check complete, all current valences are valid.")')
+          flush(logfile)
+
+          ! Update charges if necessary.
+          if (ChangeCharges) then
+            ! call UpdateCharges()
+            write(logfile, '("- Updating charges currently not supported in stepwise mechanism generation.")')
+          endif
+
+        end do stepgen
+
+        ! Relax the structure generated by this move with respect to the reaction path so far.
+        ! This will also call structure optimisations if optaftermove is enabled.
+        write(logfile, '("* Relaxing geometries of currently generated reaction steps.")')
+        call GraphsToCoords(cx_start, wcx, istep, .false., '')
+        write(logfile, '("* Relaxation done, proceeding to next reaction step.")')
+        write(logfile, '("")')
+        flush(logfile)
+
+      enddo rxloop
+
+      write(logfile, '("* Mechanism generation complete, generating final structures&
+          & for reaction mechanism ", I7, ".")') irx
+
+      ! Do final optimisation (shouldn't actually do anything, just re-evaluate energies) and
+      ! output final reaction path.
+      write(x1, '(I4.4)') irx
+      write(fout, '("rxn_", A, ".xyz")') trim(x1)
+      call GraphsToCoords(cx_start, wcx, nrxn, .true., fout)
+
+      write(logfile, '("--------------------------------------------------------------")')
+      write(logfile, '("")')
+
+      deallocate(wcx)
+
+    enddo mcloop
+
+    write(logfile, '("*** All requested reaction mechanisms found, exiting CDE. ***")')
+    call flush(logfile)
+
+    ! Clean up memory.
+    !
+    deallocate(movenum)
+    deallocate(moveatoms)
+    deallocate(movenum_store)
+    deallocate(moveatoms_store)
+    if (ChangeCharges) then
+      deallocate(chargemove)
+      deallocate(chargemove_store)
+    endif
+    
+    return
+  end subroutine RunNetGrow2
+
+
+  !**********************************************************************************************
+  !> UpdateMechanismStep
+  !!
+  !! Performs a trial move on a specified step of a mechanism by modifying a current 
+  !! mechanism string by either changing a move and its atoms, or just changing the 
+  !! atoms of an exisiting move.
+  !!
+  !! nrxn - Number of reactions in mechanism.
+  !! cx_start - Chemical structure object for reactants.
+  !! cx(nrxn) - Chemical structure objects for products of each reaction. These come from the
+  !!            subroutine GraphsToCoords().
+  !!
+  !**********************************************************************************************
+  !
+  Subroutine UpdateMechanismStep(nrxn, movenum, moveatoms, bondchange, atomchange, &
+        & na, cx_start, cx, irx, rxindex, cyc, movenum_store, moveatoms_store)
+    implicit none
+    integer :: na, irx, itype, imove, nmove,im,i,j
+    real(8) :: rx, ir
+    type(cxs) :: cx_start, cx(nrxn)
+    integer :: nrxn, movenum(nrxn), moveatoms(nrxn,NAMOVEMAX)
+    logical :: bondchange(na,na), atomchange(na), fail, cyc
+    integer :: movenum_store(nrxn), moveatoms_store(nrxn,NAMOVEMAX)
+    integer :: rxindex(NAMAX), nrx
+
+    ! Set the loop cycle flag for return
+    cyc = .FALSE.
+
+    ! Store the previous move.
+    movenum_store(:) = movenum(:)
+    moveatoms_store(:,:) = moveatoms(:,:)
+
+    ! Decide which type of move to perform - change atoms or change both move and atoms.
+    ! However, if the move-number of reaction irx is zero (i.e. a null reaction) then we must
+    ! insist on itype = 2.
+    if (movenum(irx) == 0) then
+      itype = 2
+    else
+      call random_number(rx)
+
+      if (rx < 0.5d0) then
+        itype = 1
+      else
+        itype = 2
+      endif
+    endif
+
+    ! Get the allowed reactivity indices for the graph preceding this reaction...
+    if (irx == 1) then
+      call SetReactiveIndices(bondchange, atomchange, na, cx_start, rxindex, nrx)
+    else
+      call SetReactiveIndices(bondchange, atomchange, na, cx(irx-1), rxindex, nrx)
+    endif
+
+    ! Now change reaction irx to some new reaction.....
+    select case(itype)
+
+      !************************************************************
+      ! Change atom labels of existing move.
+      !************************************************************
+      case (1)
+
+        ! Select new reactive atoms from rxindex.
+        imove = movenum(irx)
+        call SelectMoveAtoms(imove, moveatoms, nrxn, irx, rxindex, nrx, fail, atomchange, &
+            & bondchange, na, cx, cx_start)
+
+        ! If we've failed to find atoms, restore the previous and cycle...
+        if (fail) then
+          movenum(:) = movenum_store(:)
+          moveatoms(:, :) = moveatoms_store(:, :)
+          cyc = .TRUE.
+          return
+        endif
+
+      !************************************************************
+      ! Change both atom labels and move type.
+      !************************************************************
+      !
+      case (2)
+
+        ! Choose a new move-type - note that this CAN include a null move, so we
+        ! don't add "1" at the end....
+      51  call random_number(ir)
+
+        movenum(irx) = int( dble(ngmove+1) * ir )         !!!!!!!!!!
+        !  51    movenum(irx) = 1 + int( dble(ngmove) * ran2(irun,0.d0,1.d0))
+
+        if (movenum(irx) == movenum_store(irx))goto 51
+
+        ! Select new reactive atoms from rxindex.
+        imove = movenum(irx)
+
+        if (imove == 0) then
+          moveatoms(irx, 1:NAMOVEMAX) = 0
+        else
+
+          ! Select new reactive atoms from rxindex.
+          Call SelectMoveAtoms(imove,moveatoms,nrxn,irx,rxindex,nrx,fail,atomchange, &
+          bondchange,na,cx,cx_start)
+
+          ! If we've failed to find atoms, restore the previous and cycle...
+          !
+          if (fail) then
+            movenum(:) = movenum_store(:)
+            moveatoms(:,:) = moveatoms_store(:,:)
+            cyc = .TRUE.
+            return
+          endif
+
+        endif
+
+      case default
+        stop 'Unknown case for itype in UpdateMechanismStep. Something has gone wrong with the RNG.'
+
+    end select
+
+    return
+  end Subroutine UpdateMechanismStep
   
 
 
