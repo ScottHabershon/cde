@@ -1025,7 +1025,7 @@ contains
     close(unit=21)
 
     ! Change forces to derivatives
-    cx%dvdr(:, :) = -cx%dvdr(:, :)
+    ! cx%dvdr(:, :) = -cx%dvdr(:, :)
 
     ! Read energy.
     ! Read this directly from either 'energy' or 'xtbin.engrad', whichever is easiest.
