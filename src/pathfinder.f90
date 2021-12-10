@@ -3111,70 +3111,55 @@ contains
   !
   Subroutine RunNetGrow( )
     implicit none
-    real(8) :: error, error_old, rx, vbest, ir
-    real(8) :: x,y,z, gsum, Qvalue, Qvalue2,dE, Qmax,error_temp,bsum
-    integer :: ii, imove, irx, itype,k,it,ncount,imcount,nsuccess,ia,nn,ncharge,TotalCharge
-    integer :: i, j, imc, ix(NAMOVEMAX), na,isum,isum2,i1,i2,im1(NRXNMAX),im2(NRXNMAX)
-    integer :: iend,counter
-    integer, allocatable ::  movenum(:), moveatoms(:,:)
-    integer, allocatable ::  msmovenum(:,:), msmoveatoms(:,:,:)
-    integer, allocatable :: chargemove(:,:), chargemove_store(:,:)
-    type (cxs) :: cx_start, cx_end
-    type(cxs), allocatable :: cx(:), cxtemp(:)
-    logical :: errflag, fail, success
-    logical :: printflag,cyc, errx,ChangeCharges
-    logical, allocatable :: atomchange(:), bondchange(:,:)
-    integer :: rxindex(NAMAX), nrx
-    integer, allocatable :: movenum_store(:), moveatoms_store(:,:)
-    integer :: itry, idof, irxn
-    real(8) :: beta, fac, mctstore, vbe, TotalError, grapherror,maxbarrier
-    type(rxp) :: rp
+    integer :: i, imc, counter
+    integer, dimension(NAMAX) :: rxindex
+    integer, dimension(:), allocatable :: movenum, movenum_store
+    integer, dimension(:, :), allocatable :: moveatoms, moveatoms_store
+    integer, dimension(:, :), allocatable :: chargemove, chargemove_store
+    type(cxs) :: cx_start, cx_end
+    type(cxs), dimension(:), allocatable :: cx
+    logical :: errflag, cyc, ChangeCharges
+    logical, dimension(:), allocatable :: atomchange
+    logical, dimension(:, :), allocatable :: bondchange
+    real(8) :: mctstore, vbe, TotalError, grapherror, error_old
     character (len=7) :: x1
-    character (len=8) :: fmt
-    character (len=20) :: printfile, file_root
     character (len=15) :: fout
-
 
     ! Whatever is in the input file, set igfunc to zero here...it's irrelevant for the
     ! purposes of single-ended network generation:
     !
     igfunc = 0
 
-
     ! Open output file mcopt.dat to print graph-error function.
     !
-    write(logfile,'("* Running network-generation calculation...."/)')
+    write(logfile, '("* Running network-generation calculation...."/)')
     call flush(logfile)
-    
     
     ! Assign the start-point structure from the input files, startfile. 
     ! Note that startfile is read from the main input file.
     !
-    write(logfile,'(/"* Reading reactant structure...")')
+    write(logfile, '(/"* Reading reactant structure...")')
     call flush(logfile)
-    Call ReadCXS( cx_start, startfile )
-    Call SetMass(cx_start)
-    Call GetGraph( cx_start )
-    Call Getmols(cx_start)
-    Call PrintCXSGraphInfo(cx_start,logfile,"Reactant structure")
+    call ReadCXS(cx_start, startfile)
+    call SetMass(cx_start)
+    call GetGraph(cx_start)
+    call Getmols(cx_start)
+    call PrintCXSGraphInfo(cx_start, logfile, "Reactant structure")
     
     ! Make a copy in cx_end so that the evaluation of graph-error is OK.
     !
-    Call CopytoNewCXS(cx_start,cx_end)
-
+    call CopytoNewCXS(cx_start, cx_end)
 
     ! Allocate space for atomchange and bondchange arrays - these will indicate at each MC search
     ! step which atoms and bonds are allowed to change.
     !
     na = cx_start%na
-    allocate( atomchange(na) )
-    allocate( bondchange(na,na) )
-
+    allocate(atomchange(na))
+    allocate(bondchange(na, na))
 
     ! Read the graphmoves.
     !
-    Call ReadGraphMoves( movefile )
-
+    call ReadGraphMoves(movefile)
 
     ! Based on the movefile, decide whether or not we're also going to have to
     ! consider changes in charge states too.
@@ -3182,10 +3167,11 @@ contains
     ChangeCharges = .FALSE.
     do i = 1, ngmove
       if (namove(i) == 0) then
+        write(logfile, '("* ChangeCharges ENABLED.")')
         ChangeCharges = .TRUE.
+        exit
       endif
     enddo
-
 
     ! Create space for the TOTAL reaction-string. This is defined by
     ! nrxn in the input file. Here, nrxn defines the (maximum) number of reactions
@@ -3193,26 +3179,25 @@ contains
     ! 1 to the cx_start, cx(2) is the structure formed after application of reaction 2 to
     ! cx(1), and so on....
     !
-    allocate( cx(nrxn) )
-
+    allocate(cx(nrxn))
 
     ! Copy all aspects of the end-point structures to the intermediates for consistency:
     !
     do i = 1, nrxn
-      Call CopytoNewCXS( cx_start, cx(i) )
+      Call CopytoNewCXS(cx_start, cx(i))
       Call SetMass(cx(i))
     enddo
 
-
     ! Allocate space for the moves:
     !
-    allocate( movenum(nrxn) )
-    allocate( moveatoms(nrxn,NAMOVEMAX) )
-    allocate( movenum_store(nrxn) )
-    allocate( moveatoms_store(nrxn,NAMOVEMAX) )
-    allocate( chargemove(nrxn,NMOLMAX) )
-    allocate( chargemove_store(nrxn,NMOLMAX))
-
+    allocate(movenum(nrxn))
+    allocate(moveatoms(nrxn,NAMOVEMAX))
+    allocate(movenum_store(nrxn))
+    allocate(moveatoms_store(nrxn,NAMOVEMAX))
+    if (ChangeCharges) then
+      allocate(chargemove(nrxn,NMOLMAX))
+      allocate(chargemove_store(nrxn,NMOLMAX))
+    endif
 
     ! Set all the initial moves to be null moves.
     !
@@ -3223,7 +3208,6 @@ contains
       moveatoms(i,1:NAMOVEMAX) = 0
     enddo
 
-
     ! Zero the charges for all molecules along the starting path...
     !
     cx_start%molcharge(:) = 0
@@ -3232,60 +3216,66 @@ contains
       chargemove(i,:) = 0
     enddo
 
-
     ! Evaluate the initial error, defined as the graph-distance between the
     ! graph resulting from applying nrxn reactions and the graph for the
     ! end-point:
     !
-    write(6,*)'HERE'
     call flush(6)
-    Call GetPathFitness( cx_start, cx_end, cx, nrxn, movenum, moveatoms, errflag, &
-    GraphError, TotalError, vbe )
-    write(6,*)'HERE2'
+    call GetPathFitness( cx_start, cx_end, cx, nrxn, movenum, moveatoms, errflag, &
+        & GraphError, TotalError, vbe )
     call flush(6)
     
-
     ! If an error flag is returned here, something is wrong with the initial path....
     !
-    if (errflag)Stop '* Initial errflag for path is TRUE - something weird going &
-    on with initial path....go check it out....'
-
+    if (errflag) then
+      Stop '* Initial errflag for path is TRUE - something weird going &
+          &on with initial path....go check it out....'
+    endif
 
     ! Output initial errors to logfile.
     !
-    write(logfile,'(/"* Initial Graph Error = ",2x,f10.5/)')GraphError
-    write(logfile,'("* Initial Total Error = ",2x,f10.5/)')TotalError
+    write(logfile,'(/"* Initial Graph Error = ",2x,f10.5/)') GraphError
+    write(logfile,'("* Initial Total Error = ",2x,f10.5/)') TotalError
     call flush(logfile)
 
-
-    ! Loop over MC moves, trying to anneal down to zero error:
+    ! Loop over MC mechanism changes.
     !
     write(logfile,'("*** Starting reaction-path search ***"/)'); call flush(logfile)
     mctstore = mcrxntemp
     counter = 0
-    outer: do imc = 1, nmcrxn
+    imc = 0
+    outer: do while (counter .le. nmcrxn)
+      imc = imc + 1
+      write(logfile, '("Reaction mechanism: ", I7)') imc
 
       ! Make a change to the current reaction-mechanism...
       !
       Call UpdateMechanism(nrxn,movenum,moveatoms,bondchange,atomchange,na,cx_start,cx,rxindex,cyc,&
       movenum_store, moveatoms_store)
-      if (cyc) cycle outer
-
+      if (cyc) then
+        write(logfile, '("Failed to find new atoms for move, cycled past mechanism.")')
+        cycle outer
+      else
+        counter = counter + 1
+        write(logfile, '("Found new atoms for move. Loop counter: ", I7)') counter
+      endif
 
       ! Propagate the graph and evaluate the new error
+      ! This is actually only vebeing used for valency checking, a better function could be implemented here.
       !
-      Call GetPathFitness( cx_start, cx_end, cx, nrxn, movenum, moveatoms, errflag, &
-      GraphError, TotalError, vbe )
-
+      call GetPathFitness(cx_start, cx_end, cx, nrxn, movenum, moveatoms, errflag, &
+          & GraphError, TotalError, vbe)
+      ! call GetPathFitness(cx_start, cx(nrxn), cx(:nrxn-1), nrxn, movenum, moveatoms, &
+      !     & errflag, GraphError, TotalError, vbe)
 
       ! Do we change the charges on the molecules along the path?
       !
-      if (ChangeCharges) Call UpdateCharges(nrxn,cx,chargemove, chargemove_store, errflag)
-
+      if (ChangeCharges) Call UpdateCharges(nrxn, cx, chargemove, chargemove_store, errflag)
 
       ! If errors detected, replace with last sensible path.
       !
       if (errflag) then
+        write(logfile, '("Error detected, restoring last sensible path.")')
         movenum(:) = movenum_store(:)
         moveatoms(:,:) = moveatoms_store(:,:)
         Totalerror = error_old
@@ -3294,134 +3284,30 @@ contains
         endif
       endif
       
-      
       ! Output the structure along the reaction path - if
       ! optaftermove = .TRUE., we also do geometry optimization.
       !
-      fmt = '(I7.7)'
-      counter = counter + 1
-      write (x1,fmt) counter
-      fout = 'rxn_'//trim(x1)//'.xyz'
-      Call GraphsToCoords(cx_start, cx, nrxn, .TRUE., fout )
+      if (mod(counter, 100) == 0) then
+        write (x1, '(I7.7)') counter
+        fout = 'rxn_'//trim(x1)//'.xyz'
+        write(logfile,'("* Generating structures from connectivity matrices."/)')
+        call GraphsToCoords(cx_start, cx, nrxn, .TRUE., fout)
+      endif
 
-      
     enddo outer
-    
-    stop
 
-
-
-
-    ! At this point, we find the first instance of the target molecule(s)
-    ! being formed then set the remainder of movenum to be zero....
-    !
-    Call TrimPath(cx_start, cx_end, cx, nrxn, movenum, moveatoms, iend )
-
-
-    ! Print molecules generated along reaction:
-    !
-    Call PrintMolsAlongPath( nrxn, cx_start, cx_end, cx, movenum,chargemove, &
-    changecharges,moveatoms )
-
-
-    ! At this point, we need to turn graphs into coordinates....
-    !
-    write(logfile,'("* Generating structures from connectivity matrices..."/)')
-    write(logfile,'("* Reaction end-points printed to final_path.xyz"/)')
-    Call GraphsToCoords(cx_start, cx, nrxn, .TRUE., 'final_path.xyz' )
     write(logfile,'("* Finished structure generation."/)')
-
-
-    ! Now we need to do error correction - if the end-point structures have changed due to geometry
-    ! optimization, such that the structures no longer represent the zero-error reaction path, we need to
-    ! work out which reactions "did" happen, then modify the movenum(:) and moveatoms(:,:). We also need to
-    ! check that the reaction-string is still valid.
-    !
-    ! write(6,*)'OPT = ',optaftermove
-    ! if (optaftermove) then
-    !    Call ReactionErrorCorrection(cx_start, cx, nrxn, movenum, moveatoms,errx)
-    !    if (errx) then
-    !      write(logfile,'(/"*** ERROR CORRECTION ATTEMPT FAILED ***"/)')
-    !    else
-    !      write(logfile,'(/"*** ERROR CORRECTION ATTEMPT SUCCESSFUL ***"/)')
-    !      write(logfile,'("\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/")')
-    !      write(logfile,'("*** CORRECTED MECHANISM ***")')
-    !      Call PrintMolsAlongPath( nrxn, cx_start, cx_end, cx, movenum,chargemove,changecharges,moveatoms )
-    !
-    !     ! Recalcualte energy.
-    !      write(6,*)'INTO AbInitio here...',cx_start%nmol;call flush(6)
-    !     Call AbInitio( cx_start, 'ener', success )
-    !     do i = 1, nrxn
-    !       print*,'INTO AbInitio here...',cx(i)%nmol,cx(i)%molcharge(1:cx(i)%nmol)
-    !       Call AbInitio( cx(i), 'ener', success)
-    !     enddo
-    !
-    !   endif
-    ! endif
-
-    ! Calculate and output the energy information, including the calculated Q-value:
-    !
-    if (optaftermove) then
-      open(94,file = 'final_path_energy.dat', status='unknown')
-      write(94,'("# Reaction index | Absolute energy in au | Relative energy of reaction in kJ/mol")')
-      write(94,'("# Energy relative to reactants in kJ/mol")')
-      write(logfile,'("===============        ENERGY INFORMATION         ==============="/)')
-      write(logfile,'("* Initial energy =",3x,f14.8,2x,"Eh")')cx_start%vcalc
-      call flush(logfile)
-      write(94,*)'0  ',cx_start%vcalc, '  0.00 ','   0.00 '
-      Qvalue = 0.d0
-      Qvalue2 = 0.d0
-      Qmax = -1d6
-      ncount = 0
-      do irxn = 1, nrxn
-        if (irxn == 1) then
-          dE = (cx(irxn)%vcalc - cx_start%vcalc) * au_to_kjmol
-        else
-          dE = (cx(irxn)%vcalc - cx(irxn-1)%vcalc) * au_to_kjmol
-        endif
-        write(94,*)irxn,cx(irxn)%vcalc, dE,(cx(irxn)%vcalc-cx_start%vcalc)*au_to_kjmol
-        if (abs(de) > Qmax)Qmax = abs(de)
-        Qvalue2 = Qvalue2 + abs(dE)
-        if (movenum(irxn) /= 0) then
-          ncount = ncount + 1
-          Qvalue = Qvalue + abs(dE)
-        endif
-        write(logfile,'("* Reaction #",1x,i4,1x,":",2x,"dE = ",2x,f14.8)')irxn,dE
-      enddo
-      Qvalue = Qvalue / dble(ncount)
-      write(logfile,'(/"* Final Q-value (NOT averaged over non-zero rxns) =",2x,f16.8,2x,"kJ/mol"/)')Qvalue2
-      write(logfile,'(/"* Number of non-zero reactions =",2x,i4,2x,"kJ/mol"/)')ncount
-      write(logfile,'(/"* Final Q-value (averaged over non-zero rxns) =",2x,f16.8,2x,"kJ/mol"/)')Qvalue
-      write(logfile,'(/"* Maximum dE =",2x,f16.8,2x,"kJ/mol"/)')Qmax
-      write(logfile,'("================================================================"/)')
-      close(94)
-    endif
-
-    ! For each reaction along the path, print nimage intermediate snapshots to file.
-    ! These snapshots can be used for subsequenct NEB calculations.
-    !
-    write(logfile,'("* Reaction paths printed to final_path_rx_*.xyz")'); call flush(logfile)
-    file_root = 'final_path'
-    Call PrintMechanismPaths(nrxn, cx_start, cx, file_root, maxbarrier,bsum,movenum )
-    write(logfile,*)"* Maximum barrier = ",maxbarrier * au_to_kjmol,"kJ/mol";call flush(logfile)
-    write(logfile,*)"* Barrier sum = ",bsum,"au";call flush(logfile)
-
-
-    ! If we're running a calculation with igfunc=4, so we're trying to target formation
-    ! of a specific molecule (or set of molecules), then we need to only focus on
-    ! outputting mechanism and energy data for the set of molecules leading to the target.
-    !
-    if (igfunc == 4)Call AdjustPaths(cx_start, cx_end, cx, nrxn, movenum, moveatoms,iend )
-
 
     ! Clean up memory.
     !
-    deallocate( movenum )
-    deallocate( moveatoms )
-    deallocate( movenum_store )
-    deallocate( moveatoms_store )
-
-    41 Format(i7,3x,f16.7,3x,f16.7,3x,f16.7,3x,f16.7)
+    deallocate(movenum)
+    deallocate(moveatoms)
+    deallocate(movenum_store)
+    deallocate(moveatoms_store)
+    if (ChangeCharges) then
+      deallocate(chargemove)
+      deallocate(chargemove_store)
+    endif
 
     return
   end Subroutine RunNetGrow
