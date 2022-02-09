@@ -85,6 +85,8 @@ contains
 
     elseif (trim(pestype) == 'xtb') then
       ! xTB doesn't need an input file, so ignore.
+    elseif (trim(pestype) == 'aims') then
+      ! FHI-aims handles geometry and control files separately, so no need to insert geometry into a file.
     endif
 
     return
@@ -150,6 +152,8 @@ contains
       !
     elseif (trim(pesopttype) == 'xtb') then
       ! xTB doesn't need an input file, so ignore.
+    elseif (trim(pestype) == 'aims') then
+      ! FHI-aims handles geometry and control files separately, so no need to insert geometry into a file.
     endif
 
     return
@@ -240,6 +244,9 @@ contains
         case('xtb')
           call xTBcalc(cx, minimize, success)
 
+        case('aims')
+          call AIMScalc(cx, minimize, success)
+
         case('null')
           cx%vcalc = 0.d0
           cx%dvdr(:, :) = 0.d0
@@ -304,6 +311,9 @@ contains
 
           case('xtb')
             call xTBcalc(cx, minimize, success)
+
+          case('aims')
+            call AIMScalc(cx, minimize, success)
 
           case('null')
             cxtemp(i)%vcalc = 0.d0
@@ -1076,6 +1086,143 @@ contains
 
     return
   end subroutine xTBcalc
+
+
+  !
+  !************************************************************************
+  !> AIMScalc
+  !!
+  !! Performs a single-point energy and force calculation using FHI-aims.
+  !!
+  !! - cx: Chemical structure object.
+  !! - minimize: logical flag indicating whether or not to run a
+  !!             geometry optimization calculation.
+  !! - success: Flag indicating success of calculation.
+  !!
+  !************************************************************************
+  !
+  subroutine AIMScalc(cx, minimize, success)
+    implicit none
+    type(cxs), intent(inout) :: cx
+    logical, intent(in) :: minimize
+    logical, intent(out) :: success
+    logical :: there
+    real(8) :: xx, yy, zz, e_real
+    character(len=1) :: smrk
+    character(len=25) :: cdum, elemdum, e_str
+    character(len=200) :: cmsg, str
+    integer :: i, estat, cstat, ios
+
+    success = .true.
+    smrk = '"'
+
+    ! Clear out current aims output files.
+    call execute_command_line(&
+        'rm -f aims.out control.in geometry.in geometry.in.next_step', &
+        wait=.true., exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
+
+    ! Write the geometry.in file
+    open(21, file='geometry.in', status='unknown')
+    write(21, '("#===============================================================================")')
+    write(21, '("# FHI-aims file: ./geometry.in")')
+    write(21, '("#===============================================================================")')
+
+    do i = 1, cx%na
+      xx = cx%r(1, i) * bohr_to_ang
+      yy = cx%r(2, i) * bohr_to_ang
+      zz = cx%r(3, i) * bohr_to_ang
+      write(21, '("atom ", 3F14.8, 1X, A2)') xx, yy, zz, cx%atomlabel(i)
+    enddo
+
+    write(21, '("")')
+    close(unit=21)
+
+    ! Copy the correct control template over.
+    if (minimize) then
+      write(str, '("cp ", A, " control.in")') PESoptfile
+    else
+      write(str, '("cp ", A, " control.in")') PESfile
+    endif
+    call execute_command_line(str, wait=.true., exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
+
+    if (estat .ne. 0) then
+      print *, 'Copying control.in failed: ', cmsg
+      stop
+    endif
+
+    ! Run calculation.
+    if (minimize) then
+      write(str, '(A, 1X, A)') trim(PESOPTEXEC), ' > aims.out'
+    else
+      write(str, '(A, 1X, A)') trim(PESExec), ' > aims.out'
+    endif
+    call execute_command_line(str, wait=.true., exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
+
+    ! Check calculation ran correctly.
+    if (estat .ne. 0) then
+      print *, 'FHI-aims failed with error message: ', cmsg
+      stop
+    else
+      print *, 'FHI-aims succeeded!'
+    endif
+
+    ! Check convergence.
+    open(22, file='aims.out', status='unknown')
+    ios = 0
+    do while (ios == 0)
+      read(22, '(A)', iostat=ios) str
+      if (index(str, 'SCF cycle not converged.') .ne. 0) then
+        print *, 'FHI-aims SCF cycle not converged, stopping.'
+        stop
+      endif
+    enddo
+    close(unit=22)
+
+    ! Read in forces and energy.
+    open(22, file='aims.out', status='unknown')
+    ios = 0
+    do while (ios == 0)
+      read(22, '(A)', iostat=ios) str
+      if (ios .ne. 0) print *, 'End of file reached or something has gone wrong.'
+      if (index(str, 'Total energy uncorrected') .ne. 0) then
+        print *, str
+        e_str = str(45:66)
+        read(e_str, *) cx%vcalc
+        cx%vcalc = cx%vcalc * 0.036749405469679
+
+      elseif (index(str, 'Total atomic forces') .ne. 0) then
+        do i = 1, cx%na
+          read(22, *) cdum, idum, cx%dvdr(1, i), cx%dvdr(2, i), cx%dvdr(3, i)
+          cx%dvdr(:, i) = cx%dvdr(:, i) * 0.036749405469679 / 1.88973
+        enddo
+      endif
+    enddo
+    close(unit=22)
+
+
+    ! Read in optimised coordinates if necessary.
+    if (minimize) then
+      inquire(file='geometry.in.next_step', exist=there)
+      if (.not. there) then
+        stop 'FHI-aims optimisation failed. Consider increasing the number of SCF iterations.'
+      else
+        open(21, file='geometry.in.next_step', status='unknown')
+        do i = 1, cx%na
+          read(21, *, iostat=ios) cdum, xx, yy, zz, elemdum
+          cx%r(1, i) = xx * ang_to_bohr
+          cx%r(2, i) = yy * ang_to_bohr
+          cx%r(3, i) = zz * ang_to_bohr
+        enddo
+      endif
+    endif
+
+    ! Clear out current xTB output files.
+    call execute_command_line(&
+        'rm -f aims.out control.in geometry.in geometry.in.next_step', &
+        wait=.true., exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
+
+    return
+  end subroutine AIMScalc
 
 
   !
