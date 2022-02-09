@@ -910,6 +910,19 @@ contains
 
     ! Check that f.out and e.out exists....
     !
+    open(22, file='dftb.output', status='unknown')
+    do while (ios == 0)
+      read(22, '(A)', iostat=ios) str
+      if (index(str, 'SCC is NOT converged') .ne. 0) then
+        print *, 'DFTB SCC not converged, stopping.'
+        stop
+      endif
+    enddo
+
+    inquire(file='detailed.out', exist=there)
+    if (.not. there) then
+      stop '"detailed.out" file missing from DFTB calculation.'
+    endif
 
     ! Extract the forces from the 'detailed.out' file.
     !
