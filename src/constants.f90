@@ -44,7 +44,9 @@ Module constants
   real(8), parameter :: ang_to_bohr   = 1.889726128d0  !< Angstrom to Bohr conversion
   real(8), parameter :: kcalmol_to_au = 0.001593601d0  !< Convert kcal/mol to au.
   real(8), parameter :: au_to_kjmol   = 2625.49963d0   !< convert au to kJ/mol
-  real(8), parameter :: au_to_ev      = 27.0d0
+  real(8), parameter :: au_to_ev      = 27.211396d0
+  real(8), parameter :: ev_to_au      = 0.036749322d0
+  real(8), parameter :: ev_ang_to_au_bohr = 0.019446864d0
   real(8), parameter :: pivalue       = 3.141592654d0  !< PI!
   real(8), parameter :: Kboltz        = 3.166829d-6    !< Boltzmann constant in atomic units.
   real(8), parameter :: hbar          = 1.d0           !< hbar = 1 in atomic units

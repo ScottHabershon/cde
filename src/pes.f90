@@ -1188,12 +1188,12 @@ contains
         print *, str
         e_str = str(45:66)
         read(e_str, *) cx%vcalc
-        cx%vcalc = cx%vcalc * 0.036749405469679
+        cx%vcalc = cx%vcalc * ev_to_au
 
       elseif (index(str, 'Total atomic forces') .ne. 0) then
         do i = 1, cx%na
           read(22, *) cdum, idum, cx%dvdr(1, i), cx%dvdr(2, i), cx%dvdr(3, i)
-          cx%dvdr(:, i) = cx%dvdr(:, i) * 0.036749405469679 / 1.88973
+          cx%dvdr(:, i) = cx%dvdr(:, i) * ev_ang_to_au_bohr
         enddo
       endif
     enddo
