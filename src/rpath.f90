@@ -225,16 +225,30 @@ contains
   !!
   !! - rp: The reaction path object.
   !! - filename: the output xyz file.
+  !! - do_append: (optional) whether to append to existing or overwrite/write new.
   !!
   !************************************************************************
   !
-  Subroutine PrintPathToFile(rp, filename)
-    type(rxp) :: rp
-    character (len=*) :: filename
+  Subroutine PrintPathToFile(rp, filename, do_append)
+    implicit none
+    type(rxp), intent(in) :: rp
+    character(len=*), intent(in) :: filename
+    logical, intent(in), optional :: do_append
     real*8 :: x, y, z
     integer :: i, j
+    logical :: append
 
-    open(13, file=filename, status='unknown')
+    if (present(do_append)) then
+      append = do_append
+    else
+      append = .false.
+    endif
+
+    if (append) then
+      open(13, file=filename, status='old', access='append')
+    else
+      open(13, file=filename, status='unknown')
+    endif
     do i = 1, rp%nimage
       write(13, '(i5)') rp%na
       write(13, *)
@@ -714,19 +728,24 @@ contains
   !! The pes.f90 module contains details of the calculation to perform.
   !!
   !! - rp: Path object.
+  !! - success: Result of Ab Initio calculation.
+  !! - calc_all: Whether to force calculation of all cxs along rp.
   !!
   !************************************************************************
   !
-  Subroutine GetPathGradients(rp, success)
+  Subroutine GetPathGradients(rp, success, calc_all)
     implicit none
-    type(rxp) :: rp
+    type(rxp), intent(in) :: rp
+    logical, intent(out) :: success
+    logical, intent(in) :: calc_all
     integer :: i
-    logical :: minimize, success
 
     ! Loop over images, calculating energy for each.
     !
-    minimize = .false.
     do i = 1, rp%nimage
+      ! Don't recalculate endpoints if they don't change.
+      if ((.not. calc_all) .and. (i == 1 .or. i == rp%nimage) .and. &
+          (.not. optendsbefore .or. .not. optendsduring)) cycle
       if (.not. pesfull) then
         call GetMols(rp%cx(i))
       endif

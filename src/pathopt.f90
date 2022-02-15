@@ -185,7 +185,7 @@ contains
 
     ! Calculate the energy along the initial path.
     !
-    call GetPathGradients(rp,success)
+    call GetPathGradients(rp, success, .true.)
 
     ! Add restraint forces to end-points if required.
     !
@@ -220,6 +220,12 @@ contains
     close(14)
     write(17,*)
     write(logfile,*)
+
+    ! If outputting every iteration, create the full trajectory file.
+    !
+    if (NEBoutfreq == 1) then
+      call PrintPathToFile(rp, 'full_neb_traj.xyz')
+    endif
 
     ! Calculate initial norm of projected forces, assuming no climbing image...
     !
@@ -362,7 +368,7 @@ contains
 
       ! Recalculate energy and projected forces.
       !
-      call GetPathGradients(rp, success)
+      call GetPathGradients(rp, success, .false.)
 
       ! Remove overall translation and rotation.
       ! TBD
@@ -434,12 +440,17 @@ contains
         enddo
         write(17, *)
         write (x1,fmt4) iter
-        call PrintPathToFile(rp, trim( inputfile ) //'_'//trim(x1)//'.xyz')
+        ! If writing every step, just append to a centralised trajectory instead of multiple files.
+        if (NEBoutfreq == 1) then
+          call PrintPathToFile(rp, 'full_neb_traj.xyz', .true.)
+        else
+          call PrintPathToFile(rp, trim( inputfile ) //'_'//trim(x1)//'.xyz')
+        endif
         write(logfile, '(/"*** Current path output: ITERATION =",1x,i5,1x,":: OUTPUT FILE =",1x,A/)') iter, &
-          trim(inputfile) //'_'//trim(x1)//'.xyz'
+        trim(inputfile) //'_'//trim(x1)//'.xyz'
       endif
 
-      ! Are we convrged?
+      ! Are we converged?
       !
 !      if (fnorm1 <= NEBconv .and. fmax <= NEBmaxconv ) then             ! changed to fnorm 2 !
       if (fnorm2 <= NEBconv) then             ! changed to fnorm 2 !
