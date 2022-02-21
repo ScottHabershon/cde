@@ -1,0 +1,141 @@
+Usage: xtb [options] <geometry> [options]
+
+<geometry> may be provided as valid TM coordinate file (*coord in Bohr),
+in xmol format (*.xyz in Ångström), sdf or mol file format, PDB format
+genFormat input or Vasp's POSCAR format.
+
+Options:
+
+   -c,--chrg INT     specify molecular charge as INT,
+                     overrides .CHRG file and xcontrol option
+   -u,--uhf INT      specify Nalpha-Nbeta as INT,
+                     overrides .UHF file and xcontrol option
+
+   -a,--acc REAL     accuracy for SCC calculation, lower is better (default = 1.0)
+
+      --iterations INT number of iterations in SCC (default = 250)
+
+      --cycles       number of cycles in ANCopt (default = automatic)
+
+      --gfn INT      specify parametrisation of GFN-xTB (default = 2)
+
+      --gfnff        use the GFN-FF
+
+      --qmdff        use QMDFF for single point (needs solvent-file)
+
+      --tm           use TURBOMOLE for single point (needs control-file)
+
+      --orca         use ORCA for single point (writes ORCA input)
+
+      --mopac        use MOPAC for single point (writes MOPAC input)
+
+      --etemp REAL   electronic temperature (default = 300K)
+
+      --vparam FILE  Path to parameter file, must match requested model
+
+      --alpb SOLVENT [STATE] analytical linearized Poisson-Boltzmann (ALPB)
+                     solvation model
+
+   -g,--gbsa SOLVENT [STATE] generalized born (GB) model with
+                     solvent accessable surface area (SASA) model
+                     (use --alpb instead)
+
+      --pop          requests printout of Mulliken population analysis
+
+      --molden       requests printout of molden file
+
+      --dipole       requests dipole printout
+
+      --wbo          requests Wiberg bond order printout
+
+      --lmo          requests localization of orbitals
+
+      --fod          requests FOD calculation, adjusts
+                     electronic temperature to 12500 K if possible
+
+      --scc, --sp    performs a single point calculation
+
+      --vip          performs calculation of ionisation potential
+
+      --vea          performs calculation of electron affinity
+
+      --vipea        performs calculation of IP and EA
+
+      --vomega       performs calculation of electrophilicity index
+
+      --vfukui       calculate Fukui indicies using GFN-xTB
+
+      --esp          calculate electrostatic potential on VdW-grid
+
+      --stm          calculate STM image
+
+      --grad         performs a gradient calculation
+
+   -o,--opt [LEVEL]  call ancopt(3) to perform a geometry optimization,
+                     levels from crude, sloppy, loose, normal (default),
+                     tight, verytight to extreme can be chosen
+
+      --optts [LEVEL] [ROOT] call ancopt(3) to perform a transition state
+                     optimization, may need to perform a hessian calculation first
+
+      --hess         perform a numerical hessian calculation on input geometry
+
+      --ohess [LEVEL] perform a numerical hessian calculation on
+                     an ancopt(3) optimized geometry
+
+      --bhess [LEVEL] perform a numerical biased hessian calculation on
+                     an ancopt(3) optimized geometry
+
+      --md           molecular dynamics simulation on start geometry
+
+      --omd          molecular dynamics simulation on ancopt(3) optimized
+                     geometry, a loose optimization level will be chosen.
+
+      --metadyn [INT] meta dynamics simulation on start geometry
+                     saving INT snapshots to bias the simulation
+
+      --modef INT    modefollowing algorithm.  INT specifies the mode
+                     that should be used for the modefollowing.
+
+   -I,--input FILE   use FILE as input source for xcontrol(7) instructions
+
+      --namespace STRING give this xtb(1) run a namespace.
+                     All files, even temporary ones, will be named accordingly
+
+      --[no]copy     copies the xcontrol file at startup (default = false)
+
+      --[no]restart  restarts calculation from xtbrestart (default = true)
+
+   -P,--parallel INT number of parallel processes
+
+      --define       performs automatic check of input and terminate
+
+      --json         write a JSON file
+
+      --strict       turn warnings into fatal errors
+
+      --version      print version and terminate
+
+      --citation     print citation and terminate
+
+      --license      print license and terminate
+
+   -v,--verbose      be more verbose (not supported in every unit)
+
+   -h,--help         show this message
+
+Useful Maschine Settings:
+
+export MKL_NUM_THREADS=<NCORE>
+export OMP_NUM_THREADS=<NCORE>,1
+export OMP_STACKSIZE=4G
+ulimit -s unlimited
+
+Output Conventions:
+
+total energies are given in atomic units (Eh)
+gaps/HL energies are given in eV
+
+More information can be obtained by `man 1 xtb` and `man 7 xcontrol`
+or at https://xtb-docs.readthedocs.io/en/latest/contents.html
+

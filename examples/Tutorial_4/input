@@ -8,7 +8,7 @@ maxtotalcharge 0
 optaftermove .true.
 pesfull .false.         ! Required for radicals and charges...
 nimage 8                ! Number of images in each generated reaction-step 
-startfile start_1.xyz
+startfile start.xyz
 endfile end.xyz
 idppguess .true.
 
@@ -68,8 +68,8 @@ fixedbonds{
 allowedbonds{
 } 
 
-nrxn 8                   ! Max number of reactions in mechanism 
+nrxn 6                   ! Max number of reactions in mechanism 
 nmcrxn 1000000           ! Number of iterations to search for mechanism
 mcrxntemp 50000.0      ! Initial search temperature for simulated annealing (leave!)
 graphfunctype 4          ! Permutationally invariant function (leave!)
-ranseed 44              ! Random number seed
+ranseed 4              ! Random number seed

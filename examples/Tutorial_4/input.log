@@ -1,8 +1,8 @@
 
 ************************ CDE simulation ************************
 
-- Start date:    30/09/2021
-- Start time:    08:53:31
+- Start date:    19/02/2022
+- Start time:    11:14:28
 
 - The input filename is: input                                             
 
@@ -22,7 +22,7 @@
 - PES geometry optimization after graph move?:  T
 - PES evaluations for INDEPENDENT MOLECULES being used...
 - Number of images per path:     8
-- Start-point structure file:  start_1.xyz                                       
+- Start-point structure file:  start.xyz                                         
 - End-point structure file:  end.xyz                                           
 - IDPP interpolation :  T
 
@@ -74,11 +74,11 @@
 
 - Number of allowed bonding constraints:     0
 
-- Number of reactions in sampled strings for pathfinder:     8
+- Number of reactions in sampled strings for pathfinder:     6
 - Number of MC steps in pathfinder calculation::  1000000
 - Initial temperature for pathfinder (in K):      0.5000E+05
 - Pathfinding function type: Eigenvalue comparison for single molecule
-- Random number seed:    44
+- Random number seed:     4
 
 ================================================================
                  END OF INPUT FILE INTERPRETATION                   
@@ -98,96 +98,14 @@
 # Graph Info for CXS:  Reactant structure
 
 * Bonded atoms *
- C 1   - C 2  
- C 1   - H 3  
- C 2   - H 4  
- C 5   - C 6  
- C 6   - H 7  
- C 8   - C 9  
- C 8   - H 10 
- C 8   - H 11 
- C 9   - C 12 
- C 12  - C 13 
- C 13  - H 14 
- C 15  - C 16 
- C 15  - H 17 
- C 15  - H 18 
- C 16  - C 19 
- C 16  - H 20 
- C 19  - C 21 
- C 19  - H 22 
- C 21  - H 23 
- C 21  - H 24 
- H 25  - H 26 
- C 27  - C 28 
- C 27  - H 29 
- C 28  - C 30 
- C 30  - H 31 
- C 30  - H 32 
- C 30  - H 33 
- H 34  - C 36 
- C 35  - C 36 
- C 35  - C 37 
- C 36  - H 39 
- C 37  - H 38 
- C 40  - C 41 
- C 40  - H 47 
- C 40  - H 48 
- C 41  - C 42 
- C 42  - C 44 
- C 42  - H 46 
- H 43  - C 44 
- C 44  - H 45 
+ C 1   - O 2  
+ H 3   - H 4  
 
 * Atomic valencies *
- C 1    :    2
- C 2    :    2
+ C 1    :    1
+ O 2    :    1
  H 3    :    1
  H 4    :    1
- C 5    :    1
- C 6    :    2
- H 7    :    1
- C 8    :    3
- C 9    :    2
- H 10   :    1
- H 11   :    1
- C 12   :    2
- C 13   :    2
- H 14   :    1
- C 15   :    3
- C 16   :    3
- H 17   :    1
- H 18   :    1
- C 19   :    3
- H 20   :    1
- C 21   :    3
- H 22   :    1
- H 23   :    1
- H 24   :    1
- H 25   :    1
- H 26   :    1
- C 27   :    2
- C 28   :    2
- H 29   :    1
- C 30   :    4
- H 31   :    1
- H 32   :    1
- H 33   :    1
- H 34   :    1
- C 35   :    2
- C 36   :    3
- C 37   :    2
- H 38   :    1
- H 39   :    1
- C 40   :    3
- C 41   :    2
- C 42   :    3
- H 43   :    1
- C 44   :    3
- H 45   :    1
- H 46   :    1
- H 47   :    1
- H 48   :    1
 
 ================================================================
 
@@ -197,32 +115,15 @@
 # Graph Info for CXS:  Product structure
 
 * Bonded atoms *
- C 1   - C 2  
+ C 1   - O 2  
+ C 1   - H 3  
  C 1   - H 4  
- C 1   - C 9  
- C 2   - C 3  
- C 2   - H 5  
- C 3   - H 6  
- C 3   - C 7  
- C 7   - C 8  
- C 7   - H 10 
- C 8   - C 9  
- C 8   - H 11 
- C 9   - H 12 
 
 * Atomic valencies *
  C 1    :    3
- C 2    :    3
- C 3    :    3
+ O 2    :    1
+ H 3    :    1
  H 4    :    1
- H 5    :    1
- H 6    :    1
- C 7    :    3
- C 8    :    3
- C 9    :    3
- H 10   :    1
- H 11   :    1
- H 12   :    1
 
 ================================================================
 
@@ -455,9 +356,9 @@
 
 * Setting all initial moves to null...
 
-* Initial Graph Error =    224.15073
+* Initial Graph Error =      5.21147
 
-* Initial Total Error =    224.15073
+* Initial Total Error =      5.21147
 
 *** Starting reaction-path search ***
 
@@ -468,16 +369,13 @@
 
 * Checking when target molecule is created...trimming path...
 
-- Reaction:    1: GraphError =      182.07536453
-- Reaction:    2: GraphError =      182.07536453
-- Reaction:    3: GraphError =      182.07536453
-- Reaction:    4: GraphError =       32.17959680
-- Reaction:    5: GraphError =       32.17959680
-- Reaction:    6: GraphError =        4.23669698
-- Reaction:    7: GraphError =        6.58067455
-- Reaction:    8: GraphError =        0.00000000
+- Reaction:    1: GraphError =        5.21146548
+- Reaction:    2: GraphError =        5.21146548
+- Reaction:    3: GraphError =        2.04477862
+- Reaction:    4: GraphError =        2.04477862
+- Reaction:    5: GraphError =        0.00000000
 
-* TARGET FOUND AFTER REACTION   8
+* TARGET FOUND AFTER REACTION   5
 * Setting remainder of reactions to null moves...
 
 * Successfully finished path trimming....
@@ -487,281 +385,161 @@
 ======== Start-point molecules ========
 
 - Molecule number:      1
-- Chemical formula:   C2H2                
+- Chemical formula:   O1C1                
 
 - Molecule number:      2
-- Chemical formula:   C2H1                
-
-- Molecule number:      3
-- Chemical formula:   C4H3                
-
-- Molecule number:      4
-- Chemical formula:   H6C4                
-
-- Molecule number:      5
 - Chemical formula:   H2                  
-
-- Molecule number:      6
-- Chemical formula:   H4C3                
-
-- Molecule number:      7
-- Chemical formula:   C3H3                
-
-- Molecule number:      8
-- Chemical formula:   H5C4                
 
 === Reaction number:      1
 
-- Selected move number:     12
+- Selected move number:      0
 
- - Atom numbers:           36           8          35          11
+ - Atom numbers: 
 - Molecule number:      1
-- Chemical formula:   C2H2                
+- Chemical formula:   O1C1                
 
 - Molecule number:      2
-- Chemical formula:   C2H1                
-
-- Molecule number:      3
-- Chemical formula:   C5H4                
-
-- Molecule number:      4
-- Chemical formula:   H1                  
-
-- Molecule number:      5
-- Chemical formula:   H6C4                
-
-- Molecule number:      6
 - Chemical formula:   H2                  
-
-- Molecule number:      7
-- Chemical formula:   H4C3                
-
-- Molecule number:      8
-- Chemical formula:   C2H1                
-
-- Molecule number:      9
-- Chemical formula:   H5C4                
 
 === Reaction number:      2
 
-- Selected move number:      2
+- Selected move number:      0
 
- - Atom numbers:           40          16
+ - Atom numbers: 
 - Molecule number:      1
-- Chemical formula:   C2H2                
+- Chemical formula:   O1C1                
 
 - Molecule number:      2
-- Chemical formula:   C2H1                
-
-- Molecule number:      3
-- Chemical formula:   C5H4                
-
-- Molecule number:      4
-- Chemical formula:   H1                  
-
-- Molecule number:      5
-- Chemical formula:   H11C8               
-
-- Molecule number:      6
 - Chemical formula:   H2                  
-
-- Molecule number:      7
-- Chemical formula:   H4C3                
-
-- Molecule number:      8
-- Chemical formula:   C2H1                
 
 === Reaction number:      3
 
-- Selected move number:      4
+- Selected move number:      9
 
- - Atom numbers:            8           9           1
+ - Atom numbers:            4           3           1           2
 - Molecule number:      1
-- Chemical formula:   C7H6                
-
-- Molecule number:      2
-- Chemical formula:   C2H1                
-
-- Molecule number:      3
-- Chemical formula:   H1                  
-
-- Molecule number:      4
-- Chemical formula:   H11C8               
-
-- Molecule number:      5
-- Chemical formula:   H2                  
-
-- Molecule number:      6
-- Chemical formula:   H4C3                
-
-- Molecule number:      7
-- Chemical formula:   C2H1                
+- Chemical formula:   H2O1C1              
 
 === Reaction number:      4
 
-- Selected move number:     12
+- Selected move number:      0
 
- - Atom numbers:           17          12          15          13
+ - Atom numbers: 
 - Molecule number:      1
-- Chemical formula:   C6H6                
-
-- Molecule number:      2
-- Chemical formula:   C2H1                
-
-- Molecule number:      3
-- Chemical formula:   H1                  
-
-- Molecule number:      4
-- Chemical formula:   C1H1                
-
-- Molecule number:      5
-- Chemical formula:   H10C8               
-
-- Molecule number:      6
-- Chemical formula:   H2                  
-
-- Molecule number:      7
-- Chemical formula:   H4C3                
-
-- Molecule number:      8
-- Chemical formula:   C2H1                
+- Chemical formula:   H2O1C1              
 
 === Reaction number:      5
 
-- Selected move number:      3
+- Selected move number:      7
 
- - Atom numbers:           47          48          40
+ - Atom numbers:            1           2           3
 - Molecule number:      1
-- Chemical formula:   C6H6                
-
-- Molecule number:      2
-- Chemical formula:   C2H1                
-
-- Molecule number:      3
-- Chemical formula:   H1                  
-
-- Molecule number:      4
-- Chemical formula:   C1H1                
-
-- Molecule number:      5
-- Chemical formula:   C8H8                
-
-- Molecule number:      6
-- Chemical formula:   H2                  
-
-- Molecule number:      7
-- Chemical formula:   H4C3                
-
-- Molecule number:      8
-- Chemical formula:   C2H1                
-
-- Molecule number:      9
-- Chemical formula:   H2                  
+- Chemical formula:   H2O1C1              
 
 === Reaction number:      6
 
-- Selected move number:      4
+- Selected move number:      0
 
- - Atom numbers:           39          36           9
+ - Atom numbers: 
 - Molecule number:      1
-- Chemical formula:   C6H6                
-
-- Molecule number:      2
-- Chemical formula:   C2H1                
-
-- Molecule number:      3
-- Chemical formula:   H1                  
-
-- Molecule number:      4
-- Chemical formula:   C1H1                
-
-- Molecule number:      5
-- Chemical formula:   C8H8                
-
-- Molecule number:      6
-- Chemical formula:   H2                  
-
-- Molecule number:      7
-- Chemical formula:   H4C3                
-
-- Molecule number:      8
-- Chemical formula:   C2H1                
-
-- Molecule number:      9
-- Chemical formula:   H2                  
-
-=== Reaction number:      7
-
-- Selected move number:      7
-
- - Atom numbers:            2           1           8
-- Molecule number:      1
-- Chemical formula:   C6H6                
-
-- Molecule number:      2
-- Chemical formula:   C2H1                
-
-- Molecule number:      3
-- Chemical formula:   H1                  
-
-- Molecule number:      4
-- Chemical formula:   C1H1                
-
-- Molecule number:      5
-- Chemical formula:   C8H8                
-
-- Molecule number:      6
-- Chemical formula:   H2                  
-
-- Molecule number:      7
-- Chemical formula:   H4C3                
-
-- Molecule number:      8
-- Chemical formula:   C2H1                
-
-- Molecule number:      9
-- Chemical formula:   H2                  
-
-=== Reaction number:      8
-
-- Selected move number:      7
-
- - Atom numbers:           12           9          36
-- Molecule number:      1
-- Chemical formula:   C6H6                
-
-- Molecule number:      2
-- Chemical formula:   C2H1                
-
-- Molecule number:      3
-- Chemical formula:   H1                  
-
-- Molecule number:      4
-- Chemical formula:   C1H1                
-
-- Molecule number:      5
-- Chemical formula:   C8H8                
-
-- Molecule number:      6
-- Chemical formula:   H2                  
-
-- Molecule number:      7
-- Chemical formula:   H4C3                
-
-- Molecule number:      8
-- Chemical formula:   C2H1                
-
-- Molecule number:      9
-- Chemical formula:   H2                  
+- Chemical formula:   H2O1C1              
 
 ======== End-point molecules ========
 
 - Molecule number:      1
-- Chemical formula:   C6H6                
+- Chemical formula:   H2O1C1              
 
 ********  Molecular analysis of reaction-string complete *******
 
 * Generating structures from connectivity matrices...
 
 * Reaction end-points printed to final_path.xyz
+
+* Finished structure generation.
+
+===============        ENERGY INFORMATION         ===============
+
+* Initial energy =      -7.10453642  Eh
+* Reaction #    1 :  dE =      -0.00000018
+* Reaction #    2 :  dE =       0.00000000
+* Reaction #    3 :  dE =      21.93338589
+* Reaction #    4 :  dE =       0.00001139
+* Reaction #    5 :  dE =    -208.63706368
+* Reaction #    6 :  dE =       0.00000352
+
+* Final Q-value (NOT averaged over non-zero rxns) =      230.57046467  kJ/mol
+
+
+* Number of non-zero reactions =     2  kJ/mol
+
+
+* Final Q-value (averaged over non-zero rxns) =      115.28522479  kJ/mol
+
+
+* Maximum dE =      208.63706368  kJ/mol
+
+================================================================
+
+* Reaction paths printed to final_path_rx_*.xyz
+* |Forces| < NEBconv :: IDPP NEB CONVERGED, Iter =     1
+* |Forces| < NEBconv :: IDPP NEB CONVERGED, Iter =     1
+ * Maximum barrier =   -2625499630.0000000      kJ/mol
+ * Barrier sum =    0.0000000000000000      au
+
+================================================================
+
+
+* Adjusting paths to focus on target formation...
+
+* Target found in reaction:     5
+* Molecule ID of target is:     1
+=============== ADJUSTED ENERGY INFORMATION ===============
+
+- REACTION NUMBER:     1
+
+* Reaction Energy change (au,au,kJ/mol):   1    0.00000000    0.00000000    0.00000000
+
+- REACTION NUMBER:     2
+
+* Reaction Energy change (au,au,kJ/mol):   2    0.00000000    0.00000000    0.00000000
+
+- REACTION NUMBER:     3
+
+ - REACTANT:           1  -6.1218502457500001      O1C1                
+ - REACTANT:           2 -0.98268617486999998      H2                  
+ + PRODUCT:           1  -7.0961824351000002      H2O1C1              
+* Reaction Energy change (au,au,kJ/mol):   3   -7.10453642   -7.09618244   21.93338589
+*** BARRIER REACTION DETECTED ***
+
+- REACTION NUMBER:     4
+
+* Reaction Energy change (au,au,kJ/mol):   4    0.00000000    0.00000000    0.00000000
+*** BARRIER REACTION DETECTED ***
+
+- REACTION NUMBER:     5
+
+ - REACTANT:           1  -7.0961824307599999      H2O1C1              
+ + PRODUCT:           1  -7.1756480918100003      H2O1C1              
+* Reaction Energy change (au,au,kJ/mol):   5   -7.09618243   -7.17564809 -208.63706368
+
+* ADJUSTED Final Q-value (NOT averaged over non-zero rxns) =      230.57044958  kJ/mol
+
+
+* ADJUSTED Number of non-zero reactions =     2  kJ/mol
+
+
+* ADJUSTED Final Q-value (averaged over non-zero rxns) =      115.28522479  kJ/mol
+
+
+* ADJUSTED Maximum dE =      208.63706368  kJ/mol
+
+
+* Is it barrierless?  F
+
+================================================================
+
+
+================================================================
+                     CALCULATION COMPLETE                       
+================================================================
 
