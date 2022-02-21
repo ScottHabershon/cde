@@ -1,10 +1,10 @@
-*CDE: Chemistry discovery engine
+**CDE: Chemistry discovery engine**
 
 CDE is a set of fortran routines which implements several
 different calculation types associated with chemical reaction-path analysis.
 
 CDE can perform several types of calculations, including:
-- Single-ended Graph-driven sampling for chemical reactions (CURRENTLY NOT AVAILABLE),
+- Single-ended Graph-driven sampling for chemical reactions,
 - Double-ended mechanism searching,
 - Generation of initial approximate MEPs connecting user-defined reactant and
   product structures using a variety of methods, including linear interpolation and
