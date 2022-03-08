@@ -2477,16 +2477,16 @@ contains
       endif
       Call SetPathConstraints(rp, NDOFconstr, FixedDOF, Natomconstr, Fixedatom)
 
+      ! Set as linear path - this needs to be done to give sensible initial
+      ! coordinates to the internal beads before IDPP (if required).
+      !
+      rp%coeff(:,:,:) = 0.0
+      Call FourierToPath( rp )
 
       ! Use the Fourier coefficients to calculate the initial path.
       !
       if (idpppath) then
-        Call FindIDPPPath( rp, 10*NEBiter, NEBConv*0.010d0, NEBstep*0.5, NEBspring )
-      else
-        ! Set as linear path.
-        !
-        rp%coeff(:,:,:) = 0.0
-        Call FourierToPath( rp )
+        Call FindIDPPPath( rp, NEBIter*250, NEBConv*0.1d0, NEBstep, NEBspring)
       endif
 
 
@@ -3098,9 +3098,9 @@ contains
 
     return
   end Subroutine UpdateCharges
-  
-  
-  
+
+
+
   !************************************************************************
   !> RunNetGrow
   !!
@@ -3145,9 +3145,9 @@ contains
     !
     write(logfile,'("* Running network-generation calculation...."/)')
     call flush(logfile)
-    
-    
-    ! Assign the start-point structure from the input files, startfile. 
+
+
+    ! Assign the start-point structure from the input files, startfile.
     ! Note that startfile is read from the main input file.
     !
     write(logfile,'(/"* Reading reactant structure...")')
@@ -3157,7 +3157,7 @@ contains
     Call GetGraph( cx_start )
     Call Getmols(cx_start)
     Call PrintCXSGraphInfo(cx_start,logfile,"Reactant structure")
-    
+
     ! Make a copy in cx_end so that the evaluation of graph-error is OK.
     !
     Call CopytoNewCXS(cx_start,cx_end)
@@ -3237,13 +3237,10 @@ contains
     ! graph resulting from applying nrxn reactions and the graph for the
     ! end-point:
     !
-    write(6,*)'HERE'
-    call flush(6)
+
     Call GetPathFitness( cx_start, cx_end, cx, nrxn, movenum, moveatoms, errflag, &
     GraphError, TotalError, vbe )
-    write(6,*)'HERE2'
-    call flush(6)
-    
+
 
     ! If an error flag is returned here, something is wrong with the initial path....
     !
@@ -3293,8 +3290,8 @@ contains
           chargemove = chargemove_store
         endif
       endif
-      
-      
+
+
       ! Output the structure along the reaction path - if
       ! optaftermove = .TRUE., we also do geometry optimization.
       !
@@ -3304,9 +3301,9 @@ contains
       fout = 'rxn_'//trim(x1)//'.xyz'
       Call GraphsToCoords(cx_start, cx, nrxn, .TRUE., fout )
 
-      
+
     enddo outer
-    
+
     stop
 
 
@@ -3425,7 +3422,7 @@ contains
 
     return
   end Subroutine RunNetGrow
-  
+
 
 
 end Module pathfinder

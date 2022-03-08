@@ -3,7 +3,6 @@
 # for PES calculations.
 
 nimage 10 
-temperature 10 
 calctype optpath 
 startfile start.xyz
 endfile end.xyz

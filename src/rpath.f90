@@ -255,10 +255,10 @@ contains
     return
   end Subroutine PrintPathToFile
 
- 
 
 
- 
+
+
   !
   !************************************************************************
   !> FindIDPPPath
@@ -276,17 +276,16 @@ contains
     integer :: n
     real(8) :: fnorm1, fnorm2, fmax, ks(rp%nimage-1), IDPPConv, IDPPStep, IDPPspring, rnd,ir
     real(8), allocatable :: rtarg(:,:,:), rend(:,:), rst(:,:), dx(:)
-    real(8) :: lambda    
+    real(8) :: lambda
 
     ! Assign NEB spring in this case.
     !
     rp%ks = IDPPspring
 
-
     ! Generate IDPP target distances by linear interpolation.
     !
 	allocate( rtarg(rp%nimage,rp%na, rp%na), rst(rp%na,rp%na), rend(rp%na, rp%na),dx(3) )
-	
+
 	n = rp%nimage
 	do i = 1, rp%na
 		do j = 1, rp%na
@@ -300,16 +299,16 @@ contains
 		do j = 1, rp%na
 			do k = 1, rp%na
 			    lambda = dble(i-1) / dble(rp%nimage)
-				rtarg(i,j,k) = rst(j,k) + lambda * (rend(j,k) - rst(j,k))
+				  rtarg(i,j,k) = rst(j,k) + lambda * (rend(j,k) - rst(j,k))
 			enddo
 		enddo
 	enddo
-	
+
 
     ! Calculate IDPP forces on all internal images.
     !
     Call GetIDPPForces(rp,rtarg)
-       
+
 
 
     ! Calculate projected forces.
@@ -345,11 +344,11 @@ contains
              endif
           enddo
        enddo
-       
+
        ! Calculate new forces.
        !
        Call GetIDPPForces(rp,rtarg)
-       
+
 		! Project forces.
 		!
 		select case (projforcetype)
@@ -361,6 +360,7 @@ contains
           Call GetProjForces3(rp,.false.,.FALSE.,optendsduring)
        end select
        Call GetForceNorm(rp,fnorm1,fmax,2,rp%nimage-1)
+       print*,'WTF: ',iter,fnorm1,fmax
 
 
 		! Check convergence.
@@ -369,16 +369,16 @@ contains
           exit
        endif
     enddo
-    
+
     return
   end subroutine FindIDPPPath
-  
-  
+
+
   !
   !************************************************************************
   !
   ! GetIDPPForces
-  ! 
+  !
   ! Calculates the IDPP forces.
   !
   !************************************************************************
@@ -389,7 +389,7 @@ contains
 	type(rxp) :: rp
 	real(8) :: rtarg(rp%nimage,rp%na,rp%na),dr
 	real(8) :: d(3), onr, onr4, dxr(3),dEdr,IDPPenergy,t1
-  
+
 	IDPPenergy = 0.d0
 	do k = 2, rp%nimage - 1
 		rp%cx(k)%force = 0.d0
@@ -403,15 +403,16 @@ contains
 				t1 = dr - rtarg(k,i,j)
 				IDPPenergy = IDPPenergy + onr4 * t1 * t1
 				dEdr = 2.0 * t1 * onr4 - 4.0 * t1 * t1 * (onr4*onr)
-				rp%cx(k)%force(1:3,i) = rp%cx(k)%force(1:3,j) - dEdr * dxr(1:3)
-				rp%cx(k)%force(1:3,i) = rp%cx(k)%force(1:3,j) + dEdr * dxr(1:3)
+				rp%cx(k)%force(1:3,i) = rp%cx(k)%force(1:3,i) - dEdr * dxr(1:3)
+				rp%cx(k)%force(1:3,j) = rp%cx(k)%force(1:3,j) + dEdr * dxr(1:3)
 			enddo
 		enddo
+    rp%cx(k)%dvdr = -rp%cx(k)%force
 	enddo
 
 	return
 	end Subroutine GetIDPPForces
-  
+
 
   !
   !************************************************************************
@@ -1555,7 +1556,7 @@ contains
     return
   end subroutine ShimmyEndBeads
 
-  
+
 
 
   !

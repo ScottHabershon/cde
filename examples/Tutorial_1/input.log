@@ -1,8 +1,8 @@
 
 ************************ CDE simulation ************************
 
-- Start date:    14/07/2021
-- Start time:    19:21:57
+- Start date:    08/03/2022
+- Start time:    09:01:44
 
 - The input filename is: input                                             
 
@@ -17,7 +17,6 @@
 # COMMENT: for PES calculations.                                                                               
 
 - Number of images per path:    10
-- Temperature (K):        10.000
 - Calculation type:  PATH REFINEMENT
 - Start-point structure file:  start.xyz                                         
 - End-point structure file:  end.xyz                                           
@@ -54,8 +53,8 @@
 - PES calculation template file:  orca.head
 - PES type for geometry optimization:  orca
 - Geometry optimisation template file:  orca.min
-- PES calculation executable:  orca
-- PES geometry optimization executable:  orca
+- PES calculation executable:  /Users/scott/programs/orca/orca
+- PES geometry optimization executable:  /Users/scott/programs/orca/orca
 
 
 
@@ -69,48 +68,8 @@
 * Starting path optimization...
 
 - Initial path written to initial_path.xyz
-* |Forces| < NEBconv :: IDPP NEB CONVERGED, Iter =     1
 * Starting CINEB calculation...
 
 - NEB force-convergence monitor:  input.nebconv
 - NEB energy profile outputs:  input.nebprofile
-
-- Calculating initial energy along path...BEFORE ENDPOINT OPTIMIZATION
-
-# Lambda    |    Energy / Eh  | Relative energy / Eh
-     0.00000000     0.00000000     0.00000000
-     1.07606266     0.00000000     0.00000000
-     2.15212468     0.00000000     0.00000000
-     3.22818293     0.00000000     0.00000000
-     4.30424055     0.00000000     0.00000000
-     5.38029820     0.00000000     0.00000000
-     6.45635635     0.00000000     0.00000000
-     7.53241541     0.00000000     0.00000000
-     8.60847270     0.00000000     0.00000000
-     9.68453085     0.00000000     0.00000000
-
-*** Initial force norms: 
-* |Forces| WITHOUT springs   =      0.00000000 au 
-* |Forces| WITH springs      =      0.00000002 au 
-* Maximum force WITH springs =      0.00000009 au 
-
-* Running QUICKMIN optimization...
-
-
-*** Optimization progress summary at iteration:      1
-* |Forces| WITHOUT springs =        0.00000000 au 
-* |Forces| WITH springs =           0.00000002 au 
-* Maximum force WITH springs =      0.00000009 au 
-
-* |Forces| < CIthresh :: TURNING ON CLIMBING-IMAGE
-* |Forces| < VSthresh :: TURNING ON VARIABLE SPRING
-
-*** Current path output: ITERATION =     1 :: OUTPUT FILE = input_0001.xyz
-
-* |Forces| < NEBconv :: CONVERGED
-* Sum of displacements from initial path =     0.00000015 Angstrom
-
-================================================================
-                     CALCULATION COMPLETE                       
-================================================================
 

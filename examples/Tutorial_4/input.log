@@ -1,8 +1,8 @@
 
 ************************ CDE simulation ************************
 
-- Start date:    19/02/2022
-- Start time:    11:14:28
+- Start date:    08/03/2022
+- Start time:    09:24:50
 
 - The input filename is: input                                             
 
@@ -21,19 +21,21 @@
 - Maximum total system charge:     0
 - PES geometry optimization after graph move?:  T
 - PES evaluations for INDEPENDENT MOLECULES being used...
-- Number of images per path:     8
+- Number of images per path:    10
 - Start-point structure file:  start.xyz                                         
 - End-point structure file:  end.xyz                                           
 - IDPP interpolation :  T
 
 - Path refinement method:  CLIMBING-IMAGE NUDGED ELASTIC BAND
 - (CI)NEB optimization method:  QUICKMIN
-- Maximum number of NEB iteractions:     500
-- Climbing-image start criterion (au):      0.00050000
+# COMMENT: projforcetype 1                                                                                     
+- Maximum number of NEB iteractions:      50
+- NEB NORM force-convergence criterion (au):      0.01000000
+- Climbing-image start criterion (au):      0.00000500
 - NEB spring constant:        0.050000
-- NEB optimization step-size:       10.000000
+- NEB optimization step-size:        5.000000
 - NEB output frequency:       5
-- Strip inactive moleculaes before path optimization?:  T
+- Strip inactive moleculaes before path optimization?:  F
 - Optimize end-points before NEB run:  T
 - Optimize end-points during NEB run:  F
 - Use graph-restrain potential during NEB:  F
@@ -482,6 +484,9 @@
 
 * Reaction paths printed to final_path_rx_*.xyz
 * |Forces| < NEBconv :: IDPP NEB CONVERGED, Iter =     1
+* |Forces| < NEBconv :: IDPP NEB CONVERGED, Iter =     1
+* |Forces| < NEBconv :: IDPP NEB CONVERGED, Iter =     1
+* |Forces| < NEBconv :: IDPP NEB CONVERGED, Iter =     7
 * |Forces| < NEBconv :: IDPP NEB CONVERGED, Iter =     1
  * Maximum barrier =   -2625499630.0000000      kJ/mol
  * Barrier sum =    0.0000000000000000      au

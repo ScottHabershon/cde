@@ -146,14 +146,14 @@ contains
     ! If required, generate Image Dependent Pair Potential Path interpolation.
     ! (Smidstrup et al J Chem phys 2014, 140):
     !
-    if (idpppath) then
+    if (idpppath) then      
       Call FindIDPPPath( rp, NEBIter*250, NEBConv*0.1d0, NEBstep, NEBspring)
     endif
 
     ! Sort out orientation of images.
     !
     ! Call SortOrientation(rp)
-    
+
 
     ! Output initial reoriented path:
     !

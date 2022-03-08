@@ -7,19 +7,21 @@ maxstepcharge 0
 maxtotalcharge 0
 optaftermove .true.
 pesfull .false.         ! Required for radicals and charges...
-nimage 8                ! Number of images in each generated reaction-step 
+nimage 10                ! Number of images in each generated reaction-step 
 startfile start.xyz
 endfile end.xyz
 idppguess .true.
 
 pathoptmethod cineb
 nebmethod quickmin 
-nebiter 500
-cithresh 5d-4
+# projforcetype 1
+nebiter 50
+nebconv 0.01 
+cithresh 5d-6
 nebspring 0.05
-nebstep  10.0 
+nebstep  5.0 
 neboutfreq 5
-stripinactive .true.
+stripinactive .false.
 optendsbefore .true.
 optendsduring .false.
 nebrestrend .false.
