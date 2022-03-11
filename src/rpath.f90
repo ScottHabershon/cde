@@ -405,8 +405,8 @@ contains
           t1 = dr - rtarg(k, i, j)
           IDPPenergy = IDPPenergy + onr4 * t1 * t1
           dEdr = 2.0 * t1 * onr4 - 4.0 * t1 * t1 * (onr4*onr)
-          rp%cx(k)%force(1:3, i) = rp%cx(k)%force(1:3, j) - dEdr * dxr(1:3)
-          rp%cx(k)%force(1:3, i) = rp%cx(k)%force(1:3, j) + dEdr * dxr(1:3)
+          rp%cx(k)%force(1:3, i) = rp%cx(k)%force(1:3, i) - dEdr * dxr(1:3)
+          rp%cx(k)%force(1:3, j) = rp%cx(k)%force(1:3, j) + dEdr * dxr(1:3)
         enddo
       enddo
     enddo
