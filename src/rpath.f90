@@ -409,6 +409,7 @@ contains
           rp%cx(k)%force(1:3, j) = rp%cx(k)%force(1:3, j) + dEdr * dxr(1:3)
         enddo
       enddo
+      rp%cx(k)%dvdr(:, :) = -rp%cx(k)%force(:, :)
     enddo
 
     return
