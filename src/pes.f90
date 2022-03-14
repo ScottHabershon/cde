@@ -258,11 +258,12 @@ contains
 
       ! ...or are we running PES evaluations for each molecule in cx?
       !
-    else if (.not. PESfull) then
+    else
 
       ! Make individual CXS objects for each molecule.
       !
       nmol = cx%nmol
+      write(logfile, '("nmol: ", I3)') nmol
       allocate(cxtemp(nmol))
       allocate(labeltemp(NAMAX))
       allocate(xtemp(NAMAX), ytemp(NAMAX), ztemp(NAMAX))
@@ -310,10 +311,10 @@ contains
             call UFFcalc(cxtemp(i), minimize, success)
 
           case('xtb')
-            call xTBcalc(cx, minimize, success)
+            call xTBcalc(cxtemp(i), minimize, success)
 
           case('aims')
-            call AIMScalc(cx, minimize, success)
+            call AIMScalc(cxtemp(i), minimize, success)
 
           case('null')
             cxtemp(i)%vcalc = 0.d0
