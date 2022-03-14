@@ -2420,6 +2420,134 @@ contains
 
 
   !**********************************************************************************************
+  !> GraphsToCoords_NG3
+  !!
+  !! Converts a sequence of connectivity graphs to xyz coordinates by optimization
+  !! under the action of the graph-restraining potential.
+  !!
+  !! The coordinates of the reactant structure are contained in wcx(1); these are
+  !! used as the starting point for a sequence of geometry optimizations. The resulting
+  !! structures obey the target bonding graph at each step.
+  !!
+  !! If optaftermove = .TRUE. in the input file, then geometry optimization of the structures
+  !! is also performed AFTER graph-potential optimization.
+  !!
+  !! wcx - Working cx list. 
+  !! printflag - Logical flag indicating whether to print out xyz files or not.
+  !! printfile - If printflag = .TRUE., printfile indicates the file to print to.
+  !!
+  !
+  !**********************************************************************************************
+  !
+  Subroutine GraphsToCoords_NG3(wcx, printflag, printfile, err, errstr, optoverride)
+    implicit none
+    character(len=*), intent(in) :: printfile
+    logical, intent(in) :: printflag
+    logical, intent(in), optional :: optoverride
+    type(cxs), dimension(2), intent(inout) :: wcx
+    logical, intent(out) :: err
+    character(len=*), intent(out) :: errstr
+
+    logical :: success, optoverride_aux
+    integer :: j, k, natoms, isum, i
+    integer, allocatable :: grstore(:,:)
+    real(8) :: x, y, z
+
+    err = .FALSE.
+    errstr = ''
+
+    if (present(optoverride)) then
+      optoverride_aux = optoverride
+    else
+      optoverride_aux = optaftermove
+    endif
+
+    ! Set a useful local parameter - number of atoms.
+    !
+    natoms = wcx(1)%na
+    allocate(grstore(natoms, natoms))
+
+    ! Assign starting coordinates as the coordinates of the prevous step.
+    do j = 1, natoms
+      do k = 1, 3
+        wcx(2)%r(k, j) = wcx(1)%r(k, j)
+      enddo
+      wcx(2)%atomlabel(j) = wcx(1)%atomlabel(j)
+    enddo
+
+    ! Set constraints.
+    call SetCXSconstraints(wcx(2), NDOFconstr, FixedDOF, Natomconstr, FixedAtom)
+
+    ! Optimize coordinates under action of current graph.
+    call GetMols(wcx(2))
+
+    ! Optimize under double-ended GRP.
+    call OptimizeGRP_DoubleEnded(wcx(2), wcx(1), success, gdsrestspring, nbstrength, nbrange, &
+        kradius, ngdsrelax, gdsdtrelax)
+
+    if (.not. success)then
+      err = .TRUE.
+      errstr = 'Optimisation under GRP failed'
+      return
+    endif
+
+    ! If requested by user, perform geometry optimization after move.
+    !
+    if (optaftermove .and. optoverride_aux) then
+      grstore(:,:) = wcx(2)%graph(:,:)
+
+      call AbInitio(wcx(2), 'optg', success)
+      call SetCXSconstraints(wcx(2), NDOFconstr, FixedDOF, Natomconstr, FixedAtom)
+
+      call GetGraph(wcx(2))
+      isum = 0
+      do i = 1, natoms
+        do j = 1, natoms
+          if (wcx(2)%graph(i, j) /= grstore(i, j)) then
+            isum = isum + 1
+          endif
+        enddo
+      enddo
+
+      ! Check for invalidation of the graph by the optimisation.
+      if (isum /= 0) then
+        err = .TRUE.
+        errstr = 'Graph invalidated by optimisation'
+        ! Restore original positions and graph to wcx(2).
+        do j = 1, natoms
+          do k = 1, 3
+            wcx(2)%r(k, j) = wcx(1)%r(k, j)
+          enddo
+        enddo
+        wcx(2)%graph(:,:) = grstore(:,:)
+        return
+      endif
+
+    endif
+
+    ! Output coordinates to final_path.xyz
+    if (printflag) then
+      open(93, file = trim(printfile), status='unknown')
+      write(93, '(i5)') natoms
+      write(93, '("energy=", f14.8)') wcx(2)%vcalc * au_to_ev
+      do j = 1, na
+        x = wcx(2)%r(1, j) * bohr_to_ang
+        y = wcx(2)%r(2, j) * bohr_to_ang
+        z = wcx(2)%r(3, j) * bohr_to_ang
+        write(93, '(a2, 2x, 3(f14.8, 2x))') wcx(2)%atomlabel(j), x, y, z
+      enddo
+      call flush(93)
+    endif
+
+    if (printflag) close(93)
+
+    deallocate(grstore)
+
+    return
+  end Subroutine GraphsToCoords_NG3
+
+
+  !**********************************************************************************************
   !> PrintMechanismPaths
   !!
   !! Prints out nimage intermediate snapshots for each of the generated reactions
@@ -3580,171 +3708,217 @@ contains
   end subroutine RunNetGrow2
 
   !************************************************************************
-  !> RunNetGrow2
+  !> RunNetGrow3
   !!
   !! Runs automatic growth of a reaction network, based on allowed
   !! graph-moves. Generates nmcrxn random reaction pathways step-by-step,
   !! with stepwise optimisation (if enabled).
   !!
   !************************************************************************
-  !
-  ! subroutine RunNetGrow3
-  !   implicit none
-  !   integer :: i, irx, istep, cyccount
-  !   integer, dimension(NAMAX) :: rxindex
-  !   integer, dimension(:), allocatable :: movenum, movenum_store
-  !   integer, dimension(:, :), allocatable :: moveatoms, moveatoms_store
-  !   integer, dimension(:, :), allocatable :: chargemove, chargemove_store
-  !   type(cxs) :: cx_start
-  !   type(cxs), dimension(:), allocatable :: cx, wcx
-  !   logical :: errflag, cyc, ChangeCharges
-  !   logical, dimension(:), allocatable :: atomchange
-  !   logical, dimension(:, :), allocatable :: bondchange
-  !   real(8) :: err_real_blank
-  !   character (len=4) :: x1
-  !   character (len=12) :: fout
+  
+  subroutine RunNetGrow3()
+    implicit none
+    integer :: i, irx, istep, cyccount
+    integer, dimension(NAMAX) :: rxindex
+    integer, dimension(:), allocatable :: movenum, movenum_store
+    integer, dimension(:, :), allocatable :: moveatoms, moveatoms_store
+    integer, dimension(:, :), allocatable :: chargemove, chargemove_store
+    type(cxs) :: cx_start, cx_current
+    type(cxs), dimension(:), allocatable :: cx, wcx
+    logical :: errflag, cyc, ChangeCharges
+    logical, dimension(:), allocatable :: atomchange
+    logical, dimension(:, :), allocatable :: bondchange
+    real(8) :: err_real_blank
+    character (len=4) :: x1, x2
+    character (len=22) :: fout, prev_step_file
+    character (len=33) :: errstr
     
-  !   ! Whatever is in the input file, set igfunc to zero here...it's irrelevant for the
-  !   ! purposes of single-ended network generation:
-  !   igfunc = 0
+    ! Whatever is in the input file, set igfunc to zero here...it's irrelevant for the
+    ! purposes of single-ended network generation:
+    igfunc = 0
 
-  !   write(logfile, '("* Running network-generation calculation...."/)')
-  !   call flush(logfile)
+    write(logfile, '("* Running network-generation calculation...."/)')
+    call flush(logfile)
     
-  !   ! Assign the start-point structure from the input files, startfile. 
-  !   ! Note that startfile is read from the main input file.
-  !   write(logfile, '("* Reading reactant structure...")')
-  !   call flush(logfile)
-  !   call ReadCXS(cx_start, startfile)
-  !   call SetMass(cx_start)
-  !   call GetGraph(cx_start)
-  !   call Getmols(cx_start)
-  !   call PrintCXSGraphInfo(cx_start, logfile, "Reactant structure")
+    ! Assign the start-point structure from the input files, startfile. 
+    ! Note that startfile is read from the main input file.
+    write(logfile, '("* Reading reactant structure...")')
+    call flush(logfile)
+    call ReadCXS(cx_start, startfile)
+    call SetMass(cx_start)
+    call GetGraph(cx_start)
+    call Getmols(cx_start)
+    call PrintCXSGraphInfo(cx_start, logfile, "Reactant structure")
 
-  !   ! Allocate space for atomchange and bondchange arrays - these will indicate at each MC search
-  !   ! step which atoms and bonds are allowed to change.
-  !   na = cx_start%na
-  !   allocate(atomchange(na))
-  !   allocate(bondchange(na, na))
+    ! Allocate space for atomchange and bondchange arrays - these will indicate at each MC search
+    ! step which atoms and bonds are allowed to change.
+    na = cx_start%na
+    allocate(atomchange(na))
+    allocate(bondchange(na, na))
 
-  !   ! Read the graphmoves.
-  !   call ReadGraphMoves(movefile)
+    ! Read the graphmoves.
+    call ReadGraphMoves(movefile)
 
-  !   ! Based on the movefile, decide whether or not we're also going to have to
-  !   ! consider changes in charge states too.
-  !   ChangeCharges = .FALSE.
-  !   checkChg: do i = 1, ngmove
-  !     if (namove(i) == 0) then
-  !       write(logfile, '("* ChangeCharges ENABLED.")')
-  !       ChangeCharges = .TRUE.
-  !       exit checkChg
-  !     endif
-  !   enddo checkChg
-  !   if (.not. ChangeCharges) then
-  !     write(logfile, '("* ChangeCharges DISABLED")')
-  !   endif
+    ! Based on the movefile, decide whether or not we're also going to have to
+    ! consider changes in charge states too.
+    ChangeCharges = .FALSE.
+    checkChg: do i = 1, ngmove
+      if (namove(i) == 0) then
+        write(logfile, '("* ChangeCharges ENABLED.")')
+        ChangeCharges = .TRUE.
+        exit checkChg
+      endif
+    enddo checkChg
+    if (.not. ChangeCharges) then
+      write(logfile, '("* ChangeCharges DISABLED")')
+    endif
 
-  !   ! Loop over nmcrxn mechanisms, generating a new full mechanism each time.
-  !   mcloop: do irx = 1, nmcrxn
-  !     write(logfile, '("--------------------------------------------------------------")')
-  !     write(logfile, '("Reaction mechanism: ", I7)') irx
-  !     write(logfile, '("--------------------------------------------------------------")')
+    ! Loop over nmcrxn mechanisms, generating a new full mechanism each time.
+    mcloop: do irx = 1, nmcrxn
+      write(logfile, '("--------------------------------------------------------------")')
+      write(logfile, '("Reaction mechanism: ", I7)') irx
+      write(logfile, '("--------------------------------------------------------------")')
 
-  !     ! Allocate a working cx of length 2 for the current and next reaction steps.
-  !     allocate(wcx(2))
-  !     ! Allocate space for the moves:
-  !     allocate(movenum(2))
-  !     allocate(moveatoms(2,NAMOVEMAX))
-  !     allocate(movenum_store(2))
-  !     allocate(moveatoms_store(2,NAMOVEMAX))
-  !     if (ChangeCharges) then
-  !       allocate(chargemove(2,NMOLMAX))
-  !       allocate(chargemove_store(2,NMOLMAX))
-  !     endif
+      ! Allocate a working cx of length 2 for the current and next reaction steps.
+      allocate(wcx(2))
+      ! Allocate space for the moves:
+      allocate(movenum(2))
+      allocate(moveatoms(2,NAMOVEMAX))
+      allocate(movenum_store(2))
+      allocate(moveatoms_store(2,NAMOVEMAX))
+      if (ChangeCharges) then
+        allocate(chargemove(2,NMOLMAX))
+        allocate(chargemove_store(2,NMOLMAX))
+      endif
 
-  !     ! Set all the initial moves to be null moves.
-  !     write(logfile,'("* Setting all initial moves to null...")')
-  !     call flush(logfile)
-  !     do i = 1, 2
-  !       movenum(i) = 0
-  !       moveatoms(i,1:NAMOVEMAX) = 0
-  !     enddo
+      ! Loop over steps in reaction
+      rxloop: do istep = 1, nrxn
 
-  !     ! Zero the charges for all molecules along the starting path...
-  !     cx_start%molcharge(:) = 0
-  !     do i = 1, 2
-  !       chargemove(i,:) = 0
-  !     enddo
+        ! If we are on the first step, create the standard blank working cx list.
+        if (istep == 1) then
+          do i = 1, 2
+            call CopytoNewCXS(cx_start, wcx(i))
+            call SetMass(wcx(i))
+          enddo
+        ! If not, create a working cx list based off the last reaction step.
+        else
+          call ReadCXS(cx_current, prev_step_file)
+          call SetMass(cx_current)
+          call GetGraph(cx_current)
+          call Getmols(cx_current)
+          do i = 1, 2
+            call CopytoNewCXS(cx_current, wcx(i))
+            call SetMass(wcx(i))
+          enddo
+          call DeleteCXS(cx_current)
+        endif
 
-  !     ! Loop over steps in reaction
-  !     rxloop: do istep = 1, nrxn
-  !       ! If we are on the first step, create the standard blank working cx list.
-  !       if (istep == 1) then
-  !         do i = 1, 2
-  !           call CopytoNewCXS(cx_start, wcx(i))
-  !           call SetMass(wcx(i))
-  !         enddo
+        ! Set all the initial moves to be null moves.
+        write(logfile,'("* Setting all initial moves to null...")')
+        call flush(logfile)
+        movenum(:) = 0
+        moveatoms(:, :) = 0
+        ! Zero the charges for all molecules along the starting path...
+        cx_start%molcharge(:) = 0
+        chargemove(:, :) = 0
 
-  !         write(logfile, '("* Generating a move for reaction step ", I3, "/", I3)') istep, nrxn
+        write(logfile, '("* Generating a move for reaction step ", I3, "/", I3)') istep, nrxn
 
-  !         cyc = .true.
-  !         cyccount = 0
-  !         stepgen: do while (cyc)
-  !           cyccount = cyccount + 1
-  !           ! Check the loop isn't spiralling out of control.
-  !           if (cyccount .ge. 100) then
-  !             write(logfile, '("ERROR: failed to find a valid move within 100 attempts. Stopping here.")')
-  !             stop
-  !           endif
+        cyc = .true.
+        cyccount = 0
+        stepgen: do while (cyc)
+          cyccount = cyccount + 1
+          ! Check the loop isn't spiralling out of control.
+          if (cyccount .ge. 100) then
+            write(logfile, '("ERROR: failed to find a valid move within 100 attempts. Stopping here.")')
+            stop
+          endif
 
-  !           ! Create a move at this mechanism step.
-  !           call UpdateMechanismStep(nrxn, movenum, moveatoms, bondchange, atomchange, &
-  !               & na, cx_start, wcx, istep, rxindex, cyc, movenum_store, moveatoms_store)
+          ! Create a move at this mechanism step.
+          ! call UpdateMechanismStep(nrxn, movenum, moveatoms, bondchange, atomchange, &
+          !     & na, cx_start, wcx, istep, rxindex, cyc, movenum_store, moveatoms_store)
+          call CreateMechanismStep(movenum, moveatoms, bondchange, atomchange, wcx, &
+              & cyc, rxindex)
 
-  !           if (cyc) then
-  !             write(logfile, '("- Trial move ", I3, " failed, cycling.")') cyccount
-  !             ! UpdateMechanismStep already restores moves from stores upon failure, so no need
-  !             ! to do that here.
-  !             cycle stepgen
-  !           endif
+          if (cyc) then
+            write(logfile, '("- Trial move ", I3, " failed, cycling.")') cyccount
+            ! UpdateMechanismStep already restores moves from stores upon failure, so no need
+            ! to do that here.
+            cycle stepgen
+          endif
 
-  !           write(logfile, '("- Trial move ", I3, " successful.")') cyccount
-  !           write(logfile, '("- Checking validity of valences under new move...")')
+          write(logfile, '("- Trial move ", I3, " successful.")') cyccount
+          write(logfile, '("- Checking validity of valences under new move...")')
 
-  !           ! Now check if valences are still valid. Would like to nly check up to generated step limit,
-  !           ! but this breaks PropagateGraphs for some reason. Needs further investigation.
-  !           call PropagateGraphs(cx_start, wcx, nrxn, movenum, moveatoms, errflag, err_real_blank)
+          ! Now check if valences are still valid.
+          call PropagateGraphs(wcx(1), wcx, 2, movenum, moveatoms, errflag, err_real_blank)
 
-  !           if (errflag) then
-  !             write(logfile, '("- Invalid valences detected from trial move ", I3, ", cycling.")') cyccount
-  !             movenum(:) = movenum_store(:)
-  !             moveatoms(:,:) = moveatoms_store(:,:)
-  !             cyc = .true.
-  !             cycle stepgen
-  !           endif
+          if (errflag) then
+            write(logfile, '("- Invalid valences detected from trial move ", I3, ", cycling.")') cyccount
+            movenum(:) = 0
+            moveatoms(:,:) = 0
+            cyc = .true.
+            cycle stepgen
+          endif
 
-  !           write(logfile, '("- Valence check complete, all current valences are valid.")')
-  !           flush(logfile)
+          write(logfile, '("- Valence check complete, all current valences are valid.")')
+          flush(logfile)
 
-  !           ! Update charges if necessary.
-  !           if (ChangeCharges) then
-  !             ! call UpdateCharges()
-  !             write(logfile, '("- Updating charges currently not supported in stepwise mechanism generation.")')
-  !           endif
+          ! Update charges if necessary.
+          if (ChangeCharges) then
+            ! call UpdateCharges()
+            write(logfile, '("- Updating charges currently not supported in stepwise mechanism generation.")')
+          endif
 
-  !         end do stepgen
+          ! Optimise geometry of wcx and write.
+          write(logfile, '("* Writing reaction step to file.")')
+          if (optaftermove) write(logfile, '("- Optimising reaction step...")')
+          write(x1, '(I4.4)') irx
+          write(x2, '(I4.4)') istep
+          write(fout, '("rxn_", A4, "_step_", A4, ".xyz")') trim(x1), trim(x2)
+          call GraphsToCoords_NG3(wcx, .true., fout, errflag, errstr)
+          if (errflag) then
+            write(logfile, '("- ", A, ", cycling.")') adjustl(trim(errstr))
+            movenum(:) = 0
+            moveatoms(:,:) = 0
+            cyc = .true.
+            cycle stepgen
+          else
+            write(logfile, '("- Reaction step geometry output to ", A)') trim(fout)
+          endif
 
-  !     enddo rxloop
+        enddo stepgen
 
-  !     deallocate(wcx)
+        ! Set previous geometry file to current.
+        prev_step_file = fout
 
-  !   enddo mcloop
-  ! end subroutine RunNetGrow3
+        ! Safely remove wcx from memory (not deallocation).
+        do i = 1, 2
+          call DeleteCXS(wcx(i))
+        enddo
+
+        write(logfile, '("")')
+
+      enddo rxloop
+
+      deallocate(wcx)
+      deallocate(movenum)
+      deallocate(moveatoms)
+      deallocate(movenum_store)
+      deallocate(moveatoms_store)
+      if (ChangeCharges) then
+        deallocate(chargemove)
+        deallocate(chargemove_store)
+      endif
+
+    enddo mcloop
+  end subroutine RunNetGrow3
 
   !**********************************************************************************************
   !> CreateMechanismStep
   !!
-  !! Proposes a single new move 
+  !! Proposes a single new move for a given reaction step by generating a new move
+  !! type and its atoms.
   !!
   !! nrxn - Number of reactions in mechanism.
   !! cx_start - Chemical structure object for reactants.
@@ -3752,12 +3926,51 @@ contains
   !!            subroutine GraphsToCoords().
   !!
   !**********************************************************************************************
-  !
-  ! subroutine CreateMechanismStep()
-  !   implicit none
+  
+  subroutine CreateMechanismStep(movenum, moveatoms, bondchange, atomchange, wcx, & 
+        & cyc, rxindex)
+    implicit none
+    integer, dimension(:), intent(inout) :: movenum
+    integer, dimension(:, :), intent(inout) :: moveatoms
+    logical, dimension(:), intent(inout) :: atomchange
+    logical, dimension(:, :), intent(inout) :: bondchange
+    type(cxs), dimension(:), intent(inout) :: wcx
+    integer, dimension(:), intent(out) :: rxindex
+    logical, intent(out) :: cyc
 
+    integer :: nrx, imove
+    real(8) :: ir
+    logical :: fail
 
-  ! end subroutine CreateMechanismStep
+    ! Set the loop cycle flag for return.
+    cyc = .FALSE.
+
+    ! Get the allowed reactivity indices for the graph preceding this reaction.
+    call SetReactiveIndices(bondchange, atomchange, na, wcx(1), rxindex, nrx)
+
+    ! Change both atom labels and move type.
+    imove = 0
+    do while (imove .eq. 0)
+      call random_number(ir)
+      imove = int(dble(ngmove + 1) * ir)
+    end do
+    movenum(2) = imove
+
+    ! Select new reactive atoms from rxindex.
+    call SelectMoveAtoms(imove, moveatoms, 2, 2, rxindex, nrx, fail, atomchange, &
+        bondchange, wcx(1)%na, wcx, wcx(1))
+
+    ! If we've failed to find atoms, restore the previous and cycle...
+    !
+    if (fail) then
+      movenum(:) = 0
+      moveatoms(:,:) = 0
+      cyc = .TRUE.
+      return
+    endif
+
+    return
+  end subroutine CreateMechanismStep
 
 
   !**********************************************************************************************
