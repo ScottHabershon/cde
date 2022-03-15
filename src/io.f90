@@ -312,7 +312,7 @@ contains
 
         case ('stripinactive') ! Remove inactive molecules from path.
           read(buffer, *, iostat = ios) stripinactive
-          write(logfile,'("- Strip inactive moleculaes before path optimization?: ",1x,L)')stripinactive
+          write(logfile,'("- Strip inactive molecules before path optimization?: ",1x,L)')stripinactive
 
         case ('alignedatoms')
           read(10, *, iostat = ios) atomidx(1),atomidx(2),atomidx(3)
@@ -839,7 +839,7 @@ contains
     character(len=50) :: movefile
     logical :: there
     integer :: line, ios, pos, i, pos2
-    character(len=100) :: buffer, label, comment, buffer2, label2
+    character(len=100) :: buffer, label, comment, buffer2, label2, gwritefmt
     real(8) :: sum
 
     write(logfile,'(/"* Reading graph moves file...")')
@@ -872,7 +872,7 @@ contains
 
         ! If pos == 1, there is a space in the first position and we assume a blank line.
         if (pos == 1) then
-          write(logfile,*)label,buffer
+          ! write(logfile,*)label,buffer
           CYCLE
         endif
 
@@ -882,88 +882,80 @@ contains
 
         ! Comment line
         case ('# ')
-          read(buffer,*,iostat=ios) comment
-          write(logfile,*)trim(label)," ",trim(buffer)
-
+          read(buffer, *, iostat=ios) comment
+          write(logfile, '("Comment line: ")')
+          write(logfile, '(A, " ", A, /)') trim(label), trim(buffer)
 
           ! Graph move
         case ('move')
-
           ngmove = ngmove + 1
-
-          write(logfile,'("*** Graph move number:",1x,i4," ***"/)')ngmove
-
+          write(logfile, '("*** Graph move number:", 1x, i4, " ***"/)') ngmove
 
           ! The first entry is the number of atoms.
-          !
-          read(20,'(A)',iostat=ios)buffer2
-          pos2 = scan(buffer2, ' ')
+          read(20, '(A)', iostat=ios) buffer2
+          pos2 = scan(buffer2 , ' ')
           label2 = buffer2(1:pos2)
           buffer2 = buffer2(pos2+1:)
-          read(buffer2,*,iostat=ios)namove(ngmove)
-          write(logfile,'("- Number of atoms:",1x,i4)')namove(ngmove)
+          read(buffer2, *, iostat=ios) namove(ngmove)
+          write(logfile, '("- Number of atoms:", 1x, i4)') namove(ngmove)
 
           ! Is this a bond-changing move....?
-          !
           if (namove(ngmove) > 0) then
-            write(logfile,'("- Bond-changing move detected ")')
+            write(logfile, '("- Bond-changing move detected ")')
+            write(gwritefmt, '("(", I1, "I3)")') namove(ngmove)
 
             ! Next, read the starting and ending graph - the first line is a '-', followed
             ! by the namove x namove matrix on the next namove lines.
-            !
-            write(logfile,'("- Start graph: ")')
-            read(20,'(A)',iostat=ios)buffer2
+            write(logfile, '("- Start graph: ")')
+            read(20, '(A)', iostat=ios) buffer2
             do i = 1, namove(ngmove)
-              read(20,*,iostat=ios)gmstart(ngmove,i,1:namove(ngmove))
-              write(logfile,*)gmstart(ngmove,i,1:namove(ngmove))
+              read(20, *, iostat=ios) gmstart(ngmove, i, 1:namove(ngmove))
+              write(logfile, gwritefmt) gmstart(ngmove, i, 1:namove(ngmove))
             enddo
-            read(20,'(A)',iostat=ios)buffer2
-            write(logfile,'("- End graph: ")')
+            read(20, '(A)', iostat=ios) buffer2
+            write(logfile, '("- End graph: ")')
             do i = 1, namove(ngmove)
-              read(20,*,iostat=ios)gmend(ngmove,i,1:namove(ngmove))
-              write(logfile,*)gmend(ngmove,i,1:namove(ngmove))
+              read(20, *, iostat=ios) gmend(ngmove, i, 1:namove(ngmove))
+              write(logfile, gwritefmt) gmend(ngmove, i, 1:namove(ngmove))
             enddo
-            read(20,'(A)',iostat=ios)buffer2
-
+            read(20, '(A)', iostat=ios) buffer2
 
             ! Now read the labels of the atoms, if any.
-            !
-            read(20,'(A)',iostat=ios)buffer2
+            read(20, '(A)', iostat=ios) buffer2
             pos2 = scan(buffer2, ' ')
             label2 = buffer2(1:pos2)
             buffer2 = buffer2(pos2+1:)
-            read(buffer2,*,iostat=ios)(movelabel(ngmove,i),i=1,namove(ngmove))
-            write(logfile,'("- Allowed atom labels: ",A)')(movelabel(ngmove,i),i=1,namove(ngmove))
-            call flush(logfile)
-
+            read(buffer2, *, iostat=ios) (movelabel(ngmove, i), i=1, namove(ngmove))
+            write(logfile, '("- Allowed atom labels: ")')
+            write(gwritefmt, '("(", I1, "A2)")') namove(ngmove)
+            write(logfile, gwritefmt) movelabel(ngmove, 1:namove(ngmove))
 
             ! Now read the move probability.
-            !
-            read(20,'(A)',iostat=ios)buffer2
+            read(20, '(A)', iostat=ios) buffer2
             pos2 = scan(buffer2, ' ')
             label2 = buffer2(1:pos2)
             buffer2 = buffer2(pos2+1:)
-            read(buffer2,*,iostat = ios)moveprob(ngmove)
+            read(buffer2, *, iostat = ios) moveprob(ngmove)
+            write(logfile, '("Move probability: ", F5.3/)') moveprob(ngmove)
+            call flush(logfile)
 
-
-            ! ..or is it a molecular charge-changing move?
+          ! ..or is it a molecular charge-changing move?
           else if (namove(ngmove) == 0) then
 
-            write(logfile,'("- Molecular charge-changing move detected ")')
-            read(20,'(A)',iostat=ios)buffer2   ! Reading the '-'...
-            read(20,'(A)',iostat=ios)buffer2
+            write(logfile, '("- Molecular charge-changing move detected ")')
+            read(20, '(A)', iostat=ios) buffer2   ! Reading the '-'...
+            read(20, '(A)', iostat=ios) buffer2
             pos2 = scan(buffer2, ' ')
             label2 = buffer2(1:pos2)
             movetype(ngmove) = label2
-            read(20,'(A)',iostat=ios)buffer2   ! Reading the '-'...
+            read(20, '(A)', iostat=ios) buffer2   ! Reading the '-'...
 
             ! Now read the move probability.
-            !
-            read(20,'(A)',iostat=ios)buffer2
+            read(20, '(A)', iostat=ios) buffer2
             pos2 = scan(buffer2, ' ')
             label2 = buffer2(1:pos2)
             buffer2 = buffer2(pos2+1:)
-            read(buffer2,*,iostat = ios)moveprob(ngmove)
+            read(buffer2, *, iostat = ios) moveprob(ngmove)
 
           endif
 
@@ -973,7 +965,6 @@ contains
     enddo
 
     ! Make sure to normalize probabilities of graph moves.
-    !
     sum = 0.d0
     do i = 1, ngmove
       sum = sum + moveprob(i)
