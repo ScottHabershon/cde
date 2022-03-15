@@ -3829,14 +3829,12 @@ contains
         stepgen: do while (cyc)
           cyccount = cyccount + 1
           ! Check the loop isn't spiralling out of control.
-          if (cyccount .ge. 100) then
-            write(logfile, '("ERROR: failed to find a valid move within 100 attempts. Stopping here.")')
+          if (cyccount .ge. 500) then
+            write(logfile, '("ERROR: failed to find a valid move within 500 attempts. Stopping here.")')
             stop
           endif
 
           ! Create a move at this mechanism step.
-          ! call UpdateMechanismStep(nrxn, movenum, moveatoms, bondchange, atomchange, &
-          !     & na, cx_start, wcx, istep, rxindex, cyc, movenum_store, moveatoms_store)
           call CreateMechanismStep(movenum, moveatoms, bondchange, atomchange, wcx, &
               & cyc, rxindex)
 
@@ -3920,10 +3918,13 @@ contains
   !! Proposes a single new move for a given reaction step by generating a new move
   !! type and its atoms.
   !!
-  !! nrxn - Number of reactions in mechanism.
-  !! cx_start - Chemical structure object for reactants.
-  !! cx(nrxn) - Chemical structure objects for products of each reaction. These come from the
-  !!            subroutine GraphsToCoords().
+  !! movenum - Array containing graph move number for each cx in wcx.
+  !! moveatoms - Array containing reactive atoms for each cx in wcx.
+  !! bondchange - Array of bonds allowed to be changed by reactions.
+  !! atomchange - Array of atoms allowed to be changed by reactions.
+  !! wcx - Worcking cx list, containing previous and current steps of reaction.
+  !! cyc - Flag indicating success at finding a graph move.
+  !! rxindex - List of reactive atoms.
   !!
   !**********************************************************************************************
   
@@ -3938,30 +3939,51 @@ contains
     integer, dimension(:), intent(out) :: rxindex
     logical, intent(out) :: cyc
 
-    integer :: nrx, imove
+    integer :: nrx, imove, i
     real(8) :: ir
+    real(8), dimension(:), allocatable :: weights
     logical :: fail
 
     ! Set the loop cycle flag for return.
     cyc = .FALSE.
 
+    ! Set up cumulative weights of graph moves.
+    allocate(weights(ngmove))
+    weights(:) = 0.d0
+    weights(1) = moveprob(1)
+    do i = 2, ngmove
+      weights(i) = weights(i-1) + moveprob(i)
+    enddo
+
+    ! print *, 'Graph move cumulative weights:'
+    ! print *, weights(:)
+
     ! Get the allowed reactivity indices for the graph preceding this reaction.
     call SetReactiveIndices(bondchange, atomchange, na, wcx(1), rxindex, nrx)
 
     ! Change both atom labels and move type.
-    imove = 0
-    do while (imove .eq. 0)
-      call random_number(ir)
-      imove = int(dble(ngmove + 1) * ir)
-    end do
-    movenum(2) = imove
+    ! Begin by getting a weighted random graph move.
+    call random_number(ir)
+    ! print *, 'Random number: ', ir
+    if (ir .le. weights(1)) then
+      movenum(2) = 1
+      ! print *, 'Selected move: ', 1
+    else
+      do i = 2, ngmove
+        if (ir .gt. weights(i-1) .and. ir .le. weights(i)) then
+          movenum(2) = i
+          ! print *, 'Selected move: ', i
+          exit
+        endif
+      enddo
+    endif
+    imove = movenum(2)
 
-    ! Select new reactive atoms from rxindex.
+    ! Then select new reactive atoms from rxindex.
     call SelectMoveAtoms(imove, moveatoms, 2, 2, rxindex, nrx, fail, atomchange, &
         bondchange, wcx(1)%na, wcx, wcx(1))
 
     ! If we've failed to find atoms, restore the previous and cycle...
-    !
     if (fail) then
       movenum(:) = 0
       moveatoms(:,:) = 0
