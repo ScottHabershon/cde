@@ -110,17 +110,19 @@ Program CDE
   case ('netgrow')
 
     write(logfile,'("* Starting single-ended network generation calculation..."/)')
+    write(logfile, '("- Note that this mode is EXPERIMENTAL.")')
     Call RunNetGrow()
 
   case ('netgrow2')
 
     write(logfile,'("* Starting single-ended network generation calculation..."/)')
+    write(logfile, '("- Note that this mode is EXPERIMENTAL.")')
     Call RunNetGrow2()
 
-  case ('netgrow3')
+  case ('breakdown')
     
     write(logfile, '("* Starting single-ended breakdown product generation..."/)')
-    call RunNetGrow3()
+    call RunBreakdown()
 
   case default
     print*, '* Unknown calculation type', calctype
