@@ -3,13 +3,15 @@
 .SUFFIXES:
 EXE = ./bin/cde.x
 FC = ifort
-LIBS =  -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_ilp64.a ${MKLROOT}/lib/intel64/libmkl_intel_thread.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -liomp5 -lpthread -lm -ldl
-FFLAGS = -O3 -i8 -I"${MKLROOT}/include"
 
 ifeq "$(FC)" "gfortran"
 MODCMD = -J
+FFLAGS = -O3 -I"/warwick/desktop/2018/software/OpenBLAS/0.3.12-GCC-10.2.0/include"
+LIBS = -L"/warwick/desktop/2018/software/OpenBLAS/0.3.12-GCC-10.2.0/lib" -lopenblas
 else ifeq "$(FC)" "ifort"
 MODCMD = -module
+FFLAGS = -O3 -i8 -I"${MKLROOT}/include"
+LIBS =  -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_ilp64.a ${MKLROOT}/lib/intel64/libmkl_intel_thread.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -liomp5 -lpthread -lm -ldl
 endif
 
 MF = Makefile
