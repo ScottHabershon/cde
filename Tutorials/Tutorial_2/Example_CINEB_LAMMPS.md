@@ -1,10 +1,10 @@
-### Tutorial 2: CINEB using LAMMPS {#Tutorial2}
+## Tutorial 2: CINEB using LAMMPS {#Tutorial2}
 
 This tutorial gives a set of example input files and instructions for a CINEB calculation which uses the ReaxFF forcefield through LAMMPS.
 
 In this case, we are going to run a CINEB optimization of a reaction path representing association of water H2O onto a Pt atom which also has a pre-bound CO molecule. We will use the ReaxFF reactive force-field to model the potential energy surface, accessed through the LAMMPS molecular dynamics code.
 
-**The actual files to run this example can be found in the *~/cde/examples/Tutorial_2 directory.**
+**The actual files to run this example can be found in the *~/cde/Tutorials/Tutorial_2 directory.**
 
 In this directory, you will find several input files:
 

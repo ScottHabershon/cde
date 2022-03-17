@@ -1,16 +1,16 @@
-##Tutorial 3: Reaction path-finding {#pathfind}
+## Tutorial 3: Reaction path-finding {#pathfind}
 
 This section gives example input files and instructions for a typical double-ended reaction path-finding calculation run through CDE.
 
 This calculation will perform a simulated annealing (SA) optimization of the mechanism error-function, seeking out a reaction mechanism which connects the reactant graph (as calculated from the input reactant xyz file) to the product graph (as determined from the input product xyz file).
 
-**Important: Note that the target reactant and prosuct graphs are calculated directly from the input reactant and product structures. So, make sure that the bond-lengths in your reactants and products are correct so that the calculated connectivity matrices are also correct!**
+**Important: Note that the target reactant and product graphs are calculated directly from the input reactant and product structures. So, make sure that the bond-lengths in your reactants and products are correct so that the calculated connectivity matrices are also correct!**
 
 The allowed moves (i.e. chemical reactions) which are used in the search for a mechanism connecting the reactant and product are provided in the move file.
 
 In this example, we're going to look at the oxidation of carbon monoxide to carbon dioxide, occuring on a platinum cluster.
 
-**The actual files to run this example can be found in the *~/cde/examples/Tutorial_5/* directory.**
+**The actual files to run this example can be found in the *~/cde/Tutorials/Tutorial_3/* directory.**
 
 In this directory, you will find several input files:
 
@@ -24,7 +24,7 @@ All of these input filenames are arbitrary; we could have called them alice, bob
 
 Let's have a look at each input file individually:
 
-###input
+### input
 
 The *input* file for this GDS run looks like this:
 
@@ -127,7 +127,6 @@ The parameter input blocks in the input file have already been covered in other 
 2. *graphfunctype 1* accounts for permutational invariance by calculating a graph-error function based on eigenvalues of a matrix defined as \f$M_{ij} = (m_{i} m_{j})/d_{ij}\f$, where \f$m_{i}\f$ is the atomic mass of atom i and \f$d_{ij}\f$ is the shortest distance between any two atoms calculated in terms of bond connections.
 3. *graphfunctype 2* accounts for permutational invariance by calculating a valence histogram for each pair of element types.
 4. *graphfunctype 3* accounts for permutational invariance by calculating a graph-error function based on eigenvalues of a matrix which is identical to the connectivity matrix except with the atomic masses on the diagonal elements.
-
 
 
 In the calculation setup for this example, we're allowing a maximum of 10 active reactions in the proposed reaction mechanisms, we're running for a maximum of 1000000 iterations, and we're starting at a temperature of 1,000,000 K. Note that this is not a "real" temperature, but is instead related to the graph error function type.

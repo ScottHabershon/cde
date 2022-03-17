@@ -17,6 +17,10 @@ CDE can call several external programs to obtain energies and forces on atoms du
 
 	- *lammps*: Performs a calculation of the PES using the LAMMPS simulation package (https://lammps.sandia.gov)
 
+	- *xtb*: Performs a calculation using the standalone xTB code (https://github.com/grimme-lab/xtb)
+
+	- *aims*: Performs a calculation using the FHI-aims electronic structure code (https://fhi-aims.org/)
+
 	- *null*: Does not perform a PES evaluation. Simply returns V = 0 and forces(:) = 0 for all atoms.
 
 
@@ -32,6 +36,10 @@ CDE can call several external programs to obtain energies and forces on atoms du
 	- *lammps*: LAMMPS calculation.
 
 	- *uff*: Performs geometry optimization under the UFF (Universal force-field) as implemented in babel/openbabel (http://openbabel.org/wiki/Main_Page)
+
+	- *xtb*: xTB calculation.
+
+	- *aims*: FHI-aims calculation.
 
 	- *null*: Does not perform geometry optimization.
 

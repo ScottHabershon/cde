@@ -1,4 +1,4 @@
-##Tutorial 4: Another reaction path-finding example {#pathfind2}
+## Tutorial 4: Another reaction path-finding example {#pathfind2}
 
 This section gives a second example input file set for a typical double-ended reaction path-finding calculation run through CDE.
 

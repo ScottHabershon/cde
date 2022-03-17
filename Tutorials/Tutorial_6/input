@@ -1,13 +1,13 @@
-# comment line 
-calctype netgrow 
+# Breakdown calculation on polyethylene.
+calctype breakdown
 minmolcharge 0      
 maxmolcharge 0 
 nchargemol 0
 maxstepcharge 0
 maxtotalcharge 0
-optaftermove .false.
+optaftermove .true.
 pesfull .false.         ! Required for radicals and charges...
-nimage 8                ! Number of images in each generated reaction-step 
+nimage 6                ! Number of images in each generated reaction-step 
 startfile start.xyz
 endfile end.xyz
 idppguess .true.
@@ -22,7 +22,7 @@ neboutfreq 5
 stripinactive .true.
 optendsbefore .true.
 optendsduring .false.
-nebrestrend .false.
+nebrestrend .true.
 
 dofconstraints 0
 atomconstraints 0
@@ -32,7 +32,7 @@ pesfile xtb.head
 pesopttype xtb 
 pesoptfile xtb.head
 pesexecutable xtb --iterations 1000 --grad
-pesoptexecutable xtb --iterations 1000 --opt normal --grad
+pesoptexecutable xtb --iterations 1000 --etemp 1000 --opt normal --grad
 
 movefile moves.in
 gdsthresh 0.5 
@@ -46,8 +46,8 @@ gdsdtrelax 0.1
 gdsoutfreq 10
 
 valencerange{
-C 1 4
-H 0 1
+C 2 4
+H 1 1
 }
 
 reactiveatomtypes{  
@@ -68,7 +68,6 @@ fixedbonds{
 allowedbonds{
 } 
 
-nrxn 8                   ! Max number of reactions in mechanism 
-nmcrxn 5          ! Number of iterations to search for mechanism
+nrxn 20                   ! Max number of reactions in mechanism 
+nmcrxn 1          ! Number of iterations to search for mechanism
 graphfunctype 4          ! Permutationally invariant function (leave!)
-ranseed 44              ! Random number seed

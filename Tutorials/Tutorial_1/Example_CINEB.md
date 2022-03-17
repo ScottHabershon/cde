@@ -1,10 +1,10 @@
-### Tutorial 1: CINEB {#Tutorial1}
+## Tutorial 1: CINEB {#Tutorial1}
 
 This section gives example input files and instructions for a typical CINEB calculation run through CDE.
 
 In this case, we are going to run a CINEB optimization of a reaction path representing dissociation of molecular hydrogen (H2) from formaldehyde (H2CO). We will using the semi-empirical PM3 method *via* the *ab initio* code *ORCA*, to calculate potential energies and forces.
 
-**The actual files to run this example can be found in the *~/cde/examples/Tutorial_1 directory.**
+**The actual files to run this example can be found in the *~/cde/Tutorials/Tutorial_1 directory.**
 
 In this directory, you will find several input files:
 
@@ -17,7 +17,7 @@ All of these input filenames are arbitrary; we could have called them alice, bob
 
 Let's have a look at each input file individually:
 
-###input
+### input
 
 The *input* file looks like this:
 
@@ -67,11 +67,6 @@ The *input* file looks like this:
     pesoptfile orca.min
     pesexecutable orca
     pesoptexecutable orca
-
-
-
-
-
 
 The input file in this case only contains those options which are relevant to the CINEB simulation; other input directives have been removed and will be ignored internally in CDE.
 
@@ -213,7 +208,7 @@ then running the command *orca* will then execute *~/programs/stuff/orca/bin/orc
 
 
 
-###Running the calculation
+### Running the calculation
 
 With these input files, we are now able to run the CINEB optimization. To do so, go into the *~/cde/examples/cineb/* directory and type:
 
@@ -238,7 +233,7 @@ The interesting output files are as follows:
 
 In addition to the above ouptut files, the *.log file produced by all CDE calculations will also contain some useful information about the NEB run.
 
-###Next steps
+### Next steps
 
 Possible further steps include:
 

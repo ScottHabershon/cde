@@ -8,7 +8,7 @@ maxtotalcharge 0
 optaftermove .true.
 pesfull .false.         ! Required for radicals and charges...
 nimage 8                ! Number of images in each generated reaction-step 
-startfile start_1.xyz
+startfile start.xyz
 endfile end.xyz
 idppguess .true.
 
