@@ -21,10 +21,10 @@ Module pes
   character (len=25) :: vfile
   character (len=6) :: vopttype
   character (len=25) :: voptfile
+  character (len=100) :: PESExec, PESOPTEXEC
+  character (len=100), dimension(NLINEMAX) :: PESlines, PESoptlines
   integer :: nline, nlineopt
-  character (len=100) :: PESlines(NLINEMAX), PESExec,PESOPTEXEC
-  character (len=100) :: PESoptlines(NLINEMAX)
-  integer :: coordsline,optcoordsline
+  integer :: coordsline, optcoordsline
   save
 
 contains
@@ -43,10 +43,12 @@ contains
   !!
   !************************************************************************
   !
-  Subroutine SetupEnergyCalc(PEStype,PESfile,PESExecutable)
-    character :: PEStype*6, PESfile*25, PESExecutable*100
+  Subroutine SetupEnergyCalc(PEStype, PESfile, PESExecutable)
+    character (len=6) :: PEStype
+    character (len=25) :: PESfile
+    character (len=100) :: PESExecutable
     logical :: there
-    integer :: ios, i
+    integer :: ios
     character (len=100) :: buffer
 
     vtype = Pestype
@@ -59,28 +61,32 @@ contains
         .or. trim(pestype) == 'lammps' .or. trim(pestype) == 'psi4' .or. &
         trim(pestype) == 'molpro') then
 
-       inquire( file = vfile, EXIST=THERE )
-       if (.not.there) then
-          print*,'* Input file does not exist for SetupEnergyCalc: ',vfile
-          stop
-       endif
-       Open(18, file = vfile, status = 'unknown')
-       ios = 0
-       nline = 0
-       do while (ios == 0)
-          read(18,'(A)',iostat=ios)buffer
-          if (ios == 0) then
-             if (buffer(1:3) == 'XXX') then
-                nline = nline + 1
-                coordsline = nline
-             else
-                nline = nline + 1
-                PESlines(nline) = buffer
-             endif
+      inquire(file = vfile, EXIST=THERE)
+      if (.not. there) then
+        print*,'* Input file does not exist for SetupEnergyCalc: ', vfile
+        stop
+      endif
+      open(18, file = vfile, status = 'unknown')
+      ios = 0
+      nline = 0
+      do while (ios == 0)
+        read(18, '(A)', iostat=ios)buffer
+        if (ios == 0) then
+          if (buffer(1:3) == 'XXX') then
+            nline = nline + 1
+            coordsline = nline
+          else
+            nline = nline + 1
+            PESlines(nline) = buffer
           endif
-       end do
-       close(18)
+        endif
+      enddo
+      close(18)
 
+    elseif (trim(pestype) == 'xtb') then
+      ! xTB doesn't need an input file, so ignore.
+    elseif (trim(pestype) == 'aims') then
+      ! FHI-aims handles geometry and control files separately, so no need to insert geometry into a file.
     endif
 
     return
@@ -100,17 +106,18 @@ contains
   !!
   !************************************************************************
   !
-  Subroutine SetupGeomOpt(PESOpttype,PESOptfile,PESOptExecutable)
+  Subroutine SetupGeomOpt(PESOpttype, PESOptfile, PESOptExecutable)
     implicit none
-    character :: PESopttype*6, PESoptfile*25, PESoptExecutable*100
+    character (len=6) :: PESopttype
+    character (len=25) :: PESoptfile
+    character (len=100) :: PESoptExecutable
     logical :: there
-    integer :: ios, i
+    integer :: ios
     character (len=100) :: buffer
 
     vopttype = Pesopttype
     voptfile = PESoptfile
     PESOPTEXEC = PESOptExecutable
-
 
     ! Read the PES file.
     !
@@ -118,35 +125,36 @@ contains
         .or. trim(pestype) == 'lammps' .or. trim(pestype) == 'psi4' .or. &
         trim(pestype) == 'molpro') then
 
-       inquire( file = voptfile, EXIST=THERE )
-       if (.not.there) then
-          print*,'* Input file does not exist for SetupGeomOpt: ',voptfile
-          stop
-       endif
-       Open(18, file = voptfile, status = 'unknown')
-       ios = 0
-       nlineopt = 0
-       do while (ios == 0)
-          read(18,'(A)',iostat=ios)buffer
-          if (ios == 0) then
-             if (buffer(1:3) == 'XXX') then
-                nlineopt = nlineopt + 1
-                optcoordsline = nlineopt
-             else
-                nlineopt = nlineopt + 1
-                PESoptlines(nlineopt) = buffer
-             endif
+      inquire(file=voptfile, EXIST=THERE)
+      if (.not. there) then
+        print*,'* Input file does not exist for SetupGeomOpt: ', voptfile
+        stop
+      endif
+      open(18, file = voptfile, status = 'unknown')
+      ios = 0
+      nlineopt = 0
+      do while (ios == 0)
+        read(18, '(A)', iostat=ios) buffer
+        if (ios == 0) then
+          if (buffer(1:3) == 'XXX') then
+            nlineopt = nlineopt + 1
+            optcoordsline = nlineopt
+          else
+            nlineopt = nlineopt + 1
+            PESoptlines(nlineopt) = buffer
           endif
-       end do
-       close(18)
+        endif
+      enddo
+      close(18)
 
     else if (trim(pesopttype) == 'uff') then
-
-       ! If pesopttype is UFF, there isn't actually anything to do!.
-       !
-
+      ! If pesopttype is UFF, there isn't actually anything to do!.
+      !
+    elseif (trim(pesopttype) == 'xtb') then
+      ! xTB doesn't need an input file, so ignore.
+    elseif (trim(pestype) == 'aims') then
+      ! FHI-aims handles geometry and control files separately, so no need to insert geometry into a file.
     endif
-
 
     return
   end Subroutine SetupGeomOpt
@@ -167,49 +175,47 @@ contains
   !!
   !************************************************************************
   !
-  Subroutine AbInitio(cx,abtypein,success)
+  Subroutine AbInitio(cx, abtypein, success)
     implicit none
     logical :: minimize, success
     type(cxs) :: cx
-    type(cxs), allocatable :: cxtemp(:)
+    type(cxs), dimension(:), allocatable :: cxtemp
     character (len=6) :: ptype
     real(8) :: Vtot
-    integer :: ii, natom, nmol,i,j
-    real(8), allocatable :: xtemp(:),ytemp(:),ztemp(:)
-    character(len=2), allocatable :: labeltemp(:)
+    integer :: ii, natom, nmol, i, j
+    real(8), dimension(:), allocatable :: xtemp, ytemp, ztemp
+    character(len=2), dimension(:), allocatable :: labeltemp
     character(len=4)              :: abtype
-    character(len=4),intent(in)    :: abtypein
+    character(len=4),intent(in)   :: abtypein
 
     abtype = abtypein
 
     ! If we're running optg or hess calculations, turn on minimization.
     !
     minimize = .false.
-    if ( index(abtype,'optg') .ne. 0) minimize = .true.
-    if ( index(abtype,'hess') .ne. 0) minimize = .true.
+    if (index(abtype, 'optg') .ne. 0) minimize = .true.
+    if (index(abtype, 'hess') .ne. 0) minimize = .true.
 
     ! If there is only 1 atom, turn off minimization!
     !
-    if (index(abtype,'optg') .ne. 0) then
-     if (cx%na .eq. 1) abtype = 'ener'
+    if (index(abtype, 'optg') .ne. 0) then
+      if (cx%na .eq. 1) abtype = 'ener'
     endif
 
     ! Decide which calculation type we need to run, based on the calculation
     ! type requested for either single-point or geometry optimization.
     !
-    if (.not.minimize) then
+    if (.not. minimize) then
       ptype = vtype
     else if (minimize) then
       ptype = vopttype
     endif
 
-
     ! CHECK - HESSIAN ONLY IMPLEMENTED FOR ORCA AT MOMENT (SH)
     !
-    if ( (index(abtype,'hess') .ne. 0) .and. (ptype .ne. 'orca') ) then
+    if ((index(abtype, 'hess') .ne. 0) .and. (ptype .ne. 'orca')) then
       stop 'ERROR: HESSIAN IS ONLY IMPLEMENTED FOR ORCA CALCULATION'
     endif
-
 
     ! Are we running PES calculation for the full system? (PESfull = .TRUE.)
     !
@@ -217,53 +223,60 @@ contains
 
       ! Run the calculation.
       select case (ptype)
-      case('orca')
-        Call ORCAcalc(cx,abtype,success)
+        case('orca')
+          call ORCAcalc(cx, abtype, success)
 
-      case('dftb')
-        Call DFTBcalc(cx,minimize,success)
+        case('dftb')
+          call DFTBcalc(cx, minimize, success)
 
-      case('lammps')
-        Call LAMMPScalc(cx,abtype,success)
+        case('lammps')
+          call LAMMPScalc(cx, abtype, success)
 
-      case('psi4')
-        Call PSI4calc(cx,minimize,success)
+        case('psi4')
+          call PSI4calc(cx, minimize, success)
 
-      case('molpro')
-        Call MOLPROcalc(cx,abtype,success)
+        case('molpro')
+          call MOLPROcalc(cx, abtype, success)
 
-      case('uff')
-        Call UFFcalc(cx,minimize,success)
+        case('uff')
+          call UFFcalc(cx, minimize, success)
 
-      case('null')
-        cx%vcalc = 0.d0
-        cx%dvdr(:,:) = 0.d0
+        case('xtb')
+          call xTBcalc(cx, minimize, success)
 
-      case default
-        Stop '* Unknown calculation type in PEScalc'
+        case('aims')
+          call AIMScalc(cx, minimize, success)
+
+        case('null')
+          cx%vcalc = 0.d0
+          cx%dvdr(:, :) = 0.d0
+
+        case default
+          stop '* Unknown calculation type in PEScalc'
 
       end select
 
       ! ...or are we running PES evaluations for each molecule in cx?
       !
-    else if (.not.PESfull) then
+    else
 
       ! Make individual CXS objects for each molecule.
       !
       nmol = cx%nmol
+      write(logfile, '("nmol: ", I3)') nmol
       allocate(cxtemp(nmol))
-      allocate( labeltemp(NAMAX))
-      allocate(xtemp(NAMAX),ytemp(NAMAX),ztemp(NAMAX))
+      allocate(labeltemp(NAMAX))
+      allocate(xtemp(NAMAX), ytemp(NAMAX), ztemp(NAMAX))
       do i = 1, nmol
         natom = cx%namol(i)
         do j = 1, natom
-          ii = cx%molid(i,j)
+          ii = cx%molid(i, j)
           labeltemp(j) = cx%AtomLabel(ii)
-          xtemp(j) = cx%r(1,ii)
-          ytemp(j) = cx%r(2,ii)
-          ztemp(j) = cx%r(3,ii)
+          xtemp(j) = cx%r(1, ii)
+          ytemp(j) = cx%r(2, ii)
+          ztemp(j) = cx%r(3, ii)
         enddo
-        Call CreateCXS( cxtemp(i), natom, labeltemp, xtemp, ytemp, ztemp)
+        call CreateCXS(cxtemp(i), natom, labeltemp, xtemp, ytemp, ztemp)
         cxtemp(i)%molcharge(1) = cx%molcharge(i)
         cxtemp(i)%nmol = 1
       enddo
@@ -272,59 +285,66 @@ contains
       !
       do i = 1, nmol
 
-        if (cxtemp(i)%na .eq.1 )then
+        if (cxtemp(i)%na .eq. 1) then
           abtype='ener'
         endif
 
         ! Run the calculation.
         select case (ptype)
 
-        case('orca')
-          Call ORCAcalc(cxtemp(i),abtype,success)
+          case('orca')
+            call ORCAcalc(cxtemp(i), abtype, success)
 
-        case('dftb')
-          Call DFTBcalc(cxtemp(i),minimize,success)
+          case('dftb')
+            call DFTBcalc(cxtemp(i), minimize, success)
 
-        case('lammps')
-          Call LAMMPScalc(cxtemp(i),abtype,success)
+          case('lammps')
+            call LAMMPScalc(cxtemp(i), abtype, success)
 
-        case('psi4')
-          Call PSI4calc(cxtemp(i),minimize,success)
+          case('psi4')
+            call PSI4calc(cxtemp(i), minimize, success)
 
-        case('molpro')
-          Call MOLPROcalc(cxtemp(i),abtype,success)
+          case('molpro')
+            call MOLPROcalc(cxtemp(i), abtype, success)
 
-        case('uff')
-          Call UFFcalc(cxtemp(i),minimize,success)
+          case('uff')
+            call UFFcalc(cxtemp(i), minimize, success)
 
-        case('null')
-          cxtemp(i)%vcalc = 0.d0
-          cxtemp(i)%dvdr(:,:) = 0.d0
+          case('xtb')
+            call xTBcalc(cxtemp(i), minimize, success)
 
-        case default
-          Stop '* Unknown calculation type in PEScalc'
+          case('aims')
+            call AIMScalc(cxtemp(i), minimize, success)
+
+          case('null')
+            cxtemp(i)%vcalc = 0.d0
+            cxtemp(i)%dvdr(:, :) = 0.d0
+
+          case default
+            Stop '* Unknown calculation type in PEScalc'
 
         end select
       enddo
 
-      ! Now recmbine the results for each molecule.
+      ! Now recombine the results for each molecule.
       !
       Vtot = 0.d0
       do i = 1, nmol
         Vtot = Vtot + cxtemp(i)%vcalc
         natom = cx%namol(i)
         cx%molen(i) = cxtemp(i)%vcalc
-        print*,'MOLEN VALUES: ',i,cx%molen(i)
+        print *, 'MOLEN VALUES: ', i, cx%molen(i)
         do j = 1, cxtemp(i)%na
-          ii = cx%molid(i,j)
-          cx%r(1:3,ii) = cxtemp(i)%r(1:3,j)
-          cx%dvdr(1:3,ii) = cxtemp(i)%dvdr(1:3,j)
+          ii = cx%molid(i, j)
+          cx%r(1:3, ii) = cxtemp(i)%r(1:3, j)
+          cx%dvdr(1:3, ii) = cxtemp(i)%dvdr(1:3, j)
         enddo
-        Call DeleteCXS( cxtemp(i) )
+        call DeleteCXS(cxtemp(i))
       enddo
       cx%vcalc = Vtot
-      deallocate(cxtemp )
-      deallocate( labeltemp)
+
+      deallocate(cxtemp)
+      deallocate(labeltemp)
       deallocate(xtemp)
       deallocate(ytemp)
       deallocate(ztemp)
@@ -352,10 +372,10 @@ contains
     logical :: minimize, flag, there,success
     character (len=100) :: buffer(NLINEMAX), cmsg, exec, cline
     character (len=125) :: str
-    integer :: n, iline, i, j, estat, cstat, ios, gat,sz, TotalCharge,TotalSpin, wfi
+    integer :: n, iline, i, j, estat, cstat, ios, gat, sz, TotalCharge, TotalSpin, wfi
     integer :: nel, opti
-    character (len=20) :: cdum,cnum,gstr1,gstr2,gstr3,gstr4,string, nelec, spin
-    character (len=50) :: string1,string3,ia1,ia2
+    character (len=20) :: cdum, cnum, gstr1, gstr2, gstr3, gstr4, string, nelec, spin
+    character (len=50) :: string1, string3, ia1, ia2
     character (len=4) :: abtype
     success = .true.
 
@@ -363,7 +383,7 @@ contains
     if (abtype .eq. 'optg') minimize = .true.
     ! Create the file template based on the calculation type.
     !
-    Call CreateFileTemplate(minimize, exec, n, buffer, iline)
+    call CreateFileTemplate(minimize, exec, n, buffer, iline)
 
     call execute_command_line("rm -f f.out e.out temp.*",exitstat = estat, cmdstat = cstat, &
                               cmdmsg = cmsg )
@@ -376,33 +396,33 @@ contains
     !print*, 'MINIMIZE', minimize
     do j = 1, cx%na
       if (minimize) then
-       write(21,'(A)',advance='no') trim(cx%atomlabel(j))//',  ,'
-       do i = 1, 3
-        if (cx%fixedatom(j) .or. cx%fixeddof((j-1)*3+i)) then
-          write(gstr1,*) j ; write(gstr2,*) i
-          write(21,'(A)',advance='no') trim(cx%atomlabel(j))//trim(adjustl(gstr1))//trim(adjustl(gstr2))//' '
-        else
-          write(21,'(f14.8)',advance='no') cx%r(i,j) * bohr_to_ang
-        endif
-       enddo
-       write(21,*)
+        write(21,'(A)',advance='no') trim(cx%atomlabel(j))//',  ,'
+        do i = 1, 3
+          if (cx%fixedatom(j) .or. cx%fixeddof((j-1)*3+i)) then
+            write(gstr1,*) j ; write(gstr2,*) i
+            write(21,'(A)',advance='no') trim(cx%atomlabel(j))//trim(adjustl(gstr1))//trim(adjustl(gstr2))//' '
+          else
+            write(21,'(f14.8)',advance='no') cx%r(i,j) * bohr_to_ang
+          endif
+        enddo
+        write(21,*)
       else
-       xx = cx%r(1,j) * bohr_to_ang
-       yy = cx%r(2,j) * bohr_to_ang
-       zz = cx%r(3,j) * bohr_to_ang
-       write(21,'(a2,",,",1x,3(f14.8,", "))')cx%atomlabel(j),xx,yy,zz
+        xx = cx%r(1,j) * bohr_to_ang
+        yy = cx%r(2,j) * bohr_to_ang
+        zz = cx%r(3,j) * bohr_to_ang
+        write(21,'(a2,",,",1x,3(f14.8,", "))')cx%atomlabel(j),xx,yy,zz
       endif
     enddo
     write(21,*) '}'
     if (minimize) then
       do j = 1, cx%na
-         do i = 1, 3
+        do i = 1, 3
           if (cx%fixedatom(j) .or. cx%fixeddof((j-1)*3+i)) then
             write(gstr1,*) j ; write(gstr2,*) i ; write(gstr3,'(f14.8)') cx%r(i,j) * bohr_to_ang
             write(21,*) trim(cx%atomlabel(j))//trim(adjustl(gstr1))//trim(adjustl(gstr2))//'='//trim(adjustl(gstr3))
           endif
-         enddo
-         write(21,*)
+        enddo
+        write(21,*)
       enddo
     endif
 
@@ -416,46 +436,46 @@ contains
     write(nelec,*) nel
     nelec = trim(adjustl(nelec))
     if (mod(nel,2).eq.0) then
-       spin = '0'
+      spin = '0'
     else
-       spin = '1'
+      spin = '1'
     endif
     wfi = 0
     do i = 1, n
-     if ( index(buffer(i),'wf') .ne. 0 ) wfi = i
+      if ( index(buffer(i),'wf') .ne. 0 ) wfi = i
     enddo
     do i = iline+2, wfi-1
       write(21,*) trim(buffer(i))
     enddo
     write(21,*) 'wf,'//trim(nelec)//',1,'//trim(spin)
     if (minimize .and. cx%na .gt. 1) then
-     do i = wfi+1, n
-       write(21,*) trim(buffer(i))
-       if (index(buffer(i),'optg') .ne. 0 ) then
-         opti = i
-         exit
-       endif
-     enddo
-     if (any(cx%fixedatom) .or. any(cx%fixeddof)) then
-       str = ''
-       write(21,'(A)',advance='no')  'inactive'
-       do j = 1, cx%na
+      do i = wfi+1, n
+        write(21,*) trim(buffer(i))
+        if (index(buffer(i),'optg') .ne. 0 ) then
+          opti = i
+          exit
+        endif
+      enddo
+      if (any(cx%fixedatom) .or. any(cx%fixeddof)) then
+        str = ''
+        write(21,'(A)',advance='no')  'inactive'
+        do j = 1, cx%na
           do i = 1, 3
-           if (cx%fixedatom(j) .or. cx%fixeddof((j-1)*3+i)) then
-             write(gstr1,*) j ; write(gstr2,*) i
-             write(21,'(A)',advance='no') ','//trim(cx%atomlabel(j))//trim(adjustl(gstr1))//trim(adjustl(gstr2))
-           endif
+            if (cx%fixedatom(j) .or. cx%fixeddof((j-1)*3+i)) then
+              write(gstr1,*) j ; write(gstr2,*) i
+              write(21,'(A)',advance='no') ','//trim(cx%atomlabel(j))//trim(adjustl(gstr1))//trim(adjustl(gstr2))
+            endif
           enddo
-       enddo
-       write(21,*)
-     endif
-     do i = opti+1,n
-       write(21,*) trim(buffer(i))
-     enddo
+        enddo
+        write(21,*)
+      endif
+      do i = opti+1,n
+        write(21,*) trim(buffer(i))
+      enddo
     else
-     do i = wfi+1, n
-       write(21,*) trim(buffer(i))
-     enddo
+      do i = wfi+1, n
+        write(21,*) trim(buffer(i))
+      enddo
     endif
     if (cx%na .gt. 1) then
       if (abtype .ne. 'ener') write(21,*) 'force'
@@ -521,14 +541,14 @@ contains
     implicit none
     type(cxs) :: cx
     real(8):: xx,yy,zz
-    logical :: minimize, flag, there,success
+    logical :: minimize, flag, there, success
     character(len=4)    :: abtype
     character (len=100) :: buffer(NLINEMAX), cmsg, exec, buffer_store(NLINEMAX)
     character (len=125) :: str
-    integer :: n, iline, i, j, estat, cstat, ios, gat,sz, TotalCharge,TotalSpin
+    integer :: n, iline, i, j, estat, cstat, ios, gat, sz, TotalCharge,TotalSpin
     integer :: nel
-    character (len=20) :: cdum,cnum,gstr1,gstr2,gstr3,gstr4,string
-    character (len=50) :: string1,string3,ia1,ia2
+    character (len=20) :: cdum, cnum, gstr1, gstr2, gstr3, gstr4, string
+    character (len=50) :: string1, string3, ia1, ia2
     success = .true.
 
     minimize = .false.
@@ -812,44 +832,42 @@ contains
   !!
   !************************************************************************
   !
-  Subroutine DFTBcalc(cx,minimize,success)
+  Subroutine DFTBcalc(cx, minimize, success)
     implicit none
     type(cxs) :: cx
     real(8):: xx,yy,zz
     logical :: minimize, success, there
-    character (len=100) :: buffer(NLINEMAX), cmsg, exec
-    character (len=100) :: str
+    character (len=100) :: cmsg, exec, str
+    character (len=100), dimension(NLINEMAX) :: buffer
     integer :: n, iline, i, j, estat, cstat, ios, ntype
     integer :: ifound, idum, sz
     character (len=2) :: atype(NAMAX), c2
     character (len=20) :: cdum
-    character (len=50) :: string1,string3
+    character (len=50) :: string1, string3
     character (len=3) :: cnum
 
     ! Create the file template based on the calculation type.
     !
-    Call CreateFileTemplate(minimize, exec, n, buffer, iline)
+    call CreateFileTemplate(minimize, exec, n, buffer, iline)
 
     ! Set flag indicating whether or not the calculation exectued correctly.
     !
     success = .true.
 
-
     ! Clear out the current dftb_in.hsd
     !
-    call execute_command_line("rm -f dftb_in.hsd detailed.out f.out",exitstat = estat, cmdstat = cstat, &
-                              cmdmsg = cmsg, WAIT = .TRUE. )
-
+    call execute_command_line("rm -f dftb_in.hsd detailed.out f.out", exitstat = estat, cmdstat = cstat, &
+        cmdmsg = cmsg, WAIT = .TRUE. )
 
     ! Write the dftb_in.hsd file.
     !
-    open(21,file='dftb_in.hsd',status='unknown')
-    write(cnum,'(I3)')cx%na
-    write(21,*)buffer(1)
+    open(21, file='dftb_in.hsd', status='unknown')
+    write(cnum, '(I3)') cx%na
+    write(21, *) buffer(1)
 
     ! Set number of atoms.
     !
-    write(21,*)adjustl(trim(cnum)),' C' !< This sets number of atoms and defines a "cluster" calculation (no PBC)
+    write(21, *) adjustl(trim(cnum)),' C' !< This sets number of atoms and defines a "cluster" calculation (no PBC)
 
     ! Identify the different atom types.
     !
@@ -858,7 +876,7 @@ contains
     do i = 2, cx%na
       ifound = 0
       do j = 1, ntype
-        if ( cx%atomlabel(i) == atype(j) ) ifound=1
+        if (cx%atomlabel(i) == atype(j)) ifound = 1
       enddo
       if (ifound == 0) then
         ntype = ntype + 1
@@ -872,44 +890,56 @@ contains
     do i = 2, ntype
       str = trim(str) // ' ' // trim(atype(i))
     enddo
-    write(21,*)str
+    write(21, *) str
 
     ! Now print coordinates...
     !
     do i = 1, cx%na
       do j = 1, ntype
         if (cx%atomlabel(i) == atype(j)) then
-          xx = cx%r(1,i) * bohr_to_ang
-          yy = cx%r(2,i) * bohr_to_ang
-          zz = cx%r(3,i) * bohr_to_ang
-          write(21,'(i3,1x,i2,1x,3f14.8)')i,j,xx,yy,zz
+          xx = cx%r(1, i) * bohr_to_ang
+          yy = cx%r(2, i) * bohr_to_ang
+          zz = cx%r(3, i) * bohr_to_ang
+          write(21, '(i3,1x,i2,1x,3f14.8)') i, j, xx, yy, zz
         endif
       enddo
     enddo
 
     do i = iline+1, n
-      write(21,*) buffer(i)
+      write(21, *) buffer(i)
     enddo
 
     ! Close DFTB file.
     !
     close(unit=21)
 
-
     ! Run the calculation - note that DFTB+ just assumes that the input file is called
     ! dftb_in.hsd, so doesn't need any arguments.
     !
     str = trim(Exec) // " > dftb.output "
-    Call ExecuteCalculation(str, success)
+    call ExecuteCalculation(str, success)
 
     ! Check that f.out and e.out exists....
     !
+    open(22, file='dftb.output', status='unknown')
+    do while (ios == 0)
+      read(22, '(A)', iostat=ios) str
+      if (index(str, 'SCC is NOT converged') .ne. 0) then
+        print *, 'DFTB SCC not converged, stopping.'
+        stop
+      endif
+    enddo
+
+    inquire(file='detailed.out', exist=there)
+    if (.not. there) then
+      stop '"detailed.out" file missing from DFTB calculation.'
+    endif
 
     ! Extract the forces from the 'detailed.out' file.
     !
     str = "grep 'Total Forces' detailed.out -A "//adjustl(trim(cnum))//" > f.out"
-    Call ExtractData(str)
-    inquire(file='f.out',SIZE=sz)
+    call ExtractData(str)
+    inquire(file='f.out', SIZE=sz)
 
     if (sz <= 0) then
       success = .FALSE.
@@ -918,17 +948,17 @@ contains
 
     ! Read the forces - the output is already in atomic units.
     !
-    Call ReadForcesTogether(cx, 1)
+    call ReadForcesTogether(cx, 1)
 
     ! Change forces to derivatives.
     !
-    cx%dvdr(:,:) = -cx%dvdr(:,:)
+    cx%dvdr(:, :) = -cx%dvdr(:, :)
 
     ! Extract the energy from the 'detailed.out' file.
     !
     str = "grep 'Total energy' detailed.out | awk '{print $3}'> e.out"
-    Call ExtractData(str)
-    inquire(file='e.out',SIZE=sz)
+    call ExtractData(str)
+    inquire(file='e.out', SIZE=sz)
     if (sz <= 0) then
       success = .FALSE.
       return
@@ -936,19 +966,264 @@ contains
 
     ! Read in the energy from file (in atomic units).
     !
-    Call ReadEnergy(cx, 0)
+    call ReadEnergy(cx, 0)
 
     ! If we're running optimization, we need to read in the optimized coordinates.
     !
     if (minimize) then
-      Call ReadOptimizedCoordinates(cx, 'geo_end.xyz')
+      call ReadOptimizedCoordinates(cx, 'geo_end.xyz')
     endif
-
-
 
     return
   end Subroutine DFTBcalc
 
+  !
+  !************************************************************************
+  !> xTBcalc
+  !!
+  !! Performs a single-point energy and force calculation using xTB.
+  !!
+  !! - cx: Chemical structure object.
+  !! - minimize: logical flag indicating whether or not to run a
+  !!             geometry optimization calculation.
+  !! - success: Flag indicating success of calculation.
+  !!
+  !************************************************************************
+  !
+  subroutine xTBcalc(cx, minimize, success)
+    implicit none
+    type(cxs), intent(inout) :: cx
+    logical, intent(in) :: minimize
+    logical, intent(out) :: success
+    logical :: there
+    character(len=1) :: smrk
+    character(len=20) :: cdum
+    character(len=100) :: cmsg, str
+    integer :: i, estat, cstat, ios
+
+    success = .true.
+    smrk = '"'
+
+    ! Clear out current xTB output files.
+    call execute_command_line(&
+        'rm -f charges xtbin.engrad xtbin.xyz xtbopt.xyz xtbopt.log xtb.out &
+        &energy gradient wbo xtbrestart xtbtopo.mol .xtboptok', &
+        wait=.true., exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
+
+    ! xTB input file is a simple xyz, so export this.
+    call PrintCXSToFile(cx, 'xtbin.xyz', 0.d0)
+
+    ! Run calculation.
+    if (minimize) then
+      write(str, '(A, 1X, A)') trim(PESOPTEXEC), 'xtbin.xyz > xtb.out' ! done with xtb --opt normal --grad
+    else
+      write(str, '(A, 1X, A)') trim(PESExec), ' xtbin.xyz > xtb.out' ! done with xtb --grad
+    endif
+    call execute_command_line(str, wait=.true., exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
+
+    ! Check calculation ran correctly.
+    if (cstat .gt. 0) then
+      print *, 'xTB failed with error message: ', cmsg
+      stop
+    endif
+
+    ! Read forces.
+    ! Read this directly from the 'gradient' file, with an offset of cnum+2.
+    inquire(file='gradient', exist=there)
+    if (.not. there) then
+      stop '"gradient" file missing from xTB calculation.'
+    endif
+    open(21, file='gradient', status='unknown')
+    do i = 1, cx%na+2
+      read(21, *, iostat=ios) cdum
+      if (ios /= 0) then
+        stop 'Error 1 reading xTB "gradient" file.'
+      endif
+    enddo
+    do i = 1, cx%na
+      read(21, *, iostat=ios) cx%dvdr(1, i), cx%dvdr(2, i), cx%dvdr(3, i)
+      if (ios /= 0) then
+        stop 'Error 2 reading xTB "gradient" file.'
+      endif
+    enddo
+    close(unit=21)
+
+    ! Change forces to derivatives
+    ! cx%dvdr(:, :) = -cx%dvdr(:, :)
+
+    ! Read energy.
+    ! Read this directly from either 'energy' or 'xtbin.engrad', whichever is easiest.
+    inquire(file='xtbin.engrad', exist=there)
+    if (.not. there) then
+      stop '"xtbin.engrad" file missing from xTB calculation.'
+    endif
+    open(21, file='xtbin.engrad', status='unknown')
+    do i = 1, 7
+      read(21, *, iostat=ios) cdum
+      if (ios /= 0) then
+        stop 'Error 1 reading xTB "xtbin.engrad" file.'
+      endif
+    enddo
+    read(21, *, iostat=ios) cx%vcalc
+    if (ios /= 0) then
+      stop 'Error 2 reading xTB "xtbin.engrad" file.'
+    endif
+    close(unit=21)
+
+    ! Read in optimised coordinates if necessary.
+    if (minimize) then
+      inquire(file='.xtboptok', exist=there)
+      if (.not. there) then
+        stop 'xTB optimisation failed. Consider increasing the number of SCF iterations.'
+      endif
+      call ReadOptimizedCoordinates(cx, 'xtbopt.xyz')
+    endif
+
+    ! Clear out current xTB output files.
+    call execute_command_line(&
+        'rm -f charges xtbin.engrad xtbin.xyz xtbopt.xyz xtbopt.log xtb.out &
+        &energy gradient wbo xtbrestart xtbtopo.mol .xtboptok', &
+        wait=.true., exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
+
+    return
+  end subroutine xTBcalc
+
+
+  !
+  !************************************************************************
+  !> AIMScalc
+  !!
+  !! Performs a single-point energy and force calculation using FHI-aims.
+  !!
+  !! - cx: Chemical structure object.
+  !! - minimize: logical flag indicating whether or not to run a
+  !!             geometry optimization calculation.
+  !! - success: Flag indicating success of calculation.
+  !!
+  !************************************************************************
+  !
+  subroutine AIMScalc(cx, minimize, success)
+    implicit none
+    type(cxs), intent(inout) :: cx
+    logical, intent(in) :: minimize
+    logical, intent(out) :: success
+    logical :: there
+    real(8) :: xx, yy, zz, e_real
+    character(len=1) :: smrk
+    character(len=25) :: cdum, elemdum, e_str
+    character(len=200) :: cmsg, str
+    integer :: i, estat, cstat, ios
+
+    success = .true.
+    smrk = '"'
+
+    ! Clear out current aims output files.
+    call execute_command_line(&
+        'rm -f aims.out control.in geometry.in geometry.in.next_step', &
+        wait=.true., exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
+
+    ! Write the geometry.in file
+    open(21, file='geometry.in', status='unknown')
+    write(21, '("#===============================================================================")')
+    write(21, '("# FHI-aims file: ./geometry.in")')
+    write(21, '("#===============================================================================")')
+
+    do i = 1, cx%na
+      xx = cx%r(1, i) * bohr_to_ang
+      yy = cx%r(2, i) * bohr_to_ang
+      zz = cx%r(3, i) * bohr_to_ang
+      write(21, '("atom ", 3F14.8, 1X, A2)') xx, yy, zz, cx%atomlabel(i)
+    enddo
+
+    write(21, '("")')
+    close(unit=21)
+
+    ! Copy the correct control template over.
+    if (minimize) then
+      write(str, '("cp ", A, " control.in")') PESoptfile
+    else
+      write(str, '("cp ", A, " control.in")') PESfile
+    endif
+    call execute_command_line(str, wait=.true., exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
+
+    if (estat .ne. 0) then
+      print *, 'Copying control.in failed: ', cmsg
+      stop
+    endif
+
+    ! Run calculation.
+    if (minimize) then
+      write(str, '(A, 1X, A)') trim(PESOPTEXEC), ' > aims.out'
+    else
+      write(str, '(A, 1X, A)') trim(PESExec), ' > aims.out'
+    endif
+    call execute_command_line(str, wait=.true., exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
+
+    ! Check calculation ran correctly.
+    if (estat .ne. 0) then
+      print *, 'FHI-aims failed with error message: ', cmsg
+      stop
+    else
+      print *, 'FHI-aims succeeded!'
+    endif
+
+    ! Check convergence.
+    open(22, file='aims.out', status='unknown')
+    ios = 0
+    do while (ios == 0)
+      read(22, '(A)', iostat=ios) str
+      if (index(str, 'SCF cycle not converged.') .ne. 0) then
+        print *, 'FHI-aims SCF cycle not converged, stopping.'
+        stop
+      endif
+    enddo
+    close(unit=22)
+
+    ! Read in forces and energy.
+    open(22, file='aims.out', status='unknown')
+    ios = 0
+    do while (ios == 0)
+      read(22, '(A)', iostat=ios) str
+      if (ios .ne. 0) print *, 'End of file reached or something has gone wrong.'
+      if (index(str, 'Total energy uncorrected') .ne. 0) then
+        print *, str
+        e_str = str(45:66)
+        read(e_str, *) cx%vcalc
+        cx%vcalc = cx%vcalc * ev_to_au
+
+      elseif (index(str, 'Total atomic forces') .ne. 0) then
+        do i = 1, cx%na
+          read(22, *) cdum, idum, cx%dvdr(1, i), cx%dvdr(2, i), cx%dvdr(3, i)
+          cx%dvdr(:, i) = -cx%dvdr(:, i) * ev_ang_to_au_bohr
+        enddo
+      endif
+    enddo
+    close(unit=22)
+
+
+    ! Read in optimised coordinates if necessary.
+    if (minimize) then
+      inquire(file='geometry.in.next_step', exist=there)
+      if (.not. there) then
+        stop 'FHI-aims optimisation failed. Consider increasing the number of SCF iterations.'
+      else
+        open(21, file='geometry.in.next_step', status='unknown')
+        do i = 1, cx%na
+          read(21, *, iostat=ios) cdum, xx, yy, zz, elemdum
+          cx%r(1, i) = xx * ang_to_bohr
+          cx%r(2, i) = yy * ang_to_bohr
+          cx%r(3, i) = zz * ang_to_bohr
+        enddo
+      endif
+    endif
+
+    ! Clear out current xTB output files.
+    call execute_command_line(&
+        'rm -f aims.out control.in geometry.in geometry.in.next_step', &
+        wait=.true., exitstat=estat, cmdstat=cstat, cmdmsg=cmsg)
+
+    return
+  end subroutine AIMScalc
 
 
   !
@@ -973,7 +1248,7 @@ contains
   Subroutine UFFcalc(cx,minimize,success)
     implicit none
     type(cxs) :: cx
-    real(8):: xx,yy,zz, del, rr(3,cx%na), vm, vp
+    real(8):: xx, yy, zz, del, rr(3,cx%na), vm, vp
     logical :: minimize, success, there
     character (len=100) :: buffer(NLINEMAX), cmsg, exec
     character (len=100) :: str
@@ -981,7 +1256,7 @@ contains
     integer :: ifound, idum
     character (len=2) :: atype(NAMAX), c2
     character (len=50) :: cdum
-    character (len=50) :: string1,string3
+    character (len=50) :: string1, string3
     character (len=3) :: cnum
 
     if (.not. minimize) then
@@ -1386,249 +1661,255 @@ contains
 
 
   Subroutine ReadForcesIndividually(cx, dummyLines)
-     implicit none
-     type(cxs) :: cx
-     logical :: fileExists
-     integer :: i,j, dummyLines, ios
-     character (len=20) :: cdum
+    implicit none
+    type(cxs) :: cx
+    logical :: fileExists
+    integer :: i, j, dummyLines, ios
+    character (len=20) :: cdum
 
-     inquire(file = 'f.out', exist=fileExists)
-     if (.not.fileExists) then
-        stop '* f.out does not exist in pes.f90/ReadForcesIndividually'
-     endif
-     open (21, file = 'f.out', status = 'unknown')
+    inquire(file = 'f.out', exist=fileExists)
+    if (.not. fileExists) then
+      stop '* f.out does not exist in pes.f90/ReadForcesIndividually'
+    endif
+    open (21, file = 'f.out', status = 'unknown')
 
-     do i = 1, dummyLines
-        read(21,*,iostat=ios)cdum
+    do i = 1, dummyLines
+      read(21, *, iostat=ios) cdum
+      if (ios/=0) then
+        stop '* Error 1 reading f.out in pes.f90/ReadForcesIndividually'
+      endif
+    enddo
+
+    do i = 1, cx%na
+      do j = 1, 3
+        read(21, *, iostat=ios) cx%dvdr(j, i)
         if (ios/=0) then
-           stop '* Error 1 reading f.out in pes.f90/ReadForcesIndividually'
+          stop '* Error 2 reading f.out in pes.f90/ReadForcesIndividually'
         endif
-     enddo
+      enddo
+    enddo
+    close(unit = 21)
 
-     do i = 1, cx%na
-       do j = 1, 3
-          read(21,*,iostat=ios)cx%dvdr(j,i)
-          if (ios/=0) then
-             stop '* Error 2 reading f.out in pes.f90/ReadForcesIndividually'
-          endif
-       enddo
-     enddo
-     close( unit = 21)
-
-     return
+    return
   end Subroutine
+
 
   Subroutine ReadForcesTogether(cx, dummyLines)
      implicit none
      type(cxs) :: cx
      logical :: fileExists
-     integer :: i,j, dummyLines, ios
+     integer :: i, j, dummyLines, ios
      character (len=20) :: cdum
 
-     inquire(file = 'f.out', exist=fileExists)
-     if (.not.fileExists) then
-        stop '* f.out does not exist in pes.f90/ReadForcesTogether'
-     endif
-     open (21, file = 'f.out', status = 'unknown')
+    inquire(file = 'f.out', exist=fileExists)
+    if (.not. fileExists) then
+      stop '* f.out does not exist in pes.f90/ReadForcesTogether'
+    endif
+    open(21, file = 'f.out', status = 'unknown')
 
-     do i = 1, dummyLines
-        read(21,*,iostat=ios)cdum
-        if (ios/=0) then
-           stop '* Error 1 reading f.out in pes.f90/ReadForcesTogether'
-        endif
-     enddo
+    do i = 1, dummyLines
+      read(21, *, iostat=ios) cdum
+      if (ios/=0) then
+        stop '* Error 1 reading f.out in pes.f90/ReadForcesTogether'
+      endif
+    enddo
 
-     do i = 1, cx%na
-        read(21,*,iostat=ios)cx%dvdr(1,i),cx%dvdr(2,i),cx%dvdr(3,i)
-        if (ios/=0) then
-           stop '* Error 2 reading f.out in pes.f90/ReadForcesTogether'
-        endif
-  !      if (cx%dvdr(1,i) .ne. cx%dvdr(1,i) .or. cx%dvdr(2,i) .ne. cx%dvdr(2,i) .or. &
-  !          cx%dvdr(3,i) .ne. cx%dvdr(3,i) ) stop 'Error 3 reading f.out in pes.f90/ReadForcesTogether'
-     enddo
-     close( unit = 21)
+    do i = 1, cx%na
+      read(21, *, iostat=ios) cx%dvdr(1, i), cx%dvdr(2, i), cx%dvdr(3, i)
+      if (ios/=0) then
+        stop '* Error 2 reading f.out in pes.f90/ReadForcesTogether'
+      endif
+!      if (cx%dvdr(1,i) .ne. cx%dvdr(1,i) .or. cx%dvdr(2,i) .ne. cx%dvdr(2,i) .or. &
+!          cx%dvdr(3,i) .ne. cx%dvdr(3,i) ) stop 'Error 3 reading f.out in pes.f90/ReadForcesTogether'
+    enddo
+    close(unit = 21)
 
-     return
+    return
   end Subroutine
 
 
   Subroutine ReadEnergy(cx, dummyLines)
-     implicit none
-     type(cxs) :: cx
-     logical :: fileExists
-     integer :: i,j, dummyLines, ios
-     character (len=20) :: cdum
+    implicit none
+    type(cxs) :: cx
+    logical :: fileExists
+    integer :: i, j, dummyLines, ios
+    character (len=20) :: cdum
 
-     inquire(file = 'e.out', exist=fileExists)
-     if (.not.fileExists)stop '* e.out does not exist in pes.f90/ReadEnergy'
-     open (21, file = 'e.out', status = 'unknown')
+    inquire(file = 'e.out', exist=fileExists)
+    if (.not. fileExists) stop '* e.out does not exist in pes.f90/ReadEnergy'
+    open (21, file = 'e.out', status = 'unknown')
 
-     do i = 1, dummyLines
-        read(21,*,iostat=ios)cdum
-        if (ios/=0) stop '* Error 1 reading e.out in pes.f90/ReadEnergy'
-     enddo
+    do i = 1, dummyLines
+      read(21, *, iostat=ios) cdum
+      if (ios/=0) stop '* Error 1 reading e.out in pes.f90/ReadEnergy'
+    enddo
 
-     read(21,*,iostat=ios)cx%vcalc
-     if (ios/=0) stop '* Error 2 reading e.out in pes.f90/ReadEnergy'
-     close( unit = 21)
+    read(21, *, iostat=ios) cx%vcalc
+    if (ios/=0) stop '* Error 2 reading e.out in pes.f90/ReadEnergy'
+    close(unit = 21)
 
-     return
+    return
   end Subroutine
 
+
   Subroutine ReadHessian(cx, fileName)
-     implicit none
-     type(cxs) :: cx
-     logical :: fileExists
-     integer :: i, k,ioff,ii,irow,j
-     real(8) :: xx(6)
-     character (len=*) :: fileName
-     character (len=20) :: cdum
-     character (len=3) :: cnum
-     character (len=80) :: string1,string3
+    implicit none
+    type(cxs) :: cx
+    logical :: fileExists
+    integer :: i, k, ioff, ii, irow, j
+    real(8), dimension(6) :: xx
+    character (len=*) :: fileName
+    character (len=20) :: cdum
+    character (len=3) :: cnum
+    character (len=80) :: string1, string3
 
-   !  print*,'NOW HERE';call flush(6)
+  !  print*,'NOW HERE';call flush(6)
 
-     inquire(file = fileName, exist=fileExists)
-     if (.not.fileExists) then
-        return
-     endif
+    inquire(file = fileName, exist=fileExists)
+    if (.not. fileExists) then
+      return
+    endif
 
    !  print*,'NOW HERE2';call flush(6)
 
-     na = cx%na
-     cx%Hessian(:,:) = 0.d0
-     string1 = adjustl(trim("grep '$hessian' temp.hess -A "))
-     write(6,*)'NUMBER OF LINES: ',1 + (3*na+1)*(1 + int(3*dble(na)/5))
-     write(cnum,'(I3)')1 + (3*na+1)*(1 + int(3*dble(na)/5))
-     string3 = trim(" > hess.out")
-     print*,'COMMAND: ',string1//adjustl(trim(cnum))//string3
-     call system(string1//adjustl(trim(cnum))//string3)
-     open(21,file='hess.out',status='unknown')
-     read(21,*)cdum
-     read(21,*)cdum
-     read(21,*)cdum
-     ioff = 0
-     do k = 1, int(3*dble(na)/5) !read each block of 5.
-       do i = 1, 3*na
-         irow = i
-         read(21,*)idum,xx(1:5)  ! read integer plus 5 entries from file
-         do j = 1, 5
-           cx%Hessian(irow,j+ioff) = xx(j)
-         enddo
-       enddo
-       ioff = ioff + 5
-       read(21,*,END=78)cdum
-     enddo
-78   continue
-
-  ! Read remainder row of temp.hess.
-  !
-  ii = mod(3*na,5)  ! Remaining columns left....
-  if ( ii > 0) then
-    do i = 1, 3*na
-      irow = i
-      read(21,*)idum,xx(1:ii) ! only reads ii columns...
-      do j = 1, ii
-       cx%Hessian(irow,j+ioff) = xx(j)
+    na = cx%na
+    cx%Hessian(:, :) = 0.d0
+    string1 = adjustl(trim("grep '$hessian' temp.hess -A "))
+    write(6, *) 'NUMBER OF LINES: ', 1 + (3*na+1)*(1 + int(3*dble(na)/5))
+    write(cnum, '(I3)') 1 + (3*na+1)*(1 + int(3*dble(na)/5))
+    string3 = trim(" > hess.out")
+    print *, 'COMMAND: ', string1//adjustl(trim(cnum))//string3
+    call system(string1//adjustl(trim(cnum))//string3)
+    open(21, file='hess.out', status='unknown')
+    read(21, *) cdum
+    read(21, *) cdum
+    read(21, *) cdum
+    ioff = 0
+    do k = 1, int(3*dble(na)/5) !read each block of 5.
+      do i = 1, 3*na
+        irow = i
+        read(21, *) idum, xx(1:5)  ! read integer plus 5 entries from file
+        do j = 1, 5
+          cx%Hessian(irow, j+ioff) = xx(j)
+        enddo
       enddo
+      ioff = ioff + 5
+      read(21, *, END=78) cdum
     enddo
-    close(21)
-  endif
-  return
+78  continue    
 
+
+    ! Read remainder row of temp.hess.
+    !
+    ii = mod(3*na,5)  ! Remaining columns left....
+    if (ii > 0) then
+      do i = 1, 3*na
+        irow = i
+        read(21, *) idum, xx(1:ii) ! only reads ii columns...
+        do j = 1, ii
+          cx%Hessian(irow, j+ioff) = xx(j)
+        enddo
+      enddo
+      close(21)
+    endif
+
+    return
   end Subroutine ReadHessian
 
 
   Subroutine ReadOptimizedCoordinates(cx, fileName)
-     implicit none
-     type(cxs) :: cx
-     logical :: fileExists
-     integer :: i
-     real(8) :: xx,yy,zz
-     character (len=*) :: fileName
-     character (len=20) :: cdum
+    implicit none
+    type(cxs) :: cx
+    logical :: fileExists
+    integer :: i
+    real(8) :: xx, yy, zz
+    character (len=*) :: fileName
+    character (len=20) :: cdum
 
-     inquire(file = fileName, exist=fileExists)
-     if (.not.fileExists) then
-        stop '* Optimized coordinates file does not exist in pes.f90/ReadOptimizedCoordinates'
-     endif
+    inquire(file = fileName, exist=fileExists)
+    if (.not. fileExists) then
+      stop '* Optimized coordinates file does not exist in pes.f90/ReadOptimizedCoordinates'
+    endif
 
-
-     open(21, file=fileName, status='unknown')
-     read(21,*)cdum
-     read(21,*)cdum
-     do i = 1, cx%na
-        read(21,*)cdum,xx,yy,zz
-        cx%r(1,i) = xx * ang_to_bohr
-        cx%r(2,i) = yy * ang_to_bohr
-        cx%r(3,i) = zz * ang_to_bohr
+    open(21, file=fileName, status='unknown')
+    read(21, *) cdum
+    read(21, *) cdum
+    do i = 1, cx%na
+      read(21, *) cdum, xx, yy, zz
+      cx%r(1, i) = xx * ang_to_bohr
+      cx%r(2, i) = yy * ang_to_bohr
+      cx%r(3, i) = zz * ang_to_bohr
 !        print*,'READING OPT COORDINS: ',i,cx%r(1,i),cx%r(2,i),cx%r(3,i)
-     enddo
-     close(21)
-     return
+    enddo
+    close(21)
+
+    return
   end Subroutine
 
 
   Subroutine CreateFileTemplate(minimize, exec, n, buffer, iline)
-     implicit none
-     logical :: minimize
-     character (len=100) :: buffer(NLINEMAX), exec
-     integer :: iline, n
+    implicit none
+    logical :: minimize
+    character (len=100) :: exec
+    character (len=100), dimension(NLINEMAX) :: buffer
+    integer :: iline, n
 
-     if (minimize) then
-        exec = pesoptexec
-        n = nlineopt
-        buffer(:) = pesoptlines(:)
-        iline = optcoordsline
-     else
-        exec = pesexec
-        n = nline
-        buffer(:) = peslines(:)
-        iline = coordsline
-     endif
+    if (minimize) then
+      exec = pesoptexec
+      n = nlineopt
+      buffer(:) = pesoptlines(:)
+      iline = optcoordsline
+    else
+      exec = pesexec
+      n = nline
+      buffer(:) = peslines(:)
+      iline = coordsline
+    endif
 
-     return
+    return
   end Subroutine
 
 
   Subroutine ExecuteCalculation(str, success)
-     implicit none
-     logical :: success
-     integer :: cstat, estat
-     character (len=100) :: cmsg, str
-     estat = 1 ; cstat = 0 ; cmsg = ''
-     call execute_command_line(str,EXITSTAT=estat, CMDSTAT=cstat,CMDMSG=cmsg )
+    implicit none
+    logical :: success
+    integer :: cstat, estat
+    character (len=100) :: cmsg, str
+
+    estat = 1 ; cstat = 0 ; cmsg = ''
+
+    call execute_command_line(str, EXITSTAT=estat, CMDSTAT=cstat, CMDMSG=cmsg, wait=.true.)
 
     ! print*
 
-     if (estat > 0) then
-        success = .false.
-        return
-     endif
+    if (estat > 0) then
+      success = .false.
+      return
+    endif
 
-     ! Check for errors!
-     !
-     if (cstat > 0) then
-        print*, "PES calculation failed in pes.f90/ExecuteCalculation with error: ",trim(cmsg)
-        stop
-     else if (cstat < 0) then
-        print*, "PES command unknown in pes.f90/ExecuteCalculation"
-        stop
-     endif
+    ! Check for errors!
+    !
+    if (cstat > 0) then
+      print*, "PES calculation failed in pes.f90/ExecuteCalculation with error: ", trim(cmsg)
+      stop
+    else if (cstat < 0) then
+      print*, "PES command unknown in pes.f90/ExecuteCalculation"
+      stop
+    endif
 
   end Subroutine
 
 
   Subroutine ExtractData(str)
-     implicit none
-     integer :: cstat, estat
-     character (len=100) :: cmsg, str
+    implicit none
+    integer :: cstat, estat
+    character (len=100) :: cmsg, str
 
     call execute_command_line(str, exitstat = estat, cmdstat = cstat, &
-                              cmdmsg = cmsg )
+        cmdmsg = cmsg)
     if (cstat /= 0) then
-       print*,"Error in pes.f90/ExtractData - force/energy grep not working!"
-       stop
+      print *, "Error in pes.f90/ExtractData - force/energy grep not working!"
+      stop
     endif
 
   end Subroutine
@@ -1647,11 +1928,11 @@ contains
   !!
   !************************************************************************
   !
-  Subroutine FireMinimise(cx,iterin,gdsrestspring_in, nbstrength_in, nbrange, kradius, nebrestrend )
+  Subroutine FireMinimise(cx, iterin, gdsrestspring_in, nbstrength_in, nbrange, kradius, nebrestrend)
     implicit none
-    integer :: i,j,k,l,m,n,Niter,nd, Nmin, Nmin_count, iter, iterin !Fire variables
+    integer :: i, j, k, l, m, n, Niter, nd, Nmin, Nmin_count, iter, iterin !Fire variables
     type(cxs) :: cx, cx0
-    real(8) :: v(cx%na*3), F(cx%na*3)
+    real(8), dimension(cx%na*3) :: v, F
     real(8) :: f_inc, f_dec, f_alp, alph_start, pfire, alph, delt, Nstep, forg(3), eorg(3), fthresh, dot !Fire variables
     real(8) :: gdsrestspring, nbstrength, nbrange, kradius, Fnorm, nrea, gdsrestspring_in, nbstrength_in, aa, mx, gg, xe, maxf
     logical :: success, nebrestrend
@@ -1675,13 +1956,13 @@ contains
     aa = atanh(2.0*mx-1.0)/(xe-xe/2.0)
 
     cx%force = 0.0d0 ; F = 0.0d0 ; v = 0.0d0
-    Call AbInitio(cx, 'grad', success)
-    if (nebrestrend) Call GraphConstraints( cx, gdsrestspring, nbstrength, 0.3*nbrange, kradius )
+    call AbInitio(cx, 'grad', success)
+    if (nebrestrend) call GraphConstraints(cx, gdsrestspring, nbstrength, 0.3*nbrange, kradius)
     !if (nebrestrend) Call MatchCXConstraint( cx, cx0, gdsrestspring )
     do j = 1, cx%na
-      if (.not.cx%fixedatom(j))then
+      if (.not. cx%fixedatom(j)) then
         do k = 1, 3
-          if (.not. cx%fixeddof((j-1)*3+k)) F((j-1)*3+k) = -cx%dvdr(k,j)
+          if (.not. cx%fixeddof((j-1)*3+k)) F((j-1)*3+k) = -cx%dvdr(k, j)
         enddo
       endif
     enddo
@@ -1691,16 +1972,17 @@ contains
     delt = Nstep ; alph = alph_start ; Nmin_count = 0
     cx%p = 0.0d0
     do j = 1, cx%na
-      cx%p(1:3,j) = cx%p(1:3,j) + delt * F((j-1)*3+1:(j-1)*3+3)/2.0d0
-      v((j-1)*3+1:(j-1)*3+3) = cx%p(1:3,j)/cx%mass(j)
+      cx%p(1:3, j) = cx%p(1:3, j) + delt * F((j-1)*3+1:(j-1)*3+3)/2.0d0
+      v((j-1)*3+1:(j-1)*3+3) = cx%p(1:3, j)/cx%mass(j)
     enddo
     do iter = 1, Niter
       if (sum(forg)/3.0d0 .gt. fthresh*10.0d0) then
-        pfire = dot_product(v(:),F(:))
-        if (Fnorm .gt. 0.00001) &
-        v(:) = (1.0d0-alph)*v(:) + alph*F(:)*norm2(v(:))/Fnorm
+        pfire = dot_product(v(:), F(:))
+        if (Fnorm .gt. 0.00001) then
+          v(:) = (1.0d0-alph)*v(:) + alph*F(:)*norm2(v(:))/Fnorm
+        endif
         if (pfire > 0.0d0 .and. Nmin_count > Nmin) then
-          delt = min(delt*f_inc,5*Nstep)
+          delt = min(delt*f_inc, 5*Nstep)
           alph = alph * f_alp
         elseif (pfire <= 0.0d0) then
           Nmin_count = 0
@@ -1711,34 +1993,35 @@ contains
         endif
         if (pfire > 0.0d0) Nmin_count = Nmin_count + 1
         do j = 1, cx%na
-          cx%r(1:3,j) = cx%r(1:3,j) + delt * v((j-1)*3+1:(j-1)*3+3)
-          cx%p(1:3,j) = v((j-1)*3+1:(j-1)*3+3)*cx%mass(j) + delt * F((j-1)*3+1:(j-1)*3+3)
-          v((j-1)*3+1:(j-1)*3+3) = cx%p(1:3,j)/cx%mass(j)
+          cx%r(1:3, j) = cx%r(1:3, j) + delt * v((j-1)*3+1:(j-1)*3+3)
+          cx%p(1:3, j) = v((j-1)*3+1:(j-1)*3+3)*cx%mass(j) + delt * F((j-1)*3+1:(j-1)*3+3)
+          v((j-1)*3+1:(j-1)*3+3) = cx%p(1:3, j)/cx%mass(j)
         enddo
       else
         ! quickmin once the gradient is quite flat...
         !
         dot = 1.0d0
-        if (Fnorm .gt. 0.00000001) &
-        dot = dot_product(reshape(cx%p,(/nd/)),F(:)/Fnorm)
+        if (Fnorm .gt. 0.00000001) then
+          dot = dot_product(reshape(cx%p, (/nd/)), F(:)/Fnorm)
+        endif
         if (dot .lt. 0.0d0) cx%p = 0.0d0
-        if (dot .gt. 0.0d0) cx%p = dot *reshape(F,(/3,cx%na/))/Fnorm
+        if (dot .gt. 0.0d0) cx%p = dot * reshape(F, (/3, cx%na/))/Fnorm
         do j = 1, cx%na
-          cx%r(1:3,j) = cx%r(1:3,j) +  Nstep/5.0d0 * ( cx%p(1:3,j) / cx%mass(j) )
-          cx%p(1:3,j) = v((j-1)*3+1:(j-1)*3+3)*cx%mass(j) + delt * F((j-1)*3+1:(j-1)*3+3)
+          cx%r(1:3, j) = cx%r(1:3, j) +  Nstep/5.0d0 * ( cx%p(1:3, j) / cx%mass(j))
+          cx%p(1:3, j) = v((j-1)*3+1:(j-1)*3+3)*cx%mass(j) + delt * F((j-1)*3+1:(j-1)*3+3)
         enddo
       endif
 
-      Call AbInitio(cx, 'grad', success)
+      call AbInitio(cx, 'grad', success)
       gg = 0.50d0*(1.0d0+tanh((sum(forg)/3.0d0-xe/2.0d0)*aa))
       !if (nebrestrend) Call MatchCXConstraint( cx, cx0, gdsrestspring*gg )
       !if (nebrestrend) Call MatchCXConstraint( cx, cx0, gdsrestspring*exp(-nrea*dble(iter)) )
       ! making the nb range quite small
-      if (nebrestrend) Call GraphConstraints( cx, gdsrestspring * gg, nbstrength * gg, 0.3 * nbrange, kradius*gg )  ! Added *gg
+      if (nebrestrend) call GraphConstraints(cx, gdsrestspring*gg, nbstrength*gg, 0.3*nbrange, kradius*gg)  ! Added *gg
       do j = 1, cx%na
-        if (.not.cx%fixedatom(j))then
+        if (.not. cx%fixedatom(j)) then
           do k = 1, 3
-            if (.not. cx%fixeddof((j-1)*3+k)) F((j-1)*3+k) = -cx%dvdr(k,j)
+            if (.not. cx%fixeddof((j-1)*3+k)) F((j-1)*3+k) = -cx%dvdr(k, j)
           enddo
         endif
       enddo
@@ -1748,22 +2031,25 @@ contains
       !print*, 'ENERGIES = ', eorg(3), eorg(2), eorg(1)
       !print*, 'FNORMS  = ', forg(3), forg(2), forg(1)
       !print*, 'FORCE = ', iter,sum(forg)/3.0d0, abs(eorg(2)*2.0d0-eorg(1)-eorg(3)), fthresh, gg
-      if (iter .gt. 3 .and. ( sum(forg)/3.0d0 .lt. fthresh .or. abs(eorg(2)*2.0d0-eorg(1)-eorg(3)) .lt. 1.0E-7) ) exit
+      if (iter .gt. 3 .and. (sum(forg)/3.0d0 .lt. fthresh .or. abs(eorg(2)*2.0d0-eorg(1)-eorg(3)) .lt. 1.0E-7)) exit
       !if ( sum(forg)/3.0d0 .lt. fthresh  ) exit
     enddo
     iterin = iterin + iter
     !print*,'FINISHED MINIM'
+
     return
   end Subroutine FireMinimise
 
 
-  subroutine mincxsenergynebrest(cx,success)
+  subroutine mincxsenergynebrest(cx, success)
     type(cxs)        :: cx
     logical          :: success
+
     success = .true.
-    Call GraphConstraints( cx, gdsrestspring, nbstrength, nbrange, kradius)  ! Added *gg
+    call GraphConstraints(cx, gdsrestspring, nbstrength, nbrange, kradius)  ! Added *gg
     !Call GraphConstraints( cx, gdsrestspring * 0.50d0, nbstrength *0.50d0 , 0.50d0 * nbrange, kradius )  ! Added *gg
-    Call AbInitio(cx, 'ener', success)
+    call AbInitio(cx, 'ener', success)
+
     return
   end subroutine
 
@@ -1771,8 +2057,10 @@ contains
   subroutine mincxsenergy(cx,success)
     type(cxs)        :: cx
     logical          :: success
+
     success = .true.
-    Call AbInitio(cx, 'ener', success)
+    call AbInitio(cx, 'ener', success)
+
     return
   end subroutine
 
@@ -1787,17 +2075,19 @@ contains
   !!
   !*************************************************************************
   !
-  Subroutine MatchCXConstraint( cx, mcx, kspring )
+  Subroutine MatchCXConstraint(cx, mcx, kspring)
     implicit none
     type(cxs) :: cx, mcx
-    integer :: i,j,na
+    integer :: i, j, na
     real(8) :: kspring
+
     na = cx%na
     do i = 1, na
-     do j = 1, 3
-      cx%dvdr(j,i) = cx%dvdr(j,i) + 2.0d0*kspring*(mcx%r(j,i)-cx%r(j,i))
-     enddo
+      do j = 1, 3
+        cx%dvdr(j, i) = cx%dvdr(j, i) + 2.0d0*kspring*(mcx%r(j, i)-cx%r(j, i))
+      enddo
     enddo
+
     return
   end Subroutine MatchCXConstraint
 
@@ -1824,16 +2114,19 @@ contains
     integer :: MolecAct(nactmol), nrx
     double precision, optional :: molen(nactmol)
     logical :: ldum
-     do i = 1, nactmol  ! for active molecules in fron and tail
+
+    do i = 1, nactmol  ! for active molecules in fron and tail
       M = MolecAct(i)  ! index of molecule in larger set
-      Call CreateMolecularCX(cx,mcx(i),m)
+      call CreateMolecularCX(cx, mcx(i), m)
       ! calculate energy
-      Call AbInitio(mcx(i),'grad',ldum)
+      call AbInitio(mcx(i), 'grad', ldum)
       if (present(molen)) molen(i) = mcx(i)%vcalc
       cx%molen(m) = mcx(i)%vcalc
-     enddo
+    enddo
+
     return
   end Subroutine GetActMolecEnergies
+
 
   !
   !*************************************************************************
@@ -1853,11 +2146,13 @@ contains
     type(cxs) :: cx
     type(cxs) :: mcx(cx%nmol)
     logical :: ldum
-     do i = 1, cx%nmol  ! for active molecules in fron and tail
-      Call CreateMolecularCX(cx,mcx(i),i)
-      cAll AbInitio(mcx(i),'grad',ldum)
+
+    do i = 1, cx%nmol  ! for active molecules in fron and tail
+      call CreateMolecularCX(cx, mcx(i), i)
+      call AbInitio(mcx(i), 'grad', ldum)
       cx%molen(i) = mcx(i)%vcalc
-     enddo
+    enddo
+
     return
   end Subroutine GetMolecularEnergies
 
