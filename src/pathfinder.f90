@@ -3822,7 +3822,7 @@ contains
         moveatoms(:, :) = 0
         ! Zero the charges for all molecules along the starting path...
         cx_start%molcharge(:) = 0
-        chargemove(:, :) = 0
+        if (ChangeCharges) chargemove(:, :) = 0
 
         write(logfile, '("* Generating a move for reaction step ", I3, "/", I3)') istep, nrxn
 
