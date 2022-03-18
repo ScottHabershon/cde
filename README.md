@@ -17,6 +17,8 @@ CDE interfaces with several external programs to perform energy evaluations and 
 - LAMMPS
 - DFTB+
 - Molpro
+- xTB
+- FHI-aims
 
 The graph-driven sampling of reaction-paths implemented in CDE is initially described in the following articles:
  - Automated prediction of catalytic mechanism and rate law using graph-based reaction path sampling, S. Habershon, Journal of chemical theory and computation 12 (4), 1786-1798

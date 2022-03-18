@@ -53,7 +53,7 @@ Module globaldata
   real(8) :: temperature, beta     !< Temperature and inverse temperature (1/kT)
   real(8) :: nebspring             !< Spring constant for NEB (au)
   real(8) :: NEBstep             !< Step-length for steepest-descent NEB
-  character (len=8) :: calctype      !< Calculation type, NEB or GDS
+  character (len=9) :: calctype      !< Calculation type, NEB or GDS
   character (len=6) :: pathinit      !< Path initialization type, LINEAR
   character (len=6) :: pathoptmethod      !< Path optimization method, CINEB
   character (len=9) :: NEBmethod      !< (CI)NEB optimization method, CINEB

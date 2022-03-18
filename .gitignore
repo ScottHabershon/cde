@@ -1,0 +1,4 @@
+.vscode
+/src/modfiles
+bin
+test/*
