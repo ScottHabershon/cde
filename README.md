@@ -21,5 +21,7 @@ CDE interfaces with several external programs to perform energy evaluations and 
 - FHI-aims
 
 The graph-driven sampling of reaction-paths implemented in CDE is initially described in the following articles:
- - Automated prediction of catalytic mechanism and rate law using graph-based reaction path sampling, S. Habershon, Journal of chemical theory and computation 12 (4), 1786-1798
- - Sampling reactive pathways with random walks in chemical space: Applications to molecular dissociation and catalysis, S Habershon, Journal of chemical physics 143 (9), 094106
+ - Sampling reactive pathways with random walks in chemical space: Applications to molecular dissociation and catalysis, S Habershon, Journal of chemical physics 143 (9), 094106 (2015)
+ - Automated prediction of catalytic mechanism and rate law using graph-based reaction path sampling, S. Habershon, Journal of chemical theory and computation 12 (4), 1786-1798 (2016)
+ - Automatic proposal of multistep reaction mechanisms using a graph-driven search, I. Ismail, H. B. V. A. Stuttaford-Fowler, C. Ochan Ashok, C. Robertson, and S. Habershon, Journal of Physical Chemistry A, 123, 3407-3417 (2019)
+
