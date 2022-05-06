@@ -2502,27 +2502,29 @@ contains
       call SetCXSconstraints(wcx(2), NDOFconstr, FixedDOF, Natomconstr, FixedAtom)
 
       call GetGraph(wcx(2))
-      isum = 0
-      do i = 1, natoms
-        do j = 1, natoms
-          if (wcx(2)%graph(i, j) /= grstore(i, j)) then
-            isum = isum + 1
-          endif
-        enddo
-      enddo
 
-      ! Check for invalidation of the graph by the optimisation.
-      if (isum /= 0) then
-        err = .TRUE.
-        errstr = 'Graph invalidated by optimisation'
-        ! Restore original positions and graph to wcx(2).
-        do j = 1, natoms
-          do k = 1, 3
-            wcx(2)%r(k, j) = wcx(1)%r(k, j)
+      ! Check for invalidation of the graph by the optimisation (if requested).
+      if (ignoreinvalidgraphopt) then
+        isum = 0
+        do i = 1, natoms
+          do j = 1, natoms
+            if (wcx(2)%graph(i, j) /= grstore(i, j)) then
+              isum = isum + 1
+            endif
           enddo
         enddo
-        wcx(2)%graph(:,:) = grstore(:,:)
-        return
+        if (isum /= 0) then
+          err = .TRUE.
+          errstr = 'Graph invalidated by optimisation'
+          ! Restore original positions and graph to wcx(2).
+          do j = 1, natoms
+            do k = 1, 3
+              wcx(2)%r(k, j) = wcx(1)%r(k, j)
+            enddo
+          enddo
+          wcx(2)%graph(:,:) = grstore(:,:)
+          return
+        endif
       endif
 
     endif

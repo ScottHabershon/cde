@@ -285,7 +285,7 @@ contains
             write(logfile,'("- (CI)NEB optimization method:  HEAVY-BALL ")')
           else
             stop 'ERROR: UNKNown NEBmethod in input file (options: pathquad, steepest, &
-            quickmin, fire, dfp, bmk, hball)'
+            & quickmin, fire, dfp, bmk, hball)'
           endif
 
         case ('nebconv')        ! NEB convergence criteria on RMS forces, in au.
@@ -670,6 +670,11 @@ contains
             write(logfile,'("- Moldata has been set to true, so optaftermove is overridden ")')
           endif
           write(logfile,'("- PES geometry optimization after graph move?: ",1x,L)')optaftermove
+
+        case ('ignoreinvalidgraphopt')
+          read(buffer, *, iostat = ios) ignoreinvalidgraphopt
+          write(logfile, '("- Ignore geometry optimisations that invalidate molecular graphs? ", &
+              & 1x, L)') ignoreinvalidgraphopt
 
 
           !***********************************************************************
