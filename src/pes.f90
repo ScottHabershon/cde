@@ -1069,6 +1069,10 @@ contains
       stop 'Error 2 reading xTB "xtbin.engrad" file.'
     endif
     close(unit=21)
+    ! Check that we're not reading in a NaN for whatever reason.
+    if (isnan(cx%vcalc)) then
+      stop 'Error reading in xTB calculation energy. Energy is NaN.'
+    endif
 
     ! Read in optimised coordinates if necessary.
     if (minimize) then
