@@ -2504,7 +2504,7 @@ contains
       call GetGraph(wcx(2))
 
       ! Check for invalidation of the graph by the optimisation (if requested).
-      if (ignoreinvalidgraphopt) then
+      if (.not. ignoreinvalidgraphopt) then
         isum = 0
         do i = 1, natoms
           do j = 1, natoms
