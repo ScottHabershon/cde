@@ -2326,7 +2326,7 @@ contains
       x = cx%r(1, j) * bohr_to_ang
       y = cx%r(2, j) * bohr_to_ang
       z = cx%r(3, j) * bohr_to_ang
-      write(13,'(a2, 2x, 3(f14.8, 2x))') cx%atomlabel(j), x, y, z
+      write(13,'(a2, 2x, 3(f15.11, 2x))') cx%atomlabel(j), x, y, z
     enddo
     close(13)
 
