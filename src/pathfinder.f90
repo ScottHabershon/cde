@@ -2435,16 +2435,21 @@ contains
   !! wcx - Working cx list. 
   !! printflag - Logical flag indicating whether to print out xyz files or not.
   !! printfile - If printflag = .TRUE., printfile indicates the file to print to.
+  !! movenum - Array of integer move numbers for valence checking after optimisation.
+  !! moveatoms - Array of atom indices involved in moves, also used in valence checking.
   !! err - Error flag.
   !! errstr - Error message, if err == .true.
   !! optoverride - Override flag for global optimisation setting.
   !!
   !**********************************************************************************************
   !
-  Subroutine GraphsToCoords_BD(wcx, printflag, printfile, err, errstr, optoverride)
+  Subroutine GraphsToCoords_BD(wcx, printflag, printfile, movenum, moveatoms, &
+                             & err, errstr, optoverride)
     implicit none
     character(len=*), intent(in) :: printfile
     logical, intent(in) :: printflag
+    integer, dimension(:), intent(in) :: movenum
+    integer, dimension(:,:), intent(in) :: moveatoms
     logical, intent(in), optional :: optoverride
     type(cxs), dimension(2), intent(inout) :: wcx
     logical, intent(out) :: err
@@ -2454,6 +2459,7 @@ contains
     integer :: j, k, natoms, isum, i
     integer, allocatable :: grstore(:,:)
     real(8) :: x, y, z
+    real(8) :: err_real_blank
 
     err = .FALSE.
     errstr = ''
@@ -2527,6 +2533,21 @@ contains
         endif
       endif
 
+      ! Check that valences are still valid following optimisation.
+      ! Necessary because otherwise following steps will break if 
+      ! valence-breaking optimisations are made.
+      call PropagateGraphs(wcx(1), wcx, 2, movenum, moveatoms, err, err_real_blank)
+      if (err) then
+        errstr = 'Valence rules invalidated by optimisation'
+        ! Restore original positions and graph to wcx(2).
+        do j = 1, natoms
+          do k = 1, 3
+            wcx(2)%r(k, j) = wcx(1)%r(k, j)
+          enddo
+        enddo
+        wcx(2)%graph(:,:) = grstore(:,:)
+        return
+      endif
     endif
 
     ! Output coordinates to final_path.xyz
@@ -3878,7 +3899,7 @@ contains
           write(x1, '(I4.4)') irx
           write(x2, '(I4.4)') istep
           write(fout, '("rxn_", A4, "_step_", A4, ".xyz")') trim(x1), trim(x2)
-          call GraphsToCoords_BD(wcx, .true., fout, errflag, errstr)
+          call GraphsToCoords_BD(wcx, .true., fout, movenum, moveatoms, errflag, errstr)
           if (errflag) then
             write(logfile, '("- ", A, ", cycling.")') adjustl(trim(errstr))
             movenum(:) = 0
@@ -3915,6 +3936,7 @@ contains
 
     enddo mcloop
   end subroutine RunBreakdown
+
 
   !**********************************************************************************************
   !> CreateMechanismStep
