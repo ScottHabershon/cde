@@ -2571,6 +2571,62 @@ contains
     return
   end Subroutine GraphsToCoords_BD
 
+  !**********************************************************************************************
+  !> OptimiseStartingGeom
+  !!
+  !! Runs a straight AbInitio optimisation call on a provided starting geometry for
+  !! a calculation. Optionally allows for saving this optimised geometry.
+  !!
+  !! cx_start - cx object for starting molecule. Should have been freshly initialised by ReadCXS.
+  !! printflag - Logical flag indicating whether to print out xyz files or not.
+  !! printfile - If printflag = .TRUE., printfile indicates the file to print to.
+  !! err - Error flag.
+  !! errstr - Error message, if err == .true.
+  !!
+  !**********************************************************************************************
+  !
+  Subroutine OptimiseStartingGeom(cx_start, printflag, printfile, err, errstr)
+    type(cxs), intent(inout) :: cx_start
+    logical, intent(in) :: printflag
+    character(len=*), intent(in) :: printfile
+    logical, intent(out) :: err
+    character(len=*), intent(out) :: errstr
+
+    logical :: success
+    integer :: j
+    real(8) :: x, y, z
+
+    err = .FALSE.
+    errstr = ''
+
+    ! Run AbInitio optimisation on molecule.
+    call AbInitio(cx_start, 'optg', success)
+    if (.not. success) then
+      err = .true.
+      errstr = 'Ab Initio optimisation of starting geometry failed.'
+      return
+    end if
+
+    ! Output coordinates to file, if requested.
+    if (printflag) then
+      open(93, file = trim(printfile), status='unknown')
+      write(93, '(i5)') cx_start%na
+      write(93, '("energy=", f14.8)') cx_start%vcalc * au_to_ev
+      do j = 1, cx_start%na
+        x = cx_start%r(1, j) * bohr_to_ang
+        y = cx_start%r(2, j) * bohr_to_ang
+        z = cx_start%r(3, j) * bohr_to_ang
+        write(93, '(a2, 2x, 3(f14.8, 2x))') cx_start%atomlabel(j), x, y, z
+        write(*, *) cx_start%atomlabel(j), x, y, z
+      enddo
+      call flush(93)
+      close(93)
+    endif
+
+    return
+    
+  end Subroutine OptimiseStartingGeom
+
 
   !**********************************************************************************************
   !> PrintMechanismPaths
@@ -3763,7 +3819,6 @@ contains
     igfunc = 0
 
     write(logfile, '("* Running network-generation calculation...."/)')
-    call flush(logfile)
     
     ! Assign the start-point structure from the input files, startfile. 
     ! Note that startfile is read from the main input file.
@@ -3773,6 +3828,21 @@ contains
     call SetMass(cx_start)
     call GetGraph(cx_start)
     call Getmols(cx_start)
+
+    ! Ensure the starting geometry is optimsed, if requested.
+    if (doInitialOpt) then
+      write(logfile, '("* Running automatic optimisation of starting geometry...")')
+      call flush(logfile)
+      ! Overwrite the original starting geometry with the optimised version.
+      call OptimiseStartingGeom(cx_start, .true., startfile, errflag, errstr)
+      if (errflag) then
+        write(*, *) errstr
+        stop
+      end if
+      call GetGraph(cx_start)
+      call Getmols(cx_start)
+      write(logfile, '("* Geometry optimisation complete.")')
+    end if
     call PrintCXSGraphInfo(cx_start, logfile, "Reactant structure")
 
     ! Allocate space for atomchange and bondchange arrays - these will indicate at each MC search
@@ -3788,11 +3858,11 @@ contains
     ! consider changes in charge states too.
     ChangeCharges = .FALSE.
     checkChg: do i = 1, ngmove
-      if (namove(i) == 0) then
-        write(logfile, '("* ChangeCharges ENABLED.")')
-        ChangeCharges = .TRUE.
-        exit checkChg
-      endif
+    if (namove(i) == 0) then
+      write(logfile, '("* ChangeCharges ENABLED.")')
+      ChangeCharges = .TRUE.
+      exit checkChg
+    endif
     enddo checkChg
     if (.not. ChangeCharges) then
       write(logfile, '("* ChangeCharges DISABLED")')

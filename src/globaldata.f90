@@ -234,6 +234,7 @@ Module globaldata
   integer :: atomidx(3)  !< Atoms which are aligned before NEB.
   real(8) :: alphavbe    !< Scaling factor for bond-energy based contribution to graph-error function.
   logical :: ignoreinvalidgraphopt = .false. !< Whether to allow optimisations that invalidate the molecular graph.
+  logical :: doInitialOpt = .false. !< Whether to perform initial geometry optimisation on starting system of a simulation.
 
   !< Type definition for the parameteres used in the graphfinder algorithm
   type GraphPar

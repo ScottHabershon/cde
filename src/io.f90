@@ -676,6 +676,11 @@ contains
           write(logfile, '("- Ignore geometry optimisations that invalidate molecular graphs? ", &
               & 1x, L)') ignoreinvalidgraphopt
 
+        case ('doinitialopt')
+          read(buffer,*,iostat=ios) doInitialOpt
+          write(logfile,'("- Perform initial geometry optimisation on starting system: ", 1x, L)') &
+              & doInitialOpt
+
 
           !***********************************************************************
           ! CONSTRAINT PARAMETERS.
