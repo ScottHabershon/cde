@@ -2554,7 +2554,7 @@ contains
     if (printflag) then
       open(93, file = trim(printfile), status='unknown')
       write(93, '(i5)') natoms
-      write(93, '("energy=", f14.8)') wcx(2)%vcalc * au_to_ev
+      write(93, '("energy=", f16.8)') wcx(2)%vcalc * au_to_ev
       do j = 1, na
         x = wcx(2)%r(1, j) * bohr_to_ang
         y = wcx(2)%r(2, j) * bohr_to_ang
@@ -2572,12 +2572,13 @@ contains
   end Subroutine GraphsToCoords_BD
 
   !**********************************************************************************************
-  !> OptimiseStartingGeom
+  !> CalcSingleGeom
   !!
-  !! Runs a straight AbInitio optimisation call on a provided starting geometry for
-  !! a calculation. Optionally allows for saving this optimised geometry.
+  !! Runs a straight AbInitio call on a provided cx object, which should already 
+  !! contain coordinates. Optionally allows for saving this optimised geometry.
   !!
   !! cx_start - cx object for starting molecule. Should have been freshly initialised by ReadCXS.
+  !! optflag - Logical flag indicating if a geometry optimisation is desired, rather than just an energy calculation.
   !! printflag - Logical flag indicating whether to print out xyz files or not.
   !! printfile - If printflag = .TRUE., printfile indicates the file to print to.
   !! err - Error flag.
@@ -2585,9 +2586,9 @@ contains
   !!
   !**********************************************************************************************
   !
-  Subroutine OptimiseStartingGeom(cx_start, printflag, printfile, err, errstr)
-    type(cxs), intent(inout) :: cx_start
-    logical, intent(in) :: printflag
+  Subroutine CalcSingleGeom(cx, optflag, printflag, printfile, err, errstr)
+    type(cxs), intent(inout) :: cx
+    logical, intent(in) :: optflag, printflag
     character(len=*), intent(in) :: printfile
     logical, intent(out) :: err
     character(len=*), intent(out) :: errstr
@@ -2595,29 +2596,36 @@ contains
     logical :: success
     integer :: j
     real(8) :: x, y, z
+    character(len=4) :: abinittype
 
     err = .FALSE.
     errstr = ''
 
+    if (optflag) then
+      abinittype = 'optg'
+    else
+      abinittype = 'ener'
+    endif
+
     ! Run AbInitio optimisation on molecule.
-    call AbInitio(cx_start, 'optg', success)
+    call AbInitio(cx, abinittype, success)
     if (.not. success) then
       err = .true.
-      errstr = 'Ab Initio optimisation of starting geometry failed.'
+      errstr = 'Ab Initio calculation failed.'
       return
-    end if
+    endif
 
     ! Output coordinates to file, if requested.
     if (printflag) then
       open(93, file = trim(printfile), status='unknown')
-      write(93, '(i5)') cx_start%na
-      write(93, '("energy=", f14.8)') cx_start%vcalc * au_to_ev
-      do j = 1, cx_start%na
-        x = cx_start%r(1, j) * bohr_to_ang
-        y = cx_start%r(2, j) * bohr_to_ang
-        z = cx_start%r(3, j) * bohr_to_ang
-        write(93, '(a2, 2x, 3(f14.8, 2x))') cx_start%atomlabel(j), x, y, z
-        write(*, *) cx_start%atomlabel(j), x, y, z
+      write(93, '(i5)') cx%na
+      write(93, '("energy=", f16.8)') cx%vcalc * au_to_ev
+      do j = 1, cx%na
+        x = cx%r(1, j) * bohr_to_ang
+        y = cx%r(2, j) * bohr_to_ang
+        z = cx%r(3, j) * bohr_to_ang
+        write(93, '(a2, 2x, 3(f14.8, 2x))') cx%atomlabel(j), x, y, z
+        write(*, *) cx%atomlabel(j), x, y, z
       enddo
       call flush(93)
       close(93)
@@ -2625,7 +2633,7 @@ contains
 
     return
     
-  end Subroutine OptimiseStartingGeom
+  end Subroutine CalcSingleGeom
 
 
   !**********************************************************************************************
@@ -3834,7 +3842,7 @@ contains
       write(logfile, '("* Running automatic optimisation of starting geometry...")')
       call flush(logfile)
       ! Overwrite the original starting geometry with the optimised version.
-      call OptimiseStartingGeom(cx_start, .true., startfile, errflag, errstr)
+      call CalcSingleGeom(cx_start, .true., .true., startfile, errflag, errstr)
       if (errflag) then
         write(*, *) errstr
         stop
@@ -3842,6 +3850,15 @@ contains
       call GetGraph(cx_start)
       call Getmols(cx_start)
       write(logfile, '("* Geometry optimisation complete.")')
+    else
+      write(logfile, '("* Obtaining energy of starting geometry...")')
+      call CalcSingleGeom(cx_start, .false., .true., startfile, errflag, errstr)
+      if (errflag) then
+        write(*, *) errstr
+        stop
+      end if
+      write(logfile, '("* Energy calculated.")')
+      flush(logfile)
     end if
     call PrintCXSGraphInfo(cx_start, logfile, "Reactant structure")
 
