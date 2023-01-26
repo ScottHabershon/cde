@@ -265,10 +265,10 @@ contains
       nmol = cx%nmol
       write(logfile, '("nmol: ", I3)') nmol
       allocate(cxtemp(nmol))
-      allocate(labeltemp(NAMAX))
-      allocate(xtemp(NAMAX), ytemp(NAMAX), ztemp(NAMAX))
       do i = 1, nmol
         natom = cx%namol(i)
+        allocate(labeltemp(natom))
+        allocate(xtemp(natom), ytemp(natom), ztemp(natom))
         do j = 1, natom
           ii = cx%molid(i, j)
           labeltemp(j) = cx%AtomLabel(ii)
@@ -279,11 +279,15 @@ contains
         call CreateCXS(cxtemp(i), natom, labeltemp, xtemp, ytemp, ztemp)
         cxtemp(i)%molcharge(1) = cx%molcharge(i)
         cxtemp(i)%nmol = 1
+        deallocate(labeltemp)
+        deallocate(xtemp, ytemp, ztemp)
       enddo
 
       ! For each CXS object, calculate the energy.
       !
       do i = 1, nmol
+
+        print *, 'Optimising molecule', i
 
         if (cxtemp(i)%na .eq. 1) then
           abtype='ener'
@@ -324,6 +328,8 @@ contains
             Stop '* Unknown calculation type in PEScalc'
 
         end select
+
+        print* 'Finished optimisation.'
       enddo
 
       ! Now recombine the results for each molecule.
@@ -344,10 +350,6 @@ contains
       cx%vcalc = Vtot
 
       deallocate(cxtemp)
-      deallocate(labeltemp)
-      deallocate(xtemp)
-      deallocate(ytemp)
-      deallocate(ztemp)
 
     endif
 

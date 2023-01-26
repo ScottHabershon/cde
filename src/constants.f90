@@ -17,7 +17,7 @@ Module constants
   !
   ! Useful constants.
   !
-  integer, parameter :: NAMAX = 200           !< Maximum number of atoms.
+  integer, parameter :: NAMAX = 1000           !< Maximum number of atoms.
   integer, parameter :: NFMAX = 3 * NAMAX     !< Maximum number of DOFs.
   integer, parameter :: NBMAX = 20            !< Maximum number of images.
   integer, parameter :: NMOLMAX = 50         !< Maximum number of molecules.
