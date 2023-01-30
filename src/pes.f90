@@ -263,7 +263,7 @@ contains
       ! Make individual CXS objects for each molecule.
       !
       nmol = cx%nmol
-      write(logfile, '("nmol: ", I3)') nmol
+      write(6, '("nmol: ", I3)') nmol
       allocate(cxtemp(nmol))
       do i = 1, nmol
         natom = cx%namol(i)
@@ -287,7 +287,7 @@ contains
       !
       do i = 1, nmol
 
-        print *, 'Optimising molecule', i
+        print *, 'Optimising molecule ', i, "/", nmol
 
         if (cxtemp(i)%na .eq. 1) then
           abtype='ener'
@@ -329,7 +329,7 @@ contains
 
         end select
 
-        print* 'Finished optimisation.'
+        print *, 'Finished optimisation.'
       enddo
 
       ! Now recombine the results for each molecule.

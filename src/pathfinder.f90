@@ -1418,6 +1418,108 @@ contains
     return
   end Subroutine CompareGraphs
 
+  !************************************************************************
+  !> StripInactiveMols
+  !!
+  !! Removes inactive molecules from a reaction between `cx1` and `cx2`,
+  !! returning new cxs with only the active molecules. Here, inactive means
+  !! that the molecules are not involved in any bond changes.
+  !!
+  !! cx1: 1st input `cxs`. Note that graph must be calculated BEFORE calling.
+  !! cx2: 2nd input `cxs`. Note that graph must be calculated BEFORE calling.
+  !! cx1_new: Inactive-stripped copy of `cx1`.
+  !! cx2_new: Inactive-stripped copy of `cx2`
+  !!
+  !************************************************************************
+  subroutine StripInactiveMols(cx1, cx2, cx1_new, cx2_new)
+    implicit none
+    type(cxs), intent(in) :: cx1, cx2
+    type(cxs), intent(out) :: cx1_new, cx2_new
+    logical, dimension(cx1%na) :: keep_atom, cx1_mask, cx2_mask
+    logical, dimension(cx1%nmol) :: keep_cx1
+    logical, dimension(cx2%nmol) :: keep_cx2
+    integer, dimension(:), allocatable :: cx1_mols, cx2_mols
+    integer :: i, j, k, l, counter  
+    integer :: isum
+
+    ! Identify which atoms have changed bonding.
+    keep_atom(:) = .true.
+    do i = 1, cx1%na
+      isum = 0
+      do j = 1, cx1%na
+        isum = isum + abs(cx1%graph(i, j) - cx2%graph(i, j))
+      enddo
+      if (isum == 0) keep_atom(i) = .false.
+    enddo
+
+    ! Identify which molecules need to be kept.
+    keep_cx1(:) = .false.
+    keep_cx2(:) = .false.
+    do k = 1, cx1%na
+      if (keep_atom(k)) then
+        do i = 1, cx1%nmol
+          do j = 1, cx1%namol(i)
+            if (cx1%molid(i, j) == k) keep_cx1(i) = .true.
+          enddo
+        enddo
+        do i = 1, cx2%nmol
+          do j = 1, cx2%namol(i)
+            if (cx2%molid(i, j) == k) keep_cx2(i) = .true.
+          enddo
+        enddo
+      endif
+    enddo
+
+    ! ! Check pairs of molecules and see if they are the same on both sides.
+    ! do i = 1, cx1%nmol ; if (keep_cx1(i)) cycle
+    !   do j = 1, cx2%nmol ; if (keep_cx2(j)) cycle
+    !     if (cx1%namol(i) .eq. cx2%namol(j)) then
+    !       if (sum(abs(cx1%molid(i, :cx1%namol(i)) - cx2%molid(j, :cx2%namol(j)))) .eq. 0) then
+    !         keep_cx1(i) = .true.
+    !         keep_cx2(j) = .true.
+    !       endif
+    !     endif
+    !   enddo
+    ! enddo
+
+    print *, "keep_cx1: ", keep_cx1
+    print *, "keep_cx2: ", keep_cx2
+
+    ! Set flags indicating that atoms have been allocated.
+    cx1_mask(:) = .false.
+    do i = 1, cx1%nmol
+      if (keep_cx1(i)) then
+        do j = 1, cx1%namol(i)
+          l = cx1%molid(i, j)
+          cx1_mask(l) = .true.
+        enddo
+      endif
+    enddo
+    cx2_mask(:) = .false.
+    do i = 1, cx2%nmol
+      if (keep_cx2(i)) then
+        do j = 1, cx2%namol(i)
+          l = cx2%molid(i, j)
+          cx2_mask(l) = .true.
+        enddo
+      endif
+    enddo
+
+    ! Generate new cxs for the reduced systems.
+    call CreateCXSFromMask(cx1, cx1_mask, cx1_new)
+    call CreateCXSFromMask(cx2, cx2_mask, cx2_new)
+
+    if (cx1_new%na .ne. cx2_new%na) then
+      print *, "Number of atoms not conserved by StripInactiveMols."
+      print *, "CX1: ", cx1_new%na, " CX2: ", cx2_new%na
+      stop
+    endif
+
+    print *, "CX1: ", cx1_new%na, " CX2: ", cx2_new%na
+
+    return
+  end subroutine StripInactiveMols
+
 
 
 
@@ -2435,29 +2537,27 @@ contains
   !! wcx - Working cx list. 
   !! printflag - Logical flag indicating whether to print out xyz files or not.
   !! printfile - If printflag = .TRUE., printfile indicates the file to print to.
-  !! movenum - Array of integer move numbers for valence checking after optimisation.
-  !! moveatoms - Array of atom indices involved in moves, also used in valence checking.
   !! err - Error flag.
   !! errstr - Error message, if err == .true.
   !! optoverride - Override flag for global optimisation setting.
+  !! calcinitial - Force energy calculation/optimisation of wcx(1) before proceeding.
   !!
   !**********************************************************************************************
   !
-  Subroutine GraphsToCoords_BD(wcx, printflag, printfile, movenum, moveatoms, &
-                             & err, errstr, optoverride)
+  Subroutine GraphsToCoords_BD(wcx, printflag, printfile, &
+                             & err, errstr, optoverride, calcinitial)
     implicit none
     character(len=*), intent(in) :: printfile
     logical, intent(in) :: printflag
-    integer, dimension(:), intent(in) :: movenum
-    integer, dimension(:,:), intent(in) :: moveatoms
-    logical, intent(in), optional :: optoverride
+    logical, intent(in), optional :: optoverride, calcinitial
     type(cxs), dimension(2), intent(inout) :: wcx
     logical, intent(out) :: err
-    character(len=*), intent(out) :: errstr
+    character(len=100), intent(out) :: errstr
 
-    logical :: success, optoverride_aux
-    integer :: j, k, natoms, isum, i
-    integer, allocatable :: grstore(:,:)
+    logical :: success, optoverride_aux, calcinitial_aux
+    integer :: j, k, natoms, isum, i, irxn
+    integer, dimension(:, :), allocatable :: grstore
+    real(8), dimension(:, :), allocatable :: rstore
     real(8) :: x, y, z
     real(8) :: err_real_blank
 
@@ -2469,11 +2569,53 @@ contains
     else
       optoverride_aux = optaftermove
     endif
+    if (present(calcinitial)) then
+      calcinitial_aux = calcinitial
+    else
+      calcinitial_aux = .false.
+    endif
 
     ! Set a useful local parameter - number of atoms.
     !
     natoms = wcx(1)%na
     allocate(grstore(natoms, natoms))
+    allocate(rstore(3, natoms))
+
+    ! Optimise coordinates of wcx(1) or recalculate energy if requested.
+    ! Useful if StripInactiveMols has been called, as the starting molecules
+    ! will not have energies tied to them anymore.
+    if (calcinitial_aux) then
+      if (optaftermove .and. optoverride_aux) then
+
+        grstore(:, :) = wcx(1)%graph(:, :)
+        rstore(:, :) = wcx(1)%r(:, :)
+        call AbInitio(wcx(1), 'optg', success)
+
+        ! Check graph hasn't been invalidated by optimisation.
+        ! Note that this is not subject to user decision, as an incorrect graph
+        ! here leads to discontinous networks.
+        call GetGraph(wcx(1))
+        isum = 0
+        do i = 1, natoms
+          do j = 1, natoms
+            if (wcx(1)%graph(i, j) /= grstore(i, j)) then
+              isum = isum + 1
+            endif
+          enddo
+        enddo
+        if (isum /= 0) then
+          err = .TRUE.
+          errstr = 'Reactant graph invalidated by optimisation'
+          ! Restore original positions and graph to wcx(1).
+          wcx(1)%r(:, :) = rstore(:, :)
+          wcx(1)%graph(:,:) = grstore(:, :)
+          return
+        endif
+
+      else
+        call AbInitio(wcx(1), 'ener', success)
+      endif
+    endif
 
     ! Assign starting coordinates as the coordinates of the prevous step.
     do j = 1, natoms
@@ -2493,7 +2635,7 @@ contains
     call OptimizeGRP_DoubleEnded(wcx(2), wcx(1), success, gdsrestspring, nbstrength, nbrange, &
         kradius, ngdsrelax, gdsdtrelax)
 
-    if (.not. success)then
+    if (.not. success) then
       err = .TRUE.
       errstr = 'Optimisation under GRP failed'
       return
@@ -2521,14 +2663,10 @@ contains
         enddo
         if (isum /= 0) then
           err = .TRUE.
-          errstr = 'Graph invalidated by optimisation'
+          errstr = 'Product graph invalidated by optimisation'
           ! Restore original positions and graph to wcx(2).
-          do j = 1, natoms
-            do k = 1, 3
-              wcx(2)%r(k, j) = wcx(1)%r(k, j)
-            enddo
-          enddo
-          wcx(2)%graph(:,:) = grstore(:,:)
+          wcx(2)%r(:, :) = wcx(1)%r(:, :)
+          wcx(2)%graph(:, :) = grstore(:, :)
           return
         endif
       endif
@@ -2536,35 +2674,77 @@ contains
       ! Check that valences are still valid following optimisation.
       ! Necessary because otherwise following steps will break if 
       ! valence-breaking optimisations are made.
-      call PropagateGraphs(wcx(1), wcx, 2, movenum, moveatoms, err, err_real_blank)
-      if (err) then
-        errstr = 'Valence rules invalidated by optimisation'
-        ! Restore original positions and graph to wcx(2).
-        do j = 1, natoms
-          do k = 1, 3
-            wcx(2)%r(k, j) = wcx(1)%r(k, j)
+
+      ! Check that the final valences are sensible.
+      outer: do irxn = 1, 2
+        do i = 1, natoms
+          isum = 0
+          do j = 1, natoms
+            if (i/=j) then
+              isum = isum + wcx(irxn)%graph(i,j)
+            endif
+          enddo
+
+          do k = 1, nvalcon
+            if (trim(wcx(irxn)%atomlabel(i)) == trim(valatom(k))) then
+              if (isum < valrange(k,1)) then
+                err = .TRUE.
+                exit outer
+              else if (isum > valrange(k, 2))then
+                err = .TRUE.
+                exit outer
+              endif
+            endif
           enddo
         enddo
-        wcx(2)%graph(:,:) = grstore(:,:)
-        return
-      endif
+
+        ! Check that any allowed bonding constraints are not violated.
+        do i = 1, natoms
+          do k = 1, nallowbonds
+            if (trim(wcx(irxn)%atomlabel(i)) == trim(allowbondsatom(k, 1))) then
+              isum = 0
+              do j = 1, natoms
+                if (i/=j .and. (trim(wcx(irxn)%atomlabel(j)) == trim(allowbondsatom(k, 2)))) then
+                  isum = isum + wcx(irxn)%graph(i, j)
+                endif
+              enddo
+              if (isum > allowbondsmax(k)) then
+                err = .TRUE.
+                exit outer
+              endif
+            endif
+          enddo
+        enddo
+      enddo outer
+    endif
+
+    if (err) then
+      errstr = 'Valence rules invalidated by optimisation'
+      return
     endif
 
     ! Output coordinates to final_path.xyz
     if (printflag) then
       open(93, file = trim(printfile), status='unknown')
       write(93, '(i5)') natoms
+      write(93, '("energy=", f16.8)') wcx(1)%vcalc * au_to_ev
+      do j = 1, natoms
+        x = wcx(1)%r(1, j) * bohr_to_ang
+        y = wcx(1)%r(2, j) * bohr_to_ang
+        z = wcx(1)%r(3, j) * bohr_to_ang
+        write(93, '(a2, 2x, 3(f14.8, 2x))') wcx(1)%atomlabel(j), x, y, z
+      enddo
+      write(93, '(i5)') natoms
       write(93, '("energy=", f16.8)') wcx(2)%vcalc * au_to_ev
-      do j = 1, na
+      do j = 1, natoms
         x = wcx(2)%r(1, j) * bohr_to_ang
         y = wcx(2)%r(2, j) * bohr_to_ang
         z = wcx(2)%r(3, j) * bohr_to_ang
         write(93, '(a2, 2x, 3(f14.8, 2x))') wcx(2)%atomlabel(j), x, y, z
       enddo
       call flush(93)
+      close(93)
     endif
-
-    if (printflag) close(93)
 
     deallocate(grstore)
 
@@ -3804,7 +3984,6 @@ contains
   !! with stepwise optimisation (if enabled).
   !!
   !************************************************************************
-  
   subroutine RunBreakdown()
     implicit none
     integer :: i, irx, istep, cyccount
@@ -3813,14 +3992,14 @@ contains
     integer, dimension(:, :), allocatable :: moveatoms, moveatoms_store
     integer, dimension(:, :), allocatable :: chargemove, chargemove_store
     type(cxs) :: cx_start, cx_current
-    type(cxs), dimension(:), allocatable :: cx, wcx
+    type(cxs), dimension(:), allocatable :: cx, wcx, wcx_stripped
     logical :: errflag, cyc, ChangeCharges
     logical, dimension(:), allocatable :: atomchange
     logical, dimension(:, :), allocatable :: bondchange
     real(8) :: err_real_blank
     character (len=4) :: x1, x2
-    character (len=22) :: fout, prev_step_file
-    character (len=33) :: errstr
+    character (len=22) :: fout
+    character (len=100) :: errstr
     
     ! Whatever is in the input file, set igfunc to zero here...it's irrelevant for the
     ! purposes of single-ended network generation:
@@ -3892,7 +4071,7 @@ contains
       write(logfile, '("--------------------------------------------------------------")')
 
       ! Allocate a working cx of length 2 for the current and next reaction steps.
-      allocate(wcx(2))
+      allocate(wcx(2), wcx_stripped(2))
       ! Allocate space for the moves:
       allocate(movenum(2))
       allocate(moveatoms(2,NAMOVEMAX))
@@ -3912,18 +4091,8 @@ contains
             call CopytoNewCXS(cx_start, wcx(i))
             call SetMass(wcx(i))
           enddo
-        ! If not, create a working cx list based off the last reaction step.
-        else
-          call ReadCXS(cx_current, prev_step_file)
-          call SetMass(cx_current)
-          call GetGraph(cx_current)
-          call Getmols(cx_current)
-          do i = 1, 2
-            call CopytoNewCXS(cx_current, wcx(i))
-            call SetMass(wcx(i))
-          enddo
-          call DeleteCXS(cx_current)
         endif
+        ! If not, wcx initialisation gets taken care of at the end of the previous step.
 
         ! Set all the initial moves to be null moves.
         write(logfile,'("* Setting all initial moves to null...")')
@@ -3980,13 +4149,21 @@ contains
             write(logfile, '("- Updating charges currently not supported in stepwise mechanism generation.")')
           endif
 
-          ! Optimise geometry of wcx and write.
+          ! Output reaction xyz, removing spectator molecules if `stripinactivefrompath=.true.`
           write(logfile, '("* Writing reaction step to file.")')
-          if (optaftermove) write(logfile, '("- Optimising reaction step...")')
           write(x1, '(I4.4)') irx
           write(x2, '(I4.4)') istep
           write(fout, '("rxn_", A4, "_step_", A4, ".xyz")') trim(x1), trim(x2)
-          call GraphsToCoords_BD(wcx, .true., fout, movenum, moveatoms, errflag, errstr)
+          if (stripinactive) then
+            ! Get new wcx that has been stripped of spectator molecules.
+            write(logfile, '("- Removing spectator molecules...")')
+            call StripInactiveMols(wcx(1), wcx(2), wcx_stripped(1), wcx_stripped(2))
+            if (optaftermove) write(logfile, '("- Optimising reaction step...")')
+            call GraphsToCoords_BD(wcx_stripped, .true., fout, errflag, errstr, calcinitial=.true.)
+          else
+            if (optaftermove) write(logfile, '("- Optimising reaction step...")')
+            call GraphsToCoords_BD(wcx, .true., fout, errflag, errstr)
+          endif
           if (errflag) then
             write(logfile, '("- ", A, ", cycling.")') adjustl(trim(errstr))
             movenum(:) = 0
@@ -3994,24 +4171,29 @@ contains
             cyc = .true.
             cycle stepgen
           else
-            write(logfile, '("- Reaction step geometry output to ", A)') trim(fout)
+            write(logfile, '("- Reaction output to ", A)') trim(fout)
           endif
 
         enddo stepgen
 
-        ! Set previous geometry file to current.
-        prev_step_file = fout
+        ! Set previous end cxs to next starting cxs.
+        call DeleteCXS(wcx(1))
+        call CopytoNewCXS(wcx(2), wcx(1))
+        call DeleteCXS(wcx(2))
+        call CopytoNewCXS(wcx(1), wcx(2))
 
-        ! Safely remove wcx from memory (not deallocation).
-        do i = 1, 2
-          call DeleteCXS(wcx(i))
-        enddo
+        ! Clean up wcx_stripped if necessary.
+        if (stripinactive) then
+          do i = 1, 2
+            call DeleteCXS(wcx_stripped(i))
+          enddo
+        endif
 
         write(logfile, '("")')
 
       enddo rxloop
 
-      deallocate(wcx)
+      deallocate(wcx, wcx_stripped)
       deallocate(movenum)
       deallocate(moveatoms)
       deallocate(movenum_store)

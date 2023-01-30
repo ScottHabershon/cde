@@ -386,7 +386,70 @@ contains
     close(10)
 
     return
- end Subroutine CreateCXSFromXYZ
+  end Subroutine CreateCXSFromXYZ
+
+  !************************************************************************
+  !> CreateCXSFromMask
+  !!
+  !! Creates a copy of the `cxs` object `cx`, with only the atoms specified
+  !! in `mask`. Ensures proper copying of atomic coordinates, labels and 
+  !! graph. Does not handle any calculations on this new `cxs`, so these
+  !! will need to be redone afterwards.
+  !!
+  !! cx: Input `cxs`. Note that graph must be calculated BEFORE calling.
+  !! mask: `cx%na` long logical array of atoms to keep (`.true.`) or discard (`.false.`).
+  !! new_cx: Output `cxs`.
+  !!
+  !************************************************************************
+  subroutine CreateCXSFromMask(cx, mask, new_cx)
+    implicit none
+    type(cxs), intent(in) :: cx
+    logical, dimension(:), intent(in) :: mask
+    type(cxs), intent(out) :: new_cx
+    integer :: natoms, icounter, jcounter
+    integer :: i, j
+    real(8), dimension(:), allocatable :: x, y, z
+    character(len=2), dimension(:), allocatable :: label
+    integer, dimension(:, :), allocatable :: graph
+
+    natoms = count(mask)
+    allocate(x(natoms), y(natoms), z(natoms), label(natoms))
+    allocate(graph(natoms, natoms))
+
+    icounter = 0
+    do i = 1, cx%na
+      if (mask(i)) then
+        icounter = icounter + 1
+        x(icounter) = cx%r(1, i)
+        y(icounter) = cx%r(2, i)
+        z(icounter) = cx%r(3, i)
+        label(icounter) = cx%atomlabel(i)
+      endif
+    enddo
+
+    call CreateCXS(new_cx, natoms, label, x, y, z)
+
+    icounter = 0
+    do i = 1, cx%na
+      if (mask(i)) then
+        icounter = icounter + 1
+        jcounter = 0
+        do j = 1, cx%na
+          if (mask(j)) then
+            jcounter = jcounter + 1
+            graph(icounter, jcounter) = cx%graph(i, j)
+            graph(jcounter, icounter) = cx%graph(j, i)
+          endif
+        enddo
+      endif
+    enddo
+
+    new_cx%graph(:, :) = graph(:, :)
+    call SetMass(new_cx)
+    call GetMols(new_cx)
+
+    return
+  end subroutine CreateCXSFromMask
 
 
   !
