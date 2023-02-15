@@ -177,7 +177,7 @@ contains
   !
   Subroutine AbInitio(cx, abtypein, success)
     implicit none
-    logical :: minimize, success
+    logical :: minimize, minimize_mol, success
     type(cxs) :: cx
     type(cxs), dimension(:), allocatable :: cxtemp
     character (len=6) :: ptype
@@ -185,7 +185,7 @@ contains
     integer :: ii, natom, nmol, i, j
     real(8), dimension(:), allocatable :: xtemp, ytemp, ztemp
     character(len=2), dimension(:), allocatable :: labeltemp
-    character(len=4)              :: abtype
+    character(len=4)              :: abtype, abtype_mol
     character(len=4),intent(in)   :: abtypein
 
     abtype = abtypein
@@ -220,6 +220,12 @@ contains
     ! Are we running PES calculation for the full system? (PESfull = .TRUE.)
     !
     if (PESfull) then
+
+      ! Don't run optimisations on single atoms.
+      if (cx%na .eq. 1) then
+        abtype = 'ener'
+        minimize = .false.
+      endif
 
       ! Run the calculation.
       select case (ptype)
@@ -290,35 +296,39 @@ contains
         print *, 'Optimising molecule ', i, "/", nmol
 
         if (cxtemp(i)%na .eq. 1) then
-          abtype='ener'
+          abtype_mol = 'ener'
+          minimize_mol = .false.
+        else
+          abtype_mol = abtype
+          minimize_mol = minimize
         endif
 
         ! Run the calculation.
         select case (ptype)
 
           case('orca')
-            call ORCAcalc(cxtemp(i), abtype, success)
+            call ORCAcalc(cxtemp(i), abtype_mol, success)
 
           case('dftb')
-            call DFTBcalc(cxtemp(i), minimize, success)
+            call DFTBcalc(cxtemp(i), minimize_mol, success)
 
           case('lammps')
-            call LAMMPScalc(cxtemp(i), abtype, success)
+            call LAMMPScalc(cxtemp(i), abtype_mol, success)
 
           case('psi4')
-            call PSI4calc(cxtemp(i), minimize, success)
+            call PSI4calc(cxtemp(i), minimize_mol, success)
 
           case('molpro')
-            call MOLPROcalc(cxtemp(i), abtype, success)
+            call MOLPROcalc(cxtemp(i), abtype_mol, success)
 
           case('uff')
-            call UFFcalc(cxtemp(i), minimize, success)
+            call UFFcalc(cxtemp(i), minimize_mol, success)
 
           case('xtb')
-            call xTBcalc(cxtemp(i), minimize, success)
+            call xTBcalc(cxtemp(i), minimize_mol, success)
 
           case('aims')
-            call AIMScalc(cxtemp(i), minimize, success)
+            call AIMScalc(cxtemp(i), minimize_mol, success)
 
           case('null')
             cxtemp(i)%vcalc = 0.d0
