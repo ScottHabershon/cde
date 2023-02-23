@@ -3993,7 +3993,7 @@ contains
     integer, dimension(:, :), allocatable :: chargemove, chargemove_store
     type(cxs) :: cx_start, cx_current
     type(cxs), dimension(:), allocatable :: cx, wcx, wcx_stripped
-    logical :: errflag, cyc, ChangeCharges
+    logical :: errflag, forbidflag, cyc, ChangeCharges
     logical, dimension(:), allocatable :: atomchange
     logical, dimension(:, :), allocatable :: bondchange
     real(8) :: err_real_blank
@@ -4049,6 +4049,11 @@ contains
 
     ! Read the graphmoves.
     call ReadGraphMoves(movefile)
+
+    ! Read the forbidmoves, if requested.
+    if (forbidgraphs) then
+      call ReadForbiddenGraphs(forbidfile)
+    endif
 
     ! Based on the movefile, decide whether or not we're also going to have to
     ! consider changes in charge states too.
@@ -4138,6 +4143,19 @@ contains
             moveatoms(:,:) = 0
             cyc = .true.
             cycle stepgen
+          endif
+
+          ! Check that the graph move is not forbidden, if requested.
+          if (forbidgraphs) then
+            forbidflag = .false.
+            call CheckForbidden(wcx(2), nforbid, naforbid, gforbid, forbidlabel, forbidflag)
+            if (forbidflag) then
+              write(logfile, '("- Forbidden move detected from trial move ", I3, ", cycling.")') cyccount
+              movenum(:) = 0
+              moveatoms(:,:) = 0
+              cyc = .true.
+              cycle stepgen
+            endif
           endif
 
           write(logfile, '("- Valence check complete, all current valences are valid.")')

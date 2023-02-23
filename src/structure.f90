@@ -3462,18 +3462,20 @@ contains
   !! This subroutine is a nightmare-ish hellscape of enddo and endif...
   !! nobody should have to deal with this...
   !!
-  !! Returns iflag = 0 if the graph is forbidden.
+  !! Returns forbidflag = .true. if the graph is forbidden.
   !!
   !***************************************************************************
   !
-  Subroutine CheckForbidden(cx, nforbid, naforbid, gforbid, forbidlabel, iflag)
+  Subroutine CheckForbidden(cx, nforbid, naforbid, gforbid, forbidlabel, forbidflag)
     implicit none
     type(cxs) :: cx
     integer :: i, j, k, l, m, n, p, iflag, na
     integer :: nforbid, naforbid(NFORBIDMAX), gforbid(NFORBIDMAX,NAMOVEMAX,NAMOVEMAX)
     character (len=4) :: forbidlabel(NFORBIDMAX,NAMOVEMAX)
+    logical :: forbidflag
 
     na = cx%na
+    forbidflag = .false.
     ! Loop over each forbidden graph
     !
     do i = 1, nforbid
@@ -3489,7 +3491,7 @@ contains
               if (j/=k)cycle a2
               if (trim(cx%atomlabel(k)) == trim(forbidlabel(i, 2))) then
                 if (cx%graph(j, k) == gforbid(i, 1, 2)) then
-                  iflag = 0
+                  forbidflag = .true.
                   return
                 endif
               endif
@@ -3511,7 +3513,7 @@ contains
                     if (cx%graph(j, k) == gforbid(i, 1, 2)) then
                         if (cx%graph(j, l) == gforbid(i, 1, 3)) then
                           if (cx%graph(k, l) == gforbid(i, 2, 3)) then
-                            iflag = 0
+                            forbidflag = .true.
                             return
                           endif
                         endif
@@ -3547,7 +3549,7 @@ contains
                               if (cx%graph(k, l) /= gforbid(i, 2, 3)) then
                                 if (cx%graph(k, m) /= gforbid(i, 2, 4)) then
                                   if (cx%graph(l, m) /= gforbid(i, 3, 4)) then
-                                    iflag = 0
+                                    forbidflag = .true.
                                     return
                                   endif
                                 endif
@@ -3596,7 +3598,7 @@ contains
                                             if (cx%graph(l,m) /= gforbid(i,3,4)) then
                                               if (cx%graph(l,p) /= gforbid(i,3,5)) then
                                                 if (cx%graph(m,p) /= gforbid(i,4,5)) then
-                                                  iflag = 0
+                                                  forbidflag = .true.
                                                   return
                                                 endif
                                               endif
