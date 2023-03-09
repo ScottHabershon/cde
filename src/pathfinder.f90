@@ -2632,12 +2632,17 @@ contains
     call GetMols(wcx(2))
 
     ! Optimize under double-ended GRP.
+    grstore(:, :) = wcx(1)%graph(:, :)
+    rstore(:, :) = wcx(1)%r(:, :)
     call OptimizeGRP_DoubleEnded(wcx(2), wcx(1), success, gdsrestspring, nbstrength, nbrange, &
         kradius, ngdsrelax, gdsdtrelax)
 
     if (.not. success) then
       err = .TRUE.
       errstr = 'Optimisation under GRP failed'
+      wcx(2)%r(:, :) = rstore(:, :)
+      wcx(2)%graph(:,:) = grstore(:, :)
+      call GetMols(wcx(2))
       return
     endif
 
@@ -4115,8 +4120,8 @@ contains
         stepgen: do while (cyc)
           cyccount = cyccount + 1
           ! Check the loop isn't spiralling out of control.
-          if (cyccount .ge. 500) then
-            write(logfile, '("ERROR: failed to find a valid move within 500 attempts. Stopping here.")')
+          if (cyccount .ge. 1000) then
+            write(logfile, '("ERROR: failed to find a valid move within 1000 attempts. Stopping here.")')
             stop
           endif
 
@@ -4178,6 +4183,21 @@ contains
             call StripInactiveMols(wcx(1), wcx(2), wcx_stripped(1), wcx_stripped(2))
             if (optaftermove) write(logfile, '("- Optimising reaction step...")')
             call GraphsToCoords_BD(wcx_stripped, .true., fout, errflag, errstr, calcinitial=.true.)
+
+            if (errflag) then
+              write(logfile, '("- ", A, ", cycling.")') adjustl(trim(errstr))
+              movenum(:) = 0
+              moveatoms(:,:) = 0
+              cyc = .true.
+              cycle stepgen
+            endif
+
+            ! Update coordinates of the rest of the molecules as well.
+            ! This is still important as it determines how other molecules react down the line.
+            if (istep .lt. nrxn) then
+              write(logfile, '("- Optimising whole system under GRP...")')
+              call GraphsToCoords_BD(wcx, .false., "", errflag, errstr, optoverride=.false.)
+            endif
           else
             if (optaftermove) write(logfile, '("- Optimising reaction step...")')
             call GraphsToCoords_BD(wcx, .true., fout, errflag, errstr)
