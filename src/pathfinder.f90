@@ -4197,8 +4197,9 @@ contains
         ! Set previous end cxs to next starting cxs.
         call DeleteCXS(wcx(1))
         call CopytoNewCXS(wcx(2), wcx(1))
-        call DeleteCXS(wcx(2))
-        call CopytoNewCXS(wcx(1), wcx(2))
+        call GetMols(wcx(1))
+        call GetMols(wcx(2))
+        print *, wcx(1)%nmol, wcx(2)%nmol
 
         ! Clean up wcx_stripped if necessary.
         if (stripinactive) then
