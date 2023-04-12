@@ -2631,11 +2631,15 @@ contains
     ! Optimize coordinates under action of current graph.
     call GetMols(wcx(2))
 
-    ! Optimize under double-ended GRP.
+    ! Optimize under GRP.
     grstore(:, :) = wcx(1)%graph(:, :)
     rstore(:, :) = wcx(1)%r(:, :)
-    call OptimizeGRP_DoubleEnded(wcx(2), wcx(1), success, gdsrestspring, nbstrength, nbrange, &
-        kradius, ngdsrelax, gdsdtrelax)
+    ! Old call to double ended GRP. Removed for now since it was causing issues with
+    ! species bonding at long distances, leading to broken GRP geometries.
+    ! call OptimizeGRP_DoubleEnded(wcx(2), wcx(1), success, gdsrestspring, nbstrength, nbrange, &
+    !     kradius, ngdsrelax, gdsdtrelax)
+    call OptimizeGRP(wcx(2), success, gdsrestspring, nbstrength, nbrange, &
+        & kradius, ngdsrelax, gdsdtrelax)
 
     if (.not. success) then
       err = .TRUE.
