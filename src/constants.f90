@@ -364,7 +364,7 @@ Module constants
 
 
   real(8), parameter :: GRPMINTHRESH = 1d-3      !< Force convergence target (in au) for minimization under GRP.
-  real(8), parameter :: GRPMAXTHRESH = 1d-3      !< Force convergence target (in au) for minimization under GRP.
+  real(8), parameter :: GRPMAXTHRESH = 1d-2      !< Force convergence target (in au) for minimization under GRP.
 
 
 end Module constants
