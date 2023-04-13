@@ -2638,7 +2638,7 @@ contains
     ! species bonding at long distances, leading to broken GRP geometries.
     ! call OptimizeGRP_DoubleEnded(wcx(2), wcx(1), success, gdsrestspring, nbstrength, nbrange, &
     !     kradius, ngdsrelax, gdsdtrelax)
-    call OptimizeGRP(wcx(2), success, gdsrestspring, nbstrength, nbrange, &
+    call OptimizeGRPForceConv(wcx(2), success, gdsrestspring, nbstrength, nbrange, &
         & kradius, ngdsrelax, gdsdtrelax)
 
     if (.not. success) then

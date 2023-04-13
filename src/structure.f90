@@ -2769,7 +2769,18 @@ contains
     real(8) :: gdsrestspring, nbstrength, nbrange, kradius, gdsdtrelax,sum,rmax
     logical :: success, debug
 
-    debug = .false.
+    debug = .true.
+    if (debug) open(21, file='ori.xyz', status='unknown', position='append')
+    if (debug) then
+      write(21, *) cx%na
+      write(21, *) 'FORCE? = ', norm2(reshape(cx%dvdr(1:3,1:cx%na), (/cx%na*3/)))
+      do i = 1, cx%na
+        write(21, '("'//cx%Atomlabel(i)//'", 3(X, F15.7))') cx%r(1:3, i)*bohr_to_ang
+      enddo
+      close(21)
+    endif
+    if (debug) open(22,file='banana.xyz',status='unknown',position='append')
+
     ! Make a copy of the current structure - cx%graph(:,:) should already contain
     ! the target graph.
     !
@@ -2778,7 +2789,6 @@ contains
     cc2 = 0 ; cc1 = 0
     cx%dvdr(:, :) = 0.0D0
     call GraphConstraints(cx, gdsrestspring, nbstrength, nbrange, kradius)
-  !  if (debug) open(22,file='banana.xyz',status='unknown')
     do it = 1, ngdsrelax
       idof = 0
       sum = 0.d0
@@ -2821,16 +2831,16 @@ contains
       !enddo
       !flush(22)
       endif
-  !   if (debug) then
-  !    write(22,*) cx%na
-  !    write(22,*) 'FORCE? = ', norm2(reshape(cx%dvdr(1:3,1:cx%na),(/cx%na*3/)))
-  !    do i = 1, cx%na
-  !      write(22,'("'//cxtmp2%atomlabel(i)//'",3(X,F15.7))') cx%r(1:3,i)*bohr_to_ang
-  !    enddo
-  !    flush(22)
-      !print*, 'FORCE? = ', norm2(reshape(cx%dvdr(1:3,1:cx%na),(/cx%na*3/)))
-  !   endif
       call GraphConstraints(cx, gdsrestspring, nbstrength, nbrange, kradius)
+      if (debug) then
+        write(22, *) cx%na
+        write(22, *) 'FORCE? = ', norm2(reshape(cx%dvdr(1:3, 1:cx%na), (/cx%na*3/)))
+        do i = 1, cx%na
+          write(22, '("'//cx%Atomlabel(i)//'", 3(X, F15.7))') cx%r(1:3, i)*bohr_to_ang
+        enddo
+        flush(22)
+        !print*, 'FORCE? = ', norm2(reshape(cx%dvdr(1:3,1:cx%na),(/cx%na*3/)))
+      endif
       !print*, 'CCX = ', cc2
       if (cc2 > 3 ) then
       success = .true.
@@ -2853,9 +2863,104 @@ contains
     !enddo
     !if (isum == 0 ) cc2  = cc2 + 1
     !stOP
-    !close(22)
+    if (debug) close(22)
     return
   end Subroutine OptimizeGRP
+
+
+  !
+  !*************************************************************************
+  !> OptimizeGRPForceConv
+  !!
+  !! Minimises the molecules according to the Graph restraining potential.
+  !!
+  !! Unlike the original OptimizeGRP routine, uses the force convergence 
+  !! criteria of OptimizeGRPDoubleEnded to determine if optimisations
+  !! are successful.
+  !!
+  !! - cx: The input chemical structure
+  !! - success: weather we satisfied the contraints after the monimization or not
+  !! - rest: parameters for the GRP and minimization
+  !!
+  !*************************************************************************
+  !
+  Subroutine OptimizeGRPForceConv(cx, success, gdsrestspring, nbstrength, nbrange, kradius, ngdsrelax, gdsdtrelax)
+    implicit none
+    type(cxs) :: cx, cxtmp1, cxtmp2
+    integer :: i, j, k, l, n, m, it, cc1, cc2, idof, isum, ngdsrelax, iact
+    real(8) :: gdsrestspring, nbstrength, nbrange, kradius, gdsdtrelax,sum,rmax
+    logical :: success, debug
+
+    debug = .false.
+    if (debug) open(21, file='ori.xyz', status='unknown', position='append')
+    if (debug) then
+      write(21, *) cx%na
+      write(21, *) 'FORCE? = ', norm2(reshape(cx%dvdr(1:3,1:cx%na), (/cx%na*3/)))
+      do i = 1, cx%na
+        write(21, '("'//cx%Atomlabel(i)//'", 3(X, F15.7))') cx%r(1:3, i)*bohr_to_ang
+      enddo
+      close(21)
+    endif
+    if (debug) open(22,file='banana.xyz',status='unknown',position='append')
+
+    ! SD optimisation
+    success = .false.
+    outer: do it = 0, ngdsrelax
+      idof = 0
+      sum = 0.d0
+      rmax = -1d6
+      iact = 0
+
+      if (it > 0) then
+
+        do i = 1, cx%na
+          if (.not. cx%fixedatom(i)) Then
+            do k = 1, 3
+              idof = idof + 1
+              if (.not. cx%fixeddof(idof)) then
+                iact = iact + 1
+                cx%r(k, i) = cx%r(k, i) - gdsdtrelax * cx%dvdr(k, i)
+                sum = sum + cx%dvdr(k, i)**2
+                if (abs( cx%dvdr(k, i)) > rmax) rmax = abs(cx%dvdr(k, i))
+              endif
+            enddo
+          else
+            idof = idof + 3
+          endif
+        enddo
+
+        ! Check convergence based on RMS forces and maximum force.
+        sum = dsqrt(sum / dble(idof) )
+
+        if (debug) then 
+          print *, 'SUM = ', sum, ' MAX = ', rmax 
+        endif
+
+        if (sum < GRPMINTHRESH .and. rmax < GRPMAXTHRESH) then
+          success = .true.
+          exit outer
+        endif
+      endif
+
+      if (debug) then
+        write(22, *) cx%na
+        ! write(22, *) 'FORCE? = ', norm2(reshape(cx%dvdr(1:3, 1:cx%na), (/cx%na*3/)))
+        write(22, '("Properties=species:S:1:pos:R:3:forces:R:3")')
+        do i = 1, cx%na
+          write(22, '("'//cx%Atomlabel(i)//'", 6(X, F15.7))') cx%r(1:3, i)*bohr_to_ang, -cx%dvdr(1:3, i)*bohr_to_ang
+        enddo
+        flush(22)
+      endif
+
+      ! Update derivatives.
+      cx%dvdr(:, :) = 0.0D0
+      call GraphConstraints(cx, gdsrestspring, nbstrength, nbrange, kradius)
+
+    enddo outer
+    if (debug) close(22)
+
+    return
+  end Subroutine OptimizeGRPForceConv
 
 
   !
