@@ -93,6 +93,21 @@ Program CDE
     ! Tidy up....
     Call DeletePath(rp)
 
+  
+  !***************************************************
+  ! PATH INTERPOLATION
+  !***************************************************
+  !
+  case ('interp')
+
+    write(logfile,'("* Starting path interpolation..."/)')
+
+    ! Create interpolation.
+    call InterpolatePath(rp)
+
+    ! Tidy up.
+    call DeletePath(rp)
+
 
   !***************************************************
   ! DOUBLE-ENDED PATH-FINDING CALCULATION

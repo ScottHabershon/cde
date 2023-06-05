@@ -18,7 +18,94 @@ Module pathopt
 
 contains
 
+  !************************************************************************
+  !> InterpolatePath
+  !!
+  !! Interpolates a reaction path, without optimisation.
+  !!
+  !! - rp: Generated interpolation of reaction path.
+  !!
+  !************************************************************************
   !
+  subroutine InterpolatePath(rp)
+    type(rxp), intent(out) :: rp
+
+    integer :: nmol(2)
+    logical :: ldum
+
+    ! Initialize the reaction path object.
+    Call NewPath(rp, startfrompath, startfile, endfile, pathfile, nimage, &
+        pathinit, .FALSE., idum)
+
+    ! Print the initial path.
+    Call PrintPathToFile(rp, 'linear_path.xyz')
+    write(logfile,'("- Initial path written to linear_path.xyz")')
+
+    ! If stripinactive is true, then we strip out the inactive molecules (i.e. those not
+    ! involved in the reaction).
+    if (stripinactive) then
+      write(logfile, '("*** Stripping inactive molecules from path...")')
+      Call StripInactiveFromPath(rp, 'linear_path_stripped.xyz', FixedDOF, FixedAtom, NDOFconstr, Natomconstr, .true.)
+      write(logfile, '("- Stripped initial path written to linear_path_stripped.xyz")')
+
+      ! Now delete the original path and read the new one.
+      Call DeletePath(rp)
+      ! ..and create a new path by reading from file...
+      Call NewPath(rp, .TRUE., startfile, endfile, 'linear_path_stripped.xyz', nimage, &
+            pathinit, .FALSE., idum)
+    endif
+
+    if (idpppath) then
+      ! Initialize constraints in the path.
+      Call SetPathConstraints(rp, NDOFconstr, FixedDOF, Natomconstr, Fixedatom)
+
+      ! Determine initial graphs and molecules for end-points.
+      call GetGraph(rp%cx(1))
+      call GetMols(rp%cx(1))
+      nmol(1) = rp%cx(1)%nmol
+      call GetGraph(rp%cx(rp%nimage))
+      call GetMols(rp%cx(rp%nimage))
+      nmol(2) = rp%cx(rp%nimage)%nmol
+
+      ! Do we optimize the end-points before NEB?
+      if (optendsbefore) then
+        call AbInitio(rp%cx(1), 'optg', ldum)
+        call AbInitio(rp%cx(rp%nimage), 'optg', ldum)
+        call GetGraph(rp%cx(1))
+        call GetMols(rp%cx(1))
+        call GetGraph(rp%cx(rp%nimage))
+        call GetMols(rp%cx(rp%nimage))
+        if (nmol(1) .ne.  rp%cx(1)%nmol .or. nmol(2) .ne. rp%cx(rp%nimage)%nmol )  then
+          write(6,'("Warning: Number of molecules changed during optimization!: was: ",2I2,", is: ", 2I2)') &
+          nmol(1:2), rp%cx(1)%nmol , rp%cx(rp%nimage)%nmol
+          write(logfile,'("Warning: Number of molecules changed during optimization!: was: ",2I2,", is: ", 2I2)') &
+          nmol(1:2), rp%cx(1)%nmol , rp%cx(rp%nimage)%nmol
+        endif
+      endif
+
+      ! If required, redraw the internal images.
+      if (reconnect) then
+        rp%coeff(:,:,:) = 0.d0
+        call FourierToPath(rp)
+      endif
+
+      ! Recalculate graphs and mols.
+      call GetGraph(rp%cx(1))
+      call GetMols(rp%cx(1))
+      call GetGraph(rp%cx(rp%nimage))
+      call GetMols(rp%cx(rp%nimage))
+
+      ! Calculate IDPP path.
+      call FindIDPPPath(rp, NEBIter, NEBConv, NEBstep, NEBspring)
+
+      ! Print the IDPP path.
+      Call PrintPathToFile(rp,'idpp_path.xyz')
+      write(logfile,'("- IDPP-refined path written to idpp_path.xyz")')
+    endif
+
+    return
+  end subroutine InterpolatePath
+
   !************************************************************************
   !> OptimizePath
   !!
@@ -103,8 +190,10 @@ contains
     !
     call GetGraph(rp%cx(1))
     call GetMols(rp%cx(1))
+    nmol(1) = rp%cx(1)%nmol
     call GetGraph(rp%cx(rp%nimage))
     call GetMols(rp%cx(rp%nimage))
+    nmol(2) = rp%cx(rp%nimage)%nmol
     if (debug) call PrintPathToFile(rp,'interpol1.xyz' )
 
     ! Do we optimize the end-points before NEB?

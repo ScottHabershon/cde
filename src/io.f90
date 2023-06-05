@@ -125,6 +125,8 @@ contains
           read(buffer, *, iostat=ios) calctype
           if (calctype == 'optpath') then
             write(logfile,'("- Calculation type:  PATH REFINEMENT")')
+          else if (calctype == 'interp') then
+            write(logfile, '("- Calculation type: PATH INTERPOLATION")')
           else if (calctype == 'molopt') then
             write(logfile,'("- Calculation type:  MOLECULE PROPERTY OPTIMIZATION")')
           else if (calctype == 'pathfind') then
@@ -134,8 +136,8 @@ contains
           else if (calctype == 'breakdown') then
             write(logfile, '("Calculation type: BREAKDOWN NETWORK GENERATION")')
           else
-            stop 'ERROR: Unknown calctype in input file (options: optpath, molopt, pathfind,&
-                & netgrow, breakdown)'
+            stop 'ERROR: Unknown calctype in input file (options: optpath, interp, molopt, &
+                & pathfind, netgrow, breakdown)'
           endif
 
 

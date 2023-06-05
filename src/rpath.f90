@@ -284,6 +284,11 @@ contains
     real(8), allocatable :: rtarg(:,:,:), rend(:,:), rst(:,:), dx(:)
     real(8) :: lambda
 
+    write(logfile, '("* Starting IDPP force optimisation...")')
+    write(logfile, '("Max. force tolerance: ", F13.8)') IDPPConv
+    write(logfile, '()')
+    write(logfile, '("Iteration    |Force|       Max. Force")')
+
     ! Assign NEB spring in this case.
     !
     rp%ks = IDPPspring
@@ -364,10 +369,15 @@ contains
 
       call GetForceNorm(rp, fnorm1, fmax, 2, rp%nimage-1)
 
+      write(logfile, '(I6, 8X, F13.8, X, F13.8)') iter, fnorm1, fmax
+
 		  ! Check convergence.
       if (fnorm1 <= IDPPConv) then
-        write(logfile, '("* |Forces| < NEBconv :: IDPP NEB CONVERGED, Iter = ",I5)') iter
+        write(logfile, '(/, "* |Forces| < NEBconv :: IDPP INTERPOLATION CONVERGED, Iter = ", I5)') iter
         exit
+      endif
+      if (iter == IDPPIter) then
+        write(logfile, '(/, "IDPP INTERPOLATION FAILED")')
       endif
     enddo
 
@@ -2055,23 +2065,7 @@ contains
     ! Create a new reaction path with the kept atoms and output this. If required, we
     ! can then create a new path by reading in the stripped path later.
     !
-    open(31, file=stripfile, status='unknown')
-    do i = 1, nb
-
-      ! Write number of atoms and header
-      !
-      write(31, *) icount
-      write(31, *)
-
-      do j = 1, na
-        if (found(j)) then
-          write(31, *) rp%cx(i)%atomlabel(j), rp%cx(i)%r(1, j)*bohr_to_ang, &
-              rp%cx(i)%r(2, j)*bohr_to_ang, &
-              rp%cx(i)%r(3, j)*bohr_to_ang
-        endif
-      enddo
-    enddo
-    close(31)
+    Call PrintPathToFile(rp, stripfile)
 
     return
   end Subroutine StripInactiveFromPath
