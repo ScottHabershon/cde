@@ -131,26 +131,9 @@
   <option  id='WARN_LINE_FORMAT' default='yes' type='string'><value><![CDATA["at line $line of file $file"]]></value></option>
   <option  id='WARN_LOGFILE' default='yes' type='string'><value><![CDATA[]]></value></option>
   <option  id='INPUT' default='no' type='stringlist'>
-    <value><![CDATA[src/Introduction.md]]></value>
-    <value><![CDATA[src/setup.md]]></value>
-    <value><![CDATA[src/Example_Input.md]]></value>
-    <value><![CDATA[src/Annotated_Input.md]]></value>
-    <value><![CDATA[src/formats.md]]></value>
-    <value><![CDATA[src/PES.md]]></value>
-    <value><![CDATA[src/PES_templates.md]]></value>
-    <value><![CDATA[src/Forbidfile_Example.md]]></value>
-    <value><![CDATA[src/Movefile_Example.md]]></value>
-    <value><![CDATA[src/Hints.md]]></value>
-    <value><![CDATA[src/todo.md]]></value>
-    <value><![CDATA[src/references.md]]></value>
     <value><![CDATA[utils/scripts.md]]></value>
-    <value><![CDATA[examples/Tutorial_1/Example_CINEB.md]]></value>
-    <value><![CDATA[examples/Tutorial_2/Example_CINEB_LAMMPS.md]]></value>
-    <value><![CDATA[examples/Tutorial_3/Example_pathfind.md]]></value>
-    <value><![CDATA[examples/Tutorial_4/Example_pathfind2.md]]></value>
     <value><![CDATA[src]]></value>
-    <value><![CDATA[../utils]]></value>
-    <value><![CDATA[../examples]]></value>
+    <value><![CDATA[utils]]></value>
   </option>
   <option  id='INPUT_ENCODING' default='yes' type='string'><value><![CDATA[UTF-8]]></value></option>
   <option  id='INPUT_FILE_ENCODING' default='yes' type='stringlist'>
@@ -159,7 +142,7 @@
     <value><![CDATA[*.md]]></value>
     <value><![CDATA[*.f90]]></value>
   </option>
-  <option  id='RECURSIVE' default='yes' type='bool'><value>NO</value></option>
+  <option  id='RECURSIVE' default='no' type='bool'><value>YES</value></option>
   <option  id='EXCLUDE' default='yes' type='stringlist'>
   </option>
   <option  id='EXCLUDE_SYMLINKS' default='yes' type='bool'><value>NO</value></option>
@@ -203,7 +186,7 @@
   <option  id='HTML_FOOTER' default='yes' type='string'><value><![CDATA[]]></value></option>
   <option  id='HTML_STYLESHEET' default='yes' type='string'><value><![CDATA[]]></value></option>
   <option  id='HTML_EXTRA_STYLESHEET' default='no' type='stringlist'>
-    <value><![CDATA[extra_stylesheet.css]]></value>
+    <value><![CDATA[docs/extra_stylesheet.css]]></value>
   </option>
   <option  id='HTML_EXTRA_FILES' default='yes' type='stringlist'>
   </option>

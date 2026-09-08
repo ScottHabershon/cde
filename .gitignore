@@ -4,4 +4,5 @@ bin
 test/*
 # Generated documentation
 site/
+docs/doxygen/
 docs/api/doxygen/
