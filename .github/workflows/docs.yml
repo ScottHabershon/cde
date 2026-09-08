@@ -35,15 +35,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y doxygen
 
-      - name: Generate Doxygen API
-        run: |
-          doxygen doxy.conf
-          rm -rf docs/api/doxygen
-          mkdir -p docs/api/doxygen
-          cp -R docs/doxygen/html/. docs/api/doxygen/
-
-      - name: Build MkDocs
-        run: mkdocs build --strict
+      - name: Build documentation
+        run: make docs
 
       - name: Upload documentation
         uses: actions/upload-pages-artifact@v3
