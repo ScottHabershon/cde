@@ -2891,7 +2891,7 @@ contains
     real(8) :: gdsrestspring, nbstrength, nbrange, kradius, gdsdtrelax,sum,rmax
     logical :: success, debug
 
-    debug = .false.
+    debug = .true.
     if (debug) open(21, file='ori.xyz', status='unknown', position='append')
     if (debug) then
       write(21, *) cx%na

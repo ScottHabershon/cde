@@ -1,0 +1,67 @@
+\hypertarget{structglobaldata_1_1fingerprint}{}\doxysection{globaldata\+::fingerprint Type Reference}
+\label{structglobaldata_1_1fingerprint}\index{globaldata::fingerprint@{globaldata::fingerprint}}
+
+
+Type definition for the fingerprint of a reaction-\/path.  
+
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structglobaldata_1_1fingerprint_a7b466d1a6746b4629a62c2edaa21944f}\label{structglobaldata_1_1fingerprint_a7b466d1a6746b4629a62c2edaa21944f}} 
+double precision, dimension(\+:,\+:,\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1fingerprint_a7b466d1a6746b4629a62c2edaa21944f}{sprint}}
+\begin{DoxyCompactList}\small\item\em sprint vector for beggining and end chemical structures (N elements) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1fingerprint_ad0319b895d287e3668112a3bcb57c9c9}\label{structglobaldata_1_1fingerprint_ad0319b895d287e3668112a3bcb57c9c9}} 
+double precision, dimension(\+:,\+:,\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1fingerprint_ad0319b895d287e3668112a3bcb57c9c9}{piv}}
+\begin{DoxyCompactList}\small\item\em as above, but piv (N$\ast$(N-\/1)/2 elements) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1fingerprint_a75090ead9c264d4b5209517742e90921}\label{structglobaldata_1_1fingerprint_a75090ead9c264d4b5209517742e90921}} 
+double precision, dimension(\+:,\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1fingerprint_a75090ead9c264d4b5209517742e90921}{menergy}}
+\begin{DoxyCompactList}\small\item\em molecular energy per image, per active molecule i think \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1fingerprint_a02e8d4217e504ea318e06c0c88d3298a}\label{structglobaldata_1_1fingerprint_a02e8d4217e504ea318e06c0c88d3298a}} 
+double precision, dimension(\+:,\+:,\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1fingerprint_a02e8d4217e504ea318e06c0c88d3298a}{mhash}}
+\begin{DoxyCompactList}\small\item\em the molecular eigenvalues that characterises the graph \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1fingerprint_a3b23de3ab4119be5003259e810b7a39d}\label{structglobaldata_1_1fingerprint_a3b23de3ab4119be5003259e810b7a39d}} 
+integer \mbox{\hyperlink{structglobaldata_1_1fingerprint_a3b23de3ab4119be5003259e810b7a39d}{graphmoveid}}
+\begin{DoxyCompactList}\small\item\em graph ID that was used on chemical structure IC \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1fingerprint_a02b9dc5e6f88186e62e5da007be31115}\label{structglobaldata_1_1fingerprint_a02b9dc5e6f88186e62e5da007be31115}} 
+integer \mbox{\hyperlink{structglobaldata_1_1fingerprint_a02b9dc5e6f88186e62e5da007be31115}{ic}}
+\begin{DoxyCompactList}\small\item\em the start or end of the Path that was subject to the graph move \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1fingerprint_a7d98a526313c5be23f3af3126ba01025}\label{structglobaldata_1_1fingerprint_a7d98a526313c5be23f3af3126ba01025}} 
+integer, dimension(2) \mbox{\hyperlink{structglobaldata_1_1fingerprint_a7d98a526313c5be23f3af3126ba01025}{nactmol}}
+\begin{DoxyCompactList}\small\item\em number of active molecules in the start and end images \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1fingerprint_a59deb289436b95015f4b698377149611}\label{structglobaldata_1_1fingerprint_a59deb289436b95015f4b698377149611}} 
+character(100) \mbox{\hyperlink{structglobaldata_1_1fingerprint_a59deb289436b95015f4b698377149611}{makebreaklab}}
+\begin{DoxyCompactList}\small\item\em label showing which elements are breaking/forming (symmetric) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1fingerprint_a72f7c4142d8d0ecdde5218656f99e971}\label{structglobaldata_1_1fingerprint_a72f7c4142d8d0ecdde5218656f99e971}} 
+character(250), dimension(\+:,\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1fingerprint_a72f7c4142d8d0ecdde5218656f99e971}{smiles}}
+\begin{DoxyCompactList}\small\item\em an array of nactmol Smile strings in a unique order \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1fingerprint_a193a589bd6d2e6e401ae9b189e578566}\label{structglobaldata_1_1fingerprint_a193a589bd6d2e6e401ae9b189e578566}} 
+character(100), dimension(\+:,\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1fingerprint_a193a589bd6d2e6e401ae9b189e578566}{mformula}}
+\begin{DoxyCompactList}\small\item\em an array of nactmol molecular Formula strings in a unique order \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1fingerprint_a5041fcd34cd507c6f670d70efb30dcf8}\label{structglobaldata_1_1fingerprint_a5041fcd34cd507c6f670d70efb30dcf8}} 
+integer, dimension(\+:,\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1fingerprint_a5041fcd34cd507c6f670d70efb30dcf8}{actnamol}}
+\begin{DoxyCompactList}\small\item\em number of atoms per active molecules \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1fingerprint_a1a9ecec918552e8f6a9e9ebbbafe4789}\label{structglobaldata_1_1fingerprint_a1a9ecec918552e8f6a9e9ebbbafe4789}} 
+double precision \mbox{\hyperlink{structglobaldata_1_1fingerprint_a1a9ecec918552e8f6a9e9ebbbafe4789}{nbb}}
+\begin{DoxyCompactList}\small\item\em (number of bonds formed+broken)/2 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1fingerprint_a351afc132298bd0728d303a571493e94}\label{structglobaldata_1_1fingerprint_a351afc132298bd0728d303a571493e94}} 
+integer \mbox{\hyperlink{structglobaldata_1_1fingerprint_a351afc132298bd0728d303a571493e94}{id}}
+\begin{DoxyCompactList}\small\item\em fingerprint ID \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1fingerprint_a7ab3057bccbbe7a53f6a02ef8c356abf}\label{structglobaldata_1_1fingerprint_a7ab3057bccbbe7a53f6a02ef8c356abf}} 
+type(\mbox{\hyperlink{structglobaldata_1_1fingerprint}{fingerprint}}), pointer {\bfseries next} =$>$ null()
+\item 
+\mbox{\Hypertarget{structglobaldata_1_1fingerprint_a3bd3b8a0774a0c9ae91fae40e84d2cfa}\label{structglobaldata_1_1fingerprint_a3bd3b8a0774a0c9ae91fae40e84d2cfa}} 
+type(\mbox{\hyperlink{structglobaldata_1_1fingerprint}{fingerprint}}), pointer {\bfseries prev} =$>$ null()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Type definition for the fingerprint of a reaction-\/path. 
+
+Definition at line 280 of file globaldata.\+f90.
+
+
+
+The documentation for this type was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/scott/code/cde/src/globaldata.\+f90\end{DoxyCompactItemize}

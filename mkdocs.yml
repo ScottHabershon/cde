@@ -1,0 +1,57 @@
+site_name: CDE — Chemical Discovery Engine
+site_description: Documentation for the Chemistry Discovery Engine
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+
+  - Getting Started:
+      - Introduction: getting-started.md
+
+  - User Guide:
+      - Overview: user-guide/index.md
+      - Setup: user-guide/setup.md
+      - Input Formats: user-guide/formats.md
+      - Potential Energy Surfaces: user-guide/pes.md
+      - PES Templates: user-guide/pes-templates.md
+      - Annotated Input: user-guide/annotated-input.md
+      - Move Files: user-guide/move-files.md
+      - Forbid Files: user-guide/forbid-files.md
+      - Hints: user-guide/hints.md
+      - References: user-guide/references.md
+
+  - Tutorials:
+      - Overview: tutorials/index.md
+      - Tutorial 1 — CINEB: tutorials/cineb.md
+      - Tutorial 2 — CINEB + LAMMPS: tutorials/cineb-lammps.md
+      - Tutorial 3 — Path Finding: tutorials/pathfind.md
+      - Tutorial 4 — Advanced Path Finding: tutorials/pathfind-advanced.md
+      - Tutorial 5 — Network Growth: tutorials/netgrow.md
+      - Tutorial 6 — Breakdown: tutorials/breakdown.md
+
+  - API Reference:
+      - Overview: api/index.md
+
+  - Developer Guide:
+      - Overview: developer-guide/index.md

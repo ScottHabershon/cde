@@ -556,7 +556,7 @@ contains
     logical :: minimize, flag, there, success
     character(len=4)    :: abtype
     character (len=100) :: buffer(NLINEMAX), cmsg, exec, buffer_store(NLINEMAX)
-    character (len=125) :: str
+    character (len=100) :: str
     integer :: n, iline, i, j, estat, cstat, ios, gat, sz, TotalCharge,TotalSpin
     integer :: nel
     character (len=20) :: cdum, cnum, gstr1, gstr2, gstr3, gstr4, string
@@ -764,7 +764,13 @@ contains
 
     ! Run the ORCA calculation using the relevant executable...
     !
-    str = trim(Exec) // " temp.in > pes_orca.out"
+   ! write(str,'(A)')trim(Exec) // " temp.in > pes_orca.out" 
+    str = trim(Exec) // ' temp.in > pes_orca.out'
+   write(*,'(A)') 'EXEC = [' // trim(exec) // ']'
+   write(*,'(A)') 'STR  = [' // trim(str)  // ']'
+   write(*,'(A,I0)') 'LEN_TRIM(EXEC) = ', len_trim(exec)
+   write(*,'(A,I0)') 'LEN_TRIM(STR)  = ', len_trim(str)
+    print*,str,len(str),len(Exec)
     Call ExecuteCalculation(str, success)
 
     !if (.not.success)stop ????????

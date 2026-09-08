@@ -1,0 +1,1237 @@
+\hypertarget{namespacechemstr}{}\section{chemstr Module Reference}
+\label{namespacechemstr}\index{chemstr@{chemstr}}
+
+
+Chemical structure object definition.  
+
+
+\subsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structchemstr_1_1cxs}{cxs}}
+\begin{DoxyCompactList}\small\item\em Chemical structure object definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a816dc4c02e3f8a2fa1b2ce158044da9c}{createcxs}} (cx, na, label, x, y, z)
+\begin{DoxyCompactList}\small\item\em Create\+C\+XS. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a355e4ad635ef0c00ec0fd0f3dfcb5fe6}{deletecxs}} (cx)
+\begin{DoxyCompactList}\small\item\em Delete\+C\+XS. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a8e6c53cdedc7fd4344a6c7f80cef7ea8}{copytonewcxs}} (cx1, cx2)
+\begin{DoxyCompactList}\small\item\em Copy\+To\+New\+C\+XS. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a037cd002260a81e4cb610374dd2b5b91}{copycxs}} (cx1, cx2)
+\begin{DoxyCompactList}\small\item\em Copy\+C\+XS. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a56a273f4f5259b687492dbe0824baee7}{setmass}} (cx)
+\begin{DoxyCompactList}\small\item\em Set\+Mass. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_aff042add3b3af6c94bbd1ab650c2d52d}{readcxs}} (cx, ifile)
+\begin{DoxyCompactList}\small\item\em Read\+C\+XS. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_ac2d7e06af27d3d0883dd5e3cb31b4a51}{setcxsconstraints}} (cx, N\+D\+O\+Fconstr, Fixed\+D\+OF, Natomconstr, Fixed\+Atom)
+\begin{DoxyCompactList}\small\item\em Set\+C\+X\+S\+Constraints. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_aaedb8aee0c6350f7609bd0a32926ee7f}{getboltzmannmomenta}} (cx, temperature, irun)
+\begin{DoxyCompactList}\small\item\em Get\+Boltzmann\+Momenta. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a8f2832c53773ad18eadd995ec383cda8}{getprojectedmomenta}} (cx)
+\begin{DoxyCompactList}\small\item\em Get\+Projected\+Momenta. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_abb28977af5498456e127ef24a4398aad}{getgraph}} (cx)
+\begin{DoxyCompactList}\small\item\em Get\+Graph. \end{DoxyCompactList}\item 
+integer function \mbox{\hyperlink{namespacechemstr_a7f2ae90cc1ce50d3b46f045b46147e23}{labeltonumber}} (label)
+\begin{DoxyCompactList}\small\item\em Label\+To\+Number. \end{DoxyCompactList}\item 
+character(len=2) function \mbox{\hyperlink{namespacechemstr_aa1abd301519206cbfe3d966c11a9b73b}{numbertolabel}} (num)
+\begin{DoxyCompactList}\small\item\em Number\+To\+Label. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a6c05b1170d09857c530676740c349725}{getmols}} (cx)
+\begin{DoxyCompactList}\small\item\em Get\+Mols. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a20710db5ffd66de18dfaad9f0e9c821a}{getshortestpaths}} (N, dg, dsp)
+\begin{DoxyCompactList}\small\item\em Get\+Shortest\+Paths. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a38779fdbd95d7cfe9b20a456d704f37d}{graphconstraints}} (cx, kspring, nbstrength, nbrange, kradius)
+\begin{DoxyCompactList}\small\item\em Graph\+Constraints. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a2134606948b8e1c9fcf97b48bfe34ec2}{minimisemoleculargrp}} (cx, bx, graphs, mxmol, ngdsrelax, gdsdtrelax, kradius, rad\+\_\+min, Molec\+Act, mxnactmol, nactmol, Active\+Atom)
+\begin{DoxyCompactList}\small\item\em Minimise\+Molecular\+G\+RP. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a3acc7c59e5b1773d5624966eab42579d}{molatractforces}} (cx, bx, kradius, rad\+\_\+min, graphs, cnactmol, bnactmol, c\+Molec\+Act, b\+Molec\+Act, Active\+Atom, mxnmol)
+\begin{DoxyCompactList}\small\item\em Mol\+Atract\+Forces. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a440319c79068791288579e71bf50a5a2}{correlatemolecule}} (mcx, mi, cx, Molec\+Act, nactmol1, cnt, moli)
+\begin{DoxyCompactList}\small\item\em Correlate\+Molecule. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a2deb37a2e94b8dc83c28990d66806a50}{centreactivemoleculesaroundpoint}} (cx, Molec\+Act, nactmol, point, ngdsrelax, gdsdtrelax, kradius, rad\+\_\+min)
+\begin{DoxyCompactList}\small\item\em Centre\+Active\+Molecules\+Around\+Point. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_aacd6e15b4920ee661af0964754a972ca}{gcpointforces}} (cx, point, kradius)
+\begin{DoxyCompactList}\small\item\em G\+C\+Point\+Forces. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a32a650687453b543778404b5fb1e6e24}{gcminimisecollision}} (cx, ngdsrelax, gdsdtrelax, kradius)
+\begin{DoxyCompactList}\small\item\em G\+C\+Minimise\+Collision. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a4bdb519846a266ecf21fb1abb2dd12fb}{hardsphereforces}} (cx, kradius, rad\+\_\+min)
+\begin{DoxyCompactList}\small\item\em Hard\+Sphere\+Forces. \end{DoxyCompactList}\item 
+real(8) function \mbox{\hyperlink{namespacechemstr_a09e4fc34319aa0a6d4f52fe3da954fca}{molecularradius}} (cx, m, gm)
+\begin{DoxyCompactList}\small\item\em Molecular\+Radius. \end{DoxyCompactList}\item 
+real(8) function, dimension(3) \mbox{\hyperlink{namespacechemstr_af0c4a9bb408a073e444be223a565e7cc}{moleculargc}} (cx, m)
+\begin{DoxyCompactList}\small\item\em Molecular\+GC. \end{DoxyCompactList}\item 
+real(8) function, dimension(3) \mbox{\hyperlink{namespacechemstr_a521f25a0628d92de9b89145bcd9fd1d5}{actmoleculargc}} (cx, m, Active\+Atom)
+\begin{DoxyCompactList}\small\item\em Act\+Molecular\+GC. \end{DoxyCompactList}\item 
+logical function \mbox{\hyperlink{namespacechemstr_abc7f8acc3a6b5cc02df929173e6f1731}{moleculesubsumesanother}} (bx, m, cx, n)
+\begin{DoxyCompactList}\small\item\em Molecule\+Subsumes\+Another. \end{DoxyCompactList}\item 
+real(8) function, dimension(3) \mbox{\hyperlink{namespacechemstr_afc5628a255fd4d03fa2e587ce60b371f}{corractmoleculargc}} (bx, m, cx, n, Active\+Atom)
+\begin{DoxyCompactList}\small\item\em Corr\+Act\+Molecular\+GC. \end{DoxyCompactList}\item 
+real(8) function, dimension(3) \mbox{\hyperlink{namespacechemstr_a25a9643b3e963cfdbd17379e8b2fdc40}{corrmoleculargc}} (bx, m, cx, n)
+\begin{DoxyCompactList}\small\item\em Corr\+Molecular\+GC. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_aef17d31cdb1cd38fb760b5751f79ca85}{accumulatederivatives}} (cx, t1, i, j)
+\begin{DoxyCompactList}\small\item\em Accumulate\+Derivatives. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_ab195fd63cf5ba3005a33b81ad5a2608a}{getmomenta}} (cx, temperature, irun)
+\begin{DoxyCompactList}\small\item\em Get\+Momenta. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a591122df70e3868553ad901347346998}{get3rings}} (cx, nrings)
+\begin{DoxyCompactList}\small\item\em Get3rings. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a82765d5adc1ce177f662c280af854725}{get4rings}} (cx, nrings)
+\begin{DoxyCompactList}\small\item\em Get4rings. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_ab5a731a94c47cefa1b1b0683a19819fa}{printcxstofile}} (cx, filename, value)
+\begin{DoxyCompactList}\small\item\em Print\+C\+X\+S\+To\+File. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a3e7d49062cb6814286622fa8f5485ecf}{createmolecularcx}} (cx, mcx, m)
+\begin{DoxyCompactList}\small\item\em Create\+Molecular\+CX. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a7f2064b2aad1d074c52548acc68d91a2}{removehydrogens}} (cxin, cxout)
+\begin{DoxyCompactList}\small\item\em Remove\+Hydrogens. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_af6a21c24e09efcd5811cd28bcc4347e6}{setcxslattice}} (cx)
+\begin{DoxyCompactList}\small\item\em Set\+C\+X\+S\+Lattice. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a579dfeacef98930d51ce127c936910ce}{optcxsagainstgraph}} (cx, gdsrestspring, nbstrength, nbrange, kradius, nrelax, step)
+\begin{DoxyCompactList}\small\item\em Opt\+C\+X\+S\+Against\+Graph. \end{DoxyCompactList}\item 
+double precision function, dimension(cx\%namol(molid)) \mbox{\hyperlink{namespacechemstr_afabbf69cf7b56ec0c275afa8de941dd8}{getmolsprintvec}} (cx, molid)
+\begin{DoxyCompactList}\small\item\em Get\+Mol\+S\+P\+R\+I\+N\+T\+Vec. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a4a2608dcb652cb00a11013cccf4e94b8}{moleccomp}} (cx, molid, Mol\+Comp, Atm\+Lab, natyp)
+\begin{DoxyCompactList}\small\item\em Molec\+Comp. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a0d2a715a7be719b13cca90019bdf542d}{getsprintcoords}} (cx)
+\begin{DoxyCompactList}\small\item\em Get\+S\+P\+R\+I\+N\+T\+Coords. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a6e02c23c18928196e92a1cdded34c7a7}{countatomtypes}} (cx, condensed\+Atom\+Lab, condensed\+Composition)
+\begin{DoxyCompactList}\small\item\em Count\+Atom\+Types. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_aa95cf9277a2a7cc615ac876e1d8d3753}{getsprintgraph}} (cx)
+\begin{DoxyCompactList}\small\item\em Get\+S\+P\+R\+I\+N\+T\+Graph. \end{DoxyCompactList}\item 
+double precision function, dimension(cx\%namol(molid), cx\%namol(molid)) \mbox{\hyperlink{namespacechemstr_aef2c3947de661cdb93febb1e495a5551}{getmolecsprintgraph}} (cx, molid)
+\begin{DoxyCompactList}\small\item\em Get\+Molec\+S\+P\+R\+I\+N\+T\+Graph. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_aa5bcf84cda1282afd18a5ebae91c3fd4}{optimizegrp}} (cx, success, gdsrestspring, nbstrength, nbrange, kradius, ngdsrelax, gdsdtrelax)
+\begin{DoxyCompactList}\small\item\em Optimize\+G\+RP. \end{DoxyCompactList}\item 
+character(\+:) function, allocatable \mbox{\hyperlink{namespacechemstr_a6659644537a7765bec46320eb5fbf579}{molecularformula}} (cx, molid)
+\begin{DoxyCompactList}\small\item\em Molecular\+Formula. \end{DoxyCompactList}\item 
+logical function \mbox{\hyperlink{namespacechemstr_aadd8f96c5bf2487db486c507835a660d}{allowedcxsvalencerange}} (cx)
+\begin{DoxyCompactList}\small\item\em Allowed\+C\+X\+S\+Valence\+Range. \end{DoxyCompactList}\item 
+logical function \mbox{\hyperlink{namespacechemstr_a02c610963e45aa224298fd48ff988cb2}{allowedcxsreactivevalence}} (cx)
+\begin{DoxyCompactList}\small\item\em Allowed\+C\+X\+S\+Reactive\+Valence. \end{DoxyCompactList}\item 
+logical function \mbox{\hyperlink{namespacechemstr_aaa24f03941c25ca1496329ce1ad0a755}{allowedcxsbondsmax}} (cx)
+\begin{DoxyCompactList}\small\item\em Allowed\+C\+X\+S\+Bonds\+Max. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a33a9d23a89f4fc1c8d91dceac19c6e32}{setreactiveindices}} (bondchange, atomchange, naa, cx, rxindex, nrx)
+\begin{DoxyCompactList}\small\item\em Set\+Reactive\+Indices. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_abd5d6fd872f03496b78e8456a6788297}{checkforbidden}} (cx, nforbid, naforbid, gforbid, forbidlabel, iflag)
+\begin{DoxyCompactList}\small\item\em Check\+Forbidden. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a04d94078390085dcf855f8df499ef7cc}{printcxsgraphinfo}} (cx, iunit, message)
+\begin{DoxyCompactList}\small\item\em Print\+C\+X\+S\+Graph\+Info() \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_aa485abde3fe586d791e147ad9014a81b}{setvalencecoords}} (cx)
+\begin{DoxyCompactList}\small\item\em Set\+Valence\+Coords() \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_a5f87f4ee909fc5c3c54278aca9df1241}{getbonds}} (cx)
+\begin{DoxyCompactList}\small\item\em Get\+Bonds() \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacechemstr_acffc073bd33497662f25faf7a2beee56}{getangles}} (cx)
+\begin{DoxyCompactList}\small\item\em Get\+Angles() \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Chemical structure object definition. 
+
+Defines the chemical structure (cxs) object type. 
+
+\subsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacechemstr_a816dc4c02e3f8a2fa1b2ce158044da9c}\label{namespacechemstr_a816dc4c02e3f8a2fa1b2ce158044da9c}} 
+\index{chemstr@{chemstr}!createcxs@{createcxs}}
+\index{createcxs@{createcxs}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{createcxs()}{createcxs()}}
+{\footnotesize\ttfamily subroutine chemstr\+::createcxs (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{na,  }\item[{character$\ast$2, dimension($\ast$)}]{label,  }\item[{real$\ast$8, dimension($\ast$)}]{x,  }\item[{real$\ast$8, dimension($\ast$)}]{y,  }\item[{real$\ast$8, dimension($\ast$)}]{z }\end{DoxyParamCaption})}
+
+
+
+Create\+C\+XS. 
+
+Creates a C\+XS object directly using labels and x,y,z coordinates which are passed in.
+
+cx -\/ the created C\+XS object. na -\/ number of atoms. label -\/ atomic labels. x,y,z, -\/ atomic coordinates in atomic units. 
+
+Definition at line 76 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a355e4ad635ef0c00ec0fd0f3dfcb5fe6}\label{namespacechemstr_a355e4ad635ef0c00ec0fd0f3dfcb5fe6}} 
+\index{chemstr@{chemstr}!deletecxs@{deletecxs}}
+\index{deletecxs@{deletecxs}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{deletecxs()}{deletecxs()}}
+{\footnotesize\ttfamily subroutine chemstr\+::deletecxs (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx }\end{DoxyParamCaption})}
+
+
+
+Delete\+C\+XS. 
+
+Deletes memory associated with a C\+XS object.
+
+cx -\/ the created C\+XS object. 
+
+Definition at line 154 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a8e6c53cdedc7fd4344a6c7f80cef7ea8}\label{namespacechemstr_a8e6c53cdedc7fd4344a6c7f80cef7ea8}} 
+\index{chemstr@{chemstr}!copytonewcxs@{copytonewcxs}}
+\index{copytonewcxs@{copytonewcxs}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{copytonewcxs()}{copytonewcxs()}}
+{\footnotesize\ttfamily subroutine chemstr\+::copytonewcxs (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx1,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx2 }\end{DoxyParamCaption})}
+
+
+
+Copy\+To\+New\+C\+XS. 
+
+Creates a new copy of cx1 and puts it in cx2. Note that this routine allocates new space for cx2 -\/ cx2 must not have already been allocated.
+
+
+\begin{DoxyItemize}
+\item cx1\+: Input chemical structure object.
+\item cx2\+: Nex chemical structure object. 
+\end{DoxyItemize}
+
+Definition at line 193 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a037cd002260a81e4cb610374dd2b5b91}\label{namespacechemstr_a037cd002260a81e4cb610374dd2b5b91}} 
+\index{chemstr@{chemstr}!copycxs@{copycxs}}
+\index{copycxs@{copycxs}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{copycxs()}{copycxs()}}
+{\footnotesize\ttfamily subroutine chemstr\+::copycxs (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx1,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx2 }\end{DoxyParamCaption})}
+
+
+
+Copy\+C\+XS. 
+
+Creates a copy of cx1 and in cx2. Note that cx2 must already exist as a cxs object.
+
+
+\begin{DoxyItemize}
+\item cx1\+: Input chemical structure object.
+\item cx2\+: Nex chemical structure object. 
+\end{DoxyItemize}
+
+Definition at line 250 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a56a273f4f5259b687492dbe0824baee7}\label{namespacechemstr_a56a273f4f5259b687492dbe0824baee7}} 
+\index{chemstr@{chemstr}!setmass@{setmass}}
+\index{setmass@{setmass}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{setmass()}{setmass()}}
+{\footnotesize\ttfamily subroutine chemstr\+::setmass (\begin{DoxyParamCaption}\item[{type (\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx }\end{DoxyParamCaption})}
+
+
+
+Set\+Mass. 
+
+Sets the atomic masses in a cxs object based on atomic labels. The mass values are stored in \textquotesingle{}\mbox{\hyperlink{constants_8f90_source}{constants.\+f90}}\textquotesingle{}.
+
+
+\begin{DoxyItemize}
+\item cx\+: The chemical structure object. 
+\end{DoxyItemize}
+
+Definition at line 298 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_aff042add3b3af6c94bbd1ab650c2d52d}\label{namespacechemstr_aff042add3b3af6c94bbd1ab650c2d52d}} 
+\index{chemstr@{chemstr}!readcxs@{readcxs}}
+\index{readcxs@{readcxs}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{readcxs()}{readcxs()}}
+{\footnotesize\ttfamily subroutine chemstr\+::readcxs (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{character, dimension($\ast$), intent(in)}]{ifile }\end{DoxyParamCaption})}
+
+
+
+Read\+C\+XS. 
+
+Reads in a set of coordinates to a C\+XS object from an xyz file.
+
+
+\begin{DoxyItemize}
+\item cx\+: the created C\+XS object.
+\item ifile\+: the input file to read the coordinates from. Note that this must be an xyz file format. 
+\end{DoxyItemize}
+
+Definition at line 329 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_ac2d7e06af27d3d0883dd5e3cb31b4a51}\label{namespacechemstr_ac2d7e06af27d3d0883dd5e3cb31b4a51}} 
+\index{chemstr@{chemstr}!setcxsconstraints@{setcxsconstraints}}
+\index{setcxsconstraints@{setcxsconstraints}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{setcxsconstraints()}{setcxsconstraints()}}
+{\footnotesize\ttfamily subroutine chemstr\+::setcxsconstraints (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer, intent(in)}]{N\+D\+O\+Fconstr,  }\item[{integer, dimension($\ast$), intent(in)}]{Fixed\+D\+OF,  }\item[{integer, intent(in)}]{Natomconstr,  }\item[{integer, dimension($\ast$), intent(in)}]{Fixed\+Atom }\end{DoxyParamCaption})}
+
+
+
+Set\+C\+X\+S\+Constraints. 
+
+sets constraints on D\+O\+Fs and atoms in a structure.
+
+
+\begin{DoxyItemize}
+\item cx\+: the created C\+XS object.
+\item N\+D\+O\+Fconstr\+: Number of D\+OF constraints.
+\item Fixed\+D\+OF\+: Array containing integer number of constrained D\+O\+Fs
+\item Natomconstr\+: Number of atom constraints
+\item Fixedatom\+: Array containing integer ids of fixed atoms. 
+\end{DoxyItemize}
+
+Definition at line 429 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_aaedb8aee0c6350f7609bd0a32926ee7f}\label{namespacechemstr_aaedb8aee0c6350f7609bd0a32926ee7f}} 
+\index{chemstr@{chemstr}!getboltzmannmomenta@{getboltzmannmomenta}}
+\index{getboltzmannmomenta@{getboltzmannmomenta}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{getboltzmannmomenta()}{getboltzmannmomenta()}}
+{\footnotesize\ttfamily subroutine chemstr\+::getboltzmannmomenta (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{real(8)}]{temperature,  }\item[{integer}]{irun }\end{DoxyParamCaption})}
+
+
+
+Get\+Boltzmann\+Momenta. 
+
+Draws momenta from a Boltzmann distribution.
+
+
+\begin{DoxyItemize}
+\item cx\+: A chemical structure object.
+\item temperature\+: the desired temperature in Kelvin.
+\item irun\+: Random number seed. 
+\end{DoxyItemize}
+
+Definition at line 470 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a8f2832c53773ad18eadd995ec383cda8}\label{namespacechemstr_a8f2832c53773ad18eadd995ec383cda8}} 
+\index{chemstr@{chemstr}!getprojectedmomenta@{getprojectedmomenta}}
+\index{getprojectedmomenta@{getprojectedmomenta}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{getprojectedmomenta()}{getprojectedmomenta()}}
+{\footnotesize\ttfamily subroutine chemstr\+::getprojectedmomenta (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx }\end{DoxyParamCaption})}
+
+
+
+Get\+Projected\+Momenta. 
+
+Calculates the momenta projected along the direction of the force array -\/ this is usually the forces from (CI)N\+EB.
+
+
+\begin{DoxyItemize}
+\item cx\+: A chemical structure object. 
+\end{DoxyItemize}
+
+Definition at line 498 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_abb28977af5498456e127ef24a4398aad}\label{namespacechemstr_abb28977af5498456e127ef24a4398aad}} 
+\index{chemstr@{chemstr}!getgraph@{getgraph}}
+\index{getgraph@{getgraph}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{getgraph()}{getgraph()}}
+{\footnotesize\ttfamily subroutine chemstr\+::getgraph (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx }\end{DoxyParamCaption})}
+
+
+
+Get\+Graph. 
+
+Calculates the bonding graph for the system. The values which define whether or not atoms are bonded are based on covalent radii, and are stored in \mbox{\hyperlink{constants_8f90_source}{constants.\+f90}} in an atomic-\/number-\/labelled array called Bonding\+Cutoff(\+:,\+:).
+
+
+\begin{DoxyItemize}
+\item cx\+: A chemical structure object. 
+\end{DoxyItemize}
+
+Definition at line 581 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a7f2ae90cc1ce50d3b46f045b46147e23}\label{namespacechemstr_a7f2ae90cc1ce50d3b46f045b46147e23}} 
+\index{chemstr@{chemstr}!labeltonumber@{labeltonumber}}
+\index{labeltonumber@{labeltonumber}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{labeltonumber()}{labeltonumber()}}
+{\footnotesize\ttfamily integer function chemstr\+::labeltonumber (\begin{DoxyParamCaption}\item[{character (len = 2)}]{label }\end{DoxyParamCaption})}
+
+
+
+Label\+To\+Number. 
+
+Converts an input atomic label into a number.
+
+
+\begin{DoxyItemize}
+\item label\+: the input atomic label. 
+\end{DoxyItemize}
+
+Definition at line 649 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_aa1abd301519206cbfe3d966c11a9b73b}\label{namespacechemstr_aa1abd301519206cbfe3d966c11a9b73b}} 
+\index{chemstr@{chemstr}!numbertolabel@{numbertolabel}}
+\index{numbertolabel@{numbertolabel}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{numbertolabel()}{numbertolabel()}}
+{\footnotesize\ttfamily character (len = 2) function chemstr\+::numbertolabel (\begin{DoxyParamCaption}\item[{integer}]{num }\end{DoxyParamCaption})}
+
+
+
+Number\+To\+Label. 
+
+Converts an input atomic number into label.
+
+
+\begin{DoxyItemize}
+\item num\+: the input atomic number. 
+\end{DoxyItemize}
+
+Definition at line 932 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a6c05b1170d09857c530676740c349725}\label{namespacechemstr_a6c05b1170d09857c530676740c349725}} 
+\index{chemstr@{chemstr}!getmols@{getmols}}
+\index{getmols@{getmols}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{getmols()}{getmols()}}
+{\footnotesize\ttfamily subroutine chemstr\+::getmols (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx }\end{DoxyParamCaption})}
+
+
+
+Get\+Mols. 
+
+Uses the connectivity graph to determine the molecules defined by the chemical structure cx. To do so, we use Floyd-\/\+Warshall shortest-\/path walks on the chemical structure graph.
+
+
+\begin{DoxyItemize}
+\item cx\+: Input chemical structure object. 
+\end{DoxyItemize}
+
+Definition at line 1219 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a20710db5ffd66de18dfaad9f0e9c821a}\label{namespacechemstr_a20710db5ffd66de18dfaad9f0e9c821a}} 
+\index{chemstr@{chemstr}!getshortestpaths@{getshortestpaths}}
+\index{getshortestpaths@{getshortestpaths}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{getshortestpaths()}{getshortestpaths()}}
+{\footnotesize\ttfamily subroutine chemstr\+::getshortestpaths (\begin{DoxyParamCaption}\item[{integer}]{N,  }\item[{real(8), dimension(n,n)}]{dg,  }\item[{real(8), dimension(n,n)}]{dsp }\end{DoxyParamCaption})}
+
+
+
+Get\+Shortest\+Paths. 
+
+Calculates the matrix dsp(i,j) which contains the shortest path between points i and j as determined by Floyd-\/\+Warshall algorithm.
+
+
+\begin{DoxyItemize}
+\item n\+: number of points
+\item dg(\+:,\+:)\+: distance between points.
+\item dsp(\+:,\+:)\+: Shortest-\/path between points. 
+\end{DoxyItemize}
+
+Definition at line 1319 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a38779fdbd95d7cfe9b20a456d704f37d}\label{namespacechemstr_a38779fdbd95d7cfe9b20a456d704f37d}} 
+\index{chemstr@{chemstr}!graphconstraints@{graphconstraints}}
+\index{graphconstraints@{graphconstraints}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{graphconstraints()}{graphconstraints()}}
+{\footnotesize\ttfamily subroutine chemstr\+::graphconstraints (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{real(8)}]{kspring,  }\item[{real(8)}]{nbstrength,  }\item[{real(8)}]{nbrange,  }\item[{real(8)}]{kradius }\end{DoxyParamCaption})}
+
+
+
+Graph\+Constraints. 
+
+Calculates the potential energy and forces arising due to graph constraints.
+
+
+\begin{DoxyItemize}
+\item cx\+: A chemical structure object.
+\item kspring\+: Spring constant for the bonding restraint term.
+\item nbstrength\+: Repulsive exponential interaction strength in au for atom pairs with g(i,j) = 0
+\item nbrange\+: Repulsive exponential interaction range in au for atom pairs with g(i,j) = 0
+\item kradius\+: Harmonic restraint term strength for different molecules. 
+\end{DoxyItemize}
+
+Definition at line 1361 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a2134606948b8e1c9fcf97b48bfe34ec2}\label{namespacechemstr_a2134606948b8e1c9fcf97b48bfe34ec2}} 
+\index{chemstr@{chemstr}!minimisemoleculargrp@{minimisemoleculargrp}}
+\index{minimisemoleculargrp@{minimisemoleculargrp}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{minimisemoleculargrp()}{minimisemoleculargrp()}}
+{\footnotesize\ttfamily subroutine chemstr\+::minimisemoleculargrp (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{bx,  }\item[{integer, dimension(2,mxmol,mxmol)}]{graphs,  }\item[{integer}]{mxmol,  }\item[{integer}]{ngdsrelax,  }\item[{real(8)}]{gdsdtrelax,  }\item[{real(8)}]{kradius,  }\item[{real(8)}]{rad\+\_\+min,  }\item[{integer, dimension(2,mxnactmol)}]{Molec\+Act,  }\item[{integer}]{mxnactmol,  }\item[{integer, dimension(2)}]{nactmol,  }\item[{logical, dimension(cx\%na)}]{Active\+Atom }\end{DoxyParamCaption})}
+
+
+
+Minimise\+Molecular\+G\+RP. 
+
+Minimization of path to ensure no collisions between molecules by pushing their geometric centres
+
+
+\begin{DoxyItemize}
+\item cx\+: reaction structure
+\item bx\+: Chemical structure object
+\item rad\+\_\+min\+: distance between two molecules hard spheres
+\item nactmol\+: number of active molecules in cx and bx
+\item Molec\+Act\+: the ID of the molecules that are acive in cx and bx (size of array = nactmol)
+\item kradius\+: radius of repulsion attraction 
+\end{DoxyItemize}
+
+Definition at line 1628 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a3acc7c59e5b1773d5624966eab42579d}\label{namespacechemstr_a3acc7c59e5b1773d5624966eab42579d}} 
+\index{chemstr@{chemstr}!molatractforces@{molatractforces}}
+\index{molatractforces@{molatractforces}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{molatractforces()}{molatractforces()}}
+{\footnotesize\ttfamily subroutine chemstr\+::molatractforces (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{bx,  }\item[{real(8)}]{kradius,  }\item[{real(8)}]{rad\+\_\+min,  }\item[{integer, dimension(mxnmol,mxnmol)}]{graphs,  }\item[{integer}]{cnactmol,  }\item[{integer}]{bnactmol,  }\item[{integer, dimension(cnactmol)}]{c\+Molec\+Act,  }\item[{integer, dimension(bnactmol)}]{b\+Molec\+Act,  }\item[{logical, dimension(cx\%na)}]{Active\+Atom,  }\item[{integer}]{mxnmol }\end{DoxyParamCaption})}
+
+
+
+Mol\+Atract\+Forces. 
+
+generates harmonic forces between molecules in cx that exhchange atoms with the correlated molecules on the opposite end image bx
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure
+\item bx\+: Chemical structure object
+\item rad\+\_\+min\+: distance between two molecules hard spheres
+\item nactmol\+: number of active molecules in cx and bx
+\item Molec\+Act\+: the ID of the molecules that are acive in cx and bx (size of array = nactmol)
+\item graphs\+: graphs which determines what molecules b in bc, c in cx is correlate with graphs(c,b)
+\item kradius\+: spring constant parameter... 
+\end{DoxyItemize}
+
+Definition at line 1722 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a440319c79068791288579e71bf50a5a2}\label{namespacechemstr_a440319c79068791288579e71bf50a5a2}} 
+\index{chemstr@{chemstr}!correlatemolecule@{correlatemolecule}}
+\index{correlatemolecule@{correlatemolecule}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{correlatemolecule()}{correlatemolecule()}}
+{\footnotesize\ttfamily subroutine chemstr\+::correlatemolecule (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{mcx,  }\item[{integer}]{mi,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer, dimension(nactmol1)}]{Molec\+Act,  }\item[{integer}]{nactmol1,  }\item[{integer, dimension(nactmol1)}]{cnt,  }\item[{integer, dimension(nactmol1)}]{moli }\end{DoxyParamCaption})}
+
+
+
+Correlate\+Molecule. 
+
+Calculates which molecules (puts them in moli) in chemical structure cx have the same atoms (not just element)in chemical structures mcx molecule mi, ranks them and counts them (puts them in cnt)
+
+
+\begin{DoxyItemize}
+\item mcx\+: reaction structure
+\item cnt\+: how many atoms molecule cx(i) has (cnt(i)
+\item moli\+: which molecules in cx have atoms that are in molecule mi of mcx
+\item mi\+: the id of the molecule in mcx that we are interested in
+\item kradius\+: radius of repulsion attraction 
+\end{DoxyItemize}
+
+Definition at line 1784 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a2deb37a2e94b8dc83c28990d66806a50}\label{namespacechemstr_a2deb37a2e94b8dc83c28990d66806a50}} 
+\index{chemstr@{chemstr}!centreactivemoleculesaroundpoint@{centreactivemoleculesaroundpoint}}
+\index{centreactivemoleculesaroundpoint@{centreactivemoleculesaroundpoint}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{centreactivemoleculesaroundpoint()}{centreactivemoleculesaroundpoint()}}
+{\footnotesize\ttfamily subroutine chemstr\+::centreactivemoleculesaroundpoint (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer, dimension(cx\%nmol)}]{Molec\+Act,  }\item[{integer}]{nactmol,  }\item[{real(8), dimension(3)}]{point,  }\item[{integer}]{ngdsrelax,  }\item[{real(8)}]{gdsdtrelax,  }\item[{real(8)}]{kradius,  }\item[{real(8)}]{rad\+\_\+min }\end{DoxyParamCaption})}
+
+
+
+Centre\+Active\+Molecules\+Around\+Point. 
+
+Minimization of path to ensure no collisions between molecules by pushing their geometric centres
+
+
+\begin{DoxyItemize}
+\item cx\+: reaction structure
+\item kradius\+: radius of repulsion attraction 
+\end{DoxyItemize}
+
+Definition at line 1842 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_aacd6e15b4920ee661af0964754a972ca}\label{namespacechemstr_aacd6e15b4920ee661af0964754a972ca}} 
+\index{chemstr@{chemstr}!gcpointforces@{gcpointforces}}
+\index{gcpointforces@{gcpointforces}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{gcpointforces()}{gcpointforces()}}
+{\footnotesize\ttfamily subroutine chemstr\+::gcpointforces (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{real(8), dimension(3)}]{point,  }\item[{real(8)}]{kradius }\end{DoxyParamCaption})}
+
+
+
+G\+C\+Point\+Forces. 
+
+Calculates a harmonic force that all molecules geometric cetres (that are not frozen) will experience towards a point
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item point\+: cartesian point of attraction
+\item kradius\+: spring constant parameter... 
+\end{DoxyItemize}
+
+Definition at line 1909 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a32a650687453b543778404b5fb1e6e24}\label{namespacechemstr_a32a650687453b543778404b5fb1e6e24}} 
+\index{chemstr@{chemstr}!gcminimisecollision@{gcminimisecollision}}
+\index{gcminimisecollision@{gcminimisecollision}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{gcminimisecollision()}{gcminimisecollision()}}
+{\footnotesize\ttfamily subroutine chemstr\+::gcminimisecollision (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{ngdsrelax,  }\item[{real(8)}]{gdsdtrelax,  }\item[{real(8)}]{kradius }\end{DoxyParamCaption})}
+
+
+
+G\+C\+Minimise\+Collision. 
+
+Minimization of path to ensure no collisions between molecules by pushing their geometric centres
+
+
+\begin{DoxyItemize}
+\item cx\+: reaction structure
+\item kradius\+: radius of repulsion attraction 
+\end{DoxyItemize}
+
+Definition at line 1953 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a4bdb519846a266ecf21fb1abb2dd12fb}\label{namespacechemstr_a4bdb519846a266ecf21fb1abb2dd12fb}} 
+\index{chemstr@{chemstr}!hardsphereforces@{hardsphereforces}}
+\index{hardsphereforces@{hardsphereforces}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{hardsphereforces()}{hardsphereforces()}}
+{\footnotesize\ttfamily subroutine chemstr\+::hardsphereforces (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{real(8)}]{kradius,  }\item[{real(8)}]{rad\+\_\+min }\end{DoxyParamCaption})}
+
+
+
+Hard\+Sphere\+Forces. 
+
+Calcaulates the harmonic forces expirianced by the \char`\"{}frozen\char`\"{} molecule, assiming they have a hard sphere radius given by the Molecular\+Radius function, if they are closer to each other than R\+A\+D\+I\+U\+S\+\_\+\+M\+IN
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item kradius\+: spring constant parameter... 
+\end{DoxyItemize}
+
+Definition at line 2020 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a09e4fc34319aa0a6d4f52fe3da954fca}\label{namespacechemstr_a09e4fc34319aa0a6d4f52fe3da954fca}} 
+\index{chemstr@{chemstr}!molecularradius@{molecularradius}}
+\index{molecularradius@{molecularradius}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{molecularradius()}{molecularradius()}}
+{\footnotesize\ttfamily real(8) function chemstr\+::molecularradius (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{m,  }\item[{real(8), dimension(3)}]{gm }\end{DoxyParamCaption})}
+
+
+
+Molecular\+Radius. 
+
+returns the molecular radius, as estimated from 3 standar deviations away from the mean displacement off the geometric centre of the molecule
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item m\+: molecule in cxs
+\item gm\+: geometric centre of the molecule 
+\end{DoxyItemize}
+
+Definition at line 2095 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_af0c4a9bb408a073e444be223a565e7cc}\label{namespacechemstr_af0c4a9bb408a073e444be223a565e7cc}} 
+\index{chemstr@{chemstr}!moleculargc@{moleculargc}}
+\index{moleculargc@{moleculargc}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{moleculargc()}{moleculargc()}}
+{\footnotesize\ttfamily real(8) function, dimension(3) chemstr\+::moleculargc (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{m }\end{DoxyParamCaption})}
+
+
+
+Molecular\+GC. 
+
+returns the geometric centre of molecule m from reaction strucuture cx
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item m\+: molecule in cxs 
+\end{DoxyItemize}
+
+Definition at line 2126 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a521f25a0628d92de9b89145bcd9fd1d5}\label{namespacechemstr_a521f25a0628d92de9b89145bcd9fd1d5}} 
+\index{chemstr@{chemstr}!actmoleculargc@{actmoleculargc}}
+\index{actmoleculargc@{actmoleculargc}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{actmoleculargc()}{actmoleculargc()}}
+{\footnotesize\ttfamily real(8) function, dimension(3) chemstr\+::actmoleculargc (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{m,  }\item[{logical, dimension(cx\%na)}]{Active\+Atom }\end{DoxyParamCaption})}
+
+
+
+Act\+Molecular\+GC. 
+
+returns the geometric centre of molecule m of those atoms that are \char`\"{}active\char`\"{}
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item m\+: molecule in cxs
+\item Active\+Atom\+: array of logicals determining if atoms are \char`\"{}actuve\char`\"{} 
+\end{DoxyItemize}
+
+Definition at line 2153 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_abc7f8acc3a6b5cc02df929173e6f1731}\label{namespacechemstr_abc7f8acc3a6b5cc02df929173e6f1731}} 
+\index{chemstr@{chemstr}!moleculesubsumesanother@{moleculesubsumesanother}}
+\index{moleculesubsumesanother@{moleculesubsumesanother}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{moleculesubsumesanother()}{moleculesubsumesanother()}}
+{\footnotesize\ttfamily logical function chemstr\+::moleculesubsumesanother (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{bx,  }\item[{integer}]{m,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{n }\end{DoxyParamCaption})}
+
+
+
+Molecule\+Subsumes\+Another. 
+
+checks weather molece m in bx is entirely contained by molecule n in cx
+
+
+\begin{DoxyItemize}
+\item bx\+: Chemical structure object.
+\item m\+: molecule in cxs 
+\end{DoxyItemize}
+
+Definition at line 2182 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_afc5628a255fd4d03fa2e587ce60b371f}\label{namespacechemstr_afc5628a255fd4d03fa2e587ce60b371f}} 
+\index{chemstr@{chemstr}!corractmoleculargc@{corractmoleculargc}}
+\index{corractmoleculargc@{corractmoleculargc}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{corractmoleculargc()}{corractmoleculargc()}}
+{\footnotesize\ttfamily real(8) function, dimension(3) chemstr\+::corractmoleculargc (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{bx,  }\item[{integer}]{m,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{n,  }\item[{logical, dimension(cx\%na)}]{Active\+Atom }\end{DoxyParamCaption})}
+
+
+
+Corr\+Act\+Molecular\+GC. 
+
+returns the geometric centre of molecule m from structure bx, for only atoms that are shared with molecule n in struycture cx and are active in the reaction
+
+
+\begin{DoxyItemize}
+\item bx\+: Chemical structure object.
+\item m\+: molecule in cxs 
+\end{DoxyItemize}
+
+Definition at line 2215 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a25a9643b3e963cfdbd17379e8b2fdc40}\label{namespacechemstr_a25a9643b3e963cfdbd17379e8b2fdc40}} 
+\index{chemstr@{chemstr}!corrmoleculargc@{corrmoleculargc}}
+\index{corrmoleculargc@{corrmoleculargc}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{corrmoleculargc()}{corrmoleculargc()}}
+{\footnotesize\ttfamily real(8) function, dimension(3) chemstr\+::corrmoleculargc (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{bx,  }\item[{integer}]{m,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{n }\end{DoxyParamCaption})}
+
+
+
+Corr\+Molecular\+GC. 
+
+returns the geometric centre of molecule m from structure bx, for only atoms that are shared with molecule n in struycture cx
+
+
+\begin{DoxyItemize}
+\item bx\+: Chemical structure object.
+\item m\+: molecule in cxs 
+\end{DoxyItemize}
+
+Definition at line 2251 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_aef17d31cdb1cd38fb760b5751f79ca85}\label{namespacechemstr_aef17d31cdb1cd38fb760b5751f79ca85}} 
+\index{chemstr@{chemstr}!accumulatederivatives@{accumulatederivatives}}
+\index{accumulatederivatives@{accumulatederivatives}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{accumulatederivatives()}{accumulatederivatives()}}
+{\footnotesize\ttfamily subroutine chemstr\+::accumulatederivatives (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{real(8)}]{t1,  }\item[{integer}]{i,  }\item[{integer}]{j }\end{DoxyParamCaption})}
+
+
+
+Accumulate\+Derivatives. 
+
+Updates dvdr with additional forces.
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item t1\+: Force term to be applied.
+\item i, j\+: Atom indexes. 
+\end{DoxyItemize}
+
+Definition at line 2285 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_ab195fd63cf5ba3005a33b81ad5a2608a}\label{namespacechemstr_ab195fd63cf5ba3005a33b81ad5a2608a}} 
+\index{chemstr@{chemstr}!getmomenta@{getmomenta}}
+\index{getmomenta@{getmomenta}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{getmomenta()}{getmomenta()}}
+{\footnotesize\ttfamily subroutine chemstr\+::getmomenta (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{real(8)}]{temperature,  }\item[{integer}]{irun }\end{DoxyParamCaption})}
+
+
+
+Get\+Momenta. 
+
+Samples the atomic momenta in the structure from the Boltzmann distribution at the input temperature.
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item temperature\+: Target temperature in K.
+\item irun\+: Random number seed. 
+\end{DoxyItemize}
+
+Definition at line 2322 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a591122df70e3868553ad901347346998}\label{namespacechemstr_a591122df70e3868553ad901347346998}} 
+\index{chemstr@{chemstr}!get3rings@{get3rings}}
+\index{get3rings@{get3rings}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{get3rings()}{get3rings()}}
+{\footnotesize\ttfamily subroutine chemstr\+::get3rings (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{nrings }\end{DoxyParamCaption})}
+
+
+
+Get3rings. 
+
+Counts the number of 3-\/rings in the cx graph.
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item nrings\+: Number of 3-\/rings identified. 
+\end{DoxyItemize}
+
+Definition at line 2353 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a82765d5adc1ce177f662c280af854725}\label{namespacechemstr_a82765d5adc1ce177f662c280af854725}} 
+\index{chemstr@{chemstr}!get4rings@{get4rings}}
+\index{get4rings@{get4rings}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{get4rings()}{get4rings()}}
+{\footnotesize\ttfamily subroutine chemstr\+::get4rings (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{nrings }\end{DoxyParamCaption})}
+
+
+
+Get4rings. 
+
+Counts the number of 4-\/rings in the cx graph.
+
+
+\begin{DoxyItemize}
+\item cx\+: Chemical structure object.
+\item nrings\+: Number of 4-\/rings identified. 
+\end{DoxyItemize}
+
+Definition at line 2398 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_ab5a731a94c47cefa1b1b0683a19819fa}\label{namespacechemstr_ab5a731a94c47cefa1b1b0683a19819fa}} 
+\index{chemstr@{chemstr}!printcxstofile@{printcxstofile}}
+\index{printcxstofile@{printcxstofile}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{printcxstofile()}{printcxstofile()}}
+{\footnotesize\ttfamily subroutine chemstr\+::printcxstofile (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{character, dimension($\ast$)}]{filename,  }\item[{real$\ast$8}]{value }\end{DoxyParamCaption})}
+
+
+
+Print\+C\+X\+S\+To\+File. 
+
+Outputs cxs coordinates to an xyz file.
+
+
+\begin{DoxyItemize}
+\item cx\+: The C\+XS object.
+\item filename\+: the output xyz file.
+\item value\+: A real value which can be output as the comment line. For example, this could be the energy or fitness. 
+\end{DoxyItemize}
+
+Definition at line 2457 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a3e7d49062cb6814286622fa8f5485ecf}\label{namespacechemstr_a3e7d49062cb6814286622fa8f5485ecf}} 
+\index{chemstr@{chemstr}!createmolecularcx@{createmolecularcx}}
+\index{createmolecularcx@{createmolecularcx}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{createmolecularcx()}{createmolecularcx()}}
+{\footnotesize\ttfamily subroutine chemstr\+::createmolecularcx (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{mcx,  }\item[{integer}]{m }\end{DoxyParamCaption})}
+
+
+
+Create\+Molecular\+CX. 
+
+Creates a C\+XS mcx for a single molecule, indexed m in CX
+
+
+\begin{DoxyItemize}
+\item cx\+: the parent chemical structure from which mcx is generated
+\item mcx\+: the C\+XS of a the molecule m in cx
+\item m\+: the molecule\textquotesingle{}s index in cx, which we wish to make mcx from.. 
+\end{DoxyItemize}
+
+Definition at line 2490 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a7f2064b2aad1d074c52548acc68d91a2}\label{namespacechemstr_a7f2064b2aad1d074c52548acc68d91a2}} 
+\index{chemstr@{chemstr}!removehydrogens@{removehydrogens}}
+\index{removehydrogens@{removehydrogens}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{removehydrogens()}{removehydrogens()}}
+{\footnotesize\ttfamily subroutine chemstr\+::removehydrogens (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cxin,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cxout }\end{DoxyParamCaption})}
+
+
+
+Remove\+Hydrogens. 
+
+Removes all hydrogen atoms from a cxs object, and returns a new cxs object with only heteroatoms. 
+
+Definition at line 2562 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_af6a21c24e09efcd5811cd28bcc4347e6}\label{namespacechemstr_af6a21c24e09efcd5811cd28bcc4347e6}} 
+\index{chemstr@{chemstr}!setcxslattice@{setcxslattice}}
+\index{setcxslattice@{setcxslattice}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{setcxslattice()}{setcxslattice()}}
+{\footnotesize\ttfamily subroutine chemstr\+::setcxslattice (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx }\end{DoxyParamCaption})}
+
+
+
+Set\+C\+X\+S\+Lattice. 
+
+Initializes the coordinates of the chemical structure object cxs on a simple cubic lattice, with lattice spacing determined by the parameter L\+A\+T\+T\+I\+C\+E\+S\+T\+EP.
+
+
+\begin{DoxyItemize}
+\item cx\+: Input chemical structure object. 
+\end{DoxyItemize}
+
+Definition at line 2613 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a579dfeacef98930d51ce127c936910ce}\label{namespacechemstr_a579dfeacef98930d51ce127c936910ce}} 
+\index{chemstr@{chemstr}!optcxsagainstgraph@{optcxsagainstgraph}}
+\index{optcxsagainstgraph@{optcxsagainstgraph}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{optcxsagainstgraph()}{optcxsagainstgraph()}}
+{\footnotesize\ttfamily subroutine chemstr\+::optcxsagainstgraph (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{real(8)}]{gdsrestspring,  }\item[{real(8)}]{nbstrength,  }\item[{real(8)}]{nbrange,  }\item[{real(8)}]{kradius,  }\item[{integer}]{nrelax,  }\item[{real(8)}]{step }\end{DoxyParamCaption})}
+
+
+
+Opt\+C\+X\+S\+Against\+Graph. 
+
+Optimizes the coordinates of a chemical structure object under the action of the graph-\/restraining potential only.
+
+
+\begin{DoxyItemize}
+\item cx\+: Input chemical structure object.
+\item gdsrestspring\+: G\+DS spring restraint strength (au)
+\item nbstrength\+: Repulsion interaction strength for non-\/bonded atoms.
+\item nbrange\+: Repulsion interaction range for non-\/bonded atoms.
+\item kradius\+: Spring constant for repulsion between deiscrete molecules (au) 
+\end{DoxyItemize}
+
+Definition at line 2660 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_afabbf69cf7b56ec0c275afa8de941dd8}\label{namespacechemstr_afabbf69cf7b56ec0c275afa8de941dd8}} 
+\index{chemstr@{chemstr}!getmolsprintvec@{getmolsprintvec}}
+\index{getmolsprintvec@{getmolsprintvec}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{getmolsprintvec()}{getmolsprintvec()}}
+{\footnotesize\ttfamily double precision function, dimension(cx\%namol(molid)) chemstr\+::getmolsprintvec (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{molid }\end{DoxyParamCaption})}
+
+
+
+Get\+Mol\+S\+P\+R\+I\+N\+T\+Vec. 
+
+Calculates the social permutation invariant (S\+P\+R\+I\+NT) coordinates from the S\+P\+R\+I\+NT graph of the molecule molid.
+
+
+\begin{DoxyItemize}
+\item cx\+: Input chemical structure object.
+\item molid\+: the id of the molecule whose sprint vector is generated. 
+\end{DoxyItemize}
+
+Definition at line 2714 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a4a2608dcb652cb00a11013cccf4e94b8}\label{namespacechemstr_a4a2608dcb652cb00a11013cccf4e94b8}} 
+\index{chemstr@{chemstr}!moleccomp@{moleccomp}}
+\index{moleccomp@{moleccomp}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{moleccomp()}{moleccomp()}}
+{\footnotesize\ttfamily subroutine chemstr\+::moleccomp (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{molid,  }\item[{integer, dimension(\+:), allocatable}]{Mol\+Comp,  }\item[{character(2), dimension(\+:), allocatable}]{Atm\+Lab,  }\item[{integer}]{natyp }\end{DoxyParamCaption})}
+
+
+
+Molec\+Comp. 
+
+Returns an array molcomp with the number of atoms with atomic number Atom\+Num
+
+
+\begin{DoxyItemize}
+\item cx\+: chemical structure
+\item molid\+: molecule id
+\item Mol\+Comp\+: array with the number of atoms of each atom\+Type (natyp elements)
+\item Atom\+Rum\+: array with the atomic label of each atom\+Type 
+\end{DoxyItemize}
+
+Definition at line 2783 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a0d2a715a7be719b13cca90019bdf542d}\label{namespacechemstr_a0d2a715a7be719b13cca90019bdf542d}} 
+\index{chemstr@{chemstr}!getsprintcoords@{getsprintcoords}}
+\index{getsprintcoords@{getsprintcoords}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{getsprintcoords()}{getsprintcoords()}}
+{\footnotesize\ttfamily subroutine chemstr\+::getsprintcoords (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx }\end{DoxyParamCaption})}
+
+
+
+Get\+S\+P\+R\+I\+N\+T\+Coords. 
+
+Calculates the social permutation invariant (S\+P\+R\+I\+NT) coordinates from the S\+P\+R\+I\+NT graph calculated previously.
+
+
+\begin{DoxyItemize}
+\item cx\+: Input chemical structure object. 
+\end{DoxyItemize}
+
+Definition at line 2827 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a6e02c23c18928196e92a1cdded34c7a7}\label{namespacechemstr_a6e02c23c18928196e92a1cdded34c7a7}} 
+\index{chemstr@{chemstr}!countatomtypes@{countatomtypes}}
+\index{countatomtypes@{countatomtypes}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{countatomtypes()}{countatomtypes()}}
+{\footnotesize\ttfamily subroutine chemstr\+::countatomtypes (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{character(2), dimension(\+:), allocatable}]{condensed\+Atom\+Lab,  }\item[{integer, dimension(\+:), allocatable}]{condensed\+Composition }\end{DoxyParamCaption})}
+
+
+
+Count\+Atom\+Types. 
+
+Produces an array of the atom labels present in the molecule and the number of atoms of each type.
+
+
+\begin{DoxyItemize}
+\item cx\+: chemical structure
+\item condensed\+Atom\+Lab\+: Array containing unique atom labels
+\item condensed\+Composition\+: Array containing the numbers of each atom type 
+\end{DoxyItemize}
+
+Definition at line 2910 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_aa95cf9277a2a7cc615ac876e1d8d3753}\label{namespacechemstr_aa95cf9277a2a7cc615ac876e1d8d3753}} 
+\index{chemstr@{chemstr}!getsprintgraph@{getsprintgraph}}
+\index{getsprintgraph@{getsprintgraph}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{getsprintgraph()}{getsprintgraph()}}
+{\footnotesize\ttfamily subroutine chemstr\+::getsprintgraph (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx }\end{DoxyParamCaption})}
+
+
+
+Get\+S\+P\+R\+I\+N\+T\+Graph. 
+
+Returns a connection graph defined by a continuous function that also contains information about the 3D geometry. Used to define the S\+P\+R\+I\+NT coordinates.
+
+
+\begin{DoxyItemize}
+\item cx\+: The input chemical structure. 
+\end{DoxyItemize}
+
+Definition at line 2963 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_aef2c3947de661cdb93febb1e495a5551}\label{namespacechemstr_aef2c3947de661cdb93febb1e495a5551}} 
+\index{chemstr@{chemstr}!getmolecsprintgraph@{getmolecsprintgraph}}
+\index{getmolecsprintgraph@{getmolecsprintgraph}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{getmolecsprintgraph()}{getmolecsprintgraph()}}
+{\footnotesize\ttfamily double precision function, dimension(cx\%namol(molid),cx\%namol(molid)) chemstr\+::getmolecsprintgraph (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{molid }\end{DoxyParamCaption})}
+
+
+
+Get\+Molec\+S\+P\+R\+I\+N\+T\+Graph. 
+
+Returns a connection graph defined by a continuous function that also contains information about the 3D geometry. Used to define the S\+P\+R\+I\+NT coordinates. Molecular version.
+
+
+\begin{DoxyItemize}
+\item cx\+: The input chemical structure.
+\item molid\+: id of the molecule for which the graph is generated. 
+\end{DoxyItemize}
+
+Definition at line 3031 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_aa5bcf84cda1282afd18a5ebae91c3fd4}\label{namespacechemstr_aa5bcf84cda1282afd18a5ebae91c3fd4}} 
+\index{chemstr@{chemstr}!optimizegrp@{optimizegrp}}
+\index{optimizegrp@{optimizegrp}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{optimizegrp()}{optimizegrp()}}
+{\footnotesize\ttfamily subroutine chemstr\+::optimizegrp (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{logical}]{success,  }\item[{real(8)}]{gdsrestspring,  }\item[{real(8)}]{nbstrength,  }\item[{real(8)}]{nbrange,  }\item[{real(8)}]{kradius,  }\item[{integer}]{ngdsrelax,  }\item[{real(8)}]{gdsdtrelax }\end{DoxyParamCaption})}
+
+
+
+Optimize\+G\+RP. 
+
+Minimises the molecules according to the Graph restraining potential
+
+
+\begin{DoxyItemize}
+\item cx\+: The input chemical structure
+\item success\+: weather we satisfied the contraints after the monimization or not
+\item rest\+: parameters for the G\+RP and minimization 
+\end{DoxyItemize}
+
+Definition at line 3094 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a6659644537a7765bec46320eb5fbf579}\label{namespacechemstr_a6659644537a7765bec46320eb5fbf579}} 
+\index{chemstr@{chemstr}!molecularformula@{molecularformula}}
+\index{molecularformula@{molecularformula}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{molecularformula()}{molecularformula()}}
+{\footnotesize\ttfamily character(\+:) function, allocatable chemstr\+::molecularformula (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{molid }\end{DoxyParamCaption})}
+
+
+
+Molecular\+Formula. 
+
+Returns a variable length string with the molecular formula of molecule molid, from chemical structure cx.
+
+
+\begin{DoxyItemize}
+\item cx\+: chemical structure
+\item molecule index 
+\end{DoxyItemize}
+
+Definition at line 3202 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_aadd8f96c5bf2487db486c507835a660d}\label{namespacechemstr_aadd8f96c5bf2487db486c507835a660d}} 
+\index{chemstr@{chemstr}!allowedcxsvalencerange@{allowedcxsvalencerange}}
+\index{allowedcxsvalencerange@{allowedcxsvalencerange}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{allowedcxsvalencerange()}{allowedcxsvalencerange()}}
+{\footnotesize\ttfamily logical function chemstr\+::allowedcxsvalencerange (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx }\end{DoxyParamCaption})}
+
+
+
+Allowed\+C\+X\+S\+Valence\+Range. 
+
+Checks wheather the valence of elements falls withtin the allowed range
+
+
+\begin{DoxyItemize}
+\item cx\+: The input chemical structure 
+\end{DoxyItemize}
+
+Definition at line 3259 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a02c610963e45aa224298fd48ff988cb2}\label{namespacechemstr_a02c610963e45aa224298fd48ff988cb2}} 
+\index{chemstr@{chemstr}!allowedcxsreactivevalence@{allowedcxsreactivevalence}}
+\index{allowedcxsreactivevalence@{allowedcxsreactivevalence}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{allowedcxsreactivevalence()}{allowedcxsreactivevalence()}}
+{\footnotesize\ttfamily logical function chemstr\+::allowedcxsreactivevalence (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx }\end{DoxyParamCaption})}
+
+
+
+Allowed\+C\+X\+S\+Reactive\+Valence. 
+
+Checks wheather the valence of an element to some other falls withing the allowed values
+
+
+\begin{DoxyItemize}
+\item cx\+: The input chemical structure 
+\end{DoxyItemize}
+
+Definition at line 3309 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_aaa24f03941c25ca1496329ce1ad0a755}\label{namespacechemstr_aaa24f03941c25ca1496329ce1ad0a755}} 
+\index{chemstr@{chemstr}!allowedcxsbondsmax@{allowedcxsbondsmax}}
+\index{allowedcxsbondsmax@{allowedcxsbondsmax}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{allowedcxsbondsmax()}{allowedcxsbondsmax()}}
+{\footnotesize\ttfamily logical function chemstr\+::allowedcxsbondsmax (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx }\end{DoxyParamCaption})}
+
+
+
+Allowed\+C\+X\+S\+Bonds\+Max. 
+
+Checks wheather the bonds present are allowed as prescibed by allowedbonds keyword
+
+
+\begin{DoxyItemize}
+\item cx\+: The input chemical structure 
+\end{DoxyItemize}
+
+Definition at line 3350 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a33a9d23a89f4fc1c8d91dceac19c6e32}\label{namespacechemstr_a33a9d23a89f4fc1c8d91dceac19c6e32}} 
+\index{chemstr@{chemstr}!setreactiveindices@{setreactiveindices}}
+\index{setreactiveindices@{setreactiveindices}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{setreactiveindices()}{setreactiveindices()}}
+{\footnotesize\ttfamily subroutine chemstr\+::setreactiveindices (\begin{DoxyParamCaption}\item[{logical, dimension(naa,naa)}]{bondchange,  }\item[{logical, dimension(naa)}]{atomchange,  }\item[{integer}]{naa,  }\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer, dimension(namax)}]{rxindex,  }\item[{integer}]{nrx }\end{DoxyParamCaption})}
+
+
+
+Set\+Reactive\+Indices. 
+
+Sets the bondchange(\+:,\+:) and atomchange(\+:) indices, which indicate whether the specified bonds or atoms are allowed to change as a result of a proposed graph move.
+
+Returns the bondchange(\+:,\+:) and atomchange(\+:) variables, as well as the number of reactive atoms (nrx) and a list of the reactive atoms (in rxindex(1\+:nrx)).
+
+bondchange(\+:,\+:) -\/ Logical array indicating whether bond (i,j) is allowed to change or not. atomchange(\+:) -\/ Logical array indicating whether or not atom i is allowed to change its bonding pattern. na -\/ Number of atoms cx -\/ A cxs object, primarily used to provide atom labels. rxindex -\/ List of reactive atoms. nrx -\/ Number of reactive atoms. 
+
+Definition at line 3400 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_abd5d6fd872f03496b78e8456a6788297}\label{namespacechemstr_abd5d6fd872f03496b78e8456a6788297}} 
+\index{chemstr@{chemstr}!checkforbidden@{checkforbidden}}
+\index{checkforbidden@{checkforbidden}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{checkforbidden()}{checkforbidden()}}
+{\footnotesize\ttfamily subroutine chemstr\+::checkforbidden (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{nforbid,  }\item[{integer, dimension(nforbidmax)}]{naforbid,  }\item[{integer, dimension(nforbidmax,namovemax,namovemax)}]{gforbid,  }\item[{character (len=4), dimension(nforbidmax,namovemax)}]{forbidlabel,  }\item[{integer}]{iflag }\end{DoxyParamCaption})}
+
+
+
+Check\+Forbidden. 
+
+Checks whether the current graph, generated during the Graph\+Moves, routine, matches one of the forbidden patterns given in the fobidfile.
+
+This subroutine is a nightmare-\/ish hellscape of enddo and endif... nobody should have to deal with this...
+
+Returns iflag = 0 if the graph is forbidden. 
+
+Definition at line 3511 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a04d94078390085dcf855f8df499ef7cc}\label{namespacechemstr_a04d94078390085dcf855f8df499ef7cc}} 
+\index{chemstr@{chemstr}!printcxsgraphinfo@{printcxsgraphinfo}}
+\index{printcxsgraphinfo@{printcxsgraphinfo}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{printcxsgraphinfo()}{printcxsgraphinfo()}}
+{\footnotesize\ttfamily subroutine chemstr\+::printcxsgraphinfo (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{integer}]{iunit,  }\item[{character(len=$\ast$)}]{message }\end{DoxyParamCaption})}
+
+
+
+Print\+C\+X\+S\+Graph\+Info() 
+
+Outputs the bonding graph information for a chemical structure object.
+
+
+\begin{DoxyItemize}
+\item cx\+: The chemical structure object
+\item iunit\+: Integer ID of the output destination.
+\item message\+: Character string (80) identifying C\+XS details.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em cx} & Chemical structure object\\
+\hline
+{\em iunit} & Output unit ID\\
+\hline
+{\em message} & A message identifying this C\+XS. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 3697 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_aa485abde3fe586d791e147ad9014a81b}\label{namespacechemstr_aa485abde3fe586d791e147ad9014a81b}} 
+\index{chemstr@{chemstr}!setvalencecoords@{setvalencecoords}}
+\index{setvalencecoords@{setvalencecoords}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{setvalencecoords()}{setvalencecoords()}}
+{\footnotesize\ttfamily subroutine chemstr\+::setvalencecoords (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx }\end{DoxyParamCaption})}
+
+
+
+Set\+Valence\+Coords() 
+
+Calculates the set of internal coordinates (bond-\/lengths, bond-\/angles and torsion angles) for cx. Note that the derivatives of each internal coordinates with respect to the atomic coordinates is also calculated.
+
+Important\+: The identification of bonds, angle and torsion angles is based on the cxgraph(\+:,\+:).
+
+
+\begin{DoxyItemize}
+\item cx\+: The chemical structure object
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em cx} & Chemical structure object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 3752 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_a5f87f4ee909fc5c3c54278aca9df1241}\label{namespacechemstr_a5f87f4ee909fc5c3c54278aca9df1241}} 
+\index{chemstr@{chemstr}!getbonds@{getbonds}}
+\index{getbonds@{getbonds}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{getbonds()}{getbonds()}}
+{\footnotesize\ttfamily subroutine chemstr\+::getbonds (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx }\end{DoxyParamCaption})}
+
+
+
+Get\+Bonds() 
+
+Calculates the set of bond-\/lengths for cx. Note that the derivatives of each bond-\/length with respect to the atomic coordinates is also calculated.
+
+Important\+: The identification of bonds is based on the cxgraph(\+:,\+:).
+
+
+\begin{DoxyItemize}
+\item cx\+: The chemical structure object 
+\end{DoxyItemize}
+
+Definition at line 3802 of file structure.\+f90.
+
+\mbox{\Hypertarget{namespacechemstr_acffc073bd33497662f25faf7a2beee56}\label{namespacechemstr_acffc073bd33497662f25faf7a2beee56}} 
+\index{chemstr@{chemstr}!getangles@{getangles}}
+\index{getangles@{getangles}!chemstr@{chemstr}}
+\subsubsection{\texorpdfstring{getangles()}{getangles()}}
+{\footnotesize\ttfamily subroutine chemstr\+::getangles (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx }\end{DoxyParamCaption})}
+
+
+
+Get\+Angles() 
+
+Calculates the set of bond-\/angles for cx. Note that the derivatives of each bond-\/angle with respect to the atomic coordinates is also calculated.
+
+Important\+: The identification of bonds is based on the cxgraph(\+:,\+:).
+
+
+\begin{DoxyItemize}
+\item cx\+: The chemical structure object 
+\end{DoxyItemize}
+
+Definition at line 3856 of file structure.\+f90.
+

@@ -1,0 +1,55 @@
+\hypertarget{structmoldatabase_1_1moldata}{}\doxysection{moldatabase\+::moldata Type Reference}
+\label{structmoldatabase_1_1moldata}\index{moldatabase::moldata@{moldatabase::moldata}}
+
+
+by \char`\"{}unique reaction\char`\"{} I mean that each reaction in rxl has different (distinct) molecules in reactants/products to  
+
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structmoldatabase_1_1moldata_ac4cc200f8f4522dc14c09fb57f2e2a2a}\label{structmoldatabase_1_1moldata_ac4cc200f8f4522dc14c09fb57f2e2a2a}} 
+integer \mbox{\hyperlink{structmoldatabase_1_1moldata_ac4cc200f8f4522dc14c09fb57f2e2a2a}{nmol}}
+\begin{DoxyCompactList}\small\item\em total number of Molecules in Database \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1moldata_ac2515a7f3afc629bfcccb943158ea0a3}\label{structmoldatabase_1_1moldata_ac2515a7f3afc629bfcccb943158ea0a3}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{structmoldatabase_1_1moldata_ac2515a7f3afc629bfcccb943158ea0a3}{mid}}
+\begin{DoxyCompactList}\small\item\em since molecules will be ordered by mass/size mid(rank) = molid \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1moldata_a712345605867d1137536cfdab9777d3a}\label{structmoldatabase_1_1moldata_a712345605867d1137536cfdab9777d3a}} 
+type(\mbox{\hyperlink{structmoldatabase_1_1molecule}{molecule}}), dimension(\+:), allocatable \mbox{\hyperlink{structmoldatabase_1_1moldata_a712345605867d1137536cfdab9777d3a}{mol}}
+\begin{DoxyCompactList}\small\item\em molecular type for each molecule, ordered by the number of actoms \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1moldata_ae6e2a51e3127e4af857a3e80e9732817}\label{structmoldatabase_1_1moldata_ae6e2a51e3127e4af857a3e80e9732817}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{structmoldatabase_1_1moldata_ae6e2a51e3127e4af857a3e80e9732817}{nmrx}}
+\begin{DoxyCompactList}\small\item\em the number of unique reactions where the molecule appears \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1moldata_a3e0f6b9842d67084c2634db4754756d5}\label{structmoldatabase_1_1moldata_a3e0f6b9842d67084c2634db4754756d5}} 
+integer, dimension(\+:,\+:), allocatable \mbox{\hyperlink{structmoldatabase_1_1moldata_a3e0f6b9842d67084c2634db4754756d5}{mrx}}
+\begin{DoxyCompactList}\small\item\em for each molecule the unique reaction indeces for rxl, on which this molecule appears \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1moldata_af04e423e9483f36576ee703b81e403a1}\label{structmoldatabase_1_1moldata_af04e423e9483f36576ee703b81e403a1}} 
+integer \mbox{\hyperlink{structmoldatabase_1_1moldata_af04e423e9483f36576ee703b81e403a1}{nrx}}
+\begin{DoxyCompactList}\small\item\em the number of unique reactions. should be the same as the number of fingerprints... \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1moldata_a49029d40cb576ed6ec1390a16136db01}\label{structmoldatabase_1_1moldata_a49029d40cb576ed6ec1390a16136db01}} 
+type(\mbox{\hyperlink{structmoldatabase_1_1reaction}{reaction}}), dimension(\+:), allocatable \mbox{\hyperlink{structmoldatabase_1_1moldata_a49029d40cb576ed6ec1390a16136db01}{rxl}}
+\begin{DoxyCompactList}\small\item\em varaiable type which has information about the unique reactions and their associated fingerprint reactions.. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1moldata_aed7d152d52ff1102ad5c7a4d21ed3d64}\label{structmoldatabase_1_1moldata_aed7d152d52ff1102ad5c7a4d21ed3d64}} 
+integer \mbox{\hyperlink{structmoldatabase_1_1moldata_aed7d152d52ff1102ad5c7a4d21ed3d64}{niso}}
+\begin{DoxyCompactList}\small\item\em the number of isomer sets \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1moldata_a6eaa586230bf11dea84d59bf0345754b}\label{structmoldatabase_1_1moldata_a6eaa586230bf11dea84d59bf0345754b}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{structmoldatabase_1_1moldata_a6eaa586230bf11dea84d59bf0345754b}{nisom}}
+\begin{DoxyCompactList}\small\item\em for every isomer set, how many there are \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1moldata_a91d9b8640ec6ef2f0700c3658301cbc1}\label{structmoldatabase_1_1moldata_a91d9b8640ec6ef2f0700c3658301cbc1}} 
+integer, dimension(\+:,\+:), allocatable \mbox{\hyperlink{structmoldatabase_1_1moldata_a91d9b8640ec6ef2f0700c3658301cbc1}{isom}}
+\begin{DoxyCompactList}\small\item\em for every isomer set, what molecules they belong to it \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmoldatabase_1_1moldata_a642d045834c841ee26c51563725d4a13}\label{structmoldatabase_1_1moldata_a642d045834c841ee26c51563725d4a13}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{structmoldatabase_1_1moldata_a642d045834c841ee26c51563725d4a13}{miso}}
+\begin{DoxyCompactList}\small\item\em for every molecules, what isomer set it belongs to \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+by \char`\"{}unique reaction\char`\"{} I mean that each reaction in rxl has different (distinct) molecules in reactants/products to 
+
+Definition at line 64 of file moldat.\+f90.
+
+
+
+The documentation for this type was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/scott/code/cde/src/moldat.\+f90\end{DoxyCompactItemize}

@@ -1,0 +1,161 @@
+\doxysection{main.\+f90}
+\hypertarget{main_8f90_source}{}\label{main_8f90_source}\index{src/main.f90@{src/main.f90}}
+\doxymbox{\hyperlink{main_8f90}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00001}00001\ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00002}00002\ \textcolor{comment}{!***************************************************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00003}00003\ \textcolor{comment}{!}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00004}00004\ \textcolor{comment}{!>\ main.f90}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00005}00005\ \textcolor{comment}{!!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00006}00006\ \textcolor{comment}{!!\ Description:\ Main\ driver\ routine\ for\ CDE\ (Chemical\ Discovery\ Engine).}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00007}00007\ \textcolor{comment}{!!\ \ \ \ \ \ \ \ \ \ \ \ \ \ Can\ perform\ a\ variety\ of\ simulations,\ including\ NEB,\ CINEB,}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00008}00008\ \textcolor{comment}{!!\ \ \ \ \ \ \ \ \ \ \ \ \ \ and\ Graph-\/driven\ reaction-\/path\ sampling.}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00009}00009\ \textcolor{comment}{!!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00010}00010\ \textcolor{comment}{!!\ Lead\ author:\ Scott\ Habershon.}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00011}00011\ \textcolor{comment}{!!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00012}00012\ \textcolor{comment}{!!\ Start\ date:\ January\ 2015}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00013}00013\ \textcolor{comment}{!!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00014}00014\ \textcolor{comment}{!!\ Usage:\ cde.x\ input}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00015}00015\ \textcolor{comment}{!!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00016}00016\ \textcolor{comment}{!***************************************************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00017}00017\ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00018}\doxymbox{\hyperlink{main_8f90_a47ba3d03723f68f0f5585e457ef6c044}{00018}}\ \textcolor{keyword}{Program}\ \doxymbox{\hyperlink{main_8f90_a47ba3d03723f68f0f5585e457ef6c044}{cde}}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00019}00019\ \ \ \textcolor{keywordtype}{use\ }\doxymbox{\hyperlink{namespaceconstants}{constants}}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00020}00020\ \ \ \textcolor{keywordtype}{use\ }\doxymbox{\hyperlink{namespaceglobaldata}{globaldata}}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00021}00021\ \ \ \textcolor{keywordtype}{use\ }\doxymbox{\hyperlink{namespacerpath}{rpath}}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00022}00022\ \ \ \textcolor{keywordtype}{use\ }\doxymbox{\hyperlink{namespaceio}{io}}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00023}00023\ \ \ \textcolor{keywordtype}{use\ }\doxymbox{\hyperlink{namespacepathopt}{pathopt}}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00024}00024\ \ \ \textcolor{keywordtype}{use\ }\doxymbox{\hyperlink{namespacepes}{pes}}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00025}00025\ \ \ \textcolor{keywordtype}{use\ }\doxymbox{\hyperlink{namespacepathfinder}{pathfinder}}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00026}00026\ \ \ \textcolor{keywordtype}{implicit\ none}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00027}00027\ \ \ \textcolor{keywordtype}{type}(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})\ ::\ rp}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00030}00030\ \ \ \textcolor{comment}{!\ Read\ the\ input\ file.}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00031}00031\ \ \ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00032}00032\ \ \ \textcolor{keyword}{Call\ }\doxymbox{\hyperlink{namespaceio_aee45b0da5539969779855687cc9efd6d}{readinput}}()}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00035}00035\ \ \ \textcolor{comment}{!\ Initialize\ PES\ calculations.}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00036}00036\ \ \ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00037}00037\ \ \ \textcolor{keyword}{Call\ }\doxymbox{\hyperlink{namespacepes_afabde251e1825ead6ccf86ae3ec3ad46}{setupenergycalc}}(\doxymbox{\hyperlink{namespaceglobaldata_ac444aced197556debbc987266a253768}{pestype}},\doxymbox{\hyperlink{namespaceglobaldata_a32fccb0f0c05996d6da85ccddd141d11}{pesfile}},\doxymbox{\hyperlink{namespaceglobaldata_ab85519f27f07052f751947691618be2c}{pesexecutable}})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00038}00038\ \ \ \textcolor{keyword}{Call\ }\doxymbox{\hyperlink{namespacepes_a8174e6a35fe7db895b5c801bf9c62ce5}{setupgeomopt}}(\doxymbox{\hyperlink{namespaceglobaldata_a4c196084db36cecdbc9b6a6508a34aeb}{pesopttype}},\doxymbox{\hyperlink{namespaceglobaldata_a0f59e857d2686ff93733a9a7240c88fa}{pesoptfile}},\doxymbox{\hyperlink{namespaceglobaldata_a795b05df745173ba8a36092a91c6dc03}{pesoptexecutable}})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00040}00040\ \ \ \textcolor{comment}{!\ Start\ random\ numbers.}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00041}00041\ \ \ \doxymbox{\hyperlink{namespaceglobaldata_a2a5db0fb5233e7a4febb11bd89e90670}{idum}}\ =\ setranseed(\doxymbox{\hyperlink{namespaceglobaldata_a6239457ecf63a6b7f60d3b250e280904}{irun}})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00043}00043\ \ \ \textcolor{comment}{!\ Switch\ based\ on\ calctype.}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00044}00044\ \ \ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00045}00045\ \ \ \textcolor{keywordflow}{select\ case}\ (\doxymbox{\hyperlink{namespaceglobaldata_a47cbca93af5d9d495ef24d7a62ad71c9}{calctype}})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00047}00047\ \ \ \ \ \ \textcolor{comment}{!***************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00048}00048\ \ \ \ \ \ \textcolor{comment}{!\ PATH\ OPTIMIZATION}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00049}00049\ \ \ \ \ \ \textcolor{comment}{!***************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00050}00050\ \ \ \ \ \ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00051}00051\ \ \ \textcolor{keywordflow}{case}(\textcolor{stringliteral}{'optpath'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{write}(\doxymbox{\hyperlink{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}{logfile}},\textcolor{stringliteral}{'("{}*\ Starting\ path\ optimization..."{}/)'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00055}00055\ \ \ \ \ \textcolor{comment}{!\ Initialize\ the\ reaction\ path\ object.}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00056}00056\ \ \ \ \ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00057}00057\ \ \ \ \ \textcolor{keyword}{Call\ }\doxymbox{\hyperlink{namespacerpath_ab6d6281ea4bcaee28c63f8d7d38e746a}{newpath}}(rp,\ \doxymbox{\hyperlink{namespaceglobaldata_a7f70855279bb4ff76b27b3d6c83b70ba}{startfrompath}},\ \doxymbox{\hyperlink{namespaceglobaldata_a704033d9b79e75b8fd0012544f5895e7}{startfile}},\ \doxymbox{\hyperlink{namespaceglobaldata_a2fa6dae46516821918eb11db7c5a8ed1}{endfile}},\ \doxymbox{\hyperlink{namespaceglobaldata_aba164f7220bc200c4e7bb107530a8203}{pathfile}},\ \doxymbox{\hyperlink{namespaceglobaldata_a7e8abca7ca09a21cff7419340c3889fa}{nimage}},\ \&}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00058}00058\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespaceglobaldata_a45ebfde17dc1300b187dd31f32218b83}{pathinit}},\ .false.,\ \doxymbox{\hyperlink{namespaceglobaldata_a2a5db0fb5233e7a4febb11bd89e90670}{idum}})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00060}00060\ \ \ \ \ \textcolor{comment}{!\ Print\ the\ initial\ path.}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00061}00061\ \ \ \ \ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00062}00062\ \ \ \ \ \textcolor{keyword}{Call\ }\doxymbox{\hyperlink{namespacerpath_af1a1657f4058d72abff72654e155d38b}{printpathtofile}}(rp,\textcolor{stringliteral}{'initial\_path.xyz'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00063}00063\ \ \ \ \ \textcolor{keyword}{write}(\doxymbox{\hyperlink{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}{logfile}},\textcolor{stringliteral}{'("{}-\/\ Initial\ path\ written\ to\ initial\_path.xyz"{})'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00065}00065\ \ \ \ \ \textcolor{comment}{!\ If\ stripinactive\ is\ true,\ then\ we\ strip\ out\ the\ inactive\ molecules\ (i.e.\ those\ not}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00066}00066\ \ \ \ \ \textcolor{comment}{!\ involved\ in\ the\ reaction).}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00067}00067\ \ \ \ \ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{namespaceglobaldata_a7aeccf1be55c54d9dd70725804962233}{stripinactive}})\ \textcolor{keywordflow}{then}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00069}00069\ \ \ \ \ \ \ \textcolor{keyword}{write}(\doxymbox{\hyperlink{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}{logfile}},\textcolor{stringliteral}{'("{}***\ Stripping\ inactive\ molecules\ from\ path..."{})'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00070}00070\ \ \ \ \ \ \ \textcolor{keyword}{Call\ }\doxymbox{\hyperlink{namespacerpath_ad39f06a07a989b7bfe818da9911ec287}{stripinactivefrompath}}(\ rp,\ \textcolor{stringliteral}{'strip\_path.xyz'},\ \doxymbox{\hyperlink{namespaceglobaldata_aaddcd3ad03d788e05837f5cdb3d6fb34}{fixeddof}},\ \doxymbox{\hyperlink{namespaceglobaldata_a6ae31195458542d76c3268db55f704d8}{fixedatom}},\ \doxymbox{\hyperlink{namespaceglobaldata_a9071d6ff42b2b2ea4a2ddb30570d473e}{ndofconstr}},\ \doxymbox{\hyperlink{namespaceglobaldata_a3a9faeeb195052e2c4003c7556f4bb74}{natomconstr}},.true.)}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00071}00071\ \ \ \ \ \ \ \textcolor{keyword}{write}(\doxymbox{\hyperlink{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}{logfile}},\textcolor{stringliteral}{'("{}-\/\ Stripped\ initial\ path\ written\ to\ strip\_path.xyz"{})'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00073}00073\ \ \ \ \ \ \ \textcolor{comment}{!\ Now\ delete\ the\ original\ path\ and\ read\ the\ new\ one.}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00074}00074\ \ \ \ \ \ \ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00075}00075\ \ \ \ \ \ \ \textcolor{keyword}{Call\ }\doxymbox{\hyperlink{namespacerpath_acc28b3649c7753a676d4d6c4e6635286}{deletepath}}(rp)}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00077}00077\ \ \ \ \ \ \ \textcolor{comment}{!\ ..and\ create\ a\ new\ path\ by\ reading\ from\ file...}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00078}00078\ \ \ \ \ \ \ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00079}00079\ \ \ \ \ \ \ \textcolor{keyword}{Call\ }\doxymbox{\hyperlink{namespacerpath_ab6d6281ea4bcaee28c63f8d7d38e746a}{newpath}}(rp,\ .true.,\ \doxymbox{\hyperlink{namespaceglobaldata_a704033d9b79e75b8fd0012544f5895e7}{startfile}},\ \doxymbox{\hyperlink{namespaceglobaldata_a2fa6dae46516821918eb11db7c5a8ed1}{endfile}},\ \textcolor{stringliteral}{'strip\_path.xyz'},\ \doxymbox{\hyperlink{namespaceglobaldata_a7e8abca7ca09a21cff7419340c3889fa}{nimage}},\ \&}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespaceglobaldata_a45ebfde17dc1300b187dd31f32218b83}{pathinit}},\ .false.,\ \doxymbox{\hyperlink{namespaceglobaldata_a2a5db0fb5233e7a4febb11bd89e90670}{idum}})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00082}00082\ \textcolor{keywordflow}{\ \ \ \ endif}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00085}00085\ \ \ \ \ \textcolor{comment}{!\ Initialize\ constraints\ in\ the\ path.}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00086}00086\ \ \ \ \ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00087}00087\ \ \ \ \ \textcolor{keyword}{Call\ }\doxymbox{\hyperlink{namespacerpath_a41d64b8dbb88875343759fd816a2f9b2}{setpathconstraints}}(rp,\ \doxymbox{\hyperlink{namespaceglobaldata_a9071d6ff42b2b2ea4a2ddb30570d473e}{ndofconstr}},\ \doxymbox{\hyperlink{namespaceglobaldata_aaddcd3ad03d788e05837f5cdb3d6fb34}{fixeddof}},\ \doxymbox{\hyperlink{namespaceglobaldata_a3a9faeeb195052e2c4003c7556f4bb74}{natomconstr}},\ \doxymbox{\hyperlink{namespaceglobaldata_a6ae31195458542d76c3268db55f704d8}{fixedatom}})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00089}00089\ \ \ \ \ \textcolor{comment}{!\ Now\ optimize\ the\ path.}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00090}00090\ \ \ \ \ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00091}00091\ \ \ \ \ \textcolor{keyword}{Call\ }\doxymbox{\hyperlink{namespacepathopt_a41a744efc5bab783a88663d6af98a777}{optimizepath}}(rp)}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00093}00093\ \ \ \ \ \textcolor{comment}{!\ Tidy\ up....}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00094}00094\ \ \ \ \ \textcolor{keyword}{Call\ }\doxymbox{\hyperlink{namespacerpath_acc28b3649c7753a676d4d6c4e6635286}{deletepath}}(rp)}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00096}00096\ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00097}00097\ \ \ \textcolor{comment}{!***************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00098}00098\ \ \ \textcolor{comment}{!\ PATH\ INTERPOLATION}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00099}00099\ \ \ \textcolor{comment}{!***************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00100}00100\ \ \ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00101}00101\ \ \ \textcolor{keywordflow}{case}\ (\textcolor{stringliteral}{'interp'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00103}00103\ \ \ \ \ \textcolor{keyword}{write}(\doxymbox{\hyperlink{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}{logfile}},\textcolor{stringliteral}{'("{}*\ Starting\ path\ interpolation..."{}/)'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00105}00105\ \ \ \ \ \textcolor{comment}{!\ Create\ interpolation.}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00106}00106\ \ \ \ \ \textcolor{keyword}{call\ }\doxymbox{\hyperlink{namespacepathopt_a2577ccbaf6655eab1a2f8f54cf45bc31}{interpolatepath}}(rp)}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00108}00108\ \ \ \ \ \textcolor{comment}{!\ Tidy\ up.}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00109}00109\ \ \ \ \ \textcolor{keyword}{call\ }\doxymbox{\hyperlink{namespacerpath_acc28b3649c7753a676d4d6c4e6635286}{deletepath}}(rp)}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00112}00112\ \ \ \textcolor{comment}{!***************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00113}00113\ \ \ \textcolor{comment}{!\ DOUBLE-\/ENDED\ PATH-\/FINDING\ CALCULATION}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00114}00114\ \ \ \textcolor{comment}{!***************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00115}00115\ \ \ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00116}00116\ \ \ \textcolor{keywordflow}{case}\ (\textcolor{stringliteral}{'pathfind'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00118}00118\ \ \ \ \ \textcolor{keyword}{write}(\doxymbox{\hyperlink{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}{logfile}},\textcolor{stringliteral}{'("{}*\ Starting\ double-\/ended\ mechanism-\/finding\ calculation..."{}/)'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00119}00119\ \ \ \ \ \textcolor{keyword}{Call\ }\doxymbox{\hyperlink{namespacepathfinder_a7ce0d0c193755a13466c3a5c273b21d2}{runpathfinder}}()}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00121}00121\ \ \ \textcolor{comment}{!***************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00122}00122\ \ \ \textcolor{comment}{!\ SINGLE-\/ENDED\ NETWORK\ GENERATION\ CALCULATION}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00123}00123\ \ \ \textcolor{comment}{!***************************************************}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00124}00124\ \ \ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00125}00125\ \ \ \textcolor{keywordflow}{case}\ (\textcolor{stringliteral}{'netgrow'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00127}00127\ \ \ \ \ \textcolor{keyword}{write}(\doxymbox{\hyperlink{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}{logfile}},\textcolor{stringliteral}{'("{}*\ Starting\ single-\/ended\ network\ generation\ calculation..."{}/)'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00128}00128\ \ \ \ \ \textcolor{keyword}{write}(\doxymbox{\hyperlink{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}{logfile}},\ \textcolor{stringliteral}{'("{}-\/\ Note\ that\ this\ mode\ is\ EXPERIMENTAL."{})'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00129}00129\ \ \ \ \ \textcolor{keyword}{Call\ }\doxymbox{\hyperlink{namespacepathfinder_a55a7e7bc956c89c3d3be3bc1ef4ab980}{runnetgrow}}()}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00131}00131\ \ \ \textcolor{keywordflow}{case}\ (\textcolor{stringliteral}{'netgrow2'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00133}00133\ \ \ \ \ \textcolor{keyword}{write}(\doxymbox{\hyperlink{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}{logfile}},\textcolor{stringliteral}{'("{}*\ Starting\ single-\/ended\ network\ generation\ calculation..."{}/)'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00134}00134\ \ \ \ \ \textcolor{keyword}{write}(\doxymbox{\hyperlink{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}{logfile}},\ \textcolor{stringliteral}{'("{}-\/\ Note\ that\ this\ mode\ is\ EXPERIMENTAL."{})'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00135}00135\ \ \ \ \ \textcolor{keyword}{Call\ }\doxymbox{\hyperlink{namespacepathfinder_a840912a8f356883d7eae526b0605e13e}{runnetgrow2}}()}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00137}00137\ \ \ \textcolor{keywordflow}{case}\ (\textcolor{stringliteral}{'breakdown'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00138}00138\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00139}00139\ \ \ \ \ \textcolor{keyword}{write}(\doxymbox{\hyperlink{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}{logfile}},\ \textcolor{stringliteral}{'("{}*\ Starting\ single-\/ended\ breakdown\ product\ generation..."{}/)'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00140}00140\ \ \ \ \ \textcolor{keyword}{call\ }\doxymbox{\hyperlink{namespacepathfinder_a8a34d428a2f50cee28920e703e35e8a3}{runbreakdown}}()}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00142}00142\ \textcolor{keywordflow}{\ \ case\ default}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00143}00143\ \ \ \ \ print*,\ \textcolor{stringliteral}{'*\ Unknown\ calculation\ type'},\ \doxymbox{\hyperlink{namespaceglobaldata_a47cbca93af5d9d495ef24d7a62ad71c9}{calctype}}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00144}00144\ \ \ \ \ stop}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00145}00145\ \textcolor{keywordflow}{\ \ end\ select}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00148}00148\ \ \ \textcolor{comment}{!\ Finish\ things\ up.}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00149}00149\ \ \ \textcolor{comment}{!}}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00150}00150\ \ \ \textcolor{keyword}{write}(\doxymbox{\hyperlink{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}{logfile}},\textcolor{stringliteral}{'(/"{}================================================================"{})'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00151}00151\ \ \ \textcolor{keyword}{write}(\doxymbox{\hyperlink{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}{logfile}},\textcolor{stringliteral}{'("{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CALCULATION\ COMPLETE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{})'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00152}00152\ \ \ \textcolor{keyword}{write}(\doxymbox{\hyperlink{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}{logfile}},\textcolor{stringliteral}{'("{}================================================================"{}/)'})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00153}00153\ \ \ \textcolor{keyword}{call\ }flush(\doxymbox{\hyperlink{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}{logfile}})}
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{main_8f90_source_l00155}00155\ \textcolor{keyword}{end\ Program\ }\doxymbox{\hyperlink{main_8f90_a47ba3d03723f68f0f5585e457ef6c044}{cde}}}
+
+\end{DoxyCode}

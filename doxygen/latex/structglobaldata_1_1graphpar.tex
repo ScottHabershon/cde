@@ -1,0 +1,330 @@
+\doxysection{globaldata::graphpar Type Reference}
+\hypertarget{structglobaldata_1_1graphpar}{}\label{structglobaldata_1_1graphpar}\index{globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+integer, dimension(10) \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a15beab6e6784850319e9b0ca78fd62df}{react}}
+\item 
+integer, dimension(10) \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a1d29ff9b141fecf7b139e648d8ed9a70}{prod}}
+\begin{DoxyCompactList}\small\item\em user supplied molecule ID from the Mol.\+dat file that will form the ends (products and reactants) of the reaction netowrk tree that they wish the code to calculate \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a7bbb885be8abaf0cd6e6c32148ef904e}{nprod}}
+\item 
+integer \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a6d5b296eaf483d68cb5715e92bae69f9}{nreact}}
+\begin{DoxyCompactList}\small\item\em the number of molecules of products and reactants the user has supplied \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a23f7b793f3d8c8a51e0f88504bc9daf3}{maxtreesolutions}}
+\begin{DoxyCompactList}\small\item\em the number of tree solutions the user requested to generate... \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a6fc3346886b93a7a00dc5f75f314e47b}{nni}}
+\item 
+integer \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a6b61499a86bd97ef2d170e30bff5e3a6}{nri}}
+\begin{DoxyCompactList}\small\item\em number of nodes and reactions the user want us to ignore during the graph generation algorithm... \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structglobaldata_1_1graphpar_ab22a73128e7fbf2a4b7927995bcb7e4a}{maxcomb}}
+\begin{DoxyCompactList}\small\item\em the cutoff for the number of trees we keep from levels below the tree, to stop the combinatorial explosion \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a971fbdf4861ed591939a3c9cd947dca2}{maxb}}
+\begin{DoxyCompactList}\small\item\em the maximum number of nodes-\/with-\/more-\/than-\/one-\/reaction we are allowed to visit when traversing the tree network \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a192ce45f5d446e095a6b3b19787845e4}{mxevp}}
+\begin{DoxyCompactList}\small\item\em the maximum number of trees per eigenvector cluster the user wants to print out \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structglobaldata_1_1graphpar_ad9b8844b41841dfc53b0c5f541dbd8e6}{treefav}}
+\begin{DoxyCompactList}\small\item\em -\/1: the tree should be unfavourable; 1: tree should be favourable; 0: it can be either (speaking about energetics) \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a0dafeb18d3316847c6c1bb93813e36f4}{maxisosteps}}
+\begin{DoxyCompactList}\small\item\em the maximum number of ismerization reactions per isomer group that can be found in the reaction trees \end{DoxyCompactList}\item 
+double precision \doxymbox{\hyperlink{structglobaldata_1_1graphpar_ac00dee4f8afb16f330791c8525444c39}{rdiskstore}}
+\begin{DoxyCompactList}\small\item\em if a particuar branch has more than maxcomb\texorpdfstring{$\ast$}{*}rdiskstore trees comming off it, those trees will be stored in disk, to avoid memory consumption \end{DoxyCompactList}\item 
+double precision \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a2cb22362561cf109e66dd76e3af245a5}{mxndexpo}}
+\begin{DoxyCompactList}\small\item\em The order of magnitude of the maximum total number of nodes explored during the tree graph search prodedure. \end{DoxyCompactList}\item 
+double precision \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a5a0715f6602c232865a2c7def324badd}{absthresh0}}
+\begin{DoxyCompactList}\small\item\em The initial sum of absolute energy of reactions threshold used to estimate the size of the network search... can be provided by the user if it has previously perfomed a calculation and already known a good number (printed in the logfile). \end{DoxyCompactList}\item 
+integer, dimension(:\+), allocatable \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a0d37531e15474671119a2d3a5be79a17}{nignore}}
+\begin{DoxyCompactList}\small\item\em an array of node ids to ignore when constructing the network \end{DoxyCompactList}\item 
+integer, dimension(:\+), allocatable \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a64ccf3c45273eebc5e65bb5cc1b156c3}{rignore}}
+\begin{DoxyCompactList}\small\item\em an array of reaction ids to ignore when constructing the network \end{DoxyCompactList}\item 
+logical \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a6b867d599c34e51e0b2fb48d3b96b0c9}{enforcefullrx}}
+\begin{DoxyCompactList}\small\item\em flag determining weather the user wants only trees that have all the reactants in the react array \end{DoxyCompactList}\item 
+logical \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a9d87e51852eb1f8b56308b38f4835ace}{readnds}}
+\begin{DoxyCompactList}\small\item\em reads the nds information from a restart binary file inputfilename\+\_\+nds.\+bin if react, prod, nignore,rignore,Md are the same \end{DoxyCompactList}\item 
+character(10) \doxymbox{\hyperlink{structglobaldata_1_1graphpar_a724fb5acee8ec72b3d5d9756c9e061ed}{threshmeth}}
+\begin{DoxyCompactList}\small\item\em weather to use absolute energies or lifetimes as the threshold of exploration of the network \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00240}{240}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+
+
+\label{structglobaldata_1_1graphpar_doc-variable-members}
+\Hypertarget{structglobaldata_1_1graphpar_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structglobaldata_1_1graphpar_a15beab6e6784850319e9b0ca78fd62df}\index{globaldata::graphpar@{globaldata::graphpar}!react@{react}}
+\index{react@{react}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{react}{react}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a15beab6e6784850319e9b0ca78fd62df} 
+integer, dimension(10) globaldata::\+graphpar::\+react}
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00241}{241}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_a1d29ff9b141fecf7b139e648d8ed9a70}\index{globaldata::graphpar@{globaldata::graphpar}!prod@{prod}}
+\index{prod@{prod}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{prod}{prod}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a1d29ff9b141fecf7b139e648d8ed9a70} 
+integer, dimension(10) globaldata::\+graphpar::\+prod}
+
+
+
+user supplied molecule ID from the Mol.\+dat file that will form the ends (products and reactants) of the reaction netowrk tree that they wish the code to calculate 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00241}{241}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_a7bbb885be8abaf0cd6e6c32148ef904e}\index{globaldata::graphpar@{globaldata::graphpar}!nprod@{nprod}}
+\index{nprod@{nprod}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{nprod}{nprod}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a7bbb885be8abaf0cd6e6c32148ef904e} 
+integer globaldata::\+graphpar::\+nprod}
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00243}{243}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_a6d5b296eaf483d68cb5715e92bae69f9}\index{globaldata::graphpar@{globaldata::graphpar}!nreact@{nreact}}
+\index{nreact@{nreact}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{nreact}{nreact}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a6d5b296eaf483d68cb5715e92bae69f9} 
+integer globaldata::\+graphpar::\+nreact}
+
+
+
+the number of molecules of products and reactants the user has supplied 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00243}{243}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_a23f7b793f3d8c8a51e0f88504bc9daf3}\index{globaldata::graphpar@{globaldata::graphpar}!maxtreesolutions@{maxtreesolutions}}
+\index{maxtreesolutions@{maxtreesolutions}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{maxtreesolutions}{maxtreesolutions}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a23f7b793f3d8c8a51e0f88504bc9daf3} 
+integer globaldata::\+graphpar::\+maxtreesolutions}
+
+
+
+the number of tree solutions the user requested to generate... 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00244}{244}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_a6fc3346886b93a7a00dc5f75f314e47b}\index{globaldata::graphpar@{globaldata::graphpar}!nni@{nni}}
+\index{nni@{nni}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{nni}{nni}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a6fc3346886b93a7a00dc5f75f314e47b} 
+integer globaldata::\+graphpar::\+nni}
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00245}{245}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_a6b61499a86bd97ef2d170e30bff5e3a6}\index{globaldata::graphpar@{globaldata::graphpar}!nri@{nri}}
+\index{nri@{nri}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{nri}{nri}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a6b61499a86bd97ef2d170e30bff5e3a6} 
+integer globaldata::\+graphpar::\+nri}
+
+
+
+number of nodes and reactions the user want us to ignore during the graph generation algorithm... 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00245}{245}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_ab22a73128e7fbf2a4b7927995bcb7e4a}\index{globaldata::graphpar@{globaldata::graphpar}!maxcomb@{maxcomb}}
+\index{maxcomb@{maxcomb}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{maxcomb}{maxcomb}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_ab22a73128e7fbf2a4b7927995bcb7e4a} 
+integer globaldata::\+graphpar::\+maxcomb}
+
+
+
+the cutoff for the number of trees we keep from levels below the tree, to stop the combinatorial explosion 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00246}{246}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_a971fbdf4861ed591939a3c9cd947dca2}\index{globaldata::graphpar@{globaldata::graphpar}!maxb@{maxb}}
+\index{maxb@{maxb}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{maxb}{maxb}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a971fbdf4861ed591939a3c9cd947dca2} 
+integer globaldata::\+graphpar::\+maxb}
+
+
+
+the maximum number of nodes-\/with-\/more-\/than-\/one-\/reaction we are allowed to visit when traversing the tree network 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00247}{247}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_a192ce45f5d446e095a6b3b19787845e4}\index{globaldata::graphpar@{globaldata::graphpar}!mxevp@{mxevp}}
+\index{mxevp@{mxevp}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{mxevp}{mxevp}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a192ce45f5d446e095a6b3b19787845e4} 
+integer globaldata::\+graphpar::\+mxevp}
+
+
+
+the maximum number of trees per eigenvector cluster the user wants to print out 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00248}{248}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_ad9b8844b41841dfc53b0c5f541dbd8e6}\index{globaldata::graphpar@{globaldata::graphpar}!treefav@{treefav}}
+\index{treefav@{treefav}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{treefav}{treefav}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_ad9b8844b41841dfc53b0c5f541dbd8e6} 
+integer globaldata::\+graphpar::\+treefav}
+
+
+
+-\/1: the tree should be unfavourable; 1: tree should be favourable; 0: it can be either (speaking about energetics) 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00249}{249}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_a0dafeb18d3316847c6c1bb93813e36f4}\index{globaldata::graphpar@{globaldata::graphpar}!maxisosteps@{maxisosteps}}
+\index{maxisosteps@{maxisosteps}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{maxisosteps}{maxisosteps}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a0dafeb18d3316847c6c1bb93813e36f4} 
+integer globaldata::\+graphpar::\+maxisosteps}
+
+
+
+the maximum number of ismerization reactions per isomer group that can be found in the reaction trees 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00250}{250}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_ac00dee4f8afb16f330791c8525444c39}\index{globaldata::graphpar@{globaldata::graphpar}!rdiskstore@{rdiskstore}}
+\index{rdiskstore@{rdiskstore}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{rdiskstore}{rdiskstore}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_ac00dee4f8afb16f330791c8525444c39} 
+double precision globaldata::\+graphpar::\+rdiskstore}
+
+
+
+if a particuar branch has more than maxcomb\texorpdfstring{$\ast$}{*}rdiskstore trees comming off it, those trees will be stored in disk, to avoid memory consumption 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00251}{251}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_a2cb22362561cf109e66dd76e3af245a5}\index{globaldata::graphpar@{globaldata::graphpar}!mxndexpo@{mxndexpo}}
+\index{mxndexpo@{mxndexpo}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{mxndexpo}{mxndexpo}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a2cb22362561cf109e66dd76e3af245a5} 
+double precision globaldata::\+graphpar::\+mxndexpo}
+
+
+
+The order of magnitude of the maximum total number of nodes explored during the tree graph search prodedure. 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00252}{252}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_a5a0715f6602c232865a2c7def324badd}\index{globaldata::graphpar@{globaldata::graphpar}!absthresh0@{absthresh0}}
+\index{absthresh0@{absthresh0}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{absthresh0}{absthresh0}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a5a0715f6602c232865a2c7def324badd} 
+double precision globaldata::\+graphpar::\+absthresh0}
+
+
+
+The initial sum of absolute energy of reactions threshold used to estimate the size of the network search... can be provided by the user if it has previously perfomed a calculation and already known a good number (printed in the logfile). 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00253}{253}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_a0d37531e15474671119a2d3a5be79a17}\index{globaldata::graphpar@{globaldata::graphpar}!nignore@{nignore}}
+\index{nignore@{nignore}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{nignore}{nignore}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a0d37531e15474671119a2d3a5be79a17} 
+integer, dimension(:\+), allocatable globaldata::\+graphpar::\+nignore}
+
+
+
+an array of node ids to ignore when constructing the network 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00255}{255}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_a64ccf3c45273eebc5e65bb5cc1b156c3}\index{globaldata::graphpar@{globaldata::graphpar}!rignore@{rignore}}
+\index{rignore@{rignore}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{rignore}{rignore}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a64ccf3c45273eebc5e65bb5cc1b156c3} 
+integer, dimension(:\+), allocatable globaldata::\+graphpar::\+rignore}
+
+
+
+an array of reaction ids to ignore when constructing the network 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00256}{256}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_a6b867d599c34e51e0b2fb48d3b96b0c9}\index{globaldata::graphpar@{globaldata::graphpar}!enforcefullrx@{enforcefullrx}}
+\index{enforcefullrx@{enforcefullrx}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{enforcefullrx}{enforcefullrx}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a6b867d599c34e51e0b2fb48d3b96b0c9} 
+logical globaldata::\+graphpar::\+enforcefullrx}
+
+
+
+flag determining weather the user wants only trees that have all the reactants in the react array 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00257}{257}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_a9d87e51852eb1f8b56308b38f4835ace}\index{globaldata::graphpar@{globaldata::graphpar}!readnds@{readnds}}
+\index{readnds@{readnds}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{readnds}{readnds}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a9d87e51852eb1f8b56308b38f4835ace} 
+logical globaldata::\+graphpar::\+readnds}
+
+
+
+reads the nds information from a restart binary file inputfilename\+\_\+nds.\+bin if react, prod, nignore,rignore,Md are the same 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00258}{258}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1graphpar_a724fb5acee8ec72b3d5d9756c9e061ed}\index{globaldata::graphpar@{globaldata::graphpar}!threshmeth@{threshmeth}}
+\index{threshmeth@{threshmeth}!globaldata::graphpar@{globaldata::graphpar}}
+\doxysubsubsection{\texorpdfstring{threshmeth}{threshmeth}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1graphpar_a724fb5acee8ec72b3d5d9756c9e061ed} 
+character(10) globaldata::\+graphpar::\+threshmeth}
+
+
+
+weather to use absolute energies or lifetimes as the threshold of exploration of the network 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00259}{259}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+
+
+The documentation for this type was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/\doxymbox{\hyperlink{globaldata_8f90}{globaldata.\+f90}}\end{DoxyCompactItemize}

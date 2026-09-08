@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="scripts" kind="page">
+    <compoundname>scripts</compoundname>
+    <title>Useful scripts</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="scripts_1md_utils_2scripts"/></para>
+<para>The directory *~/utils/* in the main CDE installation directory contains a series of useful <emphasis>bash</emphasis> and <emphasis>python</emphasis> scripts as follows:</para>
+<para><itemizedlist>
+<listitem><para><bold>CompareProfiles.py</bold>: Uses python and matplotlib to compare two energy profiles resulting from NEB calculations.</para>
+</listitem><listitem><para><bold>WholeEnergyProfile.py</bold>: Plots a sequence of NEB results as a single continuous energy profile using python and matplotlib.</para>
+</listitem><listitem><para><bold>maker.sc</bold>: A bash script for creating multiple directories with identicial copies of a set of input files, except with different random number seeds.</para>
+</listitem><listitem><para><bold>runner.sc</bold>: A bash script to submit multiple jobs to the HPC queue. This can be used after using <emphasis>maker.sc</emphasis> to generate the input directories and files.</para>
+</listitem><listitem><para><bold>neb.sc</bold>: A bash script to perform multiple NEB runs. This can be used after a double-ended GDS calculation to calculate the energy along the minimum energy path for a whole sequence of reactions. The final result of using <emphasis>neb.sc</emphasis> can then be plotted using <emphasis>WholeEnergyProfile.py</emphasis>.</para>
+</listitem><listitem><para><bold>job_script.sc</bold>: An example queue script for submission of a job to the Warwick COW. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="utils/scripts.md"/>
+  </compounddef>
+</doxygen>

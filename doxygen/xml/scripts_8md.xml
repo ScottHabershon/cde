@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="scripts_8md" kind="file" language="Markdown">
+    <compoundname>scripts.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">###Useful<sp/>scripts<sp/>{#scripts}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>directory<sp/>*~/utils/*<sp/>in<sp/>the<sp/>main<sp/>CDE<sp/>installation<sp/>directory<sp/>contains<sp/>a<sp/>series<sp/>of<sp/>useful<sp/>*bash*<sp/>and<sp/>*python*<sp/>scripts<sp/>as<sp/>follows:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**CompareProfiles.py**:<sp/>Uses<sp/>python<sp/>and<sp/>matplotlib<sp/>to<sp/>compare<sp/>two<sp/>energy<sp/>profiles<sp/>resulting<sp/>from<sp/>NEB<sp/>calculations.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**WholeEnergyProfile.py**:<sp/>Plots<sp/>a<sp/>sequence<sp/>of<sp/>NEB<sp/>results<sp/>as<sp/>a<sp/>single<sp/>continuous<sp/>energy<sp/>profile<sp/>using<sp/>python<sp/>and<sp/>matplotlib.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**maker.sc**:<sp/>A<sp/>bash<sp/>script<sp/>for<sp/>creating<sp/>multiple<sp/>directories<sp/>with<sp/>identicial<sp/>copies<sp/>of<sp/>a<sp/>set<sp/>of<sp/>input<sp/>files,<sp/>except<sp/>with<sp/>different<sp/>random<sp/>number<sp/>seeds.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**runner.sc**:<sp/>A<sp/>bash<sp/>script<sp/>to<sp/>submit<sp/>multiple<sp/>jobs<sp/>to<sp/>the<sp/>HPC<sp/>queue.<sp/>This<sp/>can<sp/>be<sp/>used<sp/>after<sp/>using<sp/>*maker.sc*<sp/>to<sp/>generate<sp/>the<sp/>input<sp/>directories<sp/>and<sp/>files.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**neb.sc**:<sp/>A<sp/>bash<sp/>script<sp/>to<sp/>perform<sp/>multiple<sp/>NEB<sp/>runs.<sp/>This<sp/>can<sp/>be<sp/>used<sp/>after<sp/>a<sp/>double-ended<sp/>GDS<sp/>calculation<sp/>to<sp/>calculate<sp/>the<sp/>energy<sp/>along<sp/>the<sp/>minimum<sp/>energy<sp/>path<sp/>for<sp/>a<sp/>whole<sp/>sequence<sp/>of<sp/>reactions.<sp/>The<sp/>final<sp/>result<sp/>of<sp/>using<sp/>*neb.sc*<sp/>can<sp/>then<sp/>be<sp/>plotted<sp/>using<sp/>*WholeEnergyProfile.py*.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**job_script.sc**:<sp/>An<sp/>example<sp/>queue<sp/>script<sp/>for<sp/>submission<sp/>of<sp/>a<sp/>job<sp/>to<sp/>the<sp/>Warwick<sp/>COW.</highlight></codeline>
+    </programlisting>
+    <location file="utils/scripts.md"/>
+  </compounddef>
+</doxygen>

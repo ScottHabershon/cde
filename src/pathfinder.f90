@@ -244,8 +244,9 @@ contains
 
     ! If an error flag is returned here, something is wrong with the initial path....
     !
-    if (errflag)Stop '* Initial errflag for path is TRUE - something weird going &
-    on with initial path....go check it out....'
+    if (errflag)Stop '* Initial errflag for path is TRUE - something weird going'
+    ! &
+    !on with initial path....go check it out....'
 
 
     ! Output initial errors to logfile.
@@ -891,8 +892,9 @@ contains
         Call ReadCXS( cx1, trim(file_root)//'_reactants_'//trim(x1)//'.xyz' )
         Call ReadCXS( cx2, trim(file_root)//'_products_'//trim(x1)//'.xyz' )
 
-        if (cx1%na /= cx2%na)stop 'ERROR: inconsistent numbers of atoms in path-reordering &
-        in AdjustPaths...'
+        if (cx1%na /= cx2%na)stop 'ERROR: inconsistent numbers of atoms in path-reordering' 
+        !&
+        !in AdjustPaths...'
 
         ! Reorder atoms....first use bubble sort to put atoms in atomic number...
         !
@@ -2298,7 +2300,11 @@ contains
     do i = 1, nrxn
       write(logfile,'("=== Reaction number:",3x,i4/)')i
       write(logfile,'("- Selected move number:",3x,i4/)')movenum(i)
-      write(logfile,*)"- Atom numbers: ",moveatoms(i,1:namove(movenum(i)))
+      if (movenum(i) .ne. 0) then
+         write(logfile,*)"- Atom numbers: ",moveatoms(i,1:namove(movenum(i)))
+      else
+         write(logfile,*)"- Null move"
+      endif
       Call GetMols(cx(i))
       do j = 1, cx(i)%nmol
         write(logfile,'("- Molecule number:",3x,i4)')j
@@ -2847,7 +2853,7 @@ contains
   !
   !**********************************************************************************************
   !
-  Subroutine PrintMechanismPaths(nrxn, cx_start, cx, file_root, maxbarrier, bsum, cx_end)
+  Subroutine PrintMechanismPaths(nrxn, cx_start, cx, file_root, maxbarrier, bsum,cx_end)
 
     implicit none
 
@@ -2861,13 +2867,16 @@ contains
     logical :: success, idppguess, do_final
     real(8) :: maxbarrier,bsum, brxn
 
-    maxbarrier = -1d6
-    if (present(cx_end)) then
-      do_final = .True.
-    else
-      do_final = .False.
-    endif
+    print*,'WTF1'
 
+!    maxbarrier = -1d6
+!    if (present(cx_end)) then
+!      do_final = .True.
+!    else
+      do_final = .False.
+!    endif
+
+    print*,'WTF2'
     ! Set number of atoms.
     !
     na = cx_start%na
@@ -2877,17 +2886,20 @@ contains
     Call NewPath(rp, .FALSE., startfile, endfile, pathfile, nimage, &
     pathinit, .TRUE., na)
 
+    print*,'WTF3'
 
     ! Loop over each reaction.
     !
     open(95,file=trim(file_root)//'_energy.dat')
     bsum = 0.d0
     outer3: do irxn = 1, nrxn+1
+         print*,'NOW:',irxn,nrxn
 
       ! Set the CX for the end-point of this reaction.
       ! First, deal with the first reaction.
       !
       if (irxn == 1) then
+        
         rp%cx(1) = cx_start
         do j = 2, nimage-1
           rp%cx(j) = cx_start
@@ -2915,19 +2927,21 @@ contains
         rp%cx(nimage) = cx(irxn)
       endif
       Call SetPathConstraints(rp, NDOFconstr, FixedDOF, Natomconstr, Fixedatom)
-
+      print*,'WTF4'
       ! Set as linear path - this needs to be done to give sensible initial
       ! coordinates to the internal beads before IDPP (if required).
       !
       rp%coeff(:,:,:) = 0.0
       Call FourierToPath( rp )
 
+      print*,'WTF4'
       ! Use the Fourier coefficients to calculate the initial path.
       !
       if (idpppath) then
         Call FindIDPPPath( rp, NEBIter*250, NEBConv*0.1d0, NEBstep, NEBspring)
       endif
 
+      print*,'WTF4'
 
       ! Could put NEB here.....
 
@@ -3604,13 +3618,13 @@ contains
     ! consider changes in charge states too.
     !
     ChangeCharges = .FALSE.
-    do i = 1, ngmove
-      if (namove(i) == 0) then
-        write(logfile, '("* ChangeCharges ENABLED.")')
-        ChangeCharges = .TRUE.
-        exit
-      endif
-    enddo
+ !   do i = 1, ngmove
+ !     if (namove(i) == 0) then
+ !       write(logfile, '("* ChangeCharges ENABLED.")')
+ !       ChangeCharges = .TRUE.
+ !       exit
+ !     endif
+ !   enddo
 
     ! Create space for the TOTAL reaction-string. This is defined by
     ! nrxn in the input file. Here, nrxn defines the (maximum) number of reactions
@@ -3995,7 +4009,8 @@ contains
   !************************************************************************
   subroutine RunBreakdown()
     implicit none
-    integer :: i, irx, istep, cyccount
+    type(rxp) :: rp
+    integer :: i, irx, istep, cyccount,j
     integer, dimension(NAMAX) :: rxindex
     integer, dimension(:), allocatable :: movenum, movenum_store
     integer, dimension(:, :), allocatable :: moveatoms, moveatoms_store
@@ -4205,7 +4220,29 @@ contains
           else
             if (optaftermove) write(logfile, '("- Optimising reaction step...")')
             call GraphsToCoords_BD(wcx, .true., fout, errflag, errstr)
+          
+            ! New part for reaction printing...
+            !
+            ! Print the path.
+            Call NewPath(rp, .FALSE., startfile, endfile, pathfile, nimage, &
+                         pathinit, .TRUE., na)
+            rp%cx(1) = wcx(1)
+            do j = 2, nimage-1
+              rp%cx(j) = wcx(1)
+            enddo
+            rp%cx(nimage) = wcx(2)      
+            !Call SetPathConstraints(rp, NDOFconstr, FixedDOF, Natomconstr, Fixedatom)
+        
+            rp%coeff(:,:,:) = 0.0
+            Call FourierToPath( rp )
+            Call FindIDPPPath( rp, NEBIter*250, NEBConv*0.1d0, NEBstep, NEBspring)
+
+            ! Print reaction path rp.
+            write(fout, '("rxn_", A4, "_RP_", A4, ".xyz")') trim(x1), trim(x2)
+            Call PrintPathToFile(rp, fout, .FALSE.)
+            Call DeletePath(rp)         
           endif
+
           if (errflag) then
             write(logfile, '("- ", A, ", cycling.")') adjustl(trim(errstr))
             movenum(:) = 0

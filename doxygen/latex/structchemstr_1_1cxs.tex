@@ -1,0 +1,627 @@
+\doxysection{chemstr::cxs Type Reference}
+\hypertarget{structchemstr_1_1cxs}{}\label{structchemstr_1_1cxs}\index{chemstr::cxs@{chemstr::cxs}}
+
+
+Chemical structure object definition.  
+
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+integer \doxymbox{\hyperlink{structchemstr_1_1cxs_a05ebdcf9b7c9f153a1bd51f516d7552b}{na}}
+\item 
+real(8), dimension(:\+, :\+), allocatable \doxymbox{\hyperlink{structchemstr_1_1cxs_a691973b2d4111e8b278ed31e8854a785}{r}}
+\begin{DoxyCompactList}\small\item\em Coordinates in atomic units (bohr). \end{DoxyCompactList}\item 
+real(8), dimension(:\+, :\+), allocatable \doxymbox{\hyperlink{structchemstr_1_1cxs_a6e262d3627e091139f96be44ccff60b5}{p}}
+\begin{DoxyCompactList}\small\item\em Momenta in atomic units (bohr / au). \end{DoxyCompactList}\item 
+real(8), dimension(:\+, :\+), allocatable \doxymbox{\hyperlink{structchemstr_1_1cxs_adbdc91dab845ca3a895b5e26865dd7c9}{dvdr}}
+\begin{DoxyCompactList}\small\item\em PES derivatives wrt coordinates in atomic units (Eh/\+bohr). \end{DoxyCompactList}\item 
+real(8), dimension(:\+, :\+), allocatable \doxymbox{\hyperlink{structchemstr_1_1cxs_a0e90629c6ff6370920641c1c7ca83067}{force}}
+\begin{DoxyCompactList}\small\item\em Forces wrt coordinates in atomic units (Eh/\+bohr). \end{DoxyCompactList}\item 
+real(8), dimension(:\+, :\+), allocatable \doxymbox{\hyperlink{structchemstr_1_1cxs_afef8c3cadb1833046e4b7f01b8958d67}{hessian}}
+\begin{DoxyCompactList}\small\item\em Hessian matrix. \end{DoxyCompactList}\item 
+character(len=2), dimension(:\+), allocatable \doxymbox{\hyperlink{structchemstr_1_1cxs_a4dc1e4bf9dc22099afa1990c2affa27d}{atomlabel}}
+\begin{DoxyCompactList}\small\item\em Atom labels. \end{DoxyCompactList}\item 
+real(8), dimension(:\+), allocatable \doxymbox{\hyperlink{structchemstr_1_1cxs_aa039bad319d194ec552f20d907b39127}{mass}}
+\begin{DoxyCompactList}\small\item\em Atomic masses in au. \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structchemstr_1_1cxs_a9f17c74f4ba3a0c7e92773b971c64852}{ndofconstr}}
+\begin{DoxyCompactList}\small\item\em Number of DOF constraints. \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structchemstr_1_1cxs_a69b9cc3edf936c7544e131baa3a7f0f4}{natomconstr}}
+\begin{DoxyCompactList}\small\item\em Number of atom constraints. \end{DoxyCompactList}\item 
+logical, dimension(:\+), allocatable \doxymbox{\hyperlink{structchemstr_1_1cxs_abcda91614d230698c1e3c3707b2771a7}{fixeddof}}
+\begin{DoxyCompactList}\small\item\em Fixed DOF ids. \end{DoxyCompactList}\item 
+logical, dimension(:\+), allocatable \doxymbox{\hyperlink{structchemstr_1_1cxs_a38b8cccf3115fb847a43874d1244fc59}{fixedatom}}
+\begin{DoxyCompactList}\small\item\em Fixed atom ids. \end{DoxyCompactList}\item 
+real(8) \doxymbox{\hyperlink{structchemstr_1_1cxs_ae5a37234bb7581279a4e20c3c0cd7a91}{vcalc}}
+\begin{DoxyCompactList}\small\item\em Calculate potential energy of structure. \end{DoxyCompactList}\item 
+integer, dimension(:\+, :\+), allocatable \doxymbox{\hyperlink{structchemstr_1_1cxs_a0b4ef943a61f36a985689787e9081134}{graph}}
+\begin{DoxyCompactList}\small\item\em Bonding graph for structure. \end{DoxyCompactList}\item 
+real(8), dimension(:\+), allocatable \doxymbox{\hyperlink{structchemstr_1_1cxs_af061b63d55169aec15bee1023b6f8ad4}{sprintcoords}}
+\begin{DoxyCompactList}\small\item\em SPRINT coordinates of the structure. \end{DoxyCompactList}\item 
+integer, dimension(:\+), allocatable \doxymbox{\hyperlink{structchemstr_1_1cxs_a431d5ccacf2294a4d0e28911d74a0c01}{namol}}
+\begin{DoxyCompactList}\small\item\em Atom numbers for each molecule in graph. \end{DoxyCompactList}\item 
+integer, dimension(:\+, :\+), allocatable \doxymbox{\hyperlink{structchemstr_1_1cxs_aa1a1d19dc4f7e9802f957a3ef611b41b}{molid}}
+\begin{DoxyCompactList}\small\item\em Atom indices for each molecule in graph. \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structchemstr_1_1cxs_a8c33378afa3c426787c0a6df0026dd77}{nmol}}
+\begin{DoxyCompactList}\small\item\em Number of molecules defined by structure. \end{DoxyCompactList}\item 
+real(8) \doxymbox{\hyperlink{structchemstr_1_1cxs_a0cc00b5504ff1b7121b384fd6e38f819}{vcon}}
+\begin{DoxyCompactList}\small\item\em Constraint potential energy. \end{DoxyCompactList}\item 
+real(8) \doxymbox{\hyperlink{structchemstr_1_1cxs_a53efe991273d0cbdf6e7f7db4c84d9ac}{fitness}}
+\begin{DoxyCompactList}\small\item\em Fitness for molecular optimization. \end{DoxyCompactList}\item 
+real(8) \doxymbox{\hyperlink{structchemstr_1_1cxs_a6c3b969eb52f0b81eed9df8d6887b969}{fitness\+\_\+scaled}}
+\begin{DoxyCompactList}\small\item\em Scaled fitness for molecular optimization. \end{DoxyCompactList}\item 
+character(len=10) \doxymbox{\hyperlink{structchemstr_1_1cxs_a7a3d94afe2e36d8b7d0b64a73856acde}{method}} = \textquotesingle{}\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em abinitio method used to calculate properties \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structchemstr_1_1cxs_a8282facd1672858dd1b986d229c6f2c2}{nbonds}}
+\begin{DoxyCompactList}\small\item\em Number of bonds. \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structchemstr_1_1cxs_a9acbf74d770156b3aefcc03afba49e8c}{nangles}}
+\begin{DoxyCompactList}\small\item\em Number of angles. \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structchemstr_1_1cxs_a455cf0359cfba3c52a7c5c270073fddf}{ntors}}
+\begin{DoxyCompactList}\small\item\em Number of torsions. \end{DoxyCompactList}\item 
+real(8), dimension(\doxymbox{\hyperlink{namespaceconstants_ace3c3c956eaab49c4f76d6da9f4d8116}{nbondmax}}) \doxymbox{\hyperlink{structchemstr_1_1cxs_ad735b854a18b6b9c8dbc32f8cd1ffda1}{bondl}}
+\begin{DoxyCompactList}\small\item\em Calculated bond lengths. \end{DoxyCompactList}\item 
+real(8), dimension(\doxymbox{\hyperlink{namespaceconstants_a294bba2756e146e255646c046839c8f6}{nanglemax}}) \doxymbox{\hyperlink{structchemstr_1_1cxs_ab452c2bc96adc4f71b9dada40a1f2573}{angle}}
+\begin{DoxyCompactList}\small\item\em Calculated angles. \end{DoxyCompactList}\item 
+real(8), dimension(\doxymbox{\hyperlink{namespaceconstants_af85d966801771d9090d3473c2698e498}{ntorsmax}}) \doxymbox{\hyperlink{structchemstr_1_1cxs_aba4f0e6140285d4cb94c8d8c8b33ca0f}{torsion}}
+\begin{DoxyCompactList}\small\item\em Calculated torsion angles. \end{DoxyCompactList}\item 
+integer, dimension(\doxymbox{\hyperlink{namespaceconstants_ace3c3c956eaab49c4f76d6da9f4d8116}{nbondmax}}, 2) \doxymbox{\hyperlink{structchemstr_1_1cxs_ae72187b73d997fdc133f51561abf6fd8}{bondid}}
+\begin{DoxyCompactList}\small\item\em IDs of atoms in bonds. \end{DoxyCompactList}\item 
+integer, dimension(\doxymbox{\hyperlink{namespaceconstants_a294bba2756e146e255646c046839c8f6}{nanglemax}}, 3) \doxymbox{\hyperlink{structchemstr_1_1cxs_a1e10c27bb71298eb307409454fc8dddb}{angleid}}
+\begin{DoxyCompactList}\small\item\em IDs of atoms in angles. \end{DoxyCompactList}\item 
+integer, dimension(\doxymbox{\hyperlink{namespaceconstants_af85d966801771d9090d3473c2698e498}{ntorsmax}}, 4) \doxymbox{\hyperlink{structchemstr_1_1cxs_a1538720357fb254c1435a39ae1433542}{torsid}}
+\begin{DoxyCompactList}\small\item\em IDs of atoms in torsions. \end{DoxyCompactList}\item 
+real(8), dimension(\doxymbox{\hyperlink{namespaceconstants_ace3c3c956eaab49c4f76d6da9f4d8116}{nbondmax}}, 2, 3) \doxymbox{\hyperlink{structchemstr_1_1cxs_a0577665bbd708dfa7ac5d18464a2d2fb}{dbonddr}}
+\begin{DoxyCompactList}\small\item\em Derivatives of bond-\/lengths wrt xyz of atoms. \end{DoxyCompactList}\item 
+real(8), dimension(\doxymbox{\hyperlink{namespaceconstants_a294bba2756e146e255646c046839c8f6}{nanglemax}}, 3, 3) \doxymbox{\hyperlink{structchemstr_1_1cxs_a09576e755557f8a6196897d1da5e2e9b}{dangdr}}
+\begin{DoxyCompactList}\small\item\em Derivatives of angles wrt xyz of atoms. \end{DoxyCompactList}\item 
+real(8), dimension(\doxymbox{\hyperlink{namespaceconstants_af85d966801771d9090d3473c2698e498}{ntorsmax}}, 4, 3) \doxymbox{\hyperlink{structchemstr_1_1cxs_ab5ab71029fac772aa9a7e6ce98a2e92a}{dtorsdr}}
+\begin{DoxyCompactList}\small\item\em Derivatives of torsions wrt xyz of atoms. \end{DoxyCompactList}\item 
+real(8), dimension(:\+), allocatable \doxymbox{\hyperlink{structchemstr_1_1cxs_a6d9703b6b7df80631f43f239c1b0998a}{molen}}
+\begin{DoxyCompactList}\small\item\em energy per molecule \end{DoxyCompactList}\item 
+integer, dimension(:\+), allocatable \doxymbox{\hyperlink{structchemstr_1_1cxs_a1faf29b4272b32ab9d31bf3b9c350a0b}{molspin}}
+\begin{DoxyCompactList}\small\item\em spin on each molecule \end{DoxyCompactList}\item 
+integer, dimension(:\+), allocatable \doxymbox{\hyperlink{structchemstr_1_1cxs_a2165bea2105e1c9b3a08e1ff15406cb7}{molcharge}}
+\begin{DoxyCompactList}\small\item\em Total charge on each molecule. \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structchemstr_1_1cxs_a8ac3451bf7853a1c60bc3c55fc98b10a}{itargetmol}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Chemical structure object definition. 
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00021}{21}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+
+
+\label{structchemstr_1_1cxs_doc-variable-members}
+\Hypertarget{structchemstr_1_1cxs_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structchemstr_1_1cxs_a05ebdcf9b7c9f153a1bd51f516d7552b}\index{chemstr::cxs@{chemstr::cxs}!na@{na}}
+\index{na@{na}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{na}{na}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a05ebdcf9b7c9f153a1bd51f516d7552b} 
+integer chemstr::\+cxs::\+na}
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00023}{23}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a691973b2d4111e8b278ed31e8854a785}\index{chemstr::cxs@{chemstr::cxs}!r@{r}}
+\index{r@{r}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{r}{r}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a691973b2d4111e8b278ed31e8854a785} 
+real(8), dimension(:\+, :\+), allocatable chemstr::\+cxs::\+r}
+
+
+
+Coordinates in atomic units (bohr). 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00024}{24}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a6e262d3627e091139f96be44ccff60b5}\index{chemstr::cxs@{chemstr::cxs}!p@{p}}
+\index{p@{p}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a6e262d3627e091139f96be44ccff60b5} 
+real(8), dimension(:\+, :\+), allocatable chemstr::\+cxs::\+p}
+
+
+
+Momenta in atomic units (bohr / au). 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00025}{25}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_adbdc91dab845ca3a895b5e26865dd7c9}\index{chemstr::cxs@{chemstr::cxs}!dvdr@{dvdr}}
+\index{dvdr@{dvdr}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{dvdr}{dvdr}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_adbdc91dab845ca3a895b5e26865dd7c9} 
+real(8), dimension(:\+, :\+), allocatable chemstr::\+cxs::\+dvdr}
+
+
+
+PES derivatives wrt coordinates in atomic units (Eh/\+bohr). 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00026}{26}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a0e90629c6ff6370920641c1c7ca83067}\index{chemstr::cxs@{chemstr::cxs}!force@{force}}
+\index{force@{force}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{force}{force}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a0e90629c6ff6370920641c1c7ca83067} 
+real(8), dimension(:\+, :\+), allocatable chemstr::\+cxs::\+force}
+
+
+
+Forces wrt coordinates in atomic units (Eh/\+bohr). 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00027}{27}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_afef8c3cadb1833046e4b7f01b8958d67}\index{chemstr::cxs@{chemstr::cxs}!hessian@{hessian}}
+\index{hessian@{hessian}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{hessian}{hessian}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_afef8c3cadb1833046e4b7f01b8958d67} 
+real(8), dimension(:\+, :\+), allocatable chemstr::\+cxs::\+hessian}
+
+
+
+Hessian matrix. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00028}{28}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a4dc1e4bf9dc22099afa1990c2affa27d}\index{chemstr::cxs@{chemstr::cxs}!atomlabel@{atomlabel}}
+\index{atomlabel@{atomlabel}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{atomlabel}{atomlabel}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a4dc1e4bf9dc22099afa1990c2affa27d} 
+character (len=2), dimension(:\+), allocatable chemstr::\+cxs::\+atomlabel}
+
+
+
+Atom labels. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00029}{29}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_aa039bad319d194ec552f20d907b39127}\index{chemstr::cxs@{chemstr::cxs}!mass@{mass}}
+\index{mass@{mass}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{mass}{mass}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_aa039bad319d194ec552f20d907b39127} 
+real(8), dimension(:\+), allocatable chemstr::\+cxs::\+mass}
+
+
+
+Atomic masses in au. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00030}{30}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a9f17c74f4ba3a0c7e92773b971c64852}\index{chemstr::cxs@{chemstr::cxs}!ndofconstr@{ndofconstr}}
+\index{ndofconstr@{ndofconstr}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{ndofconstr}{ndofconstr}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a9f17c74f4ba3a0c7e92773b971c64852} 
+integer chemstr::\+cxs::\+ndofconstr}
+
+
+
+Number of DOF constraints. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00031}{31}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a69b9cc3edf936c7544e131baa3a7f0f4}\index{chemstr::cxs@{chemstr::cxs}!natomconstr@{natomconstr}}
+\index{natomconstr@{natomconstr}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{natomconstr}{natomconstr}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a69b9cc3edf936c7544e131baa3a7f0f4} 
+integer chemstr::\+cxs::\+natomconstr}
+
+
+
+Number of atom constraints. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00032}{32}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_abcda91614d230698c1e3c3707b2771a7}\index{chemstr::cxs@{chemstr::cxs}!fixeddof@{fixeddof}}
+\index{fixeddof@{fixeddof}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{fixeddof}{fixeddof}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_abcda91614d230698c1e3c3707b2771a7} 
+logical, dimension(:\+), allocatable chemstr::\+cxs::\+fixeddof}
+
+
+
+Fixed DOF ids. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00033}{33}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a38b8cccf3115fb847a43874d1244fc59}\index{chemstr::cxs@{chemstr::cxs}!fixedatom@{fixedatom}}
+\index{fixedatom@{fixedatom}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{fixedatom}{fixedatom}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a38b8cccf3115fb847a43874d1244fc59} 
+logical, dimension(:\+), allocatable chemstr::\+cxs::\+fixedatom}
+
+
+
+Fixed atom ids. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00034}{34}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_ae5a37234bb7581279a4e20c3c0cd7a91}\index{chemstr::cxs@{chemstr::cxs}!vcalc@{vcalc}}
+\index{vcalc@{vcalc}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{vcalc}{vcalc}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_ae5a37234bb7581279a4e20c3c0cd7a91} 
+real(8) chemstr::\+cxs::\+vcalc}
+
+
+
+Calculate potential energy of structure. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00035}{35}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a0b4ef943a61f36a985689787e9081134}\index{chemstr::cxs@{chemstr::cxs}!graph@{graph}}
+\index{graph@{graph}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{graph}{graph}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a0b4ef943a61f36a985689787e9081134} 
+integer, dimension(:\+, :\+), allocatable chemstr::\+cxs::\+graph}
+
+
+
+Bonding graph for structure. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00036}{36}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_af061b63d55169aec15bee1023b6f8ad4}\index{chemstr::cxs@{chemstr::cxs}!sprintcoords@{sprintcoords}}
+\index{sprintcoords@{sprintcoords}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{sprintcoords}{sprintcoords}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_af061b63d55169aec15bee1023b6f8ad4} 
+real(8), dimension(:\+), allocatable chemstr::\+cxs::\+sprintcoords}
+
+
+
+SPRINT coordinates of the structure. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00037}{37}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a431d5ccacf2294a4d0e28911d74a0c01}\index{chemstr::cxs@{chemstr::cxs}!namol@{namol}}
+\index{namol@{namol}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{namol}{namol}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a431d5ccacf2294a4d0e28911d74a0c01} 
+integer, dimension(:\+), allocatable chemstr::\+cxs::\+namol}
+
+
+
+Atom numbers for each molecule in graph. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00038}{38}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_aa1a1d19dc4f7e9802f957a3ef611b41b}\index{chemstr::cxs@{chemstr::cxs}!molid@{molid}}
+\index{molid@{molid}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{molid}{molid}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_aa1a1d19dc4f7e9802f957a3ef611b41b} 
+integer, dimension(:\+, :\+), allocatable chemstr::\+cxs::\+molid}
+
+
+
+Atom indices for each molecule in graph. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00039}{39}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a8c33378afa3c426787c0a6df0026dd77}\index{chemstr::cxs@{chemstr::cxs}!nmol@{nmol}}
+\index{nmol@{nmol}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{nmol}{nmol}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a8c33378afa3c426787c0a6df0026dd77} 
+integer chemstr::\+cxs::\+nmol}
+
+
+
+Number of molecules defined by structure. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00040}{40}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a0cc00b5504ff1b7121b384fd6e38f819}\index{chemstr::cxs@{chemstr::cxs}!vcon@{vcon}}
+\index{vcon@{vcon}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{vcon}{vcon}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a0cc00b5504ff1b7121b384fd6e38f819} 
+real(8) chemstr::\+cxs::\+vcon}
+
+
+
+Constraint potential energy. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00041}{41}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a53efe991273d0cbdf6e7f7db4c84d9ac}\index{chemstr::cxs@{chemstr::cxs}!fitness@{fitness}}
+\index{fitness@{fitness}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{fitness}{fitness}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a53efe991273d0cbdf6e7f7db4c84d9ac} 
+real(8) chemstr::\+cxs::\+fitness}
+
+
+
+Fitness for molecular optimization. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00042}{42}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a6c3b969eb52f0b81eed9df8d6887b969}\index{chemstr::cxs@{chemstr::cxs}!fitness\_scaled@{fitness\_scaled}}
+\index{fitness\_scaled@{fitness\_scaled}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{fitness\_scaled}{fitness\_scaled}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a6c3b969eb52f0b81eed9df8d6887b969} 
+real(8) chemstr::\+cxs::\+fitness\+\_\+scaled}
+
+
+
+Scaled fitness for molecular optimization. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00043}{43}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a7a3d94afe2e36d8b7d0b64a73856acde}\index{chemstr::cxs@{chemstr::cxs}!method@{method}}
+\index{method@{method}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{method}{method}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a7a3d94afe2e36d8b7d0b64a73856acde} 
+character(len=10) chemstr::\+cxs::\+method = \textquotesingle{}\textquotesingle{}}
+
+
+
+abinitio method used to calculate properties 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00044}{44}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a8282facd1672858dd1b986d229c6f2c2}\index{chemstr::cxs@{chemstr::cxs}!nbonds@{nbonds}}
+\index{nbonds@{nbonds}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{nbonds}{nbonds}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a8282facd1672858dd1b986d229c6f2c2} 
+integer chemstr::\+cxs::\+nbonds}
+
+
+
+Number of bonds. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00045}{45}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a9acbf74d770156b3aefcc03afba49e8c}\index{chemstr::cxs@{chemstr::cxs}!nangles@{nangles}}
+\index{nangles@{nangles}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{nangles}{nangles}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a9acbf74d770156b3aefcc03afba49e8c} 
+integer chemstr::\+cxs::\+nangles}
+
+
+
+Number of angles. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00046}{46}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a455cf0359cfba3c52a7c5c270073fddf}\index{chemstr::cxs@{chemstr::cxs}!ntors@{ntors}}
+\index{ntors@{ntors}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{ntors}{ntors}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a455cf0359cfba3c52a7c5c270073fddf} 
+integer chemstr::\+cxs::\+ntors}
+
+
+
+Number of torsions. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00047}{47}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_ad735b854a18b6b9c8dbc32f8cd1ffda1}\index{chemstr::cxs@{chemstr::cxs}!bondl@{bondl}}
+\index{bondl@{bondl}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{bondl}{bondl}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_ad735b854a18b6b9c8dbc32f8cd1ffda1} 
+real(8), dimension(\doxymbox{\hyperlink{namespaceconstants_ace3c3c956eaab49c4f76d6da9f4d8116}{nbondmax}}) chemstr::\+cxs::\+bondl}
+
+
+
+Calculated bond lengths. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00048}{48}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_ab452c2bc96adc4f71b9dada40a1f2573}\index{chemstr::cxs@{chemstr::cxs}!angle@{angle}}
+\index{angle@{angle}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{angle}{angle}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_ab452c2bc96adc4f71b9dada40a1f2573} 
+real(8), dimension(\doxymbox{\hyperlink{namespaceconstants_a294bba2756e146e255646c046839c8f6}{nanglemax}}) chemstr::\+cxs::\+angle}
+
+
+
+Calculated angles. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00049}{49}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_aba4f0e6140285d4cb94c8d8c8b33ca0f}\index{chemstr::cxs@{chemstr::cxs}!torsion@{torsion}}
+\index{torsion@{torsion}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{torsion}{torsion}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_aba4f0e6140285d4cb94c8d8c8b33ca0f} 
+real(8), dimension(\doxymbox{\hyperlink{namespaceconstants_af85d966801771d9090d3473c2698e498}{ntorsmax}}) chemstr::\+cxs::\+torsion}
+
+
+
+Calculated torsion angles. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00050}{50}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_ae72187b73d997fdc133f51561abf6fd8}\index{chemstr::cxs@{chemstr::cxs}!bondid@{bondid}}
+\index{bondid@{bondid}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{bondid}{bondid}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_ae72187b73d997fdc133f51561abf6fd8} 
+integer, dimension(\doxymbox{\hyperlink{namespaceconstants_ace3c3c956eaab49c4f76d6da9f4d8116}{nbondmax}}, 2) chemstr::\+cxs::\+bondid}
+
+
+
+IDs of atoms in bonds. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00051}{51}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a1e10c27bb71298eb307409454fc8dddb}\index{chemstr::cxs@{chemstr::cxs}!angleid@{angleid}}
+\index{angleid@{angleid}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{angleid}{angleid}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a1e10c27bb71298eb307409454fc8dddb} 
+integer, dimension(\doxymbox{\hyperlink{namespaceconstants_a294bba2756e146e255646c046839c8f6}{nanglemax}}, 3) chemstr::\+cxs::\+angleid}
+
+
+
+IDs of atoms in angles. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00052}{52}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a1538720357fb254c1435a39ae1433542}\index{chemstr::cxs@{chemstr::cxs}!torsid@{torsid}}
+\index{torsid@{torsid}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{torsid}{torsid}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a1538720357fb254c1435a39ae1433542} 
+integer, dimension(\doxymbox{\hyperlink{namespaceconstants_af85d966801771d9090d3473c2698e498}{ntorsmax}}, 4) chemstr::\+cxs::\+torsid}
+
+
+
+IDs of atoms in torsions. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00053}{53}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a0577665bbd708dfa7ac5d18464a2d2fb}\index{chemstr::cxs@{chemstr::cxs}!dbonddr@{dbonddr}}
+\index{dbonddr@{dbonddr}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{dbonddr}{dbonddr}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a0577665bbd708dfa7ac5d18464a2d2fb} 
+real(8), dimension(\doxymbox{\hyperlink{namespaceconstants_ace3c3c956eaab49c4f76d6da9f4d8116}{nbondmax}},2,3) chemstr::\+cxs::\+dbonddr}
+
+
+
+Derivatives of bond-\/lengths wrt xyz of atoms. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00054}{54}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a09576e755557f8a6196897d1da5e2e9b}\index{chemstr::cxs@{chemstr::cxs}!dangdr@{dangdr}}
+\index{dangdr@{dangdr}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{dangdr}{dangdr}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a09576e755557f8a6196897d1da5e2e9b} 
+real(8), dimension(\doxymbox{\hyperlink{namespaceconstants_a294bba2756e146e255646c046839c8f6}{nanglemax}},3,3) chemstr::\+cxs::\+dangdr}
+
+
+
+Derivatives of angles wrt xyz of atoms. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00055}{55}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_ab5ab71029fac772aa9a7e6ce98a2e92a}\index{chemstr::cxs@{chemstr::cxs}!dtorsdr@{dtorsdr}}
+\index{dtorsdr@{dtorsdr}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{dtorsdr}{dtorsdr}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_ab5ab71029fac772aa9a7e6ce98a2e92a} 
+real(8), dimension(\doxymbox{\hyperlink{namespaceconstants_af85d966801771d9090d3473c2698e498}{ntorsmax}},4,3) chemstr::\+cxs::\+dtorsdr}
+
+
+
+Derivatives of torsions wrt xyz of atoms. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00056}{56}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a6d9703b6b7df80631f43f239c1b0998a}\index{chemstr::cxs@{chemstr::cxs}!molen@{molen}}
+\index{molen@{molen}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{molen}{molen}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a6d9703b6b7df80631f43f239c1b0998a} 
+real(8), dimension(:\+), allocatable chemstr::\+cxs::\+molen}
+
+
+
+energy per molecule 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00058}{58}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a1faf29b4272b32ab9d31bf3b9c350a0b}\index{chemstr::cxs@{chemstr::cxs}!molspin@{molspin}}
+\index{molspin@{molspin}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{molspin}{molspin}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a1faf29b4272b32ab9d31bf3b9c350a0b} 
+integer, dimension(:\+), allocatable chemstr::\+cxs::\+molspin}
+
+
+
+spin on each molecule 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00059}{59}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a2165bea2105e1c9b3a08e1ff15406cb7}\index{chemstr::cxs@{chemstr::cxs}!molcharge@{molcharge}}
+\index{molcharge@{molcharge}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{molcharge}{molcharge}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a2165bea2105e1c9b3a08e1ff15406cb7} 
+integer, dimension(:\+), allocatable chemstr::\+cxs::\+molcharge}
+
+
+
+Total charge on each molecule. 
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00060}{60}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+\Hypertarget{structchemstr_1_1cxs_a8ac3451bf7853a1c60bc3c55fc98b10a}\index{chemstr::cxs@{chemstr::cxs}!itargetmol@{itargetmol}}
+\index{itargetmol@{itargetmol}!chemstr::cxs@{chemstr::cxs}}
+\doxysubsubsection{\texorpdfstring{itargetmol}{itargetmol}}
+{\footnotesize\ttfamily \label{structchemstr_1_1cxs_a8ac3451bf7853a1c60bc3c55fc98b10a} 
+integer chemstr::\+cxs::\+itargetmol}
+
+
+
+Definition at line \doxymbox{\hyperlink{structure_8f90_source_l00062}{62}} of file \doxymbox{\hyperlink{structure_8f90_source}{structure.\+f90}}.
+
+
+
+The documentation for this type was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/\doxymbox{\hyperlink{structure_8f90}{structure.\+f90}}\end{DoxyCompactItemize}

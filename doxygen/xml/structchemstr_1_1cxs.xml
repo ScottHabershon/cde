@@ -1,0 +1,623 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="structchemstr_1_1cxs" kind="type" language="Fortran" prot="public">
+    <compoundname>chemstr::cxs</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a05ebdcf9b7c9f153a1bd51f516d7552b" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer chemstr::cxs::na</definition>
+        <argsstring></argsstring>
+        <name>na</name>
+        <qualifiedname>chemstr::cxs::na</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="23" column="1" bodyfile="src/structure.f90" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a691973b2d4111e8b278ed31e8854a785" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(:, :), allocatable</type>
+        <definition>real(8), dimension(:, :), allocatable chemstr::cxs::r</definition>
+        <argsstring></argsstring>
+        <name>r</name>
+        <qualifiedname>chemstr::cxs::r</qualifiedname>
+        <briefdescription>
+<para>Coordinates in atomic units (bohr). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="24" column="1" bodyfile="src/structure.f90" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a6e262d3627e091139f96be44ccff60b5" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(:, :), allocatable</type>
+        <definition>real(8), dimension(:, :), allocatable chemstr::cxs::p</definition>
+        <argsstring></argsstring>
+        <name>p</name>
+        <qualifiedname>chemstr::cxs::p</qualifiedname>
+        <briefdescription>
+<para>Momenta in atomic units (bohr / au). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="25" column="1" bodyfile="src/structure.f90" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1adbdc91dab845ca3a895b5e26865dd7c9" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(:, :), allocatable</type>
+        <definition>real(8), dimension(:, :), allocatable chemstr::cxs::dvdr</definition>
+        <argsstring></argsstring>
+        <name>dvdr</name>
+        <qualifiedname>chemstr::cxs::dvdr</qualifiedname>
+        <briefdescription>
+<para>PES derivatives wrt coordinates in atomic units (Eh/bohr). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="26" column="1" bodyfile="src/structure.f90" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a0e90629c6ff6370920641c1c7ca83067" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(:, :), allocatable</type>
+        <definition>real(8), dimension(:, :), allocatable chemstr::cxs::force</definition>
+        <argsstring></argsstring>
+        <name>force</name>
+        <qualifiedname>chemstr::cxs::force</qualifiedname>
+        <briefdescription>
+<para>Forces wrt coordinates in atomic units (Eh/bohr). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="27" column="1" bodyfile="src/structure.f90" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1afef8c3cadb1833046e4b7f01b8958d67" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(:, :), allocatable</type>
+        <definition>real(8), dimension(:, :), allocatable chemstr::cxs::hessian</definition>
+        <argsstring></argsstring>
+        <name>hessian</name>
+        <qualifiedname>chemstr::cxs::hessian</qualifiedname>
+        <briefdescription>
+<para>Hessian matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="28" column="1" bodyfile="src/structure.f90" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a4dc1e4bf9dc22099afa1990c2affa27d" prot="public" static="no" mutable="no">
+        <type>character(len=2), dimension(:), allocatable</type>
+        <definition>character (len=2), dimension(:), allocatable chemstr::cxs::atomlabel</definition>
+        <argsstring></argsstring>
+        <name>atomlabel</name>
+        <qualifiedname>chemstr::cxs::atomlabel</qualifiedname>
+        <briefdescription>
+<para>Atom labels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="29" column="1" bodyfile="src/structure.f90" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1aa039bad319d194ec552f20d907b39127" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(:), allocatable</type>
+        <definition>real(8), dimension(:), allocatable chemstr::cxs::mass</definition>
+        <argsstring></argsstring>
+        <name>mass</name>
+        <qualifiedname>chemstr::cxs::mass</qualifiedname>
+        <briefdescription>
+<para>Atomic masses in au. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="30" column="1" bodyfile="src/structure.f90" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a9f17c74f4ba3a0c7e92773b971c64852" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer chemstr::cxs::ndofconstr</definition>
+        <argsstring></argsstring>
+        <name>ndofconstr</name>
+        <qualifiedname>chemstr::cxs::ndofconstr</qualifiedname>
+        <briefdescription>
+<para>Number of DOF constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="31" column="1" bodyfile="src/structure.f90" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a69b9cc3edf936c7544e131baa3a7f0f4" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer chemstr::cxs::natomconstr</definition>
+        <argsstring></argsstring>
+        <name>natomconstr</name>
+        <qualifiedname>chemstr::cxs::natomconstr</qualifiedname>
+        <briefdescription>
+<para>Number of atom constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="32" column="1" bodyfile="src/structure.f90" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1abcda91614d230698c1e3c3707b2771a7" prot="public" static="no" mutable="no">
+        <type>logical, dimension(:), allocatable</type>
+        <definition>logical, dimension(:), allocatable chemstr::cxs::fixeddof</definition>
+        <argsstring></argsstring>
+        <name>fixeddof</name>
+        <qualifiedname>chemstr::cxs::fixeddof</qualifiedname>
+        <briefdescription>
+<para>Fixed DOF ids. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="33" column="1" bodyfile="src/structure.f90" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a38b8cccf3115fb847a43874d1244fc59" prot="public" static="no" mutable="no">
+        <type>logical, dimension(:), allocatable</type>
+        <definition>logical, dimension(:), allocatable chemstr::cxs::fixedatom</definition>
+        <argsstring></argsstring>
+        <name>fixedatom</name>
+        <qualifiedname>chemstr::cxs::fixedatom</qualifiedname>
+        <briefdescription>
+<para>Fixed atom ids. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="34" column="1" bodyfile="src/structure.f90" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1ae5a37234bb7581279a4e20c3c0cd7a91" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) chemstr::cxs::vcalc</definition>
+        <argsstring></argsstring>
+        <name>vcalc</name>
+        <qualifiedname>chemstr::cxs::vcalc</qualifiedname>
+        <briefdescription>
+<para>Calculate potential energy of structure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="35" column="1" bodyfile="src/structure.f90" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a0b4ef943a61f36a985689787e9081134" prot="public" static="no" mutable="no">
+        <type>integer, dimension(:, :), allocatable</type>
+        <definition>integer, dimension(:, :), allocatable chemstr::cxs::graph</definition>
+        <argsstring></argsstring>
+        <name>graph</name>
+        <qualifiedname>chemstr::cxs::graph</qualifiedname>
+        <briefdescription>
+<para>Bonding graph for structure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="36" column="1" bodyfile="src/structure.f90" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1af061b63d55169aec15bee1023b6f8ad4" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(:), allocatable</type>
+        <definition>real(8), dimension(:), allocatable chemstr::cxs::sprintcoords</definition>
+        <argsstring></argsstring>
+        <name>sprintcoords</name>
+        <qualifiedname>chemstr::cxs::sprintcoords</qualifiedname>
+        <briefdescription>
+<para>SPRINT coordinates of the structure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="37" column="1" bodyfile="src/structure.f90" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a431d5ccacf2294a4d0e28911d74a0c01" prot="public" static="no" mutable="no">
+        <type>integer, dimension(:), allocatable</type>
+        <definition>integer, dimension(:), allocatable chemstr::cxs::namol</definition>
+        <argsstring></argsstring>
+        <name>namol</name>
+        <qualifiedname>chemstr::cxs::namol</qualifiedname>
+        <briefdescription>
+<para>Atom numbers for each molecule in graph. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="38" column="1" bodyfile="src/structure.f90" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1aa1a1d19dc4f7e9802f957a3ef611b41b" prot="public" static="no" mutable="no">
+        <type>integer, dimension(:, :), allocatable</type>
+        <definition>integer, dimension(:, :), allocatable chemstr::cxs::molid</definition>
+        <argsstring></argsstring>
+        <name>molid</name>
+        <qualifiedname>chemstr::cxs::molid</qualifiedname>
+        <briefdescription>
+<para>Atom indices for each molecule in graph. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="39" column="1" bodyfile="src/structure.f90" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a8c33378afa3c426787c0a6df0026dd77" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer chemstr::cxs::nmol</definition>
+        <argsstring></argsstring>
+        <name>nmol</name>
+        <qualifiedname>chemstr::cxs::nmol</qualifiedname>
+        <briefdescription>
+<para>Number of molecules defined by structure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="40" column="1" bodyfile="src/structure.f90" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a0cc00b5504ff1b7121b384fd6e38f819" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) chemstr::cxs::vcon</definition>
+        <argsstring></argsstring>
+        <name>vcon</name>
+        <qualifiedname>chemstr::cxs::vcon</qualifiedname>
+        <briefdescription>
+<para>Constraint potential energy. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="41" column="1" bodyfile="src/structure.f90" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a53efe991273d0cbdf6e7f7db4c84d9ac" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) chemstr::cxs::fitness</definition>
+        <argsstring></argsstring>
+        <name>fitness</name>
+        <qualifiedname>chemstr::cxs::fitness</qualifiedname>
+        <briefdescription>
+<para>Fitness for molecular optimization. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="42" column="1" bodyfile="src/structure.f90" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a6c3b969eb52f0b81eed9df8d6887b969" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) chemstr::cxs::fitness_scaled</definition>
+        <argsstring></argsstring>
+        <name>fitness_scaled</name>
+        <qualifiedname>chemstr::cxs::fitness_scaled</qualifiedname>
+        <briefdescription>
+<para>Scaled fitness for molecular optimization. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="43" column="1" bodyfile="src/structure.f90" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a7a3d94afe2e36d8b7d0b64a73856acde" prot="public" static="no" mutable="no">
+        <type>character(len=10)</type>
+        <definition>character(len=10) chemstr::cxs::method</definition>
+        <argsstring></argsstring>
+        <name>method</name>
+        <qualifiedname>chemstr::cxs::method</qualifiedname>
+        <initializer>= &apos;&apos;</initializer>
+        <briefdescription>
+<para>abinitio method used to calculate properties </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="44" column="1" bodyfile="src/structure.f90" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a8282facd1672858dd1b986d229c6f2c2" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer chemstr::cxs::nbonds</definition>
+        <argsstring></argsstring>
+        <name>nbonds</name>
+        <qualifiedname>chemstr::cxs::nbonds</qualifiedname>
+        <briefdescription>
+<para>Number of bonds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="45" column="1" bodyfile="src/structure.f90" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a9acbf74d770156b3aefcc03afba49e8c" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer chemstr::cxs::nangles</definition>
+        <argsstring></argsstring>
+        <name>nangles</name>
+        <qualifiedname>chemstr::cxs::nangles</qualifiedname>
+        <briefdescription>
+<para>Number of angles. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="46" column="1" bodyfile="src/structure.f90" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a455cf0359cfba3c52a7c5c270073fddf" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer chemstr::cxs::ntors</definition>
+        <argsstring></argsstring>
+        <name>ntors</name>
+        <qualifiedname>chemstr::cxs::ntors</qualifiedname>
+        <briefdescription>
+<para>Number of torsions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="47" column="1" bodyfile="src/structure.f90" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1ad735b854a18b6b9c8dbc32f8cd1ffda1" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(<ref refid="namespaceconstants_1ace3c3c956eaab49c4f76d6da9f4d8116" kindref="member">nbondmax</ref>)</type>
+        <definition>real(8), dimension(nbondmax) chemstr::cxs::bondl</definition>
+        <argsstring></argsstring>
+        <name>bondl</name>
+        <qualifiedname>chemstr::cxs::bondl</qualifiedname>
+        <briefdescription>
+<para>Calculated bond lengths. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="48" column="1" bodyfile="src/structure.f90" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1ab452c2bc96adc4f71b9dada40a1f2573" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(<ref refid="namespaceconstants_1a294bba2756e146e255646c046839c8f6" kindref="member">nanglemax</ref>)</type>
+        <definition>real(8), dimension(nanglemax) chemstr::cxs::angle</definition>
+        <argsstring></argsstring>
+        <name>angle</name>
+        <qualifiedname>chemstr::cxs::angle</qualifiedname>
+        <briefdescription>
+<para>Calculated angles. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="49" column="1" bodyfile="src/structure.f90" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1aba4f0e6140285d4cb94c8d8c8b33ca0f" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(<ref refid="namespaceconstants_1af85d966801771d9090d3473c2698e498" kindref="member">ntorsmax</ref>)</type>
+        <definition>real(8), dimension(ntorsmax) chemstr::cxs::torsion</definition>
+        <argsstring></argsstring>
+        <name>torsion</name>
+        <qualifiedname>chemstr::cxs::torsion</qualifiedname>
+        <briefdescription>
+<para>Calculated torsion angles. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="50" column="1" bodyfile="src/structure.f90" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1ae72187b73d997fdc133f51561abf6fd8" prot="public" static="no" mutable="no">
+        <type>integer, dimension(<ref refid="namespaceconstants_1ace3c3c956eaab49c4f76d6da9f4d8116" kindref="member">nbondmax</ref>, 2)</type>
+        <definition>integer, dimension(nbondmax, 2) chemstr::cxs::bondid</definition>
+        <argsstring></argsstring>
+        <name>bondid</name>
+        <qualifiedname>chemstr::cxs::bondid</qualifiedname>
+        <briefdescription>
+<para>IDs of atoms in bonds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="51" column="1" bodyfile="src/structure.f90" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a1e10c27bb71298eb307409454fc8dddb" prot="public" static="no" mutable="no">
+        <type>integer, dimension(<ref refid="namespaceconstants_1a294bba2756e146e255646c046839c8f6" kindref="member">nanglemax</ref>, 3)</type>
+        <definition>integer, dimension(nanglemax, 3) chemstr::cxs::angleid</definition>
+        <argsstring></argsstring>
+        <name>angleid</name>
+        <qualifiedname>chemstr::cxs::angleid</qualifiedname>
+        <briefdescription>
+<para>IDs of atoms in angles. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="52" column="1" bodyfile="src/structure.f90" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a1538720357fb254c1435a39ae1433542" prot="public" static="no" mutable="no">
+        <type>integer, dimension(<ref refid="namespaceconstants_1af85d966801771d9090d3473c2698e498" kindref="member">ntorsmax</ref>, 4)</type>
+        <definition>integer, dimension(ntorsmax, 4) chemstr::cxs::torsid</definition>
+        <argsstring></argsstring>
+        <name>torsid</name>
+        <qualifiedname>chemstr::cxs::torsid</qualifiedname>
+        <briefdescription>
+<para>IDs of atoms in torsions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="53" column="1" bodyfile="src/structure.f90" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a0577665bbd708dfa7ac5d18464a2d2fb" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(<ref refid="namespaceconstants_1ace3c3c956eaab49c4f76d6da9f4d8116" kindref="member">nbondmax</ref>, 2, 3)</type>
+        <definition>real(8), dimension(nbondmax,2,3) chemstr::cxs::dbonddr</definition>
+        <argsstring></argsstring>
+        <name>dbonddr</name>
+        <qualifiedname>chemstr::cxs::dbonddr</qualifiedname>
+        <briefdescription>
+<para>Derivatives of bond-lengths wrt xyz of atoms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="54" column="1" bodyfile="src/structure.f90" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a09576e755557f8a6196897d1da5e2e9b" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(<ref refid="namespaceconstants_1a294bba2756e146e255646c046839c8f6" kindref="member">nanglemax</ref>, 3, 3)</type>
+        <definition>real(8), dimension(nanglemax,3,3) chemstr::cxs::dangdr</definition>
+        <argsstring></argsstring>
+        <name>dangdr</name>
+        <qualifiedname>chemstr::cxs::dangdr</qualifiedname>
+        <briefdescription>
+<para>Derivatives of angles wrt xyz of atoms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="55" column="1" bodyfile="src/structure.f90" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1ab5ab71029fac772aa9a7e6ce98a2e92a" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(<ref refid="namespaceconstants_1af85d966801771d9090d3473c2698e498" kindref="member">ntorsmax</ref>, 4, 3)</type>
+        <definition>real(8), dimension(ntorsmax,4,3) chemstr::cxs::dtorsdr</definition>
+        <argsstring></argsstring>
+        <name>dtorsdr</name>
+        <qualifiedname>chemstr::cxs::dtorsdr</qualifiedname>
+        <briefdescription>
+<para>Derivatives of torsions wrt xyz of atoms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="56" column="1" bodyfile="src/structure.f90" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a6d9703b6b7df80631f43f239c1b0998a" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(:), allocatable</type>
+        <definition>real(8), dimension(:), allocatable chemstr::cxs::molen</definition>
+        <argsstring></argsstring>
+        <name>molen</name>
+        <qualifiedname>chemstr::cxs::molen</qualifiedname>
+        <briefdescription>
+<para>energy per molecule </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="58" column="1" bodyfile="src/structure.f90" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a1faf29b4272b32ab9d31bf3b9c350a0b" prot="public" static="no" mutable="no">
+        <type>integer, dimension(:), allocatable</type>
+        <definition>integer, dimension(:), allocatable chemstr::cxs::molspin</definition>
+        <argsstring></argsstring>
+        <name>molspin</name>
+        <qualifiedname>chemstr::cxs::molspin</qualifiedname>
+        <briefdescription>
+<para>spin on each molecule </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="59" column="1" bodyfile="src/structure.f90" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a2165bea2105e1c9b3a08e1ff15406cb7" prot="public" static="no" mutable="no">
+        <type>integer, dimension(:), allocatable</type>
+        <definition>integer, dimension(:), allocatable chemstr::cxs::molcharge</definition>
+        <argsstring></argsstring>
+        <name>molcharge</name>
+        <qualifiedname>chemstr::cxs::molcharge</qualifiedname>
+        <briefdescription>
+<para>Total charge on each molecule. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="60" column="1" bodyfile="src/structure.f90" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="variable" id="structchemstr_1_1cxs_1a8ac3451bf7853a1c60bc3c55fc98b10a" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer chemstr::cxs::itargetmol</definition>
+        <argsstring></argsstring>
+        <name>itargetmol</name>
+        <qualifiedname>chemstr::cxs::itargetmol</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="62" column="1" bodyfile="src/structure.f90" bodystart="62" bodyend="62"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Chemical structure object definition. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/structure.f90" line="21" column="1" bodyfile="src/structure.f90" bodystart="21" bodyend="63"/>
+    <listofallmembers>
+      <member refid="structchemstr_1_1cxs_1ab452c2bc96adc4f71b9dada40a1f2573" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>angle</name></member>
+      <member refid="structchemstr_1_1cxs_1a1e10c27bb71298eb307409454fc8dddb" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>angleid</name></member>
+      <member refid="structchemstr_1_1cxs_1a4dc1e4bf9dc22099afa1990c2affa27d" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>atomlabel</name></member>
+      <member refid="structchemstr_1_1cxs_1ae72187b73d997fdc133f51561abf6fd8" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>bondid</name></member>
+      <member refid="structchemstr_1_1cxs_1ad735b854a18b6b9c8dbc32f8cd1ffda1" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>bondl</name></member>
+      <member refid="structchemstr_1_1cxs_1a09576e755557f8a6196897d1da5e2e9b" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>dangdr</name></member>
+      <member refid="structchemstr_1_1cxs_1a0577665bbd708dfa7ac5d18464a2d2fb" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>dbonddr</name></member>
+      <member refid="structchemstr_1_1cxs_1ab5ab71029fac772aa9a7e6ce98a2e92a" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>dtorsdr</name></member>
+      <member refid="structchemstr_1_1cxs_1adbdc91dab845ca3a895b5e26865dd7c9" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>dvdr</name></member>
+      <member refid="structchemstr_1_1cxs_1a53efe991273d0cbdf6e7f7db4c84d9ac" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>fitness</name></member>
+      <member refid="structchemstr_1_1cxs_1a6c3b969eb52f0b81eed9df8d6887b969" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>fitness_scaled</name></member>
+      <member refid="structchemstr_1_1cxs_1a38b8cccf3115fb847a43874d1244fc59" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>fixedatom</name></member>
+      <member refid="structchemstr_1_1cxs_1abcda91614d230698c1e3c3707b2771a7" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>fixeddof</name></member>
+      <member refid="structchemstr_1_1cxs_1a0e90629c6ff6370920641c1c7ca83067" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>force</name></member>
+      <member refid="structchemstr_1_1cxs_1a0b4ef943a61f36a985689787e9081134" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>graph</name></member>
+      <member refid="structchemstr_1_1cxs_1afef8c3cadb1833046e4b7f01b8958d67" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>hessian</name></member>
+      <member refid="structchemstr_1_1cxs_1a8ac3451bf7853a1c60bc3c55fc98b10a" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>itargetmol</name></member>
+      <member refid="structchemstr_1_1cxs_1aa039bad319d194ec552f20d907b39127" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>mass</name></member>
+      <member refid="structchemstr_1_1cxs_1a7a3d94afe2e36d8b7d0b64a73856acde" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>method</name></member>
+      <member refid="structchemstr_1_1cxs_1a2165bea2105e1c9b3a08e1ff15406cb7" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>molcharge</name></member>
+      <member refid="structchemstr_1_1cxs_1a6d9703b6b7df80631f43f239c1b0998a" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>molen</name></member>
+      <member refid="structchemstr_1_1cxs_1aa1a1d19dc4f7e9802f957a3ef611b41b" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>molid</name></member>
+      <member refid="structchemstr_1_1cxs_1a1faf29b4272b32ab9d31bf3b9c350a0b" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>molspin</name></member>
+      <member refid="structchemstr_1_1cxs_1a05ebdcf9b7c9f153a1bd51f516d7552b" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>na</name></member>
+      <member refid="structchemstr_1_1cxs_1a431d5ccacf2294a4d0e28911d74a0c01" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>namol</name></member>
+      <member refid="structchemstr_1_1cxs_1a9acbf74d770156b3aefcc03afba49e8c" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>nangles</name></member>
+      <member refid="structchemstr_1_1cxs_1a69b9cc3edf936c7544e131baa3a7f0f4" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>natomconstr</name></member>
+      <member refid="structchemstr_1_1cxs_1a8282facd1672858dd1b986d229c6f2c2" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>nbonds</name></member>
+      <member refid="structchemstr_1_1cxs_1a9f17c74f4ba3a0c7e92773b971c64852" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>ndofconstr</name></member>
+      <member refid="structchemstr_1_1cxs_1a8c33378afa3c426787c0a6df0026dd77" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>nmol</name></member>
+      <member refid="structchemstr_1_1cxs_1a455cf0359cfba3c52a7c5c270073fddf" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>ntors</name></member>
+      <member refid="structchemstr_1_1cxs_1a6e262d3627e091139f96be44ccff60b5" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>p</name></member>
+      <member refid="structchemstr_1_1cxs_1a691973b2d4111e8b278ed31e8854a785" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>r</name></member>
+      <member refid="structchemstr_1_1cxs_1af061b63d55169aec15bee1023b6f8ad4" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>sprintcoords</name></member>
+      <member refid="structchemstr_1_1cxs_1a1538720357fb254c1435a39ae1433542" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>torsid</name></member>
+      <member refid="structchemstr_1_1cxs_1aba4f0e6140285d4cb94c8d8c8b33ca0f" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>torsion</name></member>
+      <member refid="structchemstr_1_1cxs_1ae5a37234bb7581279a4e20c3c0cd7a91" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>vcalc</name></member>
+      <member refid="structchemstr_1_1cxs_1a0cc00b5504ff1b7121b384fd6e38f819" prot="public" virt="non-virtual"><scope>chemstr::cxs</scope><name>vcon</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

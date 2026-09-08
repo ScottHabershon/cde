@@ -1,0 +1,125 @@
+\doxysection{src/\+structure.f90 File Reference}
+\hypertarget{structure_8f90}{}\label{structure_8f90}\index{src/structure.f90@{src/structure.f90}}
+\doxysubsubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \doxymbox{\hyperlink{structchemstr_1_1cxs}{chemstr::\+cxs}}
+\begin{DoxyCompactList}\small\item\em Chemical structure object definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+module \doxymbox{\hyperlink{namespacechemstr}{chemstr}}
+\begin{DoxyCompactList}\small\item\em Chemical structure object definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions/\+\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a816dc4c02e3f8a2fa1b2ce158044da9c}{chemstr::\+createcxs}} (cx, na, label, x, y, z)
+\begin{DoxyCompactList}\small\item\em Create\+CXS. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a355e4ad635ef0c00ec0fd0f3dfcb5fe6}{chemstr::\+deletecxs}} (cx)
+\begin{DoxyCompactList}\small\item\em Delete\+CXS. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a8e6c53cdedc7fd4344a6c7f80cef7ea8}{chemstr::\+copytonewcxs}} (cx1, cx2)
+\begin{DoxyCompactList}\small\item\em Copy\+To\+New\+CXS. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a037cd002260a81e4cb610374dd2b5b91}{chemstr::\+copycxs}} (cx1, cx2)
+\begin{DoxyCompactList}\small\item\em Copy\+CXS. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a56a273f4f5259b687492dbe0824baee7}{chemstr::\+setmass}} (cx)
+\begin{DoxyCompactList}\small\item\em Set\+Mass. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_ac058a9ac70f166f7d78a740dafdb7191}{chemstr::\+createcxsfromxyz}} (cx, ifile)
+\begin{DoxyCompactList}\small\item\em Create\+CXSFrom\+XYZ. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a95a6afee2e6b81c26e9bba9802c06f20}{chemstr::\+createcxsfrommask}} (cx, mask, new\+\_\+cx)
+\begin{DoxyCompactList}\small\item\em Create\+CXSFrom\+Mask. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a3362d0b3533d709526afd1ee053fa8a5}{chemstr::\+readxyztocxs}} (cx, ifile)
+\begin{DoxyCompactList}\small\item\em Read\+XYZto\+CXS. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_aff042add3b3af6c94bbd1ab650c2d52d}{chemstr::\+readcxs}} (cx, ifile)
+\begin{DoxyCompactList}\small\item\em Read\+CXS. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_aca4ec9833226733e23883f7c915dc230}{chemstr::\+setcxsconstraints}} (cx, ndofconstr, fixeddof, natomconstr, fixedatom)
+\begin{DoxyCompactList}\small\item\em Set\+CXSConstraints. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a8f2832c53773ad18eadd995ec383cda8}{chemstr::\+getprojectedmomenta}} (cx)
+\begin{DoxyCompactList}\small\item\em Get\+Projected\+Momenta. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_abb28977af5498456e127ef24a4398aad}{chemstr::\+getgraph}} (cx)
+\begin{DoxyCompactList}\small\item\em Get\+Graph. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a6c05b1170d09857c530676740c349725}{chemstr::\+getmols}} (cx)
+\begin{DoxyCompactList}\small\item\em Get\+Mols. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_afcf9cf9982320c1a5d8147d4dc07244e}{chemstr::\+getshortestpaths}} (n, dg, dsp)
+\begin{DoxyCompactList}\small\item\em Get\+Shortest\+Paths. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a38779fdbd95d7cfe9b20a456d704f37d}{chemstr::\+graphconstraints}} (cx, kspring, nbstrength, nbrange, kradius)
+\begin{DoxyCompactList}\small\item\em Graph\+Constraints. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a8c1068dc664d3b789bc998f0bf8acf6e}{chemstr::\+graphconstraints\+\_\+doubleended}} (cx, cxstart, kspring, nbstrength, nbrange, kradius)
+\begin{DoxyCompactList}\small\item\em Graph\+Constraints\+\_\+\+Double\+Ended. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_ae4120f18447f6c019a86e67aa63c7ebc}{chemstr::\+projactmolrottransdvdr2}} (cx, nactmol, molecact, frozlistin)
+\begin{DoxyCompactList}\small\item\em Proj\+Act\+Mol\+Rot\+Trans\+DVDR2 projects the rotational and translational degrees of freedom of each nactmol active molecule in molecact from the dcerivative vector dvdr. WARNING -\/ THE PROJECTION OF OF DVDR ONLY WORKS PARTIALLY FOR ROTATIONAL DOF, IF DVDR IS VERY LARGE, IT NO LONGER WORKS APPROPRIATELY.. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_abca5a1d5d0b7dc1a14f745b783b1d36b}{chemstr::\+projoutactmolrottransdvdr}} (cx, nactmol, molecact, mcx)
+\begin{DoxyCompactList}\small\item\em Proj\+Out\+Act\+Mol\+Rot\+Trans\+DVDR projects out the rotational and translational degrees of freedom of the system of active molecules from the dcerivative vector dvdr. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a9d74090af53171e80d26702bce7e904b}{chemstr::\+projoutactmolrottransdvdrpair}} (cx, molecact, nactmol, ic)
+\begin{DoxyCompactList}\small\item\em Proj\+Out\+Act\+Mol\+Rot\+Trans\+DVDRPair. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_ab59328a5e2aaf2435986aede46001bc3}{chemstr::\+projoutactmolrottransdvdr2}} (cx, molecact, nactmol, ic)
+\begin{DoxyCompactList}\small\item\em Proj\+Out\+Act\+Mol\+Rot\+Trans\+DVDR2. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a648457057ca351be910d34af0fe74dd4}{chemstr::\+projmolrottransdvdr2}} (cx)
+\begin{DoxyCompactList}\small\item\em Proj\+Mol\+Rot\+Trans\+DVDR2 projects the rotational and translational degrees of freedom of each molecule from the dcerivative vector dvdr. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_ae5bb3c1c738bff7b67f248e79f1915a2}{chemstr::\+projmolrottransdvdr}} (cx)
+\begin{DoxyCompactList}\small\item\em Proj\+Mol\+Rot\+Trans\+DVDR projects the rotational and translational degrees of freedom of each molecule from the dcerivative vector dvdr not sure if this one works... \end{DoxyCompactList}\item 
+integer function \doxymbox{\hyperlink{namespacechemstr_ac3ae7b720d24d1e767b7cd60c17445af}{chemstr::\+molidofatom}} (atid, cx)
+\begin{DoxyCompactList}\small\item\em Mol\+Id\+From\+Atom. \end{DoxyCompactList}\item 
+double precision function, dimension(3, 3) \doxymbox{\hyperlink{namespacechemstr_aecfcdc7587a86cb18749383e538abbab}{chemstr::\+molmomentofinertiatensor}} (cx, mi)
+\begin{DoxyCompactList}\small\item\em Molecule\+Moment\+Of\+Inertia\+Tensor. \end{DoxyCompactList}\item 
+real(8) function, dimension(3) \doxymbox{\hyperlink{namespacechemstr_a29e334c1c70aebfd46dcc358188d57b4}{chemstr::\+molecularcom}} (cx, m)
+\begin{DoxyCompactList}\small\item\em Molecular\+COM. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_aef17d31cdb1cd38fb760b5751f79ca85}{chemstr::\+accumulatederivatives}} (cx, t1, i, j)
+\begin{DoxyCompactList}\small\item\em Accumulate\+Derivatives. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a591122df70e3868553ad901347346998}{chemstr::\+get3rings}} (cx, nrings)
+\begin{DoxyCompactList}\small\item\em Get3rings. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a82765d5adc1ce177f662c280af854725}{chemstr::\+get4rings}} (cx, nrings)
+\begin{DoxyCompactList}\small\item\em Get4rings. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_ab5a731a94c47cefa1b1b0683a19819fa}{chemstr::\+printcxstofile}} (cx, filename, value)
+\begin{DoxyCompactList}\small\item\em Print\+CXSTo\+File. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a3e7d49062cb6814286622fa8f5485ecf}{chemstr::\+createmolecularcx}} (cx, mcx, m)
+\begin{DoxyCompactList}\small\item\em Create\+Molecular\+CX. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_adf0ea9c2540bf1df7576dcd176bea43e}{chemstr::\+createsubstructurecx}} (cx, mcx, id, na)
+\item 
+integer function, dimension(cx\%namol(m), cx\%namol(m)) \doxymbox{\hyperlink{namespacechemstr_a2d2cc74f6044342afa0ded9f99c66a04}{chemstr::\+moleculargraph}} (cx, m)
+\begin{DoxyCompactList}\small\item\em Molecular\+Graph. \end{DoxyCompactList}\item 
+character(len=2) function, dimension(cx\%namol(m)) \doxymbox{\hyperlink{namespacechemstr_a5ef28d022842eeed6bc2b62cd2db01d8}{chemstr::\+molecularalabel}} (cx, m)
+\begin{DoxyCompactList}\small\item\em Molecular\+Atomic\+Label. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a7f2064b2aad1d074c52548acc68d91a2}{chemstr::\+removehydrogens}} (cxin, cxout)
+\begin{DoxyCompactList}\small\item\em Remove\+Hydrogens. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_af6a21c24e09efcd5811cd28bcc4347e6}{chemstr::\+setcxslattice}} (cx)
+\begin{DoxyCompactList}\small\item\em Set\+CXSLattice. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a579dfeacef98930d51ce127c936910ce}{chemstr::\+optcxsagainstgraph}} (cx, gdsrestspring, nbstrength, nbrange, kradius, nrelax, step)
+\begin{DoxyCompactList}\small\item\em Opt\+CXSAgainst\+Graph. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_aa5bcf84cda1282afd18a5ebae91c3fd4}{chemstr::\+optimizegrp}} (cx, success, gdsrestspring, nbstrength, nbrange, kradius, ngdsrelax, gdsdtrelax)
+\begin{DoxyCompactList}\small\item\em Optimize\+GRP. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_ac326b6624714b67b89af9e73b2da7bb1}{chemstr::\+optimizegrpforceconv}} (cx, success, gdsrestspring, nbstrength, nbrange, kradius, ngdsrelax, gdsdtrelax)
+\begin{DoxyCompactList}\small\item\em Optimize\+GRPForce\+Conv. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a6e0cb6f8857bd5a3a4f9b87317563c27}{chemstr::\+optimizegrp2}} (cx, cxstart, success, gdsrestspring, nbstrength, nbrange, kradius, ngdsrelax, gdsdtrelax)
+\begin{DoxyCompactList}\small\item\em Optimize\+GRP2. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a8c5c7058cc12c65f2e60dbd9813cfcec}{chemstr::\+optimizegrp\+\_\+doubleended}} (cx, cxstart, success, gdsrestspring, nbstrength, nbrange, kradius, ngdsrelax, gdsdtrelax)
+\begin{DoxyCompactList}\small\item\em Optimize\+GRP\+\_\+\+Double\+Ended. \end{DoxyCompactList}\item 
+character(:\+) function, allocatable \doxymbox{\hyperlink{namespacechemstr_a6659644537a7765bec46320eb5fbf579}{chemstr::\+molecularformula}} (cx, molid)
+\begin{DoxyCompactList}\small\item\em Molecular\+Formula. \end{DoxyCompactList}\item 
+integer function, dimension(2, cx\%\doxymbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}}) \doxymbox{\hyperlink{namespacechemstr_aeb9715869d43300a06dece14335b8a90}{chemstr::\+getatomvalency}} (cx, fixedbonds)
+\begin{DoxyCompactList}\small\item\em Get\+Atom\+Valency. \end{DoxyCompactList}\item 
+integer function, dimension(cx\%\doxymbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}}, cx\%\doxymbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}}) \doxymbox{\hyperlink{namespacechemstr_abf5a062858e76503485712b519de0ba3}{chemstr::\+getelementpairvalency}} (cx)
+\begin{DoxyCompactList}\small\item\em Get\+Element\+Pair\+Valency. \end{DoxyCompactList}\item 
+logical function \doxymbox{\hyperlink{namespacechemstr_aadd8f96c5bf2487db486c507835a660d}{chemstr::\+allowedcxsvalencerange}} (cx)
+\begin{DoxyCompactList}\small\item\em Allowed\+CXSValence\+Range. \end{DoxyCompactList}\item 
+logical function \doxymbox{\hyperlink{namespacechemstr_a02c610963e45aa224298fd48ff988cb2}{chemstr::\+allowedcxsreactivevalence}} (cx)
+\begin{DoxyCompactList}\small\item\em Allowed\+CXSReactive\+Valence. \end{DoxyCompactList}\item 
+logical function \doxymbox{\hyperlink{namespacechemstr_aaa24f03941c25ca1496329ce1ad0a755}{chemstr::\+allowedcxsbondsmax}} (cx)
+\begin{DoxyCompactList}\small\item\em Allowed\+CXSBonds\+Max. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a33a9d23a89f4fc1c8d91dceac19c6e32}{chemstr::\+setreactiveindices}} (bondchange, atomchange, naa, cx, rxindex, nrx)
+\begin{DoxyCompactList}\small\item\em Set\+Reactive\+Indices. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a428ac84770d26154eb2fd6f52dfd07b9}{chemstr::\+checkforbidden}} (cx, nforbid, naforbid, gforbid, forbidlabel, forbidflag)
+\begin{DoxyCompactList}\small\item\em Check\+Forbidden. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a04d94078390085dcf855f8df499ef7cc}{chemstr::\+printcxsgraphinfo}} (cx, iunit, message)
+\begin{DoxyCompactList}\small\item\em Print\+CXSGraph\+Info(). \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_aa485abde3fe586d791e147ad9014a81b}{chemstr::\+setvalencecoords}} (cx)
+\begin{DoxyCompactList}\small\item\em Set\+Valence\+Coords(). \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_a5f87f4ee909fc5c3c54278aca9df1241}{chemstr::\+getbonds}} (cx)
+\begin{DoxyCompactList}\small\item\em Get\+Bonds(). \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacechemstr_acffc073bd33497662f25faf7a2beee56}{chemstr::\+getangles}} (cx)
+\begin{DoxyCompactList}\small\item\em Get\+Angles(). \end{DoxyCompactList}\item 
+integer function, dimension(cx\%namol(mi) \texorpdfstring{$\ast$}{*}(cx\%namol(mi) -\/1)/\+2) \doxymbox{\hyperlink{namespacechemstr_aed3dbeb8ac8d6511ae58d5038f16635e}{chemstr::\+getmoleculargraphvector}} (cx, mi)
+\begin{DoxyCompactList}\small\item\em Get\+Molecular\+Graph\+Vector. \end{DoxyCompactList}\item 
+character(250) function \doxymbox{\hyperlink{namespacechemstr_a6e45846ee7a7eed38d6571aa6b5157ec}{chemstr::\+getmolecularsmiles}} (cx, mi)
+\begin{DoxyCompactList}\small\item\em Get\+Molecular\+Smiles. \end{DoxyCompactList}\item 
+double precision function \doxymbox{\hyperlink{namespacechemstr_a9792a8e41ca57dbc66b404196c6950c5}{chemstr::\+molecularmass}} (cx, molid)
+\begin{DoxyCompactList}\small\item\em Molecular\+Mass. \end{DoxyCompactList}\end{DoxyCompactItemize}

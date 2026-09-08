@@ -1,0 +1,19 @@
+.md-typeset h1 {
+font-weight: 700;
+}
+.md-typeset h2 {
+margin-top: 2em;
+}
+
+.md-typeset .admonition {
+border-radius: 0.4rem;
+}
+
+.grid.cards {
+margin-top: 1.5rem;
+}
+
+code {
+font-variant-ligatures: none;
+}
+

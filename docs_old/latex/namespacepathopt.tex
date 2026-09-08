@@ -1,0 +1,66 @@
+\hypertarget{namespacepathopt}{}\doxysection{pathopt Module Reference}
+\label{namespacepathopt}\index{pathopt@{pathopt}}
+
+
+Contains routines for path optimization, including C\+I\+N\+EB.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacepathopt_a41a744efc5bab783a88663d6af98a777}{optimizepath}} (rp)
+\begin{DoxyCompactList}\small\item\em Optimize\+Path. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacepathopt_af8fbe251f61b7f4e756605041e19e1a0}{cineb}} (rp)
+\begin{DoxyCompactList}\small\item\em C\+I\+N\+EB. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains routines for path optimization, including C\+I\+N\+EB. 
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacepathopt_a41a744efc5bab783a88663d6af98a777}\label{namespacepathopt_a41a744efc5bab783a88663d6af98a777}} 
+\index{pathopt@{pathopt}!optimizepath@{optimizepath}}
+\index{optimizepath@{optimizepath}!pathopt@{pathopt}}
+\doxysubsubsection{\texorpdfstring{optimizepath()}{optimizepath()}}
+{\footnotesize\ttfamily subroutine pathopt\+::optimizepath (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp }\end{DoxyParamCaption})}
+
+
+
+Optimize\+Path. 
+
+Initiates a path optimization calculation.
+
+
+\begin{DoxyItemize}
+\item rp\+: Initial reaction path.
+\item nebiter\+: number of N\+EB iterations
+\item neboutfreq\+: number of N\+EB iterations between outputs
+\item nebspring\+: N\+EB spring parameter in atomic units
+\item pathoptmethod\+: Method used to optimize reaction path. Allowed values are \textquotesingle{}N\+EB\textquotesingle{}....
+\item N\+E\+Bconv -\/ Convergence threshold on average force for N\+EB calculations.
+\item C\+Ithresh -\/ Average force modulus when climbing-\/image should be activated.
+\item inputfile\+: The input filename, used to generate further output files.
+\item logfile\+: Log file unit nunmber for output 
+\end{DoxyItemize}
+
+Definition at line 41 of file pathopt.\+f90.
+
+\mbox{\Hypertarget{namespacepathopt_af8fbe251f61b7f4e756605041e19e1a0}\label{namespacepathopt_af8fbe251f61b7f4e756605041e19e1a0}} 
+\index{pathopt@{pathopt}!cineb@{cineb}}
+\index{cineb@{cineb}!pathopt@{pathopt}}
+\doxysubsubsection{\texorpdfstring{cineb()}{cineb()}}
+{\footnotesize\ttfamily subroutine pathopt\+::cineb (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp }\end{DoxyParamCaption})}
+
+
+
+C\+I\+N\+EB. 
+
+Runs a climbing-\/image nudged elastic band calculation starting from an initial reaction-\/path defined in rp.
+
+
+\begin{DoxyItemize}
+\item rp\+: The reaction-\/path object to be refined. 
+\end{DoxyItemize}
+
+Definition at line 77 of file pathopt.\+f90.
+

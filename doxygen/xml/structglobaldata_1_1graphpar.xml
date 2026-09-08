@@ -1,0 +1,332 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="structglobaldata_1_1graphpar" kind="type" language="Fortran" prot="public">
+    <compoundname>globaldata::graphpar</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a15beab6e6784850319e9b0ca78fd62df" prot="public" static="no" mutable="no">
+        <type>integer, dimension(10)</type>
+        <definition>integer, dimension(10) globaldata::graphpar::react</definition>
+        <argsstring></argsstring>
+        <name>react</name>
+        <qualifiedname>globaldata::graphpar::react</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="241" column="1" bodyfile="src/globaldata.f90" bodystart="241" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a1d29ff9b141fecf7b139e648d8ed9a70" prot="public" static="no" mutable="no">
+        <type>integer, dimension(10)</type>
+        <definition>integer, dimension(10) globaldata::graphpar::prod</definition>
+        <argsstring></argsstring>
+        <name>prod</name>
+        <qualifiedname>globaldata::graphpar::prod</qualifiedname>
+        <briefdescription>
+<para>user supplied molecule ID from the Mol.dat file that will form the ends (products and reactants) of the reaction netowrk tree that they wish the code to calculate </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="241" column="1" bodyfile="src/globaldata.f90" bodystart="241" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a7bbb885be8abaf0cd6e6c32148ef904e" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::graphpar::nprod</definition>
+        <argsstring></argsstring>
+        <name>nprod</name>
+        <qualifiedname>globaldata::graphpar::nprod</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="243" column="1" bodyfile="src/globaldata.f90" bodystart="243" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a6d5b296eaf483d68cb5715e92bae69f9" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::graphpar::nreact</definition>
+        <argsstring></argsstring>
+        <name>nreact</name>
+        <qualifiedname>globaldata::graphpar::nreact</qualifiedname>
+        <briefdescription>
+<para>the number of molecules of products and reactants the user has supplied </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="243" column="1" bodyfile="src/globaldata.f90" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a23f7b793f3d8c8a51e0f88504bc9daf3" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::graphpar::maxtreesolutions</definition>
+        <argsstring></argsstring>
+        <name>maxtreesolutions</name>
+        <qualifiedname>globaldata::graphpar::maxtreesolutions</qualifiedname>
+        <briefdescription>
+<para>the number of tree solutions the user requested to generate... </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="244" column="1" bodyfile="src/globaldata.f90" bodystart="244" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a6fc3346886b93a7a00dc5f75f314e47b" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::graphpar::nni</definition>
+        <argsstring></argsstring>
+        <name>nni</name>
+        <qualifiedname>globaldata::graphpar::nni</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="245" column="1" bodyfile="src/globaldata.f90" bodystart="245" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a6b61499a86bd97ef2d170e30bff5e3a6" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::graphpar::nri</definition>
+        <argsstring></argsstring>
+        <name>nri</name>
+        <qualifiedname>globaldata::graphpar::nri</qualifiedname>
+        <briefdescription>
+<para>number of nodes and reactions the user want us to ignore during the graph generation algorithm... </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="245" column="1" bodyfile="src/globaldata.f90" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1ab22a73128e7fbf2a4b7927995bcb7e4a" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::graphpar::maxcomb</definition>
+        <argsstring></argsstring>
+        <name>maxcomb</name>
+        <qualifiedname>globaldata::graphpar::maxcomb</qualifiedname>
+        <briefdescription>
+<para>the cutoff for the number of trees we keep from levels below the tree, to stop the combinatorial explosion </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="246" column="1" bodyfile="src/globaldata.f90" bodystart="246" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a971fbdf4861ed591939a3c9cd947dca2" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::graphpar::maxb</definition>
+        <argsstring></argsstring>
+        <name>maxb</name>
+        <qualifiedname>globaldata::graphpar::maxb</qualifiedname>
+        <briefdescription>
+<para>the maximum number of nodes-with-more-than-one-reaction we are allowed to visit when traversing the tree network </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="247" column="1" bodyfile="src/globaldata.f90" bodystart="247" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a192ce45f5d446e095a6b3b19787845e4" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::graphpar::mxevp</definition>
+        <argsstring></argsstring>
+        <name>mxevp</name>
+        <qualifiedname>globaldata::graphpar::mxevp</qualifiedname>
+        <briefdescription>
+<para>the maximum number of trees per eigenvector cluster the user wants to print out </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="248" column="1" bodyfile="src/globaldata.f90" bodystart="248" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1ad9b8844b41841dfc53b0c5f541dbd8e6" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::graphpar::treefav</definition>
+        <argsstring></argsstring>
+        <name>treefav</name>
+        <qualifiedname>globaldata::graphpar::treefav</qualifiedname>
+        <briefdescription>
+<para>-1: the tree should be unfavourable; 1: tree should be favourable; 0: it can be either (speaking about energetics) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="249" column="1" bodyfile="src/globaldata.f90" bodystart="249" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a0dafeb18d3316847c6c1bb93813e36f4" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::graphpar::maxisosteps</definition>
+        <argsstring></argsstring>
+        <name>maxisosteps</name>
+        <qualifiedname>globaldata::graphpar::maxisosteps</qualifiedname>
+        <briefdescription>
+<para>the maximum number of ismerization reactions per isomer group that can be found in the reaction trees </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="250" column="1" bodyfile="src/globaldata.f90" bodystart="250" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1ac00dee4f8afb16f330791c8525444c39" prot="public" static="no" mutable="no">
+        <type>double precision</type>
+        <definition>double precision globaldata::graphpar::rdiskstore</definition>
+        <argsstring></argsstring>
+        <name>rdiskstore</name>
+        <qualifiedname>globaldata::graphpar::rdiskstore</qualifiedname>
+        <briefdescription>
+<para>if a particuar branch has more than maxcomb*rdiskstore trees comming off it, those trees will be stored in disk, to avoid memory consumption </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="251" column="1" bodyfile="src/globaldata.f90" bodystart="251" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a2cb22362561cf109e66dd76e3af245a5" prot="public" static="no" mutable="no">
+        <type>double precision</type>
+        <definition>double precision globaldata::graphpar::mxndexpo</definition>
+        <argsstring></argsstring>
+        <name>mxndexpo</name>
+        <qualifiedname>globaldata::graphpar::mxndexpo</qualifiedname>
+        <briefdescription>
+<para>The order of magnitude of the maximum total number of nodes explored during the tree graph search prodedure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="252" column="1" bodyfile="src/globaldata.f90" bodystart="252" bodyend="252"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a5a0715f6602c232865a2c7def324badd" prot="public" static="no" mutable="no">
+        <type>double precision</type>
+        <definition>double precision globaldata::graphpar::absthresh0</definition>
+        <argsstring></argsstring>
+        <name>absthresh0</name>
+        <qualifiedname>globaldata::graphpar::absthresh0</qualifiedname>
+        <briefdescription>
+<para>The initial sum of absolute energy of reactions threshold used to estimate the size of the network search... can be provided by the user if it has previously perfomed a calculation and already known a good number (printed in the logfile). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="253" column="1" bodyfile="src/globaldata.f90" bodystart="253" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a0d37531e15474671119a2d3a5be79a17" prot="public" static="no" mutable="no">
+        <type>integer, dimension(:), allocatable</type>
+        <definition>integer, dimension(:), allocatable globaldata::graphpar::nignore</definition>
+        <argsstring></argsstring>
+        <name>nignore</name>
+        <qualifiedname>globaldata::graphpar::nignore</qualifiedname>
+        <briefdescription>
+<para>an array of node ids to ignore when constructing the network </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="255" column="1" bodyfile="src/globaldata.f90" bodystart="255" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a64ccf3c45273eebc5e65bb5cc1b156c3" prot="public" static="no" mutable="no">
+        <type>integer, dimension(:), allocatable</type>
+        <definition>integer, dimension(:), allocatable globaldata::graphpar::rignore</definition>
+        <argsstring></argsstring>
+        <name>rignore</name>
+        <qualifiedname>globaldata::graphpar::rignore</qualifiedname>
+        <briefdescription>
+<para>an array of reaction ids to ignore when constructing the network </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="256" column="1" bodyfile="src/globaldata.f90" bodystart="256" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a6b867d599c34e51e0b2fb48d3b96b0c9" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::graphpar::enforcefullrx</definition>
+        <argsstring></argsstring>
+        <name>enforcefullrx</name>
+        <qualifiedname>globaldata::graphpar::enforcefullrx</qualifiedname>
+        <briefdescription>
+<para>flag determining weather the user wants only trees that have all the reactants in the react array </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="257" column="1" bodyfile="src/globaldata.f90" bodystart="257" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a9d87e51852eb1f8b56308b38f4835ace" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::graphpar::readnds</definition>
+        <argsstring></argsstring>
+        <name>readnds</name>
+        <qualifiedname>globaldata::graphpar::readnds</qualifiedname>
+        <briefdescription>
+<para>reads the nds information from a restart binary file inputfilename_nds.bin if react, prod, nignore,rignore,Md are the same </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="258" column="1" bodyfile="src/globaldata.f90" bodystart="258" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1graphpar_1a724fb5acee8ec72b3d5d9756c9e061ed" prot="public" static="no" mutable="no">
+        <type>character(10)</type>
+        <definition>character(10) globaldata::graphpar::threshmeth</definition>
+        <argsstring></argsstring>
+        <name>threshmeth</name>
+        <qualifiedname>globaldata::graphpar::threshmeth</qualifiedname>
+        <briefdescription>
+<para>weather to use absolute energies or lifetimes as the threshold of exploration of the network </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="259" column="1" bodyfile="src/globaldata.f90" bodystart="259" bodyend="259"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/globaldata.f90" line="240" column="1" bodyfile="src/globaldata.f90" bodystart="240" bodyend="260"/>
+    <listofallmembers>
+      <member refid="structglobaldata_1_1graphpar_1a5a0715f6602c232865a2c7def324badd" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>absthresh0</name></member>
+      <member refid="structglobaldata_1_1graphpar_1a6b867d599c34e51e0b2fb48d3b96b0c9" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>enforcefullrx</name></member>
+      <member refid="structglobaldata_1_1graphpar_1a971fbdf4861ed591939a3c9cd947dca2" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>maxb</name></member>
+      <member refid="structglobaldata_1_1graphpar_1ab22a73128e7fbf2a4b7927995bcb7e4a" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>maxcomb</name></member>
+      <member refid="structglobaldata_1_1graphpar_1a0dafeb18d3316847c6c1bb93813e36f4" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>maxisosteps</name></member>
+      <member refid="structglobaldata_1_1graphpar_1a23f7b793f3d8c8a51e0f88504bc9daf3" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>maxtreesolutions</name></member>
+      <member refid="structglobaldata_1_1graphpar_1a192ce45f5d446e095a6b3b19787845e4" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>mxevp</name></member>
+      <member refid="structglobaldata_1_1graphpar_1a2cb22362561cf109e66dd76e3af245a5" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>mxndexpo</name></member>
+      <member refid="structglobaldata_1_1graphpar_1a0d37531e15474671119a2d3a5be79a17" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>nignore</name></member>
+      <member refid="structglobaldata_1_1graphpar_1a6fc3346886b93a7a00dc5f75f314e47b" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>nni</name></member>
+      <member refid="structglobaldata_1_1graphpar_1a7bbb885be8abaf0cd6e6c32148ef904e" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>nprod</name></member>
+      <member refid="structglobaldata_1_1graphpar_1a6d5b296eaf483d68cb5715e92bae69f9" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>nreact</name></member>
+      <member refid="structglobaldata_1_1graphpar_1a6b61499a86bd97ef2d170e30bff5e3a6" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>nri</name></member>
+      <member refid="structglobaldata_1_1graphpar_1a1d29ff9b141fecf7b139e648d8ed9a70" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>prod</name></member>
+      <member refid="structglobaldata_1_1graphpar_1ac00dee4f8afb16f330791c8525444c39" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>rdiskstore</name></member>
+      <member refid="structglobaldata_1_1graphpar_1a15beab6e6784850319e9b0ca78fd62df" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>react</name></member>
+      <member refid="structglobaldata_1_1graphpar_1a9d87e51852eb1f8b56308b38f4835ace" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>readnds</name></member>
+      <member refid="structglobaldata_1_1graphpar_1a64ccf3c45273eebc5e65bb5cc1b156c3" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>rignore</name></member>
+      <member refid="structglobaldata_1_1graphpar_1a724fb5acee8ec72b3d5d9756c9e061ed" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>threshmeth</name></member>
+      <member refid="structglobaldata_1_1graphpar_1ad9b8844b41841dfc53b0c5f541dbd8e6" prot="public" virt="non-virtual"><scope>globaldata::graphpar</scope><name>treefav</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

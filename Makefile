@@ -2,17 +2,18 @@
 
 .SUFFIXES:
 EXE = ./bin/cde.x
-FC = ifort
+FC = gfortran 
 
-ifeq "$(FC)" "gfortran"
+#ifeq "$(FC)" "gfortran"
 MODCMD = -J
-FFLAGS = -O3 -I"/warwick/desktop/2018/software/OpenBLAS/0.3.12-GCC-10.2.0/include"
-LIBS = -L"/warwick/desktop/2018/software/OpenBLAS/0.3.12-GCC-10.2.0/lib" -lopenblas
-else ifeq "$(FC)" "ifort"
-MODCMD = -module
-FFLAGS = -O3 -i8 -I"${MKLROOT}/include"
-LIBS =  -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_ilp64.a ${MKLROOT}/lib/intel64/libmkl_intel_thread.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -liomp5 -lpthread -lm -ldl
-endif
+#FFLAGS = -g -Wall -fbounds-check  
+FFLAGS = -Ofast
+LIBS = -llapack 
+#else ifeq "$(FC)" "ifort"
+#MODCMD = -module
+#FFLAGS = -O3 -i8 -I"${MKLROOT}/include"
+#LIBS =  -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_ilp64.a ${MKLROOT}/lib/intel64/libmkl_intel_thread.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group -liomp5 -lpthread -lm -ldl
+#endif
 
 MF = Makefile
 SRC = \
@@ -44,3 +45,18 @@ tar:
 .PHONY: clean
 clean:
 	rm src/*.o src/*.mod
+
+
+.PHONY: doxygen-docs mkdocs docs
+
+doxygen-docs:
+	doxygen doxy.conf
+	rm -rf docs/api/doxygen
+	mkdir -p docs/api/doxygen
+	cp -R doxygen/html/. docs/api/doxygen/
+
+mkdocs:
+	mkdocs build --clean
+
+docs: doxygen-docs mkdocs
+

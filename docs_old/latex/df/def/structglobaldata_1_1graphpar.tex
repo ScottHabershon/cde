@@ -1,0 +1,71 @@
+\hypertarget{structglobaldata_1_1graphpar}{}\section{globaldata\+:\+:graphpar Type Reference}
+\label{structglobaldata_1_1graphpar}\index{globaldata\+::graphpar@{globaldata\+::graphpar}}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_a15beab6e6784850319e9b0ca78fd62df}\label{structglobaldata_1_1graphpar_a15beab6e6784850319e9b0ca78fd62df}} 
+integer, dimension(10) {\bfseries react}
+\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_a1d29ff9b141fecf7b139e648d8ed9a70}\label{structglobaldata_1_1graphpar_a1d29ff9b141fecf7b139e648d8ed9a70}} 
+integer, dimension(10) \mbox{\hyperlink{structglobaldata_1_1graphpar_a1d29ff9b141fecf7b139e648d8ed9a70}{prod}}
+\begin{DoxyCompactList}\small\item\em user supplied molecule ID from the Mol.\+dat file that will form the ends (products and reactants) of the reaction netowrk tree that they wish the code to calculate \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_a7bbb885be8abaf0cd6e6c32148ef904e}\label{structglobaldata_1_1graphpar_a7bbb885be8abaf0cd6e6c32148ef904e}} 
+integer {\bfseries nprod}
+\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_a6d5b296eaf483d68cb5715e92bae69f9}\label{structglobaldata_1_1graphpar_a6d5b296eaf483d68cb5715e92bae69f9}} 
+integer \mbox{\hyperlink{structglobaldata_1_1graphpar_a6d5b296eaf483d68cb5715e92bae69f9}{nreact}}
+\begin{DoxyCompactList}\small\item\em the number of molecules of products and reactants the user has supplied \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_a23f7b793f3d8c8a51e0f88504bc9daf3}\label{structglobaldata_1_1graphpar_a23f7b793f3d8c8a51e0f88504bc9daf3}} 
+integer \mbox{\hyperlink{structglobaldata_1_1graphpar_a23f7b793f3d8c8a51e0f88504bc9daf3}{maxtreesolutions}}
+\begin{DoxyCompactList}\small\item\em the number of tree solutions the user requested to generate... \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_a6fc3346886b93a7a00dc5f75f314e47b}\label{structglobaldata_1_1graphpar_a6fc3346886b93a7a00dc5f75f314e47b}} 
+integer {\bfseries nni}
+\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_a6b61499a86bd97ef2d170e30bff5e3a6}\label{structglobaldata_1_1graphpar_a6b61499a86bd97ef2d170e30bff5e3a6}} 
+integer \mbox{\hyperlink{structglobaldata_1_1graphpar_a6b61499a86bd97ef2d170e30bff5e3a6}{nri}}
+\begin{DoxyCompactList}\small\item\em number of nodes and reactions the user want us to ignore during the graph generation algorithm... \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_ab22a73128e7fbf2a4b7927995bcb7e4a}\label{structglobaldata_1_1graphpar_ab22a73128e7fbf2a4b7927995bcb7e4a}} 
+integer \mbox{\hyperlink{structglobaldata_1_1graphpar_ab22a73128e7fbf2a4b7927995bcb7e4a}{maxcomb}}
+\begin{DoxyCompactList}\small\item\em the cutoff for the number of trees we keep from levels below the tree, to stop the combinatorial explosion \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_a971fbdf4861ed591939a3c9cd947dca2}\label{structglobaldata_1_1graphpar_a971fbdf4861ed591939a3c9cd947dca2}} 
+integer \mbox{\hyperlink{structglobaldata_1_1graphpar_a971fbdf4861ed591939a3c9cd947dca2}{maxb}}
+\begin{DoxyCompactList}\small\item\em the maximum number of nodes-\/with-\/more-\/than-\/one-\/reaction we are allowed to visit when traversing the tree network \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_a192ce45f5d446e095a6b3b19787845e4}\label{structglobaldata_1_1graphpar_a192ce45f5d446e095a6b3b19787845e4}} 
+integer \mbox{\hyperlink{structglobaldata_1_1graphpar_a192ce45f5d446e095a6b3b19787845e4}{mxevp}}
+\begin{DoxyCompactList}\small\item\em the maximum number of trees per eigenvector cluster the user wants to print out \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_ad9b8844b41841dfc53b0c5f541dbd8e6}\label{structglobaldata_1_1graphpar_ad9b8844b41841dfc53b0c5f541dbd8e6}} 
+integer \mbox{\hyperlink{structglobaldata_1_1graphpar_ad9b8844b41841dfc53b0c5f541dbd8e6}{treefav}}
+\begin{DoxyCompactList}\small\item\em -\/1\+: the tree should be unfavourable; 1\+: tree should be favourable; 0\+: it can be either (speaking about energetics) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_ac00dee4f8afb16f330791c8525444c39}\label{structglobaldata_1_1graphpar_ac00dee4f8afb16f330791c8525444c39}} 
+double precision \mbox{\hyperlink{structglobaldata_1_1graphpar_ac00dee4f8afb16f330791c8525444c39}{rdiskstore}}
+\begin{DoxyCompactList}\small\item\em if a particuar branch has more than maxcomb$\ast$rdiskstore trees comming off it, those trees will be stored in disk, to avoid memory consumption \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_a2cb22362561cf109e66dd76e3af245a5}\label{structglobaldata_1_1graphpar_a2cb22362561cf109e66dd76e3af245a5}} 
+double precision \mbox{\hyperlink{structglobaldata_1_1graphpar_a2cb22362561cf109e66dd76e3af245a5}{mxndexpo}}
+\begin{DoxyCompactList}\small\item\em The order of magnitude of the maximum total number of nodes explored during the tree graph search prodedure. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_ace153ec8e235706b4a713ef6b50f64a6}\label{structglobaldata_1_1graphpar_ace153ec8e235706b4a713ef6b50f64a6}} 
+double precision \mbox{\hyperlink{structglobaldata_1_1graphpar_ace153ec8e235706b4a713ef6b50f64a6}{absenthresh0}}
+\begin{DoxyCompactList}\small\item\em The initial sum of absolute energy of reactions threshold used to estimate the size of the network search... can be provided by the user if it has previously perfomed a calculation and already known a good number (printed in the logfile) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_a0d37531e15474671119a2d3a5be79a17}\label{structglobaldata_1_1graphpar_a0d37531e15474671119a2d3a5be79a17}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1graphpar_a0d37531e15474671119a2d3a5be79a17}{nignore}}
+\begin{DoxyCompactList}\small\item\em an array of node ids to ignore when constructing the network \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_a64ccf3c45273eebc5e65bb5cc1b156c3}\label{structglobaldata_1_1graphpar_a64ccf3c45273eebc5e65bb5cc1b156c3}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{structglobaldata_1_1graphpar_a64ccf3c45273eebc5e65bb5cc1b156c3}{rignore}}
+\begin{DoxyCompactList}\small\item\em an array of reaction ids to ignore when constructing the network \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_a6b867d599c34e51e0b2fb48d3b96b0c9}\label{structglobaldata_1_1graphpar_a6b867d599c34e51e0b2fb48d3b96b0c9}} 
+logical \mbox{\hyperlink{structglobaldata_1_1graphpar_a6b867d599c34e51e0b2fb48d3b96b0c9}{enforcefullrx}}
+\begin{DoxyCompactList}\small\item\em flag determining weather the user wants only trees that have all the reactants in the react array \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structglobaldata_1_1graphpar_a9d87e51852eb1f8b56308b38f4835ace}\label{structglobaldata_1_1graphpar_a9d87e51852eb1f8b56308b38f4835ace}} 
+logical \mbox{\hyperlink{structglobaldata_1_1graphpar_a9d87e51852eb1f8b56308b38f4835ace}{readnds}}
+\begin{DoxyCompactList}\small\item\em reads the nds information from a restart binary file inputfilename\+\_\+nds.\+bin if react, prod, nignore,rignore,Md are the same \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 245 of file globaldata.\+f90.
+
+
+
+The documentation for this type was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/scott/code/cde/src/globaldata.\+f90\end{DoxyCompactItemize}

@@ -1,0 +1,69 @@
+\doxysection{src/\+rpath.f90 File Reference}
+\hypertarget{rpath_8f90}{}\label{rpath_8f90}\index{src/rpath.f90@{src/rpath.f90}}
+\doxysubsubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \doxymbox{\hyperlink{structrpath_1_1rxp}{rpath::\+rxp}}
+\begin{DoxyCompactList}\small\item\em Type definition for the reaction-\/path object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+module \doxymbox{\hyperlink{namespacerpath}{rpath}}
+\begin{DoxyCompactList}\small\item\em Reaction-\/path object definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions/\+\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_ab6d6281ea4bcaee28c63f8d7d38e746a}{rpath::\+newpath}} (rp, startfrompath, startfile, endfile, pathfile, nimage, pathinit, emptypath, natom)
+\begin{DoxyCompactList}\small\item\em New\+Path. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_ad6c77a07ce6a59e54a4774305efe44d4}{rpath::\+copypath}} (rpin, rpout)
+\begin{DoxyCompactList}\small\item\em Copy\+Path. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_acc28b3649c7753a676d4d6c4e6635286}{rpath::\+deletepath}} (rp)
+\begin{DoxyCompactList}\small\item\em Delete\+Path. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a14303787a571dd0cb770f37003d45bc6}{rpath::\+setinternalcoords}} (rp, pathinit)
+\begin{DoxyCompactList}\small\item\em Set\+Internal\+Coords. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_af1a1657f4058d72abff72654e155d38b}{rpath::\+printpathtofile}} (rp, filename, do\+\_\+append)
+\begin{DoxyCompactList}\small\item\em Print\+Path\+To\+File. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a9b2a0f9ab7c436ec4cc0ad6594eabfe0}{rpath::\+findidpppath}} (rp, idppiter, idppconv, idppstep, idppspring)
+\begin{DoxyCompactList}\small\item\em Find\+IDPPPath. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a085468648d15adb3a8a2899d8bba728f}{rpath::\+getidppforces}} (rp, rtarg)
+\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a691c70e4854e7529a7b85e69491cdccc}{rpath::\+getforcenorm}} (rp, forcenorm, fmax, n1, n2)
+\begin{DoxyCompactList}\small\item\em Get\+Force\+Norm. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_aba836ec30e7b0733327d8f2949e4b00c}{rpath::\+readxyzframe}} (fileid, na, label, x, y, z)
+\begin{DoxyCompactList}\small\item\em Read\+XYZFrame. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_abde80fc3058f25748933e535857b3913}{rpath::\+startfromendpoints}} (rp, startfile, endfile, pathinit, nimage)
+\begin{DoxyCompactList}\small\item\em Start\+From\+End\+Points. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a06918a9ef3a6a733a078f2d7142ca2e3}{rpath::\+readpathfromfile}} (rp, pathfile)
+\begin{DoxyCompactList}\small\item\em Read\+Path\+From\+File. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a41d64b8dbb88875343759fd816a2f9b2}{rpath::\+setpathconstraints}} (rp, ndofconstr, fixeddof, natomconstr, fixedatom)
+\begin{DoxyCompactList}\small\item\em Set\+Path\+Constraints. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_ac8b51bb543056270fc034d75ba2a7266}{rpath::\+getpathenergy}} (rp, success)
+\begin{DoxyCompactList}\small\item\em Get\+Path\+Energy. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a2c6811f49e45524aa43a075f8d4f1a7c}{rpath::\+getpathgradients}} (rp, success, calc\+\_\+all)
+\begin{DoxyCompactList}\small\item\em Get\+Path\+Gradients. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a1faa43d82cebd49dbfb23e87189db2c2}{rpath::\+getprojforces1}} (rp, kon, ci\+\_\+flag, endflag)
+\begin{DoxyCompactList}\small\item\em Get\+Proj\+Forces1. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_ac95367fc9bf411eca8d31874d5e3e703}{rpath::\+getprojforces2}} (rp, kon, ci\+\_\+flag, endflag)
+\begin{DoxyCompactList}\small\item\em Get\+Proj\+Forces2. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a73d1e89cffa30d46b66bfbd445e3e0f4}{rpath::\+variablesprings}} (rp)
+\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a79ee81833120305547c237a755918472}{rpath::\+getprojforces3}} (rp, kon, ci\+\_\+flag, endflag)
+\begin{DoxyCompactList}\small\item\em Get\+Proj\+Forces3. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_aae808f74fd2e658a175c79600c5bfe34}{rpath::\+shimmyendbeads}} (rp, shimmied, beadcount, pend)
+\begin{DoxyCompactList}\small\item\em Shimmy\+End\+Beads. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a17575cd0e216ffd99d188bb982fd2efc}{rpath::\+getfourierforces}} (rp)
+\begin{DoxyCompactList}\small\item\em Get\+Fourier\+Forces. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a8808a2a9ef2cd749de76ec66e662cf4c}{rpath::\+fouriertopath}} (rp)
+\begin{DoxyCompactList}\small\item\em Fourier\+To\+Path. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a58f6e30e1af43edf4aa86279c520213f}{rpath::\+pathtofourier}} (rp)
+\begin{DoxyCompactList}\small\item\em Path\+To\+Fourier. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a7fee98f4bae0eeddfeb9c7a7a0cd36de}{rpath::\+firstvvupdate}} (rp, timestep, mass)
+\begin{DoxyCompactList}\small\item\em First\+VVUpdate. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_ac85f7c72e6a51be0d86bde43398f5d1b}{rpath::\+secondvvupdate}} (rp, timestep, mass)
+\begin{DoxyCompactList}\small\item\em Second\+VVUpdate. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_ae05b8e955144357569094f22cb55b245}{rpath::\+getspringforces}} (rp, kspring)
+\begin{DoxyCompactList}\small\item\em Get\+Spring\+Forces. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_ad39f06a07a989b7bfe818da9911ec287}{rpath::\+stripinactivefrompath}} (rp, stripfile, fixeddof, fixedatom, ndofconstr, natomconstr, updatecons)
+\begin{DoxyCompactList}\small\item\em Strip\+Inactive\+From\+Path. \end{DoxyCompactList}\item 
+real(8) function \doxymbox{\hyperlink{namespacerpath_a4c7410e4e6417ef235293315107537e8}{rpath::\+errorr}} (one, two, na)
+\begin{DoxyCompactList}\small\item\em errorr calculates the absolute difference, elementwise between two matrices. \end{DoxyCompactList}\end{DoxyCompactItemize}

@@ -1,0 +1,89 @@
+\doxysection{src/\+pes.f90 File Reference}
+\hypertarget{pes_8f90}{}\label{pes_8f90}\index{src/pes.f90@{src/pes.f90}}
+\doxysubsubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+module \doxymbox{\hyperlink{namespacepes}{pes}}
+\begin{DoxyCompactList}\small\item\em Potential energy surface calculations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions/\+\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_afabde251e1825ead6ccf86ae3ec3ad46}{pes::\+setupenergycalc}} (pestype, pesfile, pesexecutable)
+\begin{DoxyCompactList}\small\item\em Setup\+Energy\+Calc. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a8174e6a35fe7db895b5c801bf9c62ce5}{pes::\+setupgeomopt}} (pesopttype, pesoptfile, pesoptexecutable)
+\begin{DoxyCompactList}\small\item\em Setup\+Geom\+Opt. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a9a8620a84a12feb416e02e9c9e64f8be}{pes::\+abinitio}} (cx, abtypein, success)
+\begin{DoxyCompactList}\small\item\em Ab\+Initio. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a6cfa4ec2e58a645b8a8e280d98d32f47}{pes::\+molprocalc}} (cx, abtype, success)
+\begin{DoxyCompactList}\small\item\em MOLPROcalc. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a7529728e0cd0b123b99f0541d4c24690}{pes::\+orcacalc}} (cx, abtype, success)
+\begin{DoxyCompactList}\small\item\em ORCAcalc. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a6b9874a523e27244b65c34e696f2a67d}{pes::\+dftbcalc}} (cx, minimize, success)
+\begin{DoxyCompactList}\small\item\em DFTBcalc. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a1e71d8804e37caf716dd61291f5387fb}{pes::\+xtbcalc}} (cx, minimize, success)
+\begin{DoxyCompactList}\small\item\em x\+TBcalc \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a99f8327e20ba1aa7e417f920bf4c4bb7}{pes::\+aimscalc}} (cx, minimize, success)
+\begin{DoxyCompactList}\small\item\em AIMScalc. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a3c31f7c822b9f71d668245f72cc453b0}{pes::\+uffcalc}} (cx, minimize, success)
+\begin{DoxyCompactList}\small\item\em UFFcalc. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_aca3a505d6265f24ebc0e4451872259f8}{pes::\+lammpscalc}} (cx, abtype, success)
+\begin{DoxyCompactList}\small\item\em LAMMPScalc. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_af090baa63d75251c8a0d59fa6a0e5ab7}{pes::\+psi4calc}} (cx, minimize, success)
+\begin{DoxyCompactList}\small\item\em PSI4calc. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a5b178c8dc94c020d110eaf07c11e761d}{pes::\+readforcesindividually}} (cx, dummylines)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_ad0b6999f62358bfb0f166abef78edfdd}{pes::\+readforcestogether}} (cx, dummylines)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_ada6999dfcf55667159df6c68151fa4fc}{pes::\+readenergy}} (cx, dummylines)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_acf861f8ec4b878596fea4d6984af8967}{pes::\+readhessian}} (cx, filename)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a17ee9c59c131b3da7b586733bf9f2ec2}{pes::\+readoptimizedcoordinates}} (cx, filename)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a3c28a0b18ef26d0a41522e0c0ab88b42}{pes::\+createfiletemplate}} (minimize, exec, n, buffer, iline)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a7518f38a27ed0fe7d940eb9832d4143f}{pes::\+executecalculation}} (str, success)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a3e3f3e53db69ad2009b7c91795f32bf5}{pes::\+extractdata}} (str)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_ad09cee72e0fef4317231efc6b7cf35fd}{pes::\+fireminimise}} (cx, iterin, gdsrestspring\+\_\+in, nbstrength\+\_\+in, nbrange, kradius, nebrestrend)
+\begin{DoxyCompactList}\small\item\em Fire\+Minimise. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a1d90d628767602b96f7d3fdba9789918}{pes::\+mincxsenergynebrest}} (cx, success)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a8bc8971902e40c913ba0bd5b50fb5a7f}{pes::\+mincxsenergy}} (cx, success)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_aacd7a0dc07c19006c3f5e8cfaede7313}{pes::\+matchcxconstraint}} (cx, mcx, kspring)
+\begin{DoxyCompactList}\small\item\em Match\+CXContraints. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_afc968bc3d71f71a87a1277eb370b87da}{pes::\+getactmolecenergies}} (cx, molecact, nactmol, molen)
+\begin{DoxyCompactList}\small\item\em Get\+Act\+Molecular\+Energies. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a93dedbea29f40a00bff8c13569737be1}{pes::\+getmolecularenergies}} (cx)
+\begin{DoxyCompactList}\small\item\em Get\+Molecular\+Energies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer, parameter \doxymbox{\hyperlink{namespacepes_ab1edb0ccbc2eb292e13a56f8490d53fd}{pes::\+nlinemax}} = 200
+\item 
+character(len=6) \doxymbox{\hyperlink{namespacepes_a23a59fcac6a8142f8487d45cfeffe13c}{pes::\+vtype}}
+\item 
+character(len=25) \doxymbox{\hyperlink{namespacepes_a643f44e7ca705ba0662ef672cebff6e6}{pes::\+vfile}}
+\item 
+character(len=6) \doxymbox{\hyperlink{namespacepes_aba41be36b42b1eb05bffcb6871ac6ed8}{pes::\+vopttype}}
+\item 
+character(len=25) \doxymbox{\hyperlink{namespacepes_a72029e7281dce1ebc94575b13602eeab}{pes::\+voptfile}}
+\item 
+character(len=100) \doxymbox{\hyperlink{namespacepes_af916a63154659413614f19bba60f5350}{pes::\+pesexec}}
+\item 
+character(len=100) \doxymbox{\hyperlink{namespacepes_a3130c949413ee53f32a3a93fa84859d7}{pes::\+pesoptexec}}
+\item 
+character(len=100), dimension(\doxymbox{\hyperlink{namespacepes_ab1edb0ccbc2eb292e13a56f8490d53fd}{nlinemax}}) \doxymbox{\hyperlink{namespacepes_a356c2c5f579447fc6cfec92bf4bcab4f}{pes::\+peslines}}
+\item 
+character(len=100), dimension(\doxymbox{\hyperlink{namespacepes_ab1edb0ccbc2eb292e13a56f8490d53fd}{nlinemax}}) \doxymbox{\hyperlink{namespacepes_aaab517e0695444b997ba8545228504a3}{pes::\+pesoptlines}}
+\item 
+integer \doxymbox{\hyperlink{namespacepes_ae49ab5998f0aed64f710ab11951c213c}{pes::\+nline}}
+\item 
+integer \doxymbox{\hyperlink{namespacepes_ae313c93e32635bc18dce3687e1f27eba}{pes::\+nlineopt}}
+\item 
+integer \doxymbox{\hyperlink{namespacepes_a0169d7fd9e9ff2db13217335d745195e}{pes::\+coordsline}}
+\item 
+integer \doxymbox{\hyperlink{namespacepes_a71cc0573350a31abe52ccf496ded3513}{pes::\+optcoordsline}}
+\end{DoxyCompactItemize}

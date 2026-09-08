@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="namespaceio" kind="namespace" language="Fortran">
+    <compoundname>io</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceio_1aee45b0da5539969779855687cc9efd6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine io::readinput</definition>
+        <argsstring>()</argsstring>
+        <name>readinput</name>
+        <qualifiedname>io::readinput</qualifiedname>
+        <briefdescription>
+<para>ReadInput. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads the main CDE input file, and fills in the data in <ref refid="globaldata_8f90" kindref="compound">globaldata.f90</ref>.</para>
+<para>The input filename is read as the first argument from the command-line. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/io.f90" line="28" column="1" bodyfile="src/io.f90" bodystart="29" bodyend="836"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceio_1a19211eac027eb30d7c602fb5583351e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine io::readgraphmoves</definition>
+        <argsstring>(movefile)</argsstring>
+        <name>readgraphmoves</name>
+        <qualifiedname>io::readgraphmoves</qualifiedname>
+        <param>
+          <type>character(len=50)</type>
+          <defname>movefile</defname>
+        </param>
+        <briefdescription>
+<para>ReadGraphMoves. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads the set of graph moves used during GDS simulation from the specified file &apos;movefile&apos;.</para>
+<para><itemizedlist>
+<listitem><para>movefile: The file containing the graph-move information. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/io.f90" line="851" column="1" bodyfile="src/io.f90" bodystart="852" bodyend="995"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceio_1a2f1df2054a4fbfd76d2351f26f6b4b02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine io::readforbiddengraphs</definition>
+        <argsstring>(forbidfile)</argsstring>
+        <name>readforbiddengraphs</name>
+        <qualifiedname>io::readforbiddengraphs</qualifiedname>
+        <param>
+          <type>character(len=50)</type>
+          <defname>forbidfile</defname>
+        </param>
+        <briefdescription>
+<para>ReadForbiddenGraphs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads the set of graphs which are not allowed to exist.</para>
+<para><itemizedlist>
+<listitem><para>forbidfile: The file containing the forbidden graph information. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/io.f90" line="1010" column="1" bodyfile="src/io.f90" bodystart="1011" bodyend="1109"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceio_1aea679911d5618f57aaa7a3daa238ec13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine io::setiodefaults</definition>
+        <argsstring>()</argsstring>
+        <name>setiodefaults</name>
+        <qualifiedname>io::setiodefaults</qualifiedname>
+        <briefdescription>
+<para>SetIODefaults. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets default input parameters to &quot;sensible&quot; values. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/io.f90" line="1121" column="1" bodyfile="src/io.f90" bodystart="1122" bodyend="1206"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Main input/output functions for CDE. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/io.f90" line="9" column="1"/>
+  </compounddef>
+</doxygen>

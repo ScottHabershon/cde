@@ -1,0 +1,155 @@
+\doxysection{rpath::rxp Type Reference}
+\hypertarget{structrpath_1_1rxp}{}\label{structrpath_1_1rxp}\index{rpath::rxp@{rpath::rxp}}
+
+
+Type definition for the reaction-\/path object.  
+
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+integer \doxymbox{\hyperlink{structrpath_1_1rxp_a41850c8176424e44a01af2adcb3eaa45}{nimage}}
+\begin{DoxyCompactList}\small\item\em Number of images. \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structrpath_1_1rxp_a9b645f64ca4b1103cf46241ac702f34a}{na}}
+\begin{DoxyCompactList}\small\item\em Number of atoms per image. \end{DoxyCompactList}\item 
+type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(:\+), allocatable \doxymbox{\hyperlink{structrpath_1_1rxp_a4c4a9be8011866e0dbd5c5d930b048bc}{cx}}
+\begin{DoxyCompactList}\small\item\em Allocated chemical structure objects in the path. \end{DoxyCompactList}\item 
+real(8), dimension(:\+,:\+,:\+), allocatable \doxymbox{\hyperlink{structrpath_1_1rxp_aabf2a9ba3aa2a7627e9a6b225e8f857e}{coeff}}
+\begin{DoxyCompactList}\small\item\em Fourier coefficients of path (3,na,nb). \end{DoxyCompactList}\item 
+real(8), dimension(:\+,:\+,:\+), allocatable \doxymbox{\hyperlink{structrpath_1_1rxp_ae7639d542239ad0e049adeba3234cb6a}{pcoeff}}
+\begin{DoxyCompactList}\small\item\em Momentum of Fourier coefficients of path (3,na,nb). \end{DoxyCompactList}\item 
+real(8), dimension(:\+,:\+,:\+), allocatable \doxymbox{\hyperlink{structrpath_1_1rxp_ac6dba38b2c6d98d41a510e2321ef47de}{dcoeff}}
+\begin{DoxyCompactList}\small\item\em Derivatives of Fourier coefficients of path (3,na,nb). \end{DoxyCompactList}\item 
+real(8), dimension(:\+), allocatable \doxymbox{\hyperlink{structrpath_1_1rxp_aa402eef960ff8e6c47d1d3b8c43ff7a4}{ks}}
+\begin{DoxyCompactList}\small\item\em intra bead force constants \end{DoxyCompactList}\item 
+real(8) \doxymbox{\hyperlink{structrpath_1_1rxp_a5f900bf11745d1f9a39fdd1628ef29d4}{vspring}}
+\begin{DoxyCompactList}\small\item\em Spring potential term. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Type definition for the reaction-\/path object. 
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00023}{23}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+
+
+\label{structrpath_1_1rxp_doc-variable-members}
+\Hypertarget{structrpath_1_1rxp_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structrpath_1_1rxp_a41850c8176424e44a01af2adcb3eaa45}\index{rpath::rxp@{rpath::rxp}!nimage@{nimage}}
+\index{nimage@{nimage}!rpath::rxp@{rpath::rxp}}
+\doxysubsubsection{\texorpdfstring{nimage}{nimage}}
+{\footnotesize\ttfamily \label{structrpath_1_1rxp_a41850c8176424e44a01af2adcb3eaa45} 
+integer rpath::\+rxp::\+nimage}
+
+
+
+Number of images. 
+
+
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00025}{25}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{structrpath_1_1rxp_a9b645f64ca4b1103cf46241ac702f34a}\index{rpath::rxp@{rpath::rxp}!na@{na}}
+\index{na@{na}!rpath::rxp@{rpath::rxp}}
+\doxysubsubsection{\texorpdfstring{na}{na}}
+{\footnotesize\ttfamily \label{structrpath_1_1rxp_a9b645f64ca4b1103cf46241ac702f34a} 
+integer rpath::\+rxp::\+na}
+
+
+
+Number of atoms per image. 
+
+
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00026}{26}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{structrpath_1_1rxp_a4c4a9be8011866e0dbd5c5d930b048bc}\index{rpath::rxp@{rpath::rxp}!cx@{cx}}
+\index{cx@{cx}!rpath::rxp@{rpath::rxp}}
+\doxysubsubsection{\texorpdfstring{cx}{cx}}
+{\footnotesize\ttfamily \label{structrpath_1_1rxp_a4c4a9be8011866e0dbd5c5d930b048bc} 
+type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(:\+), allocatable rpath::\+rxp::\+cx}
+
+
+
+Allocated chemical structure objects in the path. 
+
+
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00027}{27}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{structrpath_1_1rxp_aabf2a9ba3aa2a7627e9a6b225e8f857e}\index{rpath::rxp@{rpath::rxp}!coeff@{coeff}}
+\index{coeff@{coeff}!rpath::rxp@{rpath::rxp}}
+\doxysubsubsection{\texorpdfstring{coeff}{coeff}}
+{\footnotesize\ttfamily \label{structrpath_1_1rxp_aabf2a9ba3aa2a7627e9a6b225e8f857e} 
+real(8), dimension(:\+,:\+,:\+), allocatable rpath::\+rxp::\+coeff}
+
+
+
+Fourier coefficients of path (3,na,nb). 
+
+
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00028}{28}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{structrpath_1_1rxp_ae7639d542239ad0e049adeba3234cb6a}\index{rpath::rxp@{rpath::rxp}!pcoeff@{pcoeff}}
+\index{pcoeff@{pcoeff}!rpath::rxp@{rpath::rxp}}
+\doxysubsubsection{\texorpdfstring{pcoeff}{pcoeff}}
+{\footnotesize\ttfamily \label{structrpath_1_1rxp_ae7639d542239ad0e049adeba3234cb6a} 
+real(8), dimension(:\+,:\+,:\+), allocatable rpath::\+rxp::\+pcoeff}
+
+
+
+Momentum of Fourier coefficients of path (3,na,nb). 
+
+
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00029}{29}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{structrpath_1_1rxp_ac6dba38b2c6d98d41a510e2321ef47de}\index{rpath::rxp@{rpath::rxp}!dcoeff@{dcoeff}}
+\index{dcoeff@{dcoeff}!rpath::rxp@{rpath::rxp}}
+\doxysubsubsection{\texorpdfstring{dcoeff}{dcoeff}}
+{\footnotesize\ttfamily \label{structrpath_1_1rxp_ac6dba38b2c6d98d41a510e2321ef47de} 
+real(8), dimension(:\+,:\+,:\+), allocatable rpath::\+rxp::\+dcoeff}
+
+
+
+Derivatives of Fourier coefficients of path (3,na,nb). 
+
+
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00030}{30}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{structrpath_1_1rxp_aa402eef960ff8e6c47d1d3b8c43ff7a4}\index{rpath::rxp@{rpath::rxp}!ks@{ks}}
+\index{ks@{ks}!rpath::rxp@{rpath::rxp}}
+\doxysubsubsection{\texorpdfstring{ks}{ks}}
+{\footnotesize\ttfamily \label{structrpath_1_1rxp_aa402eef960ff8e6c47d1d3b8c43ff7a4} 
+real(8), dimension(:\+), allocatable rpath::\+rxp::\+ks}
+
+
+
+intra bead force constants 
+
+
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00031}{31}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{structrpath_1_1rxp_a5f900bf11745d1f9a39fdd1628ef29d4}\index{rpath::rxp@{rpath::rxp}!vspring@{vspring}}
+\index{vspring@{vspring}!rpath::rxp@{rpath::rxp}}
+\doxysubsubsection{\texorpdfstring{vspring}{vspring}}
+{\footnotesize\ttfamily \label{structrpath_1_1rxp_a5f900bf11745d1f9a39fdd1628ef29d4} 
+real(8) rpath::\+rxp::\+vspring}
+
+
+
+Spring potential term. 
+
+
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00032}{32}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+
+
+The documentation for this type was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/\doxymbox{\hyperlink{rpath_8f90}{rpath.\+f90}}\end{DoxyCompactItemize}

@@ -1,0 +1,40 @@
+\hypertarget{namespacecxs__opt}{}\doxysection{cxs\+\_\+opt Module Reference}
+\label{namespacecxs__opt}\index{cxs\_opt@{cxs\_opt}}
+
+
+Chemical structure routines that require P\+ES routines and modules.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacecxs__opt_af3c9cb0e70aff8b60e74adf3927b0943}{optimisemolecules}} (cx, optall, success, nopti, midi)
+\begin{DoxyCompactList}\small\item\em Optimise\+Molecules. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Chemical structure routines that require P\+ES routines and modules. 
+
+Chemical structure routines that require P\+ES routines and modules 
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacecxs__opt_af3c9cb0e70aff8b60e74adf3927b0943}\label{namespacecxs__opt_af3c9cb0e70aff8b60e74adf3927b0943}} 
+\index{cxs\_opt@{cxs\_opt}!optimisemolecules@{optimisemolecules}}
+\index{optimisemolecules@{optimisemolecules}!cxs\_opt@{cxs\_opt}}
+\doxysubsubsection{\texorpdfstring{optimisemolecules()}{optimisemolecules()}}
+{\footnotesize\ttfamily subroutine cxs\+\_\+opt\+::optimisemolecules (\begin{DoxyParamCaption}\item[{type(\mbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx,  }\item[{logical}]{optall,  }\item[{logical}]{success,  }\item[{integer, optional}]{nopti,  }\item[{integer, dimension($\ast$), optional}]{midi }\end{DoxyParamCaption})}
+
+
+
+Optimise\+Molecules. 
+
+Takes every molecule in C\+XS and performs an optimization on them (very similar to optimisereactivemolecules (in rpath), First including the graph contraining potential, if the user specified nebrestrend = .true., followed by a pure optimization. the molecules are then placed back in the soup, centered on the centre of mass of the old, unoptimised starting structure, and rotated to maximise overlap with it.
+
+
+\begin{DoxyItemize}
+\item rp\+: Reaction path object.
+\item stripfile\+: The filename where the stripped path is output. 
+\end{DoxyItemize}
+
+Definition at line 41 of file cxs\+\_\+opt.\+f90.
+

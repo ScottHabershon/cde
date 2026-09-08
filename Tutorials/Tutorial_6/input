@@ -1,35 +1,36 @@
 # Breakdown calculation on polyethylene.
-calctype breakdown
+calctype breakdown 
+ranseed 4
 minmolcharge 0      
 maxmolcharge 0 
 nchargemol 0
 maxstepcharge 0
 maxtotalcharge 0
-optaftermove .true.
+optaftermove .false.
 pesfull .false.         ! Required for radicals and charges...
-nimage 6                ! Number of images in each generated reaction-step 
+nimage 10                ! Number of images in each generated reaction-step 
 startfile start.xyz
 endfile end.xyz
 idppguess .true.
 
 pathoptmethod cineb
 nebmethod quickmin 
-nebiter 500
+nebiter 25 
 cithresh 5d-4
 nebspring 0.05
-nebstep  10.0 
+nebstep  0.1 
 neboutfreq 5
-stripinactive .true.
-optendsbefore .true.
+stripinactive .false.
+optendsbefore .false.
 optendsduring .false.
-nebrestrend .true.
+nebrestrend .false.
 
 dofconstraints 0
 atomconstraints 0
 
-pestype xtb
+pestype null
 pesfile xtb.head
-pesopttype xtb 
+pesopttype null 
 pesoptfile xtb.head
 pesexecutable xtb --iterations 1000 --grad
 pesoptexecutable xtb --iterations 1000 --etemp 1000 --opt normal --grad
@@ -46,7 +47,7 @@ gdsdtrelax 0.1
 gdsoutfreq 10
 
 valencerange{
-C 2 4
+C 1 4
 H 1 1
 }
 
@@ -68,6 +69,6 @@ fixedbonds{
 allowedbonds{
 } 
 
-nrxn 20                   ! Max number of reactions in mechanism 
+nrxn 1                   ! Max number of reactions in mechanism 
 nmcrxn 1          ! Number of iterations to search for mechanism
 graphfunctype 4          ! Permutationally invariant function (leave!)

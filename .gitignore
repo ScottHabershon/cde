@@ -2,3 +2,6 @@
 /src/modfiles
 bin
 test/*
+# Generated documentation
+site/
+docs/api/doxygen/

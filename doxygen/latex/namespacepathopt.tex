@@ -1,0 +1,89 @@
+\doxysection{pathopt Module Reference}
+\hypertarget{namespacepathopt}{}\label{namespacepathopt}\index{pathopt@{pathopt}}
+
+
+Contains routines for path optimization, including CINEB.  
+
+
+\doxysubsubsection*{Functions/\+\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \doxymbox{\hyperlink{namespacepathopt_a2577ccbaf6655eab1a2f8f54cf45bc31}{interpolatepath}} (rp)
+\begin{DoxyCompactList}\small\item\em Interpolate\+Path. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathopt_a41a744efc5bab783a88663d6af98a777}{optimizepath}} (rp)
+\begin{DoxyCompactList}\small\item\em Optimize\+Path. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathopt_af8fbe251f61b7f4e756605041e19e1a0}{cineb}} (rp)
+\begin{DoxyCompactList}\small\item\em CINEB. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains routines for path optimization, including CINEB. 
+
+\label{namespacepathopt_doc-func-members}
+\Hypertarget{namespacepathopt_doc-func-members}
+\doxysubsection{Function/\+\+Subroutine Documentation}
+\Hypertarget{namespacepathopt_a2577ccbaf6655eab1a2f8f54cf45bc31}\index{pathopt@{pathopt}!interpolatepath@{interpolatepath}}
+\index{interpolatepath@{interpolatepath}!pathopt@{pathopt}}
+\doxysubsubsection{\texorpdfstring{interpolatepath()}{interpolatepath()}}
+{\footnotesize\ttfamily \label{namespacepathopt_a2577ccbaf6655eab1a2f8f54cf45bc31} 
+subroutine pathopt::\+interpolatepath (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}}), intent(out)}]{rp}{}\end{DoxyParamCaption})}
+
+
+
+Interpolate\+Path. 
+
+Interpolates a reaction path, without optimisation.
+
+
+\begin{DoxyItemize}
+\item rp: Generated interpolation of reaction path. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pathopt_8f90_source_l00030}{30}} of file \doxymbox{\hyperlink{pathopt_8f90_source}{pathopt.\+f90}}.
+
+\Hypertarget{namespacepathopt_a41a744efc5bab783a88663d6af98a777}\index{pathopt@{pathopt}!optimizepath@{optimizepath}}
+\index{optimizepath@{optimizepath}!pathopt@{pathopt}}
+\doxysubsubsection{\texorpdfstring{optimizepath()}{optimizepath()}}
+{\footnotesize\ttfamily \label{namespacepathopt_a41a744efc5bab783a88663d6af98a777} 
+subroutine pathopt::\+optimizepath (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{}\end{DoxyParamCaption})}
+
+
+
+Optimize\+Path. 
+
+Initiates a path optimization calculation.
+
+
+\begin{DoxyItemize}
+\item rp: Initial reaction path.
+\item nebiter: number of NEB iterations
+\item neboutfreq: number of NEB iterations between outputs
+\item nebspring: NEB spring parameter in atomic units
+\item pathoptmethod: Method used to optimize reaction path. Allowed values are \textquotesingle{}NEB\textquotesingle{}....
+\item NEBconv -\/ Convergence threshold on average force for NEB calculations.
+\item CIthresh -\/ Average force modulus when climbing-\/image should be activated.
+\item inputfile: The input filename, used to generate further output files.
+\item logfile: Log file unit nunmber for output 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pathopt_8f90_source_l00127}{127}} of file \doxymbox{\hyperlink{pathopt_8f90_source}{pathopt.\+f90}}.
+
+\Hypertarget{namespacepathopt_af8fbe251f61b7f4e756605041e19e1a0}\index{pathopt@{pathopt}!cineb@{cineb}}
+\index{cineb@{cineb}!pathopt@{pathopt}}
+\doxysubsubsection{\texorpdfstring{cineb()}{cineb()}}
+{\footnotesize\ttfamily \label{namespacepathopt_af8fbe251f61b7f4e756605041e19e1a0} 
+subroutine pathopt::\+cineb (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{}\end{DoxyParamCaption})}
+
+
+
+CINEB. 
+
+Runs a climbing-\/image nudged elastic band calculation starting from an initial reaction-\/path defined in rp.
+
+
+\begin{DoxyItemize}
+\item rp: The reaction-\/path object to be refined. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pathopt_8f90_source_l00163}{163}} of file \doxymbox{\hyperlink{pathopt_8f90_source}{pathopt.\+f90}}.
+

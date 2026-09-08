@@ -1,0 +1,58 @@
+\doxysection{src/\+pathfinder.f90 File Reference}
+\hypertarget{pathfinder_8f90}{}\label{pathfinder_8f90}\index{src/pathfinder.f90@{src/pathfinder.f90}}
+\doxysubsubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+module \doxymbox{\hyperlink{namespacepathfinder}{pathfinder}}
+\begin{DoxyCompactList}\small\item\em Contains routines for automatic determination of a reaction-\/mechanism connecting two distinct (user-\/input) structures. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions/\+\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a7ce0d0c193755a13466c3a5c273b21d2}{pathfinder::\+runpathfinder}} ()
+\begin{DoxyCompactList}\small\item\em Run\+Path\+Finder. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a653856562ee8b080c5577efcf618ce58}{pathfinder::\+adjustpaths}} (cx\+\_\+start, cx\+\_\+end, cx, nrxn, movenum, moveatoms, ifound)
+\begin{DoxyCompactList}\small\item\em Adjust\+Paths. \end{DoxyCompactList}\item 
+logical function \doxymbox{\hyperlink{namespacepathfinder_a5ab181b5ba41de2c9bb6d9eddeafb915}{pathfinder::\+containstargetatom}} (cx1, mol1, cx2, itarget)
+\begin{DoxyCompactList}\small\item\em Contains\+Target\+Atom. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_ac162e64b047281f6a8040365318bf631}{pathfinder::\+evaluategrapherror}} (cx, cx\+\_\+end, error, errflag)
+\begin{DoxyCompactList}\small\item\em Evaluate\+Graph\+Error. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a0de07862cb4c5d601bd783c1bb17aace}{pathfinder::\+comparegraphs}} (cx1, cx2, error)
+\begin{DoxyCompactList}\small\item\em Compare\+Graphs. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a40faf783cfa95399dd13f6b67ab2aca1}{pathfinder::\+stripinactivemols}} (cx1, cx2, cx1\+\_\+new, cx2\+\_\+new)
+\begin{DoxyCompactList}\small\item\em Strip\+Inactive\+Mols. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_aeff32d131039907ab2149ee86575c84b}{pathfinder::\+propagategraphs}} (cx\+\_\+start, cx, nrxn, movenum, moveatoms, errflag, error)
+\begin{DoxyCompactList}\small\item\em Propagate\+Graphs. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_ad3176a0a22cdd34dd1b20fb26be06d66}{pathfinder::\+selectmoveatoms}} (imove, moveatoms, nrxn, irx, rxindex, nrx, fail, atomchange, bondchange, na, cx, cx\+\_\+start)
+\begin{DoxyCompactList}\small\item\em Select\+Move\+Atoms. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a2de94873987728e50c19bae54729c3cd}{pathfinder::\+pathbondenergy}} (cx\+\_\+start, cx, nrxn, vbe, movenum, errflag)
+\begin{DoxyCompactList}\small\item\em Path\+Bond\+Energy. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_ac729c27551b23f20a4187fa897396875}{pathfinder::\+getpathfitness}} (cx\+\_\+start, cx\+\_\+end, cx, nrxn, movenum, moveatoms, errflag, grapherror, totalerror, vbe)
+\begin{DoxyCompactList}\small\item\em Get\+Path\+Fitness. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a20f3ea0bd66b1f1ebcea3cce7c677f9b}{pathfinder::\+trimpath}} (cx\+\_\+start, cx\+\_\+end, cx, nrxn, movenum, moveatoms, iend)
+\begin{DoxyCompactList}\small\item\em Trim\+Path. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a2637ab51295387ae866c2c51e5776d49}{pathfinder::\+printmolsalongpath}} (nrxn, cx\+\_\+start, cx\+\_\+end, cx, movenum, chargemove, changecharges, moveatoms)
+\begin{DoxyCompactList}\small\item\em Print\+Mols\+Along\+Path. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a0266f745c087b9c3fae61f1dce773493}{pathfinder::\+graphstocoords}} (cx\+\_\+start, cx, nrxn, printflag, printfile, optoverride)
+\begin{DoxyCompactList}\small\item\em Graphs\+To\+Coords. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a4a86877e41a3994e2e1bc9aa11535930}{pathfinder::\+graphstocoords\+\_\+bd}} (wcx, printflag, printfile, err, errstr, optoverride, calcinitial)
+\begin{DoxyCompactList}\small\item\em Graphs\+To\+Coords\+\_\+\+BD. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a29862682a12550f1dd6e634562a81013}{pathfinder::\+calcsinglegeom}} (cx, optflag, printflag, printfile, err, errstr)
+\begin{DoxyCompactList}\small\item\em Calc\+Single\+Geom. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_abe7d05aca718390074239f96f3eff522}{pathfinder::\+printmechanismpaths}} (nrxn, cx\+\_\+start, cx, file\+\_\+root, maxbarrier, bsum, cx\+\_\+end)
+\begin{DoxyCompactList}\small\item\em Print\+Mechanism\+Paths. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a38a57e9848ee768d8e19891d5fa91ff0}{pathfinder::\+updatemechanism}} (nrxn, movenum, moveatoms, bondchange, atomchange, na, cx\+\_\+start, cx, rxindex, cyc, movenum\+\_\+store, moveatoms\+\_\+store)
+\begin{DoxyCompactList}\small\item\em Update\+Mechanism. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_afbc92aeaed8e180333ae25bda3b93026}{pathfinder::\+reactionerrorcorrection}} (cx\+\_\+start, cx, nrxn, movenum, moveatoms, errx)
+\begin{DoxyCompactList}\small\item\em Reaction\+Error\+Correction. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a588e5149dd38beb79af3aa90f907cd72}{pathfinder::\+updatecharges}} (nrxn, cx, chargemove, chargemove\+\_\+store, errflag)
+\begin{DoxyCompactList}\small\item\em Update\+Charges. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a55a7e7bc956c89c3d3be3bc1ef4ab980}{pathfinder::\+runnetgrow}} ()
+\begin{DoxyCompactList}\small\item\em Run\+Net\+Grow. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a840912a8f356883d7eae526b0605e13e}{pathfinder::\+runnetgrow2}} ()
+\begin{DoxyCompactList}\small\item\em Run\+Net\+Grow2. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a8a34d428a2f50cee28920e703e35e8a3}{pathfinder::\+runbreakdown}} ()
+\begin{DoxyCompactList}\small\item\em Run\+Breakdown. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_afe500955543428bb32f3af2c1ad9cff1}{pathfinder::\+createmechanismstep}} (movenum, moveatoms, bondchange, atomchange, wcx, cyc, rxindex)
+\begin{DoxyCompactList}\small\item\em Create\+Mechanism\+Step. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a8ae35443dc1798fec196e20b06c5add8}{pathfinder::\+updatemechanismstep}} (nrxn, movenum, moveatoms, bondchange, atomchange, na, cx\+\_\+start, cx, irx, rxindex, cyc, movenum\+\_\+store, moveatoms\+\_\+store)
+\begin{DoxyCompactList}\small\item\em Update\+Mechanism\+Step. \end{DoxyCompactList}\end{DoxyCompactItemize}

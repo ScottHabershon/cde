@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="main_8f90" kind="file" language="Fortran">
+    <compoundname>main.f90</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="main_8f90_1a47ba3d03723f68f0f5585e457ef6c044" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>program</type>
+        <definition>program cde</definition>
+        <argsstring></argsstring>
+        <name>cde</name>
+        <briefdescription>
+<para><ref refid="main_8f90" kindref="compound">main.f90</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Description: Main driver routine for CDE (Chemical Discovery Engine). Can perform a variety of simulations, including NEB, CINEB, and Graph-driven reaction-path sampling.</para>
+<para>Lead author: Scott Habershon.</para>
+<para>Start date: January 2015</para>
+<para>Usage: cde.x input </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/main.f90" line="18" column="1" bodyfile="src/main.f90" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">!***************************************************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">!</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment">!&gt;<sp/>main.f90</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">!!</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">!!<sp/>Description:<sp/>Main<sp/>driver<sp/>routine<sp/>for<sp/>CDE<sp/>(Chemical<sp/>Discovery<sp/>Engine).</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">!!<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Can<sp/>perform<sp/>a<sp/>variety<sp/>of<sp/>simulations,<sp/>including<sp/>NEB,<sp/>CINEB,</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">!!<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>and<sp/>Graph-driven<sp/>reaction-path<sp/>sampling.</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">!!</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">!!<sp/>Lead<sp/>author:<sp/>Scott<sp/>Habershon.</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">!!</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">!!<sp/>Start<sp/>date:<sp/>January<sp/>2015</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">!!</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">!!<sp/>Usage:<sp/>cde.x<sp/>input</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">!!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">!***************************************************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="main_8f90_1a47ba3d03723f68f0f5585e457ef6c044" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">Program</highlight><highlight class="normal"><sp/><ref refid="main_8f90_1a47ba3d03723f68f0f5585e457ef6c044" kindref="member">cde</ref></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">use<sp/></highlight><highlight class="normal"><ref refid="namespaceconstants" kindref="compound">constants</ref></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">use<sp/></highlight><highlight class="normal"><ref refid="namespaceglobaldata" kindref="compound">globaldata</ref></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">use<sp/></highlight><highlight class="normal"><ref refid="namespacerpath" kindref="compound">rpath</ref></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">use<sp/></highlight><highlight class="normal"><ref refid="namespaceio" kindref="compound">io</ref></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">use<sp/></highlight><highlight class="normal"><ref refid="namespacepathopt" kindref="compound">pathopt</ref></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">use<sp/></highlight><highlight class="normal"><ref refid="namespacepes" kindref="compound">pes</ref></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">use<sp/></highlight><highlight class="normal"><ref refid="namespacepathfinder" kindref="compound">pathfinder</ref></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">implicit<sp/>none</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">type</highlight><highlight class="normal">(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)<sp/>::<sp/>rp</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!<sp/>Read<sp/>the<sp/>input<sp/>file.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">Call<sp/></highlight><highlight class="normal"><ref refid="namespaceio_1aee45b0da5539969779855687cc9efd6d" kindref="member">readinput</ref>()</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!<sp/>Initialize<sp/>PES<sp/>calculations.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">Call<sp/></highlight><highlight class="normal"><ref refid="namespacepes_1afabde251e1825ead6ccf86ae3ec3ad46" kindref="member">setupenergycalc</ref>(<ref refid="namespaceglobaldata_1ac444aced197556debbc987266a253768" kindref="member">pestype</ref>,<ref refid="namespaceglobaldata_1a32fccb0f0c05996d6da85ccddd141d11" kindref="member">pesfile</ref>,<ref refid="namespaceglobaldata_1ab85519f27f07052f751947691618be2c" kindref="member">pesexecutable</ref>)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">Call<sp/></highlight><highlight class="normal"><ref refid="namespacepes_1a8174e6a35fe7db895b5c801bf9c62ce5" kindref="member">setupgeomopt</ref>(<ref refid="namespaceglobaldata_1a4c196084db36cecdbc9b6a6508a34aeb" kindref="member">pesopttype</ref>,<ref refid="namespaceglobaldata_1a0f59e857d2686ff93733a9a7240c88fa" kindref="member">pesoptfile</ref>,<ref refid="namespaceglobaldata_1a795b05df745173ba8a36092a91c6dc03" kindref="member">pesoptexecutable</ref>)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!<sp/>Start<sp/>random<sp/>numbers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><ref refid="namespaceglobaldata_1a2a5db0fb5233e7a4febb11bd89e90670" kindref="member">idum</ref><sp/>=<sp/>setranseed(<ref refid="namespaceglobaldata_1a6239457ecf63a6b7f60d3b250e280904" kindref="member">irun</ref>)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!<sp/>Switch<sp/>based<sp/>on<sp/>calctype.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">select<sp/>case</highlight><highlight class="normal"><sp/>(<ref refid="namespaceglobaldata_1a47cbca93af5d9d495ef24d7a62ad71c9" kindref="member">calctype</ref>)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!***************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!<sp/>PATH<sp/>OPTIMIZATION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!***************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&apos;optpath&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">write</highlight><highlight class="normal">(<ref refid="namespaceglobaldata_1a5909f8c2ded8072344ec33fca3a9a28b" kindref="member">logfile</ref>,</highlight><highlight class="stringliteral">&apos;(&quot;*<sp/>Starting<sp/>path<sp/>optimization...&quot;/)&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!<sp/>Initialize<sp/>the<sp/>reaction<sp/>path<sp/>object.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">Call<sp/></highlight><highlight class="normal"><ref refid="namespacerpath_1ab6d6281ea4bcaee28c63f8d7d38e746a" kindref="member">newpath</ref>(rp,<sp/><ref refid="namespaceglobaldata_1a7f70855279bb4ff76b27b3d6c83b70ba" kindref="member">startfrompath</ref>,<sp/><ref refid="namespaceglobaldata_1a704033d9b79e75b8fd0012544f5895e7" kindref="member">startfile</ref>,<sp/><ref refid="namespaceglobaldata_1a2fa6dae46516821918eb11db7c5a8ed1" kindref="member">endfile</ref>,<sp/><ref refid="namespaceglobaldata_1aba164f7220bc200c4e7bb107530a8203" kindref="member">pathfile</ref>,<sp/><ref refid="namespaceglobaldata_1a7e8abca7ca09a21cff7419340c3889fa" kindref="member">nimage</ref>,<sp/>&amp;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceglobaldata_1a45ebfde17dc1300b187dd31f32218b83" kindref="member">pathinit</ref>,<sp/>.false.,<sp/><ref refid="namespaceglobaldata_1a2a5db0fb5233e7a4febb11bd89e90670" kindref="member">idum</ref>)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!<sp/>Print<sp/>the<sp/>initial<sp/>path.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">Call<sp/></highlight><highlight class="normal"><ref refid="namespacerpath_1af1a1657f4058d72abff72654e155d38b" kindref="member">printpathtofile</ref>(rp,</highlight><highlight class="stringliteral">&apos;initial_path.xyz&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">write</highlight><highlight class="normal">(<ref refid="namespaceglobaldata_1a5909f8c2ded8072344ec33fca3a9a28b" kindref="member">logfile</ref>,</highlight><highlight class="stringliteral">&apos;(&quot;-<sp/>Initial<sp/>path<sp/>written<sp/>to<sp/>initial_path.xyz&quot;)&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!<sp/>If<sp/>stripinactive<sp/>is<sp/>true,<sp/>then<sp/>we<sp/>strip<sp/>out<sp/>the<sp/>inactive<sp/>molecules<sp/>(i.e.<sp/>those<sp/>not</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!<sp/>involved<sp/>in<sp/>the<sp/>reaction).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="namespaceglobaldata_1a7aeccf1be55c54d9dd70725804962233" kindref="member">stripinactive</ref>)<sp/></highlight><highlight class="keywordflow">then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">write</highlight><highlight class="normal">(<ref refid="namespaceglobaldata_1a5909f8c2ded8072344ec33fca3a9a28b" kindref="member">logfile</ref>,</highlight><highlight class="stringliteral">&apos;(&quot;***<sp/>Stripping<sp/>inactive<sp/>molecules<sp/>from<sp/>path...&quot;)&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">Call<sp/></highlight><highlight class="normal"><ref refid="namespacerpath_1ad39f06a07a989b7bfe818da9911ec287" kindref="member">stripinactivefrompath</ref>(<sp/>rp,<sp/></highlight><highlight class="stringliteral">&apos;strip_path.xyz&apos;</highlight><highlight class="normal">,<sp/><ref refid="namespaceglobaldata_1aaddcd3ad03d788e05837f5cdb3d6fb34" kindref="member">fixeddof</ref>,<sp/><ref refid="namespaceglobaldata_1a6ae31195458542d76c3268db55f704d8" kindref="member">fixedatom</ref>,<sp/><ref refid="namespaceglobaldata_1a9071d6ff42b2b2ea4a2ddb30570d473e" kindref="member">ndofconstr</ref>,<sp/><ref refid="namespaceglobaldata_1a3a9faeeb195052e2c4003c7556f4bb74" kindref="member">natomconstr</ref>,.true.)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">write</highlight><highlight class="normal">(<ref refid="namespaceglobaldata_1a5909f8c2ded8072344ec33fca3a9a28b" kindref="member">logfile</ref>,</highlight><highlight class="stringliteral">&apos;(&quot;-<sp/>Stripped<sp/>initial<sp/>path<sp/>written<sp/>to<sp/>strip_path.xyz&quot;)&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!<sp/>Now<sp/>delete<sp/>the<sp/>original<sp/>path<sp/>and<sp/>read<sp/>the<sp/>new<sp/>one.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">Call<sp/></highlight><highlight class="normal"><ref refid="namespacerpath_1acc28b3649c7753a676d4d6c4e6635286" kindref="member">deletepath</ref>(rp)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!<sp/>..and<sp/>create<sp/>a<sp/>new<sp/>path<sp/>by<sp/>reading<sp/>from<sp/>file...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">Call<sp/></highlight><highlight class="normal"><ref refid="namespacerpath_1ab6d6281ea4bcaee28c63f8d7d38e746a" kindref="member">newpath</ref>(rp,<sp/>.true.,<sp/><ref refid="namespaceglobaldata_1a704033d9b79e75b8fd0012544f5895e7" kindref="member">startfile</ref>,<sp/><ref refid="namespaceglobaldata_1a2fa6dae46516821918eb11db7c5a8ed1" kindref="member">endfile</ref>,<sp/></highlight><highlight class="stringliteral">&apos;strip_path.xyz&apos;</highlight><highlight class="normal">,<sp/><ref refid="namespaceglobaldata_1a7e8abca7ca09a21cff7419340c3889fa" kindref="member">nimage</ref>,<sp/>&amp;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceglobaldata_1a45ebfde17dc1300b187dd31f32218b83" kindref="member">pathinit</ref>,<sp/>.false.,<sp/><ref refid="namespaceglobaldata_1a2a5db0fb5233e7a4febb11bd89e90670" kindref="member">idum</ref>)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/><sp/><sp/>endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!<sp/>Initialize<sp/>constraints<sp/>in<sp/>the<sp/>path.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">Call<sp/></highlight><highlight class="normal"><ref refid="namespacerpath_1a41d64b8dbb88875343759fd816a2f9b2" kindref="member">setpathconstraints</ref>(rp,<sp/><ref refid="namespaceglobaldata_1a9071d6ff42b2b2ea4a2ddb30570d473e" kindref="member">ndofconstr</ref>,<sp/><ref refid="namespaceglobaldata_1aaddcd3ad03d788e05837f5cdb3d6fb34" kindref="member">fixeddof</ref>,<sp/><ref refid="namespaceglobaldata_1a3a9faeeb195052e2c4003c7556f4bb74" kindref="member">natomconstr</ref>,<sp/><ref refid="namespaceglobaldata_1a6ae31195458542d76c3268db55f704d8" kindref="member">fixedatom</ref>)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!<sp/>Now<sp/>optimize<sp/>the<sp/>path.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">Call<sp/></highlight><highlight class="normal"><ref refid="namespacepathopt_1a41a744efc5bab783a88663d6af98a777" kindref="member">optimizepath</ref>(rp)</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!<sp/>Tidy<sp/>up....</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">Call<sp/></highlight><highlight class="normal"><ref refid="namespacerpath_1acc28b3649c7753a676d4d6c4e6635286" kindref="member">deletepath</ref>(rp)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!***************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!<sp/>PATH<sp/>INTERPOLATION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!***************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>(</highlight><highlight class="stringliteral">&apos;interp&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">write</highlight><highlight class="normal">(<ref refid="namespaceglobaldata_1a5909f8c2ded8072344ec33fca3a9a28b" kindref="member">logfile</ref>,</highlight><highlight class="stringliteral">&apos;(&quot;*<sp/>Starting<sp/>path<sp/>interpolation...&quot;/)&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!<sp/>Create<sp/>interpolation.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal"><ref refid="namespacepathopt_1a2577ccbaf6655eab1a2f8f54cf45bc31" kindref="member">interpolatepath</ref>(rp)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">!<sp/>Tidy<sp/>up.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal"><ref refid="namespacerpath_1acc28b3649c7753a676d4d6c4e6635286" kindref="member">deletepath</ref>(rp)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!***************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!<sp/>DOUBLE-ENDED<sp/>PATH-FINDING<sp/>CALCULATION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!***************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>(</highlight><highlight class="stringliteral">&apos;pathfind&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">write</highlight><highlight class="normal">(<ref refid="namespaceglobaldata_1a5909f8c2ded8072344ec33fca3a9a28b" kindref="member">logfile</ref>,</highlight><highlight class="stringliteral">&apos;(&quot;*<sp/>Starting<sp/>double-ended<sp/>mechanism-finding<sp/>calculation...&quot;/)&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">Call<sp/></highlight><highlight class="normal"><ref refid="namespacepathfinder_1a7ce0d0c193755a13466c3a5c273b21d2" kindref="member">runpathfinder</ref>()</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!***************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!<sp/>SINGLE-ENDED<sp/>NETWORK<sp/>GENERATION<sp/>CALCULATION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!***************************************************</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>(</highlight><highlight class="stringliteral">&apos;netgrow&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">write</highlight><highlight class="normal">(<ref refid="namespaceglobaldata_1a5909f8c2ded8072344ec33fca3a9a28b" kindref="member">logfile</ref>,</highlight><highlight class="stringliteral">&apos;(&quot;*<sp/>Starting<sp/>single-ended<sp/>network<sp/>generation<sp/>calculation...&quot;/)&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">write</highlight><highlight class="normal">(<ref refid="namespaceglobaldata_1a5909f8c2ded8072344ec33fca3a9a28b" kindref="member">logfile</ref>,<sp/></highlight><highlight class="stringliteral">&apos;(&quot;-<sp/>Note<sp/>that<sp/>this<sp/>mode<sp/>is<sp/>EXPERIMENTAL.&quot;)&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">Call<sp/></highlight><highlight class="normal"><ref refid="namespacepathfinder_1a55a7e7bc956c89c3d3be3bc1ef4ab980" kindref="member">runnetgrow</ref>()</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>(</highlight><highlight class="stringliteral">&apos;netgrow2&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">write</highlight><highlight class="normal">(<ref refid="namespaceglobaldata_1a5909f8c2ded8072344ec33fca3a9a28b" kindref="member">logfile</ref>,</highlight><highlight class="stringliteral">&apos;(&quot;*<sp/>Starting<sp/>single-ended<sp/>network<sp/>generation<sp/>calculation...&quot;/)&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">write</highlight><highlight class="normal">(<ref refid="namespaceglobaldata_1a5909f8c2ded8072344ec33fca3a9a28b" kindref="member">logfile</ref>,<sp/></highlight><highlight class="stringliteral">&apos;(&quot;-<sp/>Note<sp/>that<sp/>this<sp/>mode<sp/>is<sp/>EXPERIMENTAL.&quot;)&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">Call<sp/></highlight><highlight class="normal"><ref refid="namespacepathfinder_1a840912a8f356883d7eae526b0605e13e" kindref="member">runnetgrow2</ref>()</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>(</highlight><highlight class="stringliteral">&apos;breakdown&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">write</highlight><highlight class="normal">(<ref refid="namespaceglobaldata_1a5909f8c2ded8072344ec33fca3a9a28b" kindref="member">logfile</ref>,<sp/></highlight><highlight class="stringliteral">&apos;(&quot;*<sp/>Starting<sp/>single-ended<sp/>breakdown<sp/>product<sp/>generation...&quot;/)&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal"><ref refid="namespacepathfinder_1a8a34d428a2f50cee28920e703e35e8a3" kindref="member">runbreakdown</ref>()</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/>case<sp/>default</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>print*,<sp/></highlight><highlight class="stringliteral">&apos;*<sp/>Unknown<sp/>calculation<sp/>type&apos;</highlight><highlight class="normal">,<sp/><ref refid="namespaceglobaldata_1a47cbca93af5d9d495ef24d7a62ad71c9" kindref="member">calctype</ref></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>stop</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="keywordflow"><sp/><sp/>end<sp/>select</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!<sp/>Finish<sp/>things<sp/>up.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">write</highlight><highlight class="normal">(<ref refid="namespaceglobaldata_1a5909f8c2ded8072344ec33fca3a9a28b" kindref="member">logfile</ref>,</highlight><highlight class="stringliteral">&apos;(/&quot;================================================================&quot;)&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">write</highlight><highlight class="normal">(<ref refid="namespaceglobaldata_1a5909f8c2ded8072344ec33fca3a9a28b" kindref="member">logfile</ref>,</highlight><highlight class="stringliteral">&apos;(&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CALCULATION<sp/>COMPLETE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;)&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">write</highlight><highlight class="normal">(<ref refid="namespaceglobaldata_1a5909f8c2ded8072344ec33fca3a9a28b" kindref="member">logfile</ref>,</highlight><highlight class="stringliteral">&apos;(&quot;================================================================&quot;/)&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">call<sp/></highlight><highlight class="normal">flush(<ref refid="namespaceglobaldata_1a5909f8c2ded8072344ec33fca3a9a28b" kindref="member">logfile</ref>)</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="keyword">end<sp/>Program<sp/></highlight><highlight class="normal"><ref refid="main_8f90_1a47ba3d03723f68f0f5585e457ef6c044" kindref="member">cde</ref></highlight></codeline>
+    </programlisting>
+    <location file="src/main.f90"/>
+  </compounddef>
+</doxygen>

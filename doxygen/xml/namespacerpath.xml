@@ -1,0 +1,949 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="namespacerpath" kind="namespace" language="Fortran">
+    <compoundname>rpath</compoundname>
+    <innerclass refid="structrpath_1_1rxp" prot="public">rpath::rxp</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacerpath_1ab6d6281ea4bcaee28c63f8d7d38e746a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::newpath</definition>
+        <argsstring>(rp, startfrompath, startfile, endfile, pathfile, nimage, pathinit, emptypath, natom)</argsstring>
+        <name>newpath</name>
+        <qualifiedname>rpath::newpath</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>logical, intent(in)</type>
+          <defname>startfrompath</defname>
+        </param>
+        <param>
+          <type>character (len=*), intent(in)</type>
+          <defname>startfile</defname>
+        </param>
+        <param>
+          <type>character (len=*), intent(in)</type>
+          <defname>endfile</defname>
+        </param>
+        <param>
+          <type>character (len=*), intent(in)</type>
+          <defname>pathfile</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nimage</defname>
+        </param>
+        <param>
+          <type>character (len=*), intent(in)</type>
+          <defname>pathinit</defname>
+        </param>
+        <param>
+          <type>logical, intent(in)</type>
+          <defname>emptypath</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>natom</defname>
+        </param>
+        <briefdescription>
+<para>NewPath. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes a path object.</para>
+<para><itemizedlist>
+<listitem><para>rp: Initialized path object.</para>
+</listitem><listitem><para>startfrompath: Flag to indicate that we&apos;re starting from a full path (logical)</para>
+</listitem><listitem><para>startfile: filename for starting point structure (xyz file)</para>
+</listitem><listitem><para>endfile: filename for end point structure (xyz file)</para>
+</listitem><listitem><para>pathfile: If startfrompath == .TRUE., read the full path from pathfile</para>
+</listitem><listitem><para>nimage: number of images along path in total (read from input file OR from pathfile)</para>
+</listitem><listitem><para>pathinit: path initialization type when startfrompath = .FALSE.. Allowed values are &apos;LINEAR&apos; and ....?</para>
+</listitem><listitem><para>emptypath: Flag indicating whether to start with an empty path.</para>
+</listitem><listitem><para>natom: number of atoms. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="57" column="1" bodyfile="src/rpath.f90" bodystart="59" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1ad6c77a07ce6a59e54a4774305efe44d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::copypath</definition>
+        <argsstring>(rpin, rpout)</argsstring>
+        <name>copypath</name>
+        <qualifiedname>rpath::copypath</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rpin</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rpout</defname>
+        </param>
+        <briefdescription>
+<para>CopyPath. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates an empty reaction path, rpout, using parameter sizes from rpin</para>
+<para><itemizedlist>
+<listitem><para>rpin: The reaction path object used to get size information.</para>
+</listitem><listitem><para>rpout: The new reaction path object. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="120" column="1" bodyfile="src/rpath.f90" bodystart="121" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1acc28b3649c7753a676d4d6c4e6635286" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::deletepath</definition>
+        <argsstring>(rp)</argsstring>
+        <name>deletepath</name>
+        <qualifiedname>rpath::deletepath</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <briefdescription>
+<para>DeletePath. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Deletes memory associated with a path.</para>
+<para><itemizedlist>
+<listitem><para>rp: The reaction path object to be deleted. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="147" column="1" bodyfile="src/rpath.f90" bodystart="148" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1a14303787a571dd0cb770f37003d45bc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::setinternalcoords</definition>
+        <argsstring>(rp, pathinit)</argsstring>
+        <name>setinternalcoords</name>
+        <qualifiedname>rpath::setinternalcoords</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>character (len=*)</type>
+          <defname>pathinit</defname>
+        </param>
+        <briefdescription>
+<para>SetInternalCoords. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When building a path from end-points only, this subroutine sets the coordinates of the nimage-2 internal beads according to the method defined in pathinit.</para>
+<para><itemizedlist>
+<listitem><para>rp: The reaction path object.</para>
+</listitem><listitem><para>pathinit: string defining interpolation type. Allowed values are &apos;LINEAR&apos; for linear interpolation.. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="189" column="1" bodyfile="src/rpath.f90" bodystart="190" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1af1a1657f4058d72abff72654e155d38b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::printpathtofile</definition>
+        <argsstring>(rp, filename, do_append)</argsstring>
+        <name>printpathtofile</name>
+        <qualifiedname>rpath::printpathtofile</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>), intent(in)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>character(len=*), intent(in)</type>
+          <defname>filename</defname>
+        </param>
+        <param>
+          <type>logical, intent(in), optional</type>
+          <defname>do_append</defname>
+        </param>
+        <briefdescription>
+<para>PrintPathToFile. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Outputs an entire reaction path to an xyz file.</para>
+<para><itemizedlist>
+<listitem><para>rp: The reaction path object.</para>
+</listitem><listitem><para>filename: the output xyz file.</para>
+</listitem><listitem><para>do_append: (optional) whether to append to existing or overwrite/write new. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="232" column="1" bodyfile="src/rpath.f90" bodystart="233" bodyend="264"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1a9b2a0f9ab7c436ec4cc0ad6594eabfe0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::findidpppath</definition>
+        <argsstring>(rp, idppiter, idppconv, idppstep, idppspring)</argsstring>
+        <name>findidpppath</name>
+        <qualifiedname>rpath::findidpppath</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>idppiter</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>idppconv</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>idppstep</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>idppspring</defname>
+        </param>
+        <briefdescription>
+<para>FindIDPPPath. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>finds an interpolated path using NEB on a Image-dependent PairPotential, as described in Smidstrup et al J Chem phys 2014, 140</para>
+<para><itemizedlist>
+<listitem><para>rp: Reaction path </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="279" column="1" bodyfile="src/rpath.f90" bodystart="280" bodyend="384"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1a085468648d15adb3a8a2899d8bba728f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::getidppforces</definition>
+        <argsstring>(rp, rtarg)</argsstring>
+        <name>getidppforces</name>
+        <qualifiedname>rpath::getidppforces</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>real(8), dimension(rp%<ref refid="namespaceglobaldata_1a7e8abca7ca09a21cff7419340c3889fa" kindref="member">nimage</ref>, rp%<ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>, rp%<ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>)</type>
+          <defname>rtarg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="397" column="1" bodyfile="src/rpath.f90" bodystart="398" bodyend="425"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1a691c70e4854e7529a7b85e69491cdccc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::getforcenorm</definition>
+        <argsstring>(rp, forcenorm, fmax, n1, n2)</argsstring>
+        <name>getforcenorm</name>
+        <qualifiedname>rpath::getforcenorm</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>forcenorm</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>fmax</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>n1</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>n2</defname>
+        </param>
+        <briefdescription>
+<para>GetForceNorm. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculate the norm of the projected forces for the internal beads.</para>
+<para><itemizedlist>
+<listitem><para>rp: The reaction-path object to be refined.</para>
+</listitem><listitem><para>forcenorm: Returned force norm</para>
+</listitem><listitem><para>n1, n2: Integer range of images to include in calculation. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="442" column="1" bodyfile="src/rpath.f90" bodystart="443" bodyend="477"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1aba836ec30e7b0733327d8f2949e4b00c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::readxyzframe</definition>
+        <argsstring>(fileid, na, label, x, y, z)</argsstring>
+        <name>readxyzframe</name>
+        <qualifiedname>rpath::readxyzframe</qualifiedname>
+        <param>
+          <type>integer</type>
+          <defname>fileid</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>na</defname>
+        </param>
+        <param>
+          <type>character (len=2), dimension(:)</type>
+          <defname>label</defname>
+        </param>
+        <param>
+          <type>real(8), dimension(:)</type>
+          <defname>x</defname>
+        </param>
+        <param>
+          <type>real(8), dimension(:)</type>
+          <defname>y</defname>
+        </param>
+        <param>
+          <type>real(8), dimension(:)</type>
+          <defname>z</defname>
+        </param>
+        <briefdescription>
+<para>ReadXYZFrame. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>reads a single frame from an xyz file.</para>
+<para><itemizedlist>
+<listitem><para>fileid: Integer file label.</para>
+</listitem><listitem><para>na: Number of atoms</para>
+</listitem><listitem><para>label: atom labes read from file.</para>
+</listitem><listitem><para>x,y,z: Coordinates of each atom read from file </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="494" column="1" bodyfile="src/rpath.f90" bodystart="495" bodyend="509"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1abde80fc3058f25748933e535857b3913" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::startfromendpoints</definition>
+        <argsstring>(rp, startfile, endfile, pathinit, nimage)</argsstring>
+        <name>startfromendpoints</name>
+        <qualifiedname>rpath::startfromendpoints</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>character (len=*)</type>
+          <defname>startfile</defname>
+        </param>
+        <param>
+          <type>character (len=*)</type>
+          <defname>endfile</defname>
+        </param>
+        <param>
+          <type>character (len=*)</type>
+          <defname>pathinit</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nimage</defname>
+        </param>
+        <briefdescription>
+<para>StartFromEndPoints. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes a reaction path using the path end-points.</para>
+<para><itemizedlist>
+<listitem><para>rp: The reaction path object.</para>
+</listitem><listitem><para>startfile: the xyz file containing the startpoint.</para>
+</listitem><listitem><para>endfile: the xyz file containing the endpoint.</para>
+</listitem><listitem><para>pathinit: character*5 string containing identifier for method used to interpolate internal image coordinates.</para>
+</listitem><listitem><para>nimage: Number of images in path. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="528" column="1" bodyfile="src/rpath.f90" bodystart="529" bodyend="576"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1a06918a9ef3a6a733a078f2d7142ca2e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::readpathfromfile</definition>
+        <argsstring>(rp, pathfile)</argsstring>
+        <name>readpathfromfile</name>
+        <qualifiedname>rpath::readpathfromfile</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>character (len=*)</type>
+          <defname>pathfile</defname>
+        </param>
+        <briefdescription>
+<para>ReadPathFromFile. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads a file reaction path from a xyz file with nimage frames. First, we read the number of atoms and images, then create the path object. Finally, we read in the coordinates along the path.</para>
+<para><itemizedlist>
+<listitem><para>rp: Reaction path object.</para>
+</listitem><listitem><para>pathfile: filename for path. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="592" column="1" bodyfile="src/rpath.f90" bodystart="593" bodyend="670"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1a41d64b8dbb88875343759fd816a2f9b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::setpathconstraints</definition>
+        <argsstring>(rp, ndofconstr, fixeddof, natomconstr, fixedatom)</argsstring>
+        <name>setpathconstraints</name>
+        <qualifiedname>rpath::setpathconstraints</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>integer, intent(in)</type>
+          <defname>ndofconstr</defname>
+        </param>
+        <param>
+          <type>integer, dimension(:), intent(in)</type>
+          <defname>fixeddof</defname>
+        </param>
+        <param>
+          <type>integer, intent(in)</type>
+          <defname>natomconstr</defname>
+        </param>
+        <param>
+          <type>integer, dimension(:), intent(in)</type>
+          <defname>fixedatom</defname>
+        </param>
+        <briefdescription>
+<para>SetPathConstraints. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Identify constrained atoms and DOFs in the path.</para>
+<para><itemizedlist>
+<listitem><para>rp: Initialized path object.</para>
+</listitem><listitem><para>NDOFconstr: Number of DOF constraints.</para>
+</listitem><listitem><para>FixedDOF: Array containing integer number of constrained DOFs</para>
+</listitem><listitem><para>Natomconstr: Number of atom constraints</para>
+</listitem><listitem><para>Fixedatom: Array containing integer ids of fixed atoms. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="688" column="1" bodyfile="src/rpath.f90" bodystart="689" bodyend="699"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1ac8b51bb543056270fc034d75ba2a7266" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::getpathenergy</definition>
+        <argsstring>(rp, success)</argsstring>
+        <name>getpathenergy</name>
+        <qualifiedname>rpath::getpathenergy</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>success</defname>
+        </param>
+        <briefdescription>
+<para>GetPathEnergy. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the energy for all structures along a reaction path. The <ref refid="pes_8f90" kindref="compound">pes.f90</ref> module contains details of the calculation to perform.</para>
+<para><itemizedlist>
+<listitem><para>rp: Path object. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="714" column="1" bodyfile="src/rpath.f90" bodystart="715" bodyend="730"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1a2c6811f49e45524aa43a075f8d4f1a7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::getpathgradients</definition>
+        <argsstring>(rp, success, calc_all)</argsstring>
+        <name>getpathgradients</name>
+        <qualifiedname>rpath::getpathgradients</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>), intent(in)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>logical, intent(out)</type>
+          <defname>success</defname>
+        </param>
+        <param>
+          <type>logical, intent(in)</type>
+          <defname>calc_all</defname>
+        </param>
+        <briefdescription>
+<para>GetPathGradients. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the energy for all structures along a reaction path. The <ref refid="pes_8f90" kindref="compound">pes.f90</ref> module contains details of the calculation to perform.</para>
+<para><itemizedlist>
+<listitem><para>rp: Path object.</para>
+</listitem><listitem><para>success: Result of Ab Initio calculation.</para>
+</listitem><listitem><para>calc_all: Whether to force calculation of all cxs along rp. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="747" column="1" bodyfile="src/rpath.f90" bodystart="748" bodyend="766"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1a1faa43d82cebd49dbfb23e87189db2c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::getprojforces1</definition>
+        <argsstring>(rp, kon, ci_flag, endflag)</argsstring>
+        <name>getprojforces1</name>
+        <qualifiedname>rpath::getprojforces1</qualifiedname>
+        <param>
+          <type>type (<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>kon</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>ci_flag</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>endflag</defname>
+        </param>
+        <briefdescription>
+<para>GetProjForces1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the forces projected along the reaction path, as required in NEB or CINEB calculations. A previous PES calculation MUST have been performed for the reaction path.</para>
+<para>Note: By setting ci_flag = .true., this routine returns forces for CI-NEB.</para>
+<para><itemizedlist>
+<listitem><para>rp: Reaction path object.</para>
+</listitem><listitem><para>kon: Flag determining if the spring forces should be calculated or not</para>
+</listitem><listitem><para>ci_flag: Logical flag indicating whether to return climbing-image forces.</para>
+</listitem><listitem><para>endflag: Logical flag indicatin whether or not the forces on the end-point beads should be returned as the &quot;bare&quot; (non-NEB) forces. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="793" column="1" bodyfile="src/rpath.f90" bodystart="794" bodyend="1144"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1ac95367fc9bf411eca8d31874d5e3e703" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::getprojforces2</definition>
+        <argsstring>(rp, kon, ci_flag, endflag)</argsstring>
+        <name>getprojforces2</name>
+        <qualifiedname>rpath::getprojforces2</qualifiedname>
+        <param>
+          <type>type (<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>kon</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>ci_flag</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>endflag</defname>
+        </param>
+        <briefdescription>
+<para>GetProjForces2. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the forces projected along the reaction path, as required in NEB or CINEB calculations. A previous PES calculation MUST have been performed for the reaction path. This routine uses a slightly improved version of tangents and forces as described by henkelman 00</para>
+<para>Note: By setting ci_flag = .true., this routine returns forces for CI-NEB.</para>
+<para><itemizedlist>
+<listitem><para>rp: Reaction path object. size is made.</para>
+</listitem><listitem><para>ci_flag: Logical flag indicating whether to return climbing-image forces.</para>
+</listitem><listitem><para>endflag: Logical flag indicating whether or not the forces on the end-point beads should be returned as the &quot;bare&quot; (non-NEB) forces. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="1172" column="1" bodyfile="src/rpath.f90" bodystart="1173" bodyend="1286"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1a73d1e89cffa30d46b66bfbd445e3e0f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::variablesprings</definition>
+        <argsstring>(rp)</argsstring>
+        <name>variablesprings</name>
+        <qualifiedname>rpath::variablesprings</qualifiedname>
+        <param>
+          <type>type (<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="1290" column="1" bodyfile="src/rpath.f90" bodystart="1291" bodyend="1321"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1a79ee81833120305547c237a755918472" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::getprojforces3</definition>
+        <argsstring>(rp, kon, ci_flag, endflag)</argsstring>
+        <name>getprojforces3</name>
+        <qualifiedname>rpath::getprojforces3</qualifiedname>
+        <param>
+          <type>type (<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>kon</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>ci_flag</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>endflag</defname>
+        </param>
+        <briefdescription>
+<para>GetProjForces3. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the forces projected along the reaction path, as required in NEB or CINEB calculations. This routine uses improves the improvement in henkelmans two 00 papers as described in Kolsbjerg and Hammer 16</para>
+<para>Note: By setting ci_flag = .true., this routine returns forces for CI-NEB.</para>
+<para><itemizedlist>
+<listitem><para>rp: Reaction path object. size is made.</para>
+</listitem><listitem><para>ci_flag: Logical flag indicating whether to return climbing-image forces.</para>
+</listitem><listitem><para>endflag: Logical flag indicatin whether or not the forces on the end-point beads should be returned as the &quot;bare&quot; (non-NEB) forces. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="1349" column="1" bodyfile="src/rpath.f90" bodystart="1350" bodyend="1452"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1aae808f74fd2e658a175c79600c5bfe34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::shimmyendbeads</definition>
+        <argsstring>(rp, shimmied, beadcount, pend)</argsstring>
+        <name>shimmyendbeads</name>
+        <qualifiedname>rpath::shimmyendbeads</qualifiedname>
+        <param>
+          <type>type (<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>shimmied</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>beadcount</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>pend</defname>
+        </param>
+        <briefdescription>
+<para>ShimmyEndBeads. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>rp: Reaction path object.</para>
+</listitem><listitem><para>kspring: NEB spring constant (in au), used as a reference for variable spring size is made. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="1469" column="1" bodyfile="src/rpath.f90" bodystart="1470" bodyend="1570"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1a17575cd0e216ffd99d188bb982fd2efc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::getfourierforces</definition>
+        <argsstring>(rp)</argsstring>
+        <name>getfourierforces</name>
+        <qualifiedname>rpath::getfourierforces</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <briefdescription>
+<para>GetFourierForces. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the Fourier expansion coefficients for the path rp.</para>
+<para><itemizedlist>
+<listitem><para>rp: Input reaction-path object. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="1585" column="1" bodyfile="src/rpath.f90" bodystart="1586" bodyend="1631"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1a8808a2a9ef2cd749de76ec66e662cf4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::fouriertopath</definition>
+        <argsstring>(rp)</argsstring>
+        <name>fouriertopath</name>
+        <qualifiedname>rpath::fouriertopath</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <briefdescription>
+<para>FourierToPath. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the path positions using the path Fourier coefficients.</para>
+<para><itemizedlist>
+<listitem><para>rp: Input reaction-path object. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="1646" column="1" bodyfile="src/rpath.f90" bodystart="1647" bodyend="1680"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1a58f6e30e1af43edf4aa86279c520213f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::pathtofourier</definition>
+        <argsstring>(rp)</argsstring>
+        <name>pathtofourier</name>
+        <qualifiedname>rpath::pathtofourier</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <briefdescription>
+<para>PathToFourier. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the Fourier coefficiencts from path positions.</para>
+<para><itemizedlist>
+<listitem><para>rp: Input reaction-path object. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="1695" column="1" bodyfile="src/rpath.f90" bodystart="1696" bodyend="1723"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1a7fee98f4bae0eeddfeb9c7a7a0cd36de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::firstvvupdate</definition>
+        <argsstring>(rp, timestep, mass)</argsstring>
+        <name>firstvvupdate</name>
+        <qualifiedname>rpath::firstvvupdate</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>timestep</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>mass</defname>
+        </param>
+        <briefdescription>
+<para>FirstVVUpdate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Evolves the Fourier coefficients and momenta through first half of a Velocity-Verlet time-step.</para>
+<para><itemizedlist>
+<listitem><para>rp: Reaction path object</para>
+</listitem><listitem><para>timestep: obvs...</para>
+</listitem><listitem><para>mass: Fourier coefficient mass. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="1742" column="1" bodyfile="src/rpath.f90" bodystart="1743" bodyend="1787"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1ac85f7c72e6a51be0d86bde43398f5d1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::secondvvupdate</definition>
+        <argsstring>(rp, timestep, mass)</argsstring>
+        <name>secondvvupdate</name>
+        <qualifiedname>rpath::secondvvupdate</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>timestep</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>mass</defname>
+        </param>
+        <briefdescription>
+<para>SecondVVUpdate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Evolves the Fourier coefficients and momenta through second half of a Velocity-Verlet time-step.</para>
+<para><itemizedlist>
+<listitem><para>rp: Reaction path object</para>
+</listitem><listitem><para>timestep: obvs...</para>
+</listitem><listitem><para>mass: Fourier coefficient mass. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="1805" column="1" bodyfile="src/rpath.f90" bodystart="1806" bodyend="1847"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1ae05b8e955144357569094f22cb55b245" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::getspringforces</definition>
+        <argsstring>(rp, kspring)</argsstring>
+        <name>getspringforces</name>
+        <qualifiedname>rpath::getspringforces</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>kspring</defname>
+        </param>
+        <briefdescription>
+<para>GetSpringForces. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the inter-bead spring potential and forces.</para>
+<para><itemizedlist>
+<listitem><para>rp: Reaction path object.</para>
+</listitem><listitem><para>kspring: Spring constant </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="1863" column="1" bodyfile="src/rpath.f90" bodystart="1864" bodyend="1887"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1ad39f06a07a989b7bfe818da9911ec287" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine rpath::stripinactivefrompath</definition>
+        <argsstring>(rp, stripfile, fixeddof, fixedatom, ndofconstr, natomconstr, updatecons)</argsstring>
+        <name>stripinactivefrompath</name>
+        <qualifiedname>rpath::stripinactivefrompath</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <param>
+          <type>character (len=*)</type>
+          <defname>stripfile</defname>
+        </param>
+        <param>
+          <type>integer, dimension(3*<ref refid="namespaceconstants_1af3563b26c30009f026fc978080d89280" kindref="member">namax</ref>)</type>
+          <defname>fixeddof</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceconstants_1af3563b26c30009f026fc978080d89280" kindref="member">namax</ref>)</type>
+          <defname>fixedatom</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>ndofconstr</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>natomconstr</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>updatecons</defname>
+        </param>
+        <briefdescription>
+<para>StripInactiveFromPath. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes inactive molecules from the reaction path. Here, inactive means that the molecules are not involved in any bond changes.</para>
+<para><itemizedlist>
+<listitem><para>rp: Reaction path object.</para>
+</listitem><listitem><para>UpdateCons: flag determining if the FixedAtom and FixedDof should be updated to match the stripped CXS</para>
+</listitem><listitem><para>stripfile: The filename where the stripped path is output. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="1905" column="1" bodyfile="src/rpath.f90" bodystart="1906" bodyend="2070"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerpath_1a4c7410e4e6417ef235293315107537e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>real(8) function</type>
+        <definition>real(8) function rpath::errorr</definition>
+        <argsstring>(one, two, na)</argsstring>
+        <name>errorr</name>
+        <qualifiedname>rpath::errorr</qualifiedname>
+        <param>
+          <type>real(8), dimension(3, <ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>)</type>
+          <defname>one</defname>
+        </param>
+        <param>
+          <type>real(8), dimension(3, <ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>)</type>
+          <defname>two</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>na</defname>
+        </param>
+        <briefdescription>
+<para>errorr calculates the absolute difference, elementwise between two matrices. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>one, two: the matrices</para>
+</listitem><listitem><para>na: ... </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="2085" column="1" bodyfile="src/rpath.f90" bodystart="2086" bodyend="2095"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Reaction-path object definition. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Defines the reaction-path object type. This object is a string of nimage snapshots along a reaction-path. </para>
+    </detaileddescription>
+    <location file="src/rpath.f90" line="12" column="1"/>
+  </compounddef>
+</doxygen>

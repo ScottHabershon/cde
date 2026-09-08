@@ -1,0 +1,59 @@
+\hypertarget{setup_autotoc_md0}{}\doxysection{Organization of C\+DE}\label{setup_autotoc_md0}
+The main C\+DE directory (referred to hereafter as $\sim$/cde) has a series of subdirectories containing the following\+:
+\begin{DoxyItemize}
+\item ./src\+: contains the main source files
+\item ./docs\+: contains the documentation (generated using doxygen)
+\item ./bin\+: a directory where the cde.\+x executable is stored
+\item ./examples\+: a directory containing the C\+DE tutorials
+\item ./utils\+: a directory containining a few (possibly) useful plotting and analysis scripts, mostly written in python and using matplotlib.
+\end{DoxyItemize}\hypertarget{setup_autotoc_md1}{}\doxysection{Compiling C\+DE}\label{setup_autotoc_md1}
+C\+DE is generally written in pretty standard Fortran90 throughout -\/ it should be relatively easy to compile, and does not require any fancy libraries beyond L\+A\+P\+A\+CK.
+
+To compile C\+DE, just do the following\+:
+
+
+\begin{DoxyItemize}
+\item Go to the {\itshape src} directory.
+\item Edit the {\itshape Makefile} so that your Fortran compiler and L\+A\+P\+A\+CK libraries are picked up. You can also edit the {\itshape Makefile} (if you want) to change the executable name and the location of the compiled executable (the default is $\ast$$\sim$/cde/bin/cde.x$\ast$).
+\item Type {\itshape make clean}
+\item Type {\itshape make}
+\item After compilation, you should now have an executable labelled {\itshape cde.\+x} in the specified location (probably $\ast$$\sim$/cde/bin/).
+\item At this point, it\textquotesingle{}s a good idea (although not essential) to make sure that either $\ast$$\sim$/bin/$\ast$ is in your environment\textquotesingle{}s {\itshape P\+A\+TH} variable, or you add an alias to run cde.\+x. From now on, the rest of the documentation will assume that typing {\itshape cde.\+x} will run the compiled C\+DE executable.
+\end{DoxyItemize}\hypertarget{setup_autotoc_md2}{}\doxysection{Running C\+DE}\label{setup_autotoc_md2}
+To run the code, you\textquotesingle{}ll need some input files. First, you should go and read the sections about the input files that C\+DE requires.
+
+Once your input files are ready, you simply type\+: \begin{DoxyVerb}    cde.x input
+\end{DoxyVerb}
+
+
+where {\itshape input} is the name of your input file.
+
+See the sections \mbox{\hyperlink{_annotated}{Annotated input file description}} and \mbox{\hyperlink{_example}{Example input file for C\+DE}} for descriptions of input files.\hypertarget{setup_autotoc_md3}{}\doxysection{Adding an alias to your environment}\label{setup_autotoc_md3}
+To make things easier, you can add an alias to your environment\textquotesingle{}s configuration file in your home directory. To do so (assuming a linux/unix system using B\+A\+SH shell)\+:
+
+
+\begin{DoxyItemize}
+\item Type {\itshape cd} to change to your home directory;
+\item Type {\itshape vi .bashrc}
+\item Add the line
+\end{DoxyItemize}
+
+\begin{DoxyVerb}alias cde='YYY/cde.x'
+\end{DoxyVerb}
+
+
+where {\itshape Y\+YY} is the full directory path to the {\itshape cde.\+x} executable.
+
+
+\begin{DoxyItemize}
+\item Save the $\ast$.bashrc$\ast$ file, then type
+\end{DoxyItemize}
+
+\begin{DoxyVerb}source .bashrc
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item If successful, you should then be able to type {\itshape cde.\+x} to run the C\+DE code. 
+\end{DoxyItemize}

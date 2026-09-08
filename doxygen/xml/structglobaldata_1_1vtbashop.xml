@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="structglobaldata_1_1vtbashop" kind="type" language="Fortran" prot="public">
+    <compoundname>globaldata::vtbashop</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structglobaldata_1_1vtbashop_1a871578ae0f44e79e81c8e70b09a1c92d" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::vtbashop::mcaccepted</definition>
+        <argsstring></argsstring>
+        <name>mcaccepted</name>
+        <qualifiedname>globaldata::vtbashop::mcaccepted</qualifiedname>
+        <initializer>= .false.</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="313" column="1" bodyfile="src/globaldata.f90" bodystart="313" bodyend="313"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1vtbashop_1a69ea64e1579e1fb125bf5c8e1ce82346" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::vtbashop::lbasinhopping</definition>
+        <argsstring></argsstring>
+        <name>lbasinhopping</name>
+        <qualifiedname>globaldata::vtbashop::lbasinhopping</qualifiedname>
+        <initializer>= .false.</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="314" column="1" bodyfile="src/globaldata.f90" bodystart="314" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1vtbashop_1a1d5a6cad1f7b48546776d6aeccf4a16a" prot="public" static="no" mutable="no">
+        <type>double precision</type>
+        <definition>double precision globaldata::vtbashop::t</definition>
+        <argsstring></argsstring>
+        <name>t</name>
+        <qualifiedname>globaldata::vtbashop::t</qualifiedname>
+        <initializer>= 298.0d0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="315" column="1" bodyfile="src/globaldata.f90" bodystart="315" bodyend="315"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/globaldata.f90" line="312" column="1" bodyfile="src/globaldata.f90" bodystart="312" bodyend="316"/>
+    <listofallmembers>
+      <member refid="structglobaldata_1_1vtbashop_1a69ea64e1579e1fb125bf5c8e1ce82346" prot="public" virt="non-virtual"><scope>globaldata::vtbashop</scope><name>lbasinhopping</name></member>
+      <member refid="structglobaldata_1_1vtbashop_1a871578ae0f44e79e81c8e70b09a1c92d" prot="public" virt="non-virtual"><scope>globaldata::vtbashop</scope><name>mcaccepted</name></member>
+      <member refid="structglobaldata_1_1vtbashop_1a1d5a6cad1f7b48546776d6aeccf4a16a" prot="public" virt="non-virtual"><scope>globaldata::vtbashop</scope><name>t</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

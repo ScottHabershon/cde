@@ -1,0 +1,829 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="namespaceconstants" kind="namespace" language="Fortran">
+    <compoundname>constants</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceconstants_1af3563b26c30009f026fc978080d89280" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::namax</definition>
+        <argsstring></argsstring>
+        <name>namax</name>
+        <qualifiedname>constants::namax</qualifiedname>
+        <initializer>= 1000</initializer>
+        <briefdescription>
+<para>Maximum number of atoms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="20" column="1" bodyfile="src/constants.f90" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a786ad8a0de27b7198f7a9fb33c3506f3" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::nfmax</definition>
+        <argsstring></argsstring>
+        <name>nfmax</name>
+        <qualifiedname>constants::nfmax</qualifiedname>
+        <initializer>= 3 * NAMAX</initializer>
+        <briefdescription>
+<para>Maximum number of DOFs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="21" column="1" bodyfile="src/constants.f90" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a859ea11cfca02db3a91b59b742e0303e" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::nbmax</definition>
+        <argsstring></argsstring>
+        <name>nbmax</name>
+        <qualifiedname>constants::nbmax</qualifiedname>
+        <initializer>= 20</initializer>
+        <briefdescription>
+<para>Maximum number of images. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="22" column="1" bodyfile="src/constants.f90" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1ae8a3dda05015f1a60a2d4ecf50283182" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::nmolmax</definition>
+        <argsstring></argsstring>
+        <name>nmolmax</name>
+        <qualifiedname>constants::nmolmax</qualifiedname>
+        <initializer>= 50</initializer>
+        <briefdescription>
+<para>Maximum number of molecules. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="23" column="1" bodyfile="src/constants.f90" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1aacae44bce0d2faf2ca80187ea4ac9ae1" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::ndirmax</definition>
+        <argsstring></argsstring>
+        <name>ndirmax</name>
+        <qualifiedname>constants::ndirmax</qualifiedname>
+        <initializer>= 50</initializer>
+        <briefdescription>
+<para>Maximum number of directories to create. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="24" column="1" bodyfile="src/constants.f90" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a24e30cb7e0461e17265ad6b609c26bdc" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::ntypemax</definition>
+        <argsstring></argsstring>
+        <name>ntypemax</name>
+        <qualifiedname>constants::ntypemax</qualifiedname>
+        <initializer>= 100</initializer>
+        <briefdescription>
+<para>Maximum number of atom types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="25" column="1" bodyfile="src/constants.f90" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a0c348f25e628c1da408c4f2c27ece033" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::ntrymax</definition>
+        <argsstring></argsstring>
+        <name>ntrymax</name>
+        <qualifiedname>constants::ntrymax</qualifiedname>
+        <initializer>= 1000</initializer>
+        <briefdescription>
+<para>Maximum number of outer graph-move attempts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="26" column="1" bodyfile="src/constants.f90" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1abc87d2d1cf985c3913b37229f4520626" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::ntrymax2</definition>
+        <argsstring></argsstring>
+        <name>ntrymax2</name>
+        <qualifiedname>constants::ntrymax2</qualifiedname>
+        <initializer>= 5000</initializer>
+        <briefdescription>
+<para>Maximum number of inner graph-move attempts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="27" column="1" bodyfile="src/constants.f90" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1ac598462b6c881cc88f22cb8d17e40e72" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::nmovemax</definition>
+        <argsstring></argsstring>
+        <name>nmovemax</name>
+        <qualifiedname>constants::nmovemax</qualifiedname>
+        <initializer>= 20</initializer>
+        <briefdescription>
+<para>Maximum number of graph-moves. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="28" column="1" bodyfile="src/constants.f90" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a69a27ee183e06204f45facc8ef7fe756" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::nforbidmax</definition>
+        <argsstring></argsstring>
+        <name>nforbidmax</name>
+        <qualifiedname>constants::nforbidmax</qualifiedname>
+        <initializer>= 50</initializer>
+        <briefdescription>
+<para>Maximum number of forbidden graphs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="29" column="1" bodyfile="src/constants.f90" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::namovemax</definition>
+        <argsstring></argsstring>
+        <name>namovemax</name>
+        <qualifiedname>constants::namovemax</qualifiedname>
+        <initializer>= 6</initializer>
+        <briefdescription>
+<para>Maximum number of atoms which can be involved in graph moves. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="30" column="1" bodyfile="src/constants.f90" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a3ad048dc0993f923d343e7200c8cdf6f" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::maxmol</definition>
+        <argsstring></argsstring>
+        <name>maxmol</name>
+        <qualifiedname>constants::maxmol</qualifiedname>
+        <initializer>= 4000</initializer>
+        <briefdescription>
+<para>Maximum number of molecules stored in MolData datatype. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="31" column="1" bodyfile="src/constants.f90" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a57657a6eb79b285ab5c9849f1f82758f" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::nmechmax</definition>
+        <argsstring></argsstring>
+        <name>nmechmax</name>
+        <qualifiedname>constants::nmechmax</qualifiedname>
+        <initializer>= 250</initializer>
+        <briefdescription>
+<para>Maximum number of stored mechanisms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="32" column="1" bodyfile="src/constants.f90" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1ae186692659283278757ea6ef58e5afbf" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::nrxnmax</definition>
+        <argsstring></argsstring>
+        <name>nrxnmax</name>
+        <qualifiedname>constants::nrxnmax</qualifiedname>
+        <initializer>= 100</initializer>
+        <briefdescription>
+<para>Maximum number of stored mechanisms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="33" column="1" bodyfile="src/constants.f90" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a0ba7153d1cf2a1e771d3de3e4fa20bd2" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::nvalmax</definition>
+        <argsstring></argsstring>
+        <name>nvalmax</name>
+        <qualifiedname>constants::nvalmax</qualifiedname>
+        <initializer>= 12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="34" column="1" bodyfile="src/constants.f90" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1af5d223bec611b9c69cf9901d432a5399" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::nelmax</definition>
+        <argsstring></argsstring>
+        <name>nelmax</name>
+        <qualifiedname>constants::nelmax</qualifiedname>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="35" column="1" bodyfile="src/constants.f90" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1ace3c3c956eaab49c4f76d6da9f4d8116" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::nbondmax</definition>
+        <argsstring></argsstring>
+        <name>nbondmax</name>
+        <qualifiedname>constants::nbondmax</qualifiedname>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="36" column="1" bodyfile="src/constants.f90" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a294bba2756e146e255646c046839c8f6" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::nanglemax</definition>
+        <argsstring></argsstring>
+        <name>nanglemax</name>
+        <qualifiedname>constants::nanglemax</qualifiedname>
+        <initializer>= 200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="37" column="1" bodyfile="src/constants.f90" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1af85d966801771d9090d3473c2698e498" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter constants::ntorsmax</definition>
+        <argsstring></argsstring>
+        <name>ntorsmax</name>
+        <qualifiedname>constants::ntorsmax</qualifiedname>
+        <initializer>= 300</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="38" column="1" bodyfile="src/constants.f90" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a9dc5426c4be59d3bb2a7e96451876ae3" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::bohr_to_ang</definition>
+        <argsstring></argsstring>
+        <name>bohr_to_ang</name>
+        <qualifiedname>constants::bohr_to_ang</qualifiedname>
+        <initializer>= 0.5291772108d0</initializer>
+        <briefdescription>
+<para>Bohr to Angstrom conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="43" column="1" bodyfile="src/constants.f90" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::ang_to_bohr</definition>
+        <argsstring></argsstring>
+        <name>ang_to_bohr</name>
+        <qualifiedname>constants::ang_to_bohr</qualifiedname>
+        <initializer>= 1.889726128d0</initializer>
+        <briefdescription>
+<para>Angstrom to Bohr conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="44" column="1" bodyfile="src/constants.f90" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a65d52d0f0ed8afc2c85db912d19d598c" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::kcalmol_to_au</definition>
+        <argsstring></argsstring>
+        <name>kcalmol_to_au</name>
+        <qualifiedname>constants::kcalmol_to_au</qualifiedname>
+        <initializer>= 0.001593601d0</initializer>
+        <briefdescription>
+<para>Convert kcal/mol to au. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="45" column="1" bodyfile="src/constants.f90" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a28675d67e6ec148d36d4838c6a17c167" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::au_to_kjmol</definition>
+        <argsstring></argsstring>
+        <name>au_to_kjmol</name>
+        <qualifiedname>constants::au_to_kjmol</qualifiedname>
+        <initializer>= 2625.49963d0</initializer>
+        <briefdescription>
+<para>convert au to kJ/mol </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="46" column="1" bodyfile="src/constants.f90" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a84494d8e0aeac83a2f1dfeb4af38fb17" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::au_to_ev</definition>
+        <argsstring></argsstring>
+        <name>au_to_ev</name>
+        <qualifiedname>constants::au_to_ev</qualifiedname>
+        <initializer>= 27.211396d0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="47" column="1" bodyfile="src/constants.f90" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1ada737263f99422ddde4804ea26d2a676" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::ev_to_au</definition>
+        <argsstring></argsstring>
+        <name>ev_to_au</name>
+        <qualifiedname>constants::ev_to_au</qualifiedname>
+        <initializer>= 0.036749322d0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="48" column="1" bodyfile="src/constants.f90" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1aae4b1f605cd76f97d872279592530f06" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::ev_ang_to_au_bohr</definition>
+        <argsstring></argsstring>
+        <name>ev_ang_to_au_bohr</name>
+        <qualifiedname>constants::ev_ang_to_au_bohr</qualifiedname>
+        <initializer>= 0.019446864d0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="49" column="1" bodyfile="src/constants.f90" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1aec038c64fa7685912341ec49d487a8e0" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::pivalue</definition>
+        <argsstring></argsstring>
+        <name>pivalue</name>
+        <qualifiedname>constants::pivalue</qualifiedname>
+        <initializer>= 3.141592654d0</initializer>
+        <briefdescription>
+<para>PI! </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="50" column="1" bodyfile="src/constants.f90" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a8bb6ea0710883e5cb54a3acf4d8bba4a" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::kboltz</definition>
+        <argsstring></argsstring>
+        <name>kboltz</name>
+        <qualifiedname>constants::kboltz</qualifiedname>
+        <initializer>= 3.166829d-6</initializer>
+        <briefdescription>
+<para>Boltzmann constant in atomic units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="51" column="1" bodyfile="src/constants.f90" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a53b4e27048dc66bd135ee665385c8097" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::hbar</definition>
+        <argsstring></argsstring>
+        <name>hbar</name>
+        <qualifiedname>constants::hbar</qualifiedname>
+        <initializer>= 1.d0</initializer>
+        <briefdescription>
+<para>hbar = 1 in atomic units </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="52" column="1" bodyfile="src/constants.f90" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a0a1ccb19e83b6795ef6805ed2a0a38fb" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::fs_to_au</definition>
+        <argsstring></argsstring>
+        <name>fs_to_au</name>
+        <qualifiedname>constants::fs_to_au</qualifiedname>
+        <initializer>= 41.341373d0</initializer>
+        <briefdescription>
+<para>Convert femtosecond to atomic units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="53" column="1" bodyfile="src/constants.f90" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a3a20b8fd3876e28c1bb4fa9d92638ad5" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::eh_to_kelvin</definition>
+        <argsstring></argsstring>
+        <name>eh_to_kelvin</name>
+        <qualifiedname>constants::eh_to_kelvin</qualifiedname>
+        <initializer>= 3.157733d+5</initializer>
+        <briefdescription>
+<para>Convert Hartrees to Kelvin. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="54" column="1" bodyfile="src/constants.f90" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a06fac0412cc3447ce4aca18f4f28d6d5" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::eh_to_wavenumber</definition>
+        <argsstring></argsstring>
+        <name>eh_to_wavenumber</name>
+        <qualifiedname>constants::eh_to_wavenumber</qualifiedname>
+        <initializer>= 219474.63</initializer>
+        <briefdescription>
+<para>Convert Hartrees to wavenumbers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="55" column="1" bodyfile="src/constants.f90" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a230d8251b9e49519350b429de2a54d2b" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::big</definition>
+        <argsstring></argsstring>
+        <name>big</name>
+        <qualifiedname>constants::big</qualifiedname>
+        <initializer>= 10000</initializer>
+        <briefdescription>
+<para>A &apos;BIG&apos; number which is occasionally useful. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="56" column="1" bodyfile="src/constants.f90" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1ab987536840cc4d73e63fc4efd304515f" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::small</definition>
+        <argsstring></argsstring>
+        <name>small</name>
+        <qualifiedname>constants::small</qualifiedname>
+        <initializer>= 1d-5</initializer>
+        <briefdescription>
+<para>A &apos;SMALL&apos; number which is occasionally useful. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="57" column="1" bodyfile="src/constants.f90" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a1c0f07537d9d6d370f00cc17d9bd71fe" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::me_to_amu</definition>
+        <argsstring></argsstring>
+        <name>me_to_amu</name>
+        <qualifiedname>constants::me_to_amu</qualifiedname>
+        <initializer>= 5.485799090d-4</initializer>
+        <briefdescription>
+<para>Convert electron mass units to atomic mass units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="58" column="1" bodyfile="src/constants.f90" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a20857cef9be2cb4adf2011fd70db3458" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::epsil</definition>
+        <argsstring></argsstring>
+        <name>epsil</name>
+        <qualifiedname>constants::epsil</qualifiedname>
+        <initializer>= 10.0d0**(-20)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="59" column="1" bodyfile="src/constants.f90" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1aa6a2522f7223637a44c105cd6071a9b4" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::gconv</definition>
+        <argsstring></argsstring>
+        <name>gconv</name>
+        <qualifiedname>constants::gconv</qualifiedname>
+        <initializer>= 1d-7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="60" column="1" bodyfile="src/constants.f90" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1abd4a19c2e2548837b0d6927ff64339f7" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(87), parameter</type>
+        <definition>real(8), dimension(87), parameter constants::mass</definition>
+        <argsstring></argsstring>
+        <name>mass</name>
+        <qualifiedname>constants::mass</qualifiedname>
+        <initializer>= (/1837.1527d0,                                      0.d0,                                              0.d0,                                               0.d0,                                           19852.3d0,                                          21894.16747d0,                                     25533.1990d0,                                       29156.9471d0,                                     34905.9013d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     51594.6d0,                                     56903.5d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     102595.8d0,                                     107524.4367d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     195509.8d0,                                     195509.8d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     358399.0973d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     50000.0d0/)</initializer>
+        <briefdescription>
+<para>Set atomic masses. The MASS index can be referenced by atomic number; For example, MASS(1) = mass of hydrogen. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="66" column="1" bodyfile="src/constants.f90" bodystart="66" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1ae843649c296c3ee80e870c752f68ca64" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(87), parameter</type>
+        <definition>real(8), dimension(87), parameter constants::covrad</definition>
+        <argsstring></argsstring>
+        <name>covrad</name>
+        <qualifiedname>constants::covrad</qualifiedname>
+        <initializer>= (/0.4d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref>,                                       0.d0,                                      0.d0,                                      0.d0,                                      0.84d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref>,                                      0.72d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref>,                                      0.72d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref>,                                      0.62d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref>,                                      0.6d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref>,                                      0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     1.15d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref>,                                     1.07d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref>,                                     1.07d0*<ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref>,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     1.52d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref>,                                     1.52d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref>,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     1.42d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref>,                                     1.39d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref>,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     1.46d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref>,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     0.d0,                                     1.50d0/)</initializer>
+        <briefdescription>
+<para>Set covalent radii. The CovRad(:) array is indexed by atomic number, so CovRad(1) is the covalent radius of hydrogen. Note that the values are given in Angstroms and converted into Bohr using the ang_to_bohr conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="160" column="1" bodyfile="src/constants.f90" bodystart="160" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1ab4b8777e68f780ed3480bc95810aeb0e" prot="public" static="no" mutable="no">
+        <type>integer, dimension(87), parameter</type>
+        <definition>integer, dimension(87), parameter constants::avalency</definition>
+        <argsstring></argsstring>
+        <name>avalency</name>
+        <qualifiedname>constants::avalency</qualifiedname>
+        <initializer>= (/1,                                        2,                                        1,                                        2,                                        3,                                        4,                                        5,                                        6,                                        7,                                        8,                                        1,                                        2,                                        3,                                        4,                                        5,                                        6,                                        7,                                        8,                                        1,                                        2,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        7,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        7,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        0,                                        10 /)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="250" column="1" bodyfile="src/constants.f90" bodystart="250" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a4602a871b4d8df4781b302874ca0977c" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::bondingsf</definition>
+        <argsstring></argsstring>
+        <name>bondingsf</name>
+        <qualifiedname>constants::bondingsf</qualifiedname>
+        <initializer>= 1.20d0</initializer>
+        <briefdescription>
+<para>Scale factor applied to covalent radii to define bonding. Atoms are bonded if r(i,j) &lt;= (<ref refid="namespaceconstants_1ae843649c296c3ee80e870c752f68ca64" kindref="member">covrad(i)</ref> + <ref refid="namespaceconstants_1ae843649c296c3ee80e870c752f68ca64" kindref="member">covrad(j)</ref>) * bondingsf. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="342" column="1" bodyfile="src/constants.f90" bodystart="342" bodyend="342"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1aa5c5c59b90426c3ea95c10062953f014" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::bondingrange1</definition>
+        <argsstring></argsstring>
+        <name>bondingrange1</name>
+        <qualifiedname>constants::bondingrange1</qualifiedname>
+        <initializer>= 0.25d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref></initializer>
+        <briefdescription>
+<para>Shift range over which atoms are restrained in GDS simulations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="346" column="1" bodyfile="src/constants.f90" bodystart="346" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a25c0f7987da68cc61da532096888532f" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::bondingrange2</definition>
+        <argsstring></argsstring>
+        <name>bondingrange2</name>
+        <qualifiedname>constants::bondingrange2</qualifiedname>
+        <initializer>= -0.10d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref></initializer>
+        <briefdescription>
+<para>Shift range over which atoms are restrained in GDS simulations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="349" column="1" bodyfile="src/constants.f90" bodystart="349" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a3f8bb45b01f21993f66d8b08fc116191" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::radius_max</definition>
+        <argsstring></argsstring>
+        <name>radius_max</name>
+        <qualifiedname>constants::radius_max</qualifiedname>
+        <initializer>= 25.d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="352" column="1" bodyfile="src/constants.f90" bodystart="352" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1aceadba0e55f06c6b3b5452d603242998" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::radius_min</definition>
+        <argsstring></argsstring>
+        <name>radius_min</name>
+        <qualifiedname>constants::radius_min</qualifiedname>
+        <initializer>= 12.d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="353" column="1" bodyfile="src/constants.f90" bodystart="353" bodyend="353"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a126266513e0319b7b883176568eaa28f" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::latticestep</definition>
+        <argsstring></argsstring>
+        <name>latticestep</name>
+        <qualifiedname>constants::latticestep</qualifiedname>
+        <initializer>= 4.d0 * <ref refid="namespaceconstants_1a1da8f83482de3e5ccaa5f49ff63dfaad" kindref="member">ang_to_bohr</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="355" column="1" bodyfile="src/constants.f90" bodystart="355" bodyend="355"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a05e64a17012274b9bb52ee8853ce740e" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::hidpp</definition>
+        <argsstring></argsstring>
+        <name>hidpp</name>
+        <qualifiedname>constants::hidpp</qualifiedname>
+        <initializer>= 2.750</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="357" column="1" bodyfile="src/constants.f90" bodystart="357" bodyend="357"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1ab83e386cee9d61b4eaa1a0396d307cf1" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(100, 100)</type>
+        <definition>real(8), dimension(100,100) constants::sbstrength</definition>
+        <argsstring></argsstring>
+        <name>sbstrength</name>
+        <qualifiedname>constants::sbstrength</qualifiedname>
+        <initializer>= 0.0d0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="361" column="1" bodyfile="src/constants.f90" bodystart="361" bodyend="361"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a82a6c70b6f9e42a980d6ce87d6ee2d5a" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(10, 10)</type>
+        <definition>real(8), dimension(10,10) constants::dbstrength</definition>
+        <argsstring></argsstring>
+        <name>dbstrength</name>
+        <qualifiedname>constants::dbstrength</qualifiedname>
+        <initializer>= 0.0d0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="362" column="1" bodyfile="src/constants.f90" bodystart="362" bodyend="362"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a41bc100d97ff8f6dc9d406016a45abe0" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(10, 10)</type>
+        <definition>real(8), dimension(10,10) constants::tbstrength</definition>
+        <argsstring></argsstring>
+        <name>tbstrength</name>
+        <qualifiedname>constants::tbstrength</qualifiedname>
+        <initializer>= 0.0d0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="363" column="1" bodyfile="src/constants.f90" bodystart="363" bodyend="363"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a0a5dcd0cb274029c7f3cb58ceaee97d0" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::grpminthresh</definition>
+        <argsstring></argsstring>
+        <name>grpminthresh</name>
+        <qualifiedname>constants::grpminthresh</qualifiedname>
+        <initializer>= 1d-3</initializer>
+        <briefdescription>
+<para>Force convergence target (in au) for minimization under GRP. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="366" column="1" bodyfile="src/constants.f90" bodystart="366" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceconstants_1a0b0dd263436b8e63a3a59677c1c196e7" prot="public" static="no" mutable="no">
+        <type>real(8), parameter</type>
+        <definition>real(8), parameter constants::grpmaxthresh</definition>
+        <argsstring></argsstring>
+        <name>grpmaxthresh</name>
+        <qualifiedname>constants::grpmaxthresh</qualifiedname>
+        <initializer>= 1d-2</initializer>
+        <briefdescription>
+<para>Force convergence target (in au) for minimization under GRP. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/constants.f90" line="367" column="1" bodyfile="src/constants.f90" bodystart="367" bodyend="367"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>constants definition file, containing importance universal values used throughout code. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><bold>You should avoid changing these values unless you are absolutely sure you know what you&apos;re doing.</bold> </para>
+    </detaileddescription>
+    <location file="src/constants.f90" line="13" column="1"/>
+  </compounddef>
+</doxygen>

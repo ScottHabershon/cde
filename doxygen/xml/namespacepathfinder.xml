@@ -1,0 +1,1025 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="namespacepathfinder" kind="namespace" language="Fortran">
+    <compoundname>pathfinder</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacepathfinder_1a7ce0d0c193755a13466c3a5c273b21d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::runpathfinder</definition>
+        <argsstring>()</argsstring>
+        <name>runpathfinder</name>
+        <qualifiedname>pathfinder::runpathfinder</qualifiedname>
+        <briefdescription>
+<para>RunPathFinder. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Runs automatic determination of a reaction-path connecting two structures. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="107" column="1" bodyfile="src/pathfinder.f90" bodystart="108" bodyend="477"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1a653856562ee8b080c5577efcf618ce58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::adjustpaths</definition>
+        <argsstring>(cx_start, cx_end, cx, nrxn, movenum, moveatoms, ifound)</argsstring>
+        <name>adjustpaths</name>
+        <qualifiedname>pathfinder::adjustpaths</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx_start</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx_end</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nrxn</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>movenum</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>,<ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+          <defname>moveatoms</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>ifound</defname>
+        </param>
+        <briefdescription>
+<para>AdjustPaths. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This routine performs a series of functions to simplify the post-analysis of reaction-path simulations. (i) If pesfull = .FALSE., we print out the energies and Q-values calculated only for those molecules involved in formation of the product. (ii) We print out a new set of reaction paths which only involve the molecules containing atoms ending up in the final structure. (iii) We strip the adjusted paths of non-reactive molecules.</para>
+<para>The final set of xyz path files should then be most appropriate for post-analysis.</para>
+<para>Input parameters:<itemizedlist>
+<listitem><para>cx_start: CXS object for reactants.</para>
+</listitem><listitem><para>cx_end: CXS object for target product.</para>
+</listitem><listitem><para>cx(nrxn): Intermediate CXS objects along mechanism path.</para>
+</listitem><listitem><para>nrxn: Maximum number of active reactions.</para>
+</listitem><listitem><para>movenum(:): Graph-move number at each reaction step.</para>
+</listitem><listitem><para>moveatoms(:,:): Atoms involved in graph-moves at each step.</para>
+</listitem><listitem><para>ifound: Reaction step-number at which target products are first found. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="507" column="1" bodyfile="src/pathfinder.f90" bodystart="508" bodyend="986"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1a5ab181b5ba41de2c9bb6d9eddeafb915" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>logical function</type>
+        <definition>logical function pathfinder::containstargetatom</definition>
+        <argsstring>(cx1, mol1, cx2, itarget)</argsstring>
+        <name>containstargetatom</name>
+        <qualifiedname>pathfinder::containstargetatom</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx1</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>mol1</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx2</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>itarget</defname>
+        </param>
+        <briefdescription>
+<para>ContainsTargetAtom. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Logical function to check whether cx1 contains any of the atoms in molecule number &quot;itarget&quot; in cx2. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="998" column="1" bodyfile="src/pathfinder.f90" bodystart="999" bodyend="1014"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1ac162e64b047281f6a8040365318bf631" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::evaluategrapherror</definition>
+        <argsstring>(cx, cx_end, error, errflag)</argsstring>
+        <name>evaluategrapherror</name>
+        <qualifiedname>pathfinder::evaluategrapherror</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx_end</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>error</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>errflag</defname>
+        </param>
+        <briefdescription>
+<para>EvaluateGraphError. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the error measure between the final graph cx and the target graph cx_end. The error is defines as the sum of squared differences for each graph element. If errflag = .TRUE., it means that the reaction path itself is not valid and we assign it and arbitrarily large error.</para>
+<para>cx - Final graph in reaction string. cx_end - Target graph for reaction string. error - Calculated graph error. errflag - Logical flag indicating whether the reaction string is valid or not. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="1033" column="1" bodyfile="src/pathfinder.f90" bodystart="1034" bodyend="1058"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1a0de07862cb4c5d601bd783c1bb17aace" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::comparegraphs</definition>
+        <argsstring>(cx1, cx2, error)</argsstring>
+        <name>comparegraphs</name>
+        <qualifiedname>pathfinder::comparegraphs</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx1</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx2</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>error</defname>
+        </param>
+        <briefdescription>
+<para>CompareGraphs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Compare two separate structures via their graphs. In particular, we compare the eigenvalues of the atomic-weighted graph Coulomb matrix, with the distances between atoms given by the shortest-path distances as calculated from the graph.</para>
+<para>cx1, cx2 - Two structures to compare. Note that the graphs MUST have been already calculated. error - Calculate mean-square error between eigenvalues. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="1076" column="1" bodyfile="src/pathfinder.f90" bodystart="1077" bodyend="1420"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1a40faf783cfa95399dd13f6b67ab2aca1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::stripinactivemols</definition>
+        <argsstring>(cx1, cx2, cx1_new, cx2_new)</argsstring>
+        <name>stripinactivemols</name>
+        <qualifiedname>pathfinder::stripinactivemols</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), intent(in)</type>
+          <defname>cx1</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), intent(in)</type>
+          <defname>cx2</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), intent(out)</type>
+          <defname>cx1_new</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), intent(out)</type>
+          <defname>cx2_new</defname>
+        </param>
+        <briefdescription>
+<para>StripInactiveMols. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes inactive molecules from a reaction between <computeroutput>cx1</computeroutput> and <computeroutput>cx2</computeroutput>, returning new cxs with only the active molecules. Here, inactive means that the molecules are not involved in any bond changes.</para>
+<para>cx1: 1st input <computeroutput><ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref></computeroutput>. Note that graph must be calculated BEFORE calling. cx2: 2nd input <computeroutput><ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref></computeroutput>. Note that graph must be calculated BEFORE calling. cx1_new: Inactive-stripped copy of <computeroutput>cx1</computeroutput>. cx2_new: Inactive-stripped copy of <computeroutput>cx2</computeroutput> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="1436" column="1" bodyfile="src/pathfinder.f90" bodystart="1437" bodyend="1522"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1aeff32d131039907ab2149ee86575c84b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::propagategraphs</definition>
+        <argsstring>(cx_start, cx, nrxn, movenum, moveatoms, errflag, error)</argsstring>
+        <name>propagategraphs</name>
+        <qualifiedname>pathfinder::propagategraphs</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx_start</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nrxn</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>movenum</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>,<ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+          <defname>moveatoms</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>errflag</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>error</defname>
+        </param>
+        <briefdescription>
+<para>PropagateGraphs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Using the string of nrxn graph moves and their atom labels, this routine starts from the connectivity graph of cx_start and generates the sequence of nrxn graphs.</para>
+<para>cx_start - Chemical structure object, contains the starting graph. cx(1:nrxn) - Sequence of chemical structure objects generated by graph moves. nrxn - Number of moves in the reaction string. movenum(:) - Integer move number for reaction i. moveatoms(:,:) - Indices of atoms involved in move i. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="1544" column="1" bodyfile="src/pathfinder.f90" bodystart="1545" bodyend="1776"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1ad3176a0a22cdd34dd1b20fb26be06d66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::selectmoveatoms</definition>
+        <argsstring>(imove, moveatoms, nrxn, irx, rxindex, nrx, fail, atomchange, bondchange, na, cx, cx_start)</argsstring>
+        <name>selectmoveatoms</name>
+        <qualifiedname>pathfinder::selectmoveatoms</qualifiedname>
+        <param>
+          <type>integer</type>
+          <defname>imove</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>,<ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+          <defname>moveatoms</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nrxn</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>irx</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceconstants_1af3563b26c30009f026fc978080d89280" kindref="member">namax</ref>)</type>
+          <defname>rxindex</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nrx</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>fail</defname>
+        </param>
+        <param>
+          <type>logical, dimension(<ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>)</type>
+          <defname>atomchange</defname>
+        </param>
+        <param>
+          <type>logical, dimension(<ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>,<ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>)</type>
+          <defname>bondchange</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>na</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx_start</defname>
+        </param>
+        <briefdescription>
+<para>SelectMoveAtoms. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For move number imove, this subroutine selects new atoms for the move using the pre-defined list of reactive atom indices in rxindex.</para>
+<para>imove - A given movenumber. This corresponds to the index of a move in the movefile. moveatoms(nrx,NAMOVEMAX) - Indices of atoms which are moved during a given graph-move. nrxn - Number of reactions in string. irxn - The reaction number which we&apos;re trying to change. rxindex(MAMAX) - Indices of reactive atoms in current graph. This array must be previously determined using SetReacctiveIndices() from module gds. nrx - Number of reactive atoms stored in rxindex(:). fail - logical flag indicating whether or not this subroutine has successfully managed to find new atoms for the move imove. atomchange(na) - Logical array indicating which atoms can react. bondchange(na,na) - Logical array indicating which bonds can change. na - Number of atoms. cx(nrxn) - Chemical structure objects for each node in reaction string. cx_start - Chemical structure object for start configuration. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="1809" column="1" bodyfile="src/pathfinder.f90" bodystart="1811" bodyend="2014"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1a2de94873987728e50c19bae54729c3cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::pathbondenergy</definition>
+        <argsstring>(cx_start, cx, nrxn, vbe, movenum, errflag)</argsstring>
+        <name>pathbondenergy</name>
+        <qualifiedname>pathfinder::pathbondenergy</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx_start</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nrxn</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>vbe</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>movenum</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>errflag</defname>
+        </param>
+        <briefdescription>
+<para>PathBondEnergy. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Using a simple additive model, calculate the bonding energy along the entire path, using typical bond energies....</para>
+<para>cx_start - Starting chemical structure. cx(:) - The set of structures along the path. nrxn - Number of reactions in string. vbe - Returned additive energy. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="2033" column="1" bodyfile="src/pathfinder.f90" bodystart="2034" bodyend="2144"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1ac729c27551b23f20a4187fa897396875" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::getpathfitness</definition>
+        <argsstring>(cx_start, cx_end, cx, nrxn, movenum, moveatoms, errflag, grapherror, totalerror, vbe)</argsstring>
+        <name>getpathfitness</name>
+        <qualifiedname>pathfinder::getpathfitness</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx_start</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx_end</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nrxn</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>movenum</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>,<ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+          <defname>moveatoms</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>errflag</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>grapherror</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>totalerror</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>vbe</defname>
+        </param>
+        <briefdescription>
+<para>GetPathFitness. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculate the fitness value associated with a given reaction mechanism.</para>
+<para>This TotalError is defined as the sum of a GraphError, describing how far away a propagated graph is from a target graph, as well as a vbe contribution which includes energy contributions to the path fitness.</para>
+<para>Note that the energy contribution is only calculated when alphavbe &gt; 1d-3.</para>
+<para>cx_start - The chemical structure object for the reactants. cx_end - The chemical structure object for the products. cx(:) - Chemical structure objects for intermediates along path. nrxn - Number of reactions in path. novenum(nrxn) - Move numbers for each reaction in the path. moveatomos(nrxn,NAMOVEMAX) - Atoms which are acted upon in each reaction. errflag - Logical flag indicating whether or not a chemically-sensible reaction path has been generated. GraphError - Error term arising due to differences between propagated graph and target graph. TotalError - GraphError + alphavbe * vbe. vbe - Calculated bonding energy. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="2174" column="1" bodyfile="src/pathfinder.f90" bodystart="2176" bodyend="2204"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1a20f3ea0bd66b1f1ebcea3cce7c677f9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::trimpath</definition>
+        <argsstring>(cx_start, cx_end, cx, nrxn, movenum, moveatoms, iend)</argsstring>
+        <name>trimpath</name>
+        <qualifiedname>pathfinder::trimpath</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx_start</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx_end</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nrxn</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>movenum</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>,<ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+          <defname>moveatoms</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>iend</defname>
+        </param>
+        <briefdescription>
+<para>TrimPath. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When the target molecule is detected in a reaction, the rest of the movenums are set to zero. In other words, if the target is found at some reaction step before the end, we then set the rest of the reactions to zero because we don&apos;t care what they are any more..</para>
+<para>cx_start - The chemical structure object for the reactants. cx_end - The chemical structure object for the products. cx(:) - Chemical structure objects for intermediates along path. nrxn - Number of reactions in path. novenum(nrxn) - Move numbers for each reaction in the path. moveatoms(nrxn,NAMOVEMAX) - Atoms which are acted upon in each reaction. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="2225" column="1" bodyfile="src/pathfinder.f90" bodystart="2226" bodyend="2265"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1a2637ab51295387ae866c2c51e5776d49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::printmolsalongpath</definition>
+        <argsstring>(nrxn, cx_start, cx_end, cx, movenum, chargemove, changecharges, moveatoms)</argsstring>
+        <name>printmolsalongpath</name>
+        <qualifiedname>pathfinder::printmolsalongpath</qualifiedname>
+        <param>
+          <type>integer</type>
+          <defname>nrxn</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx_start</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx_end</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>movenum</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>,<ref refid="namespaceconstants_1ae8a3dda05015f1a60a2d4ecf50283182" kindref="member">nmolmax</ref>)</type>
+          <defname>chargemove</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>changecharges</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>,<ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+          <defname>moveatoms</defname>
+        </param>
+        <briefdescription>
+<para>PrintMolsAlongPath. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Outputs (to logfile) the molecular structure present at each step along a reaction-mechanism,so that the user can get a feel for what is going on in the path.</para>
+<para>nrxn - Number of reactions in path. cx_start - The chemical structure object for the reactants. cx_end - The chemical structure object for the products. cx(:) - Chemical structure objects for intermediates along path. movenum(nrxn) - Move numbers for each reaction in the path. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="2283" column="1" bodyfile="src/pathfinder.f90" bodystart="2284" bodyend="2329"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1a0266f745c087b9c3fae61f1dce773493" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::graphstocoords</definition>
+        <argsstring>(cx_start, cx, nrxn, printflag, printfile, optoverride)</argsstring>
+        <name>graphstocoords</name>
+        <qualifiedname>pathfinder::graphstocoords</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), intent(inout)</type>
+          <defname>cx_start</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>), intent(inout)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer, intent(in)</type>
+          <defname>nrxn</defname>
+        </param>
+        <param>
+          <type>logical, intent(in)</type>
+          <defname>printflag</defname>
+        </param>
+        <param>
+          <type>character(len=*), intent(in)</type>
+          <defname>printfile</defname>
+        </param>
+        <param>
+          <type>logical, intent(in), optional</type>
+          <defname>optoverride</defname>
+        </param>
+        <briefdescription>
+<para>GraphsToCoords. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts a sequence of connectivity graphs to xyz coordinates by optimization under the action of the graph-restraining potential.</para>
+<para>The coordinates of the reactant structure are contained in cx_start; these are used as the starting point for a sequence of geometry optimizations. The resulting structures obey the target bonding graph at each step.</para>
+<para>If optaftermove = .TRUE. in the input file, then geometry optimization of the structures is also performed AFTER graph-potential optimization.</para>
+<para>cx_start - Chemical structure object for reactants. cx(nrxn) - Chemical structures along the path. nrxn - Number of reactions along the path. printflag - Logical flag indicating whether to print out xyz files or not. printfile - If printflag = .TRUE., printfile indicates the file to print to. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="2355" column="1" bodyfile="src/pathfinder.f90" bodystart="2356" bodyend="2526"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1a4a86877e41a3994e2e1bc9aa11535930" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::graphstocoords_bd</definition>
+        <argsstring>(wcx, printflag, printfile, err, errstr, optoverride, calcinitial)</argsstring>
+        <name>graphstocoords_bd</name>
+        <qualifiedname>pathfinder::graphstocoords_bd</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(2), intent(inout)</type>
+          <defname>wcx</defname>
+        </param>
+        <param>
+          <type>logical, intent(in)</type>
+          <defname>printflag</defname>
+        </param>
+        <param>
+          <type>character(len=*), intent(in)</type>
+          <defname>printfile</defname>
+        </param>
+        <param>
+          <type>logical, intent(out)</type>
+          <defname>err</defname>
+        </param>
+        <param>
+          <type>character(len=100), intent(out)</type>
+          <defname>errstr</defname>
+        </param>
+        <param>
+          <type>logical, intent(in), optional</type>
+          <defname>optoverride</defname>
+        </param>
+        <param>
+          <type>logical, intent(in), optional</type>
+          <defname>calcinitial</defname>
+        </param>
+        <briefdescription>
+<para>GraphsToCoords_BD. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts a pair of connectivity graphs generated by RunBreakdown to xyz coordinates by optimization under the action of the graph-restraining potential.</para>
+<para>The coordinates of the reactant structure are contained in wcx(1); these are used as the starting point for a sequence of geometry optimizations. The resulting structures obey the target bonding graph at each step.</para>
+<para>If optaftermove = .TRUE. in the input file, then geometry optimization of the structures is also performed AFTER graph-potential optimization.</para>
+<para>wcx - Working cx list. printflag - Logical flag indicating whether to print out xyz files or not. printfile - If printflag = .TRUE., printfile indicates the file to print to. err - Error flag. errstr - Error message, if err == .true. optoverride - Override flag for global optimisation setting. calcinitial - Force energy calculation/optimisation of wcx(1) before proceeding. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="2553" column="1" bodyfile="src/pathfinder.f90" bodystart="2555" bodyend="2766"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1a29862682a12550f1dd6e634562a81013" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::calcsinglegeom</definition>
+        <argsstring>(cx, optflag, printflag, printfile, err, errstr)</argsstring>
+        <name>calcsinglegeom</name>
+        <qualifiedname>pathfinder::calcsinglegeom</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), intent(inout)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>logical, intent(in)</type>
+          <defname>optflag</defname>
+        </param>
+        <param>
+          <type>logical, intent(in)</type>
+          <defname>printflag</defname>
+        </param>
+        <param>
+          <type>character(len=*), intent(in)</type>
+          <defname>printfile</defname>
+        </param>
+        <param>
+          <type>logical, intent(out)</type>
+          <defname>err</defname>
+        </param>
+        <param>
+          <type>character(len=*), intent(out)</type>
+          <defname>errstr</defname>
+        </param>
+        <briefdescription>
+<para>CalcSingleGeom. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Runs a straight AbInitio call on a provided cx object, which should already contain coordinates. Optionally allows for saving this optimised geometry.</para>
+<para>cx_start - cx object for starting molecule. Should have been freshly initialised by ReadCXS. optflag - Logical flag indicating if a geometry optimisation is desired, rather than just an energy calculation. printflag - Logical flag indicating whether to print out xyz files or not. printfile - If printflag = .TRUE., printfile indicates the file to print to. err - Error flag. errstr - Error message, if err == .true. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="2784" column="1" bodyfile="src/pathfinder.f90" bodystart="2785" bodyend="2830"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1abe7d05aca718390074239f96f3eff522" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::printmechanismpaths</definition>
+        <argsstring>(nrxn, cx_start, cx, file_root, maxbarrier, bsum, cx_end)</argsstring>
+        <name>printmechanismpaths</name>
+        <qualifiedname>pathfinder::printmechanismpaths</qualifiedname>
+        <param>
+          <type>integer</type>
+          <defname>nrxn</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx_start</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>character (len=20)</type>
+          <defname>file_root</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>maxbarrier</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>bsum</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), optional</type>
+          <defname>cx_end</defname>
+        </param>
+        <briefdescription>
+<para>PrintMechanismPaths. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints out nimage intermediate snapshots for each of the generated reactions in the final reaction-path.</para>
+<para>Note that the end-point coordinates for each reaction are assumed to be stored in cx_start and cx(nrxn).</para>
+<para>We use linear interpolation between these end-points to generate internal images.</para>
+<para>The results are stored to the files final_path_rx_*.xyz.</para>
+<para>nrxn - Number of reactions in mechanism. cx_start - Chemical structure object for reactants. cx(nrxn) - Chemical structure objects for products of each reaction. These come from the subroutine GraphsToCoords(). file_root - Root name of printing file. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="2856" column="1" bodyfile="src/pathfinder.f90" bodystart="2857" bodyend="2967"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1a38a57e9848ee768d8e19891d5fa91ff0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::updatemechanism</definition>
+        <argsstring>(nrxn, movenum, moveatoms, bondchange, atomchange, na, cx_start, cx, rxindex, cyc, movenum_store, moveatoms_store)</argsstring>
+        <name>updatemechanism</name>
+        <qualifiedname>pathfinder::updatemechanism</qualifiedname>
+        <param>
+          <type>integer</type>
+          <defname>nrxn</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>movenum</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>,<ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+          <defname>moveatoms</defname>
+        </param>
+        <param>
+          <type>logical, dimension(<ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>,<ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>)</type>
+          <defname>bondchange</defname>
+        </param>
+        <param>
+          <type>logical, dimension(<ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>)</type>
+          <defname>atomchange</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>na</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx_start</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceconstants_1af3563b26c30009f026fc978080d89280" kindref="member">namax</ref>)</type>
+          <defname>rxindex</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>cyc</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>movenum_store</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>,<ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+          <defname>moveatoms_store</defname>
+        </param>
+        <briefdescription>
+<para>UpdateMechanism. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs a trial move by modifying a current mechanism string by either changing a move and its atoms, or just changing the atoms of an exisiting move.</para>
+<para>Note that the end-point coordinates for each reaction are assumed to be stored in cx_start and cx(nrxn).</para>
+<para>nrxn - Number of reactions in mechanism. cx_start - Chemical structure object for reactants. cx(nrxn) - Chemical structure objects for products of each reaction. These come from the subroutine GraphsToCoords(). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="2989" column="1" bodyfile="src/pathfinder.f90" bodystart="2991" bodyend="3139"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1afbc92aeaed8e180333ae25bda3b93026" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::reactionerrorcorrection</definition>
+        <argsstring>(cx_start, cx, nrxn, movenum, moveatoms, errx)</argsstring>
+        <name>reactionerrorcorrection</name>
+        <qualifiedname>pathfinder::reactionerrorcorrection</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx_start</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nrxn</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>movenum</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>,<ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+          <defname>moveatoms</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>errx</defname>
+        </param>
+        <briefdescription>
+<para>ReactionErrorCorrection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs error correction using geometry-optimized structures, making sure that the reactions listed in movenum and moveatoms are actually correct for a given reaction string.</para>
+<para>Note that the end-point coordinates for each reaction are assumed to be stored in cx_start and cx(nrxn). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="3156" column="1" bodyfile="src/pathfinder.f90" bodystart="3157" bodyend="3453"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1a588e5149dd38beb79af3aa90f907cd72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::updatecharges</definition>
+        <argsstring>(nrxn, cx, chargemove, chargemove_store, errflag)</argsstring>
+        <name>updatecharges</name>
+        <qualifiedname>pathfinder::updatecharges</qualifiedname>
+        <param>
+          <type>integer</type>
+          <defname>nrxn</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>,<ref refid="namespaceconstants_1ae8a3dda05015f1a60a2d4ecf50283182" kindref="member">nmolmax</ref>)</type>
+          <defname>chargemove</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>,<ref refid="namespaceconstants_1ae8a3dda05015f1a60a2d4ecf50283182" kindref="member">nmolmax</ref>)</type>
+          <defname>chargemove_store</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>errflag</defname>
+        </param>
+        <briefdescription>
+<para>UpdateCharges. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Update the charges on molecules along the reaction path. These moves are performed in addition to reaction changes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="3466" column="1" bodyfile="src/pathfinder.f90" bodystart="3467" bodyend="3552"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1a55a7e7bc956c89c3d3be3bc1ef4ab980" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::runnetgrow</definition>
+        <argsstring>()</argsstring>
+        <name>runnetgrow</name>
+        <qualifiedname>pathfinder::runnetgrow</qualifiedname>
+        <briefdescription>
+<para>RunNetGrow. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Runs automatic growth of a reaction network, based on allowed graph-moves. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="3565" column="1" bodyfile="src/pathfinder.f90" bodystart="3566" bodyend="3765"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1a840912a8f356883d7eae526b0605e13e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::runnetgrow2</definition>
+        <argsstring>()</argsstring>
+        <name>runnetgrow2</name>
+        <qualifiedname>pathfinder::runnetgrow2</qualifiedname>
+        <briefdescription>
+<para>RunNetGrow2. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Runs automatic growth of a reaction network, based on allowed graph-moves. Generates nmcrxn random reaction pathways step-by-step, with stepwise optimisation (if enabled). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="3778" column="1" bodyfile="src/pathfinder.f90" bodystart="3779" bodyend="3999"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1a8a34d428a2f50cee28920e703e35e8a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::runbreakdown</definition>
+        <argsstring>()</argsstring>
+        <name>runbreakdown</name>
+        <qualifiedname>pathfinder::runbreakdown</qualifiedname>
+        <briefdescription>
+<para>RunBreakdown. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Runs automatic growth of a reaction network, based on allowed graph-moves. Generates nmcrxn random reaction pathways sequentially, with stepwise optimisation (if enabled). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="4010" column="1" bodyfile="src/pathfinder.f90" bodystart="4011" bodyend="4286"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1afe500955543428bb32f3af2c1ad9cff1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::createmechanismstep</definition>
+        <argsstring>(movenum, moveatoms, bondchange, atomchange, wcx, cyc, rxindex)</argsstring>
+        <name>createmechanismstep</name>
+        <qualifiedname>pathfinder::createmechanismstep</qualifiedname>
+        <param>
+          <type>integer, dimension(:), intent(inout)</type>
+          <defname>movenum</defname>
+        </param>
+        <param>
+          <type>integer, dimension(:, :), intent(inout)</type>
+          <defname>moveatoms</defname>
+        </param>
+        <param>
+          <type>logical, dimension(:, :), intent(inout)</type>
+          <defname>bondchange</defname>
+        </param>
+        <param>
+          <type>logical, dimension(:), intent(inout)</type>
+          <defname>atomchange</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(:), intent(inout)</type>
+          <defname>wcx</defname>
+        </param>
+        <param>
+          <type>logical, intent(out)</type>
+          <defname>cyc</defname>
+        </param>
+        <param>
+          <type>integer, dimension(:), intent(out)</type>
+          <defname>rxindex</defname>
+        </param>
+        <briefdescription>
+<para>CreateMechanismStep. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Proposes a single new move for a given reaction step by generating a new move type and its atoms.</para>
+<para>movenum - Array containing graph move number for each cx in wcx. moveatoms - Array containing reactive atoms for each cx in wcx. bondchange - Array of bonds allowed to be changed by reactions. atomchange - Array of atoms allowed to be changed by reactions. wcx - Worcking cx list, containing previous and current steps of reaction. cyc - Flag indicating success at finding a graph move. rxindex - List of reactive atoms. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="4306" column="1" bodyfile="src/pathfinder.f90" bodystart="4308" bodyend="4369"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathfinder_1a8ae35443dc1798fec196e20b06c5add8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathfinder::updatemechanismstep</definition>
+        <argsstring>(nrxn, movenum, moveatoms, bondchange, atomchange, na, cx_start, cx, irx, rxindex, cyc, movenum_store, moveatoms_store)</argsstring>
+        <name>updatemechanismstep</name>
+        <qualifiedname>pathfinder::updatemechanismstep</qualifiedname>
+        <param>
+          <type>integer</type>
+          <defname>nrxn</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>movenum</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>,<ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+          <defname>moveatoms</defname>
+        </param>
+        <param>
+          <type>logical, dimension(<ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>,<ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>)</type>
+          <defname>bondchange</defname>
+        </param>
+        <param>
+          <type>logical, dimension(<ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>)</type>
+          <defname>atomchange</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>na</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx_start</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>irx</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceconstants_1af3563b26c30009f026fc978080d89280" kindref="member">namax</ref>)</type>
+          <defname>rxindex</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>cyc</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>)</type>
+          <defname>movenum_store</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" kindref="member">nrxn</ref>,<ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+          <defname>moveatoms_store</defname>
+        </param>
+        <briefdescription>
+<para>UpdateMechanismStep. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs a trial move on a specified step of a mechanism by modifying a current mechanism string by either changing a move and its atoms, or just changing the atoms of an exisiting move.</para>
+<para>nrxn - Number of reactions in mechanism. cx_start - Chemical structure object for reactants. cx(nrxn) - Chemical structure objects for products of each reaction. These come from the subroutine GraphsToCoords(). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathfinder.f90" line="4387" column="1" bodyfile="src/pathfinder.f90" bodystart="4389" bodyend="4490"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Contains routines for automatic determination of a reaction-mechanism connecting two distinct (user-input) structures. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The method employed here has been reported in:</para>
+<para>Automatic Proposal of Multistep Reaction Mechanisms using a Graph-Driven Search, I. Ismail and H. B. V. A. Stuttaford-Fowler and C. Ochan Ashok and C. Robertson and S. Habershon, J Phys Chem A  123  3407-3417  (2019)</para>
+<para>Fast screening of homogeneous catalysis mechanisms using graph-driven searches and approximate quantum chemistry, C Robertson, S Habershon, Catalysis Science &amp; Technology, 9, 6357 (2019)</para>
+<para>Bibtex records:</para>
+<para>@article{Habershon:2019ab, Author = {Ismail, Idil and Stuttaford-Fowler, Holly B V A and Ochan Ashok, Curtis and Robertson, Christopher and Habershon, Scott}, Journal = {J Phys Chem A}, Month = {Apr}, Number = {15}, Pages = {3407-3417}, Title = {Automatic Proposal of Multistep Reaction Mechanisms using a Graph-Driven Search}, Volume = {123}, Year = {2019}}</para>
+<para>@article{Habershon:2019ee, Author = {Robertson, Christopher and Habershon, Scott}, Date-Added = {2019-12-03 15:41:20 +0000}, Date-Modified = {2019-12-03 15:41:29 +0000}, Doi = {10.1039/C9CY01997A}, Issue = {22}, Journal = {Catal. Sci. Technol.}, Pages = {6357-6369}, Publisher = {The Royal Society of Chemistry}, Title = {Fast screening of homogeneous catalysis mechanisms using graph-driven searches and approximate quantum chemistry}, Url = {<ulink url="http://dx.doi.org/10.1039/C9CY01997A">http://dx.doi.org/10.1039/C9CY01997A</ulink>}, Volume = {9}, Year = {2019}, }</para>
+<para><hruler/>
+ </para>
+<sect1 id="namespacepathfinder_1autotoc_md1_1s1"><sect2 id="namespacepathfinder_1autotoc_md1">
+<title>DESCRIPTION</title><para>Given input xyz files for target reactants and products, this routine will try to find a reaction mechanism connecting the two by using graph-moves defined in the &quot;movefile&quot;.</para>
+<para>After determination of a path which definitively connects reactants and products, we then generate xyz-files for each reaction-path along the reaction-mechanism using the idea of optimization under the graph-restraining potential.</para>
+<para>If optaftermove = .TRUE. in the input file, this code will also perform geometry optimization for all of the intermediate structures and report the results in the .log file.</para>
+<para><hruler/>
+ </para>
+</sect2></sect1>
+<sect1 id="namespacepathfinder_1autotoc_md3_1s1"><sect2 id="namespacepathfinder_1autotoc_md3">
+<title>OUTPUTS</title><para>After completion, the following outputs are worth looking at:<itemizedlist>
+<listitem><para>mcopt.dat: contains the graph-error function as a function of number of MC iterations in the calculation. This should reach zero for a successful calculation.</para>
+</listitem><listitem><para>final_path.xyz: Contains the intermediate structures (xyz format) along the located reaction mechanism. If optaftermove = .true., the structures are geometry-optimized using whichever electronic structure methods is specified in the input file.</para>
+</listitem><listitem><para>final_path_rx_*.xyz: This series of xyz files, one for each reaction-step in the mechanism, contain initial nimage-long paths for each intermediate reaction.</para>
+</listitem><listitem><para>.log: The .log file will contain useful information about the reaction, including the calculated Q-value and the maximum dE value.</para>
+</listitem></itemizedlist>
+</para>
+<para>In addition, if igfunc = 4 (so we are targetting formation of a single molecule or subset of molecules, rather than an entire structure), the further outputs are produced which have the prefix &apos;adjusted_&apos;. This are files which have been determined for the reaction path after removing molecules and reactions which are not relevant to the formation of the product. </para>
+</sect2></sect1>
+    </detaileddescription>
+    <location file="src/pathfinder.f90" line="87" column="1"/>
+  </compounddef>
+</doxygen>

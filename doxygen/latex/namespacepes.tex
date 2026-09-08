@@ -1,0 +1,648 @@
+\doxysection{pes Module Reference}
+\hypertarget{namespacepes}{}\label{namespacepes}\index{pes@{pes}}
+
+
+Potential energy surface calculations.  
+
+
+\doxysubsubsection*{Functions/\+\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_afabde251e1825ead6ccf86ae3ec3ad46}{setupenergycalc}} (pestype, pesfile, pesexecutable)
+\begin{DoxyCompactList}\small\item\em Setup\+Energy\+Calc. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a8174e6a35fe7db895b5c801bf9c62ce5}{setupgeomopt}} (pesopttype, pesoptfile, pesoptexecutable)
+\begin{DoxyCompactList}\small\item\em Setup\+Geom\+Opt. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a9a8620a84a12feb416e02e9c9e64f8be}{abinitio}} (cx, abtypein, success)
+\begin{DoxyCompactList}\small\item\em Ab\+Initio. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a6cfa4ec2e58a645b8a8e280d98d32f47}{molprocalc}} (cx, abtype, success)
+\begin{DoxyCompactList}\small\item\em MOLPROcalc. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a7529728e0cd0b123b99f0541d4c24690}{orcacalc}} (cx, abtype, success)
+\begin{DoxyCompactList}\small\item\em ORCAcalc. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a6b9874a523e27244b65c34e696f2a67d}{dftbcalc}} (cx, minimize, success)
+\begin{DoxyCompactList}\small\item\em DFTBcalc. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a1e71d8804e37caf716dd61291f5387fb}{xtbcalc}} (cx, minimize, success)
+\begin{DoxyCompactList}\small\item\em x\+TBcalc \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a99f8327e20ba1aa7e417f920bf4c4bb7}{aimscalc}} (cx, minimize, success)
+\begin{DoxyCompactList}\small\item\em AIMScalc. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a3c31f7c822b9f71d668245f72cc453b0}{uffcalc}} (cx, minimize, success)
+\begin{DoxyCompactList}\small\item\em UFFcalc. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_aca3a505d6265f24ebc0e4451872259f8}{lammpscalc}} (cx, abtype, success)
+\begin{DoxyCompactList}\small\item\em LAMMPScalc. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_af090baa63d75251c8a0d59fa6a0e5ab7}{psi4calc}} (cx, minimize, success)
+\begin{DoxyCompactList}\small\item\em PSI4calc. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a5b178c8dc94c020d110eaf07c11e761d}{readforcesindividually}} (cx, dummylines)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_ad0b6999f62358bfb0f166abef78edfdd}{readforcestogether}} (cx, dummylines)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_ada6999dfcf55667159df6c68151fa4fc}{readenergy}} (cx, dummylines)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_acf861f8ec4b878596fea4d6984af8967}{readhessian}} (cx, filename)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a17ee9c59c131b3da7b586733bf9f2ec2}{readoptimizedcoordinates}} (cx, filename)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a3c28a0b18ef26d0a41522e0c0ab88b42}{createfiletemplate}} (minimize, exec, n, buffer, iline)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a7518f38a27ed0fe7d940eb9832d4143f}{executecalculation}} (str, success)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a3e3f3e53db69ad2009b7c91795f32bf5}{extractdata}} (str)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_ad09cee72e0fef4317231efc6b7cf35fd}{fireminimise}} (cx, iterin, gdsrestspring\+\_\+in, nbstrength\+\_\+in, nbrange, kradius, nebrestrend)
+\begin{DoxyCompactList}\small\item\em Fire\+Minimise. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a1d90d628767602b96f7d3fdba9789918}{mincxsenergynebrest}} (cx, success)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a8bc8971902e40c913ba0bd5b50fb5a7f}{mincxsenergy}} (cx, success)
+\item 
+subroutine \doxymbox{\hyperlink{namespacepes_aacd7a0dc07c19006c3f5e8cfaede7313}{matchcxconstraint}} (cx, mcx, kspring)
+\begin{DoxyCompactList}\small\item\em Match\+CXContraints. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_afc968bc3d71f71a87a1277eb370b87da}{getactmolecenergies}} (cx, molecact, nactmol, molen)
+\begin{DoxyCompactList}\small\item\em Get\+Act\+Molecular\+Energies. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepes_a93dedbea29f40a00bff8c13569737be1}{getmolecularenergies}} (cx)
+\begin{DoxyCompactList}\small\item\em Get\+Molecular\+Energies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+integer, parameter \doxymbox{\hyperlink{namespacepes_ab1edb0ccbc2eb292e13a56f8490d53fd}{nlinemax}} = 200
+\item 
+character(len=6) \doxymbox{\hyperlink{namespacepes_a23a59fcac6a8142f8487d45cfeffe13c}{vtype}}
+\item 
+character(len=25) \doxymbox{\hyperlink{namespacepes_a643f44e7ca705ba0662ef672cebff6e6}{vfile}}
+\item 
+character(len=6) \doxymbox{\hyperlink{namespacepes_aba41be36b42b1eb05bffcb6871ac6ed8}{vopttype}}
+\item 
+character(len=25) \doxymbox{\hyperlink{namespacepes_a72029e7281dce1ebc94575b13602eeab}{voptfile}}
+\item 
+character(len=100) \doxymbox{\hyperlink{namespacepes_af916a63154659413614f19bba60f5350}{pesexec}}
+\item 
+character(len=100) \doxymbox{\hyperlink{namespacepes_a3130c949413ee53f32a3a93fa84859d7}{pesoptexec}}
+\item 
+character(len=100), dimension(\doxymbox{\hyperlink{namespacepes_ab1edb0ccbc2eb292e13a56f8490d53fd}{nlinemax}}) \doxymbox{\hyperlink{namespacepes_a356c2c5f579447fc6cfec92bf4bcab4f}{peslines}}
+\item 
+character(len=100), dimension(\doxymbox{\hyperlink{namespacepes_ab1edb0ccbc2eb292e13a56f8490d53fd}{nlinemax}}) \doxymbox{\hyperlink{namespacepes_aaab517e0695444b997ba8545228504a3}{pesoptlines}}
+\item 
+integer \doxymbox{\hyperlink{namespacepes_ae49ab5998f0aed64f710ab11951c213c}{nline}}
+\item 
+integer \doxymbox{\hyperlink{namespacepes_ae313c93e32635bc18dce3687e1f27eba}{nlineopt}}
+\item 
+integer \doxymbox{\hyperlink{namespacepes_a0169d7fd9e9ff2db13217335d745195e}{coordsline}}
+\item 
+integer \doxymbox{\hyperlink{namespacepes_a71cc0573350a31abe52ccf496ded3513}{optcoordsline}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Potential energy surface calculations. 
+
+Defines subroutines for evaluating energies and forces using various external codes. 
+
+\label{namespacepes_doc-func-members}
+\Hypertarget{namespacepes_doc-func-members}
+\doxysubsection{Function/\+\+Subroutine Documentation}
+\Hypertarget{namespacepes_afabde251e1825ead6ccf86ae3ec3ad46}\index{pes@{pes}!setupenergycalc@{setupenergycalc}}
+\index{setupenergycalc@{setupenergycalc}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{setupenergycalc()}{setupenergycalc()}}
+{\footnotesize\ttfamily \label{namespacepes_afabde251e1825ead6ccf86ae3ec3ad46} 
+subroutine pes::\+setupenergycalc (\begin{DoxyParamCaption}\item[{character (len=6)}]{pestype}{, }\item[{character (len=25)}]{pesfile}{, }\item[{character (len=100)}]{pesexecutable}{}\end{DoxyParamCaption})}
+
+
+
+Setup\+Energy\+Calc. 
+
+Initializes the PES calculation.
+
+
+\begin{DoxyItemize}
+\item PEStype: Identifies the type of PES calculation, \textquotesingle{}ORCA\textquotesingle{}...
+\item PESfile: Identifies the file containing the template input file for PES evaluation. This should have the characters \textquotesingle{}XXX\textquotesingle{} in the line where the coordinates will be input. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00046}{46}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a8174e6a35fe7db895b5c801bf9c62ce5}\index{pes@{pes}!setupgeomopt@{setupgeomopt}}
+\index{setupgeomopt@{setupgeomopt}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{setupgeomopt()}{setupgeomopt()}}
+{\footnotesize\ttfamily \label{namespacepes_a8174e6a35fe7db895b5c801bf9c62ce5} 
+subroutine pes::\+setupgeomopt (\begin{DoxyParamCaption}\item[{character (len=6)}]{pesopttype}{, }\item[{character (len=25)}]{pesoptfile}{, }\item[{character (len=100)}]{pesoptexecutable}{}\end{DoxyParamCaption})}
+
+
+
+Setup\+Geom\+Opt. 
+
+Initializes the geometry optimisation calculation.
+
+
+\begin{DoxyItemize}
+\item PESopttype: Identifies the PES for geometry optimisation, \textquotesingle{}ORCA\textquotesingle{}...
+\item PESoptfile: Identifies the file containing the template input file for PES evaluation. This should have the characters \textquotesingle{}XXX\textquotesingle{} in the line where the coordinates will be input. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00109}{109}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a9a8620a84a12feb416e02e9c9e64f8be}\index{pes@{pes}!abinitio@{abinitio}}
+\index{abinitio@{abinitio}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{abinitio()}{abinitio()}}
+{\footnotesize\ttfamily \label{namespacepes_a9a8620a84a12feb416e02e9c9e64f8be} 
+subroutine pes::\+abinitio (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{character(len=4), intent(in)}]{abtypein}{, }\item[{logical}]{success}{}\end{DoxyParamCaption})}
+
+
+
+Ab\+Initio. 
+
+Calculates Ab-\/initio properties for the chemical structure in cx.
+
+
+\begin{DoxyItemize}
+\item cx: Chemical structure object.
+\item abtype: \textquotesingle{}ener\textquotesingle{} = energy calculation ; \textquotesingle{}grad\textquotesingle{} = energy+gradient \textquotesingle{}hess\textquotesingle{} = energy+gradient+hessian ; \textquotesingle{}optg\textquotesingle{} = optimization
+\item success: A logical flag indicating whether or not the PES evaluation was successful. For example, might not have converged the SCF cycles in DFT/\+\+HF, etc. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00178}{178}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a6cfa4ec2e58a645b8a8e280d98d32f47}\index{pes@{pes}!molprocalc@{molprocalc}}
+\index{molprocalc@{molprocalc}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{molprocalc()}{molprocalc()}}
+{\footnotesize\ttfamily \label{namespacepes_a6cfa4ec2e58a645b8a8e280d98d32f47} 
+subroutine pes::\+molprocalc (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{character (len=4)}]{abtype}{, }\item[{logical}]{success}{}\end{DoxyParamCaption})}
+
+
+
+MOLPROcalc. 
+
+Performs a single-\/point energy and force calculation using MOLPRO.
+
+
+\begin{DoxyItemize}
+\item cx: Chemical structure object.
+\item abtype: indicates what time of calculation we shold perform 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00380}{380}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a7529728e0cd0b123b99f0541d4c24690}\index{pes@{pes}!orcacalc@{orcacalc}}
+\index{orcacalc@{orcacalc}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{orcacalc()}{orcacalc()}}
+{\footnotesize\ttfamily \label{namespacepes_a7529728e0cd0b123b99f0541d4c24690} 
+subroutine pes::\+orcacalc (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{character(len=4)}]{abtype}{, }\item[{logical}]{success}{}\end{DoxyParamCaption})}
+
+
+
+ORCAcalc. 
+
+Performs a single-\/point energy and force calculation using ORCA.
+
+
+\begin{DoxyItemize}
+\item cx: Chemical structure object.
+\item abtype: indicates what type of calculation we shold perform
+\item success: return flag indicating non-\/convergence of calculation if success = .FALSE. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00552}{552}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a6b9874a523e27244b65c34e696f2a67d}\index{pes@{pes}!dftbcalc@{dftbcalc}}
+\index{dftbcalc@{dftbcalc}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{dftbcalc()}{dftbcalc()}}
+{\footnotesize\ttfamily \label{namespacepes_a6b9874a523e27244b65c34e696f2a67d} 
+subroutine pes::\+dftbcalc (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{logical}]{minimize}{, }\item[{logical}]{success}{}\end{DoxyParamCaption})}
+
+
+
+DFTBcalc. 
+
+Performs a single-\/point energy and force calculation using DFTB. Note that the appropriate Slater-\/\+Koster files should be present in the run directory.
+
+
+\begin{DoxyItemize}
+\item cx: Chemical structure object.
+\item minimize: logical flag indicating whether or not to run a geometry optimization calculation.
+\item success: Flag indicating success of calculation. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00853}{853}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a1e71d8804e37caf716dd61291f5387fb}\index{pes@{pes}!xtbcalc@{xtbcalc}}
+\index{xtbcalc@{xtbcalc}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{xtbcalc()}{xtbcalc()}}
+{\footnotesize\ttfamily \label{namespacepes_a1e71d8804e37caf716dd61291f5387fb} 
+subroutine pes::\+xtbcalc (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), intent(inout)}]{cx}{, }\item[{logical, intent(in)}]{minimize}{, }\item[{logical, intent(out)}]{success}{}\end{DoxyParamCaption})}
+
+
+
+x\+TBcalc 
+
+Performs a single-\/point energy and force calculation using x\+TB.
+
+
+\begin{DoxyItemize}
+\item cx: Chemical structure object.
+\item minimize: logical flag indicating whether or not to run a geometry optimization calculation.
+\item success: Flag indicating success of calculation. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l01011}{1011}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a99f8327e20ba1aa7e417f920bf4c4bb7}\index{pes@{pes}!aimscalc@{aimscalc}}
+\index{aimscalc@{aimscalc}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{aimscalc()}{aimscalc()}}
+{\footnotesize\ttfamily \label{namespacepes_a99f8327e20ba1aa7e417f920bf4c4bb7} 
+subroutine pes::\+aimscalc (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), intent(inout)}]{cx}{, }\item[{logical, intent(in)}]{minimize}{, }\item[{logical, intent(out)}]{success}{}\end{DoxyParamCaption})}
+
+
+
+AIMScalc. 
+
+Performs a single-\/point energy and force calculation using FHI-\/aims.
+
+
+\begin{DoxyItemize}
+\item cx: Chemical structure object.
+\item minimize: logical flag indicating whether or not to run a geometry optimization calculation.
+\item success: Flag indicating success of calculation. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l01127}{1127}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a3c31f7c822b9f71d668245f72cc453b0}\index{pes@{pes}!uffcalc@{uffcalc}}
+\index{uffcalc@{uffcalc}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{uffcalc()}{uffcalc()}}
+{\footnotesize\ttfamily \label{namespacepes_a3c31f7c822b9f71d668245f72cc453b0} 
+subroutine pes::\+uffcalc (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{logical}]{minimize}{, }\item[{logical}]{success}{}\end{DoxyParamCaption})}
+
+
+
+UFFcalc. 
+
+Performs a single-\/point energy and force calculation using UFF, as implemented in openbabel (obabel).
+
+
+\begin{DoxyItemize}
+\item cx: Chemical structure object.
+\item minimize: logical flag indicating whether or not to run a geometry optimization calculation.
+
+For openbabel, we must have minimize = .TRUE.
+\item success: Flag indicating success of calculation.
+\end{DoxyItemize}
+
+DEPENDENCIES: Requires babel and obminimize. 
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l01270}{1270}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_aca3a505d6265f24ebc0e4451872259f8}\index{pes@{pes}!lammpscalc@{lammpscalc}}
+\index{lammpscalc@{lammpscalc}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{lammpscalc()}{lammpscalc()}}
+{\footnotesize\ttfamily \label{namespacepes_aca3a505d6265f24ebc0e4451872259f8} 
+subroutine pes::\+lammpscalc (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{character (len=4)}]{abtype}{, }\item[{logical}]{success}{}\end{DoxyParamCaption})}
+
+
+
+LAMMPScalc. 
+
+Performs a single-\/point energy and force calculation using LAMMPS.
+
+
+\begin{DoxyItemize}
+\item cx: Chemical structure object.
+\item abtype: indicates what time of calculation we shold perform 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l01361}{1361}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_af090baa63d75251c8a0d59fa6a0e5ab7}\index{pes@{pes}!psi4calc@{psi4calc}}
+\index{psi4calc@{psi4calc}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{psi4calc()}{psi4calc()}}
+{\footnotesize\ttfamily \label{namespacepes_af090baa63d75251c8a0d59fa6a0e5ab7} 
+subroutine pes::\+psi4calc (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{logical}]{minimize}{, }\item[{logical}]{success}{}\end{DoxyParamCaption})}
+
+
+
+PSI4calc. 
+
+Performs a single-\/point energy and force calculation using psi4.
+
+
+\begin{DoxyItemize}
+\item cx: Chemical structure object.
+\item minimize: logical flag indicating whether or not to run a geometry optimization calculation. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l01604}{1604}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a5b178c8dc94c020d110eaf07c11e761d}\index{pes@{pes}!readforcesindividually@{readforcesindividually}}
+\index{readforcesindividually@{readforcesindividually}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{readforcesindividually()}{readforcesindividually()}}
+{\footnotesize\ttfamily \label{namespacepes_a5b178c8dc94c020d110eaf07c11e761d} 
+subroutine pes::\+readforcesindividually (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{integer}]{dummylines}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l01685}{1685}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_ad0b6999f62358bfb0f166abef78edfdd}\index{pes@{pes}!readforcestogether@{readforcestogether}}
+\index{readforcestogether@{readforcestogether}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{readforcestogether()}{readforcestogether()}}
+{\footnotesize\ttfamily \label{namespacepes_ad0b6999f62358bfb0f166abef78edfdd} 
+subroutine pes::\+readforcestogether (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{integer}]{dummylines}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l01719}{1719}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_ada6999dfcf55667159df6c68151fa4fc}\index{pes@{pes}!readenergy@{readenergy}}
+\index{readenergy@{readenergy}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{readenergy()}{readenergy()}}
+{\footnotesize\ttfamily \label{namespacepes_ada6999dfcf55667159df6c68151fa4fc} 
+subroutine pes::\+readenergy (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{integer}]{dummylines}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l01753}{1753}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_acf861f8ec4b878596fea4d6984af8967}\index{pes@{pes}!readhessian@{readhessian}}
+\index{readhessian@{readhessian}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{readhessian()}{readhessian()}}
+{\footnotesize\ttfamily \label{namespacepes_acf861f8ec4b878596fea4d6984af8967} 
+subroutine pes::\+readhessian (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{character (len=\texorpdfstring{$\ast$}{*})}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l01777}{1777}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a17ee9c59c131b3da7b586733bf9f2ec2}\index{pes@{pes}!readoptimizedcoordinates@{readoptimizedcoordinates}}
+\index{readoptimizedcoordinates@{readoptimizedcoordinates}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{readoptimizedcoordinates()}{readoptimizedcoordinates()}}
+{\footnotesize\ttfamily \label{namespacepes_a17ee9c59c131b3da7b586733bf9f2ec2} 
+subroutine pes::\+readoptimizedcoordinates (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{character (len=\texorpdfstring{$\ast$}{*})}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l01842}{1842}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a3c28a0b18ef26d0a41522e0c0ab88b42}\index{pes@{pes}!createfiletemplate@{createfiletemplate}}
+\index{createfiletemplate@{createfiletemplate}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{createfiletemplate()}{createfiletemplate()}}
+{\footnotesize\ttfamily \label{namespacepes_a3c28a0b18ef26d0a41522e0c0ab88b42} 
+subroutine pes::\+createfiletemplate (\begin{DoxyParamCaption}\item[{logical}]{minimize}{, }\item[{character (len=100)}]{exec}{, }\item[{integer}]{n}{, }\item[{character (len=100), dimension(\doxymbox{\hyperlink{namespacepes_ab1edb0ccbc2eb292e13a56f8490d53fd}{nlinemax}})}]{buffer}{, }\item[{integer}]{iline}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l01872}{1872}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a7518f38a27ed0fe7d940eb9832d4143f}\index{pes@{pes}!executecalculation@{executecalculation}}
+\index{executecalculation@{executecalculation}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{executecalculation()}{executecalculation()}}
+{\footnotesize\ttfamily \label{namespacepes_a7518f38a27ed0fe7d940eb9832d4143f} 
+subroutine pes::\+executecalculation (\begin{DoxyParamCaption}\item[{character (len=100)}]{str}{, }\item[{logical}]{success}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l01895}{1895}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a3e3f3e53db69ad2009b7c91795f32bf5}\index{pes@{pes}!extractdata@{extractdata}}
+\index{extractdata@{extractdata}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{extractdata()}{extractdata()}}
+{\footnotesize\ttfamily \label{namespacepes_a3e3f3e53db69ad2009b7c91795f32bf5} 
+subroutine pes::\+extractdata (\begin{DoxyParamCaption}\item[{character (len=100)}]{str}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l01925}{1925}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_ad09cee72e0fef4317231efc6b7cf35fd}\index{pes@{pes}!fireminimise@{fireminimise}}
+\index{fireminimise@{fireminimise}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{fireminimise()}{fireminimise()}}
+{\footnotesize\ttfamily \label{namespacepes_ad09cee72e0fef4317231efc6b7cf35fd} 
+subroutine pes::\+fireminimise (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{integer}]{iterin}{, }\item[{real(8)}]{gdsrestspring\+\_\+in}{, }\item[{real(8)}]{nbstrength\+\_\+in}{, }\item[{real(8)}]{nbrange}{, }\item[{real(8)}]{kradius}{, }\item[{logical}]{nebrestrend}{}\end{DoxyParamCaption})}
+
+
+
+Fire\+Minimise. 
+
+minimises the energy using the FIRE algorithm, incorporating the graph constraining ppotentials if nebrestend = .true. the last bit of the minimization, we switch to quickmin, optional
+
+
+\begin{DoxyItemize}
+\item cx: Chemical structure object to be optimized
+\item iter: returns the number of iterations it took to optimize
+\item all other: parameteres for the graph restraining potential. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l01953}{1953}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a1d90d628767602b96f7d3fdba9789918}\index{pes@{pes}!mincxsenergynebrest@{mincxsenergynebrest}}
+\index{mincxsenergynebrest@{mincxsenergynebrest}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{mincxsenergynebrest()}{mincxsenergynebrest()}}
+{\footnotesize\ttfamily \label{namespacepes_a1d90d628767602b96f7d3fdba9789918} 
+subroutine pes::\+mincxsenergynebrest (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{logical}]{success}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l02066}{2066}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a8bc8971902e40c913ba0bd5b50fb5a7f}\index{pes@{pes}!mincxsenergy@{mincxsenergy}}
+\index{mincxsenergy@{mincxsenergy}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{mincxsenergy()}{mincxsenergy()}}
+{\footnotesize\ttfamily \label{namespacepes_a8bc8971902e40c913ba0bd5b50fb5a7f} 
+subroutine pes::\+mincxsenergy (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{logical}]{success}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l02079}{2079}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_aacd7a0dc07c19006c3f5e8cfaede7313}\index{pes@{pes}!matchcxconstraint@{matchcxconstraint}}
+\index{matchcxconstraint@{matchcxconstraint}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{matchcxconstraint()}{matchcxconstraint()}}
+{\footnotesize\ttfamily \label{namespacepes_aacd7a0dc07c19006c3f5e8cfaede7313} 
+subroutine pes::\+matchcxconstraint (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{mcx}{, }\item[{real(8)}]{kspring}{}\end{DoxyParamCaption})}
+
+
+
+Match\+CXContraints. 
+
+provides a force proportional to the difference btween the coordinates of the two structures cx and mcx
+
+
+\begin{DoxyItemize}
+\item cx: A chemical structure object.
+\item kspring: Spring constant for the bonding restraint term. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l02100}{2100}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_afc968bc3d71f71a87a1277eb370b87da}\index{pes@{pes}!getactmolecenergies@{getactmolecenergies}}
+\index{getactmolecenergies@{getactmolecenergies}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{getactmolecenergies()}{getactmolecenergies()}}
+{\footnotesize\ttfamily \label{namespacepes_afc968bc3d71f71a87a1277eb370b87da} 
+subroutine pes::\+getactmolecenergies (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{integer, dimension(nactmol)}]{molecact}{, }\item[{integer}]{nactmol}{, }\item[{double precision, dimension(nactmol), optional}]{molen}{}\end{DoxyParamCaption})}
+
+
+
+Get\+Act\+Molecular\+Energies. 
+
+Get the energies of each molecule in the reactants and produts of rp for molecules that are "{}active"{}
+
+
+\begin{DoxyItemize}
+\item cx: chemical structure.
+\item Molec\+Act: array with the molecue indecies
+\item nactmol: number of molecules in Molec\+Act array
+\item molen: array with energies
+\item filenam: The filename to be outputed 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l02132}{2132}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a93dedbea29f40a00bff8c13569737be1}\index{pes@{pes}!getmolecularenergies@{getmolecularenergies}}
+\index{getmolecularenergies@{getmolecularenergies}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{getmolecularenergies()}{getmolecularenergies()}}
+{\footnotesize\ttfamily \label{namespacepes_a93dedbea29f40a00bff8c13569737be1} 
+subroutine pes::\+getmolecularenergies (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{}\end{DoxyParamCaption})}
+
+
+
+Get\+Molecular\+Energies. 
+
+Get the energies of each molecule in the reactants and produts of rp
+
+
+\begin{DoxyItemize}
+\item cx: chemical structure.
+\item filenam: The filename to be outputed 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l02165}{2165}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+
+
+\label{namespacepes_doc-var-members}
+\Hypertarget{namespacepes_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacepes_ab1edb0ccbc2eb292e13a56f8490d53fd}\index{pes@{pes}!nlinemax@{nlinemax}}
+\index{nlinemax@{nlinemax}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{nlinemax}{nlinemax}}
+{\footnotesize\ttfamily \label{namespacepes_ab1edb0ccbc2eb292e13a56f8490d53fd} 
+integer, parameter pes::\+nlinemax = 200}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00019}{19}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a23a59fcac6a8142f8487d45cfeffe13c}\index{pes@{pes}!vtype@{vtype}}
+\index{vtype@{vtype}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{vtype}{vtype}}
+{\footnotesize\ttfamily \label{namespacepes_a23a59fcac6a8142f8487d45cfeffe13c} 
+character (len=6) pes::\+vtype}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00020}{20}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a643f44e7ca705ba0662ef672cebff6e6}\index{pes@{pes}!vfile@{vfile}}
+\index{vfile@{vfile}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{vfile}{vfile}}
+{\footnotesize\ttfamily \label{namespacepes_a643f44e7ca705ba0662ef672cebff6e6} 
+character (len=25) pes::\+vfile}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00021}{21}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_aba41be36b42b1eb05bffcb6871ac6ed8}\index{pes@{pes}!vopttype@{vopttype}}
+\index{vopttype@{vopttype}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{vopttype}{vopttype}}
+{\footnotesize\ttfamily \label{namespacepes_aba41be36b42b1eb05bffcb6871ac6ed8} 
+character (len=6) pes::\+vopttype}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00022}{22}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a72029e7281dce1ebc94575b13602eeab}\index{pes@{pes}!voptfile@{voptfile}}
+\index{voptfile@{voptfile}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{voptfile}{voptfile}}
+{\footnotesize\ttfamily \label{namespacepes_a72029e7281dce1ebc94575b13602eeab} 
+character (len=25) pes::\+voptfile}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00023}{23}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_af916a63154659413614f19bba60f5350}\index{pes@{pes}!pesexec@{pesexec}}
+\index{pesexec@{pesexec}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{pesexec}{pesexec}}
+{\footnotesize\ttfamily \label{namespacepes_af916a63154659413614f19bba60f5350} 
+character (len=100) pes::\+pesexec}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00024}{24}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a3130c949413ee53f32a3a93fa84859d7}\index{pes@{pes}!pesoptexec@{pesoptexec}}
+\index{pesoptexec@{pesoptexec}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{pesoptexec}{pesoptexec}}
+{\footnotesize\ttfamily \label{namespacepes_a3130c949413ee53f32a3a93fa84859d7} 
+character (len=100) pes::\+pesoptexec}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00024}{24}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a356c2c5f579447fc6cfec92bf4bcab4f}\index{pes@{pes}!peslines@{peslines}}
+\index{peslines@{peslines}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{peslines}{peslines}}
+{\footnotesize\ttfamily \label{namespacepes_a356c2c5f579447fc6cfec92bf4bcab4f} 
+character (len=100), dimension(\doxymbox{\hyperlink{namespacepes_ab1edb0ccbc2eb292e13a56f8490d53fd}{nlinemax}}) pes::\+peslines}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00025}{25}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_aaab517e0695444b997ba8545228504a3}\index{pes@{pes}!pesoptlines@{pesoptlines}}
+\index{pesoptlines@{pesoptlines}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{pesoptlines}{pesoptlines}}
+{\footnotesize\ttfamily \label{namespacepes_aaab517e0695444b997ba8545228504a3} 
+character (len=100), dimension(\doxymbox{\hyperlink{namespacepes_ab1edb0ccbc2eb292e13a56f8490d53fd}{nlinemax}}) pes::\+pesoptlines}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00025}{25}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_ae49ab5998f0aed64f710ab11951c213c}\index{pes@{pes}!nline@{nline}}
+\index{nline@{nline}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{nline}{nline}}
+{\footnotesize\ttfamily \label{namespacepes_ae49ab5998f0aed64f710ab11951c213c} 
+integer pes::\+nline}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00026}{26}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_ae313c93e32635bc18dce3687e1f27eba}\index{pes@{pes}!nlineopt@{nlineopt}}
+\index{nlineopt@{nlineopt}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{nlineopt}{nlineopt}}
+{\footnotesize\ttfamily \label{namespacepes_ae313c93e32635bc18dce3687e1f27eba} 
+integer pes::\+nlineopt}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00026}{26}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a0169d7fd9e9ff2db13217335d745195e}\index{pes@{pes}!coordsline@{coordsline}}
+\index{coordsline@{coordsline}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{coordsline}{coordsline}}
+{\footnotesize\ttfamily \label{namespacepes_a0169d7fd9e9ff2db13217335d745195e} 
+integer pes::\+coordsline}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00027}{27}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+
+\Hypertarget{namespacepes_a71cc0573350a31abe52ccf496ded3513}\index{pes@{pes}!optcoordsline@{optcoordsline}}
+\index{optcoordsline@{optcoordsline}!pes@{pes}}
+\doxysubsubsection{\texorpdfstring{optcoordsline}{optcoordsline}}
+{\footnotesize\ttfamily \label{namespacepes_a71cc0573350a31abe52ccf496ded3513} 
+integer pes::\+optcoordsline}
+
+
+
+Definition at line \doxymbox{\hyperlink{pes_8f90_source_l00027}{27}} of file \doxymbox{\hyperlink{pes_8f90_source}{pes.\+f90}}.
+

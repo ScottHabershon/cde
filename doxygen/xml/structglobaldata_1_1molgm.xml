@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="structglobaldata_1_1molgm" kind="type" language="Fortran" prot="public">
+    <compoundname>globaldata::molgm</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structglobaldata_1_1molgm_1aa4d725b3ade3f11b2b48f1b3934fa487" prot="public" static="no" mutable="no">
+        <type>integer, dimension(:,:,:,:), allocatable</type>
+        <definition>integer, dimension(:,:,:,:), allocatable globaldata::molgm::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>globaldata::molgm::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="268" column="1" bodyfile="src/globaldata.f90" bodystart="268" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1molgm_1af53ef73559b88325c1b52e2adbfc956f" prot="public" static="no" mutable="no">
+        <type>integer, dimension(:,:), allocatable</type>
+        <definition>integer, dimension(:,:), allocatable globaldata::molgm::naid</definition>
+        <argsstring></argsstring>
+        <name>naid</name>
+        <qualifiedname>globaldata::molgm::naid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="269" column="1" bodyfile="src/globaldata.f90" bodystart="269" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1molgm_1a32595b52db67d80a080ea87968bd13ee" prot="public" static="no" mutable="no">
+        <type>integer, dimension(:,:,:), allocatable</type>
+        <definition>integer, dimension(:,:,:), allocatable globaldata::molgm::aid</definition>
+        <argsstring></argsstring>
+        <name>aid</name>
+        <qualifiedname>globaldata::molgm::aid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="270" column="1" bodyfile="src/globaldata.f90" bodystart="270" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1molgm_1a335c5bfbd343aba19d93497bd63b14d9" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::molgm::nid</definition>
+        <argsstring></argsstring>
+        <name>nid</name>
+        <qualifiedname>globaldata::molgm::nid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="271" column="1" bodyfile="src/globaldata.f90" bodystart="271" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1molgm_1a53eaaa260810f625dbc8849876d11ee9" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::molgm::na</definition>
+        <argsstring></argsstring>
+        <name>na</name>
+        <qualifiedname>globaldata::molgm::na</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="272" column="1" bodyfile="src/globaldata.f90" bodystart="272" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1molgm_1a3ed70932b4f887e87d35961d1217759c" prot="public" static="no" mutable="no">
+        <type>integer, dimension(:,:,:), allocatable</type>
+        <definition>integer, dimension(:,:,:), allocatable globaldata::molgm::ic</definition>
+        <argsstring></argsstring>
+        <name>ic</name>
+        <qualifiedname>globaldata::molgm::ic</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="273" column="1" bodyfile="src/globaldata.f90" bodystart="273" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1molgm_1a461e27d29d1b9e5685f8aefd356b8b56" prot="public" static="no" mutable="no">
+        <type>integer, dimension(:), allocatable</type>
+        <definition>integer, dimension(:), allocatable globaldata::molgm::naic</definition>
+        <argsstring></argsstring>
+        <name>naic</name>
+        <qualifiedname>globaldata::molgm::naic</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="274" column="1" bodyfile="src/globaldata.f90" bodystart="274" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1molgm_1a7d057216087d550c2d26ca120dce8876" prot="public" static="no" mutable="no">
+        <type>integer, dimension(:,:), allocatable</type>
+        <definition>integer, dimension(:,:), allocatable globaldata::molgm::aic</definition>
+        <argsstring></argsstring>
+        <name>aic</name>
+        <qualifiedname>globaldata::molgm::aic</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="275" column="1" bodyfile="src/globaldata.f90" bodystart="275" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1molgm_1aa8a4dc2d04a72fa649f8f19f39ed3ebe" prot="public" static="no" mutable="no">
+        <type>logical, dimension(:,:,:), allocatable</type>
+        <definition>logical, dimension(:,:,:), allocatable globaldata::molgm::arm</definition>
+        <argsstring></argsstring>
+        <name>arm</name>
+        <qualifiedname>globaldata::molgm::arm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="276" column="1" bodyfile="src/globaldata.f90" bodystart="276" bodyend="276"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/globaldata.f90" line="267" column="1" bodyfile="src/globaldata.f90" bodystart="267" bodyend="277"/>
+    <listofallmembers>
+      <member refid="structglobaldata_1_1molgm_1a7d057216087d550c2d26ca120dce8876" prot="public" virt="non-virtual"><scope>globaldata::molgm</scope><name>aic</name></member>
+      <member refid="structglobaldata_1_1molgm_1a32595b52db67d80a080ea87968bd13ee" prot="public" virt="non-virtual"><scope>globaldata::molgm</scope><name>aid</name></member>
+      <member refid="structglobaldata_1_1molgm_1aa8a4dc2d04a72fa649f8f19f39ed3ebe" prot="public" virt="non-virtual"><scope>globaldata::molgm</scope><name>arm</name></member>
+      <member refid="structglobaldata_1_1molgm_1a3ed70932b4f887e87d35961d1217759c" prot="public" virt="non-virtual"><scope>globaldata::molgm</scope><name>ic</name></member>
+      <member refid="structglobaldata_1_1molgm_1aa4d725b3ade3f11b2b48f1b3934fa487" prot="public" virt="non-virtual"><scope>globaldata::molgm</scope><name>id</name></member>
+      <member refid="structglobaldata_1_1molgm_1a53eaaa260810f625dbc8849876d11ee9" prot="public" virt="non-virtual"><scope>globaldata::molgm</scope><name>na</name></member>
+      <member refid="structglobaldata_1_1molgm_1a461e27d29d1b9e5685f8aefd356b8b56" prot="public" virt="non-virtual"><scope>globaldata::molgm</scope><name>naic</name></member>
+      <member refid="structglobaldata_1_1molgm_1af53ef73559b88325c1b52e2adbfc956f" prot="public" virt="non-virtual"><scope>globaldata::molgm</scope><name>naid</name></member>
+      <member refid="structglobaldata_1_1molgm_1a335c5bfbd343aba19d93497bd63b14d9" prot="public" virt="non-virtual"><scope>globaldata::molgm</scope><name>nid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

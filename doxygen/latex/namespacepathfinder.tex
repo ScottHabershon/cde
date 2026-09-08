@@ -1,0 +1,501 @@
+\doxysection{pathfinder Module Reference}
+\hypertarget{namespacepathfinder}{}\label{namespacepathfinder}\index{pathfinder@{pathfinder}}
+
+
+Contains routines for automatic determination of a reaction-\/mechanism connecting two distinct (user-\/input) structures.  
+
+
+\doxysubsubsection*{Functions/\+\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a7ce0d0c193755a13466c3a5c273b21d2}{runpathfinder}} ()
+\begin{DoxyCompactList}\small\item\em Run\+Path\+Finder. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a653856562ee8b080c5577efcf618ce58}{adjustpaths}} (cx\+\_\+start, cx\+\_\+end, cx, nrxn, movenum, moveatoms, ifound)
+\begin{DoxyCompactList}\small\item\em Adjust\+Paths. \end{DoxyCompactList}\item 
+logical function \doxymbox{\hyperlink{namespacepathfinder_a5ab181b5ba41de2c9bb6d9eddeafb915}{containstargetatom}} (cx1, mol1, cx2, itarget)
+\begin{DoxyCompactList}\small\item\em Contains\+Target\+Atom. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_ac162e64b047281f6a8040365318bf631}{evaluategrapherror}} (cx, cx\+\_\+end, error, errflag)
+\begin{DoxyCompactList}\small\item\em Evaluate\+Graph\+Error. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a0de07862cb4c5d601bd783c1bb17aace}{comparegraphs}} (cx1, cx2, error)
+\begin{DoxyCompactList}\small\item\em Compare\+Graphs. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a40faf783cfa95399dd13f6b67ab2aca1}{stripinactivemols}} (cx1, cx2, cx1\+\_\+new, cx2\+\_\+new)
+\begin{DoxyCompactList}\small\item\em Strip\+Inactive\+Mols. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_aeff32d131039907ab2149ee86575c84b}{propagategraphs}} (cx\+\_\+start, cx, nrxn, movenum, moveatoms, errflag, error)
+\begin{DoxyCompactList}\small\item\em Propagate\+Graphs. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_ad3176a0a22cdd34dd1b20fb26be06d66}{selectmoveatoms}} (imove, moveatoms, nrxn, irx, rxindex, nrx, fail, atomchange, bondchange, na, cx, cx\+\_\+start)
+\begin{DoxyCompactList}\small\item\em Select\+Move\+Atoms. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a2de94873987728e50c19bae54729c3cd}{pathbondenergy}} (cx\+\_\+start, cx, nrxn, vbe, movenum, errflag)
+\begin{DoxyCompactList}\small\item\em Path\+Bond\+Energy. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_ac729c27551b23f20a4187fa897396875}{getpathfitness}} (cx\+\_\+start, cx\+\_\+end, cx, nrxn, movenum, moveatoms, errflag, grapherror, totalerror, vbe)
+\begin{DoxyCompactList}\small\item\em Get\+Path\+Fitness. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a20f3ea0bd66b1f1ebcea3cce7c677f9b}{trimpath}} (cx\+\_\+start, cx\+\_\+end, cx, nrxn, movenum, moveatoms, iend)
+\begin{DoxyCompactList}\small\item\em Trim\+Path. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a2637ab51295387ae866c2c51e5776d49}{printmolsalongpath}} (nrxn, cx\+\_\+start, cx\+\_\+end, cx, movenum, chargemove, changecharges, moveatoms)
+\begin{DoxyCompactList}\small\item\em Print\+Mols\+Along\+Path. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a0266f745c087b9c3fae61f1dce773493}{graphstocoords}} (cx\+\_\+start, cx, nrxn, printflag, printfile, optoverride)
+\begin{DoxyCompactList}\small\item\em Graphs\+To\+Coords. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a4a86877e41a3994e2e1bc9aa11535930}{graphstocoords\+\_\+bd}} (wcx, printflag, printfile, err, errstr, optoverride, calcinitial)
+\begin{DoxyCompactList}\small\item\em Graphs\+To\+Coords\+\_\+\+BD. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a29862682a12550f1dd6e634562a81013}{calcsinglegeom}} (cx, optflag, printflag, printfile, err, errstr)
+\begin{DoxyCompactList}\small\item\em Calc\+Single\+Geom. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_abe7d05aca718390074239f96f3eff522}{printmechanismpaths}} (nrxn, cx\+\_\+start, cx, file\+\_\+root, maxbarrier, bsum, cx\+\_\+end)
+\begin{DoxyCompactList}\small\item\em Print\+Mechanism\+Paths. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a38a57e9848ee768d8e19891d5fa91ff0}{updatemechanism}} (nrxn, movenum, moveatoms, bondchange, atomchange, na, cx\+\_\+start, cx, rxindex, cyc, movenum\+\_\+store, moveatoms\+\_\+store)
+\begin{DoxyCompactList}\small\item\em Update\+Mechanism. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_afbc92aeaed8e180333ae25bda3b93026}{reactionerrorcorrection}} (cx\+\_\+start, cx, nrxn, movenum, moveatoms, errx)
+\begin{DoxyCompactList}\small\item\em Reaction\+Error\+Correction. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a588e5149dd38beb79af3aa90f907cd72}{updatecharges}} (nrxn, cx, chargemove, chargemove\+\_\+store, errflag)
+\begin{DoxyCompactList}\small\item\em Update\+Charges. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a55a7e7bc956c89c3d3be3bc1ef4ab980}{runnetgrow}} ()
+\begin{DoxyCompactList}\small\item\em Run\+Net\+Grow. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a840912a8f356883d7eae526b0605e13e}{runnetgrow2}} ()
+\begin{DoxyCompactList}\small\item\em Run\+Net\+Grow2. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a8a34d428a2f50cee28920e703e35e8a3}{runbreakdown}} ()
+\begin{DoxyCompactList}\small\item\em Run\+Breakdown. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_afe500955543428bb32f3af2c1ad9cff1}{createmechanismstep}} (movenum, moveatoms, bondchange, atomchange, wcx, cyc, rxindex)
+\begin{DoxyCompactList}\small\item\em Create\+Mechanism\+Step. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacepathfinder_a8ae35443dc1798fec196e20b06c5add8}{updatemechanismstep}} (nrxn, movenum, moveatoms, bondchange, atomchange, na, cx\+\_\+start, cx, irx, rxindex, cyc, movenum\+\_\+store, moveatoms\+\_\+store)
+\begin{DoxyCompactList}\small\item\em Update\+Mechanism\+Step. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains routines for automatic determination of a reaction-\/mechanism connecting two distinct (user-\/input) structures. 
+
+The method employed here has been reported in:
+
+Automatic Proposal of Multistep Reaction Mechanisms using a Graph-\/\+Driven Search, I. Ismail and H. B. V. A. Stuttaford-\/\+Fowler and C. Ochan Ashok and C. Robertson and S. Habershon, J Phys Chem A  123  3407-\/3417  (2019)
+
+Fast screening of homogeneous catalysis mechanisms using graph-\/driven searches and approximate quantum chemistry, C Robertson, S Habershon, Catalysis Science \& Technology, 9, 6357 (2019)
+
+Bibtex records:
+
+@article\{Habershon:2019ab, Author = \{Ismail, Idil and Stuttaford-\/\+Fowler, Holly B V A and Ochan Ashok, Curtis and Robertson, Christopher and Habershon, Scott\}, Journal = \{J Phys Chem A\}, Month = \{Apr\}, Number = \{15\}, Pages = \{3407-\/3417\}, Title = \{Automatic Proposal of Multistep Reaction Mechanisms using a Graph-\/\+Driven Search\}, Volume = \{123\}, Year = \{2019\}\}
+
+@article\{Habershon:2019ee, Author = \{Robertson, Christopher and Habershon, Scott\}, Date-\/\+Added = \{2019-\/12-\/03 15:41:20 +0000\}, Date-\/\+Modified = \{2019-\/12-\/03 15:41:29 +0000\}, Doi = \{10.\+1039/\+\+C9\+CY01997A\}, Issue = \{22\}, Journal = \{Catal. Sci. Technol.\}, Pages = \{6357-\/6369\}, Publisher = \{The Royal Society of Chemistry\}, Title = \{Fast screening of homogeneous catalysis mechanisms using graph-\/driven searches and approximate quantum chemistry\}, Url = \{\href{http://dx.doi.org/10.1039/C9CY01997A}{\texttt{http:\+/\+/\+dx.\+doi.\+org/\+10.\+1039/\+\+C9\+CY01997A}}\}, Volume = \{9\}, Year = \{2019\}, \}
+
+\DoxyHorRuler{0}
+ \hypertarget{namespacepathfinder_autotoc_md1}{}\doxysubsubsection{\texorpdfstring{DESCRIPTION}{DESCRIPTION}}\label{namespacepathfinder_autotoc_md1}
+Given input xyz files for target reactants and products, this routine will try to find a reaction mechanism connecting the two by using graph-\/moves defined in the "{}movefile"{}.
+
+After determination of a path which definitively connects reactants and products, we then generate xyz-\/files for each reaction-\/path along the reaction-\/mechanism using the idea of optimization under the graph-\/restraining potential.
+
+If optaftermove = .TRUE. in the input file, this code will also perform geometry optimization for all of the intermediate structures and report the results in the .log file.
+
+\DoxyHorRuler{0}
+ \hypertarget{namespacepathfinder_autotoc_md3}{}\doxysubsubsection{\texorpdfstring{OUTPUTS}{OUTPUTS}}\label{namespacepathfinder_autotoc_md3}
+After completion, the following outputs are worth looking at:
+\begin{DoxyItemize}
+\item mcopt.\+dat: contains the graph-\/error function as a function of number of MC iterations in the calculation. This should reach zero for a successful calculation.
+\item final\+\_\+path.\+xyz: Contains the intermediate structures (xyz format) along the located reaction mechanism. If optaftermove = .true., the structures are geometry-\/optimized using whichever electronic structure methods is specified in the input file.
+\item final\+\_\+path\+\_\+rx\+\_\+\texorpdfstring{$\ast$}{*}.xyz: This series of xyz files, one for each reaction-\/step in the mechanism, contain initial nimage-\/long paths for each intermediate reaction.
+\item .log: The .log file will contain useful information about the reaction, including the calculated Q-\/value and the maximum dE value.
+\end{DoxyItemize}
+
+In addition, if igfunc = 4 (so we are targetting formation of a single molecule or subset of molecules, rather than an entire structure), the further outputs are produced which have the prefix \textquotesingle{}adjusted\_\textquotesingle{}. This are files which have been determined for the reaction path after removing molecules and reactions which are not relevant to the formation of the product. 
+
+\label{namespacepathfinder_doc-func-members}
+\Hypertarget{namespacepathfinder_doc-func-members}
+\doxysubsection{Function/\+\+Subroutine Documentation}
+\Hypertarget{namespacepathfinder_a7ce0d0c193755a13466c3a5c273b21d2}\index{pathfinder@{pathfinder}!runpathfinder@{runpathfinder}}
+\index{runpathfinder@{runpathfinder}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{runpathfinder()}{runpathfinder()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a7ce0d0c193755a13466c3a5c273b21d2} 
+subroutine pathfinder::\+runpathfinder}
+
+
+
+Run\+Path\+Finder. 
+
+Runs automatic determination of a reaction-\/path connecting two structures. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l00107}{107}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_a653856562ee8b080c5577efcf618ce58}\index{pathfinder@{pathfinder}!adjustpaths@{adjustpaths}}
+\index{adjustpaths@{adjustpaths}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{adjustpaths()}{adjustpaths()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a653856562ee8b080c5577efcf618ce58} 
+subroutine pathfinder::\+adjustpaths (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx\+\_\+start}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx\+\_\+end}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{cx}{, }\item[{integer}]{nrxn}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{movenum}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}},\doxymbox{\hyperlink{namespaceconstants_ac336c2441f463ecd76d2c05ffe55420e}{namovemax}})}]{moveatoms}{, }\item[{integer}]{ifound}{}\end{DoxyParamCaption})}
+
+
+
+Adjust\+Paths. 
+
+This routine performs a series of functions to simplify the post-\/analysis of reaction-\/path simulations. (i) If pesfull = .FALSE., we print out the energies and Q-\/values calculated only for those molecules involved in formation of the product. (ii) We print out a new set of reaction paths which only involve the molecules containing atoms ending up in the final structure. (iii) We strip the adjusted paths of non-\/reactive molecules.
+
+The final set of xyz path files should then be most appropriate for post-\/analysis.
+
+Input parameters:
+\begin{DoxyItemize}
+\item cx\+\_\+start: CXS object for reactants.
+\item cx\+\_\+end: CXS object for target product.
+\item cx(nrxn): Intermediate CXS objects along mechanism path.
+\item nrxn: Maximum number of active reactions.
+\item movenum(:\+): Graph-\/move number at each reaction step.
+\item moveatoms(:\+,:\+): Atoms involved in graph-\/moves at each step.
+\item ifound: Reaction step-\/number at which target products are first found. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l00507}{507}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_a5ab181b5ba41de2c9bb6d9eddeafb915}\index{pathfinder@{pathfinder}!containstargetatom@{containstargetatom}}
+\index{containstargetatom@{containstargetatom}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{containstargetatom()}{containstargetatom()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a5ab181b5ba41de2c9bb6d9eddeafb915} 
+logical function pathfinder::\+containstargetatom (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx1}{, }\item[{integer}]{mol1}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx2}{, }\item[{integer}]{itarget}{}\end{DoxyParamCaption})}
+
+
+
+Contains\+Target\+Atom. 
+
+Logical function to check whether cx1 contains any of the atoms in molecule number "{}itarget"{} in cx2. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l00998}{998}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_ac162e64b047281f6a8040365318bf631}\index{pathfinder@{pathfinder}!evaluategrapherror@{evaluategrapherror}}
+\index{evaluategrapherror@{evaluategrapherror}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{evaluategrapherror()}{evaluategrapherror()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_ac162e64b047281f6a8040365318bf631} 
+subroutine pathfinder::\+evaluategrapherror (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx\+\_\+end}{, }\item[{real(8)}]{error}{, }\item[{logical}]{errflag}{}\end{DoxyParamCaption})}
+
+
+
+Evaluate\+Graph\+Error. 
+
+Calculates the error measure between the final graph cx and the target graph cx\+\_\+end. The error is defines as the sum of squared differences for each graph element. If errflag = .TRUE., it means that the reaction path itself is not valid and we assign it and arbitrarily large error.
+
+cx -\/ Final graph in reaction string. cx\+\_\+end -\/ Target graph for reaction string. error -\/ Calculated graph error. errflag -\/ Logical flag indicating whether the reaction string is valid or not. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l01033}{1033}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_a0de07862cb4c5d601bd783c1bb17aace}\index{pathfinder@{pathfinder}!comparegraphs@{comparegraphs}}
+\index{comparegraphs@{comparegraphs}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{comparegraphs()}{comparegraphs()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a0de07862cb4c5d601bd783c1bb17aace} 
+subroutine pathfinder::\+comparegraphs (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx1}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx2}{, }\item[{real(8)}]{error}{}\end{DoxyParamCaption})}
+
+
+
+Compare\+Graphs. 
+
+Compare two separate structures via their graphs. In particular, we compare the eigenvalues of the atomic-\/weighted graph Coulomb matrix, with the distances between atoms given by the shortest-\/path distances as calculated from the graph.
+
+cx1, cx2 -\/ Two structures to compare. Note that the graphs MUST have been already calculated. error -\/ Calculate mean-\/square error between eigenvalues. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l01076}{1076}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_a40faf783cfa95399dd13f6b67ab2aca1}\index{pathfinder@{pathfinder}!stripinactivemols@{stripinactivemols}}
+\index{stripinactivemols@{stripinactivemols}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{stripinactivemols()}{stripinactivemols()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a40faf783cfa95399dd13f6b67ab2aca1} 
+subroutine pathfinder::\+stripinactivemols (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), intent(in)}]{cx1}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), intent(in)}]{cx2}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), intent(out)}]{cx1\+\_\+new}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), intent(out)}]{cx2\+\_\+new}{}\end{DoxyParamCaption})}
+
+
+
+Strip\+Inactive\+Mols. 
+
+Removes inactive molecules from a reaction between {\ttfamily cx1} and {\ttfamily cx2}, returning new cxs with only the active molecules. Here, inactive means that the molecules are not involved in any bond changes.
+
+cx1: 1st input {\ttfamily \doxylink{structchemstr_1_1cxs}{cxs}}. Note that graph must be calculated BEFORE calling. cx2: 2nd input {\ttfamily \doxylink{structchemstr_1_1cxs}{cxs}}. Note that graph must be calculated BEFORE calling. cx1\+\_\+new: Inactive-\/stripped copy of {\ttfamily cx1}. cx2\+\_\+new: Inactive-\/stripped copy of {\ttfamily cx2} 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l01436}{1436}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_aeff32d131039907ab2149ee86575c84b}\index{pathfinder@{pathfinder}!propagategraphs@{propagategraphs}}
+\index{propagategraphs@{propagategraphs}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{propagategraphs()}{propagategraphs()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_aeff32d131039907ab2149ee86575c84b} 
+subroutine pathfinder::\+propagategraphs (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx\+\_\+start}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{cx}{, }\item[{integer}]{nrxn}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{movenum}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}},\doxymbox{\hyperlink{namespaceconstants_ac336c2441f463ecd76d2c05ffe55420e}{namovemax}})}]{moveatoms}{, }\item[{logical}]{errflag}{, }\item[{real(8)}]{error}{}\end{DoxyParamCaption})}
+
+
+
+Propagate\+Graphs. 
+
+Using the string of nrxn graph moves and their atom labels, this routine starts from the connectivity graph of cx\+\_\+start and generates the sequence of nrxn graphs.
+
+cx\+\_\+start -\/ Chemical structure object, contains the starting graph. cx(1:\+nrxn) -\/ Sequence of chemical structure objects generated by graph moves. nrxn -\/ Number of moves in the reaction string. movenum(:\+) -\/ Integer move number for reaction i. moveatoms(:\+,:\+) -\/ Indices of atoms involved in move i. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l01544}{1544}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_ad3176a0a22cdd34dd1b20fb26be06d66}\index{pathfinder@{pathfinder}!selectmoveatoms@{selectmoveatoms}}
+\index{selectmoveatoms@{selectmoveatoms}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{selectmoveatoms()}{selectmoveatoms()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_ad3176a0a22cdd34dd1b20fb26be06d66} 
+subroutine pathfinder::\+selectmoveatoms (\begin{DoxyParamCaption}\item[{integer}]{imove}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}},\doxymbox{\hyperlink{namespaceconstants_ac336c2441f463ecd76d2c05ffe55420e}{namovemax}})}]{moveatoms}{, }\item[{integer}]{nrxn}{, }\item[{integer}]{irx}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceconstants_af3563b26c30009f026fc978080d89280}{namax}})}]{rxindex}{, }\item[{integer}]{nrx}{, }\item[{logical}]{fail}{, }\item[{logical, dimension(\doxymbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}})}]{atomchange}{, }\item[{logical, dimension(\doxymbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}},\doxymbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}})}]{bondchange}{, }\item[{integer}]{na}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{cx}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx\+\_\+start}{}\end{DoxyParamCaption})}
+
+
+
+Select\+Move\+Atoms. 
+
+For move number imove, this subroutine selects new atoms for the move using the pre-\/defined list of reactive atom indices in rxindex.
+
+imove -\/ A given movenumber. This corresponds to the index of a move in the movefile. moveatoms(nrx,\+NAMOVEMAX) -\/ Indices of atoms which are moved during a given graph-\/move. nrxn -\/ Number of reactions in string. irxn -\/ The reaction number which we\textquotesingle{}re trying to change. rxindex(\+MAMAX) -\/ Indices of reactive atoms in current graph. This array must be previously determined using Set\+Reacctive\+Indices() from module gds. nrx -\/ Number of reactive atoms stored in rxindex(:\+). fail -\/ logical flag indicating whether or not this subroutine has successfully managed to find new atoms for the move imove. atomchange(na) -\/ Logical array indicating which atoms can react. bondchange(na,na) -\/ Logical array indicating which bonds can change. na -\/ Number of atoms. cx(nrxn) -\/ Chemical structure objects for each node in reaction string. cx\+\_\+start -\/ Chemical structure object for start configuration. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l01809}{1809}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_a2de94873987728e50c19bae54729c3cd}\index{pathfinder@{pathfinder}!pathbondenergy@{pathbondenergy}}
+\index{pathbondenergy@{pathbondenergy}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{pathbondenergy()}{pathbondenergy()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a2de94873987728e50c19bae54729c3cd} 
+subroutine pathfinder::\+pathbondenergy (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx\+\_\+start}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{cx}{, }\item[{integer}]{nrxn}{, }\item[{real(8)}]{vbe}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{movenum}{, }\item[{logical}]{errflag}{}\end{DoxyParamCaption})}
+
+
+
+Path\+Bond\+Energy. 
+
+Using a simple additive model, calculate the bonding energy along the entire path, using typical bond energies....
+
+cx\+\_\+start -\/ Starting chemical structure. cx(:\+) -\/ The set of structures along the path. nrxn -\/ Number of reactions in string. vbe -\/ Returned additive energy. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l02033}{2033}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_ac729c27551b23f20a4187fa897396875}\index{pathfinder@{pathfinder}!getpathfitness@{getpathfitness}}
+\index{getpathfitness@{getpathfitness}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{getpathfitness()}{getpathfitness()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_ac729c27551b23f20a4187fa897396875} 
+subroutine pathfinder::\+getpathfitness (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx\+\_\+start}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx\+\_\+end}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{cx}{, }\item[{integer}]{nrxn}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{movenum}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}},\doxymbox{\hyperlink{namespaceconstants_ac336c2441f463ecd76d2c05ffe55420e}{namovemax}})}]{moveatoms}{, }\item[{logical}]{errflag}{, }\item[{real(8)}]{grapherror}{, }\item[{real(8)}]{totalerror}{, }\item[{real(8)}]{vbe}{}\end{DoxyParamCaption})}
+
+
+
+Get\+Path\+Fitness. 
+
+Calculate the fitness value associated with a given reaction mechanism.
+
+This Total\+Error is defined as the sum of a Graph\+Error, describing how far away a propagated graph is from a target graph, as well as a vbe contribution which includes energy contributions to the path fitness.
+
+Note that the energy contribution is only calculated when alphavbe \texorpdfstring{$>$}{>} 1d-\/3.
+
+cx\+\_\+start -\/ The chemical structure object for the reactants. cx\+\_\+end -\/ The chemical structure object for the products. cx(:\+) -\/ Chemical structure objects for intermediates along path. nrxn -\/ Number of reactions in path. novenum(nrxn) -\/ Move numbers for each reaction in the path. moveatomos(nrxn,\+NAMOVEMAX) -\/ Atoms which are acted upon in each reaction. errflag -\/ Logical flag indicating whether or not a chemically-\/sensible reaction path has been generated. Graph\+Error -\/ Error term arising due to differences between propagated graph and target graph. Total\+Error -\/ Graph\+Error + alphavbe \texorpdfstring{$\ast$}{*} vbe. vbe -\/ Calculated bonding energy. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l02174}{2174}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_a20f3ea0bd66b1f1ebcea3cce7c677f9b}\index{pathfinder@{pathfinder}!trimpath@{trimpath}}
+\index{trimpath@{trimpath}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{trimpath()}{trimpath()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a20f3ea0bd66b1f1ebcea3cce7c677f9b} 
+subroutine pathfinder::\+trimpath (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx\+\_\+start}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx\+\_\+end}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{cx}{, }\item[{integer}]{nrxn}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{movenum}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}},\doxymbox{\hyperlink{namespaceconstants_ac336c2441f463ecd76d2c05ffe55420e}{namovemax}})}]{moveatoms}{, }\item[{integer}]{iend}{}\end{DoxyParamCaption})}
+
+
+
+Trim\+Path. 
+
+When the target molecule is detected in a reaction, the rest of the movenums are set to zero. In other words, if the target is found at some reaction step before the end, we then set the rest of the reactions to zero because we don\textquotesingle{}t care what they are any more..
+
+cx\+\_\+start -\/ The chemical structure object for the reactants. cx\+\_\+end -\/ The chemical structure object for the products. cx(:\+) -\/ Chemical structure objects for intermediates along path. nrxn -\/ Number of reactions in path. novenum(nrxn) -\/ Move numbers for each reaction in the path. moveatoms(nrxn,\+NAMOVEMAX) -\/ Atoms which are acted upon in each reaction. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l02225}{2225}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_a2637ab51295387ae866c2c51e5776d49}\index{pathfinder@{pathfinder}!printmolsalongpath@{printmolsalongpath}}
+\index{printmolsalongpath@{printmolsalongpath}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{printmolsalongpath()}{printmolsalongpath()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a2637ab51295387ae866c2c51e5776d49} 
+subroutine pathfinder::\+printmolsalongpath (\begin{DoxyParamCaption}\item[{integer}]{nrxn}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx\+\_\+start}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx\+\_\+end}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{cx}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{movenum}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}},\doxymbox{\hyperlink{namespaceconstants_ae8a3dda05015f1a60a2d4ecf50283182}{nmolmax}})}]{chargemove}{, }\item[{logical}]{changecharges}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}},\doxymbox{\hyperlink{namespaceconstants_ac336c2441f463ecd76d2c05ffe55420e}{namovemax}})}]{moveatoms}{}\end{DoxyParamCaption})}
+
+
+
+Print\+Mols\+Along\+Path. 
+
+Outputs (to logfile) the molecular structure present at each step along a reaction-\/mechanism,so that the user can get a feel for what is going on in the path.
+
+nrxn -\/ Number of reactions in path. cx\+\_\+start -\/ The chemical structure object for the reactants. cx\+\_\+end -\/ The chemical structure object for the products. cx(:\+) -\/ Chemical structure objects for intermediates along path. movenum(nrxn) -\/ Move numbers for each reaction in the path. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l02283}{2283}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_a0266f745c087b9c3fae61f1dce773493}\index{pathfinder@{pathfinder}!graphstocoords@{graphstocoords}}
+\index{graphstocoords@{graphstocoords}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{graphstocoords()}{graphstocoords()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a0266f745c087b9c3fae61f1dce773493} 
+subroutine pathfinder::\+graphstocoords (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), intent(inout)}]{cx\+\_\+start}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}}), intent(inout)}]{cx}{, }\item[{integer, intent(in)}]{nrxn}{, }\item[{logical, intent(in)}]{printflag}{, }\item[{character(len=\texorpdfstring{$\ast$}{*}), intent(in)}]{printfile}{, }\item[{logical, intent(in), optional}]{optoverride}{}\end{DoxyParamCaption})}
+
+
+
+Graphs\+To\+Coords. 
+
+Converts a sequence of connectivity graphs to xyz coordinates by optimization under the action of the graph-\/restraining potential.
+
+The coordinates of the reactant structure are contained in cx\+\_\+start; these are used as the starting point for a sequence of geometry optimizations. The resulting structures obey the target bonding graph at each step.
+
+If optaftermove = .TRUE. in the input file, then geometry optimization of the structures is also performed AFTER graph-\/potential optimization.
+
+cx\+\_\+start -\/ Chemical structure object for reactants. cx(nrxn) -\/ Chemical structures along the path. nrxn -\/ Number of reactions along the path. printflag -\/ Logical flag indicating whether to print out xyz files or not. printfile -\/ If printflag = .TRUE., printfile indicates the file to print to. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l02355}{2355}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_a4a86877e41a3994e2e1bc9aa11535930}\index{pathfinder@{pathfinder}!graphstocoords\_bd@{graphstocoords\_bd}}
+\index{graphstocoords\_bd@{graphstocoords\_bd}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{graphstocoords\_bd()}{graphstocoords\_bd()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a4a86877e41a3994e2e1bc9aa11535930} 
+subroutine pathfinder::\+graphstocoords\+\_\+bd (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(2), intent(inout)}]{wcx}{, }\item[{logical, intent(in)}]{printflag}{, }\item[{character(len=\texorpdfstring{$\ast$}{*}), intent(in)}]{printfile}{, }\item[{logical, intent(out)}]{err}{, }\item[{character(len=100), intent(out)}]{errstr}{, }\item[{logical, intent(in), optional}]{optoverride}{, }\item[{logical, intent(in), optional}]{calcinitial}{}\end{DoxyParamCaption})}
+
+
+
+Graphs\+To\+Coords\+\_\+\+BD. 
+
+Converts a pair of connectivity graphs generated by Run\+Breakdown to xyz coordinates by optimization under the action of the graph-\/restraining potential.
+
+The coordinates of the reactant structure are contained in wcx(1); these are used as the starting point for a sequence of geometry optimizations. The resulting structures obey the target bonding graph at each step.
+
+If optaftermove = .TRUE. in the input file, then geometry optimization of the structures is also performed AFTER graph-\/potential optimization.
+
+wcx -\/ Working cx list. printflag -\/ Logical flag indicating whether to print out xyz files or not. printfile -\/ If printflag = .TRUE., printfile indicates the file to print to. err -\/ Error flag. errstr -\/ Error message, if err == .true. optoverride -\/ Override flag for global optimisation setting. calcinitial -\/ Force energy calculation/\+optimisation of wcx(1) before proceeding. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l02553}{2553}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_a29862682a12550f1dd6e634562a81013}\index{pathfinder@{pathfinder}!calcsinglegeom@{calcsinglegeom}}
+\index{calcsinglegeom@{calcsinglegeom}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{calcsinglegeom()}{calcsinglegeom()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a29862682a12550f1dd6e634562a81013} 
+subroutine pathfinder::\+calcsinglegeom (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), intent(inout)}]{cx}{, }\item[{logical, intent(in)}]{optflag}{, }\item[{logical, intent(in)}]{printflag}{, }\item[{character(len=\texorpdfstring{$\ast$}{*}), intent(in)}]{printfile}{, }\item[{logical, intent(out)}]{err}{, }\item[{character(len=\texorpdfstring{$\ast$}{*}), intent(out)}]{errstr}{}\end{DoxyParamCaption})}
+
+
+
+Calc\+Single\+Geom. 
+
+Runs a straight Ab\+Initio call on a provided cx object, which should already contain coordinates. Optionally allows for saving this optimised geometry.
+
+cx\+\_\+start -\/ cx object for starting molecule. Should have been freshly initialised by Read\+CXS. optflag -\/ Logical flag indicating if a geometry optimisation is desired, rather than just an energy calculation. printflag -\/ Logical flag indicating whether to print out xyz files or not. printfile -\/ If printflag = .TRUE., printfile indicates the file to print to. err -\/ Error flag. errstr -\/ Error message, if err == .true. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l02784}{2784}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_abe7d05aca718390074239f96f3eff522}\index{pathfinder@{pathfinder}!printmechanismpaths@{printmechanismpaths}}
+\index{printmechanismpaths@{printmechanismpaths}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{printmechanismpaths()}{printmechanismpaths()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_abe7d05aca718390074239f96f3eff522} 
+subroutine pathfinder::\+printmechanismpaths (\begin{DoxyParamCaption}\item[{integer}]{nrxn}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx\+\_\+start}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{cx}{, }\item[{character (len=20)}]{file\+\_\+root}{, }\item[{real(8)}]{maxbarrier}{, }\item[{real(8)}]{bsum}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), optional}]{cx\+\_\+end}{}\end{DoxyParamCaption})}
+
+
+
+Print\+Mechanism\+Paths. 
+
+Prints out nimage intermediate snapshots for each of the generated reactions in the final reaction-\/path.
+
+Note that the end-\/point coordinates for each reaction are assumed to be stored in cx\+\_\+start and cx(nrxn).
+
+We use linear interpolation between these end-\/points to generate internal images.
+
+The results are stored to the files final\+\_\+path\+\_\+rx\+\_\+\texorpdfstring{$\ast$}{*}.xyz.
+
+nrxn -\/ Number of reactions in mechanism. cx\+\_\+start -\/ Chemical structure object for reactants. cx(nrxn) -\/ Chemical structure objects for products of each reaction. These come from the subroutine Graphs\+To\+Coords(). file\+\_\+root -\/ Root name of printing file. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l02856}{2856}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_a38a57e9848ee768d8e19891d5fa91ff0}\index{pathfinder@{pathfinder}!updatemechanism@{updatemechanism}}
+\index{updatemechanism@{updatemechanism}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{updatemechanism()}{updatemechanism()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a38a57e9848ee768d8e19891d5fa91ff0} 
+subroutine pathfinder::\+updatemechanism (\begin{DoxyParamCaption}\item[{integer}]{nrxn}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{movenum}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}},\doxymbox{\hyperlink{namespaceconstants_ac336c2441f463ecd76d2c05ffe55420e}{namovemax}})}]{moveatoms}{, }\item[{logical, dimension(\doxymbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}},\doxymbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}})}]{bondchange}{, }\item[{logical, dimension(\doxymbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}})}]{atomchange}{, }\item[{integer}]{na}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx\+\_\+start}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{cx}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceconstants_af3563b26c30009f026fc978080d89280}{namax}})}]{rxindex}{, }\item[{logical}]{cyc}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{movenum\+\_\+store}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}},\doxymbox{\hyperlink{namespaceconstants_ac336c2441f463ecd76d2c05ffe55420e}{namovemax}})}]{moveatoms\+\_\+store}{}\end{DoxyParamCaption})}
+
+
+
+Update\+Mechanism. 
+
+Performs a trial move by modifying a current mechanism string by either changing a move and its atoms, or just changing the atoms of an exisiting move.
+
+Note that the end-\/point coordinates for each reaction are assumed to be stored in cx\+\_\+start and cx(nrxn).
+
+nrxn -\/ Number of reactions in mechanism. cx\+\_\+start -\/ Chemical structure object for reactants. cx(nrxn) -\/ Chemical structure objects for products of each reaction. These come from the subroutine Graphs\+To\+Coords(). 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l02989}{2989}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_afbc92aeaed8e180333ae25bda3b93026}\index{pathfinder@{pathfinder}!reactionerrorcorrection@{reactionerrorcorrection}}
+\index{reactionerrorcorrection@{reactionerrorcorrection}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{reactionerrorcorrection()}{reactionerrorcorrection()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_afbc92aeaed8e180333ae25bda3b93026} 
+subroutine pathfinder::\+reactionerrorcorrection (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx\+\_\+start}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{cx}{, }\item[{integer}]{nrxn}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{movenum}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}},\doxymbox{\hyperlink{namespaceconstants_ac336c2441f463ecd76d2c05ffe55420e}{namovemax}})}]{moveatoms}{, }\item[{logical}]{errx}{}\end{DoxyParamCaption})}
+
+
+
+Reaction\+Error\+Correction. 
+
+Performs error correction using geometry-\/optimized structures, making sure that the reactions listed in movenum and moveatoms are actually correct for a given reaction string.
+
+Note that the end-\/point coordinates for each reaction are assumed to be stored in cx\+\_\+start and cx(nrxn). 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l03156}{3156}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_a588e5149dd38beb79af3aa90f907cd72}\index{pathfinder@{pathfinder}!updatecharges@{updatecharges}}
+\index{updatecharges@{updatecharges}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{updatecharges()}{updatecharges()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a588e5149dd38beb79af3aa90f907cd72} 
+subroutine pathfinder::\+updatecharges (\begin{DoxyParamCaption}\item[{integer}]{nrxn}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{cx}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}},\doxymbox{\hyperlink{namespaceconstants_ae8a3dda05015f1a60a2d4ecf50283182}{nmolmax}})}]{chargemove}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}},\doxymbox{\hyperlink{namespaceconstants_ae8a3dda05015f1a60a2d4ecf50283182}{nmolmax}})}]{chargemove\+\_\+store}{, }\item[{logical}]{errflag}{}\end{DoxyParamCaption})}
+
+
+
+Update\+Charges. 
+
+Update the charges on molecules along the reaction path. These moves are performed in addition to reaction changes. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l03466}{3466}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_a55a7e7bc956c89c3d3be3bc1ef4ab980}\index{pathfinder@{pathfinder}!runnetgrow@{runnetgrow}}
+\index{runnetgrow@{runnetgrow}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{runnetgrow()}{runnetgrow()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a55a7e7bc956c89c3d3be3bc1ef4ab980} 
+subroutine pathfinder::\+runnetgrow}
+
+
+
+Run\+Net\+Grow. 
+
+Runs automatic growth of a reaction network, based on allowed graph-\/moves. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l03565}{3565}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_a840912a8f356883d7eae526b0605e13e}\index{pathfinder@{pathfinder}!runnetgrow2@{runnetgrow2}}
+\index{runnetgrow2@{runnetgrow2}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{runnetgrow2()}{runnetgrow2()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a840912a8f356883d7eae526b0605e13e} 
+subroutine pathfinder::\+runnetgrow2}
+
+
+
+Run\+Net\+Grow2. 
+
+Runs automatic growth of a reaction network, based on allowed graph-\/moves. Generates nmcrxn random reaction pathways step-\/by-\/step, with stepwise optimisation (if enabled). 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l03778}{3778}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_a8a34d428a2f50cee28920e703e35e8a3}\index{pathfinder@{pathfinder}!runbreakdown@{runbreakdown}}
+\index{runbreakdown@{runbreakdown}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{runbreakdown()}{runbreakdown()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a8a34d428a2f50cee28920e703e35e8a3} 
+subroutine pathfinder::\+runbreakdown}
+
+
+
+Run\+Breakdown. 
+
+Runs automatic growth of a reaction network, based on allowed graph-\/moves. Generates nmcrxn random reaction pathways sequentially, with stepwise optimisation (if enabled). 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l04010}{4010}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_afe500955543428bb32f3af2c1ad9cff1}\index{pathfinder@{pathfinder}!createmechanismstep@{createmechanismstep}}
+\index{createmechanismstep@{createmechanismstep}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{createmechanismstep()}{createmechanismstep()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_afe500955543428bb32f3af2c1ad9cff1} 
+subroutine pathfinder::\+createmechanismstep (\begin{DoxyParamCaption}\item[{integer, dimension(:\+), intent(inout)}]{movenum}{, }\item[{integer, dimension(:\+, :\+), intent(inout)}]{moveatoms}{, }\item[{logical, dimension(:\+, :\+), intent(inout)}]{bondchange}{, }\item[{logical, dimension(:\+), intent(inout)}]{atomchange}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(:\+), intent(inout)}]{wcx}{, }\item[{logical, intent(out)}]{cyc}{, }\item[{integer, dimension(:\+), intent(out)}]{rxindex}{}\end{DoxyParamCaption})}
+
+
+
+Create\+Mechanism\+Step. 
+
+Proposes a single new move for a given reaction step by generating a new move type and its atoms.
+
+movenum -\/ Array containing graph move number for each cx in wcx. moveatoms -\/ Array containing reactive atoms for each cx in wcx. bondchange -\/ Array of bonds allowed to be changed by reactions. atomchange -\/ Array of atoms allowed to be changed by reactions. wcx -\/ Worcking cx list, containing previous and current steps of reaction. cyc -\/ Flag indicating success at finding a graph move. rxindex -\/ List of reactive atoms. 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l04306}{4306}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+
+\Hypertarget{namespacepathfinder_a8ae35443dc1798fec196e20b06c5add8}\index{pathfinder@{pathfinder}!updatemechanismstep@{updatemechanismstep}}
+\index{updatemechanismstep@{updatemechanismstep}!pathfinder@{pathfinder}}
+\doxysubsubsection{\texorpdfstring{updatemechanismstep()}{updatemechanismstep()}}
+{\footnotesize\ttfamily \label{namespacepathfinder_a8ae35443dc1798fec196e20b06c5add8} 
+subroutine pathfinder::\+updatemechanismstep (\begin{DoxyParamCaption}\item[{integer}]{nrxn}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{movenum}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}},\doxymbox{\hyperlink{namespaceconstants_ac336c2441f463ecd76d2c05ffe55420e}{namovemax}})}]{moveatoms}{, }\item[{logical, dimension(\doxymbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}},\doxymbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}})}]{bondchange}{, }\item[{logical, dimension(\doxymbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}})}]{atomchange}{, }\item[{integer}]{na}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}})}]{cx\+\_\+start}{, }\item[{type(\doxymbox{\hyperlink{structchemstr_1_1cxs}{cxs}}), dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{cx}{, }\item[{integer}]{irx}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceconstants_af3563b26c30009f026fc978080d89280}{namax}})}]{rxindex}{, }\item[{logical}]{cyc}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}})}]{movenum\+\_\+store}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}},\doxymbox{\hyperlink{namespaceconstants_ac336c2441f463ecd76d2c05ffe55420e}{namovemax}})}]{moveatoms\+\_\+store}{}\end{DoxyParamCaption})}
+
+
+
+Update\+Mechanism\+Step. 
+
+Performs a trial move on a specified step of a mechanism by modifying a current mechanism string by either changing a move and its atoms, or just changing the atoms of an exisiting move.
+
+nrxn -\/ Number of reactions in mechanism. cx\+\_\+start -\/ Chemical structure object for reactants. cx(nrxn) -\/ Chemical structure objects for products of each reaction. These come from the subroutine Graphs\+To\+Coords(). 
+
+Definition at line \doxymbox{\hyperlink{pathfinder_8f90_source_l04387}{4387}} of file \doxymbox{\hyperlink{pathfinder_8f90_source}{pathfinder.\+f90}}.
+

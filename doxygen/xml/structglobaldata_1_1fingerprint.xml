@@ -1,0 +1,266 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="structglobaldata_1_1fingerprint" kind="type" language="Fortran" prot="public">
+    <compoundname>globaldata::fingerprint</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structglobaldata_1_1fingerprint_1a7b466d1a6746b4629a62c2edaa21944f" prot="public" static="no" mutable="no">
+        <type>double precision, dimension(:,:,:), allocatable</type>
+        <definition>double precision, dimension(:,:,:), allocatable globaldata::fingerprint::sprint</definition>
+        <argsstring></argsstring>
+        <name>sprint</name>
+        <qualifiedname>globaldata::fingerprint::sprint</qualifiedname>
+        <briefdescription>
+<para>sprint vector for beggining and end chemical structures (N elements) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="283" column="1" bodyfile="src/globaldata.f90" bodystart="283" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1fingerprint_1ad0319b895d287e3668112a3bcb57c9c9" prot="public" static="no" mutable="no">
+        <type>double precision, dimension(:,:,:), allocatable</type>
+        <definition>double precision, dimension(:,:,:), allocatable globaldata::fingerprint::piv</definition>
+        <argsstring></argsstring>
+        <name>piv</name>
+        <qualifiedname>globaldata::fingerprint::piv</qualifiedname>
+        <briefdescription>
+<para>as above, but piv (N*(N-1)/2 elements) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="284" column="1" bodyfile="src/globaldata.f90" bodystart="284" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1fingerprint_1a75090ead9c264d4b5209517742e90921" prot="public" static="no" mutable="no">
+        <type>double precision, dimension(:,:), allocatable</type>
+        <definition>double precision, dimension(:,:), allocatable globaldata::fingerprint::menergy</definition>
+        <argsstring></argsstring>
+        <name>menergy</name>
+        <qualifiedname>globaldata::fingerprint::menergy</qualifiedname>
+        <briefdescription>
+<para>molecular energy per image, per active molecule i think </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="285" column="1" bodyfile="src/globaldata.f90" bodystart="285" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1fingerprint_1a02e8d4217e504ea318e06c0c88d3298a" prot="public" static="no" mutable="no">
+        <type>double precision, dimension(:,:,:), allocatable</type>
+        <definition>double precision, dimension(:,:,:), allocatable globaldata::fingerprint::mhash</definition>
+        <argsstring></argsstring>
+        <name>mhash</name>
+        <qualifiedname>globaldata::fingerprint::mhash</qualifiedname>
+        <briefdescription>
+<para>the molecular eigenvalues that characterises the graph </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="286" column="1" bodyfile="src/globaldata.f90" bodystart="286" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1fingerprint_1a3b23de3ab4119be5003259e810b7a39d" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::fingerprint::graphmoveid</definition>
+        <argsstring></argsstring>
+        <name>graphmoveid</name>
+        <qualifiedname>globaldata::fingerprint::graphmoveid</qualifiedname>
+        <briefdescription>
+<para>graph ID that was used on chemical structure IC </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="287" column="1" bodyfile="src/globaldata.f90" bodystart="287" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1fingerprint_1a02b9dc5e6f88186e62e5da007be31115" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::fingerprint::ic</definition>
+        <argsstring></argsstring>
+        <name>ic</name>
+        <qualifiedname>globaldata::fingerprint::ic</qualifiedname>
+        <briefdescription>
+<para>the start or end of the Path that was subject to the graph move </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="288" column="1" bodyfile="src/globaldata.f90" bodystart="288" bodyend="288"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1fingerprint_1a7d98a526313c5be23f3af3126ba01025" prot="public" static="no" mutable="no">
+        <type>integer, dimension(2)</type>
+        <definition>integer, dimension(2) globaldata::fingerprint::nactmol</definition>
+        <argsstring></argsstring>
+        <name>nactmol</name>
+        <qualifiedname>globaldata::fingerprint::nactmol</qualifiedname>
+        <briefdescription>
+<para>number of active molecules in the start and end images </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="289" column="1" bodyfile="src/globaldata.f90" bodystart="289" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1fingerprint_1a59deb289436b95015f4b698377149611" prot="public" static="no" mutable="no">
+        <type>character(100)</type>
+        <definition>character(100) globaldata::fingerprint::makebreaklab</definition>
+        <argsstring></argsstring>
+        <name>makebreaklab</name>
+        <qualifiedname>globaldata::fingerprint::makebreaklab</qualifiedname>
+        <briefdescription>
+<para>label showing which elements are breaking/forming (symmetric) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="290" column="1" bodyfile="src/globaldata.f90" bodystart="290" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1fingerprint_1a72f7c4142d8d0ecdde5218656f99e971" prot="public" static="no" mutable="no">
+        <type>character(250), dimension(:,:), allocatable</type>
+        <definition>character(250), dimension(:,:), allocatable globaldata::fingerprint::smiles</definition>
+        <argsstring></argsstring>
+        <name>smiles</name>
+        <qualifiedname>globaldata::fingerprint::smiles</qualifiedname>
+        <briefdescription>
+<para>an array of nactmol Smile strings in a unique order </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="291" column="1" bodyfile="src/globaldata.f90" bodystart="291" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1fingerprint_1a193a589bd6d2e6e401ae9b189e578566" prot="public" static="no" mutable="no">
+        <type>character(100), dimension(:,:), allocatable</type>
+        <definition>character(100), dimension(:,:), allocatable globaldata::fingerprint::mformula</definition>
+        <argsstring></argsstring>
+        <name>mformula</name>
+        <qualifiedname>globaldata::fingerprint::mformula</qualifiedname>
+        <briefdescription>
+<para>an array of nactmol molecular Formula strings in a unique order </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="292" column="1" bodyfile="src/globaldata.f90" bodystart="292" bodyend="292"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1fingerprint_1a5041fcd34cd507c6f670d70efb30dcf8" prot="public" static="no" mutable="no">
+        <type>integer, dimension(:,:), allocatable</type>
+        <definition>integer, dimension(:,:), allocatable globaldata::fingerprint::actnamol</definition>
+        <argsstring></argsstring>
+        <name>actnamol</name>
+        <qualifiedname>globaldata::fingerprint::actnamol</qualifiedname>
+        <briefdescription>
+<para>number of atoms per active molecules </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="293" column="1" bodyfile="src/globaldata.f90" bodystart="293" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1fingerprint_1a1a9ecec918552e8f6a9e9ebbbafe4789" prot="public" static="no" mutable="no">
+        <type>double precision</type>
+        <definition>double precision globaldata::fingerprint::nbb</definition>
+        <argsstring></argsstring>
+        <name>nbb</name>
+        <qualifiedname>globaldata::fingerprint::nbb</qualifiedname>
+        <briefdescription>
+<para>(number of bonds formed+broken)/2 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="295" column="1" bodyfile="src/globaldata.f90" bodystart="295" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1fingerprint_1a351afc132298bd0728d303a571493e94" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::fingerprint::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>globaldata::fingerprint::id</qualifiedname>
+        <briefdescription>
+<para>fingerprint ID </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="296" column="1" bodyfile="src/globaldata.f90" bodystart="296" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1fingerprint_1a7ab3057bccbbe7a53f6a02ef8c356abf" prot="public" static="no" mutable="no">
+        <type>type(<ref refid="structglobaldata_1_1fingerprint" kindref="compound">fingerprint</ref>), pointer</type>
+        <definition>type(fingerprint), pointer globaldata::fingerprint::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <qualifiedname>globaldata::fingerprint::next</qualifiedname>
+        <initializer>=&gt; null()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="297" column="1" bodyfile="src/globaldata.f90" bodystart="297" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="variable" id="structglobaldata_1_1fingerprint_1a3bd3b8a0774a0c9ae91fae40e84d2cfa" prot="public" static="no" mutable="no">
+        <type>type(<ref refid="structglobaldata_1_1fingerprint" kindref="compound">fingerprint</ref>), pointer</type>
+        <definition>type(fingerprint), pointer globaldata::fingerprint::prev</definition>
+        <argsstring></argsstring>
+        <name>prev</name>
+        <qualifiedname>globaldata::fingerprint::prev</qualifiedname>
+        <initializer>=&gt; null()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="298" column="1" bodyfile="src/globaldata.f90" bodystart="298" bodyend="298"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Type definition for the fingerprint of a reaction-path. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>globaldata::fingerprint</label>
+        <link refid="structglobaldata_1_1fingerprint"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>next</edgelabel>
+          <edgelabel>prev</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/globaldata.f90" line="281" column="1" bodyfile="src/globaldata.f90" bodystart="281" bodyend="299"/>
+    <listofallmembers>
+      <member refid="structglobaldata_1_1fingerprint_1a5041fcd34cd507c6f670d70efb30dcf8" prot="public" virt="non-virtual"><scope>globaldata::fingerprint</scope><name>actnamol</name></member>
+      <member refid="structglobaldata_1_1fingerprint_1a3b23de3ab4119be5003259e810b7a39d" prot="public" virt="non-virtual"><scope>globaldata::fingerprint</scope><name>graphmoveid</name></member>
+      <member refid="structglobaldata_1_1fingerprint_1a02b9dc5e6f88186e62e5da007be31115" prot="public" virt="non-virtual"><scope>globaldata::fingerprint</scope><name>ic</name></member>
+      <member refid="structglobaldata_1_1fingerprint_1a351afc132298bd0728d303a571493e94" prot="public" virt="non-virtual"><scope>globaldata::fingerprint</scope><name>id</name></member>
+      <member refid="structglobaldata_1_1fingerprint_1a59deb289436b95015f4b698377149611" prot="public" virt="non-virtual"><scope>globaldata::fingerprint</scope><name>makebreaklab</name></member>
+      <member refid="structglobaldata_1_1fingerprint_1a75090ead9c264d4b5209517742e90921" prot="public" virt="non-virtual"><scope>globaldata::fingerprint</scope><name>menergy</name></member>
+      <member refid="structglobaldata_1_1fingerprint_1a193a589bd6d2e6e401ae9b189e578566" prot="public" virt="non-virtual"><scope>globaldata::fingerprint</scope><name>mformula</name></member>
+      <member refid="structglobaldata_1_1fingerprint_1a02e8d4217e504ea318e06c0c88d3298a" prot="public" virt="non-virtual"><scope>globaldata::fingerprint</scope><name>mhash</name></member>
+      <member refid="structglobaldata_1_1fingerprint_1a7d98a526313c5be23f3af3126ba01025" prot="public" virt="non-virtual"><scope>globaldata::fingerprint</scope><name>nactmol</name></member>
+      <member refid="structglobaldata_1_1fingerprint_1a1a9ecec918552e8f6a9e9ebbbafe4789" prot="public" virt="non-virtual"><scope>globaldata::fingerprint</scope><name>nbb</name></member>
+      <member refid="structglobaldata_1_1fingerprint_1a7ab3057bccbbe7a53f6a02ef8c356abf" prot="public" virt="non-virtual"><scope>globaldata::fingerprint</scope><name>next</name></member>
+      <member refid="structglobaldata_1_1fingerprint_1ad0319b895d287e3668112a3bcb57c9c9" prot="public" virt="non-virtual"><scope>globaldata::fingerprint</scope><name>piv</name></member>
+      <member refid="structglobaldata_1_1fingerprint_1a3bd3b8a0774a0c9ae91fae40e84d2cfa" prot="public" virt="non-virtual"><scope>globaldata::fingerprint</scope><name>prev</name></member>
+      <member refid="structglobaldata_1_1fingerprint_1a72f7c4142d8d0ecdde5218656f99e971" prot="public" virt="non-virtual"><scope>globaldata::fingerprint</scope><name>smiles</name></member>
+      <member refid="structglobaldata_1_1fingerprint_1a7b466d1a6746b4629a62c2edaa21944f" prot="public" virt="non-virtual"><scope>globaldata::fingerprint</scope><name>sprint</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

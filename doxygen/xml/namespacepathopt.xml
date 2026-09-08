@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="namespacepathopt" kind="namespace" language="Fortran">
+    <compoundname>pathopt</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacepathopt_1a2577ccbaf6655eab1a2f8f54cf45bc31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathopt::interpolatepath</definition>
+        <argsstring>(rp)</argsstring>
+        <name>interpolatepath</name>
+        <qualifiedname>pathopt::interpolatepath</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>), intent(out)</type>
+          <defname>rp</defname>
+        </param>
+        <briefdescription>
+<para>InterpolatePath. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Interpolates a reaction path, without optimisation.</para>
+<para><itemizedlist>
+<listitem><para>rp: Generated interpolation of reaction path. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathopt.f90" line="30" column="1" bodyfile="src/pathopt.f90" bodystart="31" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathopt_1a41a744efc5bab783a88663d6af98a777" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathopt::optimizepath</definition>
+        <argsstring>(rp)</argsstring>
+        <name>optimizepath</name>
+        <qualifiedname>pathopt::optimizepath</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <briefdescription>
+<para>OptimizePath. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initiates a path optimization calculation.</para>
+<para><itemizedlist>
+<listitem><para>rp: Initial reaction path.</para>
+</listitem><listitem><para>nebiter: number of NEB iterations</para>
+</listitem><listitem><para>neboutfreq: number of NEB iterations between outputs</para>
+</listitem><listitem><para>nebspring: NEB spring parameter in atomic units</para>
+</listitem><listitem><para>pathoptmethod: Method used to optimize reaction path. Allowed values are &apos;NEB&apos;....</para>
+</listitem><listitem><para>NEBconv - Convergence threshold on average force for NEB calculations.</para>
+</listitem><listitem><para>CIthresh - Average force modulus when climbing-image should be activated.</para>
+</listitem><listitem><para>inputfile: The input filename, used to generate further output files.</para>
+</listitem><listitem><para>logfile: Log file unit nunmber for output </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathopt.f90" line="127" column="1" bodyfile="src/pathopt.f90" bodystart="128" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepathopt_1af8fbe251f61b7f4e756605041e19e1a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pathopt::cineb</definition>
+        <argsstring>(rp)</argsstring>
+        <name>cineb</name>
+        <qualifiedname>pathopt::cineb</qualifiedname>
+        <param>
+          <type>type(<ref refid="structrpath_1_1rxp" kindref="compound">rxp</ref>)</type>
+          <defname>rp</defname>
+        </param>
+        <briefdescription>
+<para>CINEB. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Runs a climbing-image nudged elastic band calculation starting from an initial reaction-path defined in rp.</para>
+<para><itemizedlist>
+<listitem><para>rp: The reaction-path object to be refined. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pathopt.f90" line="163" column="1" bodyfile="src/pathopt.f90" bodystart="164" bodyend="638"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Contains routines for path optimization, including CINEB. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/pathopt.f90" line="10" column="1"/>
+  </compounddef>
+</doxygen>

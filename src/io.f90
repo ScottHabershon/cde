@@ -495,7 +495,7 @@ contains
             case('}')
               EXIT
             case default
-              print*,'* Error in essentialatoms{} block'
+              print*,'* Error in essentialmoveatoms{} block'
               stop
             end select
           enddo
@@ -730,7 +730,7 @@ contains
           write(logfile,'("- PES calculation template file: ",1x,A)')trim(PESfile)
 
         case('pesexecutable')
-          read(buffer,'(A100)',iostat=ios)PESexecutable
+          read(buffer,'(A)',iostat=ios)PESexecutable
           if (index(PESexecutable,'#') .ne. 0 ) &
           PESexecutable = PESexecutable(:index(PESexecutable,'#')-1)
           write(logfile,'("- PES calculation executable: ",1x,A)')trim(PESexecutable)

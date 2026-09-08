@@ -1,0 +1,540 @@
+\hypertarget{namespaceglobaldata}{}\doxysection{globaldata Module Reference}
+\label{namespaceglobaldata}\index{globaldata@{globaldata}}
+
+
+Contains global data definitions for C\+DE.  
+
+
+\doxysubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \mbox{\hyperlink{structglobaldata_1_1fingerprint}{fingerprint}}
+\begin{DoxyCompactList}\small\item\em Type definition for the fingerprint of a reaction-\/path. \end{DoxyCompactList}\item 
+type \mbox{\hyperlink{structglobaldata_1_1graphpar}{graphpar}}
+\item 
+type \mbox{\hyperlink{structglobaldata_1_1molgm}{molgm}}
+\item 
+type \mbox{\hyperlink{structglobaldata_1_1refresh__template}{refresh\+\_\+template}}
+\item 
+type \mbox{\hyperlink{structglobaldata_1_1vtbashop}{vtbashop}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}\label{namespaceglobaldata_a5909f8c2ded8072344ec33fca3a9a28b}} 
+integer {\bfseries logfile} = 11
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a160e8950255a4222d251e6600b9e7e15}\label{namespaceglobaldata_a160e8950255a4222d251e6600b9e7e15}} 
+character(len=50) \mbox{\hyperlink{namespaceglobaldata_a160e8950255a4222d251e6600b9e7e15}{inputfile}}
+\begin{DoxyCompactList}\small\item\em Input filename. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a704033d9b79e75b8fd0012544f5895e7}\label{namespaceglobaldata_a704033d9b79e75b8fd0012544f5895e7}} 
+character(len=50) {\bfseries startfile}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a2fa6dae46516821918eb11db7c5a8ed1}\label{namespaceglobaldata_a2fa6dae46516821918eb11db7c5a8ed1}} 
+character(len=50) \mbox{\hyperlink{namespaceglobaldata_a2fa6dae46516821918eb11db7c5a8ed1}{endfile}}
+\begin{DoxyCompactList}\small\item\em Filenames for start/end-\/points of new reaction path. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aba164f7220bc200c4e7bb107530a8203}\label{namespaceglobaldata_aba164f7220bc200c4e7bb107530a8203}} 
+character(len=50) \mbox{\hyperlink{namespaceglobaldata_aba164f7220bc200c4e7bb107530a8203}{pathfile}}
+\begin{DoxyCompactList}\small\item\em Filename for full reaction-\/path for reading. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ad276e505a83055c5b175ea8de226ebcb}\label{namespaceglobaldata_ad276e505a83055c5b175ea8de226ebcb}} 
+character(len=50) \mbox{\hyperlink{namespaceglobaldata_ad276e505a83055c5b175ea8de226ebcb}{movefile}}
+\begin{DoxyCompactList}\small\item\em Filename for graph moves. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ad52972e14a08a6dbfa0164db6183ff33}\label{namespaceglobaldata_ad52972e14a08a6dbfa0164db6183ff33}} 
+character(len=50) \mbox{\hyperlink{namespaceglobaldata_ad52972e14a08a6dbfa0164db6183ff33}{forbidfile}}
+\begin{DoxyCompactList}\small\item\em Filename for forbidden graphs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a21a1ddaef695f4c2e2376bd27f4a57a9}\label{namespaceglobaldata_a21a1ddaef695f4c2e2376bd27f4a57a9}} 
+integer {\bfseries evbtype}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_ab14a98d914dcf8d56079639453395202}\label{namespaceglobaldata_ab14a98d914dcf8d56079639453395202}} 
+integer {\bfseries evbiter}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_aab1eadacfe886a695845b5488485ae9e}\label{namespaceglobaldata_aab1eadacfe886a695845b5488485ae9e}} 
+integer {\bfseries nevbl}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_acc8f280c8a159e22defbc53e16a3ddc0}\label{namespaceglobaldata_acc8f280c8a159e22defbc53e16a3ddc0}} 
+integer {\bfseries nevbdist}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a2493a3c20bcacba2d7c501a6f0077418}\label{namespaceglobaldata_a2493a3c20bcacba2d7c501a6f0077418}} 
+integer {\bfseries nevbqm}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_ac1b67c464661c0d465d1b6ab47aaf40f}\label{namespaceglobaldata_ac1b67c464661c0d465d1b6ab47aaf40f}} 
+logical {\bfseries evbvrep}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a71345f0e64edf8dca7ad322bcc89b03d}\label{namespaceglobaldata_a71345f0e64edf8dca7ad322bcc89b03d}} 
+real(8) {\bfseries evbalpha1}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a66d60bdfbf543c1a26fcd131137e9cac}\label{namespaceglobaldata_a66d60bdfbf543c1a26fcd131137e9cac}} 
+real(8) {\bfseries evbalpha2}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_aaa5d95b5d3b4e729434624c5191b28c0}\label{namespaceglobaldata_aaa5d95b5d3b4e729434624c5191b28c0}} 
+real(8) {\bfseries evbstep}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a12c8232e88127ce7241bf079e3705102}\label{namespaceglobaldata_a12c8232e88127ce7241bf079e3705102}} 
+real(8) {\bfseries evbmaxdl}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a2a5db0fb5233e7a4febb11bd89e90670}\label{namespaceglobaldata_a2a5db0fb5233e7a4febb11bd89e90670}} 
+integer {\bfseries idum}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a7e8abca7ca09a21cff7419340c3889fa}\label{namespaceglobaldata_a7e8abca7ca09a21cff7419340c3889fa}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a7e8abca7ca09a21cff7419340c3889fa}{nimage}}
+\begin{DoxyCompactList}\small\item\em Number of images in path. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a49abc5a13b5854deaccb7be0e6763bec}\label{namespaceglobaldata_a49abc5a13b5854deaccb7be0e6763bec}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a49abc5a13b5854deaccb7be0e6763bec}{f}}
+\begin{DoxyCompactList}\small\item\em Number of D\+O\+Fs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}\label{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}} 
+integer \mbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}}
+\begin{DoxyCompactList}\small\item\em number of atoms \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a6239457ecf63a6b7f60d3b250e280904}\label{namespaceglobaldata_a6239457ecf63a6b7f60d3b250e280904}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a6239457ecf63a6b7f60d3b250e280904}{irun}}
+\begin{DoxyCompactList}\small\item\em Random number seed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aebbf56a53e7f588a42b85c061f8c9868}\label{namespaceglobaldata_aebbf56a53e7f588a42b85c061f8c9868}} 
+real(8) {\bfseries ran2}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_ad68f5ecea7008de2e8a7cd481573198c}\label{namespaceglobaldata_ad68f5ecea7008de2e8a7cd481573198c}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_ad68f5ecea7008de2e8a7cd481573198c}{gaussian}}
+\begin{DoxyCompactList}\small\item\em Randum number functions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a4d2fe09af3d5679f445f695d697182e4}\label{namespaceglobaldata_a4d2fe09af3d5679f445f695d697182e4}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a4d2fe09af3d5679f445f695d697182e4}{nebiter}}
+\begin{DoxyCompactList}\small\item\em Total N\+E\+B/\+C\+I\+N\+EB iterations. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ad96ca55abacc224463f4b40dcbd0413e}\label{namespaceglobaldata_ad96ca55abacc224463f4b40dcbd0413e}} 
+integer \mbox{\hyperlink{namespaceglobaldata_ad96ca55abacc224463f4b40dcbd0413e}{neboutfreq}}
+\begin{DoxyCompactList}\small\item\em Output frequency during N\+EB. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_abfa7f4203a3e171cdc7c408808b5c9e5}\label{namespaceglobaldata_abfa7f4203a3e171cdc7c408808b5c9e5}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_abfa7f4203a3e171cdc7c408808b5c9e5}{nebconv}}
+\begin{DoxyCompactList}\small\item\em N\+EB convergence parameter for average force modulus. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ab5ef5feda2d83408b0a4e28f5305e1fc}\label{namespaceglobaldata_ab5ef5feda2d83408b0a4e28f5305e1fc}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_ab5ef5feda2d83408b0a4e28f5305e1fc}{nebmaxconv}}
+\begin{DoxyCompactList}\small\item\em N\+EB M\+A\+X\+I\+M\+UM convergence parameter for average force modulus. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a14c5976d38377f9a7cbef0e55faffa8a}\label{namespaceglobaldata_a14c5976d38377f9a7cbef0e55faffa8a}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_a14c5976d38377f9a7cbef0e55faffa8a}{cithresh}}
+\begin{DoxyCompactList}\small\item\em Force threshold to turn on climbing-\/image N\+EB. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a0fa90542733148d5d6bab8981e884761}\label{namespaceglobaldata_a0fa90542733148d5d6bab8981e884761}} 
+real(8) {\bfseries temperature}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a842fd8b1656e10d5d750a5ce7357778c}\label{namespaceglobaldata_a842fd8b1656e10d5d750a5ce7357778c}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_a842fd8b1656e10d5d750a5ce7357778c}{beta}}
+\begin{DoxyCompactList}\small\item\em Temperature and inverse temperature (1/kT) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a2fb01513c788abe123772c27c3b9669f}\label{namespaceglobaldata_a2fb01513c788abe123772c27c3b9669f}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_a2fb01513c788abe123772c27c3b9669f}{nebspring}}
+\begin{DoxyCompactList}\small\item\em Spring constant for N\+EB (au) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a50e85a4766a32a20192c6760f09fbc1e}\label{namespaceglobaldata_a50e85a4766a32a20192c6760f09fbc1e}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_a50e85a4766a32a20192c6760f09fbc1e}{nebstep}}
+\begin{DoxyCompactList}\small\item\em Step-\/length for steepest-\/descent N\+EB. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ae888214d68677339e6136f1115a54bda}\label{namespaceglobaldata_ae888214d68677339e6136f1115a54bda}} 
+character(len=8) \mbox{\hyperlink{namespaceglobaldata_ae888214d68677339e6136f1115a54bda}{calctype}}
+\begin{DoxyCompactList}\small\item\em Calculation type, N\+EB or G\+DS. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a45ebfde17dc1300b187dd31f32218b83}\label{namespaceglobaldata_a45ebfde17dc1300b187dd31f32218b83}} 
+character(len=6) \mbox{\hyperlink{namespaceglobaldata_a45ebfde17dc1300b187dd31f32218b83}{pathinit}}
+\begin{DoxyCompactList}\small\item\em Path initialization type, L\+I\+N\+E\+AR. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a937d27bc1c79065037c714e77a9b5b9a}\label{namespaceglobaldata_a937d27bc1c79065037c714e77a9b5b9a}} 
+character(len=6) \mbox{\hyperlink{namespaceglobaldata_a937d27bc1c79065037c714e77a9b5b9a}{pathoptmethod}}
+\begin{DoxyCompactList}\small\item\em Path optimization method, C\+I\+N\+EB. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a2e366abea660511550cb2fe32860d54a}\label{namespaceglobaldata_a2e366abea660511550cb2fe32860d54a}} 
+character(len=9) \mbox{\hyperlink{namespaceglobaldata_a2e366abea660511550cb2fe32860d54a}{nebmethod}}
+\begin{DoxyCompactList}\small\item\em (CI)N\+EB optimization method, C\+I\+N\+EB \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a7f70855279bb4ff76b27b3d6c83b70ba}\label{namespaceglobaldata_a7f70855279bb4ff76b27b3d6c83b70ba}} 
+logical \mbox{\hyperlink{namespaceglobaldata_a7f70855279bb4ff76b27b3d6c83b70ba}{startfrompath}}
+\begin{DoxyCompactList}\small\item\em Logical flag to signal whether or not we\textquotesingle{}re starting from full path. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a7aeccf1be55c54d9dd70725804962233}\label{namespaceglobaldata_a7aeccf1be55c54d9dd70725804962233}} 
+logical \mbox{\hyperlink{namespaceglobaldata_a7aeccf1be55c54d9dd70725804962233}{stripinactive}}
+\begin{DoxyCompactList}\small\item\em Logical flag to signal that spectator molecules should be removed before optimization. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a56183a6a94e829385365e8cd4636798a}\label{namespaceglobaldata_a56183a6a94e829385365e8cd4636798a}} 
+logical \mbox{\hyperlink{namespaceglobaldata_a56183a6a94e829385365e8cd4636798a}{optendsbefore}}
+\begin{DoxyCompactList}\small\item\em Logical flag indicating whether to geometry-\/optimize path end-\/points before path optimization. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a21a1c87f487884eb7c7be00ffbe9e798}\label{namespaceglobaldata_a21a1c87f487884eb7c7be00ffbe9e798}} 
+logical \mbox{\hyperlink{namespaceglobaldata_a21a1c87f487884eb7c7be00ffbe9e798}{optendsduring}}
+\begin{DoxyCompactList}\small\item\em Logical flag indicating whether to optimize path end-\/points during path optimization. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_abd75cf325eb1bfd2913c1dc3e951700e}\label{namespaceglobaldata_abd75cf325eb1bfd2913c1dc3e951700e}} 
+logical \mbox{\hyperlink{namespaceglobaldata_abd75cf325eb1bfd2913c1dc3e951700e}{reconnect}}
+\begin{DoxyCompactList}\small\item\em Logical flag indicating whether to generate new linear path after end-\/point optimization. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a5cc2599efcc8abd01fbe7713032d0335}\label{namespaceglobaldata_a5cc2599efcc8abd01fbe7713032d0335}} 
+logical \mbox{\hyperlink{namespaceglobaldata_a5cc2599efcc8abd01fbe7713032d0335}{idpppath}}
+\begin{DoxyCompactList}\small\item\em Logical flag to turn the image-\/dependent pair potential N\+EB for a improved guess path. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a6d93199d31cd8426e09c2e5337771156}\label{namespaceglobaldata_a6d93199d31cd8426e09c2e5337771156}} 
+logical \mbox{\hyperlink{namespaceglobaldata_a6d93199d31cd8426e09c2e5337771156}{fraginterpol}}
+\begin{DoxyCompactList}\small\item\em Logical flag to turn the fragment interpolation procedure -\/ where fragments are first brought together before interpolating. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ae01d4cff5b6ea01dd99e0e9efa45cd42}\label{namespaceglobaldata_ae01d4cff5b6ea01dd99e0e9efa45cd42}} 
+logical \mbox{\hyperlink{namespaceglobaldata_ae01d4cff5b6ea01dd99e0e9efa45cd42}{optfragorient}}
+\begin{DoxyCompactList}\small\item\em Logical flag to turn the fragment orientation optimization procedure -\/ where fragments are oriented appropriately to enable the exchange of atoms. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a9071d6ff42b2b2ea4a2ddb30570d473e}\label{namespaceglobaldata_a9071d6ff42b2b2ea4a2ddb30570d473e}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a9071d6ff42b2b2ea4a2ddb30570d473e}{ndofconstr}}
+\begin{DoxyCompactList}\small\item\em Number of constrained D\+O\+Fs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aaddcd3ad03d788e05837f5cdb3d6fb34}\label{namespaceglobaldata_aaddcd3ad03d788e05837f5cdb3d6fb34}} 
+integer, dimension(3 $\ast$namax) {\bfseries fixeddof}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a3a9faeeb195052e2c4003c7556f4bb74}\label{namespaceglobaldata_a3a9faeeb195052e2c4003c7556f4bb74}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a3a9faeeb195052e2c4003c7556f4bb74}{natomconstr}}
+\begin{DoxyCompactList}\small\item\em Number of constrained D\+O\+Fs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a6ae31195458542d76c3268db55f704d8}\label{namespaceglobaldata_a6ae31195458542d76c3268db55f704d8}} 
+integer, dimension(namax) {\bfseries fixedatom}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_ac444aced197556debbc987266a253768}\label{namespaceglobaldata_ac444aced197556debbc987266a253768}} 
+character(len=6) \mbox{\hyperlink{namespaceglobaldata_ac444aced197556debbc987266a253768}{pestype}}
+\begin{DoxyCompactList}\small\item\em Identifies P\+ES calculation type, \textquotesingle{}O\+R\+CA\textquotesingle{}... \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a32fccb0f0c05996d6da85ccddd141d11}\label{namespaceglobaldata_a32fccb0f0c05996d6da85ccddd141d11}} 
+character(len=25) \mbox{\hyperlink{namespaceglobaldata_a32fccb0f0c05996d6da85ccddd141d11}{pesfile}}
+\begin{DoxyCompactList}\small\item\em Identifies P\+ES calculation template file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a4c196084db36cecdbc9b6a6508a34aeb}\label{namespaceglobaldata_a4c196084db36cecdbc9b6a6508a34aeb}} 
+character(len=6) \mbox{\hyperlink{namespaceglobaldata_a4c196084db36cecdbc9b6a6508a34aeb}{pesopttype}}
+\begin{DoxyCompactList}\small\item\em Identifies P\+ES type for geometry optimisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a0f59e857d2686ff93733a9a7240c88fa}\label{namespaceglobaldata_a0f59e857d2686ff93733a9a7240c88fa}} 
+character(len=25) \mbox{\hyperlink{namespaceglobaldata_a0f59e857d2686ff93733a9a7240c88fa}{pesoptfile}}
+\begin{DoxyCompactList}\small\item\em Identifies geometry optimisation template file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ab85519f27f07052f751947691618be2c}\label{namespaceglobaldata_ab85519f27f07052f751947691618be2c}} 
+character(len=100) \mbox{\hyperlink{namespaceglobaldata_ab85519f27f07052f751947691618be2c}{pesexecutable}}
+\begin{DoxyCompactList}\small\item\em Identifies P\+ES calculation executable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a795b05df745173ba8a36092a91c6dc03}\label{namespaceglobaldata_a795b05df745173ba8a36092a91c6dc03}} 
+character(len=100) \mbox{\hyperlink{namespaceglobaldata_a795b05df745173ba8a36092a91c6dc03}{pesoptexecutable}}
+\begin{DoxyCompactList}\small\item\em Identifies geometry optimisation executable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a9314aeadb612bd13d7d10651767fd095}\label{namespaceglobaldata_a9314aeadb612bd13d7d10651767fd095}} 
+logical \mbox{\hyperlink{namespaceglobaldata_a9314aeadb612bd13d7d10651767fd095}{pesfull}}
+\begin{DoxyCompactList}\small\item\em Logical flag indicating whether we\textquotesingle{}re running P\+ES evaluations for the full system or independent molecules. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aea9bf3d8b819c9b424af3847409d1e54}\label{namespaceglobaldata_aea9bf3d8b819c9b424af3847409d1e54}} 
+character(len=8), parameter {\bfseries fmt4} = \textquotesingle{}(I4.\+4)\textquotesingle{}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a707ac972d8830c0d04df7d622fdfeef5}\label{namespaceglobaldata_a707ac972d8830c0d04df7d622fdfeef5}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a707ac972d8830c0d04df7d622fdfeef5}{nreactivetypes}}
+\begin{DoxyCompactList}\small\item\em Number of reactive atom-\/types. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a9221bd73313778aba52b20ed3980f661}\label{namespaceglobaldata_a9221bd73313778aba52b20ed3980f661}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a9221bd73313778aba52b20ed3980f661}{nfixtype}}
+\begin{DoxyCompactList}\small\item\em Number of types of fixed-\/bonds. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aa77f79ce0d70c053453325e1dd335ffc}\label{namespaceglobaldata_aa77f79ce0d70c053453325e1dd335ffc}} 
+character(len=2), dimension(ntypemax) \mbox{\hyperlink{namespaceglobaldata_aa77f79ce0d70c053453325e1dd335ffc}{reactivetype}}
+\begin{DoxyCompactList}\small\item\em Atom labels for reactive atoms. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ac92f48c1a46722f2d43048b6ccb7616c}\label{namespaceglobaldata_ac92f48c1a46722f2d43048b6ccb7616c}} 
+character(len=2), dimension(ntypemax, 2) \mbox{\hyperlink{namespaceglobaldata_ac92f48c1a46722f2d43048b6ccb7616c}{fixedbondtype}}
+\begin{DoxyCompactList}\small\item\em Atom labels for each type of fixed bonds. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a9de85a9f08091bf134de0ea754c9f194}\label{namespaceglobaldata_a9de85a9f08091bf134de0ea754c9f194}} 
+logical, dimension(namax) \mbox{\hyperlink{namespaceglobaldata_a9de85a9f08091bf134de0ea754c9f194}{reactive}}
+\begin{DoxyCompactList}\small\item\em Logical flag indicating whether or not atoms are reactive. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a34e914358ed9a59f55c77ae70decd561}\label{namespaceglobaldata_a34e914358ed9a59f55c77ae70decd561}} 
+logical, dimension(namax) \mbox{\hyperlink{namespaceglobaldata_a34e914358ed9a59f55c77ae70decd561}{essentialmoves}}
+\begin{DoxyCompactList}\small\item\em Logical flag indicating whether or not atoms are essential to moves. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a3f9ae6a1127a93e815684c8d0b837e97}\label{namespaceglobaldata_a3f9ae6a1127a93e815684c8d0b837e97}} 
+logical, dimension(namax) \mbox{\hyperlink{namespaceglobaldata_a3f9ae6a1127a93e815684c8d0b837e97}{essential}}
+\begin{DoxyCompactList}\small\item\em Logical flag indicating whether or not atoms are essential. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_af314b28c5da8f35ed9158b77b3ea04b9}\label{namespaceglobaldata_af314b28c5da8f35ed9158b77b3ea04b9}} 
+integer \mbox{\hyperlink{namespaceglobaldata_af314b28c5da8f35ed9158b77b3ea04b9}{nessentialatoms}}
+\begin{DoxyCompactList}\small\item\em Number of essential atoms labelled .T\+R\+UE. in essentialmoves(\+:) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a33a819cb0c59aefc7b512cac90b752ee}\label{namespaceglobaldata_a33a819cb0c59aefc7b512cac90b752ee}} 
+double precision \mbox{\hyperlink{namespaceglobaldata_a33a819cb0c59aefc7b512cac90b752ee}{intra\+\_\+cutoff}}
+\begin{DoxyCompactList}\small\item\em when performing a bond forming I\+N\+T\+R\+A-\/molecular rxn move between atoms, set a cutoff distance \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a38bd0dcbebfb5752960b868c4405882d}\label{namespaceglobaldata_a38bd0dcbebfb5752960b868c4405882d}} 
+integer {\bfseries nessentialatomsinmols}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a0dc2b21b4918e494742a5f97ca77a407}\label{namespaceglobaldata_a0dc2b21b4918e494742a5f97ca77a407}} 
+integer, dimension(namax) {\bfseries essentialatomsinmols}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a09b1518c554179f8c18ab4d5b55d6186}\label{namespaceglobaldata_a09b1518c554179f8c18ab4d5b55d6186}} 
+logical, dimension(namax, namax) \mbox{\hyperlink{namespaceglobaldata_a09b1518c554179f8c18ab4d5b55d6186}{fixedbonds}}
+\begin{DoxyCompactList}\small\item\em Logical flag indicating fixed bonds. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a373c92412bc31706c504ae5919e4dd91}\label{namespaceglobaldata_a373c92412bc31706c504ae5919e4dd91}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a373c92412bc31706c504ae5919e4dd91}{ngdsiter}}
+\begin{DoxyCompactList}\small\item\em Number of G\+DS iterations. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_af1f7f0ba68e55ccb1158169eef25c3e5}\label{namespaceglobaldata_af1f7f0ba68e55ccb1158169eef25c3e5}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_af1f7f0ba68e55ccb1158169eef25c3e5}{gdsspring}}
+\begin{DoxyCompactList}\small\item\em Spring constant for inter-\/bead spring terms. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ad9253180f5cdc09fd151e1cbf7ba194c}\label{namespaceglobaldata_ad9253180f5cdc09fd151e1cbf7ba194c}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_ad9253180f5cdc09fd151e1cbf7ba194c}{gdsrestspring}}
+\begin{DoxyCompactList}\small\item\em Spring constant for bonded graph restraints. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a58f14ebf87fc81496e6d2eb8788221e4}\label{namespaceglobaldata_a58f14ebf87fc81496e6d2eb8788221e4}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_a58f14ebf87fc81496e6d2eb8788221e4}{nbstrength}}
+\begin{DoxyCompactList}\small\item\em Strength of non-\/bonded exponential graph-\/restraints. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_af51080d263e3202c72512026f13bca07}\label{namespaceglobaldata_af51080d263e3202c72512026f13bca07}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_af51080d263e3202c72512026f13bca07}{nbrange}}
+\begin{DoxyCompactList}\small\item\em Range of non-\/bonded exponential graph-\/restraints. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ae0ab8dd71eb4a5f9ec3cffdc69a4d2b7}\label{namespaceglobaldata_ae0ab8dd71eb4a5f9ec3cffdc69a4d2b7}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_ae0ab8dd71eb4a5f9ec3cffdc69a4d2b7}{kradius}}
+\begin{DoxyCompactList}\small\item\em Spring constant for intermolecular repulsion restraints. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a31f5739ae1cbd76deff375eb7de1f132}\label{namespaceglobaldata_a31f5739ae1cbd76deff375eb7de1f132}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_a31f5739ae1cbd76deff375eb7de1f132}{gdstemperature}}
+\begin{DoxyCompactList}\small\item\em End-\/point temperature for G\+DS simulation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ad2dd4073ea0a88a30a20028a04e2e348}\label{namespaceglobaldata_ad2dd4073ea0a88a30a20028a04e2e348}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_ad2dd4073ea0a88a30a20028a04e2e348}{gdscoefftemp}}
+\begin{DoxyCompactList}\small\item\em Temperature for G\+DS coefficients. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a20c912d009e0e7529e2615aa21b12398}\label{namespaceglobaldata_a20c912d009e0e7529e2615aa21b12398}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_a20c912d009e0e7529e2615aa21b12398}{gdscoeffmass}}
+\begin{DoxyCompactList}\small\item\em Mass for G\+DS coefficients. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aa246e6695206f823e0d2e9e6ecf3c694}\label{namespaceglobaldata_aa246e6695206f823e0d2e9e6ecf3c694}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_aa246e6695206f823e0d2e9e6ecf3c694}{timestep}}
+\begin{DoxyCompactList}\small\item\em G\+DS timestep. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a5b3ea766ff641a08d2a09089b71705cc}\label{namespaceglobaldata_a5b3ea766ff641a08d2a09089b71705cc}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_a5b3ea766ff641a08d2a09089b71705cc}{vsthresh}}
+\begin{DoxyCompactList}\small\item\em Variable spring strength threshold (used suring C\+I\+N\+EB) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a444f514910c5a8aeb425d56056b72e69}\label{namespaceglobaldata_a444f514910c5a8aeb425d56056b72e69}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a444f514910c5a8aeb425d56056b72e69}{anebb}}
+\begin{DoxyCompactList}\small\item\em Auto\+N\+EB number of extra beads (also works as a logical switching Autoneb on) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_afde091eb986cf9469fefc5e711cadde5}\label{namespaceglobaldata_afde091eb986cf9469fefc5e711cadde5}} 
+integer \mbox{\hyperlink{namespaceglobaldata_afde091eb986cf9469fefc5e711cadde5}{ngmove}}
+\begin{DoxyCompactList}\small\item\em Number of defined graph moves. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a9a7c36016779745bb29236fb9d2a4c35}\label{namespaceglobaldata_a9a7c36016779745bb29236fb9d2a4c35}} 
+integer, dimension(nmovemax) \mbox{\hyperlink{namespaceglobaldata_a9a7c36016779745bb29236fb9d2a4c35}{namove}}
+\begin{DoxyCompactList}\small\item\em Number of atoms in each graph move. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a1848c3f97f05a1e9105d784bca072679}\label{namespaceglobaldata_a1848c3f97f05a1e9105d784bca072679}} 
+integer, dimension(nmovemax, namovemax, namovemax) \mbox{\hyperlink{namespaceglobaldata_a1848c3f97f05a1e9105d784bca072679}{gmstart}}
+\begin{DoxyCompactList}\small\item\em Start graph for each move. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aeaa03f16c215c1477c9e7bf1a526480b}\label{namespaceglobaldata_aeaa03f16c215c1477c9e7bf1a526480b}} 
+integer, dimension(nmovemax, namovemax, namovemax) \mbox{\hyperlink{namespaceglobaldata_aeaa03f16c215c1477c9e7bf1a526480b}{gmend}}
+\begin{DoxyCompactList}\small\item\em End graph for each move. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_abe5c391ec7eaa8f2e3b69e736f848058}\label{namespaceglobaldata_abe5c391ec7eaa8f2e3b69e736f848058}} 
+character(len=4), dimension(nmovemax, namovemax) \mbox{\hyperlink{namespaceglobaldata_abe5c391ec7eaa8f2e3b69e736f848058}{movelabel}}
+\begin{DoxyCompactList}\small\item\em Labels for atoms involved in graph moves. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a9ee2df5138a5c5d4c613d2bde5bd7128}\label{namespaceglobaldata_a9ee2df5138a5c5d4c613d2bde5bd7128}} 
+character(len=7), dimension(nmovemax) \mbox{\hyperlink{namespaceglobaldata_a9ee2df5138a5c5d4c613d2bde5bd7128}{movetype}}
+\begin{DoxyCompactList}\small\item\em For labelling as \textquotesingle{}ionize\textquotesingle{} or \textquotesingle{}eattach\textquotesingle{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a51bb947ac9e6f596144cc7183c310d4d}\label{namespaceglobaldata_a51bb947ac9e6f596144cc7183c310d4d}} 
+real(8), dimension(nmovemax) \mbox{\hyperlink{namespaceglobaldata_a51bb947ac9e6f596144cc7183c310d4d}{moveprob}}
+\begin{DoxyCompactList}\small\item\em Probability of graph-\/move (not that these are normalized internally) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a077f121f0b15b5b062ec11ce2003e9ab}\label{namespaceglobaldata_a077f121f0b15b5b062ec11ce2003e9ab}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a077f121f0b15b5b062ec11ce2003e9ab}{gdsoutfreq}}
+\begin{DoxyCompactList}\small\item\em G\+DS output frequency. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a6fe1162ad1616cd3ca3ddf498e51676b}\label{namespaceglobaldata_a6fe1162ad1616cd3ca3ddf498e51676b}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_a6fe1162ad1616cd3ca3ddf498e51676b}{gdsthresh}}
+\begin{DoxyCompactList}\small\item\em G\+DS graph-\/move attempt probability. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a1f7a45244a12002ba3eff0cafdf2a2b5}\label{namespaceglobaldata_a1f7a45244a12002ba3eff0cafdf2a2b5}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a1f7a45244a12002ba3eff0cafdf2a2b5}{ngdsrelax}}
+\begin{DoxyCompactList}\small\item\em Number of SD relaxation steps under graph restraints after graph moves. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a3cb6c7ae6391331e0c9d9cf264c1e7a2}\label{namespaceglobaldata_a3cb6c7ae6391331e0c9d9cf264c1e7a2}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_a3cb6c7ae6391331e0c9d9cf264c1e7a2}{gdsdtrelax}}
+\begin{DoxyCompactList}\small\item\em Step size for SD relaxation after graph moves. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ad786f46c3bbc2800abc29bd3d44dd1e5}\label{namespaceglobaldata_ad786f46c3bbc2800abc29bd3d44dd1e5}} 
+logical \mbox{\hyperlink{namespaceglobaldata_ad786f46c3bbc2800abc29bd3d44dd1e5}{optaftermove}}
+\begin{DoxyCompactList}\small\item\em Flag indicating whether to optimize on P\+ES after each graph move. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a0f53d3df629445794158e7bdc6eb68c1}\label{namespaceglobaldata_a0f53d3df629445794158e7bdc6eb68c1}} 
+logical \mbox{\hyperlink{namespaceglobaldata_a0f53d3df629445794158e7bdc6eb68c1}{skiprepeats}}
+\begin{DoxyCompactList}\small\item\em Flag indicating whether to skip repeat graph moves. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aa8618a925ab5655a3776dc7d8c42a0b3}\label{namespaceglobaldata_aa8618a925ab5655a3776dc7d8c42a0b3}} 
+logical \mbox{\hyperlink{namespaceglobaldata_aa8618a925ab5655a3776dc7d8c42a0b3}{gatherreactivemol}}
+\begin{DoxyCompactList}\small\item\em Flag indicating whether to make the reactive molecles gather around into a \char`\"{}circle\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_afd0b20a1717fb8353dc624f6772e854d}\label{namespaceglobaldata_afd0b20a1717fb8353dc624f6772e854d}} 
+logical \mbox{\hyperlink{namespaceglobaldata_afd0b20a1717fb8353dc624f6772e854d}{simpleopt}}
+\begin{DoxyCompactList}\small\item\em optimises end images in N\+EB, all molecules in image at once... \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a154295eac2e59bdc87238ec06685edff}\label{namespaceglobaldata_a154295eac2e59bdc87238ec06685edff}} 
+logical \mbox{\hyperlink{namespaceglobaldata_a154295eac2e59bdc87238ec06685edff}{nebrestrend}}
+\begin{DoxyCompactList}\small\item\em Flag indicating whether or not graph-\/restraint potenial is applied to end-\/points during N\+EB optimization. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aece6803e92a5587b17d4c456147be1be}\label{namespaceglobaldata_aece6803e92a5587b17d4c456147be1be}} 
+logical \mbox{\hyperlink{namespaceglobaldata_aece6803e92a5587b17d4c456147be1be}{removecollisions}}
+\begin{DoxyCompactList}\small\item\em Flag indicating whether to refine path after move under purely repulsive potential for non-\/bonded atoms. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aca9c80ac9c053be8b3a8e24742fc337b}\label{namespaceglobaldata_aca9c80ac9c053be8b3a8e24742fc337b}} 
+logical \mbox{\hyperlink{namespaceglobaldata_aca9c80ac9c053be8b3a8e24742fc337b}{shimmybeads}}
+\begin{DoxyCompactList}\small\item\em Flag determining if we want flat P\+ES beads at the ends to shimmy (center the path ) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a311febfe7df75e5ac20d947e590c450f}\label{namespaceglobaldata_a311febfe7df75e5ac20d947e590c450f}} 
+logical \mbox{\hyperlink{namespaceglobaldata_a311febfe7df75e5ac20d947e590c450f}{restartgds}}
+\begin{DoxyCompactList}\small\item\em Flag determining weather user wishes to read a Chem\+Reac\+List file to restart the calculation (xyz needed) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a36e333357984e52e80efdb18808898f7}\label{namespaceglobaldata_a36e333357984e52e80efdb18808898f7}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a36e333357984e52e80efdb18808898f7}{nallowbonds}}
+\begin{DoxyCompactList}\small\item\em Number of defined bonding constraints for move-\/generated structures. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ae352de78dc04b239b3b03d375ea39aae}\label{namespaceglobaldata_ae352de78dc04b239b3b03d375ea39aae}} 
+character(len=2), dimension(ntypemax, 2) \mbox{\hyperlink{namespaceglobaldata_ae352de78dc04b239b3b03d375ea39aae}{allowbondsatom}}
+\begin{DoxyCompactList}\small\item\em Atom labels for nallowbonds bonding constraints. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a8a8da503ad0fd434e17c540a8955adf8}\label{namespaceglobaldata_a8a8da503ad0fd434e17c540a8955adf8}} 
+integer, dimension(ntypemax) \mbox{\hyperlink{namespaceglobaldata_a8a8da503ad0fd434e17c540a8955adf8}{allowbondsmax}}
+\begin{DoxyCompactList}\small\item\em Maximum number of bonds associated with nallowbonds constraints. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ad016c6afbb69e3d8c733df8785087875}\label{namespaceglobaldata_ad016c6afbb69e3d8c733df8785087875}} 
+logical \mbox{\hyperlink{namespaceglobaldata_ad016c6afbb69e3d8c733df8785087875}{forbidgraphs}}
+\begin{DoxyCompactList}\small\item\em Logical flag indicating whether to use the forbidden graphs file in allowing. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a6a098b33fc812c47225af9da3e04f30d}\label{namespaceglobaldata_a6a098b33fc812c47225af9da3e04f30d}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a6a098b33fc812c47225af9da3e04f30d}{nforbid}}
+\begin{DoxyCompactList}\small\item\em Number of forbidden graph definitions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a9a68a8dc95d7078b7a9a2f0b40ac2328}\label{namespaceglobaldata_a9a68a8dc95d7078b7a9a2f0b40ac2328}} 
+integer, dimension(nforbidmax) \mbox{\hyperlink{namespaceglobaldata_a9a68a8dc95d7078b7a9a2f0b40ac2328}{naforbid}}
+\begin{DoxyCompactList}\small\item\em Number of atoms in each forbidden graph. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ad00f16842cd39b327807715410187efb}\label{namespaceglobaldata_ad00f16842cd39b327807715410187efb}} 
+integer, dimension(nforbidmax, namovemax, namovemax) \mbox{\hyperlink{namespaceglobaldata_ad00f16842cd39b327807715410187efb}{gforbid}}
+\begin{DoxyCompactList}\small\item\em Forbidden graph definitions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aaa1c49351a28f6be1cb72d713c3736ca}\label{namespaceglobaldata_aaa1c49351a28f6be1cb72d713c3736ca}} 
+character(len=4), dimension(nforbidmax, namovemax) \mbox{\hyperlink{namespaceglobaldata_aaa1c49351a28f6be1cb72d713c3736ca}{forbidlabel}}
+\begin{DoxyCompactList}\small\item\em Labels for atoms involved in forbidden graphs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a1e58bbcc4999b350fff0a75f000ca0c5}\label{namespaceglobaldata_a1e58bbcc4999b350fff0a75f000ca0c5}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a1e58bbcc4999b350fff0a75f000ca0c5}{maxmolcharge}}
+\begin{DoxyCompactList}\small\item\em Maximum allowed charged on a single molecule. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ac7166be9a05ce3735180aed94a9358e8}\label{namespaceglobaldata_ac7166be9a05ce3735180aed94a9358e8}} 
+integer \mbox{\hyperlink{namespaceglobaldata_ac7166be9a05ce3735180aed94a9358e8}{minmolcharge}}
+\begin{DoxyCompactList}\small\item\em Minimum allowed charged on a single molecule. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a98981105cf29a94cfd3e4d35ba32ab57}\label{namespaceglobaldata_a98981105cf29a94cfd3e4d35ba32ab57}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a98981105cf29a94cfd3e4d35ba32ab57}{nchargemol}}
+\begin{DoxyCompactList}\small\item\em Maximum total charge at any reaction step. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ad30f540d6848058c4bfccdbf99be9fea}\label{namespaceglobaldata_ad30f540d6848058c4bfccdbf99be9fea}} 
+integer \mbox{\hyperlink{namespaceglobaldata_ad30f540d6848058c4bfccdbf99be9fea}{maxstepcharge}}
+\begin{DoxyCompactList}\small\item\em Maximum number of steps inolving charge changes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a00f35b1400ab0075949a6a0dab900df9}\label{namespaceglobaldata_a00f35b1400ab0075949a6a0dab900df9}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a00f35b1400ab0075949a6a0dab900df9}{maxtotalcharge}}
+\begin{DoxyCompactList}\small\item\em Maximum number of steps inolving charge changes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_adab5b9e51cfd76bf45c3ac2320082d04}\label{namespaceglobaldata_adab5b9e51cfd76bf45c3ac2320082d04}} 
+integer \mbox{\hyperlink{namespaceglobaldata_adab5b9e51cfd76bf45c3ac2320082d04}{projforcetype}}
+\begin{DoxyCompactList}\small\item\em The type of projected Force used in N\+EB. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a53b99c0c357633fec26adaf341b563d3}\label{namespaceglobaldata_a53b99c0c357633fec26adaf341b563d3}} 
+logical \mbox{\hyperlink{namespaceglobaldata_a53b99c0c357633fec26adaf341b563d3}{lmoldata}}
+\begin{DoxyCompactList}\small\item\em logical flag to switch the instructions to print the molecular database on \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a59a1e66fb5975335f028c9a060ec3128}\label{namespaceglobaldata_a59a1e66fb5975335f028c9a060ec3128}} 
+character(len=100) \mbox{\hyperlink{namespaceglobaldata_a59a1e66fb5975335f028c9a060ec3128}{pathwaysfile}}
+\begin{DoxyCompactList}\small\item\em hold the file name for the pathway to the molecular database files (N\+E\+B+\+G\+DS D\+A\+TA) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a4770520e1eb7dda0344ed370337caf90}\label{namespaceglobaldata_a4770520e1eb7dda0344ed370337caf90}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a4770520e1eb7dda0344ed370337caf90}{nvalcon}}
+\begin{DoxyCompactList}\small\item\em Number of atomic valence constraints for products. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_af94df2e033c7b7b1154976802e885907}\label{namespaceglobaldata_af94df2e033c7b7b1154976802e885907}} 
+character(len=2), dimension(ntypemax) \mbox{\hyperlink{namespaceglobaldata_af94df2e033c7b7b1154976802e885907}{valatom}}
+\begin{DoxyCompactList}\small\item\em Atom label corresponding to each set of valence constraints. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a90144032246145f06310f124eb22c320}\label{namespaceglobaldata_a90144032246145f06310f124eb22c320}} 
+integer, dimension(ntypemax, 2) \mbox{\hyperlink{namespaceglobaldata_a90144032246145f06310f124eb22c320}{valrange}}
+\begin{DoxyCompactList}\small\item\em Valence range for each valence constraint. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a56b0e215c522933435baaca139d6c1a7}\label{namespaceglobaldata_a56b0e215c522933435baaca139d6c1a7}} 
+logical, dimension(ntypemax) \mbox{\hyperlink{namespaceglobaldata_a56b0e215c522933435baaca139d6c1a7}{valfz}}
+\begin{DoxyCompactList}\small\item\em flag determining if this rule applies to frozen atoms bonding to non-\/frozen ones \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a8fd37bb8c793c76b3dedfce33555b295}\label{namespaceglobaldata_a8fd37bb8c793c76b3dedfce33555b295}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a8fd37bb8c793c76b3dedfce33555b295}{nrxval}}
+\begin{DoxyCompactList}\small\item\em Number of atomic valence constraints for reactants. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a31516a9611bae43b97db4de74361251c}\label{namespaceglobaldata_a31516a9611bae43b97db4de74361251c}} 
+character(len=2), dimension(ntypemax, 2) \mbox{\hyperlink{namespaceglobaldata_a31516a9611bae43b97db4de74361251c}{rxvalatom}}
+\begin{DoxyCompactList}\small\item\em Atom label corresponding to each set of reactant valence constraints. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a993988ace1c9918cfea218763dc41f2b}\label{namespaceglobaldata_a993988ace1c9918cfea218763dc41f2b}} 
+integer, dimension(ntypemax, 2) \mbox{\hyperlink{namespaceglobaldata_a993988ace1c9918cfea218763dc41f2b}{rxvalrange}}
+\begin{DoxyCompactList}\small\item\em Valence ranges for each reactant valence constraint. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a373df34cdc10d6fcb1ed11a684740e5b}\label{namespaceglobaldata_a373df34cdc10d6fcb1ed11a684740e5b}} 
+logical {\bfseries molecularvalency} = .false.
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a8d9d62d66b760d4cde9901e33f03be8f}\label{namespaceglobaldata_a8d9d62d66b760d4cde9901e33f03be8f}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a8d9d62d66b760d4cde9901e33f03be8f}{nmv}} = 0
+\begin{DoxyCompactList}\small\item\em the number of sets of molecular valence constraints \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a624e0c0852d1b72a8a3f0652b1e46135}\label{namespaceglobaldata_a624e0c0852d1b72a8a3f0652b1e46135}} 
+character(2), dimension(30, 20) \mbox{\hyperlink{namespaceglobaldata_a624e0c0852d1b72a8a3f0652b1e46135}{mvconel}}
+\begin{DoxyCompactList}\small\item\em Elements in the molecular velency sets according to user dimensions (setindex,atomic number) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a56a4f96d9cecf3280f5be24338267fb5}\label{namespaceglobaldata_a56a4f96d9cecf3280f5be24338267fb5}} 
+integer, dimension(30, 20) \mbox{\hyperlink{namespaceglobaldata_a56a4f96d9cecf3280f5be24338267fb5}{mvconva}}
+\begin{DoxyCompactList}\small\item\em Valency of element in in the molecular velency sets associated with mvconel dimensions (setindex,valency assiciated with that element) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aed5b00b62da5bb2266e6dc804d4e714b}\label{namespaceglobaldata_aed5b00b62da5bb2266e6dc804d4e714b}} 
+integer, dimension(30) \mbox{\hyperlink{namespaceglobaldata_aed5b00b62da5bb2266e6dc804d4e714b}{mvconne}}
+\begin{DoxyCompactList}\small\item\em number of elements in each molecular valency set \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a5cd699ee0342b3e9deb57712153fba5d}\label{namespaceglobaldata_a5cd699ee0342b3e9deb57712153fba5d}} 
+integer, dimension(30) \mbox{\hyperlink{namespaceglobaldata_a5cd699ee0342b3e9deb57712153fba5d}{mxvlel}}
+\begin{DoxyCompactList}\small\item\em the element with the largers number of bonds allowed, used for knowing how many times to loop for counting valences...see routine \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a33c0783d3556b70908b843175062db21}\label{namespaceglobaldata_a33c0783d3556b70908b843175062db21}} 
+integer, dimension(30) \mbox{\hyperlink{namespaceglobaldata_a33c0783d3556b70908b843175062db21}{ncharcon}}
+\begin{DoxyCompactList}\small\item\em the maximun number of charged atoms (non-\/matched valency) this constrain allows for (\char`\"{}charged\char`\"{} meaning radicals dont exist in this context, ie every atom has the full shell occupation) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aac59e84840964e83925a45d5515a88f2}\label{namespaceglobaldata_aac59e84840964e83925a45d5515a88f2}} 
+logical {\bfseries lewiscon} = .false.
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_ae754bf553bd1559b281a96a2189436f6}\label{namespaceglobaldata_ae754bf553bd1559b281a96a2189436f6}} 
+integer \mbox{\hyperlink{namespaceglobaldata_ae754bf553bd1559b281a96a2189436f6}{nlc}} = 0
+\begin{DoxyCompactList}\small\item\em the number of sets of lewis constraints \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a0f5c98ca639f59b9bb6e97febc59b9fd}\label{namespaceglobaldata_a0f5c98ca639f59b9bb6e97febc59b9fd}} 
+character(2), dimension(30, 20) \mbox{\hyperlink{namespaceglobaldata_a0f5c98ca639f59b9bb6e97febc59b9fd}{lcconel}}
+\begin{DoxyCompactList}\small\item\em Elements in the lewis constraint sets according to user dimensions (setindex,atomic number) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ad642b69413be05e2d47c697393118a65}\label{namespaceglobaldata_ad642b69413be05e2d47c697393118a65}} 
+integer, dimension(30) \mbox{\hyperlink{namespaceglobaldata_ad642b69413be05e2d47c697393118a65}{lcconne}}
+\begin{DoxyCompactList}\small\item\em number of elements in each molecular valency set \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a0b4f8ede9ebc4d6c5b3ff929d96286a8}\label{namespaceglobaldata_a0b4f8ede9ebc4d6c5b3ff929d96286a8}} 
+integer, dimension(30) \mbox{\hyperlink{namespaceglobaldata_a0b4f8ede9ebc4d6c5b3ff929d96286a8}{nlcchar}}
+\begin{DoxyCompactList}\small\item\em the maximun number of charged atoms (non-\/matched valency) this constrain allows for (\char`\"{}charged\char`\"{} meaning radicals dont exist in this context, ie every atom has the full shell occupation) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a1d462edc3192ce137b7a7be5993a02f7}\label{namespaceglobaldata_a1d462edc3192ce137b7a7be5993a02f7}} 
+logical, dimension(30, 20) \mbox{\hyperlink{namespaceglobaldata_a1d462edc3192ce137b7a7be5993a02f7}{lcshift}} = .false.
+\begin{DoxyCompactList}\small\item\em flag determinin if this element should be shifted out of the molecule before calculating constraints \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a278f8c4c5e8b78bcb49f200998b05951}\label{namespaceglobaldata_a278f8c4c5e8b78bcb49f200998b05951}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a278f8c4c5e8b78bcb49f200998b05951}{ngen}}
+\begin{DoxyCompactList}\small\item\em Number of GA generations. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a4ec4db4c7c46c1f7312d1895d739baf0}\label{namespaceglobaldata_a4ec4db4c7c46c1f7312d1895d739baf0}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a4ec4db4c7c46c1f7312d1895d739baf0}{npop}}
+\begin{DoxyCompactList}\small\item\em Population for GA. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ab9c8b3880f658f3691b4ed143252321d}\label{namespaceglobaldata_ab9c8b3880f658f3691b4ed143252321d}} 
+integer \mbox{\hyperlink{namespaceglobaldata_ab9c8b3880f658f3691b4ed143252321d}{ncross}}
+\begin{DoxyCompactList}\small\item\em Crossover events per generation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ad99b31a58e97248e5f51d1e2c5b99645}\label{namespaceglobaldata_ad99b31a58e97248e5f51d1e2c5b99645}} 
+integer \mbox{\hyperlink{namespaceglobaldata_ad99b31a58e97248e5f51d1e2c5b99645}{nmut}}
+\begin{DoxyCompactList}\small\item\em Number of mutation events per generation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a632c6307699ad0ba1249c809d6380947}\label{namespaceglobaldata_a632c6307699ad0ba1249c809d6380947}} 
+logical {\bfseries readcore}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a384c0134255cf385fa3b9ace7210c6e1}\label{namespaceglobaldata_a384c0134255cf385fa3b9ace7210c6e1}} 
+integer {\bfseries nacore}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a5872444d02b2f8059e55c9714a198ac9}\label{namespaceglobaldata_a5872444d02b2f8059e55c9714a198ac9}} 
+integer {\bfseries nheteromax}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_a39c8b89979d9704364fd0a7f971af2d9}\label{namespaceglobaldata_a39c8b89979d9704364fd0a7f971af2d9}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a39c8b89979d9704364fd0a7f971af2d9}{nheteromin}}
+\begin{DoxyCompactList}\small\item\em Max / min number of heteroatoms in generated structures. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a20203d43856f2498ebe42db1c2e1e925}\label{namespaceglobaldata_a20203d43856f2498ebe42db1c2e1e925}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a20203d43856f2498ebe42db1c2e1e925}{nelprob}}
+\begin{DoxyCompactList}\small\item\em Number of element probabilities defined in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ac02f16125b3c7d9fd1691b95809f6504}\label{namespaceglobaldata_ac02f16125b3c7d9fd1691b95809f6504}} 
+character(len=2), dimension(ntypemax) \mbox{\hyperlink{namespaceglobaldata_ac02f16125b3c7d9fd1691b95809f6504}{elprob\+\_\+label}}
+\begin{DoxyCompactList}\small\item\em Atomic label for element probability. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aa3a9b2c367d447bc916e5f64e5e56d20}\label{namespaceglobaldata_aa3a9b2c367d447bc916e5f64e5e56d20}} 
+real(8), dimension(ntypemax) \mbox{\hyperlink{namespaceglobaldata_aa3a9b2c367d447bc916e5f64e5e56d20}{elprob}}
+\begin{DoxyCompactList}\small\item\em Appearance probability for each element in structure generation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ab1be7547fe40dc5e8a8905c6522dbf1d}\label{namespaceglobaldata_ab1be7547fe40dc5e8a8905c6522dbf1d}} 
+integer \mbox{\hyperlink{namespaceglobaldata_ab1be7547fe40dc5e8a8905c6522dbf1d}{nmccxs}}
+\begin{DoxyCompactList}\small\item\em Maximum number of MC moves in structure generation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a92028cb3df1ec27c723ff4b98aa81710}\label{namespaceglobaldata_a92028cb3df1ec27c723ff4b98aa81710}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_a92028cb3df1ec27c723ff4b98aa81710}{mctemperature}}
+\begin{DoxyCompactList}\small\item\em Temperature for MC structure generation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a9d74e3104ac2ba82b9fb1a987930be57}\label{namespaceglobaldata_a9d74e3104ac2ba82b9fb1a987930be57}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_a9d74e3104ac2ba82b9fb1a987930be57}{mcbondprob}}
+\begin{DoxyCompactList}\small\item\em Probability of bond creation in initial structure for MC optimization. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a40941aad7de0b0ee0c8567de84d5ce41}\label{namespaceglobaldata_a40941aad7de0b0ee0c8567de84d5ce41}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_a40941aad7de0b0ee0c8567de84d5ce41}{nmolpenalty}}
+\begin{DoxyCompactList}\small\item\em Penalty factor for having more than 1 molecule in graph during MC generation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a619a149de3719f5708a15b15329fbae5}\label{namespaceglobaldata_a619a149de3719f5708a15b15329fbae5}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_a619a149de3719f5708a15b15329fbae5}{ringpenalty3}}
+\begin{DoxyCompactList}\small\item\em Penalty factor for having 3-\/rings in graph during MC generation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aad02d1174d1ab3f06f84a3f5b812110b}\label{namespaceglobaldata_aad02d1174d1ab3f06f84a3f5b812110b}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_aad02d1174d1ab3f06f84a3f5b812110b}{ringpenalty4}}
+\begin{DoxyCompactList}\small\item\em Penalty factor for having 4-\/rings in graph during MC generation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aaf605617930b57d1a3027a5e93e8473f}\label{namespaceglobaldata_aaf605617930b57d1a3027a5e93e8473f}} 
+integer \mbox{\hyperlink{namespaceglobaldata_aaf605617930b57d1a3027a5e93e8473f}{nheterolimit}}
+\begin{DoxyCompactList}\small\item\em Maximum number of heteroatoms in structures generated during GA. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}\label{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}} 
+integer \mbox{\hyperlink{namespaceglobaldata_aeae934e06e7fa7b5b91d243b952abd29}{nrxn}}
+\begin{DoxyCompactList}\small\item\em Maximum number of reaction steps to locate in pathfinder calculation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ab566f897a2e2f865ee8c490879c712c1}\label{namespaceglobaldata_ab566f897a2e2f865ee8c490879c712c1}} 
+integer \mbox{\hyperlink{namespaceglobaldata_ab566f897a2e2f865ee8c490879c712c1}{nmcrxn}}
+\begin{DoxyCompactList}\small\item\em Number of MC annealing moves to attempt in initial graph search. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ac4e6fa88690f086a9b08eda6c6ba699a}\label{namespaceglobaldata_ac4e6fa88690f086a9b08eda6c6ba699a}} 
+integer \mbox{\hyperlink{namespaceglobaldata_ac4e6fa88690f086a9b08eda6c6ba699a}{nmcsearch}}
+\begin{DoxyCompactList}\small\item\em Number of MC moves during search phase. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_aaf16d9f4091f51a725b3be4827109955}\label{namespaceglobaldata_aaf16d9f4091f51a725b3be4827109955}} 
+integer \mbox{\hyperlink{namespaceglobaldata_aaf16d9f4091f51a725b3be4827109955}{nmechmove}}
+\begin{DoxyCompactList}\small\item\em Maximum number of simultanerous changes in mechanism search. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ac85ec944e18bb6570b4c865d4eed39dc}\label{namespaceglobaldata_ac85ec944e18bb6570b4c865d4eed39dc}} 
+real(8) \mbox{\hyperlink{namespaceglobaldata_ac85ec944e18bb6570b4c865d4eed39dc}{mcrxntemp}}
+\begin{DoxyCompactList}\small\item\em Temperature for MC reaction-\/string searching. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a42486a6d4c54fe6d1077e8b538329d9a}\label{namespaceglobaldata_a42486a6d4c54fe6d1077e8b538329d9a}} 
+integer \mbox{\hyperlink{namespaceglobaldata_a42486a6d4c54fe6d1077e8b538329d9a}{igfunc}}
+\begin{DoxyCompactList}\small\item\em Graph function type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ad7b7d7865f9c8b0bdd8aed48b8f8af63}\label{namespaceglobaldata_ad7b7d7865f9c8b0bdd8aed48b8f8af63}} 
+integer, dimension(3) \mbox{\hyperlink{namespaceglobaldata_ad7b7d7865f9c8b0bdd8aed48b8f8af63}{atomidx}}
+\begin{DoxyCompactList}\small\item\em Atoms which are aligned before N\+EB. \end{DoxyCompactList}\item 
+real(8) \mbox{\hyperlink{namespaceglobaldata_aed085331e87b1f1c8e30c0f4265e579f}{alphavbe}}
+\begin{DoxyCompactList}\small\item\em Scaling factor for bond-\/energy based contribution to graph-\/error function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a943effedf1da4756b6ba71d5f3d9035f}\label{namespaceglobaldata_a943effedf1da4756b6ba71d5f3d9035f}} 
+type(\mbox{\hyperlink{structglobaldata_1_1graphpar}{graphpar}}) \mbox{\hyperlink{namespaceglobaldata_a943effedf1da4756b6ba71d5f3d9035f}{gpar}}
+\begin{DoxyCompactList}\small\item\em variable type of parameters used during graphfinder... \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_ad1deb02f4d468dd805cccaed796528b0}\label{namespaceglobaldata_ad1deb02f4d468dd805cccaed796528b0}} 
+integer \mbox{\hyperlink{namespaceglobaldata_ad1deb02f4d468dd805cccaed796528b0}{moleculemax}}
+\begin{DoxyCompactList}\small\item\em Maximum number of fragments/molecules allowed to form ! seB. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceglobaldata_a0b3c1e047ff34e6ee7ecf7d6729a8c81}\label{namespaceglobaldata_a0b3c1e047ff34e6ee7ecf7d6729a8c81}} 
+type(\mbox{\hyperlink{structglobaldata_1_1refresh__template}{refresh\+\_\+template}}) {\bfseries rtmpl}
+\item 
+\mbox{\Hypertarget{namespaceglobaldata_af2f6ac068ac545bc319a5aba7644c807}\label{namespaceglobaldata_af2f6ac068ac545bc319a5aba7644c807}} 
+type(\mbox{\hyperlink{structglobaldata_1_1vtbashop}{vtbashop}}) {\bfseries bashop}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains global data definitions for C\+DE. 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceglobaldata_aed085331e87b1f1c8e30c0f4265e579f}\label{namespaceglobaldata_aed085331e87b1f1c8e30c0f4265e579f}} 
+\index{globaldata@{globaldata}!alphavbe@{alphavbe}}
+\index{alphavbe@{alphavbe}!globaldata@{globaldata}}
+\doxysubsubsection{\texorpdfstring{alphavbe}{alphavbe}}
+{\footnotesize\ttfamily real(8) globaldata\+::alphavbe}
+
+
+
+Scaling factor for bond-\/energy based contribution to graph-\/error function. 
+
+Type definition for the parameteres used in the graphfinder algorithm 
+
+Definition at line 236 of file globaldata.\+f90.
+

@@ -1,0 +1,95 @@
+# Both 2-atom and 3-atom moves allowed. Bond-making moves favoured.
+
+move 
+natom 2
+-
+0 1
+1 0
+-
+0 0
+0 0
+-
+labels * * 
+prob 0.1
+
+move
+natom 2
+-
+0 0
+0 0
+-
+0 1
+1 0
+-
+labels * * 
+prob 0.3
+
+move
+natom 3
+-
+0 0 1
+0 0 1
+1 1 0
+-
+0 1 0
+1 0 0
+0 0 0
+-
+labels * * * 
+prob 0.1
+
+move
+natom 3
+-
+0 1 0
+1 0 0
+0 0 0
+-
+0 0 1
+0 0 1
+1 1 0
+-
+labels * * * 
+prob 0.3
+
+move
+natom 3
+-
+0 0 1
+0 0 0
+1 0 0
+-
+0 1 0
+1 0 0
+0 0 0
+-
+labels * * * 
+prob 0.2
+
+move
+natom 3
+-
+0 1 0
+1 0 0
+0 0 0
+-
+0 0 1
+0 0 0
+1 0 0
+-
+labels * * * 
+prob 0.2
+
+move
+natom 3
+-
+0 1 0
+1 0 1
+0 1 0
+-
+0 1 1
+1 0 0
+1 0 0
+-
+labels * * *
+prob 0.2

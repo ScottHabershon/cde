@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="namespacefunctions" kind="namespace" language="Fortran">
+    <compoundname>functions</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacefunctions_1a0e32578cc457e3a8f16e4025a5145d64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>logical function</type>
+        <definition>logical function functions::is_numeric</definition>
+        <argsstring>(string)</argsstring>
+        <name>is_numeric</name>
+        <qualifiedname>functions::is_numeric</qualifiedname>
+        <param>
+          <type>character(len=1), intent(in)</type>
+          <defname>string</defname>
+        </param>
+        <briefdescription>
+<para>is_numeric </para>
+        </briefdescription>
+        <detaileddescription>
+<para>checks to see if input is number </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/functions.f90" line="24" column="1" bodyfile="src/functions.f90" bodystart="25" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacefunctions_1a859f48a232af1659d10d07fdede86a19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double precision function, dimension(3)</type>
+        <definition>double precision function, dimension(3) functions::xproduct</definition>
+        <argsstring>(a, b)</argsstring>
+        <name>xproduct</name>
+        <qualifiedname>functions::xproduct</qualifiedname>
+        <param>
+          <type>double precision, dimension(3)</type>
+          <defname>a</defname>
+        </param>
+        <param>
+          <type>double precision, dimension(3)</type>
+          <defname>b</defname>
+        </param>
+        <briefdescription>
+<para>xproduct </para>
+        </briefdescription>
+        <detaileddescription>
+<para>cross product between 3d vectors, not for general space. returns vector</para>
+<para><itemizedlist>
+<listitem><para>a,b: vectors </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/functions.f90" line="63" column="1" bodyfile="src/functions.f90" bodystart="64" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacefunctions_1a5683d91b1158e1c9099e502303c62b3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>integer function</type>
+        <definition>integer function functions::labeltonumber</definition>
+        <argsstring>(label)</argsstring>
+        <name>labeltonumber</name>
+        <qualifiedname>functions::labeltonumber</qualifiedname>
+        <param>
+          <type>character (len = 2)</type>
+          <defname>label</defname>
+        </param>
+        <briefdescription>
+<para>LabelToNumber. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts an input atomic label into a number.</para>
+<para><itemizedlist>
+<listitem><para>label: the input atomic label. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/functions.f90" line="83" column="1" bodyfile="src/functions.f90" bodystart="84" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacefunctions_1a517d640a5a9e5ec8751238095c1ceb35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>character(len=2) function</type>
+        <definition>character (len = 2) function functions::numbertolabel</definition>
+        <argsstring>(num)</argsstring>
+        <name>numbertolabel</name>
+        <qualifiedname>functions::numbertolabel</qualifiedname>
+        <param>
+          <type>integer</type>
+          <defname>num</defname>
+        </param>
+        <briefdescription>
+<para>NumberToLabel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts an input atomic number into label.</para>
+<para><itemizedlist>
+<listitem><para>num: the input atomic number. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/functions.f90" line="369" column="1" bodyfile="src/functions.f90" bodystart="370" bodyend="642"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacefunctions_1ade663a7dc12ca47f505eedcebc6a9c2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>integer function</type>
+        <definition>integer function functions::setranseed</definition>
+        <argsstring>(irun)</argsstring>
+        <name>setranseed</name>
+        <qualifiedname>functions::setranseed</qualifiedname>
+        <param>
+          <type>integer</type>
+          <defname>irun</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/functions.f90" line="656" column="1" bodyfile="src/functions.f90" bodystart="657" bodyend="667"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacefunctions_1a2fcc4f2a6c7ecc3b7b2cb8efee83dc1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double precision function, dimension(:), allocatable</type>
+        <definition>double precision function, dimension(:), allocatable functions::massfromlabels</definition>
+        <argsstring>(labels)</argsstring>
+        <name>massfromlabels</name>
+        <qualifiedname>functions::massfromlabels</qualifiedname>
+        <param>
+          <type>character(2), dimension(:)</type>
+          <defname>labels</defname>
+        </param>
+        <briefdescription>
+<para>MassFromLabels. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>gets the mass array from labels</para>
+<para><itemizedlist>
+<listitem><para>labels : label array </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/functions.f90" line="681" column="1" bodyfile="src/functions.f90" bodystart="682" bodyend="691"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Functions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Library of Generic Function </para>
+    </detaileddescription>
+    <location file="src/functions.f90" line="13" column="1"/>
+  </compounddef>
+</doxygen>

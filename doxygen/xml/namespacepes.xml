@@ -1,0 +1,947 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="namespacepes" kind="namespace" language="Fortran">
+    <compoundname>pes</compoundname>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacepes_1ab1edb0ccbc2eb292e13a56f8490d53fd" prot="public" static="no" mutable="no">
+        <type>integer, parameter</type>
+        <definition>integer, parameter pes::nlinemax</definition>
+        <argsstring></argsstring>
+        <name>nlinemax</name>
+        <qualifiedname>pes::nlinemax</qualifiedname>
+        <initializer>= 200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="19" column="1" bodyfile="src/pes.f90" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepes_1a23a59fcac6a8142f8487d45cfeffe13c" prot="public" static="no" mutable="no">
+        <type>character(len=6)</type>
+        <definition>character (len=6) pes::vtype</definition>
+        <argsstring></argsstring>
+        <name>vtype</name>
+        <qualifiedname>pes::vtype</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="20" column="1" bodyfile="src/pes.f90" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepes_1a643f44e7ca705ba0662ef672cebff6e6" prot="public" static="no" mutable="no">
+        <type>character(len=25)</type>
+        <definition>character (len=25) pes::vfile</definition>
+        <argsstring></argsstring>
+        <name>vfile</name>
+        <qualifiedname>pes::vfile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="21" column="1" bodyfile="src/pes.f90" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepes_1aba41be36b42b1eb05bffcb6871ac6ed8" prot="public" static="no" mutable="no">
+        <type>character(len=6)</type>
+        <definition>character (len=6) pes::vopttype</definition>
+        <argsstring></argsstring>
+        <name>vopttype</name>
+        <qualifiedname>pes::vopttype</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="22" column="1" bodyfile="src/pes.f90" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepes_1a72029e7281dce1ebc94575b13602eeab" prot="public" static="no" mutable="no">
+        <type>character(len=25)</type>
+        <definition>character (len=25) pes::voptfile</definition>
+        <argsstring></argsstring>
+        <name>voptfile</name>
+        <qualifiedname>pes::voptfile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="23" column="1" bodyfile="src/pes.f90" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepes_1af916a63154659413614f19bba60f5350" prot="public" static="no" mutable="no">
+        <type>character(len=100)</type>
+        <definition>character (len=100) pes::pesexec</definition>
+        <argsstring></argsstring>
+        <name>pesexec</name>
+        <qualifiedname>pes::pesexec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="24" column="1" bodyfile="src/pes.f90" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepes_1a3130c949413ee53f32a3a93fa84859d7" prot="public" static="no" mutable="no">
+        <type>character(len=100)</type>
+        <definition>character (len=100) pes::pesoptexec</definition>
+        <argsstring></argsstring>
+        <name>pesoptexec</name>
+        <qualifiedname>pes::pesoptexec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="24" column="1" bodyfile="src/pes.f90" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepes_1a356c2c5f579447fc6cfec92bf4bcab4f" prot="public" static="no" mutable="no">
+        <type>character(len=100), dimension(<ref refid="namespacepes_1ab1edb0ccbc2eb292e13a56f8490d53fd" kindref="member">nlinemax</ref>)</type>
+        <definition>character (len=100), dimension(nlinemax) pes::peslines</definition>
+        <argsstring></argsstring>
+        <name>peslines</name>
+        <qualifiedname>pes::peslines</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="25" column="1" bodyfile="src/pes.f90" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepes_1aaab517e0695444b997ba8545228504a3" prot="public" static="no" mutable="no">
+        <type>character(len=100), dimension(<ref refid="namespacepes_1ab1edb0ccbc2eb292e13a56f8490d53fd" kindref="member">nlinemax</ref>)</type>
+        <definition>character (len=100), dimension(nlinemax) pes::pesoptlines</definition>
+        <argsstring></argsstring>
+        <name>pesoptlines</name>
+        <qualifiedname>pes::pesoptlines</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="25" column="1" bodyfile="src/pes.f90" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepes_1ae49ab5998f0aed64f710ab11951c213c" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer pes::nline</definition>
+        <argsstring></argsstring>
+        <name>nline</name>
+        <qualifiedname>pes::nline</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="26" column="1" bodyfile="src/pes.f90" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepes_1ae313c93e32635bc18dce3687e1f27eba" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer pes::nlineopt</definition>
+        <argsstring></argsstring>
+        <name>nlineopt</name>
+        <qualifiedname>pes::nlineopt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="26" column="1" bodyfile="src/pes.f90" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepes_1a0169d7fd9e9ff2db13217335d745195e" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer pes::coordsline</definition>
+        <argsstring></argsstring>
+        <name>coordsline</name>
+        <qualifiedname>pes::coordsline</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="27" column="1" bodyfile="src/pes.f90" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacepes_1a71cc0573350a31abe52ccf496ded3513" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer pes::optcoordsline</definition>
+        <argsstring></argsstring>
+        <name>optcoordsline</name>
+        <qualifiedname>pes::optcoordsline</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="27" column="1" bodyfile="src/pes.f90" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacepes_1afabde251e1825ead6ccf86ae3ec3ad46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::setupenergycalc</definition>
+        <argsstring>(pestype, pesfile, pesexecutable)</argsstring>
+        <name>setupenergycalc</name>
+        <qualifiedname>pes::setupenergycalc</qualifiedname>
+        <param>
+          <type>character (len=6)</type>
+          <defname>pestype</defname>
+        </param>
+        <param>
+          <type>character (len=25)</type>
+          <defname>pesfile</defname>
+        </param>
+        <param>
+          <type>character (len=100)</type>
+          <defname>pesexecutable</defname>
+        </param>
+        <briefdescription>
+<para>SetupEnergyCalc. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes the PES calculation.</para>
+<para><itemizedlist>
+<listitem><para>PEStype: Identifies the type of PES calculation, &apos;ORCA&apos;...</para>
+</listitem><listitem><para>PESfile: Identifies the file containing the template input file for PES evaluation. This should have the characters &apos;XXX&apos; in the line where the coordinates will be input. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="46" column="1" bodyfile="src/pes.f90" bodystart="47" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1a8174e6a35fe7db895b5c801bf9c62ce5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::setupgeomopt</definition>
+        <argsstring>(pesopttype, pesoptfile, pesoptexecutable)</argsstring>
+        <name>setupgeomopt</name>
+        <qualifiedname>pes::setupgeomopt</qualifiedname>
+        <param>
+          <type>character (len=6)</type>
+          <defname>pesopttype</defname>
+        </param>
+        <param>
+          <type>character (len=25)</type>
+          <defname>pesoptfile</defname>
+        </param>
+        <param>
+          <type>character (len=100)</type>
+          <defname>pesoptexecutable</defname>
+        </param>
+        <briefdescription>
+<para>SetupGeomOpt. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes the geometry optimisation calculation.</para>
+<para><itemizedlist>
+<listitem><para>PESopttype: Identifies the PES for geometry optimisation, &apos;ORCA&apos;...</para>
+</listitem><listitem><para>PESoptfile: Identifies the file containing the template input file for PES evaluation. This should have the characters &apos;XXX&apos; in the line where the coordinates will be input. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="109" column="1" bodyfile="src/pes.f90" bodystart="110" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1a9a8620a84a12feb416e02e9c9e64f8be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::abinitio</definition>
+        <argsstring>(cx, abtypein, success)</argsstring>
+        <name>abinitio</name>
+        <qualifiedname>pes::abinitio</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>character(len=4), intent(in)</type>
+          <defname>abtypein</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>success</defname>
+        </param>
+        <briefdescription>
+<para>AbInitio. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates Ab-initio properties for the chemical structure in cx.</para>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure object.</para>
+</listitem><listitem><para>abtype: &apos;ener&apos; = energy calculation ; &apos;grad&apos; = energy+gradient &apos;hess&apos; = energy+gradient+hessian ; &apos;optg&apos; = optimization</para>
+</listitem><listitem><para>success: A logical flag indicating whether or not the PES evaluation was successful. For example, might not have converged the SCF cycles in DFT/HF, etc. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="178" column="1" bodyfile="src/pes.f90" bodystart="179" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1a6cfa4ec2e58a645b8a8e280d98d32f47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::molprocalc</definition>
+        <argsstring>(cx, abtype, success)</argsstring>
+        <name>molprocalc</name>
+        <qualifiedname>pes::molprocalc</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>character (len=4)</type>
+          <defname>abtype</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>success</defname>
+        </param>
+        <briefdescription>
+<para>MOLPROcalc. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs a single-point energy and force calculation using MOLPRO.</para>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure object.</para>
+</listitem><listitem><para>abtype: indicates what time of calculation we shold perform </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="380" column="1" bodyfile="src/pes.f90" bodystart="381" bodyend="535"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1a7529728e0cd0b123b99f0541d4c24690" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::orcacalc</definition>
+        <argsstring>(cx, abtype, success)</argsstring>
+        <name>orcacalc</name>
+        <qualifiedname>pes::orcacalc</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>character(len=4)</type>
+          <defname>abtype</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>success</defname>
+        </param>
+        <briefdescription>
+<para>ORCAcalc. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs a single-point energy and force calculation using ORCA.</para>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure object.</para>
+</listitem><listitem><para>abtype: indicates what type of calculation we shold perform</para>
+</listitem><listitem><para>success: return flag indicating non-convergence of calculation if success = .FALSE. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="552" column="1" bodyfile="src/pes.f90" bodystart="553" bodyend="833"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1a6b9874a523e27244b65c34e696f2a67d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::dftbcalc</definition>
+        <argsstring>(cx, minimize, success)</argsstring>
+        <name>dftbcalc</name>
+        <qualifiedname>pes::dftbcalc</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>minimize</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>success</defname>
+        </param>
+        <briefdescription>
+<para>DFTBcalc. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs a single-point energy and force calculation using DFTB. Note that the appropriate Slater-Koster files should be present in the run directory.</para>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure object.</para>
+</listitem><listitem><para>minimize: logical flag indicating whether or not to run a geometry optimization calculation.</para>
+</listitem><listitem><para>success: Flag indicating success of calculation. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="853" column="1" bodyfile="src/pes.f90" bodystart="854" bodyend="995"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1a1e71d8804e37caf716dd61291f5387fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::xtbcalc</definition>
+        <argsstring>(cx, minimize, success)</argsstring>
+        <name>xtbcalc</name>
+        <qualifiedname>pes::xtbcalc</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), intent(inout)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>logical, intent(in)</type>
+          <defname>minimize</defname>
+        </param>
+        <param>
+          <type>logical, intent(out)</type>
+          <defname>success</defname>
+        </param>
+        <briefdescription>
+<para>xTBcalc </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs a single-point energy and force calculation using xTB.</para>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure object.</para>
+</listitem><listitem><para>minimize: logical flag indicating whether or not to run a geometry optimization calculation.</para>
+</listitem><listitem><para>success: Flag indicating success of calculation. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="1011" column="1" bodyfile="src/pes.f90" bodystart="1012" bodyend="1110"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1a99f8327e20ba1aa7e417f920bf4c4bb7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::aimscalc</definition>
+        <argsstring>(cx, minimize, success)</argsstring>
+        <name>aimscalc</name>
+        <qualifiedname>pes::aimscalc</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), intent(inout)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>logical, intent(in)</type>
+          <defname>minimize</defname>
+        </param>
+        <param>
+          <type>logical, intent(out)</type>
+          <defname>success</defname>
+        </param>
+        <briefdescription>
+<para>AIMScalc. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs a single-point energy and force calculation using FHI-aims.</para>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure object.</para>
+</listitem><listitem><para>minimize: logical flag indicating whether or not to run a geometry optimization calculation.</para>
+</listitem><listitem><para>success: Flag indicating success of calculation. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="1127" column="1" bodyfile="src/pes.f90" bodystart="1128" bodyend="1247"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1a3c31f7c822b9f71d668245f72cc453b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::uffcalc</definition>
+        <argsstring>(cx, minimize, success)</argsstring>
+        <name>uffcalc</name>
+        <qualifiedname>pes::uffcalc</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>minimize</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>success</defname>
+        </param>
+        <briefdescription>
+<para>UFFcalc. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs a single-point energy and force calculation using UFF, as implemented in openbabel (obabel).</para>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure object.</para>
+</listitem><listitem><para>minimize: logical flag indicating whether or not to run a geometry optimization calculation.</para>
+<para>For openbabel, we must have minimize = .TRUE.</para>
+</listitem><listitem><para>success: Flag indicating success of calculation.</para>
+</listitem></itemizedlist>
+</para>
+<para>DEPENDENCIES: Requires babel and obminimize. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="1270" column="1" bodyfile="src/pes.f90" bodystart="1271" bodyend="1345"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1aca3a505d6265f24ebc0e4451872259f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::lammpscalc</definition>
+        <argsstring>(cx, abtype, success)</argsstring>
+        <name>lammpscalc</name>
+        <qualifiedname>pes::lammpscalc</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>character (len=4)</type>
+          <defname>abtype</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>success</defname>
+        </param>
+        <briefdescription>
+<para>LAMMPScalc. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs a single-point energy and force calculation using LAMMPS.</para>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure object.</para>
+</listitem><listitem><para>abtype: indicates what time of calculation we shold perform </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="1361" column="1" bodyfile="src/pes.f90" bodystart="1362" bodyend="1589"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1af090baa63d75251c8a0d59fa6a0e5ab7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::psi4calc</definition>
+        <argsstring>(cx, minimize, success)</argsstring>
+        <name>psi4calc</name>
+        <qualifiedname>pes::psi4calc</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>minimize</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>success</defname>
+        </param>
+        <briefdescription>
+<para>PSI4calc. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs a single-point energy and force calculation using psi4.</para>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure object.</para>
+</listitem><listitem><para>minimize: logical flag indicating whether or not to run a geometry optimization calculation. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="1604" column="1" bodyfile="src/pes.f90" bodystart="1605" bodyend="1681"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1a5b178c8dc94c020d110eaf07c11e761d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::readforcesindividually</definition>
+        <argsstring>(cx, dummylines)</argsstring>
+        <name>readforcesindividually</name>
+        <qualifiedname>pes::readforcesindividually</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>dummylines</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="1685" column="1" bodyfile="src/pes.f90" bodystart="1686" bodyend="1715"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1ad0b6999f62358bfb0f166abef78edfdd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::readforcestogether</definition>
+        <argsstring>(cx, dummylines)</argsstring>
+        <name>readforcestogether</name>
+        <qualifiedname>pes::readforcestogether</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>dummylines</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="1719" column="1" bodyfile="src/pes.f90" bodystart="1720" bodyend="1749"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1ada6999dfcf55667159df6c68151fa4fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::readenergy</definition>
+        <argsstring>(cx, dummylines)</argsstring>
+        <name>readenergy</name>
+        <qualifiedname>pes::readenergy</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>dummylines</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="1753" column="1" bodyfile="src/pes.f90" bodystart="1754" bodyend="1773"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1acf861f8ec4b878596fea4d6984af8967" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::readhessian</definition>
+        <argsstring>(cx, filename)</argsstring>
+        <name>readhessian</name>
+        <qualifiedname>pes::readhessian</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>character (len=*)</type>
+          <defname>filename</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="1777" column="1" bodyfile="src/pes.f90" bodystart="1778" bodyend="1838"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1a17ee9c59c131b3da7b586733bf9f2ec2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::readoptimizedcoordinates</definition>
+        <argsstring>(cx, filename)</argsstring>
+        <name>readoptimizedcoordinates</name>
+        <qualifiedname>pes::readoptimizedcoordinates</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>character (len=*)</type>
+          <defname>filename</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="1842" column="1" bodyfile="src/pes.f90" bodystart="1843" bodyend="1868"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1a3c28a0b18ef26d0a41522e0c0ab88b42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::createfiletemplate</definition>
+        <argsstring>(minimize, exec, n, buffer, iline)</argsstring>
+        <name>createfiletemplate</name>
+        <qualifiedname>pes::createfiletemplate</qualifiedname>
+        <param>
+          <type>logical</type>
+          <defname>minimize</defname>
+        </param>
+        <param>
+          <type>character (len=100)</type>
+          <defname>exec</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>n</defname>
+        </param>
+        <param>
+          <type>character (len=100), dimension(<ref refid="namespacepes_1ab1edb0ccbc2eb292e13a56f8490d53fd" kindref="member">nlinemax</ref>)</type>
+          <defname>buffer</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>iline</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="1872" column="1" bodyfile="src/pes.f90" bodystart="1873" bodyend="1891"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1a7518f38a27ed0fe7d940eb9832d4143f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::executecalculation</definition>
+        <argsstring>(str, success)</argsstring>
+        <name>executecalculation</name>
+        <qualifiedname>pes::executecalculation</qualifiedname>
+        <param>
+          <type>character (len=100)</type>
+          <defname>str</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>success</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="1895" column="1" bodyfile="src/pes.f90" bodystart="1896" bodyend="1921"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1a3e3f3e53db69ad2009b7c91795f32bf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::extractdata</definition>
+        <argsstring>(str)</argsstring>
+        <name>extractdata</name>
+        <qualifiedname>pes::extractdata</qualifiedname>
+        <param>
+          <type>character (len=100)</type>
+          <defname>str</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="1925" column="1" bodyfile="src/pes.f90" bodystart="1926" bodyend="1936"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1ad09cee72e0fef4317231efc6b7cf35fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::fireminimise</definition>
+        <argsstring>(cx, iterin, gdsrestspring_in, nbstrength_in, nbrange, kradius, nebrestrend)</argsstring>
+        <name>fireminimise</name>
+        <qualifiedname>pes::fireminimise</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>iterin</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>gdsrestspring_in</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>nbstrength_in</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>nbrange</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>kradius</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>nebrestrend</defname>
+        </param>
+        <briefdescription>
+<para>FireMinimise. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>minimises the energy using the FIRE algorithm, incorporating the graph constraining ppotentials if nebrestend = .true. the last bit of the minimization, we switch to quickmin, optional</para>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure object to be optimized</para>
+</listitem><listitem><para>iter: returns the number of iterations it took to optimize</para>
+</listitem><listitem><para>all other: parameteres for the graph restraining potential. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="1953" column="1" bodyfile="src/pes.f90" bodystart="1954" bodyend="2062"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1a1d90d628767602b96f7d3fdba9789918" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::mincxsenergynebrest</definition>
+        <argsstring>(cx, success)</argsstring>
+        <name>mincxsenergynebrest</name>
+        <qualifiedname>pes::mincxsenergynebrest</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>success</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="2066" column="1" bodyfile="src/pes.f90" bodystart="2067" bodyend="2075"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1a8bc8971902e40c913ba0bd5b50fb5a7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::mincxsenergy</definition>
+        <argsstring>(cx, success)</argsstring>
+        <name>mincxsenergy</name>
+        <qualifiedname>pes::mincxsenergy</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>success</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="2079" column="1" bodyfile="src/pes.f90" bodystart="2080" bodyend="2086"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1aacd7a0dc07c19006c3f5e8cfaede7313" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::matchcxconstraint</definition>
+        <argsstring>(cx, mcx, kspring)</argsstring>
+        <name>matchcxconstraint</name>
+        <qualifiedname>pes::matchcxconstraint</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>mcx</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>kspring</defname>
+        </param>
+        <briefdescription>
+<para>MatchCXContraints. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>provides a force proportional to the difference btween the coordinates of the two structures cx and mcx</para>
+<para><itemizedlist>
+<listitem><para>cx: A chemical structure object.</para>
+</listitem><listitem><para>kspring: Spring constant for the bonding restraint term. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="2100" column="1" bodyfile="src/pes.f90" bodystart="2101" bodyend="2113"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1afc968bc3d71f71a87a1277eb370b87da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::getactmolecenergies</definition>
+        <argsstring>(cx, molecact, nactmol, molen)</argsstring>
+        <name>getactmolecenergies</name>
+        <qualifiedname>pes::getactmolecenergies</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer, dimension(nactmol)</type>
+          <defname>molecact</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nactmol</defname>
+        </param>
+        <param>
+          <type>double precision, dimension(nactmol), optional</type>
+          <defname>molen</defname>
+        </param>
+        <briefdescription>
+<para>GetActMolecularEnergies. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the energies of each molecule in the reactants and produts of rp for molecules that are &quot;active&quot;</para>
+<para><itemizedlist>
+<listitem><para>cx: chemical structure.</para>
+</listitem><listitem><para>MolecAct: array with the molecue indecies</para>
+</listitem><listitem><para>nactmol: number of molecules in MolecAct array</para>
+</listitem><listitem><para>molen: array with energies</para>
+</listitem><listitem><para>filenam: The filename to be outputed </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="2132" column="1" bodyfile="src/pes.f90" bodystart="2133" bodyend="2149"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacepes_1a93dedbea29f40a00bff8c13569737be1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine pes::getmolecularenergies</definition>
+        <argsstring>(cx)</argsstring>
+        <name>getmolecularenergies</name>
+        <qualifiedname>pes::getmolecularenergies</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>GetMolecularEnergies. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the energies of each molecule in the reactants and produts of rp</para>
+<para><itemizedlist>
+<listitem><para>cx: chemical structure.</para>
+</listitem><listitem><para>filenam: The filename to be outputed </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pes.f90" line="2165" column="1" bodyfile="src/pes.f90" bodystart="2166" bodyend="2178"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Potential energy surface calculations. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Defines subroutines for evaluating energies and forces using various external codes. </para>
+    </detaileddescription>
+    <location file="src/pes.f90" line="12" column="1"/>
+  </compounddef>
+</doxygen>

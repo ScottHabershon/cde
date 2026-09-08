@@ -30,7 +30,7 @@ Module constants
   integer, parameter :: NAMOVEMAX = 6        !< Maximum number of atoms which can be involved in graph moves.
   integer, parameter :: MAXMOL = 4000 !< Maximum number of molecules stored in MolData datatype
   integer, parameter :: NMECHMAX = 250        !< Maximum number of stored mechanisms
-  integer, parameter :: NRXNMAX = 25        !< Maximum number of stored mechanisms
+  integer, parameter :: NRXNMAX = 100        !< Maximum number of stored mechanisms
   integer, parameter :: nvalmax = 12
   integer, parameter :: NELMAX = 10
   integer, parameter :: NBONDMAX = 100
@@ -339,7 +339,7 @@ Module constants
 
 !  real(8), parameter :: bondingsf = 1.10d0       !< Scale factor applied to covalent radii to
   ! lammps optimises wrong C-H distance if made 1.1
-  real(8), parameter :: bondingsf = 1.10d0       !< Scale factor applied to covalent radii to
+  real(8), parameter :: bondingsf = 1.20d0       !< Scale factor applied to covalent radii to
                                                 !! define bonding. Atoms are bonded if
                                                 !! r(i,j) <= (covrad(i) + covrad(j)) * bondingsf
 
@@ -349,7 +349,7 @@ Module constants
   real(8), parameter :: bondingrange2 = -0.10d0 * ang_to_bohr   !< Shift range over which atoms are restrained
                                                              !! in GDS simulations.
   !
-  real(8), parameter :: RADIUS_MAX = 50.d0 * ang_to_bohr  ! 100?
+  real(8), parameter :: RADIUS_MAX = 25.d0 * ang_to_bohr  ! 100?
   real(8), parameter :: RADIUS_MIN = 12.d0 * ang_to_bohr
 
   real(8), parameter :: LATTICESTEP = 4.d0 * ang_to_bohr

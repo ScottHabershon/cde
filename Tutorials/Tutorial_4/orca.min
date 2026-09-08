@@ -1,4 +1,4 @@
-! xtb2 opt 
+! Native-GFN2-xTB opt 
 *xyz 0 1
 XXX
 *

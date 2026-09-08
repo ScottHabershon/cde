@@ -1,0 +1,11 @@
+The directory $\ast$$\sim$/utils/$\ast$ in the main C\+DE installation directory contains a series of useful {\itshape bash} and {\itshape python} scripts as follows\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Compare\+Profiles.\+py}}\+: Uses python and matplotlib to compare two energy profiles resulting from N\+EB calculations.
+\item {\bfseries{Whole\+Energy\+Profile.\+py}}\+: Plots a sequence of N\+EB results as a single continuous energy profile using python and matplotlib.
+\item {\bfseries{maker.\+sc}}\+: A bash script for creating multiple directories with identicial copies of a set of input files, except with different random number seeds.
+\item {\bfseries{runner.\+sc}}\+: A bash script to submit multiple jobs to the H\+PC queue. This can be used after using {\itshape maker.\+sc} to generate the input directories and files.
+\item {\bfseries{neb.\+sc}}\+: A bash script to perform multiple N\+EB runs. This can be used after a double-\/ended G\+DS calculation to calculate the energy along the minimum energy path for a whole sequence of reactions. The final result of using {\itshape neb.\+sc} can then be plotted using {\itshape Whole\+Energy\+Profile.\+py}.
+\item {\bfseries{job\+\_\+script.\+sc}}\+: An example queue script for submission of a job to the Warwick C\+OW. 
+\end{DoxyItemize}

@@ -1,0 +1,1853 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="namespacechemstr" kind="namespace" language="Fortran">
+    <compoundname>chemstr</compoundname>
+    <innerclass refid="structchemstr_1_1cxs" prot="public">chemstr::cxs</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespacechemstr_1a816dc4c02e3f8a2fa1b2ce158044da9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::createcxs</definition>
+        <argsstring>(cx, na, label, x, y, z)</argsstring>
+        <name>createcxs</name>
+        <qualifiedname>chemstr::createcxs</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>na</defname>
+        </param>
+        <param>
+          <type>character (len=2), dimension(:)</type>
+          <defname>label</defname>
+        </param>
+        <param>
+          <type>real(8), dimension(:)</type>
+          <defname>x</defname>
+        </param>
+        <param>
+          <type>real(8), dimension(:)</type>
+          <defname>y</defname>
+        </param>
+        <param>
+          <type>real(8), dimension(:)</type>
+          <defname>z</defname>
+        </param>
+        <briefdescription>
+<para>CreateCXS. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a CXS object directly using labels and x,y,z coordinates which are passed in.</para>
+<para>cx - the created CXS object. na - number of atoms. label - atomic labels. x,y,z, - atomic coordinates in atomic units. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="81" column="1" bodyfile="src/structure.f90" bodystart="82" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a355e4ad635ef0c00ec0fd0f3dfcb5fe6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::deletecxs</definition>
+        <argsstring>(cx)</argsstring>
+        <name>deletecxs</name>
+        <qualifiedname>chemstr::deletecxs</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>DeleteCXS. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Deletes memory associated with a CXS object.</para>
+<para>cx - the created CXS object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="180" column="1" bodyfile="src/structure.f90" bodystart="181" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a8e6c53cdedc7fd4344a6c7f80cef7ea8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::copytonewcxs</definition>
+        <argsstring>(cx1, cx2)</argsstring>
+        <name>copytonewcxs</name>
+        <qualifiedname>chemstr::copytonewcxs</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx1</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx2</defname>
+        </param>
+        <briefdescription>
+<para>CopyToNewCXS. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new copy of cx1 and puts it in cx2. Note that this routine allocates new space for cx2 - cx2 must not have already been allocated.</para>
+<para><itemizedlist>
+<listitem><para>cx1: Input chemical structure object.</para>
+</listitem><listitem><para>cx2: Nex chemical structure object. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="219" column="1" bodyfile="src/structure.f90" bodystart="220" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a037cd002260a81e4cb610374dd2b5b91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::copycxs</definition>
+        <argsstring>(cx1, cx2)</argsstring>
+        <name>copycxs</name>
+        <qualifiedname>chemstr::copycxs</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx1</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx2</defname>
+        </param>
+        <briefdescription>
+<para>CopyCXS. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a copy of cx1 and in cx2. Note that cx2 must already exist as a cxs object.</para>
+<para><itemizedlist>
+<listitem><para>cx1: Input chemical structure object.</para>
+</listitem><listitem><para>cx2: Nex chemical structure object. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="279" column="1" bodyfile="src/structure.f90" bodystart="280" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a56a273f4f5259b687492dbe0824baee7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::setmass</definition>
+        <argsstring>(cx)</argsstring>
+        <name>setmass</name>
+        <qualifiedname>chemstr::setmass</qualifiedname>
+        <param>
+          <type>type (<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>SetMass. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the atomic masses in a cxs object based on atomic labels. The mass values are stored in &apos;<ref refid="constants_8f90" kindref="compound">constants.f90</ref>&apos;.</para>
+<para><itemizedlist>
+<listitem><para>cx: The chemical structure object. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="329" column="1" bodyfile="src/structure.f90" bodystart="330" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1ac058a9ac70f166f7d78a740dafdb7191" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::createcxsfromxyz</definition>
+        <argsstring>(cx, ifile)</argsstring>
+        <name>createcxsfromxyz</name>
+        <qualifiedname>chemstr::createcxsfromxyz</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>character (len=*), intent(in)</type>
+          <defname>ifile</defname>
+        </param>
+        <briefdescription>
+<para>CreateCXSFromXYZ. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates empty CXS from XYZ</para>
+<para><itemizedlist>
+<listitem><para>cx: the created CXS object.</para>
+</listitem><listitem><para>ifile: the input file to read the coordinates from. Note that this must be an xyz file format. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="360" column="1" bodyfile="src/structure.f90" bodystart="361" bodyend="388"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a95a6afee2e6b81c26e9bba9802c06f20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::createcxsfrommask</definition>
+        <argsstring>(cx, mask, new_cx)</argsstring>
+        <name>createcxsfrommask</name>
+        <qualifiedname>chemstr::createcxsfrommask</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), intent(in)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>logical, dimension(:), intent(in)</type>
+          <defname>mask</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), intent(out)</type>
+          <defname>new_cx</defname>
+        </param>
+        <briefdescription>
+<para>CreateCXSFromMask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a copy of the <computeroutput><ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref></computeroutput> object <computeroutput>cx</computeroutput>, with only the atoms specified in <computeroutput>mask</computeroutput>. Ensures proper copying of atomic coordinates, labels and graph. Does not handle any calculations on this new <computeroutput><ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref></computeroutput>, so these will need to be redone afterwards.</para>
+<para>cx: Input <computeroutput><ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref></computeroutput>. Note that graph must be calculated BEFORE calling. mask: <computeroutput>cxna</computeroutput> long logical array of atoms to keep (<computeroutput>.true.</computeroutput>) or discard (<computeroutput>.false.</computeroutput>). new_cx: Output <computeroutput><ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref></computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="404" column="1" bodyfile="src/structure.f90" bodystart="405" bodyend="451"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a3362d0b3533d709526afd1ee053fa8a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::readxyztocxs</definition>
+        <argsstring>(cx, ifile)</argsstring>
+        <name>readxyztocxs</name>
+        <qualifiedname>chemstr::readxyztocxs</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>character (len=*), intent(in)</type>
+          <defname>ifile</defname>
+        </param>
+        <briefdescription>
+<para>ReadXYZtoCXS. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads in a set of coordinates from xyz and puts it in CXS beware: the numer of atoms and indecies must be the same in the XYZ as the CXS allocated arrays</para>
+<para><itemizedlist>
+<listitem><para>cx: the created CXS object.</para>
+</listitem><listitem><para>ifile: the input file to read the coordinates from. Note that this must be an xyz file format. seb </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="469" column="1" bodyfile="src/structure.f90" bodystart="470" bodyend="512"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1aff042add3b3af6c94bbd1ab650c2d52d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::readcxs</definition>
+        <argsstring>(cx, ifile)</argsstring>
+        <name>readcxs</name>
+        <qualifiedname>chemstr::readcxs</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>character (len=*), intent(in)</type>
+          <defname>ifile</defname>
+        </param>
+        <briefdescription>
+<para>ReadCXS. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads in a set of coordinates to a CXS object from an xyz file.</para>
+<para><itemizedlist>
+<listitem><para>cx: the created CXS object.</para>
+</listitem><listitem><para>ifile: the input file to read the coordinates from. Note that this must be an xyz file format. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="528" column="1" bodyfile="src/structure.f90" bodystart="529" bodyend="616"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1aca4ec9833226733e23883f7c915dc230" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::setcxsconstraints</definition>
+        <argsstring>(cx, ndofconstr, fixeddof, natomconstr, fixedatom)</argsstring>
+        <name>setcxsconstraints</name>
+        <qualifiedname>chemstr::setcxsconstraints</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer, intent(in)</type>
+          <defname>ndofconstr</defname>
+        </param>
+        <param>
+          <type>integer, dimension(:), intent(in)</type>
+          <defname>fixeddof</defname>
+        </param>
+        <param>
+          <type>integer, intent(in)</type>
+          <defname>natomconstr</defname>
+        </param>
+        <param>
+          <type>integer, dimension(:), intent(in)</type>
+          <defname>fixedatom</defname>
+        </param>
+        <briefdescription>
+<para>SetCXSConstraints. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>sets constraints on DOFs and atoms in a structure.</para>
+<para><itemizedlist>
+<listitem><para>cx: the created CXS object.</para>
+</listitem><listitem><para>NDOFconstr: Number of DOF constraints.</para>
+</listitem><listitem><para>FixedDOF: Array containing integer number of constrained DOFs</para>
+</listitem><listitem><para>Natomconstr: Number of atom constraints</para>
+</listitem><listitem><para>Fixedatom: Array containing integer ids of fixed atoms. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="634" column="1" bodyfile="src/structure.f90" bodystart="635" bodyend="659"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a8f2832c53773ad18eadd995ec383cda8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::getprojectedmomenta</definition>
+        <argsstring>(cx)</argsstring>
+        <name>getprojectedmomenta</name>
+        <qualifiedname>chemstr::getprojectedmomenta</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>GetProjectedMomenta. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the momenta projected along the direction of the force array - this is usually the forces from (CI)NEB.</para>
+<para><itemizedlist>
+<listitem><para>cx: A chemical structure object. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="674" column="1" bodyfile="src/structure.f90" bodystart="675" bodyend="744"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1abb28977af5498456e127ef24a4398aad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::getgraph</definition>
+        <argsstring>(cx)</argsstring>
+        <name>getgraph</name>
+        <qualifiedname>chemstr::getgraph</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>GetGraph. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the bonding graph for the system. The values which define whether or not atoms are bonded are based on covalent radii, and are stored in <ref refid="constants_8f90" kindref="compound">constants.f90</ref> in an atomic-number-labelled array called BondingCutoff(:,:).</para>
+<para><itemizedlist>
+<listitem><para>cx: A chemical structure object. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="761" column="1" bodyfile="src/structure.f90" bodystart="762" bodyend="809"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a6c05b1170d09857c530676740c349725" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::getmols</definition>
+        <argsstring>(cx)</argsstring>
+        <name>getmols</name>
+        <qualifiedname>chemstr::getmols</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>GetMols. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Uses the connectivity graph to determine the molecules defined by the chemical structure cx. To do so, we use Floyd-Warshall shortest-path walks on the chemical structure graph. Molen/Molcharge arrays will be reset, so beware!</para>
+<para><itemizedlist>
+<listitem><para>cx: Input chemical structure object. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="825" column="1" bodyfile="src/structure.f90" bodystart="826" bodyend="925"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1afcf9cf9982320c1a5d8147d4dc07244e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::getshortestpaths</definition>
+        <argsstring>(n, dg, dsp)</argsstring>
+        <name>getshortestpaths</name>
+        <qualifiedname>chemstr::getshortestpaths</qualifiedname>
+        <param>
+          <type>integer</type>
+          <defname>n</defname>
+        </param>
+        <param>
+          <type>real(8), dimension(:, :)</type>
+          <defname>dg</defname>
+        </param>
+        <param>
+          <type>real(8), dimension(:, :)</type>
+          <defname>dsp</defname>
+        </param>
+        <briefdescription>
+<para>GetShortestPaths. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the matrix dsp(i,j) which contains the shortest path between points i and j as determined by Floyd-Warshall algorithm.</para>
+<para><itemizedlist>
+<listitem><para>n: number of points</para>
+</listitem><listitem><para>dg(:,:): distance between points.</para>
+</listitem><listitem><para>dsp(:,:): Shortest-path between points. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="942" column="1" bodyfile="src/structure.f90" bodystart="943" bodyend="963"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a38779fdbd95d7cfe9b20a456d704f37d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::graphconstraints</definition>
+        <argsstring>(cx, kspring, nbstrength, nbrange, kradius)</argsstring>
+        <name>graphconstraints</name>
+        <qualifiedname>chemstr::graphconstraints</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>kspring</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>nbstrength</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>nbrange</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>kradius</defname>
+        </param>
+        <briefdescription>
+<para>GraphConstraints. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the potential energy and forces arising due to graph constraints.</para>
+<para><itemizedlist>
+<listitem><para>cx: A chemical structure object.</para>
+</listitem><listitem><para>kspring: Spring constant for the bonding restraint term.</para>
+</listitem><listitem><para>nbstrength: Repulsive exponential interaction strength in au for atom pairs with g(i,j) = 0</para>
+</listitem><listitem><para>nbrange: Repulsive exponential interaction range in au for atom pairs with g(i,j) = 0</para>
+</listitem><listitem><para>kradius: Harmonic restraint term strength for different molecules. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="984" column="1" bodyfile="src/structure.f90" bodystart="985" bodyend="1226"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a8c1068dc664d3b789bc998f0bf8acf6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::graphconstraints_doubleended</definition>
+        <argsstring>(cx, cxstart, kspring, nbstrength, nbrange, kradius)</argsstring>
+        <name>graphconstraints_doubleended</name>
+        <qualifiedname>chemstr::graphconstraints_doubleended</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cxstart</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>kspring</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>nbstrength</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>nbrange</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>kradius</defname>
+        </param>
+        <briefdescription>
+<para>GraphConstraints_DoubleEnded. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the potential energy and forces arising due to graph constraints.</para>
+<para><itemizedlist>
+<listitem><para>cx: A chemical structure object.</para>
+</listitem><listitem><para>kspring: Spring constant for the bonding restraint term.</para>
+</listitem><listitem><para>nbstrength: Repulsive exponential interaction strength in au for atom pairs with g(i,j) = 0</para>
+</listitem><listitem><para>nbrange: Repulsive exponential interaction range in au for atom pairs with g(i,j) = 0</para>
+</listitem><listitem><para>kradius: Harmonic restraint term strength for different molecules. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="1247" column="1" bodyfile="src/structure.f90" bodystart="1248" bodyend="1428"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1ae4120f18447f6c019a86e67aa63c7ebc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::projactmolrottransdvdr2</definition>
+        <argsstring>(cx, nactmol, molecact, frozlistin)</argsstring>
+        <name>projactmolrottransdvdr2</name>
+        <qualifiedname>chemstr::projactmolrottransdvdr2</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nactmol</defname>
+        </param>
+        <param>
+          <type>integer, dimension(nactmol)</type>
+          <defname>molecact</defname>
+        </param>
+        <param>
+          <type>logical, dimension(nactmol), optional</type>
+          <defname>frozlistin</defname>
+        </param>
+        <briefdescription>
+<para>ProjActMolRotTransDVDR2 projects the rotational and translational degrees of freedom of each nactmol active molecule in molecact from the dcerivative vector dvdr. WARNING - THE PROJECTION OF OF DVDR ONLY WORKS PARTIALLY FOR ROTATIONAL DOF, IF DVDR IS VERY LARGE, IT NO LONGER WORKS APPROPRIATELY.. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure</para>
+</listitem><listitem><para>bx: Chemical structure object</para>
+</listitem><listitem><para>rad_min: distance between two molecules hard spheres</para>
+</listitem><listitem><para>nactmol: number of active molecules in cx and bx</para>
+</listitem><listitem><para>MolecAct: the ID of the molecules that are acive in cx and bx (size of array = nactmol)</para>
+</listitem><listitem><para>gm: matrix of molecules with atoms bonding/ breaking during a reaction </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="1450" column="1" bodyfile="src/structure.f90" bodystart="1451" bodyend="1536"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1abca5a1d5d0b7dc1a14f745b783b1d36b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::projoutactmolrottransdvdr</definition>
+        <argsstring>(cx, nactmol, molecact, mcx)</argsstring>
+        <name>projoutactmolrottransdvdr</name>
+        <qualifiedname>chemstr::projoutactmolrottransdvdr</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nactmol</defname>
+        </param>
+        <param>
+          <type>integer, dimension(nactmol)</type>
+          <defname>molecact</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), optional</type>
+          <defname>mcx</defname>
+        </param>
+        <briefdescription>
+<para>ProjOutActMolRotTransDVDR projects out the rotational and translational degrees of freedom of the system of active molecules from the dcerivative vector dvdr. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure</para>
+</listitem><listitem><para>bx: Chemical structure object</para>
+</listitem><listitem><para>rad_min: distance between two molecules hard spheres</para>
+</listitem><listitem><para>nactmol: number of active molecules in cx and bx</para>
+</listitem><listitem><para>MolecAct: the ID of the molecules that are acive in cx and bx (size of array = nactmol)</para>
+</listitem><listitem><para>mcx (optional): if another cx is provided, then it uses the molid and namol arrays from that one </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="1556" column="1" bodyfile="src/structure.f90" bodystart="1557" bodyend="1643"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a9d74090af53171e80d26702bce7e904b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::projoutactmolrottransdvdrpair</definition>
+        <argsstring>(cx, molecact, nactmol, ic)</argsstring>
+        <name>projoutactmolrottransdvdrpair</name>
+        <qualifiedname>chemstr::projoutactmolrottransdvdrpair</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(2)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer, dimension(cx(ic)%nmol)</type>
+          <defname>molecact</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nactmol</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>ic</defname>
+        </param>
+        <briefdescription>
+<para>ProjOutActMolRotTransDVDRPair. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>removes the overal translation and rotation DOF of the superset of a pair of cx(1:2) from the DVDR, for molecules that are &quot;active&quot; (break/form bonds based on graphs in images at endpoints) it uses the molecule id&apos;s of the image ic note that it does not check weather the molecules are frozen or not...</para>
+<para><itemizedlist>
+<listitem><para>rp: Reaction Path Object</para>
+</listitem><listitem><para>if: </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="1661" column="1" bodyfile="src/structure.f90" bodystart="1662" bodyend="1761"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1ab59328a5e2aaf2435986aede46001bc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::projoutactmolrottransdvdr2</definition>
+        <argsstring>(cx, molecact, nactmol, ic)</argsstring>
+        <name>projoutactmolrottransdvdr2</name>
+        <qualifiedname>chemstr::projoutactmolrottransdvdr2</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(2)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer, dimension(nactmol)</type>
+          <defname>molecact</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nactmol</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>ic</defname>
+        </param>
+        <briefdescription>
+<para>ProjOutActMolRotTransDVDR2. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>removes the overal translation and rotation DOF of the entire rp coordinates from the DVDR, for molecules that are &quot;active&quot; (break/form bonds based on graphs in images at endpoints) it uses the molecule id&apos;s of the image ic note that it does not check weather the molecules are frozen or not...</para>
+<para><itemizedlist>
+<listitem><para>rp: Reaction Path Object</para>
+</listitem><listitem><para>if: </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="1779" column="1" bodyfile="src/structure.f90" bodystart="1780" bodyend="1880"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a648457057ca351be910d34af0fe74dd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::projmolrottransdvdr2</definition>
+        <argsstring>(cx)</argsstring>
+        <name>projmolrottransdvdr2</name>
+        <qualifiedname>chemstr::projmolrottransdvdr2</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>ProjMolRotTransDVDR2 projects the rotational and translational degrees of freedom of each molecule from the dcerivative vector dvdr. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure</para>
+</listitem><listitem><para>bx: Chemical structure object</para>
+</listitem><listitem><para>rad_min: distance between two molecules hard spheres</para>
+</listitem><listitem><para>nactmol: number of active molecules in cx and bx</para>
+</listitem><listitem><para>MolecAct: the ID of the molecules that are acive in cx and bx (size of array = nactmol)</para>
+</listitem><listitem><para>gm: matrix of molecules with atoms bonding/ breaking during a reaction </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="1898" column="1" bodyfile="src/structure.f90" bodystart="1899" bodyend="1978"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1ae5bb3c1c738bff7b67f248e79f1915a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::projmolrottransdvdr</definition>
+        <argsstring>(cx)</argsstring>
+        <name>projmolrottransdvdr</name>
+        <qualifiedname>chemstr::projmolrottransdvdr</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>ProjMolRotTransDVDR projects the rotational and translational degrees of freedom of each molecule from the dcerivative vector dvdr not sure if this one works... </para>
+        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure</para>
+</listitem><listitem><para>bx: Chemical structure object</para>
+</listitem><listitem><para>rad_min: distance between two molecules hard spheres</para>
+</listitem><listitem><para>nactmol: number of active molecules in cx and bx</para>
+</listitem><listitem><para>MolecAct: the ID of the molecules that are acive in cx and bx (size of array = nactmol)</para>
+</listitem><listitem><para>gm: matrix of molecules with atoms bonding/ breaking during a reaction </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="1996" column="1" bodyfile="src/structure.f90" bodystart="1997" bodyend="2117"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1ac3ae7b720d24d1e767b7cd60c17445af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>integer function</type>
+        <definition>integer function chemstr::molidofatom</definition>
+        <argsstring>(atid, cx)</argsstring>
+        <name>molidofatom</name>
+        <qualifiedname>chemstr::molidofatom</qualifiedname>
+        <param>
+          <type>integer</type>
+          <defname>atid</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>MolIdFromAtom. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Tells you which molecule the atom belogs to. Returns the ID of that molecule</para>
+<para><itemizedlist>
+<listitem><para>cx: chemical structure</para>
+</listitem><listitem><para>atid: atom index </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2132" column="1" bodyfile="src/structure.f90" bodystart="2133" bodyend="2158"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1aecfcdc7587a86cb18749383e538abbab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double precision function, dimension(3, 3)</type>
+        <definition>double precision function, dimension(3, 3) chemstr::molmomentofinertiatensor</definition>
+        <argsstring>(cx, mi)</argsstring>
+        <name>molmomentofinertiatensor</name>
+        <qualifiedname>chemstr::molmomentofinertiatensor</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>mi</defname>
+        </param>
+        <briefdescription>
+<para>MoleculeMomentOfInertiaTensor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the Moment of inertia tensor matrix of a molecule mi in chemical structure cx</para>
+<para>mi - the index of the molecule mit - returns moment of inertia tensor </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2174" column="1" bodyfile="src/structure.f90" bodystart="2175" bodyend="2202"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a29e334c1c70aebfd46dcc358188d57b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>real(8) function, dimension(3)</type>
+        <definition>real(8) function, dimension(3) chemstr::molecularcom</definition>
+        <argsstring>(cx, m)</argsstring>
+        <name>molecularcom</name>
+        <qualifiedname>chemstr::molecularcom</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>m</defname>
+        </param>
+        <briefdescription>
+<para>MolecularCOM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the centre of mass of molecule m from reaction strucuture cx</para>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure object.</para>
+</listitem><listitem><para>m: molecule in cxs </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2217" column="1" bodyfile="src/structure.f90" bodystart="2218" bodyend="2231"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1aef17d31cdb1cd38fb760b5751f79ca85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::accumulatederivatives</definition>
+        <argsstring>(cx, t1, i, j)</argsstring>
+        <name>accumulatederivatives</name>
+        <qualifiedname>chemstr::accumulatederivatives</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>t1</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>i</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>j</defname>
+        </param>
+        <briefdescription>
+<para>AccumulateDerivatives. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Updates dvdr with additional forces.</para>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure object.</para>
+</listitem><listitem><para>t1: Force term to be applied.</para>
+</listitem><listitem><para>i, j: Atom indexes. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2247" column="1" bodyfile="src/structure.f90" bodystart="2248" bodyend="2272"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a591122df70e3868553ad901347346998" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::get3rings</definition>
+        <argsstring>(cx, nrings)</argsstring>
+        <name>get3rings</name>
+        <qualifiedname>chemstr::get3rings</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nrings</defname>
+        </param>
+        <briefdescription>
+<para>Get3rings. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Counts the number of 3-rings in the cx graph.</para>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure object.</para>
+</listitem><listitem><para>nrings: Number of 3-rings identified. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2287" column="1" bodyfile="src/structure.f90" bodystart="2288" bodyend="2311"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a82765d5adc1ce177f662c280af854725" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::get4rings</definition>
+        <argsstring>(cx, nrings)</argsstring>
+        <name>get4rings</name>
+        <qualifiedname>chemstr::get4rings</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nrings</defname>
+        </param>
+        <briefdescription>
+<para>Get4rings. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Counts the number of 4-rings in the cx graph.</para>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure object.</para>
+</listitem><listitem><para>nrings: Number of 4-rings identified. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2326" column="1" bodyfile="src/structure.f90" bodystart="2327" bodyend="2362"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1ab5a731a94c47cefa1b1b0683a19819fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::printcxstofile</definition>
+        <argsstring>(cx, filename, value)</argsstring>
+        <name>printcxstofile</name>
+        <qualifiedname>chemstr::printcxstofile</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>character (len=*)</type>
+          <defname>filename</defname>
+        </param>
+        <param>
+          <type>real*8</type>
+          <defname>value</defname>
+        </param>
+        <briefdescription>
+<para>PrintCXSToFile. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Outputs cxs coordinates to an xyz file.</para>
+<para><itemizedlist>
+<listitem><para>cx: The CXS object.</para>
+</listitem><listitem><para>filename: the output xyz file.</para>
+</listitem><listitem><para>value: A real value which can be output as the comment line. For example, this could be the energy or fitness. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2379" column="1" bodyfile="src/structure.f90" bodystart="2380" bodyend="2396"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a3e7d49062cb6814286622fa8f5485ecf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::createmolecularcx</definition>
+        <argsstring>(cx, mcx, m)</argsstring>
+        <name>createmolecularcx</name>
+        <qualifiedname>chemstr::createmolecularcx</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>mcx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>m</defname>
+        </param>
+        <briefdescription>
+<para>CreateMolecularCX. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a CXS mcx for a single molecule, indexed m in CX</para>
+<para><itemizedlist>
+<listitem><para>cx: the parent chemical structure from which mcx is generated</para>
+</listitem><listitem><para>mcx: the CXS of a the molecule m in cx</para>
+</listitem><listitem><para>m: the molecule&apos;s index in cx, which we wish to make mcx from.. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2413" column="1" bodyfile="src/structure.f90" bodystart="2414" bodyend="2483"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1adf0ea9c2540bf1df7576dcd176bea43e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::createsubstructurecx</definition>
+        <argsstring>(cx, mcx, id, na)</argsstring>
+        <name>createsubstructurecx</name>
+        <qualifiedname>chemstr::createsubstructurecx</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>mcx</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>)</type>
+          <defname>id</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>na</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2487" column="1" bodyfile="src/structure.f90" bodystart="2488" bodyend="2546"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a2d2cc74f6044342afa0ded9f99c66a04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>integer function, dimension(cx%namol(m), cx%namol(m))</type>
+        <definition>integer function, dimension(cx%namol(m), cx%namol(m)) chemstr::moleculargraph</definition>
+        <argsstring>(cx, m)</argsstring>
+        <name>moleculargraph</name>
+        <qualifiedname>chemstr::moleculargraph</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer, intent(in)</type>
+          <defname>m</defname>
+        </param>
+        <briefdescription>
+<para>MolecularGraph. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns graph of molecule in cx</para>
+<para><itemizedlist>
+<listitem><para>cx: the parent chemical structure from which mcx is generated</para>
+</listitem><listitem><para>m: the molecule&apos;s index in cx, which we wish to make the graph from.. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2562" column="1" bodyfile="src/structure.f90" bodystart="2563" bodyend="2574"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a5ef28d022842eeed6bc2b62cd2db01d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>character(len=2) function, dimension(cx%namol(m))</type>
+        <definition>character(len=2) function, dimension(cx%namol(m)) chemstr::molecularalabel</definition>
+        <argsstring>(cx, m)</argsstring>
+        <name>molecularalabel</name>
+        <qualifiedname>chemstr::molecularalabel</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer, intent(in)</type>
+          <defname>m</defname>
+        </param>
+        <briefdescription>
+<para>MolecularAtomicLabel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the atomic labels for the molecle</para>
+<para><itemizedlist>
+<listitem><para>cx: the parent chemical structure from which the atomic labels is generated</para>
+</listitem><listitem><para>m: the molecule&apos;s index in cx, which we wish to make the atomic labels from.. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2590" column="1" bodyfile="src/structure.f90" bodystart="2591" bodyend="2600"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a7f2064b2aad1d074c52548acc68d91a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::removehydrogens</definition>
+        <argsstring>(cxin, cxout)</argsstring>
+        <name>removehydrogens</name>
+        <qualifiedname>chemstr::removehydrogens</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cxin</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cxout</defname>
+        </param>
+        <briefdescription>
+<para>RemoveHydrogens. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes all hydrogen atoms from a cxs object, and returns a new cxs object with only heteroatoms. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2616" column="1" bodyfile="src/structure.f90" bodystart="2617" bodyend="2650"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1af6a21c24e09efcd5811cd28bcc4347e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::setcxslattice</definition>
+        <argsstring>(cx)</argsstring>
+        <name>setcxslattice</name>
+        <qualifiedname>chemstr::setcxslattice</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>SetCXSLattice. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes the coordinates of the chemical structure object cxs on a simple cubic lattice, with lattice spacing determined by the parameter LATTICESTEP.</para>
+<para><itemizedlist>
+<listitem><para>cx: Input chemical structure object. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2666" column="1" bodyfile="src/structure.f90" bodystart="2667" bodyend="2690"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a579dfeacef98930d51ce127c936910ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::optcxsagainstgraph</definition>
+        <argsstring>(cx, gdsrestspring, nbstrength, nbrange, kradius, nrelax, step)</argsstring>
+        <name>optcxsagainstgraph</name>
+        <qualifiedname>chemstr::optcxsagainstgraph</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>gdsrestspring</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>nbstrength</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>nbrange</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>kradius</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nrelax</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>step</defname>
+        </param>
+        <briefdescription>
+<para>OptCXSAgainstGraph. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Optimizes the coordinates of a chemical structure object under the action of the graph-restraining potential only.</para>
+<para><itemizedlist>
+<listitem><para>cx: Input chemical structure object.</para>
+</listitem><listitem><para>gdsrestspring: GDS spring restraint strength (au)</para>
+</listitem><listitem><para>nbstrength: Repulsion interaction strength for non-bonded atoms.</para>
+</listitem><listitem><para>nbrange: Repulsion interaction range for non-bonded atoms.</para>
+</listitem><listitem><para>kradius: Spring constant for repulsion between deiscrete molecules (au) </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2710" column="1" bodyfile="src/structure.f90" bodystart="2712" bodyend="2749"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1aa5bcf84cda1282afd18a5ebae91c3fd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::optimizegrp</definition>
+        <argsstring>(cx, success, gdsrestspring, nbstrength, nbrange, kradius, ngdsrelax, gdsdtrelax)</argsstring>
+        <name>optimizegrp</name>
+        <qualifiedname>chemstr::optimizegrp</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>success</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>gdsrestspring</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>nbstrength</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>nbrange</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>kradius</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>ngdsrelax</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>gdsdtrelax</defname>
+        </param>
+        <briefdescription>
+<para>OptimizeGRP. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Minimises the molecules according to the Graph restraining potential</para>
+<para><itemizedlist>
+<listitem><para>cx: The input chemical structure</para>
+</listitem><listitem><para>success: weather we satisfied the contraints after the monimization or not</para>
+</listitem><listitem><para>rest: parameters for the GRP and minimization </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2765" column="1" bodyfile="src/structure.f90" bodystart="2766" bodyend="2867"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1ac326b6624714b67b89af9e73b2da7bb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::optimizegrpforceconv</definition>
+        <argsstring>(cx, success, gdsrestspring, nbstrength, nbrange, kradius, ngdsrelax, gdsdtrelax)</argsstring>
+        <name>optimizegrpforceconv</name>
+        <qualifiedname>chemstr::optimizegrpforceconv</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>success</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>gdsrestspring</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>nbstrength</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>nbrange</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>kradius</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>ngdsrelax</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>gdsdtrelax</defname>
+        </param>
+        <briefdescription>
+<para>OptimizeGRPForceConv. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Minimises the molecules according to the Graph restraining potential.</para>
+<para>Unlike the original OptimizeGRP routine, uses the force convergence criteria of OptimizeGRPDoubleEnded to determine if optimisations are successful.</para>
+<para><itemizedlist>
+<listitem><para>cx: The input chemical structure</para>
+</listitem><listitem><para>success: weather we satisfied the contraints after the monimization or not</para>
+</listitem><listitem><para>rest: parameters for the GRP and minimization </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2887" column="1" bodyfile="src/structure.f90" bodystart="2888" bodyend="2962"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a6e0cb6f8857bd5a3a4f9b87317563c27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::optimizegrp2</definition>
+        <argsstring>(cx, cxstart, success, gdsrestspring, nbstrength, nbrange, kradius, ngdsrelax, gdsdtrelax)</argsstring>
+        <name>optimizegrp2</name>
+        <qualifiedname>chemstr::optimizegrp2</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cxstart</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>success</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>gdsrestspring</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>nbstrength</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>nbrange</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>kradius</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>ngdsrelax</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>gdsdtrelax</defname>
+        </param>
+        <briefdescription>
+<para>OptimizeGRP2. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Minimises the molecules according to the Graph restraining potential</para>
+<para><itemizedlist>
+<listitem><para>cx: The input chemical structure</para>
+</listitem><listitem><para>success: weather we satisfied the contraints after the monimization or not</para>
+</listitem><listitem><para>rest: parameters for the GRP and minimization </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="2978" column="1" bodyfile="src/structure.f90" bodystart="2979" bodyend="3072"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a8c5c7058cc12c65f2e60dbd9813cfcec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::optimizegrp_doubleended</definition>
+        <argsstring>(cx, cxstart, success, gdsrestspring, nbstrength, nbrange, kradius, ngdsrelax, gdsdtrelax)</argsstring>
+        <name>optimizegrp_doubleended</name>
+        <qualifiedname>chemstr::optimizegrp_doubleended</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cxstart</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>success</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>gdsrestspring</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>nbstrength</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>nbrange</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>kradius</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>ngdsrelax</defname>
+        </param>
+        <param>
+          <type>real(8)</type>
+          <defname>gdsdtrelax</defname>
+        </param>
+        <briefdescription>
+<para>OptimizeGRP_DoubleEnded. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Optimizes the geometry of cx according to a modified Graph restraining potential which tries to keep geometry close to a starting point cxstart.</para>
+<para><itemizedlist>
+<listitem><para>cx: The input chemical structure</para>
+</listitem><listitem><para>success: weather we satisfied the contraints after the monimization or not</para>
+</listitem><listitem><para>rest: parameters for the GRP and minimization </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="3089" column="1" bodyfile="src/structure.f90" bodystart="3090" bodyend="3164"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a6659644537a7765bec46320eb5fbf579" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>character(:) function, allocatable</type>
+        <definition>character(:) function, allocatable chemstr::molecularformula</definition>
+        <argsstring>(cx, molid)</argsstring>
+        <name>molecularformula</name>
+        <qualifiedname>chemstr::molecularformula</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>molid</defname>
+        </param>
+        <briefdescription>
+<para>MolecularFormula. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a variable length string with the molecular formula of molecule molid, from chemical structure cx.</para>
+<para><itemizedlist>
+<listitem><para>cx: chemical structure</para>
+</listitem><listitem><para>molecule index </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="3180" column="1" bodyfile="src/structure.f90" bodystart="3181" bodyend="3224"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1aeb9715869d43300a06dece14335b8a90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>integer function, dimension(2, cx%<ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>)</type>
+        <definition>integer function, dimension(2,cx%na) chemstr::getatomvalency</definition>
+        <argsstring>(cx, fixedbonds)</argsstring>
+        <name>getatomvalency</name>
+        <qualifiedname>chemstr::getatomvalency</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>logical, dimension(:, :)</type>
+          <defname>fixedbonds</defname>
+        </param>
+        <briefdescription>
+<para>GetAtomValency. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the valency of every atom in cx, the first index (2,:) only counts bonds which can actually change during the gds calculation</para>
+<para><itemizedlist>
+<listitem><para>cx: The input chemical structure </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="3239" column="1" bodyfile="src/structure.f90" bodystart="3240" bodyend="3259"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1abf5a062858e76503485712b519de0ba3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>integer function, dimension(cx%<ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>, cx%<ref refid="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" kindref="member">na</ref>)</type>
+        <definition>integer function, dimension(cx%na, cx%na) chemstr::getelementpairvalency</definition>
+        <argsstring>(cx)</argsstring>
+        <name>getelementpairvalency</name>
+        <qualifiedname>chemstr::getelementpairvalency</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>GetElementPairValency. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>returns a matrix of size val(na,na) with the number of bonds of a particular pair of elements (eg H-C) that corresponds to that pair of atoms va(i,j), where the first index says how many of those there are bonded to atom i of type j used for rxnvalatom tests</para>
+<para><itemizedlist>
+<listitem><para>cx: The input chemical structure </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="3276" column="1" bodyfile="src/structure.f90" bodystart="3277" bodyend="3299"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1aadd8f96c5bf2487db486c507835a660d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>logical function</type>
+        <definition>logical function chemstr::allowedcxsvalencerange</definition>
+        <argsstring>(cx)</argsstring>
+        <name>allowedcxsvalencerange</name>
+        <qualifiedname>chemstr::allowedcxsvalencerange</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>AllowedCXSValenceRange. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks wheather the valence of elements falls withtin the allowed range</para>
+<para><itemizedlist>
+<listitem><para>cx: The input chemical structure </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="3313" column="1" bodyfile="src/structure.f90" bodystart="3314" bodyend="3351"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a02c610963e45aa224298fd48ff988cb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>logical function</type>
+        <definition>logical function chemstr::allowedcxsreactivevalence</definition>
+        <argsstring>(cx)</argsstring>
+        <name>allowedcxsreactivevalence</name>
+        <qualifiedname>chemstr::allowedcxsreactivevalence</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>AllowedCXSReactiveValence. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks wheather the valence of an element to some other falls withing the allowed values</para>
+<para><itemizedlist>
+<listitem><para>cx: The input chemical structure </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="3365" column="1" bodyfile="src/structure.f90" bodystart="3366" bodyend="3394"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1aaa24f03941c25ca1496329ce1ad0a755" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>logical function</type>
+        <definition>logical function chemstr::allowedcxsbondsmax</definition>
+        <argsstring>(cx)</argsstring>
+        <name>allowedcxsbondsmax</name>
+        <qualifiedname>chemstr::allowedcxsbondsmax</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>AllowedCXSBondsMax. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks wheather the bonds present are allowed as prescibed by allowedbonds keyword</para>
+<para><itemizedlist>
+<listitem><para>cx: The input chemical structure </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="3408" column="1" bodyfile="src/structure.f90" bodystart="3409" bodyend="3433"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a33a9d23a89f4fc1c8d91dceac19c6e32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::setreactiveindices</definition>
+        <argsstring>(bondchange, atomchange, naa, cx, rxindex, nrx)</argsstring>
+        <name>setreactiveindices</name>
+        <qualifiedname>chemstr::setreactiveindices</qualifiedname>
+        <param>
+          <type>logical, dimension(naa,naa)</type>
+          <defname>bondchange</defname>
+        </param>
+        <param>
+          <type>logical, dimension(naa)</type>
+          <defname>atomchange</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>naa</defname>
+        </param>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceconstants_1af3563b26c30009f026fc978080d89280" kindref="member">namax</ref>)</type>
+          <defname>rxindex</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nrx</defname>
+        </param>
+        <briefdescription>
+<para>SetReactiveIndices. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the bondchange(:,:) and atomchange(:) indices, which indicate whether the specified bonds or atoms are allowed to change as a result of a proposed graph move.</para>
+<para>Returns the bondchange(:,:) and atomchange(:) variables, as well as the number of reactive atoms (nrx) and a list of the reactive atoms (in rxindex(1:nrx)).</para>
+<para>bondchange(:,:) - Logical array indicating whether bond (i,j) is allowed to change or not. atomchange(:) - Logical array indicating whether or not atom i is allowed to change its bonding pattern. na - Number of atoms cx - A cxs object, primarily used to provide atom labels. rxindex - List of reactive atoms. nrx - Number of reactive atoms. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="3460" column="1" bodyfile="src/structure.f90" bodystart="3461" bodyend="3555"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a428ac84770d26154eb2fd6f52dfd07b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::checkforbidden</definition>
+        <argsstring>(cx, nforbid, naforbid, gforbid, forbidlabel, forbidflag)</argsstring>
+        <name>checkforbidden</name>
+        <qualifiedname>chemstr::checkforbidden</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>nforbid</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceconstants_1a69a27ee183e06204f45facc8ef7fe756" kindref="member">nforbidmax</ref>)</type>
+          <defname>naforbid</defname>
+        </param>
+        <param>
+          <type>integer, dimension(<ref refid="namespaceconstants_1a69a27ee183e06204f45facc8ef7fe756" kindref="member">nforbidmax</ref>,<ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>,<ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+          <defname>gforbid</defname>
+        </param>
+        <param>
+          <type>character (len=4), dimension(<ref refid="namespaceconstants_1a69a27ee183e06204f45facc8ef7fe756" kindref="member">nforbidmax</ref>,<ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+          <defname>forbidlabel</defname>
+        </param>
+        <param>
+          <type>logical</type>
+          <defname>forbidflag</defname>
+        </param>
+        <briefdescription>
+<para>CheckForbidden. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks whether the current graph, generated during the GraphMoves, routine, matches one of the forbidden patterns given in the fobidfile.</para>
+<para>This subroutine is a nightmare-ish hellscape of enddo and endif... nobody should have to deal with this...</para>
+<para>Returns forbidflag = .true. if the graph is forbidden. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="3574" column="1" bodyfile="src/structure.f90" bodystart="3575" bodyend="3735"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a04d94078390085dcf855f8df499ef7cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::printcxsgraphinfo</definition>
+        <argsstring>(cx, iunit, message)</argsstring>
+        <name>printcxsgraphinfo</name>
+        <qualifiedname>chemstr::printcxsgraphinfo</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>iunit</defname>
+        </param>
+        <param>
+          <type>character(len=*)</type>
+          <defname>message</defname>
+        </param>
+        <briefdescription>
+<para>PrintCXSGraphInfo(). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Outputs the bonding graph information for a chemical structure object.</para>
+<para><itemizedlist>
+<listitem><para>cx: The chemical structure object</para>
+</listitem><listitem><para>iunit: Integer ID of the output destination.</para>
+</listitem><listitem><para>message: Character string (80) identifying CXS details. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chemical structure object </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>iunit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output unit ID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A message identifying this CXS. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="3751" column="1" bodyfile="src/structure.f90" bodystart="3752" bodyend="3787"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1aa485abde3fe586d791e147ad9014a81b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::setvalencecoords</definition>
+        <argsstring>(cx)</argsstring>
+        <name>setvalencecoords</name>
+        <qualifiedname>chemstr::setvalencecoords</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>SetValenceCoords(). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the set of internal coordinates (bond-lengths, bond-angles and torsion angles) for cx. Note that the derivatives of each internal coordinates with respect to the atomic coordinates is also calculated.</para>
+<para>Important: The identification of bonds, angle and torsion angles is based on the cxgraph(:,:).</para>
+<para><itemizedlist>
+<listitem><para>cx: The chemical structure object <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Chemical structure object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="3806" column="1" bodyfile="src/structure.f90" bodystart="3807" bodyend="3836"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a5f87f4ee909fc5c3c54278aca9df1241" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::getbonds</definition>
+        <argsstring>(cx)</argsstring>
+        <name>getbonds</name>
+        <qualifiedname>chemstr::getbonds</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>GetBonds(). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the set of bond-lengths for cx. Note that the derivatives of each bond-length with respect to the atomic coordinates is also calculated.</para>
+<para>Important: The identification of bonds is based on the cxgraph(:,:).</para>
+<para><itemizedlist>
+<listitem><para>cx: The chemical structure object </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="3855" column="1" bodyfile="src/structure.f90" bodystart="3856" bodyend="3890"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1acffc073bd33497662f25faf7a2beee56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>subroutine</type>
+        <definition>subroutine chemstr::getangles</definition>
+        <argsstring>(cx)</argsstring>
+        <name>getangles</name>
+        <qualifiedname>chemstr::getangles</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <briefdescription>
+<para>GetAngles(). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the set of bond-angles for cx. Note that the derivatives of each bond-angle with respect to the atomic coordinates is also calculated.</para>
+<para>Important: The identification of bonds is based on the cxgraph(:,:).</para>
+<para><itemizedlist>
+<listitem><para>cx: The chemical structure object </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="3909" column="1" bodyfile="src/structure.f90" bodystart="3910" bodyend="3971"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1aed3dbeb8ac8d6511ae58d5038f16635e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>integer function, dimension(cx%namol(mi) *(cx%namol(mi) -1)/2)</type>
+        <definition>integer function, dimension(cx%namol(mi)*(cx%namol(mi)-1)/2) chemstr::getmoleculargraphvector</definition>
+        <argsstring>(cx, mi)</argsstring>
+        <name>getmoleculargraphvector</name>
+        <qualifiedname>chemstr::getmoleculargraphvector</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>mi</defname>
+        </param>
+        <briefdescription>
+<para>GetMolecularGraphVector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>fobidfile.</para>
+<para>Returns iflag = 0 if the graph is forbidden. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="3985" column="1" bodyfile="src/structure.f90" bodystart="3986" bodyend="4003"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a6e45846ee7a7eed38d6571aa6b5157ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>character(250) function</type>
+        <definition>character(250) function chemstr::getmolecularsmiles</definition>
+        <argsstring>(cx, mi)</argsstring>
+        <name>getmolecularsmiles</name>
+        <qualifiedname>chemstr::getmolecularsmiles</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>mi</defname>
+        </param>
+        <briefdescription>
+<para>GetMolecularSmiles. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns MolSmiles, an array of characters with the Smiles strip for each molecule in MolecAct</para>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure</para>
+</listitem><listitem><para>nactmol: number of active molecules in cx</para>
+</listitem><listitem><para>MolecAct: array with indecies of the nactmol molecules that are active in this problem</para>
+</listitem><listitem><para>MolSmiles: array of nactmol Smiles strips </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="4020" column="1" bodyfile="src/structure.f90" bodystart="4021" bodyend="4043"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacechemstr_1a9792a8e41ca57dbc66b404196c6950c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double precision function</type>
+        <definition>double precision function chemstr::molecularmass</definition>
+        <argsstring>(cx, molid)</argsstring>
+        <name>molecularmass</name>
+        <qualifiedname>chemstr::molecularmass</qualifiedname>
+        <param>
+          <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>)</type>
+          <defname>cx</defname>
+        </param>
+        <param>
+          <type>integer</type>
+          <defname>molid</defname>
+        </param>
+        <briefdescription>
+<para>MolecularMass. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the mass of a molecule molid in cx</para>
+<para><itemizedlist>
+<listitem><para>cx: Chemical structure</para>
+</listitem><listitem><para>molid: id of the molecule in cx </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/structure.f90" line="4058" column="1" bodyfile="src/structure.f90" bodystart="4059" bodyend="4068"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Chemical structure object definition. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Defines the chemical structure (cxs) object type. </para>
+    </detaileddescription>
+    <location file="src/structure.f90" line="11" column="1"/>
+  </compounddef>
+</doxygen>

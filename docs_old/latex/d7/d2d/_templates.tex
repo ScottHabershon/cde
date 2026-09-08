@@ -1,0 +1,243 @@
+This page gives several examples of template files for P\+ES evaluation or geometry evaluation.
+
+In these examples, the only part of the file which is written by C\+DE is in replacing the {\itshape X\+XX} with the coordinates at which the energy evaluation is being performed. All other aspects, such as the calculation type (e.\+g. D\+FT, Hartree-\/\+Fock, semi-\/empirical, D\+F\+T\+B+), basis sets, accuracy, and so on, are controlled by editing the {\itshape pesfile} and {\itshape pesoptfile} B\+E\+F\+O\+RE the C\+DE calculation starts.
+
+Note that a single P\+ES template file is used for all energy evaluations in C\+DE. There is no option to change the P\+ES evaluation-\/type \char`\"{}on the fly\char`\"{}.\hypertarget{_templates_autotoc_md10}{}\doxysection{O\+R\+C\+A examples}\label{_templates_autotoc_md10}
+
+\begin{DoxyItemize}
+\item Example header file for a P\+ES evaluation by O\+R\+CA using P\+M3 semi-\/empirical method\+:
+\end{DoxyItemize}
+
+\begin{DoxyVerb}    ! PM3
+    * xyz 0 1
+    XXX
+    *
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item Example header file for a P\+ES evaluation by O\+R\+CA using D\+FT (B3\+L\+YP)\+:
+\end{DoxyItemize}
+
+\begin{DoxyVerb}! DFT B3LYP aug-cc-pvtz
+    * xyz 0 1
+    XXX
+    *
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item Example header file for geometry optimization using P\+M3\+:
+\end{DoxyItemize}
+
+\begin{DoxyVerb}    ! PM3 OPT
+    * xyz 0 1
+    XXX
+    *
+\end{DoxyVerb}
+\hypertarget{_templates_autotoc_md11}{}\doxysection{D\+F\+T\+B+ example}\label{_templates_autotoc_md11}
+In the case of D\+F\+T\+B+, note that the input file must correctly specify the location of any Slater-\/\+Koster files required by the D\+F\+T\+B+ code.
+
+
+\begin{DoxyItemize}
+\item Example header file for P\+ES evaluation by D\+F\+T\+B+\+:
+\end{DoxyItemize}
+
+\begin{DoxyVerb}     Geometry = GenFormat {
+    XXX
+    }
+    Driver = {}
+     Hamiltonian = DFTB {
+     SCC = Yes
+     SCCTolerance = 1e-3
+     Mixer = Broyden{}
+     Eigensolver = RelativelyRobust {}
+    MaxAngularMomentum {
+     C = "p"
+    O = "p"
+    H = "s"
+     }
+    SlaterKosterFiles = Type2FileNames {
+    Prefix = "./SKfiles/"
+     Separator = "-"
+     Suffix = ".skf"
+     }
+    }
+    Analysis = {
+    CalculateForces = Yes
+     }
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item D\+F\+T\+B+ geometry optimization example (with constraints)\+:
+\end{DoxyItemize}
+
+\begin{DoxyVerb}Geometry = GenFormat {
+XXX
+}
+ Driver = ConjugateGradient{
+ MaxForceComponent = 1d-5
+ MaxSteps = 1000
+ Constraints = {
+ 1 1.0 0.0 0.0
+ 1 0.0 1.0 0.0
+ 1 0.0 0.0 1.0
+ 2 0.0 1.0 0.0
+ 2 0.0 0.0 1.0
+ 3 0.0 0.0 1.0
+ }
+ }
+ Hamiltonian = DFTB {
+SCC = Yes
+ SCCTolerance = 1e-3
+ Mixer = Broyden{}
+ Eigensolver = RelativelyRobust {}
+MaxAngularMomentum {
+ C = "p"
+O = "p"
+ H = "s"
+ }
+ SlaterKosterFiles = Type2FileNames {
+ Prefix = "./SKfiles/"
+ Separator = "-"
+ Suffix = ".skf"
+ }
+ }
+ Analysis = {
+ CalculateForces = Yes
+ }
+\end{DoxyVerb}
+\hypertarget{_templates_autotoc_md12}{}\doxysection{Psi-\/4 example}\label{_templates_autotoc_md12}
+
+\begin{DoxyItemize}
+\item Hartree-\/\+Fock example using Psi-\/4
+\end{DoxyItemize}
+
+\begin{DoxyVerb}################
+# INPUT SETUP #
+################
+
+molecule x {
+0 1
+XXX
+}
+
+set {
+    basis def2-SVP
+    fail_on_maxiter false
+}
+
+
+################
+# OUTPUT SETUP #
+################
+
+energy = energy('scf')
+grad = np.array(gradient('scf'))
+
+e = open('e.out','w')
+e.write(str(energy))
+e.close()
+
+f = open('f.out','w')
+for i in grad:
+    for j in i:
+        f.write(str(j)+'\n')
+f.close
+\end{DoxyVerb}
+\hypertarget{_templates_autotoc_md13}{}\doxysection{L\+A\+M\+M\+P\+S/\+Reax\+F\+F example}\label{_templates_autotoc_md13}
+
+\begin{DoxyItemize}
+\item The following is an example of a L\+A\+M\+M\+PS input file ({\itshape e.\+g. lmp.\+head}) for running a Reax\+FF calculation.
+\end{DoxyItemize}
+
+\begin{DoxyVerb}#dimension      3
+units          real
+boundary       f f f
+atom_style     charge
+atom_modify    map array sort 0 0.0
+
+# XXX replaced by mass labels and atom creation
+
+XXX
+
+pair_style     reax/c lmp_control
+# Force file to be used, types added automatically
+pair_coeff     * * CHOPtNiX.ff
+fix            1 all qeq/reax 1 0.0 10.0 1.0e-8 reax/c  # new addition
+
+neighbor       1.0 bin
+neigh_modify   every 1 delay 0 check no
+
+compute        reax all pair reax/c
+
+dump           1 all custom 1 temp.force fx fy fz
+dump_modify    1 format float "%14.8f"
+
+thermo         0
+thermo_style   custom pe
+
+run            0
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item The following is an example of a geometry optimization calculation performed using Reax\+FF through L\+A\+M\+M\+PS.
+\end{DoxyItemize}
+
+\begin{DoxyVerb} # Intialization
+ dimension      3
+ units          real
+ boundary       f f f
+ atom_style     charge
+ atom_modify    map array sort 0 0.0
+
+ # XXX replaced by mass labels and atom creation
+ XXX
+
+ pair_style     reax/c lmp_control
+ # Force file to be used, atom types are added automatically for reax/c
+ pair_coeff     * * CHOPtNiX.ff
+ fix            1 all qeq/reax 1 0.0 10.0 1.0e-8 reax/c
+
+ neighbor       2.5 bin
+ neigh_modify   every 1 delay 0 check no
+
+ compute        reax all pair reax/c
+
+ thermo         1
+ thermo_style   custom pe
+
+ min_style quickmin # new addition
+  minimize 1.00e-10 1.00e-8 50000 50000
+
+ timestep 1
+
+ # output forces
+ dump           2 all custom 1 temp.force fx fy fz
+ dump_modify    2 format float "%14.8f"
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item Both of the files above also require two additional files to be present in the run directory. The first of these, {\itshape lmp\+\_\+control} is an additional L\+A\+M\+M\+PS control file, which usually looks like the following\+:
+\end{DoxyItemize}
+
+\begin{DoxyVerb} nbrhood_cutoff          5.0  ! near neighbors cutoff for bond calculations in A
+ hbond_cutoff            6.0  ! cutoff distance for hydrogen bond interactions
+ bond_graph_cutoff       0.3  ! bond strength cutoff for bond graphs
+ thb_cutoff              0.001 ! cutoff value for three body interactions
+ atom_forces 1
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item The second additional file required is the Reax\+FF parameter file. In this case, it is referred to as {\itshape C\+H\+O\+Pt\+Ni\+X.\+ff}, but this could be changed depending on the system under investigation and the parameters available. An example of these {\itshape ff} files can be found in {\itshape Tutorial 2} (\mbox{\hyperlink{_tutorial2}{Tutorial 2\+: C\+I\+N\+EB using L\+A\+M\+M\+PS}}). 
+\end{DoxyItemize}

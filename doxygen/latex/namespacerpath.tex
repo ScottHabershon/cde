@@ -1,0 +1,620 @@
+\doxysection{rpath Module Reference}
+\hypertarget{namespacerpath}{}\label{namespacerpath}\index{rpath@{rpath}}
+
+
+Reaction-\/path object definition.  
+
+
+\doxysubsubsection*{Data Types}
+\begin{DoxyCompactItemize}
+\item 
+type \doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}}
+\begin{DoxyCompactList}\small\item\em Type definition for the reaction-\/path object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions/\+\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_ab6d6281ea4bcaee28c63f8d7d38e746a}{newpath}} (rp, startfrompath, startfile, endfile, pathfile, nimage, pathinit, emptypath, natom)
+\begin{DoxyCompactList}\small\item\em New\+Path. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_ad6c77a07ce6a59e54a4774305efe44d4}{copypath}} (rpin, rpout)
+\begin{DoxyCompactList}\small\item\em Copy\+Path. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_acc28b3649c7753a676d4d6c4e6635286}{deletepath}} (rp)
+\begin{DoxyCompactList}\small\item\em Delete\+Path. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a14303787a571dd0cb770f37003d45bc6}{setinternalcoords}} (rp, pathinit)
+\begin{DoxyCompactList}\small\item\em Set\+Internal\+Coords. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_af1a1657f4058d72abff72654e155d38b}{printpathtofile}} (rp, filename, do\+\_\+append)
+\begin{DoxyCompactList}\small\item\em Print\+Path\+To\+File. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a9b2a0f9ab7c436ec4cc0ad6594eabfe0}{findidpppath}} (rp, idppiter, idppconv, idppstep, idppspring)
+\begin{DoxyCompactList}\small\item\em Find\+IDPPPath. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a085468648d15adb3a8a2899d8bba728f}{getidppforces}} (rp, rtarg)
+\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a691c70e4854e7529a7b85e69491cdccc}{getforcenorm}} (rp, forcenorm, fmax, n1, n2)
+\begin{DoxyCompactList}\small\item\em Get\+Force\+Norm. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_aba836ec30e7b0733327d8f2949e4b00c}{readxyzframe}} (fileid, na, label, x, y, z)
+\begin{DoxyCompactList}\small\item\em Read\+XYZFrame. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_abde80fc3058f25748933e535857b3913}{startfromendpoints}} (rp, startfile, endfile, pathinit, nimage)
+\begin{DoxyCompactList}\small\item\em Start\+From\+End\+Points. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a06918a9ef3a6a733a078f2d7142ca2e3}{readpathfromfile}} (rp, pathfile)
+\begin{DoxyCompactList}\small\item\em Read\+Path\+From\+File. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a41d64b8dbb88875343759fd816a2f9b2}{setpathconstraints}} (rp, ndofconstr, fixeddof, natomconstr, fixedatom)
+\begin{DoxyCompactList}\small\item\em Set\+Path\+Constraints. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_ac8b51bb543056270fc034d75ba2a7266}{getpathenergy}} (rp, success)
+\begin{DoxyCompactList}\small\item\em Get\+Path\+Energy. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a2c6811f49e45524aa43a075f8d4f1a7c}{getpathgradients}} (rp, success, calc\+\_\+all)
+\begin{DoxyCompactList}\small\item\em Get\+Path\+Gradients. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a1faa43d82cebd49dbfb23e87189db2c2}{getprojforces1}} (rp, kon, ci\+\_\+flag, endflag)
+\begin{DoxyCompactList}\small\item\em Get\+Proj\+Forces1. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_ac95367fc9bf411eca8d31874d5e3e703}{getprojforces2}} (rp, kon, ci\+\_\+flag, endflag)
+\begin{DoxyCompactList}\small\item\em Get\+Proj\+Forces2. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a73d1e89cffa30d46b66bfbd445e3e0f4}{variablesprings}} (rp)
+\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a79ee81833120305547c237a755918472}{getprojforces3}} (rp, kon, ci\+\_\+flag, endflag)
+\begin{DoxyCompactList}\small\item\em Get\+Proj\+Forces3. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_aae808f74fd2e658a175c79600c5bfe34}{shimmyendbeads}} (rp, shimmied, beadcount, pend)
+\begin{DoxyCompactList}\small\item\em Shimmy\+End\+Beads. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a17575cd0e216ffd99d188bb982fd2efc}{getfourierforces}} (rp)
+\begin{DoxyCompactList}\small\item\em Get\+Fourier\+Forces. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a8808a2a9ef2cd749de76ec66e662cf4c}{fouriertopath}} (rp)
+\begin{DoxyCompactList}\small\item\em Fourier\+To\+Path. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a58f6e30e1af43edf4aa86279c520213f}{pathtofourier}} (rp)
+\begin{DoxyCompactList}\small\item\em Path\+To\+Fourier. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_a7fee98f4bae0eeddfeb9c7a7a0cd36de}{firstvvupdate}} (rp, timestep, mass)
+\begin{DoxyCompactList}\small\item\em First\+VVUpdate. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_ac85f7c72e6a51be0d86bde43398f5d1b}{secondvvupdate}} (rp, timestep, mass)
+\begin{DoxyCompactList}\small\item\em Second\+VVUpdate. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_ae05b8e955144357569094f22cb55b245}{getspringforces}} (rp, kspring)
+\begin{DoxyCompactList}\small\item\em Get\+Spring\+Forces. \end{DoxyCompactList}\item 
+subroutine \doxymbox{\hyperlink{namespacerpath_ad39f06a07a989b7bfe818da9911ec287}{stripinactivefrompath}} (rp, stripfile, fixeddof, fixedatom, ndofconstr, natomconstr, updatecons)
+\begin{DoxyCompactList}\small\item\em Strip\+Inactive\+From\+Path. \end{DoxyCompactList}\item 
+real(8) function \doxymbox{\hyperlink{namespacerpath_a4c7410e4e6417ef235293315107537e8}{errorr}} (one, two, na)
+\begin{DoxyCompactList}\small\item\em errorr calculates the absolute difference, elementwise between two matrices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Reaction-\/path object definition. 
+
+Defines the reaction-\/path object type. This object is a string of nimage snapshots along a reaction-\/path. 
+
+\label{namespacerpath_doc-func-members}
+\Hypertarget{namespacerpath_doc-func-members}
+\doxysubsection{Function/\+\+Subroutine Documentation}
+\Hypertarget{namespacerpath_ab6d6281ea4bcaee28c63f8d7d38e746a}\index{rpath@{rpath}!newpath@{newpath}}
+\index{newpath@{newpath}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{newpath()}{newpath()}}
+{\footnotesize\ttfamily \label{namespacerpath_ab6d6281ea4bcaee28c63f8d7d38e746a} 
+subroutine rpath::\+newpath (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{logical, intent(in)}]{startfrompath}{, }\item[{character (len=\texorpdfstring{$\ast$}{*}), intent(in)}]{startfile}{, }\item[{character (len=\texorpdfstring{$\ast$}{*}), intent(in)}]{endfile}{, }\item[{character (len=\texorpdfstring{$\ast$}{*}), intent(in)}]{pathfile}{, }\item[{integer}]{nimage}{, }\item[{character (len=\texorpdfstring{$\ast$}{*}), intent(in)}]{pathinit}{, }\item[{logical, intent(in)}]{emptypath}{, }\item[{integer}]{natom}{}\end{DoxyParamCaption})}
+
+
+
+New\+Path. 
+
+Initializes a path object.
+
+
+\begin{DoxyItemize}
+\item rp: Initialized path object.
+\item startfrompath: Flag to indicate that we\textquotesingle{}re starting from a full path (logical)
+\item startfile: filename for starting point structure (xyz file)
+\item endfile: filename for end point structure (xyz file)
+\item pathfile: If startfrompath == .TRUE., read the full path from pathfile
+\item nimage: number of images along path in total (read from input file OR from pathfile)
+\item pathinit: path initialization type when startfrompath = .FALSE.. Allowed values are \textquotesingle{}LINEAR\textquotesingle{} and ....?
+\item emptypath: Flag indicating whether to start with an empty path.
+\item natom: number of atoms. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00057}{57}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_ad6c77a07ce6a59e54a4774305efe44d4}\index{rpath@{rpath}!copypath@{copypath}}
+\index{copypath@{copypath}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{copypath()}{copypath()}}
+{\footnotesize\ttfamily \label{namespacerpath_ad6c77a07ce6a59e54a4774305efe44d4} 
+subroutine rpath::\+copypath (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rpin}{, }\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rpout}{}\end{DoxyParamCaption})}
+
+
+
+Copy\+Path. 
+
+Creates an empty reaction path, rpout, using parameter sizes from rpin
+
+
+\begin{DoxyItemize}
+\item rpin: The reaction path object used to get size information.
+\item rpout: The new reaction path object. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00120}{120}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_acc28b3649c7753a676d4d6c4e6635286}\index{rpath@{rpath}!deletepath@{deletepath}}
+\index{deletepath@{deletepath}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{deletepath()}{deletepath()}}
+{\footnotesize\ttfamily \label{namespacerpath_acc28b3649c7753a676d4d6c4e6635286} 
+subroutine rpath::\+deletepath (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{}\end{DoxyParamCaption})}
+
+
+
+Delete\+Path. 
+
+Deletes memory associated with a path.
+
+
+\begin{DoxyItemize}
+\item rp: The reaction path object to be deleted. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00147}{147}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_a14303787a571dd0cb770f37003d45bc6}\index{rpath@{rpath}!setinternalcoords@{setinternalcoords}}
+\index{setinternalcoords@{setinternalcoords}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{setinternalcoords()}{setinternalcoords()}}
+{\footnotesize\ttfamily \label{namespacerpath_a14303787a571dd0cb770f37003d45bc6} 
+subroutine rpath::\+setinternalcoords (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{character (len=\texorpdfstring{$\ast$}{*})}]{pathinit}{}\end{DoxyParamCaption})}
+
+
+
+Set\+Internal\+Coords. 
+
+When building a path from end-\/points only, this subroutine sets the coordinates of the nimage-\/2 internal beads according to the method defined in pathinit.
+
+
+\begin{DoxyItemize}
+\item rp: The reaction path object.
+\item pathinit: string defining interpolation type. Allowed values are \textquotesingle{}LINEAR\textquotesingle{} for linear interpolation.. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00189}{189}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_af1a1657f4058d72abff72654e155d38b}\index{rpath@{rpath}!printpathtofile@{printpathtofile}}
+\index{printpathtofile@{printpathtofile}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{printpathtofile()}{printpathtofile()}}
+{\footnotesize\ttfamily \label{namespacerpath_af1a1657f4058d72abff72654e155d38b} 
+subroutine rpath::\+printpathtofile (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}}), intent(in)}]{rp}{, }\item[{character(len=\texorpdfstring{$\ast$}{*}), intent(in)}]{filename}{, }\item[{logical, intent(in), optional}]{do\+\_\+append}{}\end{DoxyParamCaption})}
+
+
+
+Print\+Path\+To\+File. 
+
+Outputs an entire reaction path to an xyz file.
+
+
+\begin{DoxyItemize}
+\item rp: The reaction path object.
+\item filename: the output xyz file.
+\item do\+\_\+append: (optional) whether to append to existing or overwrite/\+write new. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00232}{232}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_a9b2a0f9ab7c436ec4cc0ad6594eabfe0}\index{rpath@{rpath}!findidpppath@{findidpppath}}
+\index{findidpppath@{findidpppath}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{findidpppath()}{findidpppath()}}
+{\footnotesize\ttfamily \label{namespacerpath_a9b2a0f9ab7c436ec4cc0ad6594eabfe0} 
+subroutine rpath::\+findidpppath (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{integer}]{idppiter}{, }\item[{real(8)}]{idppconv}{, }\item[{real(8)}]{idppstep}{, }\item[{real(8)}]{idppspring}{}\end{DoxyParamCaption})}
+
+
+
+Find\+IDPPPath. 
+
+finds an interpolated path using NEB on a Image-\/dependent Pair\+Potential, as described in Smidstrup et al J Chem phys 2014, 140
+
+
+\begin{DoxyItemize}
+\item rp: Reaction path 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00279}{279}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_a085468648d15adb3a8a2899d8bba728f}\index{rpath@{rpath}!getidppforces@{getidppforces}}
+\index{getidppforces@{getidppforces}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{getidppforces()}{getidppforces()}}
+{\footnotesize\ttfamily \label{namespacerpath_a085468648d15adb3a8a2899d8bba728f} 
+subroutine rpath::\+getidppforces (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{real(8), dimension(rp\%\doxymbox{\hyperlink{namespaceglobaldata_a7e8abca7ca09a21cff7419340c3889fa}{nimage}}, rp\%\doxymbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}}, rp\%\doxymbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}})}]{rtarg}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00397}{397}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_a691c70e4854e7529a7b85e69491cdccc}\index{rpath@{rpath}!getforcenorm@{getforcenorm}}
+\index{getforcenorm@{getforcenorm}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{getforcenorm()}{getforcenorm()}}
+{\footnotesize\ttfamily \label{namespacerpath_a691c70e4854e7529a7b85e69491cdccc} 
+subroutine rpath::\+getforcenorm (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{real(8)}]{forcenorm}{, }\item[{real(8)}]{fmax}{, }\item[{integer}]{n1}{, }\item[{integer}]{n2}{}\end{DoxyParamCaption})}
+
+
+
+Get\+Force\+Norm. 
+
+Calculate the norm of the projected forces for the internal beads.
+
+
+\begin{DoxyItemize}
+\item rp: The reaction-\/path object to be refined.
+\item forcenorm: Returned force norm
+\item n1, n2: Integer range of images to include in calculation. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00442}{442}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_aba836ec30e7b0733327d8f2949e4b00c}\index{rpath@{rpath}!readxyzframe@{readxyzframe}}
+\index{readxyzframe@{readxyzframe}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{readxyzframe()}{readxyzframe()}}
+{\footnotesize\ttfamily \label{namespacerpath_aba836ec30e7b0733327d8f2949e4b00c} 
+subroutine rpath::\+readxyzframe (\begin{DoxyParamCaption}\item[{integer}]{fileid}{, }\item[{integer}]{na}{, }\item[{character (len=2), dimension(:\+)}]{label}{, }\item[{real(8), dimension(:\+)}]{x}{, }\item[{real(8), dimension(:\+)}]{y}{, }\item[{real(8), dimension(:\+)}]{z}{}\end{DoxyParamCaption})}
+
+
+
+Read\+XYZFrame. 
+
+reads a single frame from an xyz file.
+
+
+\begin{DoxyItemize}
+\item fileid: Integer file label.
+\item na: Number of atoms
+\item label: atom labes read from file.
+\item x,y,z: Coordinates of each atom read from file 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00494}{494}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_abde80fc3058f25748933e535857b3913}\index{rpath@{rpath}!startfromendpoints@{startfromendpoints}}
+\index{startfromendpoints@{startfromendpoints}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{startfromendpoints()}{startfromendpoints()}}
+{\footnotesize\ttfamily \label{namespacerpath_abde80fc3058f25748933e535857b3913} 
+subroutine rpath::\+startfromendpoints (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{character (len=\texorpdfstring{$\ast$}{*})}]{startfile}{, }\item[{character (len=\texorpdfstring{$\ast$}{*})}]{endfile}{, }\item[{character (len=\texorpdfstring{$\ast$}{*})}]{pathinit}{, }\item[{integer}]{nimage}{}\end{DoxyParamCaption})}
+
+
+
+Start\+From\+End\+Points. 
+
+Initializes a reaction path using the path end-\/points.
+
+
+\begin{DoxyItemize}
+\item rp: The reaction path object.
+\item startfile: the xyz file containing the startpoint.
+\item endfile: the xyz file containing the endpoint.
+\item pathinit: character\texorpdfstring{$\ast$}{*}5 string containing identifier for method used to interpolate internal image coordinates.
+\item nimage: Number of images in path. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00528}{528}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_a06918a9ef3a6a733a078f2d7142ca2e3}\index{rpath@{rpath}!readpathfromfile@{readpathfromfile}}
+\index{readpathfromfile@{readpathfromfile}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{readpathfromfile()}{readpathfromfile()}}
+{\footnotesize\ttfamily \label{namespacerpath_a06918a9ef3a6a733a078f2d7142ca2e3} 
+subroutine rpath::\+readpathfromfile (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{character (len=\texorpdfstring{$\ast$}{*})}]{pathfile}{}\end{DoxyParamCaption})}
+
+
+
+Read\+Path\+From\+File. 
+
+Reads a file reaction path from a xyz file with nimage frames. First, we read the number of atoms and images, then create the path object. Finally, we read in the coordinates along the path.
+
+
+\begin{DoxyItemize}
+\item rp: Reaction path object.
+\item pathfile: filename for path. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00592}{592}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_a41d64b8dbb88875343759fd816a2f9b2}\index{rpath@{rpath}!setpathconstraints@{setpathconstraints}}
+\index{setpathconstraints@{setpathconstraints}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{setpathconstraints()}{setpathconstraints()}}
+{\footnotesize\ttfamily \label{namespacerpath_a41d64b8dbb88875343759fd816a2f9b2} 
+subroutine rpath::\+setpathconstraints (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{integer, intent(in)}]{ndofconstr}{, }\item[{integer, dimension(:\+), intent(in)}]{fixeddof}{, }\item[{integer, intent(in)}]{natomconstr}{, }\item[{integer, dimension(:\+), intent(in)}]{fixedatom}{}\end{DoxyParamCaption})}
+
+
+
+Set\+Path\+Constraints. 
+
+Identify constrained atoms and DOFs in the path.
+
+
+\begin{DoxyItemize}
+\item rp: Initialized path object.
+\item NDOFconstr: Number of DOF constraints.
+\item Fixed\+DOF: Array containing integer number of constrained DOFs
+\item Natomconstr: Number of atom constraints
+\item Fixedatom: Array containing integer ids of fixed atoms. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00688}{688}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_ac8b51bb543056270fc034d75ba2a7266}\index{rpath@{rpath}!getpathenergy@{getpathenergy}}
+\index{getpathenergy@{getpathenergy}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{getpathenergy()}{getpathenergy()}}
+{\footnotesize\ttfamily \label{namespacerpath_ac8b51bb543056270fc034d75ba2a7266} 
+subroutine rpath::\+getpathenergy (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{logical}]{success}{}\end{DoxyParamCaption})}
+
+
+
+Get\+Path\+Energy. 
+
+Calculates the energy for all structures along a reaction path. The \doxylink{pes_8f90}{pes.\+f90} module contains details of the calculation to perform.
+
+
+\begin{DoxyItemize}
+\item rp: Path object. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00714}{714}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_a2c6811f49e45524aa43a075f8d4f1a7c}\index{rpath@{rpath}!getpathgradients@{getpathgradients}}
+\index{getpathgradients@{getpathgradients}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{getpathgradients()}{getpathgradients()}}
+{\footnotesize\ttfamily \label{namespacerpath_a2c6811f49e45524aa43a075f8d4f1a7c} 
+subroutine rpath::\+getpathgradients (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}}), intent(in)}]{rp}{, }\item[{logical, intent(out)}]{success}{, }\item[{logical, intent(in)}]{calc\+\_\+all}{}\end{DoxyParamCaption})}
+
+
+
+Get\+Path\+Gradients. 
+
+Calculates the energy for all structures along a reaction path. The \doxylink{pes_8f90}{pes.\+f90} module contains details of the calculation to perform.
+
+
+\begin{DoxyItemize}
+\item rp: Path object.
+\item success: Result of Ab Initio calculation.
+\item calc\+\_\+all: Whether to force calculation of all cxs along rp. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00747}{747}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_a1faa43d82cebd49dbfb23e87189db2c2}\index{rpath@{rpath}!getprojforces1@{getprojforces1}}
+\index{getprojforces1@{getprojforces1}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{getprojforces1()}{getprojforces1()}}
+{\footnotesize\ttfamily \label{namespacerpath_a1faa43d82cebd49dbfb23e87189db2c2} 
+subroutine rpath::\+getprojforces1 (\begin{DoxyParamCaption}\item[{type (\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{logical}]{kon}{, }\item[{logical}]{ci\+\_\+flag}{, }\item[{logical}]{endflag}{}\end{DoxyParamCaption})}
+
+
+
+Get\+Proj\+Forces1. 
+
+Calculates the forces projected along the reaction path, as required in NEB or CINEB calculations. A previous PES calculation MUST have been performed for the reaction path.
+
+Note: By setting ci\+\_\+flag = .true., this routine returns forces for CI-\/\+NEB.
+
+
+\begin{DoxyItemize}
+\item rp: Reaction path object.
+\item kon: Flag determining if the spring forces should be calculated or not
+\item ci\+\_\+flag: Logical flag indicating whether to return climbing-\/image forces.
+\item endflag: Logical flag indicatin whether or not the forces on the end-\/point beads should be returned as the "{}bare"{} (non-\/\+NEB) forces. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l00793}{793}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_ac95367fc9bf411eca8d31874d5e3e703}\index{rpath@{rpath}!getprojforces2@{getprojforces2}}
+\index{getprojforces2@{getprojforces2}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{getprojforces2()}{getprojforces2()}}
+{\footnotesize\ttfamily \label{namespacerpath_ac95367fc9bf411eca8d31874d5e3e703} 
+subroutine rpath::\+getprojforces2 (\begin{DoxyParamCaption}\item[{type (\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{logical}]{kon}{, }\item[{logical}]{ci\+\_\+flag}{, }\item[{logical}]{endflag}{}\end{DoxyParamCaption})}
+
+
+
+Get\+Proj\+Forces2. 
+
+Calculates the forces projected along the reaction path, as required in NEB or CINEB calculations. A previous PES calculation MUST have been performed for the reaction path. This routine uses a slightly improved version of tangents and forces as described by henkelman 00
+
+Note: By setting ci\+\_\+flag = .true., this routine returns forces for CI-\/\+NEB.
+
+
+\begin{DoxyItemize}
+\item rp: Reaction path object. size is made.
+\item ci\+\_\+flag: Logical flag indicating whether to return climbing-\/image forces.
+\item endflag: Logical flag indicating whether or not the forces on the end-\/point beads should be returned as the "{}bare"{} (non-\/\+NEB) forces. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l01172}{1172}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_a73d1e89cffa30d46b66bfbd445e3e0f4}\index{rpath@{rpath}!variablesprings@{variablesprings}}
+\index{variablesprings@{variablesprings}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{variablesprings()}{variablesprings()}}
+{\footnotesize\ttfamily \label{namespacerpath_a73d1e89cffa30d46b66bfbd445e3e0f4} 
+subroutine rpath::\+variablesprings (\begin{DoxyParamCaption}\item[{type (\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l01290}{1290}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_a79ee81833120305547c237a755918472}\index{rpath@{rpath}!getprojforces3@{getprojforces3}}
+\index{getprojforces3@{getprojforces3}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{getprojforces3()}{getprojforces3()}}
+{\footnotesize\ttfamily \label{namespacerpath_a79ee81833120305547c237a755918472} 
+subroutine rpath::\+getprojforces3 (\begin{DoxyParamCaption}\item[{type (\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{logical}]{kon}{, }\item[{logical}]{ci\+\_\+flag}{, }\item[{logical}]{endflag}{}\end{DoxyParamCaption})}
+
+
+
+Get\+Proj\+Forces3. 
+
+Calculates the forces projected along the reaction path, as required in NEB or CINEB calculations. This routine uses improves the improvement in henkelmans two 00 papers as described in Kolsbjerg and Hammer 16
+
+Note: By setting ci\+\_\+flag = .true., this routine returns forces for CI-\/\+NEB.
+
+
+\begin{DoxyItemize}
+\item rp: Reaction path object. size is made.
+\item ci\+\_\+flag: Logical flag indicating whether to return climbing-\/image forces.
+\item endflag: Logical flag indicatin whether or not the forces on the end-\/point beads should be returned as the "{}bare"{} (non-\/\+NEB) forces. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l01349}{1349}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_aae808f74fd2e658a175c79600c5bfe34}\index{rpath@{rpath}!shimmyendbeads@{shimmyendbeads}}
+\index{shimmyendbeads@{shimmyendbeads}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{shimmyendbeads()}{shimmyendbeads()}}
+{\footnotesize\ttfamily \label{namespacerpath_aae808f74fd2e658a175c79600c5bfe34} 
+subroutine rpath::\+shimmyendbeads (\begin{DoxyParamCaption}\item[{type (\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{logical}]{shimmied}{, }\item[{integer}]{beadcount}{, }\item[{integer}]{pend}{}\end{DoxyParamCaption})}
+
+
+
+Shimmy\+End\+Beads. 
+
+
+\begin{DoxyItemize}
+\item rp: Reaction path object.
+\item kspring: NEB spring constant (in au), used as a reference for variable spring size is made. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l01469}{1469}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_a17575cd0e216ffd99d188bb982fd2efc}\index{rpath@{rpath}!getfourierforces@{getfourierforces}}
+\index{getfourierforces@{getfourierforces}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{getfourierforces()}{getfourierforces()}}
+{\footnotesize\ttfamily \label{namespacerpath_a17575cd0e216ffd99d188bb982fd2efc} 
+subroutine rpath::\+getfourierforces (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{}\end{DoxyParamCaption})}
+
+
+
+Get\+Fourier\+Forces. 
+
+Calculates the Fourier expansion coefficients for the path rp.
+
+
+\begin{DoxyItemize}
+\item rp: Input reaction-\/path object. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l01585}{1585}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_a8808a2a9ef2cd749de76ec66e662cf4c}\index{rpath@{rpath}!fouriertopath@{fouriertopath}}
+\index{fouriertopath@{fouriertopath}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{fouriertopath()}{fouriertopath()}}
+{\footnotesize\ttfamily \label{namespacerpath_a8808a2a9ef2cd749de76ec66e662cf4c} 
+subroutine rpath::\+fouriertopath (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{}\end{DoxyParamCaption})}
+
+
+
+Fourier\+To\+Path. 
+
+Calculates the path positions using the path Fourier coefficients.
+
+
+\begin{DoxyItemize}
+\item rp: Input reaction-\/path object. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l01646}{1646}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_a58f6e30e1af43edf4aa86279c520213f}\index{rpath@{rpath}!pathtofourier@{pathtofourier}}
+\index{pathtofourier@{pathtofourier}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{pathtofourier()}{pathtofourier()}}
+{\footnotesize\ttfamily \label{namespacerpath_a58f6e30e1af43edf4aa86279c520213f} 
+subroutine rpath::\+pathtofourier (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{}\end{DoxyParamCaption})}
+
+
+
+Path\+To\+Fourier. 
+
+Calculates the Fourier coefficiencts from path positions.
+
+
+\begin{DoxyItemize}
+\item rp: Input reaction-\/path object. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l01695}{1695}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_a7fee98f4bae0eeddfeb9c7a7a0cd36de}\index{rpath@{rpath}!firstvvupdate@{firstvvupdate}}
+\index{firstvvupdate@{firstvvupdate}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{firstvvupdate()}{firstvvupdate()}}
+{\footnotesize\ttfamily \label{namespacerpath_a7fee98f4bae0eeddfeb9c7a7a0cd36de} 
+subroutine rpath::\+firstvvupdate (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{real(8)}]{timestep}{, }\item[{real(8)}]{mass}{}\end{DoxyParamCaption})}
+
+
+
+First\+VVUpdate. 
+
+Evolves the Fourier coefficients and momenta through first half of a Velocity-\/\+Verlet time-\/step.
+
+
+\begin{DoxyItemize}
+\item rp: Reaction path object
+\item timestep: obvs...
+\item mass: Fourier coefficient mass. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l01742}{1742}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_ac85f7c72e6a51be0d86bde43398f5d1b}\index{rpath@{rpath}!secondvvupdate@{secondvvupdate}}
+\index{secondvvupdate@{secondvvupdate}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{secondvvupdate()}{secondvvupdate()}}
+{\footnotesize\ttfamily \label{namespacerpath_ac85f7c72e6a51be0d86bde43398f5d1b} 
+subroutine rpath::\+secondvvupdate (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{real(8)}]{timestep}{, }\item[{real(8)}]{mass}{}\end{DoxyParamCaption})}
+
+
+
+Second\+VVUpdate. 
+
+Evolves the Fourier coefficients and momenta through second half of a Velocity-\/\+Verlet time-\/step.
+
+
+\begin{DoxyItemize}
+\item rp: Reaction path object
+\item timestep: obvs...
+\item mass: Fourier coefficient mass. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l01805}{1805}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_ae05b8e955144357569094f22cb55b245}\index{rpath@{rpath}!getspringforces@{getspringforces}}
+\index{getspringforces@{getspringforces}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{getspringforces()}{getspringforces()}}
+{\footnotesize\ttfamily \label{namespacerpath_ae05b8e955144357569094f22cb55b245} 
+subroutine rpath::\+getspringforces (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{real(8)}]{kspring}{}\end{DoxyParamCaption})}
+
+
+
+Get\+Spring\+Forces. 
+
+Calculates the inter-\/bead spring potential and forces.
+
+
+\begin{DoxyItemize}
+\item rp: Reaction path object.
+\item kspring: Spring constant 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l01863}{1863}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_ad39f06a07a989b7bfe818da9911ec287}\index{rpath@{rpath}!stripinactivefrompath@{stripinactivefrompath}}
+\index{stripinactivefrompath@{stripinactivefrompath}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{stripinactivefrompath()}{stripinactivefrompath()}}
+{\footnotesize\ttfamily \label{namespacerpath_ad39f06a07a989b7bfe818da9911ec287} 
+subroutine rpath::\+stripinactivefrompath (\begin{DoxyParamCaption}\item[{type(\doxymbox{\hyperlink{structrpath_1_1rxp}{rxp}})}]{rp}{, }\item[{character (len=\texorpdfstring{$\ast$}{*})}]{stripfile}{, }\item[{integer, dimension(3\texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{namespaceconstants_af3563b26c30009f026fc978080d89280}{namax}})}]{fixeddof}{, }\item[{integer, dimension(\doxymbox{\hyperlink{namespaceconstants_af3563b26c30009f026fc978080d89280}{namax}})}]{fixedatom}{, }\item[{integer}]{ndofconstr}{, }\item[{integer}]{natomconstr}{, }\item[{logical}]{updatecons}{}\end{DoxyParamCaption})}
+
+
+
+Strip\+Inactive\+From\+Path. 
+
+Removes inactive molecules from the reaction path. Here, inactive means that the molecules are not involved in any bond changes.
+
+
+\begin{DoxyItemize}
+\item rp: Reaction path object.
+\item Update\+Cons: flag determining if the Fixed\+Atom and Fixed\+Dof should be updated to match the stripped CXS
+\item stripfile: The filename where the stripped path is output. 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l01905}{1905}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+
+\Hypertarget{namespacerpath_a4c7410e4e6417ef235293315107537e8}\index{rpath@{rpath}!errorr@{errorr}}
+\index{errorr@{errorr}!rpath@{rpath}}
+\doxysubsubsection{\texorpdfstring{errorr()}{errorr()}}
+{\footnotesize\ttfamily \label{namespacerpath_a4c7410e4e6417ef235293315107537e8} 
+real(8) function rpath::\+errorr (\begin{DoxyParamCaption}\item[{real(8), dimension(3, \doxymbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}})}]{one}{, }\item[{real(8), dimension(3, \doxymbox{\hyperlink{namespaceglobaldata_af9a44ac008f52391f58feb151753380f}{na}})}]{two}{, }\item[{integer}]{na}{}\end{DoxyParamCaption})}
+
+
+
+errorr calculates the absolute difference, elementwise between two matrices. 
+
+
+\begin{DoxyItemize}
+\item one, two: the matrices
+\item na: ... 
+\end{DoxyItemize}
+
+Definition at line \doxymbox{\hyperlink{rpath_8f90_source_l02085}{2085}} of file \doxymbox{\hyperlink{rpath_8f90_source}{rpath.\+f90}}.
+

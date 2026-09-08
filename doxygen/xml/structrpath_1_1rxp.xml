@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="structrpath_1_1rxp" kind="type" language="Fortran" prot="public">
+    <compoundname>rpath::rxp</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrpath_1_1rxp_1a41850c8176424e44a01af2adcb3eaa45" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer rpath::rxp::nimage</definition>
+        <argsstring></argsstring>
+        <name>nimage</name>
+        <qualifiedname>rpath::rxp::nimage</qualifiedname>
+        <briefdescription>
+<para>Number of images. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="25" column="1" bodyfile="src/rpath.f90" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrpath_1_1rxp_1a9b645f64ca4b1103cf46241ac702f34a" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer rpath::rxp::na</definition>
+        <argsstring></argsstring>
+        <name>na</name>
+        <qualifiedname>rpath::rxp::na</qualifiedname>
+        <briefdescription>
+<para>Number of atoms per image. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="26" column="1" bodyfile="src/rpath.f90" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrpath_1_1rxp_1a4c4a9be8011866e0dbd5c5d930b048bc" prot="public" static="no" mutable="no">
+        <type>type(<ref refid="structchemstr_1_1cxs" kindref="compound">cxs</ref>), dimension(:), allocatable</type>
+        <definition>type(cxs), dimension(:), allocatable rpath::rxp::cx</definition>
+        <argsstring></argsstring>
+        <name>cx</name>
+        <qualifiedname>rpath::rxp::cx</qualifiedname>
+        <briefdescription>
+<para>Allocated chemical structure objects in the path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="27" column="1" bodyfile="src/rpath.f90" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrpath_1_1rxp_1aabf2a9ba3aa2a7627e9a6b225e8f857e" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(:,:,:), allocatable</type>
+        <definition>real(8), dimension(:,:,:), allocatable rpath::rxp::coeff</definition>
+        <argsstring></argsstring>
+        <name>coeff</name>
+        <qualifiedname>rpath::rxp::coeff</qualifiedname>
+        <briefdescription>
+<para>Fourier coefficients of path (3,na,nb). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="28" column="1" bodyfile="src/rpath.f90" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrpath_1_1rxp_1ae7639d542239ad0e049adeba3234cb6a" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(:,:,:), allocatable</type>
+        <definition>real(8), dimension(:,:,:), allocatable rpath::rxp::pcoeff</definition>
+        <argsstring></argsstring>
+        <name>pcoeff</name>
+        <qualifiedname>rpath::rxp::pcoeff</qualifiedname>
+        <briefdescription>
+<para>Momentum of Fourier coefficients of path (3,na,nb). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="29" column="1" bodyfile="src/rpath.f90" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrpath_1_1rxp_1ac6dba38b2c6d98d41a510e2321ef47de" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(:,:,:), allocatable</type>
+        <definition>real(8), dimension(:,:,:), allocatable rpath::rxp::dcoeff</definition>
+        <argsstring></argsstring>
+        <name>dcoeff</name>
+        <qualifiedname>rpath::rxp::dcoeff</qualifiedname>
+        <briefdescription>
+<para>Derivatives of Fourier coefficients of path (3,na,nb). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="30" column="1" bodyfile="src/rpath.f90" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrpath_1_1rxp_1aa402eef960ff8e6c47d1d3b8c43ff7a4" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(:), allocatable</type>
+        <definition>real(8), dimension(:), allocatable rpath::rxp::ks</definition>
+        <argsstring></argsstring>
+        <name>ks</name>
+        <qualifiedname>rpath::rxp::ks</qualifiedname>
+        <briefdescription>
+<para>intra bead force constants </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="31" column="1" bodyfile="src/rpath.f90" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrpath_1_1rxp_1a5f900bf11745d1f9a39fdd1628ef29d4" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) rpath::rxp::vspring</definition>
+        <argsstring></argsstring>
+        <name>vspring</name>
+        <qualifiedname>rpath::rxp::vspring</qualifiedname>
+        <briefdescription>
+<para>Spring potential term. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/rpath.f90" line="32" column="1" bodyfile="src/rpath.f90" bodystart="32" bodyend="32"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Type definition for the reaction-path object. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>chemstr::cxs</label>
+        <link refid="structchemstr_1_1cxs"/>
+      </node>
+      <node id="1">
+        <label>rpath::rxp</label>
+        <link refid="structrpath_1_1rxp"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>cx</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/rpath.f90" line="23" column="1" bodyfile="src/rpath.f90" bodystart="23" bodyend="33"/>
+    <listofallmembers>
+      <member refid="structrpath_1_1rxp_1aabf2a9ba3aa2a7627e9a6b225e8f857e" prot="public" virt="non-virtual"><scope>rpath::rxp</scope><name>coeff</name></member>
+      <member refid="structrpath_1_1rxp_1a4c4a9be8011866e0dbd5c5d930b048bc" prot="public" virt="non-virtual"><scope>rpath::rxp</scope><name>cx</name></member>
+      <member refid="structrpath_1_1rxp_1ac6dba38b2c6d98d41a510e2321ef47de" prot="public" virt="non-virtual"><scope>rpath::rxp</scope><name>dcoeff</name></member>
+      <member refid="structrpath_1_1rxp_1aa402eef960ff8e6c47d1d3b8c43ff7a4" prot="public" virt="non-virtual"><scope>rpath::rxp</scope><name>ks</name></member>
+      <member refid="structrpath_1_1rxp_1a9b645f64ca4b1103cf46241ac702f34a" prot="public" virt="non-virtual"><scope>rpath::rxp</scope><name>na</name></member>
+      <member refid="structrpath_1_1rxp_1a41850c8176424e44a01af2adcb3eaa45" prot="public" virt="non-virtual"><scope>rpath::rxp</scope><name>nimage</name></member>
+      <member refid="structrpath_1_1rxp_1ae7639d542239ad0e049adeba3234cb6a" prot="public" virt="non-virtual"><scope>rpath::rxp</scope><name>pcoeff</name></member>
+      <member refid="structrpath_1_1rxp_1a5f900bf11745d1f9a39fdd1628ef29d4" prot="public" virt="non-virtual"><scope>rpath::rxp</scope><name>vspring</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

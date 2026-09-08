@@ -1,0 +1,208 @@
+This page describes the allowed input parameters, and a description of what they do. Please note the following\+:
+
+
+\begin{DoxyItemize}
+\item Note that input-\/file keywords are case-\/sensitive -\/ everything should be lower-\/case!
+\item In the input file, lines beginning with \textquotesingle{}\#\textquotesingle{} are comments.
+\item Blank lines are ignored.
+\item Keywords can appear in any order.
+\end{DoxyItemize}\hypertarget{_annotated_autotoc_md4}{}\doxysection{Main input parameters}\label{_annotated_autotoc_md4}
+These parameters are used to control input, number of images, and other general aspects of the calculation.
+
+{\itshape nimage 10} \+:: Number of images.
+
+{\itshape calctype optpath} \+:: Calculation type ({\itshape optpath} for path optimization, and {\itshape pathfind} for double-\/ended reaction-\/path finding calculations.)
+
+{\itshape startfile start.\+xyz} \+:: Start-\/point coordinate file (used when startfrompath = .F\+A\+L\+SE.)
+
+{\itshape endfile end.\+xyz} \+:: End-\/point coordinate file (used when startfrompath = .F\+A\+L\+SE.)
+
+{\itshape pathfile path.\+xyz} \+:: Initial path file (used when startfrompath = .T\+R\+UE.)
+
+{\itshape ranseed 13} \+:: Random number seed (positive integer)
+
+{\itshape startfrompath .F\+A\+L\+SE.} \+:: Flag indicating start from end-\/point files only (.F\+A\+L\+SE.) or full path (.T\+R\+UE.)
+
+{\itshape pathinit linear} \+:: If startfrompath = .F\+A\+L\+SE., pathinit indicates initial interpolation ( must be {\itshape linear} for now ...)\hypertarget{_annotated_autotoc_md5}{}\doxysection{Path optimization control}\label{_annotated_autotoc_md5}
+The following parameters are used to control the calculation when performing a path-\/optimization simulation ( {\bfseries{calctype optpath}}), for example using climbing-\/image nudged elastic band.
+
+{\itshape pathoptmethod cineb} \+:: Path-\/optimization method (currently cineb only)
+
+{\itshape nebmethod quickmin} \+:: (CI)N\+EB optimization method ({\itshape fire} for fire algorithm (Bitzek {\itshape et al} Phys. Rev. Lett. 97, 170201 (2006)), {\itshape quickmin} for velocity verlet method (competitive), {\itshape steepest} for steepest-\/descents (S\+L\+OW))
+
+{\itshape nebiter 500} \+:: Number of (CI)N\+EB optimization iterations.
+
+{\itshape cithresh 5d-\/4} \+:: R\+MS force threshold at which climbing-\/image is activated.
+
+{\itshape nebspring 0.\+05} \+:: (CI)N\+EB spring constant in au (Eh/bohr$\ast$$\ast$2)
+
+{\itshape nebstep 10.\+1} \+:: Step-\/size for steepest descent or quickmin (au)
+
+{\itshape neboutfreq 10} \+:: Output frequency during (CI)N\+EB optimization.
+
+{\itshape optendsbefore .F\+A\+L\+SE.} \+:: Flag indicating whether to optimize end-\/points B\+E\+F\+O\+RE N\+EB refinement.
+
+{\itshape optendsduring .T\+R\+UE.} \+:: Flag indicating whether to optimize end-\/point S\+I\+M\+U\+L\+T\+A\+N\+E\+O\+U\+S\+LY with path.
+
+{\itshape nebrestrend .F\+A\+L\+SE.} \+:: Flag indicating whether to apply graph-\/restrain potential during N\+EB (also used in G\+DS).
+
+{\itshape vsthresh 1d-\/3} \+:: R\+MS force threshold at which the variable spring strength is switched on (see Henkelman 00).
+
+{\itshape reconnect .true.} \+:: For 2-\/$>$N-\/1 images, linearly interpolates the coordinates of beads 1 and N, A\+F\+T\+ER a minimization has been performed
+
+{\itshape idppguess .true.} \+:: performs N\+EB under a Image-\/\+Dependent Pair Potential (I\+D\+PP) starting from a linear interpolation to generate a better initial guess for N\+EB. See Article Smidstrup {\itshape et al} J. Chem. Phys. 140, 214106 (2016)
+
+{\itshape projforcetype 2} \+:: Selects which type of N\+EB projected force to use (1\+: original, 2\+: Henkelman {\itshape et al}, J. Chem. Phys. 113, 9901 (2000), 3\+: Kolsbjerg {\itshape et al} J. Chem. Phys. 145, 94107 (2016) )
+
+{\itshape stripinactive .T\+R\+UE.} \+:: This is a logical flag which controls whether or not \char`\"{}inactive\char`\"{} molecules are removed from the initial path of a N\+EB calculation before N\+EB refinement.
+
+{\itshape nebconv 1d-\/3} \+::
+
+{\itshape nebmaxconv 5d-\/3} \+::\hypertarget{_annotated_autotoc_md6}{}\doxysection{Constraints control}\label{_annotated_autotoc_md6}
+This block controls the constrained atoms and degrees-\/of-\/freedom in G\+DS calculations and geometry-\/optimization calculations.
+
+The {\itshape dofconstraints} input gives the number of fixed D\+O\+Fs (in this case, 6), with following line in the input file listing the integer-\/values of the fixed D\+O\+FS. Here, counting starts at 1 for the {\itshape x}-\/coordinate of atom 1. The {\itshape z}-\/coordinate of atom 2 has the integer value of 6, and so on... \begin{DoxyVerb} dofconstraints 6
+ 1 2 3 5 6 9
+\end{DoxyVerb}
+
+
+The {\itshape atomconstraints} has the same format as {\itshape dofconstraints}, but the integers now refer to the number of fixed atoms, and the indices of the fixed atoms. In the following, 1 atom is fixed -\/ atom number 13. \begin{DoxyVerb} atomconstraints 1
+ 13
+\end{DoxyVerb}
+
+
+Finally, the {\itshape alignedatoms} input allows one to define three atoms which will be used to position and orient any input molecular structure in space. This is very useful when performing N\+EB calculations as it helps remove overall translations and orientations of the molecules in the optimized string. Note that the N\+EB routines will automatically select 3 atoms to position and orient if you don\textquotesingle{}t input anything as {\itshape alignedatoms}. In the following example, atoms 1, 2 and 3 are chosen to define the relative position and orientation. \begin{DoxyVerb} alignedatoms
+ 1 2 3
+\end{DoxyVerb}
+\hypertarget{_annotated_autotoc_md7}{}\doxysection{P\+E\+S control}\label{_annotated_autotoc_md7}
+This block controls potential energy evaluations during G\+DS and N\+EB, and also controls geometry-\/optimization.
+
+{\itshape pesfull .T\+R\+UE.} \+:: If .T\+R\+UE., we perform P\+ES evaluations and geometry optimizations for the full system in one go. If .F\+A\+L\+SE., we separately calculate the energy for each independent molecule.
+
+{\itshape pestype orca} \+:: Defines single-\/point P\+ES evaluation code to use ({\itshape orca}, {\itshape dftb}, {\itshape null} or {\itshape lammps})
+
+{\itshape pesfile orca.\+head} \+:: Defines the inputfile containing the header for pes single-\/point calculation.
+
+{\itshape pesopttype orca} \+:: Defines geometry optimization P\+ES code being used ({\itshape orca}, {\itshape dftb}, {\itshape null}, {\itshape uff})
+
+{\itshape pesoptfile orca.\+min} \+:: Defines the inputfile containing the header for geometry-\/optimization calculation.
+
+{\itshape pesexecutable orca} \+:: Defines the executable to use to for single-\/point P\+ES evaluation (full path or alias)
+
+{\itshape pesoptexecutable orca} \+:: Defines the executable to use to for geometry optimization (full path or alias)\hypertarget{_annotated_autotoc_md8}{}\doxysection{Graph-\/restraint potential control}\label{_annotated_autotoc_md8}
+Controls G\+DS simulations.
+
+{\bfseries{movefile moves.\+in}} \+:: Identifies the movefile used to input allowed graph moves.
+
+{\bfseries{gdsspring 0.\+025}} \+:: Inter-\/bead spring constant for G\+RP (Eh/\+Bohr$\ast$$\ast$2)
+
+{\bfseries{gdsrestspring 0.\+1}} \+:: Spring constant for harmonic graph enforcement terms (Eh/\+Bohr$\ast$$\ast$2)
+
+{\bfseries{nbstrength 0.\+02}} \+:: Repulsion strength for non-\/bonded atoms \mbox{[}V = nbstrength $\ast$ exp(-\/r\+\_\+\{ij\}$\ast$$\ast$2 / (2 $\ast$ nbrange$\ast$$\ast$2))\mbox{]}
+
+{\bfseries{nbrange 2.\+0}} \+:: Range parameter for non-\/bonded atoms (see above).
+
+{\bfseries{kradius 0.\+1}} \+:: Spring constant for non-\/interacting molecules in G\+DS simulations.
+
+{\bfseries{ngdsrelax 2000}} \+:: Number of steepest-\/descent optimization steps to minimize graph restraint potential
+
+{\bfseries{gdsdtrelax 0.\+05}} \+:: Step-\/size (au) for steepest-\/descent relaxation above.
+
+{\bfseries{gdsoutfreq 10}} \+:: Information output frequency during G\+DS simulation.
+
+{\bfseries{nebrestrend .F\+A\+L\+SE.}} \+:: Flag indicating weather to apply to it duing the optimization of molecules during G\+DS, if optaftermove is .true. (also used in C\+I\+N\+EB).
+
+{\bfseries{optaftermove .T\+R\+UE.}} \+:: Optimizes every molecule involved in the path formation -\/ if the resulting optimised molecule does not conform to the graph, the proposed path is rejected. If nebrestrend .T\+R\+UE., the graph constraining potential are also included during the optimization, and then switched off during a second, in the hope to find a minima in agreement with the graphs (would recommend to set nebrestrend .T\+R\+UE. for this).
+
+{\bfseries{valencerange}} \+:: Defines the allowed valence ranges of each element as follows\+: \begin{DoxyVerb}valencerange{
+C 1 4
+O 1 2
+H 0 1
+Pt 0 3 fz
+}
+\end{DoxyVerb}
+ The fz keyword applies only to frozen atoms, either by being defined in the fixedbonds\{\} input (see below), or by atomcontraints keyword. In the example, only Pt-\/X bonds (X= whatever) which can be formed or broken during the G\+DS calculation are counted into the \textquotesingle{}valence\textquotesingle{}. If a cluster of Pt atoms are not moving during a G\+DS calculation, and they are bonded to each other (to varying degrees), the above keyword will allow for up to 3 more bonds, not counting the Pt-\/\+Pt bonds, to be formed on the Pt atoms.
+
+{\bfseries{reactiveatomtypes}} \+:: Defines which types of elements are allowed to react, as follows\+: \begin{DoxyVerb}reactiveatomtypes{
+C
+O
+H
+}
+\end{DoxyVerb}
+
+
+{\bfseries{reactiveatoms}} \+:: Defines which atom numbers are allowed to react. These can be given as an inclusive range ({\itshape range XX YY}), or by individual id number ({\itshape id XX}). \begin{DoxyVerb}reactiveatoms{
+range 1 4
+id 7
+}
+\end{DoxyVerb}
+
+
+{\bfseries{reactivevalence}} \+:: Defines the valence range one element can have with another \begin{DoxyVerb}reactivevalence{
+Fe Fe 6 8
+    H C 0 1
+    H O 0 1
+}
+\end{DoxyVerb}
+
+
+In the above, {\itshape Fe} must be bonded between 6 to 8 other Fe atoms to be an acceptable molecule. Similarly, the second line indicates that Hydrogen can only be bonded up to 1 carbon atom.
+
+{\bfseries{fixedbonds}} \+:: Defines fixed bonds, which are not allowed to change during a chemical reaction (although they can vibrate, translate, etc.) \begin{DoxyVerb}fixedbonds{
+C O
+3 4
+}
+\end{DoxyVerb}
+
+
+In the above example, {\itshape all} C-\/O bond orders are fixed at whatever they are in the starting structure. So, if a C-\/O bond is present in the starting structure, it cannot change during the G\+DS simulation. Similarly, the bond between atoms {\itshape 3} and {\itshape 4} is also fixed at the starting structure value.
+
+{\bfseries{essentialmoveatoms}} \+:: Defines a list of atoms of which AT L\+E\+A\+ST O\+NE OF T\+H\+EM M\+U\+ST be included in any possible graph moves. The formatting options are the same as the {\itshape reactiveatoms} block described above, for example\+: \begin{DoxyVerb}essentialmoveatoms{
+range 1 2
+}
+\end{DoxyVerb}
+
+
+In the above example, the atoms in the range 1-\/2 must be included amogst the moves chosen.
+
+{\bfseries{essentialatoms}} \+:: Defines atoms of which AT L\+E\+A\+ST O\+NE OF T\+H\+EM M\+U\+ST be included in molecules that are involved in the reactions. The formatting options are the same as the {\itshape reactiveatoms} block described above, for example\+: \begin{DoxyVerb}essentialatoms{
+id 5
+id 7
+}
+\end{DoxyVerb}
+
+
+In the above example, the atoms 5 and 7 must be in any of the molecules that are involved in the reaction (from chemical species image 1 changing to nimage)
+
+{\bfseries{allowedbonds}} \+:: Allows definition of bond-\/number constraints in the structures generated by graph moves. The format is as given in the following example\+: \begin{DoxyVerb}allowedbonds{
+O O 1
+}
+\end{DoxyVerb}
+
+
+Here, the constraint indicates that an oxygen atom cannot be bonded to more than 1 other oxygen atom.
+
+{\bfseries{forbidgraphs}} \+:: This is a logical flag which indicates whether or not to use the forbidden graph pattern file. If .T\+R\+UE., then a G\+DS simulation will not allow any graph-\/patterns to form which are input into the forbidfile defined below. By adding entries to the forbid file, users can force G\+DS to stop generating user-\/defined bonding patterns.
+
+{\bfseries{forbidfile forbid.\+in}} \+:: Identifies the file (here, forbid.\+in) which contains the library of forbidden bonding patterns which are used if forbidgraphs = .T\+R\+UE.\hypertarget{_annotated_autotoc_md9}{}\doxysection{Path-\/finding controls}\label{_annotated_autotoc_md9}
+The following parameters control the double-\/ended reaction-\/path finding algorithm.
+
+{\bfseries{nrxn}} \+:: Total number of elementary steps allowed in mechanism.
+
+{\bfseries{nmcrxn}} \+:: Maximum number of Monte Carlo moves to try during simulated annealing optimization.
+
+{\bfseries{nmechmove}} \+:: Maximum number of mechanism updates in each MC step.
+
+{\bfseries{mcrxntemp}} \+:: Initial temperature (in K) for simulated annealing optimization (decreases linearly during run).
+
+{\bfseries{graphfunctype}} \+:: Determines the optimization function for the path-\/finding calculation. This should be an integer\+: (1) Standard element-\/wise comparison, (2) Eigenvalue comparison, (3) Histogram comparison, (4) Eigenvalue comparison for single molecule. {\itshape You should preferably use either (2) or (4)!}
+
+{\bfseries{minmolcharge}} \+:: Minimum allowed molecular charge (if electron transfer moves are allowed in the movefile).
+
+{\bfseries{maxmolcharge}} \+:: As above, but maximum value.
+
+{\bfseries{nchargemol}} \+:: Maximum number of molecules which can be charged.
+
+{\bfseries{maxstepcharge}} \+:: Maximum number of reation steps which can involve charge changes.
+
+{\bfseries{maxtotalcharge}} \+:: Maximum total charge in a given reaction step. 

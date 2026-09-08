@@ -1,0 +1,995 @@
+
+************************ CDE simulation ************************
+
+- Start date:    07/03/2025
+- Start time:    14:12:43
+
+- The input filename is: input                                             
+
+================================================================
+                INPUT FILE INTERPRETATION FOLLOWS               
+================================================================
+
+- The input filename is: input                                             
+
+# COMMENT: comment line                                                                                        
+Calculation type: BREAKDOWN NETWORK GENERATION
+- Minimum allowed molecular charge:     0
+- Maximum allowed molecular charge:     0
+- Maximum number of charged molecules allowed at any step:     0
+- Maximum allowed molecular charge:     0
+- Maximum total system charge:     0
+- PES geometry optimization after graph move?:  F
+- PES evaluations for INDEPENDENT MOLECULES being used...
+- Number of images per path:     8
+- Start-point structure file:  start.xyz                                         
+- End-point structure file:  end.xyz                                           
+- IDPP interpolation :  T
+
+- Path refinement method:  CLIMBING-IMAGE NUDGED ELASTIC BAND
+- (CI)NEB optimization method:  QUICKMIN
+- Maximum number of NEB iteractions:     500
+- Climbing-image start criterion (au):      0.00050000
+- NEB spring constant:        0.050000
+- NEB optimization step-size:       10.000000
+- NEB output frequency:       5
+- Strip inactive molecules before path optimization?:  F
+- Optimize end-points before NEB run:  F
+- Optimize end-points during NEB run:  F
+- Use graph-restrain potential during NEB:  F
+
+- Number of fixed DOFs:     0
+- Number of fixed atoms:     0
+
+- PES type:  null
+- PES calculation template file:  xtb.head
+- PES type for geometry optimization:  null
+- Geometry optimisation template file:  xtb.head
+- PES calculation executable:  xtb --iterations 1000 --grad
+- PES geometry optimization executable:  xtb --iterations 1000 --opt normal --grad
+
+- Graph-moves file:  moves.in                                          
+- GDS attempt probability:      0.50000000
+- Spring constant for inter-bead springs:      0.05000000
+- Spring constant for bonded-graph restraints:      0.05000000
+- Strength of non-bonded exponential graph restraints:      0.04000000
+- Range of non-bonded exponential graph restraints:      2.50000000
+- Spring constant for intermolecular repulsion restraints:      0.05000000
+- Number of SD steps after GDS graph move:    10000
+- GDS SD relaxation step-size:      0.10000000
+- GDS output frequency:       10
+
+- Number of valence range constraints:     2
+- Valence range constraint:    1 C     1    4
+- Valence range constraint:    2 H     0    1
+
+- Number of reactive atom types:     2
+- Reactive atom labels:  C 
+- Reactive atom labels:  H 
+
+
+- Number of reactive valence constraints:     0
+
+- Fixed bonds for GDS:
+
+- Number of allowed bonding constraints:     0
+
+- Number of reactions in sampled strings for pathfinder:    50
+- Number of MC steps in pathfinder calculation::        1
+- Pathfinding function type: Eigenvalue comparison for single molecule
+- Random number seed:    44
+
+================================================================
+                 END OF INPUT FILE INTERPRETATION                   
+================================================================
+
+*************** Finished reading input parameters **************
+
+* Starting single-ended breakdown product generation...
+
+* Running network-generation calculation....
+
+* Reading reactant structure...
+* Obtaining energy of starting geometry...
+* Energy calculated.
+
+================================================================
+# Graph Info for CXS:  Reactant structure
+
+* Bonded atoms *
+ C 1   - C 2  
+ C 1   - H 3  
+ C 2   - H 4  
+ C 5   - C 6  
+ C 6   - H 7  
+ C 8   - C 9  
+ C 8   - H 10 
+ C 8   - H 11 
+ C 9   - C 12 
+ C 12  - C 13 
+ C 13  - H 14 
+ C 15  - C 16 
+ C 15  - H 17 
+ C 15  - H 18 
+ C 16  - C 19 
+ C 16  - H 20 
+ C 19  - C 21 
+ C 19  - H 22 
+ C 21  - H 23 
+ C 21  - H 24 
+ H 25  - H 26 
+ C 27  - C 28 
+ C 27  - H 29 
+ C 28  - C 30 
+ C 30  - H 31 
+ C 30  - H 32 
+ C 30  - H 33 
+ H 34  - C 36 
+ C 35  - C 36 
+ C 35  - C 37 
+ C 36  - H 39 
+ C 37  - H 38 
+ C 40  - C 41 
+ C 40  - H 47 
+ C 40  - H 48 
+ C 41  - C 42 
+ C 42  - C 44 
+ C 42  - H 46 
+ H 43  - C 44 
+ C 44  - H 45 
+
+* Atomic valencies *
+ C 1    :    2
+ C 2    :    2
+ H 3    :    1
+ H 4    :    1
+ C 5    :    1
+ C 6    :    2
+ H 7    :    1
+ C 8    :    3
+ C 9    :    2
+ H 10   :    1
+ H 11   :    1
+ C 12   :    2
+ C 13   :    2
+ H 14   :    1
+ C 15   :    3
+ C 16   :    3
+ H 17   :    1
+ H 18   :    1
+ C 19   :    3
+ H 20   :    1
+ C 21   :    3
+ H 22   :    1
+ H 23   :    1
+ H 24   :    1
+ H 25   :    1
+ H 26   :    1
+ C 27   :    2
+ C 28   :    2
+ H 29   :    1
+ C 30   :    4
+ H 31   :    1
+ H 32   :    1
+ H 33   :    1
+ H 34   :    1
+ C 35   :    2
+ C 36   :    3
+ C 37   :    2
+ H 38   :    1
+ H 39   :    1
+ C 40   :    3
+ C 41   :    2
+ C 42   :    3
+ H 43   :    1
+ C 44   :    3
+ H 45   :    1
+ H 46   :    1
+ H 47   :    1
+ H 48   :    1
+
+================================================================
+
+* Reading graph moves file...
+* Graph moves input file: moves.in
+
+================================================================
+              MOVE FILE INTERPRETATION FOLLOWS...               
+================================================================
+
+Comment line: 
+# Contains the graph-moves library...
+
+*** Graph move number:    1 ***
+
+- Number of atoms:    2
+- Bond-changing move detected 
+- Start graph: 
+  0  1
+  1  0
+- End graph: 
+  0  0
+  0  0
+- Allowed atom labels: 
+* * 
+Move probability: 0.100
+
+*** Graph move number:    2 ***
+
+- Number of atoms:    2
+- Bond-changing move detected 
+- Start graph: 
+  0  0
+  0  0
+- End graph: 
+  0  1
+  1  0
+- Allowed atom labels: 
+* * 
+Move probability: 0.100
+
+*** Graph move number:    3 ***
+
+- Number of atoms:    3
+- Bond-changing move detected 
+- Start graph: 
+  0  0  1
+  0  0  1
+  1  1  0
+- End graph: 
+  0  1  0
+  1  0  0
+  0  0  0
+- Allowed atom labels: 
+* * * 
+Move probability: 0.100
+
+*** Graph move number:    4 ***
+
+- Number of atoms:    3
+- Bond-changing move detected 
+- Start graph: 
+  0  1  0
+  1  0  0
+  0  0  0
+- End graph: 
+  0  0  1
+  0  0  1
+  1  1  0
+- Allowed atom labels: 
+* * * 
+Move probability: 0.100
+
+*** Graph move number:    5 ***
+
+- Number of atoms:    3
+- Bond-changing move detected 
+- Start graph: 
+  0  0  1
+  0  0  0
+  1  0  0
+- End graph: 
+  0  1  0
+  1  0  0
+  0  0  0
+- Allowed atom labels: 
+* * * 
+Move probability: 0.100
+
+*** Graph move number:    6 ***
+
+- Number of atoms:    3
+- Bond-changing move detected 
+- Start graph: 
+  0  1  0
+  1  0  0
+  0  0  0
+- End graph: 
+  0  0  1
+  0  0  0
+  1  0  0
+- Allowed atom labels: 
+* * * 
+Move probability: 0.100
+
+*** Graph move number:    7 ***
+
+- Number of atoms:    3
+- Bond-changing move detected 
+- Start graph: 
+  0  1  0
+  1  0  1
+  0  1  0
+- End graph: 
+  0  1  1
+  1  0  0
+  1  0  0
+- Allowed atom labels: 
+* * * 
+Move probability: 0.100
+
+*** Graph move number:    8 ***
+
+- Number of atoms:    4
+- Bond-changing move detected 
+- Start graph: 
+  0  1  0  0
+  1  0  1  0
+  0  1  0  1
+  0  0  1  0
+- End graph: 
+  0  1  0  1
+  1  0  1  0
+  0  1  0  0
+  1  0  0  0
+- Allowed atom labels: 
+* * * * 
+Move probability: 0.100
+
+*** Graph move number:    9 ***
+
+- Number of atoms:    4
+- Bond-changing move detected 
+- Start graph: 
+  0  1  0  0
+  1  0  0  0
+  0  0  0  1
+  0  0  1  0
+- End graph: 
+  0  0  1  0
+  0  0  0  1
+  1  0  0  1
+  0  1  1  0
+- Allowed atom labels: 
+* * * * 
+Move probability: 0.100
+
+*** Graph move number:   10 ***
+
+- Number of atoms:    4
+- Bond-changing move detected 
+- Start graph: 
+  0  0  1  0
+  0  0  0  1
+  1  0  0  1
+  0  1  1  0
+- End graph: 
+  0  1  0  0
+  1  0  0  0
+  0  0  0  1
+  0  0  1  0
+- Allowed atom labels: 
+* * * * 
+Move probability: 0.100
+
+*** Graph move number:   11 ***
+
+- Number of atoms:    4
+- Bond-changing move detected 
+- Start graph: 
+  0  1  0  0
+  1  0  0  0
+  0  0  0  0
+  0  0  0  0
+- End graph: 
+  0  0  1  0
+  0  0  0  1
+  1  0  0  0
+  0  1  0  0
+- Allowed atom labels: 
+* * * * 
+Move probability: 0.100
+
+*** Graph move number:   12 ***
+
+- Number of atoms:    4
+- Bond-changing move detected 
+- Start graph: 
+  0  0  1  0
+  0  0  0  1
+  1  0  0  0
+  0  1  0  0
+- End graph: 
+  0  1  0  0
+  1  0  0  0
+  0  0  0  0
+  0  0  0  0
+- Allowed atom labels: 
+* * * * 
+Move probability: 0.100
+
+================================================================
+                MOVE FILE INTERPRETATION COMPLETE               
+================================================================
+
+* Finished reading graph moves file...
+
+* ChangeCharges DISABLED
+--------------------------------------------------------------
+Reaction mechanism:       1
+--------------------------------------------------------------
+* Setting all initial moves to null...
+* Generating a move for reaction step   1/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   2, cycling.
+- Trial move   3 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0001.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step   2/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0002.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step   3/ 50
+- Trial move   1 failed, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   2, cycling.
+- Trial move   3 failed, cycling.
+- Trial move   4 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   4, cycling.
+- Trial move   5 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   5, cycling.
+- Trial move   6 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   6, cycling.
+- Trial move   7 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0003.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step   4/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0004.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step   5/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   2, cycling.
+- Trial move   3 failed, cycling.
+- Trial move   4 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   4, cycling.
+- Trial move   5 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   5, cycling.
+- Trial move   6 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0005.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step   6/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0006.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step   7/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0007.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step   8/ 50
+- Trial move   1 failed, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   2, cycling.
+- Trial move   3 failed, cycling.
+- Trial move   4 failed, cycling.
+- Trial move   5 failed, cycling.
+- Trial move   6 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0008.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step   9/ 50
+- Trial move   1 failed, cycling.
+- Trial move   2 failed, cycling.
+- Trial move   3 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   3, cycling.
+- Trial move   4 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   4, cycling.
+- Trial move   5 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   5, cycling.
+- Trial move   6 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0009.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  10/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0010.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  11/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0011.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  12/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 failed, cycling.
+- Trial move   3 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   3, cycling.
+- Trial move   4 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   4, cycling.
+- Trial move   5 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   5, cycling.
+- Trial move   6 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   6, cycling.
+- Trial move   7 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   7, cycling.
+- Trial move   8 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0012.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  13/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0013.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  14/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0014.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  15/ 50
+- Trial move   1 failed, cycling.
+- Trial move   2 failed, cycling.
+- Trial move   3 failed, cycling.
+- Trial move   4 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0015.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  16/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 failed, cycling.
+- Trial move   3 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   3, cycling.
+- Trial move   4 failed, cycling.
+- Trial move   5 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   5, cycling.
+- Trial move   6 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   6, cycling.
+- Trial move   7 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0016.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  17/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0017.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  18/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0018.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  19/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0019.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  20/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0020.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  21/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   2, cycling.
+- Trial move   3 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   3, cycling.
+- Trial move   4 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   4, cycling.
+- Trial move   5 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   5, cycling.
+- Trial move   6 failed, cycling.
+- Trial move   7 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   7, cycling.
+- Trial move   8 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0021.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  22/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0022.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  23/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0023.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  24/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0024.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  25/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0025.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  26/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0026.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  27/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0027.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  28/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0028.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  29/ 50
+- Trial move   1 failed, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0029.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  30/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0030.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  31/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0031.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  32/ 50
+- Trial move   1 failed, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   2, cycling.
+- Trial move   3 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0032.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  33/ 50
+- Trial move   1 failed, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   2, cycling.
+- Trial move   3 failed, cycling.
+- Trial move   4 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   4, cycling.
+- Trial move   5 failed, cycling.
+- Trial move   6 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0033.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  34/ 50
+- Trial move   1 failed, cycling.
+- Trial move   2 failed, cycling.
+- Trial move   3 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0034.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  35/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0035.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  36/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0036.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  37/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0037.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  38/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0038.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  39/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0039.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  40/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0040.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  41/ 50
+- Trial move   1 failed, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0041.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  42/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   2, cycling.
+- Trial move   3 failed, cycling.
+- Trial move   4 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   4, cycling.
+- Trial move   5 failed, cycling.
+- Trial move   6 failed, cycling.
+- Trial move   7 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   7, cycling.
+- Trial move   8 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0042.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  43/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0043.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  44/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0044.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  45/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   1, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0045.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  46/ 50
+- Trial move   1 failed, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   2, cycling.
+- Trial move   3 successful.
+- Checking validity of valences under new move...
+- Invalid valences detected from trial move   3, cycling.
+- Trial move   4 failed, cycling.
+- Trial move   5 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0046.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  47/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0047.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  48/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0048.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  49/ 50
+- Trial move   1 failed, cycling.
+- Trial move   2 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0049.xyz
+
+* Setting all initial moves to null...
+* Generating a move for reaction step  50/ 50
+- Trial move   1 successful.
+- Checking validity of valences under new move...
+- Valence check complete, all current valences are valid.
+* Writing reaction step to file.
+- Reaction output to rxn_0001_step_0050.xyz
+
+
+================================================================
+                     CALCULATION COMPLETE                       
+================================================================
+

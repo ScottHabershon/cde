@@ -1,0 +1,25 @@
+\hypertarget{hints_autotoc_md17}{}\doxysubsection{Hints on input files.}\label{hints_autotoc_md17}
+
+\begin{DoxyItemize}
+\item The main C\+DE input file is C\+A\+SE S\+E\+N\+S\+I\+T\+I\+VE. {\itshape Everything should be lower-\/case, except for chemical element symbols}.
+\item If you are running a calculation which does not use some of the input parameters, they will be read in but then ignored. However, their formatting still needs to be correct.
+\end{DoxyItemize}\hypertarget{hints_autotoc_md18}{}\doxysubsection{Hints on bonding definitions.}\label{hints_autotoc_md18}
+
+\begin{DoxyItemize}
+\item In C\+DE, bonds between atoms are based on a cutoff distance given by {\itshape R = (Cov\+Rad(i) + Cov\+Rad(j)) $\ast$ bondingsf}. The factors Cov\+Rad(\+:) are the covalent radii of each species, and can be found in {\itshape \mbox{\hyperlink{constants_8f90_source}{constants.\+f90}}}. The factor {\bfseries{bondingsf}} is also found in \mbox{\hyperlink{constants_8f90_source}{constants.\+f90}} -\/ it is a scale-\/factor, usually with a value of 1.\+1.
+\item The Cov\+Rad(\+:) and bondingsf are defined as Fortran constants -\/ if you want to change them, you need to recompile the code.
+\item The Covrad(\+:) and bondingsf values do not need to be extremely accurate -\/ they are used to define what is bonded to what, so as long as they adequately capture typical bonds, they should be fine.
+\end{DoxyItemize}\hypertarget{hints_autotoc_md19}{}\doxysubsection{Hints on external executables}\label{hints_autotoc_md19}
+
+\begin{DoxyItemize}
+\item The input parameters {\bfseries{pesexecutable}} and {\bfseries{pesoptexecutable}} define the external executables which are run when evaluating energy or performing geometry optimizations.
+\item The C\+DE code uses the Fortran implicit {\itshape E\+X\+E\+C\+U\+T\+E\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+L\+I\+NE} to run these executables.
+\item It is often easiest to define an alias for executables like O\+R\+CA and D\+F\+T\+B+. For example, if the O\+R\+CA executable is in a directory $\ast$/user/test/code/orca/bin$\ast$, then setting an alias so that the command {\itshape orca} actually executes the command $\ast$/user/test/code/orca/bin/orca$\ast$ is a useful way of simplifying the input file.
+\item If the executables can\textquotesingle{}t be found when run by {\itshape E\+X\+E\+C\+U\+T\+E\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+L\+I\+NE}, the code will just give up and crash!
+\item If you want to use {\bfseries{pesopttype U\+FF}} (that is, the Universal Force-\/\+Field), you need to install {\itshape Open\+Babel}.
+\item When using {\bfseries{pesopttype U\+FF}}, the executables {\itshape babel} and {\itshape obminimize} are called directly. As a result, both of these executables need to be in your P\+A\+TH variable before running C\+DE.
+\end{DoxyItemize}\hypertarget{hints_autotoc_md20}{}\doxysubsection{Common problems}\label{hints_autotoc_md20}
+
+\begin{DoxyItemize}
+\item In several types of calculations (e.\+g. double-\/ended reaction-\/path finding, N\+EB), the first step that the C\+DE code performs is to evaluate the connectivity matrix of the input molecular structures. Depending on the calculation type, this connectivity matrix is then used to define the graph-\/restraining potential (G\+RP) for structure optimization and checking. However, if the connectivity matrix calculated using the input structure does not correspond to the connectivity matrix that you wanted (for example, due to bond-\/lengths being too long in the input sutrcture), then you might end up with some odd results. {\bfseries{In short, T\+A\+KE C\+A\+RE with your input structures!}} 
+\end{DoxyItemize}

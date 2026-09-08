@@ -1,0 +1,259 @@
+\doxysection{globaldata::fingerprint Type Reference}
+\hypertarget{structglobaldata_1_1fingerprint}{}\label{structglobaldata_1_1fingerprint}\index{globaldata::fingerprint@{globaldata::fingerprint}}
+
+
+Type definition for the fingerprint of a reaction-\/path.  
+
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double precision, dimension(:\+,:\+,:\+), allocatable \doxymbox{\hyperlink{structglobaldata_1_1fingerprint_a7b466d1a6746b4629a62c2edaa21944f}{sprint}}
+\begin{DoxyCompactList}\small\item\em sprint vector for beggining and end chemical structures (N elements) \end{DoxyCompactList}\item 
+double precision, dimension(:\+,:\+,:\+), allocatable \doxymbox{\hyperlink{structglobaldata_1_1fingerprint_ad0319b895d287e3668112a3bcb57c9c9}{piv}}
+\begin{DoxyCompactList}\small\item\em as above, but piv (N\texorpdfstring{$\ast$}{*}(N-\/1)/\+2 elements) \end{DoxyCompactList}\item 
+double precision, dimension(:\+,:\+), allocatable \doxymbox{\hyperlink{structglobaldata_1_1fingerprint_a75090ead9c264d4b5209517742e90921}{menergy}}
+\begin{DoxyCompactList}\small\item\em molecular energy per image, per active molecule i think \end{DoxyCompactList}\item 
+double precision, dimension(:\+,:\+,:\+), allocatable \doxymbox{\hyperlink{structglobaldata_1_1fingerprint_a02e8d4217e504ea318e06c0c88d3298a}{mhash}}
+\begin{DoxyCompactList}\small\item\em the molecular eigenvalues that characterises the graph \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structglobaldata_1_1fingerprint_a3b23de3ab4119be5003259e810b7a39d}{graphmoveid}}
+\begin{DoxyCompactList}\small\item\em graph ID that was used on chemical structure IC \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structglobaldata_1_1fingerprint_a02b9dc5e6f88186e62e5da007be31115}{ic}}
+\begin{DoxyCompactList}\small\item\em the start or end of the Path that was subject to the graph move \end{DoxyCompactList}\item 
+integer, dimension(2) \doxymbox{\hyperlink{structglobaldata_1_1fingerprint_a7d98a526313c5be23f3af3126ba01025}{nactmol}}
+\begin{DoxyCompactList}\small\item\em number of active molecules in the start and end images \end{DoxyCompactList}\item 
+character(100) \doxymbox{\hyperlink{structglobaldata_1_1fingerprint_a59deb289436b95015f4b698377149611}{makebreaklab}}
+\begin{DoxyCompactList}\small\item\em label showing which elements are breaking/\+forming (symmetric) \end{DoxyCompactList}\item 
+character(250), dimension(:\+,:\+), allocatable \doxymbox{\hyperlink{structglobaldata_1_1fingerprint_a72f7c4142d8d0ecdde5218656f99e971}{smiles}}
+\begin{DoxyCompactList}\small\item\em an array of nactmol Smile strings in a unique order \end{DoxyCompactList}\item 
+character(100), dimension(:\+,:\+), allocatable \doxymbox{\hyperlink{structglobaldata_1_1fingerprint_a193a589bd6d2e6e401ae9b189e578566}{mformula}}
+\begin{DoxyCompactList}\small\item\em an array of nactmol molecular Formula strings in a unique order \end{DoxyCompactList}\item 
+integer, dimension(:\+,:\+), allocatable \doxymbox{\hyperlink{structglobaldata_1_1fingerprint_a5041fcd34cd507c6f670d70efb30dcf8}{actnamol}}
+\begin{DoxyCompactList}\small\item\em number of atoms per active molecules \end{DoxyCompactList}\item 
+double precision \doxymbox{\hyperlink{structglobaldata_1_1fingerprint_a1a9ecec918552e8f6a9e9ebbbafe4789}{nbb}}
+\begin{DoxyCompactList}\small\item\em (number of bonds formed+broken)/\+2 \end{DoxyCompactList}\item 
+integer \doxymbox{\hyperlink{structglobaldata_1_1fingerprint_a351afc132298bd0728d303a571493e94}{id}}
+\begin{DoxyCompactList}\small\item\em fingerprint ID \end{DoxyCompactList}\item 
+type(\doxymbox{\hyperlink{structglobaldata_1_1fingerprint}{fingerprint}}), pointer \doxymbox{\hyperlink{structglobaldata_1_1fingerprint_a7ab3057bccbbe7a53f6a02ef8c356abf}{next}} =$>$ null()
+\item 
+type(\doxymbox{\hyperlink{structglobaldata_1_1fingerprint}{fingerprint}}), pointer \doxymbox{\hyperlink{structglobaldata_1_1fingerprint_a3bd3b8a0774a0c9ae91fae40e84d2cfa}{prev}} =$>$ null()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Type definition for the fingerprint of a reaction-\/path. 
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00281}{281}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+
+
+\label{structglobaldata_1_1fingerprint_doc-variable-members}
+\Hypertarget{structglobaldata_1_1fingerprint_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structglobaldata_1_1fingerprint_a7b466d1a6746b4629a62c2edaa21944f}\index{globaldata::fingerprint@{globaldata::fingerprint}!sprint@{sprint}}
+\index{sprint@{sprint}!globaldata::fingerprint@{globaldata::fingerprint}}
+\doxysubsubsection{\texorpdfstring{sprint}{sprint}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1fingerprint_a7b466d1a6746b4629a62c2edaa21944f} 
+double precision, dimension(:\+,:\+,:\+), allocatable globaldata::\+fingerprint::\+sprint}
+
+
+
+sprint vector for beggining and end chemical structures (N elements) 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00283}{283}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1fingerprint_ad0319b895d287e3668112a3bcb57c9c9}\index{globaldata::fingerprint@{globaldata::fingerprint}!piv@{piv}}
+\index{piv@{piv}!globaldata::fingerprint@{globaldata::fingerprint}}
+\doxysubsubsection{\texorpdfstring{piv}{piv}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1fingerprint_ad0319b895d287e3668112a3bcb57c9c9} 
+double precision, dimension(:\+,:\+,:\+), allocatable globaldata::\+fingerprint::\+piv}
+
+
+
+as above, but piv (N\texorpdfstring{$\ast$}{*}(N-\/1)/\+2 elements) 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00284}{284}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1fingerprint_a75090ead9c264d4b5209517742e90921}\index{globaldata::fingerprint@{globaldata::fingerprint}!menergy@{menergy}}
+\index{menergy@{menergy}!globaldata::fingerprint@{globaldata::fingerprint}}
+\doxysubsubsection{\texorpdfstring{menergy}{menergy}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1fingerprint_a75090ead9c264d4b5209517742e90921} 
+double precision, dimension(:\+,:\+), allocatable globaldata::\+fingerprint::\+menergy}
+
+
+
+molecular energy per image, per active molecule i think 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00285}{285}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1fingerprint_a02e8d4217e504ea318e06c0c88d3298a}\index{globaldata::fingerprint@{globaldata::fingerprint}!mhash@{mhash}}
+\index{mhash@{mhash}!globaldata::fingerprint@{globaldata::fingerprint}}
+\doxysubsubsection{\texorpdfstring{mhash}{mhash}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1fingerprint_a02e8d4217e504ea318e06c0c88d3298a} 
+double precision, dimension(:\+,:\+,:\+), allocatable globaldata::\+fingerprint::\+mhash}
+
+
+
+the molecular eigenvalues that characterises the graph 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00286}{286}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1fingerprint_a3b23de3ab4119be5003259e810b7a39d}\index{globaldata::fingerprint@{globaldata::fingerprint}!graphmoveid@{graphmoveid}}
+\index{graphmoveid@{graphmoveid}!globaldata::fingerprint@{globaldata::fingerprint}}
+\doxysubsubsection{\texorpdfstring{graphmoveid}{graphmoveid}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1fingerprint_a3b23de3ab4119be5003259e810b7a39d} 
+integer globaldata::\+fingerprint::\+graphmoveid}
+
+
+
+graph ID that was used on chemical structure IC 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00287}{287}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1fingerprint_a02b9dc5e6f88186e62e5da007be31115}\index{globaldata::fingerprint@{globaldata::fingerprint}!ic@{ic}}
+\index{ic@{ic}!globaldata::fingerprint@{globaldata::fingerprint}}
+\doxysubsubsection{\texorpdfstring{ic}{ic}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1fingerprint_a02b9dc5e6f88186e62e5da007be31115} 
+integer globaldata::\+fingerprint::\+ic}
+
+
+
+the start or end of the Path that was subject to the graph move 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00288}{288}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1fingerprint_a7d98a526313c5be23f3af3126ba01025}\index{globaldata::fingerprint@{globaldata::fingerprint}!nactmol@{nactmol}}
+\index{nactmol@{nactmol}!globaldata::fingerprint@{globaldata::fingerprint}}
+\doxysubsubsection{\texorpdfstring{nactmol}{nactmol}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1fingerprint_a7d98a526313c5be23f3af3126ba01025} 
+integer, dimension(2) globaldata::\+fingerprint::\+nactmol}
+
+
+
+number of active molecules in the start and end images 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00289}{289}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1fingerprint_a59deb289436b95015f4b698377149611}\index{globaldata::fingerprint@{globaldata::fingerprint}!makebreaklab@{makebreaklab}}
+\index{makebreaklab@{makebreaklab}!globaldata::fingerprint@{globaldata::fingerprint}}
+\doxysubsubsection{\texorpdfstring{makebreaklab}{makebreaklab}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1fingerprint_a59deb289436b95015f4b698377149611} 
+character(100) globaldata::\+fingerprint::\+makebreaklab}
+
+
+
+label showing which elements are breaking/\+forming (symmetric) 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00290}{290}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1fingerprint_a72f7c4142d8d0ecdde5218656f99e971}\index{globaldata::fingerprint@{globaldata::fingerprint}!smiles@{smiles}}
+\index{smiles@{smiles}!globaldata::fingerprint@{globaldata::fingerprint}}
+\doxysubsubsection{\texorpdfstring{smiles}{smiles}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1fingerprint_a72f7c4142d8d0ecdde5218656f99e971} 
+character(250), dimension(:\+,:\+), allocatable globaldata::\+fingerprint::\+smiles}
+
+
+
+an array of nactmol Smile strings in a unique order 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00291}{291}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1fingerprint_a193a589bd6d2e6e401ae9b189e578566}\index{globaldata::fingerprint@{globaldata::fingerprint}!mformula@{mformula}}
+\index{mformula@{mformula}!globaldata::fingerprint@{globaldata::fingerprint}}
+\doxysubsubsection{\texorpdfstring{mformula}{mformula}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1fingerprint_a193a589bd6d2e6e401ae9b189e578566} 
+character(100), dimension(:\+,:\+), allocatable globaldata::\+fingerprint::\+mformula}
+
+
+
+an array of nactmol molecular Formula strings in a unique order 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00292}{292}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1fingerprint_a5041fcd34cd507c6f670d70efb30dcf8}\index{globaldata::fingerprint@{globaldata::fingerprint}!actnamol@{actnamol}}
+\index{actnamol@{actnamol}!globaldata::fingerprint@{globaldata::fingerprint}}
+\doxysubsubsection{\texorpdfstring{actnamol}{actnamol}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1fingerprint_a5041fcd34cd507c6f670d70efb30dcf8} 
+integer, dimension(:\+,:\+), allocatable globaldata::\+fingerprint::\+actnamol}
+
+
+
+number of atoms per active molecules 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00293}{293}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1fingerprint_a1a9ecec918552e8f6a9e9ebbbafe4789}\index{globaldata::fingerprint@{globaldata::fingerprint}!nbb@{nbb}}
+\index{nbb@{nbb}!globaldata::fingerprint@{globaldata::fingerprint}}
+\doxysubsubsection{\texorpdfstring{nbb}{nbb}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1fingerprint_a1a9ecec918552e8f6a9e9ebbbafe4789} 
+double precision globaldata::\+fingerprint::\+nbb}
+
+
+
+(number of bonds formed+broken)/\+2 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00295}{295}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1fingerprint_a351afc132298bd0728d303a571493e94}\index{globaldata::fingerprint@{globaldata::fingerprint}!id@{id}}
+\index{id@{id}!globaldata::fingerprint@{globaldata::fingerprint}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1fingerprint_a351afc132298bd0728d303a571493e94} 
+integer globaldata::\+fingerprint::\+id}
+
+
+
+fingerprint ID 
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00296}{296}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1fingerprint_a7ab3057bccbbe7a53f6a02ef8c356abf}\index{globaldata::fingerprint@{globaldata::fingerprint}!next@{next}}
+\index{next@{next}!globaldata::fingerprint@{globaldata::fingerprint}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1fingerprint_a7ab3057bccbbe7a53f6a02ef8c356abf} 
+type(\doxymbox{\hyperlink{structglobaldata_1_1fingerprint}{fingerprint}}), pointer globaldata::\+fingerprint::\+next =$>$ null()}
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00297}{297}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+\Hypertarget{structglobaldata_1_1fingerprint_a3bd3b8a0774a0c9ae91fae40e84d2cfa}\index{globaldata::fingerprint@{globaldata::fingerprint}!prev@{prev}}
+\index{prev@{prev}!globaldata::fingerprint@{globaldata::fingerprint}}
+\doxysubsubsection{\texorpdfstring{prev}{prev}}
+{\footnotesize\ttfamily \label{structglobaldata_1_1fingerprint_a3bd3b8a0774a0c9ae91fae40e84d2cfa} 
+type(\doxymbox{\hyperlink{structglobaldata_1_1fingerprint}{fingerprint}}), pointer globaldata::\+fingerprint::\+prev =$>$ null()}
+
+
+
+Definition at line \doxymbox{\hyperlink{globaldata_8f90_source_l00298}{298}} of file \doxymbox{\hyperlink{globaldata_8f90_source}{globaldata.\+f90}}.
+
+
+
+The documentation for this type was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/\doxymbox{\hyperlink{globaldata_8f90}{globaldata.\+f90}}\end{DoxyCompactItemize}

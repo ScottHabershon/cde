@@ -1,0 +1,2493 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.18.0" xml:lang="en-US">
+  <compounddef id="namespaceglobaldata" kind="namespace" language="Fortran">
+    <compoundname>globaldata</compoundname>
+    <innerclass refid="structglobaldata_1_1graphpar" prot="public">globaldata::graphpar</innerclass>
+    <innerclass refid="structglobaldata_1_1molgm" prot="public">globaldata::molgm</innerclass>
+    <innerclass refid="structglobaldata_1_1fingerprint" prot="public">globaldata::fingerprint</innerclass>
+    <innerclass refid="structglobaldata_1_1refresh__template" prot="public">globaldata::refresh_template</innerclass>
+    <innerclass refid="structglobaldata_1_1vtbashop" prot="public">globaldata::vtbashop</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceglobaldata_1a5909f8c2ded8072344ec33fca3a9a28b" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::logfile</definition>
+        <argsstring></argsstring>
+        <name>logfile</name>
+        <qualifiedname>globaldata::logfile</qualifiedname>
+        <initializer>= 11</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="15" column="1" bodyfile="src/globaldata.f90" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a160e8950255a4222d251e6600b9e7e15" prot="public" static="no" mutable="no">
+        <type>character(len=50)</type>
+        <definition>character (len=50) globaldata::inputfile</definition>
+        <argsstring></argsstring>
+        <name>inputfile</name>
+        <qualifiedname>globaldata::inputfile</qualifiedname>
+        <briefdescription>
+<para>Input filename. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="18" column="1" bodyfile="src/globaldata.f90" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a704033d9b79e75b8fd0012544f5895e7" prot="public" static="no" mutable="no">
+        <type>character(len=50)</type>
+        <definition>character (len=50) globaldata::startfile</definition>
+        <argsstring></argsstring>
+        <name>startfile</name>
+        <qualifiedname>globaldata::startfile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="19" column="1" bodyfile="src/globaldata.f90" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a2fa6dae46516821918eb11db7c5a8ed1" prot="public" static="no" mutable="no">
+        <type>character(len=50)</type>
+        <definition>character (len=50) globaldata::endfile</definition>
+        <argsstring></argsstring>
+        <name>endfile</name>
+        <qualifiedname>globaldata::endfile</qualifiedname>
+        <briefdescription>
+<para>Filenames for start/end-points of new reaction path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="19" column="1" bodyfile="src/globaldata.f90" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aba164f7220bc200c4e7bb107530a8203" prot="public" static="no" mutable="no">
+        <type>character(len=50)</type>
+        <definition>character (len=50) globaldata::pathfile</definition>
+        <argsstring></argsstring>
+        <name>pathfile</name>
+        <qualifiedname>globaldata::pathfile</qualifiedname>
+        <briefdescription>
+<para>Filename for full reaction-path for reading. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="20" column="1" bodyfile="src/globaldata.f90" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ad276e505a83055c5b175ea8de226ebcb" prot="public" static="no" mutable="no">
+        <type>character(len=50)</type>
+        <definition>character (len=50) globaldata::movefile</definition>
+        <argsstring></argsstring>
+        <name>movefile</name>
+        <qualifiedname>globaldata::movefile</qualifiedname>
+        <briefdescription>
+<para>Filename for graph moves. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="21" column="1" bodyfile="src/globaldata.f90" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ad52972e14a08a6dbfa0164db6183ff33" prot="public" static="no" mutable="no">
+        <type>character(len=50)</type>
+        <definition>character (len=50) globaldata::forbidfile</definition>
+        <argsstring></argsstring>
+        <name>forbidfile</name>
+        <qualifiedname>globaldata::forbidfile</qualifiedname>
+        <briefdescription>
+<para>Filename for forbidden graphs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="22" column="1" bodyfile="src/globaldata.f90" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a21a1ddaef695f4c2e2376bd27f4a57a9" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::evbtype</definition>
+        <argsstring></argsstring>
+        <name>evbtype</name>
+        <qualifiedname>globaldata::evbtype</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="26" column="1" bodyfile="src/globaldata.f90" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ab14a98d914dcf8d56079639453395202" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::evbiter</definition>
+        <argsstring></argsstring>
+        <name>evbiter</name>
+        <qualifiedname>globaldata::evbiter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="26" column="1" bodyfile="src/globaldata.f90" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aab1eadacfe886a695845b5488485ae9e" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nevbl</definition>
+        <argsstring></argsstring>
+        <name>nevbl</name>
+        <qualifiedname>globaldata::nevbl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="26" column="1" bodyfile="src/globaldata.f90" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1acc8f280c8a159e22defbc53e16a3ddc0" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nevbdist</definition>
+        <argsstring></argsstring>
+        <name>nevbdist</name>
+        <qualifiedname>globaldata::nevbdist</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="26" column="1" bodyfile="src/globaldata.f90" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a2493a3c20bcacba2d7c501a6f0077418" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nevbqm</definition>
+        <argsstring></argsstring>
+        <name>nevbqm</name>
+        <qualifiedname>globaldata::nevbqm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="26" column="1" bodyfile="src/globaldata.f90" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ac1b67c464661c0d465d1b6ab47aaf40f" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::evbvrep</definition>
+        <argsstring></argsstring>
+        <name>evbvrep</name>
+        <qualifiedname>globaldata::evbvrep</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="27" column="1" bodyfile="src/globaldata.f90" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a71345f0e64edf8dca7ad322bcc89b03d" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::evbalpha1</definition>
+        <argsstring></argsstring>
+        <name>evbalpha1</name>
+        <qualifiedname>globaldata::evbalpha1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="28" column="1" bodyfile="src/globaldata.f90" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a66d60bdfbf543c1a26fcd131137e9cac" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::evbalpha2</definition>
+        <argsstring></argsstring>
+        <name>evbalpha2</name>
+        <qualifiedname>globaldata::evbalpha2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="28" column="1" bodyfile="src/globaldata.f90" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aaa5d95b5d3b4e729434624c5191b28c0" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::evbstep</definition>
+        <argsstring></argsstring>
+        <name>evbstep</name>
+        <qualifiedname>globaldata::evbstep</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="28" column="1" bodyfile="src/globaldata.f90" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a12c8232e88127ce7241bf079e3705102" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::evbmaxdl</definition>
+        <argsstring></argsstring>
+        <name>evbmaxdl</name>
+        <qualifiedname>globaldata::evbmaxdl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="28" column="1" bodyfile="src/globaldata.f90" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a2a5db0fb5233e7a4febb11bd89e90670" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::idum</definition>
+        <argsstring></argsstring>
+        <name>idum</name>
+        <qualifiedname>globaldata::idum</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="33" column="1" bodyfile="src/globaldata.f90" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a7e8abca7ca09a21cff7419340c3889fa" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nimage</definition>
+        <argsstring></argsstring>
+        <name>nimage</name>
+        <qualifiedname>globaldata::nimage</qualifiedname>
+        <briefdescription>
+<para>Number of images in path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="37" column="1" bodyfile="src/globaldata.f90" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a49abc5a13b5854deaccb7be0e6763bec" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::f</definition>
+        <argsstring></argsstring>
+        <name>f</name>
+        <qualifiedname>globaldata::f</qualifiedname>
+        <briefdescription>
+<para>Number of DOFs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="38" column="1" bodyfile="src/globaldata.f90" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1af9a44ac008f52391f58feb151753380f" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::na</definition>
+        <argsstring></argsstring>
+        <name>na</name>
+        <qualifiedname>globaldata::na</qualifiedname>
+        <briefdescription>
+<para>number of atoms </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="39" column="1" bodyfile="src/globaldata.f90" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a6239457ecf63a6b7f60d3b250e280904" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::irun</definition>
+        <argsstring></argsstring>
+        <name>irun</name>
+        <qualifiedname>globaldata::irun</qualifiedname>
+        <briefdescription>
+<para>Random number seed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="43" column="1" bodyfile="src/globaldata.f90" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a4d2fe09af3d5679f445f695d697182e4" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nebiter</definition>
+        <argsstring></argsstring>
+        <name>nebiter</name>
+        <qualifiedname>globaldata::nebiter</qualifiedname>
+        <briefdescription>
+<para>Total NEB/CINEB iterations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="48" column="1" bodyfile="src/globaldata.f90" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ad96ca55abacc224463f4b40dcbd0413e" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::neboutfreq</definition>
+        <argsstring></argsstring>
+        <name>neboutfreq</name>
+        <qualifiedname>globaldata::neboutfreq</qualifiedname>
+        <briefdescription>
+<para>Output frequency during NEB. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="49" column="1" bodyfile="src/globaldata.f90" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1abfa7f4203a3e171cdc7c408808b5c9e5" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::nebconv</definition>
+        <argsstring></argsstring>
+        <name>nebconv</name>
+        <qualifiedname>globaldata::nebconv</qualifiedname>
+        <briefdescription>
+<para>NEB convergence parameter for average force modulus. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="50" column="1" bodyfile="src/globaldata.f90" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ab5ef5feda2d83408b0a4e28f5305e1fc" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::nebmaxconv</definition>
+        <argsstring></argsstring>
+        <name>nebmaxconv</name>
+        <qualifiedname>globaldata::nebmaxconv</qualifiedname>
+        <briefdescription>
+<para>NEB MAXIMUM convergence parameter for average force modulus. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="51" column="1" bodyfile="src/globaldata.f90" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a14c5976d38377f9a7cbef0e55faffa8a" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::cithresh</definition>
+        <argsstring></argsstring>
+        <name>cithresh</name>
+        <qualifiedname>globaldata::cithresh</qualifiedname>
+        <briefdescription>
+<para>Force threshold to turn on climbing-image NEB. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="52" column="1" bodyfile="src/globaldata.f90" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a0fa90542733148d5d6bab8981e884761" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::temperature</definition>
+        <argsstring></argsstring>
+        <name>temperature</name>
+        <qualifiedname>globaldata::temperature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="53" column="1" bodyfile="src/globaldata.f90" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a842fd8b1656e10d5d750a5ce7357778c" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::beta</definition>
+        <argsstring></argsstring>
+        <name>beta</name>
+        <qualifiedname>globaldata::beta</qualifiedname>
+        <briefdescription>
+<para>Temperature and inverse temperature (1/kT). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="53" column="1" bodyfile="src/globaldata.f90" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a2fb01513c788abe123772c27c3b9669f" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::nebspring</definition>
+        <argsstring></argsstring>
+        <name>nebspring</name>
+        <qualifiedname>globaldata::nebspring</qualifiedname>
+        <briefdescription>
+<para>Spring constant for NEB (au). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="54" column="1" bodyfile="src/globaldata.f90" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a50e85a4766a32a20192c6760f09fbc1e" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::nebstep</definition>
+        <argsstring></argsstring>
+        <name>nebstep</name>
+        <qualifiedname>globaldata::nebstep</qualifiedname>
+        <briefdescription>
+<para>Step-length for steepest-descent NEB. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="55" column="1" bodyfile="src/globaldata.f90" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a47cbca93af5d9d495ef24d7a62ad71c9" prot="public" static="no" mutable="no">
+        <type>character(len=9)</type>
+        <definition>character (len=9) globaldata::calctype</definition>
+        <argsstring></argsstring>
+        <name>calctype</name>
+        <qualifiedname>globaldata::calctype</qualifiedname>
+        <briefdescription>
+<para>Calculation type, NEB or GDS. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="56" column="1" bodyfile="src/globaldata.f90" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a45ebfde17dc1300b187dd31f32218b83" prot="public" static="no" mutable="no">
+        <type>character(len=6)</type>
+        <definition>character (len=6) globaldata::pathinit</definition>
+        <argsstring></argsstring>
+        <name>pathinit</name>
+        <qualifiedname>globaldata::pathinit</qualifiedname>
+        <briefdescription>
+<para>Path initialization type, LINEAR. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="57" column="1" bodyfile="src/globaldata.f90" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a937d27bc1c79065037c714e77a9b5b9a" prot="public" static="no" mutable="no">
+        <type>character(len=6)</type>
+        <definition>character (len=6) globaldata::pathoptmethod</definition>
+        <argsstring></argsstring>
+        <name>pathoptmethod</name>
+        <qualifiedname>globaldata::pathoptmethod</qualifiedname>
+        <briefdescription>
+<para>Path optimization method, CINEB. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="58" column="1" bodyfile="src/globaldata.f90" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a2e366abea660511550cb2fe32860d54a" prot="public" static="no" mutable="no">
+        <type>character(len=9)</type>
+        <definition>character (len=9) globaldata::nebmethod</definition>
+        <argsstring></argsstring>
+        <name>nebmethod</name>
+        <qualifiedname>globaldata::nebmethod</qualifiedname>
+        <briefdescription>
+<para>(CI)NEB optimization method, CINEB </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="59" column="1" bodyfile="src/globaldata.f90" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a7f70855279bb4ff76b27b3d6c83b70ba" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::startfrompath</definition>
+        <argsstring></argsstring>
+        <name>startfrompath</name>
+        <qualifiedname>globaldata::startfrompath</qualifiedname>
+        <briefdescription>
+<para>Logical flag to signal whether or not we&apos;re starting from full path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="60" column="1" bodyfile="src/globaldata.f90" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a7aeccf1be55c54d9dd70725804962233" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::stripinactive</definition>
+        <argsstring></argsstring>
+        <name>stripinactive</name>
+        <qualifiedname>globaldata::stripinactive</qualifiedname>
+        <briefdescription>
+<para>Logical flag to signal that spectator molecules should be removed before optimization. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="61" column="1" bodyfile="src/globaldata.f90" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a56183a6a94e829385365e8cd4636798a" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::optendsbefore</definition>
+        <argsstring></argsstring>
+        <name>optendsbefore</name>
+        <qualifiedname>globaldata::optendsbefore</qualifiedname>
+        <briefdescription>
+<para>Logical flag indicating whether to geometry-optimize path end-points before path optimization. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="62" column="1" bodyfile="src/globaldata.f90" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a21a1c87f487884eb7c7be00ffbe9e798" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::optendsduring</definition>
+        <argsstring></argsstring>
+        <name>optendsduring</name>
+        <qualifiedname>globaldata::optendsduring</qualifiedname>
+        <briefdescription>
+<para>Logical flag indicating whether to optimize path end-points during path optimization. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="63" column="1" bodyfile="src/globaldata.f90" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1abd75cf325eb1bfd2913c1dc3e951700e" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::reconnect</definition>
+        <argsstring></argsstring>
+        <name>reconnect</name>
+        <qualifiedname>globaldata::reconnect</qualifiedname>
+        <briefdescription>
+<para>Logical flag indicating whether to generate new linear path after end-point optimization. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="64" column="1" bodyfile="src/globaldata.f90" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a5cc2599efcc8abd01fbe7713032d0335" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::idpppath</definition>
+        <argsstring></argsstring>
+        <name>idpppath</name>
+        <qualifiedname>globaldata::idpppath</qualifiedname>
+        <briefdescription>
+<para>Logical flag to turn the image-dependent pair potential NEB for a improved guess path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="65" column="1" bodyfile="src/globaldata.f90" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a6d93199d31cd8426e09c2e5337771156" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::fraginterpol</definition>
+        <argsstring></argsstring>
+        <name>fraginterpol</name>
+        <qualifiedname>globaldata::fraginterpol</qualifiedname>
+        <briefdescription>
+<para>Logical flag to turn the fragment interpolation procedure - where fragments are first brought together before interpolating. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="66" column="1" bodyfile="src/globaldata.f90" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ae01d4cff5b6ea01dd99e0e9efa45cd42" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::optfragorient</definition>
+        <argsstring></argsstring>
+        <name>optfragorient</name>
+        <qualifiedname>globaldata::optfragorient</qualifiedname>
+        <briefdescription>
+<para>Logical flag to turn the fragment orientation optimization procedure - where fragments are oriented appropriately to enable the exchange of atoms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="67" column="1" bodyfile="src/globaldata.f90" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a9071d6ff42b2b2ea4a2ddb30570d473e" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::ndofconstr</definition>
+        <argsstring></argsstring>
+        <name>ndofconstr</name>
+        <qualifiedname>globaldata::ndofconstr</qualifiedname>
+        <briefdescription>
+<para>Number of constrained DOFs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="71" column="1" bodyfile="src/globaldata.f90" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aaddcd3ad03d788e05837f5cdb3d6fb34" prot="public" static="no" mutable="no">
+        <type>integer, dimension(3 *<ref refid="namespaceconstants_1af3563b26c30009f026fc978080d89280" kindref="member">namax</ref>)</type>
+        <definition>integer, dimension(3*namax) globaldata::fixeddof</definition>
+        <argsstring></argsstring>
+        <name>fixeddof</name>
+        <qualifiedname>globaldata::fixeddof</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="72" column="1" bodyfile="src/globaldata.f90" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a3a9faeeb195052e2c4003c7556f4bb74" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::natomconstr</definition>
+        <argsstring></argsstring>
+        <name>natomconstr</name>
+        <qualifiedname>globaldata::natomconstr</qualifiedname>
+        <briefdescription>
+<para>Number of constrained DOFs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="73" column="1" bodyfile="src/globaldata.f90" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a6ae31195458542d76c3268db55f704d8" prot="public" static="no" mutable="no">
+        <type>integer, dimension(<ref refid="namespaceconstants_1af3563b26c30009f026fc978080d89280" kindref="member">namax</ref>)</type>
+        <definition>integer, dimension(namax) globaldata::fixedatom</definition>
+        <argsstring></argsstring>
+        <name>fixedatom</name>
+        <qualifiedname>globaldata::fixedatom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="74" column="1" bodyfile="src/globaldata.f90" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ac444aced197556debbc987266a253768" prot="public" static="no" mutable="no">
+        <type>character(len=6)</type>
+        <definition>character (len=6) globaldata::pestype</definition>
+        <argsstring></argsstring>
+        <name>pestype</name>
+        <qualifiedname>globaldata::pestype</qualifiedname>
+        <briefdescription>
+<para>Identifies PES calculation type, &apos;ORCA&apos;... </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="79" column="1" bodyfile="src/globaldata.f90" bodystart="79" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a32fccb0f0c05996d6da85ccddd141d11" prot="public" static="no" mutable="no">
+        <type>character(len=25)</type>
+        <definition>character (len=25) globaldata::pesfile</definition>
+        <argsstring></argsstring>
+        <name>pesfile</name>
+        <qualifiedname>globaldata::pesfile</qualifiedname>
+        <briefdescription>
+<para>Identifies PES calculation template file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="80" column="1" bodyfile="src/globaldata.f90" bodystart="80" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a4c196084db36cecdbc9b6a6508a34aeb" prot="public" static="no" mutable="no">
+        <type>character(len=6)</type>
+        <definition>character (len=6) globaldata::pesopttype</definition>
+        <argsstring></argsstring>
+        <name>pesopttype</name>
+        <qualifiedname>globaldata::pesopttype</qualifiedname>
+        <briefdescription>
+<para>Identifies PES type for geometry optimisation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="81" column="1" bodyfile="src/globaldata.f90" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a0f59e857d2686ff93733a9a7240c88fa" prot="public" static="no" mutable="no">
+        <type>character(len=25)</type>
+        <definition>character (len=25) globaldata::pesoptfile</definition>
+        <argsstring></argsstring>
+        <name>pesoptfile</name>
+        <qualifiedname>globaldata::pesoptfile</qualifiedname>
+        <briefdescription>
+<para>Identifies geometry optimisation template file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="82" column="1" bodyfile="src/globaldata.f90" bodystart="82" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ab85519f27f07052f751947691618be2c" prot="public" static="no" mutable="no">
+        <type>character(len=100)</type>
+        <definition>character (len=100) globaldata::pesexecutable</definition>
+        <argsstring></argsstring>
+        <name>pesexecutable</name>
+        <qualifiedname>globaldata::pesexecutable</qualifiedname>
+        <briefdescription>
+<para>Identifies PES calculation executable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="83" column="1" bodyfile="src/globaldata.f90" bodystart="83" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a795b05df745173ba8a36092a91c6dc03" prot="public" static="no" mutable="no">
+        <type>character(len=100)</type>
+        <definition>character (len=100) globaldata::pesoptexecutable</definition>
+        <argsstring></argsstring>
+        <name>pesoptexecutable</name>
+        <qualifiedname>globaldata::pesoptexecutable</qualifiedname>
+        <briefdescription>
+<para>Identifies geometry optimisation executable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="84" column="1" bodyfile="src/globaldata.f90" bodystart="84" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a9314aeadb612bd13d7d10651767fd095" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::pesfull</definition>
+        <argsstring></argsstring>
+        <name>pesfull</name>
+        <qualifiedname>globaldata::pesfull</qualifiedname>
+        <briefdescription>
+<para>Logical flag indicating whether we&apos;re running PES evaluations for the full system or independent molecules. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="85" column="1" bodyfile="src/globaldata.f90" bodystart="85" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aea9bf3d8b819c9b424af3847409d1e54" prot="public" static="no" mutable="no">
+        <type>character(len=8), parameter</type>
+        <definition>character (len=8), parameter globaldata::fmt4</definition>
+        <argsstring></argsstring>
+        <name>fmt4</name>
+        <qualifiedname>globaldata::fmt4</qualifiedname>
+        <initializer>= &apos;(I4.4)&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="90" column="1" bodyfile="src/globaldata.f90" bodystart="90" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a707ac972d8830c0d04df7d622fdfeef5" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nreactivetypes</definition>
+        <argsstring></argsstring>
+        <name>nreactivetypes</name>
+        <qualifiedname>globaldata::nreactivetypes</qualifiedname>
+        <briefdescription>
+<para>Number of reactive atom-types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="95" column="1" bodyfile="src/globaldata.f90" bodystart="95" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a9221bd73313778aba52b20ed3980f661" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nfixtype</definition>
+        <argsstring></argsstring>
+        <name>nfixtype</name>
+        <qualifiedname>globaldata::nfixtype</qualifiedname>
+        <briefdescription>
+<para>Number of types of fixed-bonds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="96" column="1" bodyfile="src/globaldata.f90" bodystart="96" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aa77f79ce0d70c053453325e1dd335ffc" prot="public" static="no" mutable="no">
+        <type>character(len=2), dimension(<ref refid="namespaceconstants_1a24e30cb7e0461e17265ad6b609c26bdc" kindref="member">ntypemax</ref>)</type>
+        <definition>character (len=2), dimension(ntypemax) globaldata::reactivetype</definition>
+        <argsstring></argsstring>
+        <name>reactivetype</name>
+        <qualifiedname>globaldata::reactivetype</qualifiedname>
+        <briefdescription>
+<para>Atom labels for reactive atoms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="97" column="1" bodyfile="src/globaldata.f90" bodystart="97" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ac92f48c1a46722f2d43048b6ccb7616c" prot="public" static="no" mutable="no">
+        <type>character(len=2), dimension(<ref refid="namespaceconstants_1a24e30cb7e0461e17265ad6b609c26bdc" kindref="member">ntypemax</ref>, 2)</type>
+        <definition>character(len = 2), dimension(ntypemax,2) globaldata::fixedbondtype</definition>
+        <argsstring></argsstring>
+        <name>fixedbondtype</name>
+        <qualifiedname>globaldata::fixedbondtype</qualifiedname>
+        <briefdescription>
+<para>Atom labels for each type of fixed bonds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="98" column="1" bodyfile="src/globaldata.f90" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a9de85a9f08091bf134de0ea754c9f194" prot="public" static="no" mutable="no">
+        <type>logical, dimension(<ref refid="namespaceconstants_1af3563b26c30009f026fc978080d89280" kindref="member">namax</ref>)</type>
+        <definition>logical, dimension(namax) globaldata::reactive</definition>
+        <argsstring></argsstring>
+        <name>reactive</name>
+        <qualifiedname>globaldata::reactive</qualifiedname>
+        <briefdescription>
+<para>Logical flag indicating whether or not atoms are reactive. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="99" column="1" bodyfile="src/globaldata.f90" bodystart="99" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a34e914358ed9a59f55c77ae70decd561" prot="public" static="no" mutable="no">
+        <type>logical, dimension(<ref refid="namespaceconstants_1af3563b26c30009f026fc978080d89280" kindref="member">namax</ref>)</type>
+        <definition>logical, dimension(namax) globaldata::essentialmoves</definition>
+        <argsstring></argsstring>
+        <name>essentialmoves</name>
+        <qualifiedname>globaldata::essentialmoves</qualifiedname>
+        <briefdescription>
+<para>Logical flag indicating whether or not atoms are essential to moves. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="100" column="1" bodyfile="src/globaldata.f90" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a3f9ae6a1127a93e815684c8d0b837e97" prot="public" static="no" mutable="no">
+        <type>logical, dimension(<ref refid="namespaceconstants_1af3563b26c30009f026fc978080d89280" kindref="member">namax</ref>)</type>
+        <definition>logical, dimension(namax) globaldata::essential</definition>
+        <argsstring></argsstring>
+        <name>essential</name>
+        <qualifiedname>globaldata::essential</qualifiedname>
+        <briefdescription>
+<para>Logical flag indicating whether or not atoms are essential. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="101" column="1" bodyfile="src/globaldata.f90" bodystart="101" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1af314b28c5da8f35ed9158b77b3ea04b9" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nessentialatoms</definition>
+        <argsstring></argsstring>
+        <name>nessentialatoms</name>
+        <qualifiedname>globaldata::nessentialatoms</qualifiedname>
+        <briefdescription>
+<para>Number of essential atoms labelled .TRUE. in <ref refid="namespaceglobaldata_1a34e914358ed9a59f55c77ae70decd561" kindref="member">essentialmoves(:)</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="102" column="1" bodyfile="src/globaldata.f90" bodystart="102" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a33a819cb0c59aefc7b512cac90b752ee" prot="public" static="no" mutable="no">
+        <type>double precision</type>
+        <definition>double precision globaldata::intra_cutoff</definition>
+        <argsstring></argsstring>
+        <name>intra_cutoff</name>
+        <qualifiedname>globaldata::intra_cutoff</qualifiedname>
+        <briefdescription>
+<para>when performing a bond forming INTRA-molecular rxn move between atoms, set a cutoff distance </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="103" column="1" bodyfile="src/globaldata.f90" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a38bd0dcbebfb5752960b868c4405882d" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nessentialatomsinmols</definition>
+        <argsstring></argsstring>
+        <name>nessentialatomsinmols</name>
+        <qualifiedname>globaldata::nessentialatomsinmols</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="105" column="1" bodyfile="src/globaldata.f90" bodystart="105" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a0dc2b21b4918e494742a5f97ca77a407" prot="public" static="no" mutable="no">
+        <type>integer, dimension(<ref refid="namespaceconstants_1af3563b26c30009f026fc978080d89280" kindref="member">namax</ref>)</type>
+        <definition>integer, dimension(namax) globaldata::essentialatomsinmols</definition>
+        <argsstring></argsstring>
+        <name>essentialatomsinmols</name>
+        <qualifiedname>globaldata::essentialatomsinmols</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="106" column="1" bodyfile="src/globaldata.f90" bodystart="106" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a09b1518c554179f8c18ab4d5b55d6186" prot="public" static="no" mutable="no">
+        <type>logical, dimension(<ref refid="namespaceconstants_1af3563b26c30009f026fc978080d89280" kindref="member">namax</ref>, <ref refid="namespaceconstants_1af3563b26c30009f026fc978080d89280" kindref="member">namax</ref>)</type>
+        <definition>logical, dimension(namax,namax) globaldata::fixedbonds</definition>
+        <argsstring></argsstring>
+        <name>fixedbonds</name>
+        <qualifiedname>globaldata::fixedbonds</qualifiedname>
+        <briefdescription>
+<para>Logical flag indicating fixed bonds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="111" column="1" bodyfile="src/globaldata.f90" bodystart="111" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a373c92412bc31706c504ae5919e4dd91" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::ngdsiter</definition>
+        <argsstring></argsstring>
+        <name>ngdsiter</name>
+        <qualifiedname>globaldata::ngdsiter</qualifiedname>
+        <briefdescription>
+<para>Number of GDS iterations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="112" column="1" bodyfile="src/globaldata.f90" bodystart="112" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1af1f7f0ba68e55ccb1158169eef25c3e5" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::gdsspring</definition>
+        <argsstring></argsstring>
+        <name>gdsspring</name>
+        <qualifiedname>globaldata::gdsspring</qualifiedname>
+        <briefdescription>
+<para>Spring constant for inter-bead spring terms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="113" column="1" bodyfile="src/globaldata.f90" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ad9253180f5cdc09fd151e1cbf7ba194c" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::gdsrestspring</definition>
+        <argsstring></argsstring>
+        <name>gdsrestspring</name>
+        <qualifiedname>globaldata::gdsrestspring</qualifiedname>
+        <briefdescription>
+<para>Spring constant for bonded graph restraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="114" column="1" bodyfile="src/globaldata.f90" bodystart="114" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a58f14ebf87fc81496e6d2eb8788221e4" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::nbstrength</definition>
+        <argsstring></argsstring>
+        <name>nbstrength</name>
+        <qualifiedname>globaldata::nbstrength</qualifiedname>
+        <briefdescription>
+<para>Strength of non-bonded exponential graph-restraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="115" column="1" bodyfile="src/globaldata.f90" bodystart="115" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1af51080d263e3202c72512026f13bca07" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::nbrange</definition>
+        <argsstring></argsstring>
+        <name>nbrange</name>
+        <qualifiedname>globaldata::nbrange</qualifiedname>
+        <briefdescription>
+<para>Range of non-bonded exponential graph-restraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="116" column="1" bodyfile="src/globaldata.f90" bodystart="116" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ae0ab8dd71eb4a5f9ec3cffdc69a4d2b7" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::kradius</definition>
+        <argsstring></argsstring>
+        <name>kradius</name>
+        <qualifiedname>globaldata::kradius</qualifiedname>
+        <briefdescription>
+<para>Spring constant for intermolecular repulsion restraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="117" column="1" bodyfile="src/globaldata.f90" bodystart="117" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a31f5739ae1cbd76deff375eb7de1f132" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::gdstemperature</definition>
+        <argsstring></argsstring>
+        <name>gdstemperature</name>
+        <qualifiedname>globaldata::gdstemperature</qualifiedname>
+        <briefdescription>
+<para>End-point temperature for GDS simulation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="118" column="1" bodyfile="src/globaldata.f90" bodystart="118" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ad2dd4073ea0a88a30a20028a04e2e348" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::gdscoefftemp</definition>
+        <argsstring></argsstring>
+        <name>gdscoefftemp</name>
+        <qualifiedname>globaldata::gdscoefftemp</qualifiedname>
+        <briefdescription>
+<para>Temperature for GDS coefficients. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="119" column="1" bodyfile="src/globaldata.f90" bodystart="119" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a20c912d009e0e7529e2615aa21b12398" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::gdscoeffmass</definition>
+        <argsstring></argsstring>
+        <name>gdscoeffmass</name>
+        <qualifiedname>globaldata::gdscoeffmass</qualifiedname>
+        <briefdescription>
+<para>Mass for GDS coefficients. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="120" column="1" bodyfile="src/globaldata.f90" bodystart="120" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aa246e6695206f823e0d2e9e6ecf3c694" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::timestep</definition>
+        <argsstring></argsstring>
+        <name>timestep</name>
+        <qualifiedname>globaldata::timestep</qualifiedname>
+        <briefdescription>
+<para>GDS timestep. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="121" column="1" bodyfile="src/globaldata.f90" bodystart="121" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a5b3ea766ff641a08d2a09089b71705cc" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::vsthresh</definition>
+        <argsstring></argsstring>
+        <name>vsthresh</name>
+        <qualifiedname>globaldata::vsthresh</qualifiedname>
+        <briefdescription>
+<para>Variable spring strength threshold (used suring CINEB). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="122" column="1" bodyfile="src/globaldata.f90" bodystart="122" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a444f514910c5a8aeb425d56056b72e69" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::anebb</definition>
+        <argsstring></argsstring>
+        <name>anebb</name>
+        <qualifiedname>globaldata::anebb</qualifiedname>
+        <briefdescription>
+<para>AutoNEB number of extra beads (also works as a logical switching Autoneb on). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="123" column="1" bodyfile="src/globaldata.f90" bodystart="123" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1afde091eb986cf9469fefc5e711cadde5" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::ngmove</definition>
+        <argsstring></argsstring>
+        <name>ngmove</name>
+        <qualifiedname>globaldata::ngmove</qualifiedname>
+        <briefdescription>
+<para>Number of defined graph moves. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="125" column="1" bodyfile="src/globaldata.f90" bodystart="125" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a9a7c36016779745bb29236fb9d2a4c35" prot="public" static="no" mutable="no">
+        <type>integer, dimension(<ref refid="namespaceconstants_1ac598462b6c881cc88f22cb8d17e40e72" kindref="member">nmovemax</ref>)</type>
+        <definition>integer, dimension(nmovemax) globaldata::namove</definition>
+        <argsstring></argsstring>
+        <name>namove</name>
+        <qualifiedname>globaldata::namove</qualifiedname>
+        <briefdescription>
+<para>Number of atoms in each graph move. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="126" column="1" bodyfile="src/globaldata.f90" bodystart="126" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a1848c3f97f05a1e9105d784bca072679" prot="public" static="no" mutable="no">
+        <type>integer, dimension(<ref refid="namespaceconstants_1ac598462b6c881cc88f22cb8d17e40e72" kindref="member">nmovemax</ref>, <ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>, <ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+        <definition>integer, dimension(nmovemax,namovemax,namovemax) globaldata::gmstart</definition>
+        <argsstring></argsstring>
+        <name>gmstart</name>
+        <qualifiedname>globaldata::gmstart</qualifiedname>
+        <briefdescription>
+<para>Start graph for each move. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="127" column="1" bodyfile="src/globaldata.f90" bodystart="127" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aeaa03f16c215c1477c9e7bf1a526480b" prot="public" static="no" mutable="no">
+        <type>integer, dimension(<ref refid="namespaceconstants_1ac598462b6c881cc88f22cb8d17e40e72" kindref="member">nmovemax</ref>, <ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>, <ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+        <definition>integer, dimension(nmovemax,namovemax,namovemax) globaldata::gmend</definition>
+        <argsstring></argsstring>
+        <name>gmend</name>
+        <qualifiedname>globaldata::gmend</qualifiedname>
+        <briefdescription>
+<para>End graph for each move. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="128" column="1" bodyfile="src/globaldata.f90" bodystart="128" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1abe5c391ec7eaa8f2e3b69e736f848058" prot="public" static="no" mutable="no">
+        <type>character(len=4), dimension(<ref refid="namespaceconstants_1ac598462b6c881cc88f22cb8d17e40e72" kindref="member">nmovemax</ref>, <ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+        <definition>character (len=4), dimension(nmovemax,namovemax) globaldata::movelabel</definition>
+        <argsstring></argsstring>
+        <name>movelabel</name>
+        <qualifiedname>globaldata::movelabel</qualifiedname>
+        <briefdescription>
+<para>Labels for atoms involved in graph moves. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="129" column="1" bodyfile="src/globaldata.f90" bodystart="129" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a9ee2df5138a5c5d4c613d2bde5bd7128" prot="public" static="no" mutable="no">
+        <type>character(len=7), dimension(<ref refid="namespaceconstants_1ac598462b6c881cc88f22cb8d17e40e72" kindref="member">nmovemax</ref>)</type>
+        <definition>character (len=7), dimension(nmovemax) globaldata::movetype</definition>
+        <argsstring></argsstring>
+        <name>movetype</name>
+        <qualifiedname>globaldata::movetype</qualifiedname>
+        <briefdescription>
+<para>For labelling as &apos;ionize&apos; or &apos;eattach&apos;. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="130" column="1" bodyfile="src/globaldata.f90" bodystart="130" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a51bb947ac9e6f596144cc7183c310d4d" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(<ref refid="namespaceconstants_1ac598462b6c881cc88f22cb8d17e40e72" kindref="member">nmovemax</ref>)</type>
+        <definition>real(8), dimension(nmovemax) globaldata::moveprob</definition>
+        <argsstring></argsstring>
+        <name>moveprob</name>
+        <qualifiedname>globaldata::moveprob</qualifiedname>
+        <briefdescription>
+<para>Probability of graph-move (not that these are normalized internally). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="131" column="1" bodyfile="src/globaldata.f90" bodystart="131" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a077f121f0b15b5b062ec11ce2003e9ab" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::gdsoutfreq</definition>
+        <argsstring></argsstring>
+        <name>gdsoutfreq</name>
+        <qualifiedname>globaldata::gdsoutfreq</qualifiedname>
+        <briefdescription>
+<para>GDS output frequency. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="132" column="1" bodyfile="src/globaldata.f90" bodystart="132" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a6fe1162ad1616cd3ca3ddf498e51676b" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::gdsthresh</definition>
+        <argsstring></argsstring>
+        <name>gdsthresh</name>
+        <qualifiedname>globaldata::gdsthresh</qualifiedname>
+        <briefdescription>
+<para>GDS graph-move attempt probability. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="133" column="1" bodyfile="src/globaldata.f90" bodystart="133" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a1f7a45244a12002ba3eff0cafdf2a2b5" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::ngdsrelax</definition>
+        <argsstring></argsstring>
+        <name>ngdsrelax</name>
+        <qualifiedname>globaldata::ngdsrelax</qualifiedname>
+        <briefdescription>
+<para>Number of SD relaxation steps under graph restraints after graph moves. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="134" column="1" bodyfile="src/globaldata.f90" bodystart="134" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a3cb6c7ae6391331e0c9d9cf264c1e7a2" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::gdsdtrelax</definition>
+        <argsstring></argsstring>
+        <name>gdsdtrelax</name>
+        <qualifiedname>globaldata::gdsdtrelax</qualifiedname>
+        <briefdescription>
+<para>Step size for SD relaxation after graph moves. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="135" column="1" bodyfile="src/globaldata.f90" bodystart="135" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ad786f46c3bbc2800abc29bd3d44dd1e5" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::optaftermove</definition>
+        <argsstring></argsstring>
+        <name>optaftermove</name>
+        <qualifiedname>globaldata::optaftermove</qualifiedname>
+        <briefdescription>
+<para>Flag indicating whether to optimize on PES after each graph move. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="136" column="1" bodyfile="src/globaldata.f90" bodystart="136" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a0f53d3df629445794158e7bdc6eb68c1" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::skiprepeats</definition>
+        <argsstring></argsstring>
+        <name>skiprepeats</name>
+        <qualifiedname>globaldata::skiprepeats</qualifiedname>
+        <briefdescription>
+<para>Flag indicating whether to skip repeat graph moves. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="137" column="1" bodyfile="src/globaldata.f90" bodystart="137" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aa8618a925ab5655a3776dc7d8c42a0b3" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::gatherreactivemol</definition>
+        <argsstring></argsstring>
+        <name>gatherreactivemol</name>
+        <qualifiedname>globaldata::gatherreactivemol</qualifiedname>
+        <briefdescription>
+<para>Flag indicating whether to make the reactive molecles gather around into a &quot;circle&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="138" column="1" bodyfile="src/globaldata.f90" bodystart="138" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1afd0b20a1717fb8353dc624f6772e854d" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::simpleopt</definition>
+        <argsstring></argsstring>
+        <name>simpleopt</name>
+        <qualifiedname>globaldata::simpleopt</qualifiedname>
+        <briefdescription>
+<para>optimises end images in NEB, all molecules in image at once... </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="139" column="1" bodyfile="src/globaldata.f90" bodystart="139" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a154295eac2e59bdc87238ec06685edff" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::nebrestrend</definition>
+        <argsstring></argsstring>
+        <name>nebrestrend</name>
+        <qualifiedname>globaldata::nebrestrend</qualifiedname>
+        <briefdescription>
+<para>Flag indicating whether or not graph-restraint potenial is applied to end-points during NEB optimization. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="140" column="1" bodyfile="src/globaldata.f90" bodystart="140" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aece6803e92a5587b17d4c456147be1be" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::removecollisions</definition>
+        <argsstring></argsstring>
+        <name>removecollisions</name>
+        <qualifiedname>globaldata::removecollisions</qualifiedname>
+        <briefdescription>
+<para>Flag indicating whether to refine path after move under purely repulsive potential for non-bonded atoms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="142" column="1" bodyfile="src/globaldata.f90" bodystart="142" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aca9c80ac9c053be8b3a8e24742fc337b" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::shimmybeads</definition>
+        <argsstring></argsstring>
+        <name>shimmybeads</name>
+        <qualifiedname>globaldata::shimmybeads</qualifiedname>
+        <briefdescription>
+<para>Flag determining if we want flat PES beads at the ends to shimmy (center the path ). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="144" column="1" bodyfile="src/globaldata.f90" bodystart="144" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a311febfe7df75e5ac20d947e590c450f" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::restartgds</definition>
+        <argsstring></argsstring>
+        <name>restartgds</name>
+        <qualifiedname>globaldata::restartgds</qualifiedname>
+        <briefdescription>
+<para>Flag determining weather user wishes to read a ChemReacList file to restart the calculation (xyz needed). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="145" column="1" bodyfile="src/globaldata.f90" bodystart="145" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a36e333357984e52e80efdb18808898f7" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nallowbonds</definition>
+        <argsstring></argsstring>
+        <name>nallowbonds</name>
+        <qualifiedname>globaldata::nallowbonds</qualifiedname>
+        <briefdescription>
+<para>Number of defined bonding constraints for move-generated structures. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="147" column="1" bodyfile="src/globaldata.f90" bodystart="147" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ae352de78dc04b239b3b03d375ea39aae" prot="public" static="no" mutable="no">
+        <type>character(len=2), dimension(<ref refid="namespaceconstants_1a24e30cb7e0461e17265ad6b609c26bdc" kindref="member">ntypemax</ref>, 2)</type>
+        <definition>character (len=2), dimension(ntypemax,2) globaldata::allowbondsatom</definition>
+        <argsstring></argsstring>
+        <name>allowbondsatom</name>
+        <qualifiedname>globaldata::allowbondsatom</qualifiedname>
+        <briefdescription>
+<para>Atom labels for nallowbonds bonding constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="148" column="1" bodyfile="src/globaldata.f90" bodystart="148" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a8a8da503ad0fd434e17c540a8955adf8" prot="public" static="no" mutable="no">
+        <type>integer, dimension(<ref refid="namespaceconstants_1a24e30cb7e0461e17265ad6b609c26bdc" kindref="member">ntypemax</ref>)</type>
+        <definition>integer, dimension(ntypemax) globaldata::allowbondsmax</definition>
+        <argsstring></argsstring>
+        <name>allowbondsmax</name>
+        <qualifiedname>globaldata::allowbondsmax</qualifiedname>
+        <briefdescription>
+<para>Maximum number of bonds associated with nallowbonds constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="149" column="1" bodyfile="src/globaldata.f90" bodystart="149" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ad016c6afbb69e3d8c733df8785087875" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::forbidgraphs</definition>
+        <argsstring></argsstring>
+        <name>forbidgraphs</name>
+        <qualifiedname>globaldata::forbidgraphs</qualifiedname>
+        <briefdescription>
+<para>Logical flag indicating whether to use the forbidden graphs file in allowing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="150" column="1" bodyfile="src/globaldata.f90" bodystart="150" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a6a098b33fc812c47225af9da3e04f30d" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nforbid</definition>
+        <argsstring></argsstring>
+        <name>nforbid</name>
+        <qualifiedname>globaldata::nforbid</qualifiedname>
+        <briefdescription>
+<para>Number of forbidden graph definitions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="151" column="1" bodyfile="src/globaldata.f90" bodystart="151" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a9a68a8dc95d7078b7a9a2f0b40ac2328" prot="public" static="no" mutable="no">
+        <type>integer, dimension(<ref refid="namespaceconstants_1a69a27ee183e06204f45facc8ef7fe756" kindref="member">nforbidmax</ref>)</type>
+        <definition>integer, dimension(nforbidmax) globaldata::naforbid</definition>
+        <argsstring></argsstring>
+        <name>naforbid</name>
+        <qualifiedname>globaldata::naforbid</qualifiedname>
+        <briefdescription>
+<para>Number of atoms in each forbidden graph. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="152" column="1" bodyfile="src/globaldata.f90" bodystart="152" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ad00f16842cd39b327807715410187efb" prot="public" static="no" mutable="no">
+        <type>integer, dimension(<ref refid="namespaceconstants_1a69a27ee183e06204f45facc8ef7fe756" kindref="member">nforbidmax</ref>, <ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>, <ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+        <definition>integer, dimension(nforbidmax,namovemax,namovemax) globaldata::gforbid</definition>
+        <argsstring></argsstring>
+        <name>gforbid</name>
+        <qualifiedname>globaldata::gforbid</qualifiedname>
+        <briefdescription>
+<para>Forbidden graph definitions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="153" column="1" bodyfile="src/globaldata.f90" bodystart="153" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aaa1c49351a28f6be1cb72d713c3736ca" prot="public" static="no" mutable="no">
+        <type>character(len=4), dimension(<ref refid="namespaceconstants_1a69a27ee183e06204f45facc8ef7fe756" kindref="member">nforbidmax</ref>, <ref refid="namespaceconstants_1ac336c2441f463ecd76d2c05ffe55420e" kindref="member">namovemax</ref>)</type>
+        <definition>character (len=4), dimension(nforbidmax,namovemax) globaldata::forbidlabel</definition>
+        <argsstring></argsstring>
+        <name>forbidlabel</name>
+        <qualifiedname>globaldata::forbidlabel</qualifiedname>
+        <briefdescription>
+<para>Labels for atoms involved in forbidden graphs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="154" column="1" bodyfile="src/globaldata.f90" bodystart="154" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a1e58bbcc4999b350fff0a75f000ca0c5" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::maxmolcharge</definition>
+        <argsstring></argsstring>
+        <name>maxmolcharge</name>
+        <qualifiedname>globaldata::maxmolcharge</qualifiedname>
+        <briefdescription>
+<para>Maximum allowed charged on a single molecule. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="155" column="1" bodyfile="src/globaldata.f90" bodystart="155" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ac7166be9a05ce3735180aed94a9358e8" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::minmolcharge</definition>
+        <argsstring></argsstring>
+        <name>minmolcharge</name>
+        <qualifiedname>globaldata::minmolcharge</qualifiedname>
+        <briefdescription>
+<para>Minimum allowed charged on a single molecule. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="156" column="1" bodyfile="src/globaldata.f90" bodystart="156" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a98981105cf29a94cfd3e4d35ba32ab57" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nchargemol</definition>
+        <argsstring></argsstring>
+        <name>nchargemol</name>
+        <qualifiedname>globaldata::nchargemol</qualifiedname>
+        <briefdescription>
+<para>Maximum total charge at any reaction step. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="157" column="1" bodyfile="src/globaldata.f90" bodystart="157" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ad30f540d6848058c4bfccdbf99be9fea" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::maxstepcharge</definition>
+        <argsstring></argsstring>
+        <name>maxstepcharge</name>
+        <qualifiedname>globaldata::maxstepcharge</qualifiedname>
+        <briefdescription>
+<para>Maximum number of steps inolving charge changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="158" column="1" bodyfile="src/globaldata.f90" bodystart="158" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a00f35b1400ab0075949a6a0dab900df9" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::maxtotalcharge</definition>
+        <argsstring></argsstring>
+        <name>maxtotalcharge</name>
+        <qualifiedname>globaldata::maxtotalcharge</qualifiedname>
+        <briefdescription>
+<para>Maximum number of steps inolving charge changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="159" column="1" bodyfile="src/globaldata.f90" bodystart="159" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1adab5b9e51cfd76bf45c3ac2320082d04" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::projforcetype</definition>
+        <argsstring></argsstring>
+        <name>projforcetype</name>
+        <qualifiedname>globaldata::projforcetype</qualifiedname>
+        <briefdescription>
+<para>The type of projected Force used in NEB. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="160" column="1" bodyfile="src/globaldata.f90" bodystart="160" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a53b99c0c357633fec26adaf341b563d3" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::lmoldata</definition>
+        <argsstring></argsstring>
+        <name>lmoldata</name>
+        <qualifiedname>globaldata::lmoldata</qualifiedname>
+        <briefdescription>
+<para>logical flag to switch the instructions to print the molecular database on </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="163" column="1" bodyfile="src/globaldata.f90" bodystart="163" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a59a1e66fb5975335f028c9a060ec3128" prot="public" static="no" mutable="no">
+        <type>character(len=100)</type>
+        <definition>character (len=100) globaldata::pathwaysfile</definition>
+        <argsstring></argsstring>
+        <name>pathwaysfile</name>
+        <qualifiedname>globaldata::pathwaysfile</qualifiedname>
+        <briefdescription>
+<para>hold the file name for the pathway to the molecular database files (NEB+GDS DATA) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="164" column="1" bodyfile="src/globaldata.f90" bodystart="164" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a4770520e1eb7dda0344ed370337caf90" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nvalcon</definition>
+        <argsstring></argsstring>
+        <name>nvalcon</name>
+        <qualifiedname>globaldata::nvalcon</qualifiedname>
+        <briefdescription>
+<para>Number of atomic valence constraints for products. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="168" column="1" bodyfile="src/globaldata.f90" bodystart="168" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1af94df2e033c7b7b1154976802e885907" prot="public" static="no" mutable="no">
+        <type>character(len=2), dimension(<ref refid="namespaceconstants_1a24e30cb7e0461e17265ad6b609c26bdc" kindref="member">ntypemax</ref>)</type>
+        <definition>character (len=2), dimension(ntypemax) globaldata::valatom</definition>
+        <argsstring></argsstring>
+        <name>valatom</name>
+        <qualifiedname>globaldata::valatom</qualifiedname>
+        <briefdescription>
+<para>Atom label corresponding to each set of valence constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="169" column="1" bodyfile="src/globaldata.f90" bodystart="169" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a90144032246145f06310f124eb22c320" prot="public" static="no" mutable="no">
+        <type>integer, dimension(<ref refid="namespaceconstants_1a24e30cb7e0461e17265ad6b609c26bdc" kindref="member">ntypemax</ref>, 2)</type>
+        <definition>integer, dimension(ntypemax,2) globaldata::valrange</definition>
+        <argsstring></argsstring>
+        <name>valrange</name>
+        <qualifiedname>globaldata::valrange</qualifiedname>
+        <briefdescription>
+<para>Valence range for each valence constraint. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="170" column="1" bodyfile="src/globaldata.f90" bodystart="170" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a56b0e215c522933435baaca139d6c1a7" prot="public" static="no" mutable="no">
+        <type>logical, dimension(<ref refid="namespaceconstants_1a24e30cb7e0461e17265ad6b609c26bdc" kindref="member">ntypemax</ref>)</type>
+        <definition>logical, dimension(ntypemax) globaldata::valfz</definition>
+        <argsstring></argsstring>
+        <name>valfz</name>
+        <qualifiedname>globaldata::valfz</qualifiedname>
+        <briefdescription>
+<para>flag determining if this rule applies to frozen atoms bonding to non-frozen ones </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="171" column="1" bodyfile="src/globaldata.f90" bodystart="171" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a8fd37bb8c793c76b3dedfce33555b295" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nrxval</definition>
+        <argsstring></argsstring>
+        <name>nrxval</name>
+        <qualifiedname>globaldata::nrxval</qualifiedname>
+        <briefdescription>
+<para>Number of atomic valence constraints for reactants. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="173" column="1" bodyfile="src/globaldata.f90" bodystart="173" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a31516a9611bae43b97db4de74361251c" prot="public" static="no" mutable="no">
+        <type>character(len=2), dimension(<ref refid="namespaceconstants_1a24e30cb7e0461e17265ad6b609c26bdc" kindref="member">ntypemax</ref>, 2)</type>
+        <definition>character (len=2), dimension(ntypemax,2) globaldata::rxvalatom</definition>
+        <argsstring></argsstring>
+        <name>rxvalatom</name>
+        <qualifiedname>globaldata::rxvalatom</qualifiedname>
+        <briefdescription>
+<para>Atom label corresponding to each set of reactant valence constraints. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="174" column="1" bodyfile="src/globaldata.f90" bodystart="174" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a993988ace1c9918cfea218763dc41f2b" prot="public" static="no" mutable="no">
+        <type>integer, dimension(<ref refid="namespaceconstants_1a24e30cb7e0461e17265ad6b609c26bdc" kindref="member">ntypemax</ref>, 2)</type>
+        <definition>integer, dimension(ntypemax,2) globaldata::rxvalrange</definition>
+        <argsstring></argsstring>
+        <name>rxvalrange</name>
+        <qualifiedname>globaldata::rxvalrange</qualifiedname>
+        <briefdescription>
+<para>Valence ranges for each reactant valence constraint. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="175" column="1" bodyfile="src/globaldata.f90" bodystart="175" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a373df34cdc10d6fcb1ed11a684740e5b" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::molecularvalency</definition>
+        <argsstring></argsstring>
+        <name>molecularvalency</name>
+        <qualifiedname>globaldata::molecularvalency</qualifiedname>
+        <initializer>= .false.</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="179" column="1" bodyfile="src/globaldata.f90" bodystart="179" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a8d9d62d66b760d4cde9901e33f03be8f" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nmv</definition>
+        <argsstring></argsstring>
+        <name>nmv</name>
+        <qualifiedname>globaldata::nmv</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>the number of sets of molecular valence constraints </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="180" column="1" bodyfile="src/globaldata.f90" bodystart="180" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a624e0c0852d1b72a8a3f0652b1e46135" prot="public" static="no" mutable="no">
+        <type>character(2), dimension(30, 20)</type>
+        <definition>character(2), dimension(30,20) globaldata::mvconel</definition>
+        <argsstring></argsstring>
+        <name>mvconel</name>
+        <qualifiedname>globaldata::mvconel</qualifiedname>
+        <briefdescription>
+<para>Elements in the molecular velency sets according to user dimensions (setindex,atomic number). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="181" column="1" bodyfile="src/globaldata.f90" bodystart="181" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a56a4f96d9cecf3280f5be24338267fb5" prot="public" static="no" mutable="no">
+        <type>integer, dimension(30, 20)</type>
+        <definition>integer, dimension(30,20) globaldata::mvconva</definition>
+        <argsstring></argsstring>
+        <name>mvconva</name>
+        <qualifiedname>globaldata::mvconva</qualifiedname>
+        <briefdescription>
+<para>Valency of element in in the molecular velency sets associated with mvconel dimensions (setindex,valency assiciated with that element). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="183" column="1" bodyfile="src/globaldata.f90" bodystart="183" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aed5b00b62da5bb2266e6dc804d4e714b" prot="public" static="no" mutable="no">
+        <type>integer, dimension(30)</type>
+        <definition>integer, dimension(30) globaldata::mvconne</definition>
+        <argsstring></argsstring>
+        <name>mvconne</name>
+        <qualifiedname>globaldata::mvconne</qualifiedname>
+        <briefdescription>
+<para>number of elements in each molecular valency set </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="185" column="1" bodyfile="src/globaldata.f90" bodystart="185" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a5cd699ee0342b3e9deb57712153fba5d" prot="public" static="no" mutable="no">
+        <type>integer, dimension(30)</type>
+        <definition>integer, dimension(30) globaldata::mxvlel</definition>
+        <argsstring></argsstring>
+        <name>mxvlel</name>
+        <qualifiedname>globaldata::mxvlel</qualifiedname>
+        <briefdescription>
+<para>the element with the largers number of bonds allowed, used for knowing how many times to loop for counting valences...see routine </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="186" column="1" bodyfile="src/globaldata.f90" bodystart="186" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a33c0783d3556b70908b843175062db21" prot="public" static="no" mutable="no">
+        <type>integer, dimension(30)</type>
+        <definition>integer, dimension(30) globaldata::ncharcon</definition>
+        <argsstring></argsstring>
+        <name>ncharcon</name>
+        <qualifiedname>globaldata::ncharcon</qualifiedname>
+        <briefdescription>
+<para>the maximun number of charged atoms (non-matched valency) this constrain allows for (&quot;charged&quot; meaning radicals dont exist in this context, ie every atom has the full shell occupation) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="188" column="1" bodyfile="src/globaldata.f90" bodystart="188" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aac59e84840964e83925a45d5515a88f2" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::lewiscon</definition>
+        <argsstring></argsstring>
+        <name>lewiscon</name>
+        <qualifiedname>globaldata::lewiscon</qualifiedname>
+        <initializer>= .false.</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="192" column="1" bodyfile="src/globaldata.f90" bodystart="192" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ae754bf553bd1559b281a96a2189436f6" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nlc</definition>
+        <argsstring></argsstring>
+        <name>nlc</name>
+        <qualifiedname>globaldata::nlc</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>the number of sets of lewis constraints </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="193" column="1" bodyfile="src/globaldata.f90" bodystart="193" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a0f5c98ca639f59b9bb6e97febc59b9fd" prot="public" static="no" mutable="no">
+        <type>character(2), dimension(30, 20)</type>
+        <definition>character(2), dimension(30,20) globaldata::lcconel</definition>
+        <argsstring></argsstring>
+        <name>lcconel</name>
+        <qualifiedname>globaldata::lcconel</qualifiedname>
+        <briefdescription>
+<para>Elements in the lewis constraint sets according to user dimensions (setindex,atomic number). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="194" column="1" bodyfile="src/globaldata.f90" bodystart="194" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ad642b69413be05e2d47c697393118a65" prot="public" static="no" mutable="no">
+        <type>integer, dimension(30)</type>
+        <definition>integer, dimension(30) globaldata::lcconne</definition>
+        <argsstring></argsstring>
+        <name>lcconne</name>
+        <qualifiedname>globaldata::lcconne</qualifiedname>
+        <briefdescription>
+<para>number of elements in each molecular valency set </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="196" column="1" bodyfile="src/globaldata.f90" bodystart="196" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a0b4f8ede9ebc4d6c5b3ff929d96286a8" prot="public" static="no" mutable="no">
+        <type>integer, dimension(30)</type>
+        <definition>integer, dimension(30) globaldata::nlcchar</definition>
+        <argsstring></argsstring>
+        <name>nlcchar</name>
+        <qualifiedname>globaldata::nlcchar</qualifiedname>
+        <briefdescription>
+<para>the maximun number of charged atoms (non-matched valency) this constrain allows for (&quot;charged&quot; meaning radicals dont exist in this context, ie every atom has the full shell occupation) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="197" column="1" bodyfile="src/globaldata.f90" bodystart="197" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a1d462edc3192ce137b7a7be5993a02f7" prot="public" static="no" mutable="no">
+        <type>logical, dimension(30, 20)</type>
+        <definition>logical, dimension(30,20) globaldata::lcshift</definition>
+        <argsstring></argsstring>
+        <name>lcshift</name>
+        <qualifiedname>globaldata::lcshift</qualifiedname>
+        <initializer>= .false.</initializer>
+        <briefdescription>
+<para>flag determinin if this element should be shifted out of the molecule before calculating constraints </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="199" column="1" bodyfile="src/globaldata.f90" bodystart="199" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a278f8c4c5e8b78bcb49f200998b05951" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::ngen</definition>
+        <argsstring></argsstring>
+        <name>ngen</name>
+        <qualifiedname>globaldata::ngen</qualifiedname>
+        <briefdescription>
+<para>Number of GA generations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="203" column="1" bodyfile="src/globaldata.f90" bodystart="203" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a4ec4db4c7c46c1f7312d1895d739baf0" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::npop</definition>
+        <argsstring></argsstring>
+        <name>npop</name>
+        <qualifiedname>globaldata::npop</qualifiedname>
+        <briefdescription>
+<para>Population for GA. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="204" column="1" bodyfile="src/globaldata.f90" bodystart="204" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ab9c8b3880f658f3691b4ed143252321d" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::ncross</definition>
+        <argsstring></argsstring>
+        <name>ncross</name>
+        <qualifiedname>globaldata::ncross</qualifiedname>
+        <briefdescription>
+<para>Crossover events per generation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="205" column="1" bodyfile="src/globaldata.f90" bodystart="205" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ad99b31a58e97248e5f51d1e2c5b99645" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nmut</definition>
+        <argsstring></argsstring>
+        <name>nmut</name>
+        <qualifiedname>globaldata::nmut</qualifiedname>
+        <briefdescription>
+<para>Number of mutation events per generation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="206" column="1" bodyfile="src/globaldata.f90" bodystart="206" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a632c6307699ad0ba1249c809d6380947" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::readcore</definition>
+        <argsstring></argsstring>
+        <name>readcore</name>
+        <qualifiedname>globaldata::readcore</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="207" column="1" bodyfile="src/globaldata.f90" bodystart="207" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a384c0134255cf385fa3b9ace7210c6e1" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nacore</definition>
+        <argsstring></argsstring>
+        <name>nacore</name>
+        <qualifiedname>globaldata::nacore</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="208" column="1" bodyfile="src/globaldata.f90" bodystart="208" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a5872444d02b2f8059e55c9714a198ac9" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nheteromax</definition>
+        <argsstring></argsstring>
+        <name>nheteromax</name>
+        <qualifiedname>globaldata::nheteromax</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="213" column="1" bodyfile="src/globaldata.f90" bodystart="213" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a39c8b89979d9704364fd0a7f971af2d9" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nheteromin</definition>
+        <argsstring></argsstring>
+        <name>nheteromin</name>
+        <qualifiedname>globaldata::nheteromin</qualifiedname>
+        <briefdescription>
+<para>Max / min number of heteroatoms in generated structures. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="213" column="1" bodyfile="src/globaldata.f90" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a20203d43856f2498ebe42db1c2e1e925" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nelprob</definition>
+        <argsstring></argsstring>
+        <name>nelprob</name>
+        <qualifiedname>globaldata::nelprob</qualifiedname>
+        <briefdescription>
+<para>Number of element probabilities defined in input. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="214" column="1" bodyfile="src/globaldata.f90" bodystart="214" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ac02f16125b3c7d9fd1691b95809f6504" prot="public" static="no" mutable="no">
+        <type>character(len=2), dimension(<ref refid="namespaceconstants_1a24e30cb7e0461e17265ad6b609c26bdc" kindref="member">ntypemax</ref>)</type>
+        <definition>character(len=2), dimension(ntypemax) globaldata::elprob_label</definition>
+        <argsstring></argsstring>
+        <name>elprob_label</name>
+        <qualifiedname>globaldata::elprob_label</qualifiedname>
+        <briefdescription>
+<para>Atomic label for element probability. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="215" column="1" bodyfile="src/globaldata.f90" bodystart="215" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aa3a9b2c367d447bc916e5f64e5e56d20" prot="public" static="no" mutable="no">
+        <type>real(8), dimension(<ref refid="namespaceconstants_1a24e30cb7e0461e17265ad6b609c26bdc" kindref="member">ntypemax</ref>)</type>
+        <definition>real(8), dimension(ntypemax) globaldata::elprob</definition>
+        <argsstring></argsstring>
+        <name>elprob</name>
+        <qualifiedname>globaldata::elprob</qualifiedname>
+        <briefdescription>
+<para>Appearance probability for each element in structure generation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="216" column="1" bodyfile="src/globaldata.f90" bodystart="216" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ab1be7547fe40dc5e8a8905c6522dbf1d" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nmccxs</definition>
+        <argsstring></argsstring>
+        <name>nmccxs</name>
+        <qualifiedname>globaldata::nmccxs</qualifiedname>
+        <briefdescription>
+<para>Maximum number of MC moves in structure generation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="217" column="1" bodyfile="src/globaldata.f90" bodystart="217" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a92028cb3df1ec27c723ff4b98aa81710" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::mctemperature</definition>
+        <argsstring></argsstring>
+        <name>mctemperature</name>
+        <qualifiedname>globaldata::mctemperature</qualifiedname>
+        <briefdescription>
+<para>Temperature for MC structure generation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="218" column="1" bodyfile="src/globaldata.f90" bodystart="218" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a9d74e3104ac2ba82b9fb1a987930be57" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::mcbondprob</definition>
+        <argsstring></argsstring>
+        <name>mcbondprob</name>
+        <qualifiedname>globaldata::mcbondprob</qualifiedname>
+        <briefdescription>
+<para>Probability of bond creation in initial structure for MC optimization. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="219" column="1" bodyfile="src/globaldata.f90" bodystart="219" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a40941aad7de0b0ee0c8567de84d5ce41" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::nmolpenalty</definition>
+        <argsstring></argsstring>
+        <name>nmolpenalty</name>
+        <qualifiedname>globaldata::nmolpenalty</qualifiedname>
+        <briefdescription>
+<para>Penalty factor for having more than 1 molecule in graph during MC generation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="220" column="1" bodyfile="src/globaldata.f90" bodystart="220" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a619a149de3719f5708a15b15329fbae5" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::ringpenalty3</definition>
+        <argsstring></argsstring>
+        <name>ringpenalty3</name>
+        <qualifiedname>globaldata::ringpenalty3</qualifiedname>
+        <briefdescription>
+<para>Penalty factor for having 3-rings in graph during MC generation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="221" column="1" bodyfile="src/globaldata.f90" bodystart="221" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aad02d1174d1ab3f06f84a3f5b812110b" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::ringpenalty4</definition>
+        <argsstring></argsstring>
+        <name>ringpenalty4</name>
+        <qualifiedname>globaldata::ringpenalty4</qualifiedname>
+        <briefdescription>
+<para>Penalty factor for having 4-rings in graph during MC generation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="222" column="1" bodyfile="src/globaldata.f90" bodystart="222" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aaf605617930b57d1a3027a5e93e8473f" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nheterolimit</definition>
+        <argsstring></argsstring>
+        <name>nheterolimit</name>
+        <qualifiedname>globaldata::nheterolimit</qualifiedname>
+        <briefdescription>
+<para>Maximum number of heteroatoms in structures generated during GA. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="223" column="1" bodyfile="src/globaldata.f90" bodystart="223" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aeae934e06e7fa7b5b91d243b952abd29" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nrxn</definition>
+        <argsstring></argsstring>
+        <name>nrxn</name>
+        <qualifiedname>globaldata::nrxn</qualifiedname>
+        <briefdescription>
+<para>Maximum number of reaction steps to locate in pathfinder calculation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="228" column="1" bodyfile="src/globaldata.f90" bodystart="228" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ab566f897a2e2f865ee8c490879c712c1" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nmcrxn</definition>
+        <argsstring></argsstring>
+        <name>nmcrxn</name>
+        <qualifiedname>globaldata::nmcrxn</qualifiedname>
+        <briefdescription>
+<para>Number of MC annealing moves to attempt in initial graph search. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="229" column="1" bodyfile="src/globaldata.f90" bodystart="229" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ac4e6fa88690f086a9b08eda6c6ba699a" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nmcsearch</definition>
+        <argsstring></argsstring>
+        <name>nmcsearch</name>
+        <qualifiedname>globaldata::nmcsearch</qualifiedname>
+        <briefdescription>
+<para>Number of MC moves during search phase. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="230" column="1" bodyfile="src/globaldata.f90" bodystart="230" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aaf16d9f4091f51a725b3be4827109955" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::nmechmove</definition>
+        <argsstring></argsstring>
+        <name>nmechmove</name>
+        <qualifiedname>globaldata::nmechmove</qualifiedname>
+        <briefdescription>
+<para>Maximum number of simultanerous changes in mechanism search. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="231" column="1" bodyfile="src/globaldata.f90" bodystart="231" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ac85ec944e18bb6570b4c865d4eed39dc" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::mcrxntemp</definition>
+        <argsstring></argsstring>
+        <name>mcrxntemp</name>
+        <qualifiedname>globaldata::mcrxntemp</qualifiedname>
+        <briefdescription>
+<para>Temperature for MC reaction-string searching. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="232" column="1" bodyfile="src/globaldata.f90" bodystart="232" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a42486a6d4c54fe6d1077e8b538329d9a" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::igfunc</definition>
+        <argsstring></argsstring>
+        <name>igfunc</name>
+        <qualifiedname>globaldata::igfunc</qualifiedname>
+        <briefdescription>
+<para>Graph function type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="233" column="1" bodyfile="src/globaldata.f90" bodystart="233" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ad7b7d7865f9c8b0bdd8aed48b8f8af63" prot="public" static="no" mutable="no">
+        <type>integer, dimension(3)</type>
+        <definition>integer, dimension(3) globaldata::atomidx</definition>
+        <argsstring></argsstring>
+        <name>atomidx</name>
+        <qualifiedname>globaldata::atomidx</qualifiedname>
+        <briefdescription>
+<para>Atoms which are aligned before NEB. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="234" column="1" bodyfile="src/globaldata.f90" bodystart="234" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aed085331e87b1f1c8e30c0f4265e579f" prot="public" static="no" mutable="no">
+        <type>real(8)</type>
+        <definition>real(8) globaldata::alphavbe</definition>
+        <argsstring></argsstring>
+        <name>alphavbe</name>
+        <qualifiedname>globaldata::alphavbe</qualifiedname>
+        <briefdescription>
+<para>Scaling factor for bond-energy based contribution to graph-error function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="235" column="1" bodyfile="src/globaldata.f90" bodystart="235" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ab676c6b88fd49de5914f290533fb7c3d" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::ignoreinvalidgraphopt</definition>
+        <argsstring></argsstring>
+        <name>ignoreinvalidgraphopt</name>
+        <qualifiedname>globaldata::ignoreinvalidgraphopt</qualifiedname>
+        <initializer>= .false.</initializer>
+        <briefdescription>
+<para>Whether to allow optimisations that invalidate the molecular graph. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="236" column="1" bodyfile="src/globaldata.f90" bodystart="236" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1aed6e0c64a6627723850b178883a14358" prot="public" static="no" mutable="no">
+        <type>logical</type>
+        <definition>logical globaldata::doinitialopt</definition>
+        <argsstring></argsstring>
+        <name>doinitialopt</name>
+        <qualifiedname>globaldata::doinitialopt</qualifiedname>
+        <initializer>= .false.</initializer>
+        <briefdescription>
+<para>Whether to perform initial geometry optimisation on starting system of a simulation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Type definition for the parameteres used in the graphfinder algorithm </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="237" column="1" bodyfile="src/globaldata.f90" bodystart="237" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a943effedf1da4756b6ba71d5f3d9035f" prot="public" static="no" mutable="no">
+        <type>type(<ref refid="structglobaldata_1_1graphpar" kindref="compound">graphpar</ref>)</type>
+        <definition>type(graphpar) globaldata::gpar</definition>
+        <argsstring></argsstring>
+        <name>gpar</name>
+        <qualifiedname>globaldata::gpar</qualifiedname>
+        <briefdescription>
+<para>variable type of parameters used during graphfinder... </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="261" column="1" bodyfile="src/globaldata.f90" bodystart="261" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1ad1deb02f4d468dd805cccaed796528b0" prot="public" static="no" mutable="no">
+        <type>integer</type>
+        <definition>integer globaldata::moleculemax</definition>
+        <argsstring></argsstring>
+        <name>moleculemax</name>
+        <qualifiedname>globaldata::moleculemax</qualifiedname>
+        <briefdescription>
+<para>Maximum number of fragments/molecules allowed to form ! seB. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="301" column="1" bodyfile="src/globaldata.f90" bodystart="301" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1a0b3c1e047ff34e6ee7ecf7d6729a8c81" prot="public" static="no" mutable="no">
+        <type>type(<ref refid="structglobaldata_1_1refresh__template" kindref="compound">refresh_template</ref>)</type>
+        <definition>type(refresh_template) globaldata::rtmpl</definition>
+        <argsstring></argsstring>
+        <name>rtmpl</name>
+        <qualifiedname>globaldata::rtmpl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="311" column="1" bodyfile="src/globaldata.f90" bodystart="311" bodyend="311"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceglobaldata_1af2f6ac068ac545bc319a5aba7644c807" prot="public" static="no" mutable="no">
+        <type>type(<ref refid="structglobaldata_1_1vtbashop" kindref="compound">vtbashop</ref>)</type>
+        <definition>type(vtbashop) globaldata::bashop</definition>
+        <argsstring></argsstring>
+        <name>bashop</name>
+        <qualifiedname>globaldata::bashop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/globaldata.f90" line="317" column="1" bodyfile="src/globaldata.f90" bodystart="317" bodyend="317"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Contains global data definitions for CDE. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/globaldata.f90" line="9" column="1"/>
+  </compounddef>
+</doxygen>
